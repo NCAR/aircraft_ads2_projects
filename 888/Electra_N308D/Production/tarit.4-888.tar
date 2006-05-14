@@ -1,0 +1,35 @@
+#! /bin/csh -f
+#
+#   Run this script from the directory:  /home/local/proj/888
+#    by using the command:  Production/tarit.4-888.tar
+#
+tar chlvf Production/4-888.tar \
+ALOHA.hdr \
+Defaults \
+DependTable \
+ProjectName \
+VarDB \
+VarDB.lst \
+adscmd \
+bulletin.9 \
+calib_attr \
+config \
+landmarks \
+plot_attr \
+plotspex \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_10 \
+Production/MSCP_out.888 \
+Production/nimbus.tar.dir \
+Production/stage/tapes.888 \
+Production/stage/tp2ms.888job1 \
+Production/stage/tp2ms.888job2 \
+Production/stage/tp2ms.888job3 \
+Production/stage/tp2ms.888job4 \
+Production/stage/tp2ms.888job5 \
+Production/taplog.888 \
+Production/tarit.4-888.tar \
+Production/tarit.nimbus.tar \
+Production/tp2ms.summary
+exit

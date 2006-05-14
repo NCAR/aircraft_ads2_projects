@@ -1,0 +1,136 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1997-891 FASTEX (Dr. Jacques Testud, et al.)
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1997
+set PROJ = 891
+#
+#  Current setting examples
+#set STAGES = "skpr=0"
+#set STAGES = "skpr=14000"
+#set STAGES = "skpr=28000"
+#set STAGES = "skpr=42000"
+#set STAGED = "nrec=14000"
+#set STAGED = "nfile=1"
+#
+#
+# Set 1, try 1 (incorrect tape numbers) and try 2 (incorrect settings)
+#set TAPES  = ( R1119        R1120        R1121        R1122        R1123      \
+#               R1124        R1125        R1135        R1136        R1138      )
+#set FLIGHTS= ( FF01A        FF02A        FF03A        RF01A        RF02A      \
+#               TF01A        RF03A        RF05A        RF06A        RF07A      )
+#set STAGES = ("skpr=0 "    "skpr=0 "    "skpr=0 "    "skpr=0 "    "skpr=0 "   \
+#              "skpr=0 "    "skpr=0 "    "skpr=0 "    "skpr=0 "    "skpr=0 "   )
+#set STAGED = ("nrec=15000" "nrec=15000" "nrec=15000" "nrec=15000" "nrec=15000"\
+#              "nrec=15000" "nrec=15000" "nrec=15000" "nrec=15000" "nrec=15000")
+#
+# Set 1, try 3
+#set TAPES   = ( R1119     R1120     R1121        R1122        R1123      \
+#                R1124     R1125     R1135        R1136        R1138      )
+#set FLIGHTS = ( FF01      FF02      FF03A        RF01A        RF02       \
+#                TF01      RF03      RF05A        RF06         RF07A      )
+#set STAGES  = ("skpr=0"  "skpr=0"  "skpr=0 "    "skpr=0 "    "skpr=0 "   \
+#               "skpr=0"  "skpr=0"  "skpr=0 "    "skpr=0 "    "skpr=0 "   )
+#set STAGED  = ("nfile=1" "nfile=1" "nrec=14000" "nrec=14000" "nfile=1"   \
+#               "nfile=1" "nfile=1" "nrec=14000" "nfile=1"    "nrec=14000")
+#
+# Set 2, try 1
+#set TAPES   = ( R1121        R1122        R1135        R1138      )
+#set FLIGHTS = ( FF03B        RF01B        RF05B        RF07B      )
+#set STAGES  = ("skpr=14000" "skpr=14000" "skpr=14000" "skpr=14000")
+#set STAGED  = ("nfile=1"    "nfile=1"    "nfile=1"    "nfile=1"   )
+#
+# Set 3, try 1
+set TAPES   = ( R1126         R1126     )
+set FLIGHTS = ( RF04A         RF04B     )
+set STAGES  = ("skpr=0"     "skpr=14000")
+set STAGED  = ("nrec=14000" "nfile=1"   )
+#
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  set STAGE1 = $STAGES[$num]
+  set STAGE = $STAGED[$num]
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE1 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+# Set 1, try 1
+#  Job(s) submitted on Fri Feb 28 17:31:11 MST 1997
+# Sequence number = MI4682 -- FF01/R11119 -- dropped at my request
+# Sequence number = MI4689 -- FF02/R11120 -- dropped at my request
+# Sequence number = MI4696 -- FF03/R11121 -- dropped at my request
+# Sequence number = MI4703 -- RF01/R11122 -- dropped at my request
+# Sequence number = MI4710 -- RF02/R11123 -- dropped at my request
+# Sequence number = MI4717 -- TF01/R11124 -- dropped at my request
+# Sequence number = MI4724 -- RF03/R11125 -- dropped at my request
+# Sequence number = MI4731 -- RF05/R11135 -- dropped at my request
+# Sequence number = MI4738 -- RF06/R11136 -- dropped at my request
+# Sequence number = MI4745 -- RF07/R11138 -- dropped at my request
+#
+# Set 1, try 2
+#  Job(s) submitted on Mon Mar  3 12:19:31 MST 1997
+# Sequence number = MI7060 -- FF01A/R1119 -- Premature EOF after 7352 records
+# Sequence number = MI7069 -- FF02A/R1120 -- Premature EOF after 4700 records
+# Sequence number = MI7076 -- FF03A/R1121 -- Size exceeded after 14336 records
+# Sequence number = MI7083 -- RF01A/R1122 -- Size exceeded after 14181 records
+# Sequence number = MI7090 -- RF02A/R1123 -- Premature EOF after 13172 records
+# Sequence number = MI7097 -- TF01A/R1124 -- Premature EOF after 1884 records
+# Sequence number = MI7104 -- RF03A/R1125 -- Premature EOF after 10686 records
+# Sequence number = MI7111 -- RF05A/R1135 -- Size exceeded after 14346 records
+# Sequence number = MI7118 -- RF06A/R1136 -- Premature EOF after 12853 records
+# Sequence number = MI7125 -- RF07A/R1138 -- Size exceeded after 14370 records
+#
+# Set 1, try 3
+#  Job(s) submitted on Mon Mar  3 17:24:59 MST 1997
+# Sequence number = MI3447 -- FF01/R1119  -- OK @ 3 Mar 1997 17:45:05
+# Sequence number = MI3454 -- FF02/R1120  -- OK @ 3 Mar 1997 17:56:40
+# Sequence number = MI3461 -- FF03A/R1121 -- OK @ 3 Mar 1997 18:53:30
+# Sequence number = MI3468 -- RF01A/R1122 -- OK @ 3 Mar 1997 18:53:30
+# Sequence number = MI3475 -- RF02/R1123  -- OK @ 3 Mar 1997 19:28:13
+# Sequence number = MI3482 -- TF01/R1124  -- OK @ 3 Mar 1997 19:33:27
+# Sequence number = MI3489 -- RF03/R1125  -- OK @ 3 Mar 1997 19:50:50
+# Sequence number = MI3496 -- RF05A/R1135 -- OK @ 3 Mar 1997 20:15:39
+# Sequence number = MI3503 -- RF06/R1136  -- OK @ 3 Mar 1997 20:39:19
+# Sequence number = MI3510 -- RF07A/R1138 -- OK @ 3 Mar 1997 21:07:29
+#
+# Set 2, try 1
+#  Job(s) submitted on Tue Mar  4 12:15:01 MST 1997
+# Sequence number = MI3820 -- FF03B/R1121 -- OK @ 4 Mar 1997 13:07:53
+# Sequence number = MI3827 -- RF01B/R1122 -- OK @ 4 Mar 1997 13:56:47
+# Sequence number = MI3834 -- RF05B/R1135 -- OK @ 4 Mar 1997 14:23:30
+# Sequence number = MI3841 -- RF07B/R1138 -- OK @ 4 Mar 1997 15:52:43
+#
+# Set 3, try 1
+#  Job(s) submitted on Thu Mar  6 10:38:31 MST 1997
+# Sequence number = MI0543 -- RF04A/R1126 -- OK @ 6 Mar 1997 11:35:35
+# Sequence number = MI0550 -- RF04B/R1126 -- OK @ 6 Mar 1997 12:11:08
+#
+#  MSS bitfiles which have been removed:
+# Sequence number = MI7060 -- FF01A/R1119 -- Premature EOF after 7352 records
+# Sequence number = MI7069 -- FF02A/R1120 -- Premature EOF after 4700 records
+# Sequence number = MI7090 -- RF02A/R1123 -- Premature EOF after 13172 records
+# Sequence number = MI7097 -- TF01A/R1124 -- Premature EOF after 1884 records
+# Sequence number = MI7104 -- RF03A/R1125 -- Premature EOF after 10686 records
+# Sequence number = MI7118 -- RF06A/R1136 -- Premature EOF after 12853 records
+#

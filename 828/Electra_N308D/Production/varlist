@@ -1,0 +1,189 @@
+	Variable list for netCDF file /jnet/productiondata/828rf01.cdf
+	Created using /usr/local/scripts/getcdfvars
+	on Wed Oct 18 17:06:23 MDT 2000
+
+Name	Units	Description
+----	-----	------------------------------------------------
+base_time		Seconds since Jan 1, 1970.
+time_offset		Seconds since base_time.
+ADIFR	mbar	Vertical Differential Pressure, Radome
+BDIFR	mbar	Horizontal Differential Pressure, Radome
+CNTEMP	C	CN Counter Inlet Temperature
+CNTS	cnts	TSI CN Counter Output
+DPB	C	Dew/Frost Point Temperature, Fuselage Bottom
+DPT	C	Dew/Frost Point Temperature, Fuselage Top
+DTB	C	Pyrgeometer Dome Temperature, Bottom
+DTT	C	Pyrgeometer Dome Temperature, Top
+FCN	slpm	Raw CN Counter Sample Flow Rate
+IRB	W/M2	Raw Infrared Irradiance, Bottom
+IRT	W/M2	Raw Infrared Irradiance, Top
+PCAB	mbar	Interior Cabin Static Pressure
+PCN	mbar	CN Counter Inlet Pressure
+PLWC	W	Raw PMS-King Liquid Water Content Output
+PLWC1	W	Raw PMS-King Liquid Water Content Output
+PSFD1	cnts	Raw PSFD, Low-order word
+PSFD2	cnts	Raw PSFD, High-order word
+PSW	mbar	Raw Static Pressure, Wing
+QCF	mbar	Raw Dynamic Pressure, Fuselage
+QCR	mbar	Raw Dynamic Pressure, Radome
+QCW	mbar	Raw Dynamic Pressure, Wing
+RICE	Vdc	Raw Icing-Rate Indicator
+RSTB	C	Radiometric Surface Temperature
+RSTB1	C	Radiometric Surface Temperature
+RSTT	C	Radiometric Sky/Cloud-Base Temperature
+STB	C	Pyrgeometer Sink Temperature, Bottom
+STT	C	Pyrgeometer Sink Temperature, Top
+SWB	W/M2	Shortwave Irradiance, Bottom
+SWT	W/M2	Shortwave Irradiance, Top
+TRSTB	C	RSTB Sensor Head Temperature
+TTFH	C	Total Temperature, Deiced Fuselage
+TTRL	C	Total Temperature, Radome Left
+TTRR	C	Total Temperature, Radome Right
+UVB	W/M2	Ultraviolet Irradiance, Bottom
+UVT	W/M2	Ultraviolet Irradiance, Top
+VLA1	Vdc	Raw Lyman-alpha Hygrometer Output
+XICN	slpm	CN Isokinetic Side Flow Rate
+XPANC	Vdc	PAN - Calibration Status
+XPANI	Vdc	PAN - Injection Monitor
+XWASCN	Vdc	Whole Air Sampler - Can Number
+XWASMC	Vdc	Whole Air Sampler - Current Monitor
+XWASP	Vdc	Whole Air Sampler - Pressure
+ACINS	M/s2	Aircraft Vertical Acceleration
+AF300_OBR	cnts	FSSP-300 Raw Accumulation (per cell)
+AFSSP_IBL	cnts	FSSP-100 Raw Accumulation (per cell)
+ALT	M	IRS Baro-Inertial Altitude
+APCAS_OBL	cnts	PCAS Raw Accumulation (per cell)
+CHGME	deg	Coarse Geometric Altitude (APN-159)
+DAY	day	Raw Tape Date Component
+FACT_IBL	none	FSSP-100 Activity Fraction
+FANV_IBL	Vdc	FSSP-100 Annulus Baseline Voltage
+FREF_IBL	none	FSSP-100 Laser Reference Voltage
+FRNG_IBL	none	FSSP-100 Size Range Category
+FRST_IBL	cnts	FSSP-100 Fast Resets
+FSIG_IBL	Vdc	FSSP-100 Signal Voltage
+FSTB_IBL	cnts	FSSP-100 Strobes
+FSTT_IBL	cnts	FSSP-100 Signal Transit Time
+FTMP_IBL	C	FSSP-100 Housekeeping Data
+GALT	M	GPS Altitude (MSL)
+GLAT	deg	GPS Latitude
+GLON	deg	GPS Longitude
+GMODE	none	GPS Mode
+GSF	M/s	Inertial Ground Speed
+GSTAT	none	GPS Status
+GVEW	M/s	GPS Ground Speed Vector, East Component
+GVNS	M/s	GPS Ground Speed Vector, North Component
+GVZI	M/s	GPS-Computed Aircraft Vertical Velocity
+HGM	M	Geometric (Radio) Altitude
+HGME	M	Geometric (Radar) Altitude (APN-159)
+HOUR	hours	Raw Tape Time Component
+LAT	deg	Inertial Latitude
+LON	deg	Inertial Longitude
+MINUTE	minutes	Raw Tape Time Component
+MONTH	month	Raw Tape Date Component
+PACT_OBL	cnts	PCAS Raw Activity
+PBRS_OBL	none	PCAS Beam Diffraction Ratio
+PFLW_OBL	Vdc	PCAS Flow
+PITCH	deg	Aircraft Pitch Angle
+PREF_OBL	Vdc	PCAS Laser Reference Voltage
+PSFD	mbar	Raw Static Pressure, Fuselage Digital
+PSFRD	mbar	Raw Static Pressure, Fuselage (Ruska)
+PSTT_OBL	cnts	PCAS Signal Transit Time
+PTMP_OBL	C	PCAS Detector Temperature
+ROLL	deg	Aircraft Roll Angle
+SECOND	s	Raw Tape Time Component
+SERIAL	Unk	No title
+THDG	deg	Aircraft True Heading Angle
+TKAR	deg/S	IRS Track Angle Rate
+TKAT	deg	IRS Track Angle, True
+VEW	M/s	Inertial Ground Speed Vector, East Component
+VNS	M/s	Inertial Ground Speed Vector, North Component
+VSPD	M/s	IRS-Computed Aircraft Vertical Velocity
+YEAR	year	Raw Tape Date Component
+AKRD	deg	Attack Angle, Radome Diff. Pressure
+ATFH	C	Ambient Temperature, Deiced Fuselage
+ATRL	C	Ambient Temperature, Radome Left
+ATRR	C	Ambient Temperature, Radome Right
+ATTACK	deg	Attack Angle, Reference
+ATX	C	Ambient Temperature, Reference
+CF300_OBR	N/cM3	FSSP-300 Concentration (per cell)
+CFSSP_IBL	N/cM3	FSSP-100 Concentration (per cell)
+CONC3_OBR	N/cm3	FSSP-300 Concentration (all cells)
+CONCF_IBL	N/cm3	FSSP-100 Concentration (all cells)
+CONCN	N/cm3	Condensation Nuclei (CN) Concentration
+CONCP_OBL	N/cm3	PCAS Concentration (all cells)
+CPCAS_OBL	N/cM3	PCAS Concentration (per cell)
+DBAR3_OBR	uM	FSSP-300 Mean Particle Diameter
+DBARF_IBL	uM	FSSP-100 Mean Particle Diameter
+DBARP_OBL	uM	PCAS Mean Particle Diameter
+DPBC	C	Dew Point Temperature, T-Electric Bottom
+DPTC	C	Dew Point Temperature, T-Electric Top
+DPXC	C	Dew Point Temperature, Reference
+EDPC	mbar	Ambient Water Vapor Pressure, Reference
+FBMFR_IBL	none	FSSP-100 Beam Fraction
+FCNC	vlpm	Corrected CN Counter Sample Flow Rate
+IAS	knots	Indicated Airspeed
+IRBC	W/M2	Corrected Infrared Irradiance, Bottom
+IRTC	W/M2	Corrected Infrared Irradiance, Top
+LATC	deg	GPS-Corrected Inertial Latitude
+LONC	deg	GPS-Corrected Inertial Longitude
+MR	g/kg	Mixing Ratio, T-Electric
+MRLA1	g/kg	Mixing Ratio, Lyman-alpha
+ONE	none	Constant value of 1.
+PALT	M	NACA Pressure Altitude
+PALTF	feet	NACA Pressure Altitude
+PFLWC_OBL	slpm	PCAS Corrected Flow
+PLWCC	g/M3	Corrected PMS-King Liquid Water Content
+PLWCC1	g/M3	Corrected PMS-King Liquid Water Content
+PLWCF_IBL	g/M3	FSSP-100 Water/Ice Content
+PSFC	mbar	Corrected Static Pressure, Fuselage
+PSFDC	mbar	Corrected Static Pressure, Fuselage Digital
+PSURF	mbar	Calculated Surface Pressure
+PSWC	mbar	Corrected Static Pressure, Wing
+PSX	mbar	Raw Static Pressure, Reference
+PSXC	mbar	Corrected Static Pressure, Reference
+QCFC	mbar	Corrected Dynamic Pressure, Fuselage
+QCRC	mbar	Corrected Dynamic Pressure, Radome
+QCWC	mbar	Corrected Dynamic Pressure, Wing
+QCX	mbar	Raw Dynamic Pressure, Reference
+QCXC	mbar	Corrected Dynamic Pressure, Reference
+RADCF	none	Radiation Correction Factor
+RHODT	g/M3	Absolute Humidity, T-Electric Top
+RHOLA	g/M3	Absolute Humidity, Lyman-alpha
+RHOLA1	g/M3	Absolute Humidity, Lyman-alpha
+RHUM	%	Relative Humidity
+SOLAZ	radians	Solar Azimuth Angle
+SOLDE	radians	Solar Declination Angle
+SOLEL	radians	Solar Elevation Angle
+SOLZE	radians	Solar Zenith Angle
+SSLIP	deg	Sideslip Angle, Reference
+SSRD	deg	Sideslip Angle, Radome Diff. Pressure
+SWTC	W/M2	Shortwave Irradiance, Top, (Attitude-Corrected)
+TASF	M/s	Aircraft True Airspeed, Fuselage
+TASHC	M/s	Aircraft True Airspeed, Humidity Corrected
+TASR	M/s	Aircraft True Airspeed, Radome
+TASW	M/s	Aircraft True Airspeed, Wing
+TASX	M/s	Aircraft True Airspeed, Reference
+THETA	K	Potential Temperature
+THETAE	K	Equivalent Potential Temperature
+THETAV	K	Virtual Potential Temperature
+TTX	C	Total Temperature, Reference
+UI	M/s	Wind Vector, East Component
+UIC	M/s	GPS-Corrected Wind Vector, East Component
+UX	M/s	Wind Vector, Longitudinal Component
+UXC	M/s	GPS-Corrected Wind Vector, Longitudinal Component
+VEWC	M/s	GPS-Corrected Inertial Ground Speed Vector, East Component
+VI	M/s	Wind Vector, North Component
+VIC	M/s	GPS-Corrected Wind Vector, North Component
+VNSC	M/s	GPS-Corrected Inertial Ground Speed Vector, North Component
+VY	M/s	Wind Vector, Lateral Component
+VYC	M/s	GPS-Corrected Wind Vector, Lateral Component
+WD	deg	Horizontal Wind Direction
+WDC	deg	GPS-Corrected Horizontal Wind Direction
+WI	M/s	Wind Vector, Vertical Gust Component
+WIC	M/s	GPS-Corrected Wind Vector, Vertical Gust Component
+WP3	M/s	Damped Aircraft Vertical Velocity
+WS	M/s	Horizontal Wind Speed
+WSC	M/s	GPS-Corrected Horizontal Wind Speed
+XICNC	vlpm	Corrected CN Isokinetic Side Flow Rate
+XMACH2	none	Aircraft Mach Number Squared
+ZERO	none	Constant value of 0.

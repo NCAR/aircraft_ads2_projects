@@ -1,0 +1,51 @@
+#! /bin/csh -f
+#
+#  Stage raw Lidar data tapes for 1-836 KOFSE
+#   Third batch (more may be coming)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1991
+set PROJ = 836
+#set STAGE = nfile=1
+#set STAGE = nrec=6500
+set STAGE = "skpf=2 nrec=13000"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+set TAPELIST = ( R0118 R0119 )
+#
+set FLIGHTS =  ( RF02C RF04C )
+#
+#set TAPELIST = ( Raaaa )
+#set FLIGHTS =  ( RF10  )
+#
+#  Jobs submitted on Tue Jan 25 16:43:35 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1223  --  Rejected (skpf=0 skpf=2)
+# Sequence number = CK1232  --  Rejected (skpf=0 skpf=2)
+#
+#  Jobs submitted on Tue Jan 25 16:51:09 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1309  --  OK
+# Sequence number = CK1318  --  OK
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+#  set STAGE = STAGES[$num]
+   nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/LIDAR/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

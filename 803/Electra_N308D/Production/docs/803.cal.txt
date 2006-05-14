@@ -1,0 +1,109 @@
+   Summary of Calibration Factors
+NCAR Electra - Project #9-803    
+  	  Mesoscale Alpine Project 
+  Kuettner et al
+
+Pre-Calibration - 7/16/99
+Param
+         Variable                    Name      C1        C2        C3_
+Static Pressure-Wing (mb)	PSW	 540.978	  54.173	 .0068
+Dynamic Pressure-Fuselage (mb)	QCF	  87.305	   8.625   .0006
+Total Temperature-Radome Left (oC)	TTRL	  -9.895	   5.118	-.0223
+Remote Sky Temp. Top (oC)	RSTT	 -48.300	   9.244	 .0808
+Downward Shortwave Irrad. (W/m2)	SWT    2638.800	 262.393	-.0574
+Upward Shortwave Irrad. (W/m2)	SWB    2638.500	 261.967	-.0798
+Downward Infrared Irrad. (W/m2)      IRT	 291.600   120.692  -.0164
+Upward Infrared Irrad. (W/m2)        IRB	 282.600	 116.255  -.7159
+Downward Ultraviolet Irrad. (W/m2)	UVT      80.569	   8.040	 .0012
+Upward Ultraviolet Irrad. (W/m2)	UVB      65.670	   6.549	 .0009
+Dew Point Temperature-Bottom (oC)	DPB	   0.107    10.021	-.0078
+Dew Point Temperature-Top (oC)	DPT	  -0.298	  10.127	 .0448
+Vertical Press. Diff. Radome (mb)	ADIFR	   0.308     5.239	 .0015
+Horizontal Press. Diff. Radome(mb) 	BDIFR	  -2.300     5.318  -.0075
+Dynamic Pressure-Radome (mb)	QCR	  69.973	   6.900	-.0009
+CN Inlet Pressure (mb)               PCN    1530.800   148.998  -.0625
+Total Temperature:Heated- Fuse.(oC)  TTFH     -9.324     5.131   .0007
+Remote Surface Temp. (oC)   	RSTB    -41.240     6.778   .2717 
+Remote Surface Temp. (oC)   	RSTB1   -45.500     7.872   .2007   
+
+Post Calibration - 12/07/99
+Param
+         Variable                    Name      C1        C2        C3_
+Static Pressure-Wing (mb)	PSW	 540.276	  54.355	-.0077
+Dynamic Pressure-Fuselage (mb)	QCF	  86.202	   8.610   .0002
+Total Temperature-Radome Left (oC)	TTRL	  -9.644	   4.985	-.0052
+Remote Sky Temp: Top. (oC) 	RSTT    -48.532     9.428   .0605
+Downward Shortwave Irrad. (W/m2)	SWT    2649.900	 263.461	 .0298
+Upward Shortwave Irrad. (W/m2)	SWB+   3183.200	 335.172	2.0654
+Downward Infrared Irrad. (W/m2)      IRT 	 292.900   120.576  -.0604
+Upward Infrared Irrad. (W/m2)        IRB     311.400	 126.799	 .0341
+Downward Ultraviolet Irrad. (W/m2)	UVT      80.664	   8.043	 .0008
+Upward Ultraviolet Irrad. (W/m2)	UVB      65.840	   6.543	 .0003
+Dew Point Temperature-Bottom (oC)	DPB+     -3.037     9.861   .6626
+Dew Point Temperature-Top (oC)	DPT 	   0.229	  10.038	 .0072
+Vertical Press. Diff. Radome (mb)	ADIFR	   0.342     5.168	-.0004
+Horizontal Press. Diff. Radome(mb) 	BDIFR	  -2.379     5.249  -.0021
+Dynamic Pressure-Radome (mb)	QCR      69.389	   6.894	-.0006
+CN Inlet Pressure (mb)               PCN    1530.822   148.998  -.0625
+Total Temperature:Heated- Fuse.(oC)  TTFH     -9.725     5.139  -.0020
+Remote Surface Temp: Bot. (oC) 	RSTB*   -51.418    10.250  -.0123
+Remote Surface Temp: Bot. (oC) 	RSTB1*  -53.452    10.929  -.0560
+
+
+Calibration Summary
+page 2
+
+
+*  Differences between the Pre- and Post-Calibrations were generally 
+within acceptable levels, thus indicating generally stable response. Except for the channels indicated, Pre-Project calibrations have been used in the final data processing. 
+    
++  Certain sensors had to be replaced during the course of the experiment.  Post Calibration coefficients were used from the point of the exchange to the end of the project.
+
+
+Calibration Maneuvers- 11/14/97, 1/18/98, 1/28/98           
+
+     RAF uses sets of in-flight maneuvers specifically designed to help evaluate the performance of the 3-D wind measurement system on the aircraft.  Complete sets of maneuvers were flown on one early test flight (TF01) and one short research flight.  A partial set of maneuvers was also conducted on flight RF09.  In each case the variations observed fell within acceptable limits.  
+
+
+
+
+
+
+
+
+
+
+Calibration Summary
+page 3
+
+
+
+PMS - 1-D Probe Bin Sizes
+
+     The PCASP, FSSP100, and 260X 1-D probes were used on the project. The lower limit particle diameter sizes (microns) for each sampling bin are listed below along with the upper limit for bin #15:
+
+
+ FSSP100		        			
+(Range 0)		 PCASP  		
+
+bin#1 		 2.22 um		 0.11 um		
+bin#2		 	 6.27		 0.14		 
+bin#3		 	 10.32	      0.16
+bin#4			 13.30		 0.21 		 
+bin#5			 16.34		 0.24 		 
+bin#6			 19.60		 0.30		
+bin#7			 23.10		 0.43		 
+bin#8			 26.70		 0.72		 
+bin#9		 	 30.96		 0.90		 
+bin#10		 35.60		 1.28		 
+bin#11		 40.30		 1.77		 
+bin#12		 45.30		 2.53		 
+bin#13		 50.30		 2.88		 
+bin#14		 55.30		 3.45		 
+bin#15		 60.30		 4.21
+			 65.40		 4.87
+
+The 260X probe provides measurements for 64 bins of 10 um each.  Due
+to air speed limits on the probe response, however, calculations of
+260X particle concentrations are limited to bin 5 and above (>50 um).
+

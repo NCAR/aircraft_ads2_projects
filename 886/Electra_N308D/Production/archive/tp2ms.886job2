@@ -1,0 +1,72 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 3-886 ANLC (Gardner).
+#   Second try.
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1993
+set PROJ = 886
+# set STAGE = nfile=1
+#set STAGE = nrec=6500
+#set STAGE = "skpr=6500  nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+#  First, rename a partial file:
+#nrnet msmv % r flnm=/RAF/1993/886/RF05/R0490 npdn=/RAF/1993/886/RF05A/R0490 w=RAFDMG
+#
+#  Second, rename a file that may be OK but probably should be replaced.
+#nrnet msmv % r flnm=/RAF/1993/886/RF04/R0489 npdn=/RAF/1993/886/RF04X/R0489 w=RAFDMG
+#
+#  Job(s) submitted @ 3:35 p.m. on 26 August 1993
+#  Sequence numbers are (in order of submission):
+#  Sequence number = CK4520  =  OK
+#  Sequence number = CK4531  =  OK
+#
+#exit
+#
+#  Third, do special case for repeated UNIT CHECK errors:
+#
+set TAPELIST = ( R0489 )
+set FLIGHTS =  ( RF04 )
+set STAGE = nrec=2534
+#
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+set TAPELIST = ( R0490 )
+set FLIGHTS =  ( RF05B )
+set STAGE = "skpr=6500 nrec=6500"
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+#  Job(s) submitted @ 3:42 p.m. on 26 August 1993
+#  Sequence numbers are (in order of submission):
+#  Sequence number = CK4654
+#  Sequence number = CK4663
+#
+# done.
+exit

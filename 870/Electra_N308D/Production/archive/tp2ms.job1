@@ -1,0 +1,114 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-870 WISP94 (Rasmussen, et. al.)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 870
+set STAGE = "nfile=1"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+#  First set, first try
+#set TAPELIST = ( R0781 R0782 R0783 R0784 R0785 R0786 R0787 R0788 R0789 \
+#                 R0790 R0791 R0792 R0793 R0794 R0795 R0796 R0797 R0798 )
+#set FLIGHTS =  ( RF01  RF02  RF03  RF04  RF05  RF06  RF07  RF08  RF09  \
+#                 RF10  RF11  RF12  RF13  RF14  RF15  RF16  RF17  RF18  )
+#
+#  Jobs submitted on Wed Apr 20 15:07:20 MDT 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1124  /RAF/1994/870/RF01/R0781  OK
+# Sequence number = CK1135  /RAF/1994/870/RF02/R0782  No EOF, resubmit
+# Sequence number = CK1146  /RAF/1994/870/RF03/R0783  OK
+# Sequence number = CK1157  /RAF/1994/870/RF04/R0784  OK
+# Sequence number = CK1168  /RAF/1994/870/RF05/R0785  OK
+# Sequence number = CK1179  /RAF/1994/870/RF06/R0786  OK
+# Sequence number = CK1190  /RAF/1994/870/RF07/R0787  OK
+# Sequence number = CK1203  /RAF/1994/870/RF08/R0788  OK
+# Sequence number = CK1214  /RAF/1994/870/RF09/R0789  OK
+# Sequence number = CK1225  /RAF/1994/870/RF10/R0790  OK
+# Sequence number = CK1237  /RAF/1994/870/RF11/R0791  OK
+# Sequence number = CK1248  /RAF/1994/870/RF12/R0792  Job Dropped?
+# Sequence number = CK1261  /RAF/1994/870/RF13/R0793  OK
+# Sequence number = CK1277  /RAF/1994/870/RF14/R0794  OK
+# Sequence number = CK1294  /RAF/1994/870/RF15/R0795  OK
+# Sequence number = CK1307  /RAF/1994/870/RF16/R0796  OK
+# Sequence number = CK1318  /RAF/1994/870/RF17/R0797  OK
+# Sequence number = CK1329  /RAF/1994/870/RF18/R0798  OK
+# 
+#  First set, second try  (See also tp2ms.job2.)
+#set TAPELIST = ( R0792 )
+#set FLIGHTS =  ( RF12  )
+#
+#  Job submitted on Thu Apr 21 10:20:00 MDT 1994
+# Sequence number = CK2596  /RAF/1994/870/RF12/R0792
+#
+#
+#set TAPELIST = ( R0799 R0800 R0801 R0802 R0803 R0804 R0805 R0806 R0807 \
+#                 R0808 R0809 R0810 R0811 R0812 R0813 )
+#set FLIGHTS =  ( RF19  RF20  RF21  RF22  RF23  RF24  RF25  RF26  RF27  \
+#                 RF28  RF29  RF30  RF31  RF32  RF33  )
+#
+#  Jobs submitted on Thu Apr 21 14:23:14 MDT 1994
+#  Sequence numbers are (in order of submission):
+#  Sequence number = CK5830  --  /RAF/1994/870/RF19/R0799  OK
+#  Sequence number = CK5841  --  /RAF/1994/870/RF20/R0800  OK
+#  Sequence number = CK5850  --  /RAF/1994/870/RF21/R0801  OK
+#  Sequence number = CK5863  --  /RAF/1994/870/RF22/R0802  OK
+#  Sequence number = CK5874  --  /RAF/1994/870/RF23/R0803  OK
+#  Sequence number = CK5885  --  /RAF/1994/870/RF24/R0804  OK
+#  Sequence number = CK5897  --  /RAF/1994/870/RF25/R0805  OK
+#  Sequence number = CK5909  --  /RAF/1994/870/RF26/R0806  OK
+#  Sequence number = CK5920  --  /RAF/1994/870/RF27/R0807  OK
+#  Sequence number = CK5931  --  /RAF/1994/870/RF28/R0808  OK
+#  Sequence number = CK5942  --  /RAF/1994/870/RF29/R0809  OK
+#  Sequence number = CK5953  --  /RAF/1994/870/RF30/R0810  File too big
+#  Sequence number = CK5964  --  /RAF/1994/870/RF31/R0811  OK
+#  Sequence number = CK5981  --  /RAF/1994/870/RF32/R0812  OK
+#  Sequence number = CK5991  --  /RAF/1994/870/RF33/R0813  OK
+#
+#
+set TAPELIST = ( R0815 R0816 R0817 R0818 R0819 R0820 R0821 R0822 R0823 \
+                 R0824 R0825 R0826 )
+set FLIGHTS =  ( RF34  RF35  RF36  RF37  RF38  RF49  RF50  RF41  RF42  \
+                 RF43  RF44  RF45  )
+#
+#  Jobs submitted on Fri Apr 22 17:37:54 MDT 1994
+#  Sequence numbers are (in order of submission):
+#  Sequence number = CK4706  /RAF/1994/870/RF34/R0815  
+#  Sequence number = CK4717  /RAF/1994/870/RF35/R0816  
+#  Sequence number = CK4728  /RAF/1994/870/RF36/R0817  
+#  Sequence number = CK4739  /RAF/1994/870/RF37/R0818  
+#  Sequence number = CK4750  /RAF/1994/870/RF38/R0819  
+#
+# Note:  You need to rename the following two bitfiles
+#  Sequence number = CK4761  /RAF/1994/870/RF49/R0820  
+#  Sequence number = CK4772  /RAF/1994/870/RF50/R0821  
+#
+#  Sequence number = CK4783  /RAF/1994/870/RF41/R0822
+#  Sequence number = CK4794  /RAF/1994/870/RF42/R0823
+#  Sequence number = CK4805  /RAF/1994/870/RF43/R0824
+#  Sequence number = CK4816  /RAF/1994/870/RF44/R0825  
+#  Sequence number = CK4827  /RAF/1994/870/RF45/R0826  
+#
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

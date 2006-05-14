@@ -1,0 +1,17 @@
+#! /bin/csh -f
+#
+#     1995-887 VORTEX (Wakimoto, et al.)
+#  Add write password to files that for some reason didn't get one.
+#
+date
+nrnet mschg % r flnm=/RAF/1995/887/RF09A/R0958 neww=RAFDMG
+nrnet mschg % r flnm=/RAF/1995/887/RF12/R0963 neww=RAFDMG
+nrnet mschg % r flnm=/RAF/1995/887/RF15/R0966 neww=RAFDMG
+#
+#  Jobs submitted on Fri Jul 14 10:33:22 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI4641 -- RF09A/R0958 -- OK @ 14 Jul 1995 10:33:43
+# Sequence number = MI4648 -- RF12/R0963 -- OK @ 14 Jul 1995 10:33:41
+# Sequence number = MI4655 -- RF15/R0966 -- OK @ 14 Jul 1995 10:33:47
+#
+exit

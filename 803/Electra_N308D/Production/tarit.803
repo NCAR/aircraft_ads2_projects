@@ -1,0 +1,179 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file $LOCAL/proj/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-z_A-Z\/]//g"`
+set OSTYPE = `uname`
+if  ($OSTYPE == Linux) set LOCAL = $SOLARIS_LOCAL
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+Despike \
+Lags \
+LowRateVars \
+PMSspecs \
+ProjectName \
+VarDB \
+header \
+oldDespike \
+ophir3.names \
+Production/803rf01.hdr \
+Production/803rf08h.hdr \
+Production/FlightGroups \
+Production/Flight_rf01 \
+Production/Flight_rf05 \
+Production/Flight_rf06 \
+Production/Flight_rf07 \
+Production/Flight_rf09 \
+Production/Flight_rf10 \
+Production/Flight_rf11 \
+Production/Flight_rf12 \
+Production/Flight_rf13 \
+Production/Flight_rf14 \
+Production/Flight_rf15 \
+Production/Flight_rf17 \
+Production/Flight_rf18 \
+Production/Flight_rf19 \
+Production/Flight_rf20 \
+Production/Flight_rf21 \
+Production/Flight_rf22 \
+Production/Flight_rf23 \
+Production/Flight_rf24 \
+Production/Flight_rf25 \
+Production/Flight_rf26 \
+Production/Flight_rf27 \
+Production/Flight_rf28 \
+Production/MSCP_out.803 \
+Production/Mail.803 \
+Production/S1arch.803 \
+Production/S2arch.803 \
+Production/arch.803 \
+Production/archive.support \
+Production/b_sam \
+Production/logFile_HRT.rf08 \
+Production/logFile_HRT.rf20 \
+Production/logFile_HRT.rf24 \
+Production/logFile_LRT.rf01 \
+Production/logFile_LRT.rf02 \
+Production/logFile_LRT.rf03 \
+Production/logFile_LRT.rf04 \
+Production/logFile_LRT.rf05 \
+Production/logFile_LRT.rf06 \
+Production/logFile_LRT.rf07 \
+Production/logFile_LRT.rf08 \
+Production/logFile_LRT.rf09 \
+Production/logFile_LRT.rf10 \
+Production/logFile_LRT.rf11 \
+Production/logFile_LRT.rf12 \
+Production/logFile_LRT.rf13 \
+Production/logFile_LRT.rf14 \
+Production/logFile_LRT.rf15 \
+Production/logFile_LRT.rf16 \
+Production/logFile_LRT.rf17 \
+Production/logFile_LRT.rf18 \
+Production/logFile_LRT.rf19 \
+Production/logFile_LRT.rf20 \
+Production/logFile_LRT.rf21 \
+Production/logFile_LRT.rf22 \
+Production/logFile_LRT.rf23 \
+Production/logFile_LRT.rf24 \
+Production/logFile_LRT.rf25 \
+Production/logFile_LRT.rf26 \
+Production/logFile_LRT.rf27 \
+Production/logFile_LRT.rf28 \
+Production/logFile_LRT.rf29 \
+Production/pms2dlog.803 \
+Production/proj.info \
+Production/setup.HRT \
+Production/taplog.803 \
+Production/tarit.803 \
+Production/tarit.docs \
+Production/tp2ms.summary \
+Production/varlist.803 \
+Production/O3_skel/Makefile \
+Production/O3_skel/Pcpy \
+Production/O3_skel/Pmrg.1st \
+Production/O3_skel/README \
+Production/O3_skel/XmSkeleton \
+Production/O3_skel/Xwin.c \
+Production/O3_skel/amlib.c \
+Production/O3_skel/amlib.o3.01.c \
+Production/O3_skel/amlib.o3.02.c \
+Production/O3_skel/amlib.o3.03.c \
+Production/O3_skel/amlib.o3.04.c \
+Production/O3_skel/amlib.o3.05.c \
+Production/O3_skel/amlib.o3.06.c \
+Production/O3_skel/amlib.o3.07.c \
+Production/O3_skel/amlib.o3.08.c \
+Production/O3_skel/amlib.o3.09.c \
+Production/O3_skel/amlib.o3.10.c \
+Production/O3_skel/amlib.o3.11.c \
+Production/O3_skel/amlib.o3.12.c \
+Production/O3_skel/amlib.o3.13.c \
+Production/O3_skel/amlib.o3.15.c \
+Production/O3_skel/amlib.o3.18.c \
+Production/O3_skel/amlib.o3.21.c \
+Production/O3_skel/amlib.o3.22.c \
+Production/O3_skel/amlib.o3.23.c \
+Production/O3_skel/amlib.o3.24.c \
+Production/O3_skel/amlib.o3.25.c \
+Production/O3_skel/amlib.o3.27.c \
+Production/O3_skel/cb_main.c \
+Production/O3_skel/cb_pause.c \
+Production/O3_skel/cb_time.c \
+Production/O3_skel/compute.c \
+Production/O3_skel/define.h \
+Production/O3_skel/error.c \
+Production/O3_skel/globals.c \
+Production/O3_skel/init.c \
+Production/O3_skel/log.skel \
+Production/O3_skel/lrloop.c \
+Production/O3_skel/netcdf.c \
+Production/O3_skel/search.c \
+Production/O3_skel/skel \
+Production/O3_skel/skel.c \
+Production/O3_skel/sort.c \
+Production/O3_skel/timeseg.c \
+Production/archive/2d2ms.job \
+Production/archive/ads2ms.job \
+Production/archive/rename \
+Production/archive/return_tapes_from_opns.mo \
+Production/archive/send_tapes_to_opns.mo \
+Production/archive/tapes.803 \
+Production/archive/tp2ms.job
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

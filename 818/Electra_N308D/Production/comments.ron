@@ -1,0 +1,81 @@
+High-rate processing comments:
+
+818 RF08
+CMODE = -9999. 15:15-15:30 \
+CO    = -9999. 15:15-15:30  \   If these were intentional, the netCDF
+COCAL = -9999. 15:15-15:30   }   missing value is defined as -32767.0,
+COCOR = -9999. 15:15-15:30  /    not -9999.
+COZRO = -9999. 15:15-15:30 /
+PACT_OBR = 0.0 15:15-15:30
+PBRS_OBR = 0.0 15:15-15:30
+PFLW_OBR = 0.0 15:15-15:30
+PSTT_OBR = 0.0 15:15-15:30
+PREF_OBR = -0.02 15:15-15:30
+PTMP_OBR = 27.72 15:15-15:30
+
+Weird glitches on LONC at 15:27 (None on LON or GLON)
+(These don't appear on the LRT data)
+
+818RF10
+Weird glitches on LONC at 17:31
+Weird glitches on LATC at 18:07, 18:09, 18:12
+
+-------------------------------------------------------------------------------
+
+NIMBUS processing--high rate:
+-----------------------------
+CNTS:  Desired output rate (input:  50 sps)?
+COCAL:  Desired output rate?
+COCOR:  Desired output rate?
+COZRO:  Desired output rate?
+XCO2C:  Desired output rate?
+XLH2OC:  Desired output rate?
+XMRLI:  Desired output rate?
+XO3FDG:  Desired output rate?
+VEWC:  Desired output rate?
+VNSC:  Desired output rate?
+
+Output rate for VEW needs to be set to sample rate (10 sps)
+Output rate for VNS needs to be set to sample rate (10 sps)
+
+NIMBUS processing--low rate:
+----------------------------
+DVALU:   DVALU:units = "Unk" ; DVALU:long_name = "No title" ;
+XO3FDG:  DVALU:units = "Unk" ; DVALU:long_name = "No title" ;
+
+XISCO2T::units = "V" ; <-- non-standard, should be "Vdc"
+XISSP1::units = "V" ; <-- non-standard, should be "Vdc"
+XISSP2::units = "V" ; <-- non-standard, should be "Vdc"
+XISSUPR::units = "V" ; <-- non-standard, should be "Vdc"
+XISTHC::units = "V" ; <-- non-standard, should be "Vdc"
+
+Following are non standard largely due to lack of capitalization.
+XISBPPR:long_name = "Intermittent sampler backfill press." ; <-- "pressure"
+XISCO2:long_name = "Intermittent sampler CO2 signal" ;
+XISCO2P:long_name = "Intermittent sampler CO2 cell pressure" ;
+XISCO2T:long_name = "Intermittent sampler CO2 cell temperature" ;
+XISPLPR:long_name = "Intermittent sampler plenum pressure" ;
+XISPLT:long_name = "Intermittent sampler plenum temp." ; <-- "temperature"
+XISSAPR:long_name = "Intermittent sampler internal sampler pressure" ;
+XISSFL:long_name = "Intermittent sampler XISSFL" ;
+XISSP1:long_name = "IIntermittent sampler spare channel 1" ;
+XISSP2:long_name = "IIntermittent sampler spare channel 2" ;
+XISSTAT:long_name = "Intermittent sampler ISAMP status" ;
+XISSUPR:long_name = "Intermittent sampler suction manifold pressure" ;
+XISTEO3:long_name = "Intermittent sampler TECO O3" ; <-- need ample description
+XISTEP:long_name = "Intermittent sampler TEO3 pressure" ;
+XISTET:long_name = "Intermittent sampler TEO3 temperature" ;
+XISTHC:long_name = "Intermittent sampler total hydrocarbon conc. (CSI)" ;
+XISVLA:long_name = "Intermittent sampler Lyman-Alpha signal" ;
+XLCO2:long_name = "CO2 concentration (panel display)" ;
+XLH2OS:long_name = "LICOR H2O output signal" ;
+XO3F1F:long_name = "Fast ozone sample air flow 1" ;
+XO3F1N:long_name = "Fast ozone NO flow 1" ;
+XO3F1P:long_name = "Fast ozone pressure 1" ;
+XO3F1S:long_name = "Fast ozone signal 1" ;
+XO3F1T:long_name = "Fast ozone flow temp. 1" ; <-- "temperature"
+XO3F2F:long_name = "Fast ozone sample air flow 2" ;
+XO3F2N:long_name = "Fast ozone NO flow 2" ;
+XO3F2P:long_name = "Fast ozone pressure 2" ;
+XO3F2S:long_name = "Fast ozone signal 2" ;
+XSEAFL:long_name = "Intermittent sampler eddy accumulation flow" ;

@@ -1,0 +1,88 @@
+# Ophir radiometer 
+
+MAXCNT		62500
+THERM_BIAS	5.0
+THERM_RZ	36.4
+THERM_COEFF	-2700.0
+DFLT_GAIN	-4.4913167e-5
+DFLT_OFFSET	31515.0
+# Digital signal coefficients
+A1              -5.6558e-5
+A2              2.0565e-6
+# Old test values
+#A1              -4.7765e-5
+#A2              8.5355e-6
+# HRT Analog signal coefficients
+
+# King Probe wire temperatures - PMS version
+
+TWIRE_PMS	150.0
+
+# King Probe wire temperatures - RAF version
+
+TWIRE_RAF	130.0
+
+
+# IRS - Primary unit pitch and heading biases
+
+PITCH_BIAS_1	0.05
+HEADING_BIAS_1	-0.35
+
+# IRS - Secondary unit pitch and heading biases (IRS right on 308)
+
+PITCH_BIAS_2	0.0
+HEADING_BIAS_2	0.60
+
+
+# Lyman-Alpha constants - unit 1
+
+XC_1	0.562
+THRSH_1	900.0
+CX_1[4]	2.5, 0.987, 0.03471, -0.00468
+
+# Lyman-Alpha constants - unit 2
+
+XC_2	0.519
+THRSH_2	100.0
+CX_2[4]	4.955, 1.1696, 0.05575, -0.0008405
+
+
+# FSSP constants
+
+DOF	3.22		# Depth of field for FSSP
+bdia	0.20		# Beam diameter for FSSP
+tau1	0.000006	# Multiplier for STROBES for FSSP
+tau2	0.000002	# Multiplier for RESETS for FSSP
+dens	1.0		# particle density default
+
+FSSP_CSIZ[64]	0.0,3.5,6.5,9.5,12.5,15.5,18.5,21.5,24.5,
+		 27.5,30.5,33.5,36.5,39.5,42.5,45.5,		# range 0
+        0.0,3.0,5.0,7.0,9.0,11.0,13.0,15.0,17.0,19.0,
+                 21.0,23.0,25.0,27.0,29.0,31.0,			# range 1
+        0.0,1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.,	# range 2
+        0.0,.5,1.,1.5,2.,2.5,3.,3.5,4.,4.5,5.,5.5,6.,6.5,7.,7.5	# range 3
+
+
+ASAS_CSIZ[16]	0.0, 0.132, 0.170, 0.233, 0.320, 0.433, 0.570, 0.733,
+		0.920, 1.133, 1.370, 1.632, 1.920, 2.233, 2.570, 2.932
+
+F300_CSIZ[33]	0.0, 0.370,0.420,0.468,0.510,0.550,0.594,0.641,0.692,0.806,
+		0.850,0.891,0.926,1.033,1.105,1.406,2.178,2.271,2.360,2.493,
+		2.654,3.986,4.149,5.296,7.043,8.365,9.872,11.307,13.249,13.540,
+		15.380,15.506,18.544
+
+# CN Counter
+
+DIV	4		# counter card prescale factor
+
+
+
+# PMS2D Effective Area Width
+# 0.8 = 25 micron resolution.
+
+C1_EAW  0.8
+C2_EAW  0.8
+
+# 3.2 = 100 micron resolution.
+P1_EAW  3.2
+P2_EAW  3.2

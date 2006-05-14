@@ -1,0 +1,51 @@
+#  File copy to MSS for project 3-886 ANLC
+#
+#  from:  chinook:/home/local/proj/886/Production
+#                 /home/local/data
+#                 /home/local/dev/nimbus/src/wrk
+#                 
+#    to:  MSS:/RAF/1993/886/LRT/
+#
+#  Method:  ftp
+#
+#  Commands:
+ftp -i massive
+bi
+quote SITE RTPD 4096
+quote SITE WPW RAFDMG
+quote SITE MVN CTRAFDMG
+cd /RAF/1993/886/LRT
+#
+lcd /home/local/data
+put FF01.cdf
+put RF01.cdf
+put RF02.cdf
+put RF03.cdf
+put RF04.cdf
+put RF05.cdf
+put RF06.cdf
+put RF07.cdf
+put RF08.cdf
+put FF01.cdf.tar
+put RF01.cdf.tar
+put RF02.cdf.tar
+put RF03.cdf.tar
+put RF04.cdf.tar
+put RF05.cdf.tar
+put RF06.cdf.tar
+put RF07.cdf.tar
+put RF08.cdf.tar
+#
+lcd /home/local/proj/886/Production
+put tp2ms.summary
+put taplog.886
+put tarit.3-886.tar
+put 3-886.tar
+put nimbus.tar.dir
+put nimbus.tar
+put README
+#
+lcd /home/local/dev/nimbus/src/wrk
+put fix_bt.c
+#
+bye

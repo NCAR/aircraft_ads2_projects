@@ -1,0 +1,434 @@
+Version 2, with 433 records.
+2D-C         none   2-D Cloud Probe Asynchronous Data ID       0.0
+2D-P         none   2-D Precip. Probe Asynchronous Data ID     0.0
+A200X        cnts   200X Raw Accumulation (per cell)           0.0    0.0
+A200Y        cnts   200Y Raw Accumulation (per cell)           0.0    0.0
+A260X        cnts   260X Raw Accumulation (per cell)           0.0    0.0
+ACINS        M/s2   Aircraft Vertical Acceleration            10.0
+ADIF         mbar   Vertical Differential Pressure, Boom     -20.0   20.0
+ADIFR        mbar   Vertical Differential Pressure, Radome   -20.0   20.0
+AF300        cnts   FSSP-300 Raw Accumulation (per cell)       0.0    0.0
+AFSSP        cnts   FSSP-100 Raw Accumulation (per cell)       0.0    0.0
+AKDF         deg    Attack Angle, Boom Diff. Pressure          5.0
+AKRD         deg    Attack Angle, Radome Diff. Pressure        5.0
+ALT          M      IRS Baro-Inertial Altitude               200.0
+APCAS        cnts   PCAS Particle Spacing                      0.0    0.0
+ATB          C      Ambient Temperature, Radome               10.0
+ATF          C      Ambient Temperature, Fuselage             10.0
+ATFH         C      Ambient Temperature, Deiced Fuselage      10.0
+ATOPH        C      Ambient Temperature, Ophir III            10.0
+ATRF         C      Ambient Temperature, Reverse Flow         10.0
+ATRL         C      Ambient Temperature, Radome Left          10.0
+ATRR         C      Ambient Temperature, Radome Right         10.0
+ATTACK       deg    Attack Angle, Reference                    5.0
+ATW          C      Ambient Temperature, Wing                 10.0
+ATWH         C      Ambient Temperature, Deiced Wing          10.0
+ATX          C      Ambient Temperature, Reference            10.0
+BDIF         mbar   Horizontal Differential Pressure, Boom   -20.0   20.0
+BDIFR        mbar   Horizontal Differential Pressure, Radome -20.0   20.0
+BITS         cnts                                              0.0 65535.0
+BLATA        G      IRS Lateral Body Acceleration              5.0
+BLONA        G      IRS Longitudinal Body Acceleration         5.0
+BNORMA       G      IRS Normal Body Acceleration               5.0
+BPITCHR      deg/s  IRS Body Pitch Rate                       20.0
+BROLLR       deg/s  IRS Body Roll Rate                        20.0
+BYAWR        deg/s  IRS Body Yaw Rate                         20.0
+C200X        N/L    200X Concentration (per cell)              0.0    0.0
+C200Y        N/L    200Y Concentration (per cell)              0.0    0.0
+C260X        N/L    260X Concentration (per cell)              0.0    0.0
+CCEP         nmi    LORAN-C Circular Error of Probability      2.5
+CF300        N/cM3  FSSP-300 Concentration (per cell)          0.0    0.0
+CFSSP        N/cM3  FSSP-100 Concentration (per cell)          0.0    0.0
+CGS          M/s    LORAN-C Ground Speed                       2.5
+CGSF         M/s    LORAN-C Ground Speed                      25.0
+CH4          ppb    Methane Concentration                    100.0
+CHGME        deg    Coarse Geometric Altitude (APN-159)        0.0  360.0
+CLAT         deg    LORAN-C Latitude                           1.0
+CLON         deg    LORAN-C Longitude                          1.0
+CMAGVR       deg    LORAN-C Magnetic Variation                 2.5
+CMODE        Vdc    Carbon Monoxide Analyzer Status            0.0   10.0
+CNTEMP       C      CN Counter Inlet Temperature              10.0
+CNTS         cnts   TSI CN Counter Output                      2.5
+CO           ppb    Raw Carbon Monoxide Concentration        100.0
+COCAL        ppbv   Corrected Carbon Monoxide Concentration    0.0   10.0
+COCOR        Vdc    Raw Carbon Monoxide, Baseline Corrected    0.0   10.0
+CON2C1       N/L    2D-C Concentration                      1000.0
+CON2P1       N/L    2D-P Concentration                         0.0   50.0
+CONC3        N/cm3  FSSP-300 Concentration (all cells)         0.0 2000.0
+CONC6        N/L    260X Concentration (all cells)          1000.0
+CONCA        N/cm3  PCAS Concentration (all cells)             0.0 2000.0
+CONCF        N/cm3  FSSP-100 Concentration (all cells)         0.0 1000.0
+CONCN        N/cm3  Condensation Nuclei (CN) Concentration   500.0
+CONCP        N/cm3  PCAS Concentration (all cells)             2.5
+CONCX        N/L    200X Concentration (all cells)          1000.0
+CONCY        N/L    200Y Concentration (all cells)             0.0   50.0
+COZRO        Vdc    Carbon Monoxide Baseline Zero Signal       0.0   10.0
+CPCAS        N/cM3  PCAS Concentration (all cells)             0.0    0.0
+CRHP         mbar   Cryogenic Hygrometer Inlet Pressure        2.5
+CSTAT        none   LORAN-C Status                             2.5
+CTK          deg    LORAN-C Track Angle                        2.5
+CTMLAG       s      Loran-C Data Time Offset                   2.5
+DBAR3        uM     FSSP-300 Mean Particle Diameter            0.0    1.0
+DBAR6        uM     260X Mean Particle Diameter                0.0  300.0
+DBARA        uM     PCAS Mean Particle Diameter                0.0    1.0
+DBARF        uM     FSSP-100 Mean Particle Diameter            0.0   40.0
+DBARP        uM     PCAS Mean Particle Diameter                2.5
+DBARX        uM     200X Mean Particle Diameter                0.0  300.0
+DBARY        uM     200Y Mean Particle Diameter                0.0 3000.0
+DBZ6         dBZ    260X Calculated Reflectivity              20.0
+DBZF         dBZ    FSSP-100 Calculated Reflectivity          20.0
+DEI          kM     Distance East of Fixed Reference         100.0
+DISP6        none   260X Dispersion (sigma/dbarx)              2.5
+DISPF        none   FSSP-100 Dispersion (sigma/dbarx)          2.5
+DISPP        none   PCAS Dispersion (sigma/dbarx)              2.5
+DISPY        none   200Y Dispersion (sigma/dbarx)              2.5
+DNI          kM     Distance North of Fixed Reference        100.0
+DPB          C      Dew/Frost Point Temperature, Fuselage Bo  10.0
+DPBC         C      Dew Point Temperature, T-Electric Bottom  10.0
+DPCRC        C      Dew Point Temperature, Cryogenic          10.0
+DPT          C      Dew/Frost Point Temperature, Fuselage To  10.0
+DPTC         C      Dew Point Temperature, T-Electric Top     10.0
+DPX          C      Dew/Frost Point Temperature, Reference    10.0
+DPXC         C      Dew Point Temperature, Reference          10.0
+DRFTA        deg    Inertial Drift Angle                      10.0
+DSAT         C      Dropsonde Ambient Temperature             10.0
+DSGALT       M      Dropsonde Geopotential Altitude          100.0
+DSID         #      Dropsonde ID number                        5.0
+DSLAT        deg    Dropsonde GPS Latitude                     1.0
+DSLON        deg    Dropsonde GPS Longitude                    1.0
+DSPS         mbar   Dropsonde Static Pressure                 50.0
+DSRH         %      Dropsonde Relative Humidity               10.0
+DSVSPD       M/s    Dropsonde Vertical Velocity               10.0
+DSWD         deg    Dropsonde Horizontal Wind Direction        0.0  360.0
+DSWS         M/s    Dropsonde Horizontal Wind Speed           10.0
+DTB          C      Pyrgeometer Dome Temperature, Bottom      10.0
+DTT          C      Pyrgeometer Dome Temperature, Top         10.0
+DVALU        M      D-VALUE (HGME - PALT)                   1000.0
+EDPC         mbar   Ambient Water Vapor Pressure, Reference  100.0
+EV1          N      Event Pad Markers                          5.0
+EVENT        none   Event Marker                               2.5
+EVENT_CKP    none   Event Marker - Cockpit                     2.5
+EVENT_CTL    none   Event Marker - ADS Operator Station        2.5
+EVENT_FWD    none   Event Marker - Forward Observer Display    2.5
+EVENT_OBL    none   Event Marker - Aft Left Observer Display   2.5
+EVENT_OBR    none   Event Marker - Aft Right Observer Displa   2.5
+EVTCKP       none   Event Marker - Cockpit                     2.5
+EVTCTL       none   Event Marker - ADS Operator Station        2.5
+EVTFWD       none   Event Marker - Forward Observer Display    2.5
+EVTOBL       none   Event Marker - Aft Left Observer Display   2.5
+EVTOBR       none   Event Marker - Aft Right Observer Displa   2.5
+FACT         none   FSSP-100 Activity Fraction                 0.0 1000.0
+FANV         Vdc    FSSP-100 Annulus Baseline Voltage         10.0
+FBMFR        none   FSSP-100 Beam Fraction                     0.0    1.0
+FCN          slpm   Raw CN Counter Sample Flow Rate            0.0    5.0
+FCNC         vlpm   Corrected CN Counter Sample Flow Rate      0.0    5.0
+FLOADS       C      ADS Air Flow Monitor Temperature          10.0
+FLXCO2CO2    (ppmv) Var. of XCO2C over last N minutes         10.0
+FLXO3O3      (ppbv) Var. of O3FC over last N minutes          10.0
+FLXQQ        (g/M3) Var. of Absolute Humidity over last N mi  10.0
+FLXTT        (K)^2  Var. of Potential Temperature over last   10.0
+FLXUU        (M/s)^ Var. of UI over last N minutes            10.0
+FLXVV        (M/s)^ Var. of VI over last N minutes            10.0
+FLXWCO2      (M/s)( Covar. of WI and XCO2C over last N minut  10.0
+FLXWO3       (M/s)( Covar. of WI and O3FC over last N minute  10.0
+FLXWQ        (M/s)( Covar. of WI and Absolute Humidity over   10.0
+FLXWT        (M/s)( Covar. of WI and Potential Temperature o  10.0
+FLXWU        (M/s)^ Covar. of WI and UI over last N minutes   10.0
+FLXWV        (M/s)^ Covar. of WI and VI over last N minutes   10.0
+FLXWW        (M/s)^ Var. of WI computed over last N minutes   10.0
+FMB          kV/M   Field Mill Output, Bottom Fuselage       100.0
+FMRB         kV/M   Field Mill Output, Bottom Radome         100.0
+FMRL         kV/M   Field Mill Output, Left Radome           100.0
+FMRR         kV/M   Field Mill Output, Right Radome          100.0
+FMRT         kV/M   Field Mill Output, Top Radome            100.0
+FMT          kV/M   Field Mill Output, Top Fuselage          100.0
+FPCRC        C      Frost Point Temperature, Cryogenic        10.0
+FRANGE       none   FSSP-100 Size Range Category               0.0    4.0
+FREF         none   FSSP-100 Laser Reference Voltage          10.0
+FRESET       cnts   FSSP-100 Fast Resets                       0.0 1000.0
+FRNG         none   FSSP-100 Size Range Category              10.0
+FRST         cnts   FSSP-100 Fast Resets                      10.0
+FSIG         Vdc    FSSP-100 Signal Voltage                   10.0
+FSTB         cnts   FSSP-100 Strobes                          10.0
+FSTROB       cnts   FSSP-100 Fast Strobes                      0.0 10000.0
+FSTT         cnts   FSSP-100 Signal Transit Time              10.0
+FTMP         none   FSSP-100 Housekeeping Data                10.0
+FXAZIM       deg    Radial Azimuth from Fixed Reference        0.0  360.0
+FXDIST       kM     Radial Distance from Fixed Reference     300.0
+FZV          Vdc    Fixed Zero Voltage                         5.0
+FZVR         Vdc    Fixed Zero Voltage (through resistor)     -1.0    1.0
+GALT         M      GPS Altitude (MSL)                      1000.0
+GGALT        M      GPS Geopotential Altitude               1000.0
+GGSF         M/s    GPS Ground Speed                          25.0
+GLAT         deg    GPS Latitude                               1.0
+GLON         deg    GPS Longitude                              1.0
+GMODE        none   GPS Mode                                  10.0
+GSF          M/s    Inertial Ground Speed                     25.0
+GSFC         M/s    Computed Ground Speed                     25.0
+GSTAT        none   GPS Status                                10.0
+GVEW         M/s    GPS Ground Speed Vector, East Component   50.0
+GVNS         M/s    GPS Ground Speed Vector, North Component  50.0
+GVZI         M/s    GPS-Computed Aircraft Vertical Velocity   10.0
+HGM          M      Geometric (Radio) Altitude                 0.0  800.0
+HGM232       M      Geometric (Radar) Altitude (APN-232)    1000.0
+HGME         M      Geometric (Radar) Altitude (APN-159)    1000.0
+HI3          M      Pressure-Damped Inertial Altitude       1000.0
+HOUR         hours  Raw Tape Time Component                    5.0
+HVLT         kVdc   High Voltage Skin Charge                 100.0
+INFLOW       splm   C.A.I. Excess Flow                         5.0
+INPDIFF      mbar   C.A.I. Shroud Pressure Difference         10.0
+INPS1        mbar   C.A.I. Shroud Static Pressure             10.0
+INPS2        mbar   C.A.I. Sample Plane Static Pressure       10.0
+INPWANT      mbar   C.A.I Desired Inlet Pressure Differentia  20.0
+INQC1        mbar   C.A.I. Shroud Dynamic Pressure            10.0
+INQC2        mbar   C.A.I. Sample Plane Dynamic Pressure      10.0
+INTAS1       M/s    C.A.I. Shroud True Air Speed              10.0
+INTAS2       M/s    C.A.I. Sample Plane True Air Speed        10.0
+INTEMP       C      C.A.I. Sample Plane Temperature            5.0
+IRB          W/M2   Raw Infrared Irradiance, Bottom          100.0
+IRBC         W/M2   Corrected Infrared Irradiance, Bottom      0.0  500.0
+IRT          W/M2   Raw Infrared Irradiance, Top             100.0
+IRTC         W/M2   Corrected Infrared Irradiance, Top         0.0  500.0
+LAT          deg    Inertial Latitude                         10.0
+LATC         deg    GPS-Corrected Inertial Latitude           10.0
+LON          deg    Inertial Longitude                        10.0
+LONC         deg    GPS-Corrected Inertial Longitude          10.0
+LWC          g/M3   Raw C-T Liquid Water Content               1.2
+LWCC         g/M3   Corrected C-T Liquid Water Content         0.0    2.5
+MCR1         Vdc    Multichannel Cloud Radiometer, Channel 1  10.0
+MCR2         Vdc    Multichannel Cloud Radiometer, Channel 2  10.0
+MCR3         Vdc    Multichannel Cloud Radiometer, Channel 3  10.0
+MCR4         Vdc    Multichannel Cloud Radiometer, Channel 4  10.0
+MCR5         Vdc    Multichannel Cloud Radiometer, Channel 5  10.0
+MCR6         Vdc    Multichannel Cloud Radiometer, Channel 6  10.0
+MCR7         Vdc    Multichannel Cloud Radiometer, Channel 7  10.0
+MCROUT       none   Multichannel Radiometer Digital Output     0.0    1.0
+MCRSTAT      none   Multichannel Radiometer Status             5.0
+MILSEC       msec   Raw Tape Time Component                    5.0
+MINUTE       minute Raw Tape Time Component                    5.0
+MR           g/kg   Mixing Ratio, T-Electric                   5.0
+MRCR         g/kg   Mixing Ratio, Cryogenic                    5.0
+MRLA         g/kg   Mixing Ratio, Lyman-alpha                  5.0
+MRLA1        g/kg   Mixing Ratio, Lyman-alpha                  5.0
+NMODE        Vdc    NO/NOY Analyzer Mode Status                0.0    5.0
+NO           Vdc    Raw Nitric Oxide Output                    0.0   10.0
+NOC          ppb    Corrected Nitric Oxide Concentration     100.0
+NOF          sccm   NO/NOY Detector, Sample Flow Rate        500.0
+NOY          Vdc    Raw Oxides of Nitrogen Output              0.0   10.0
+NOYC         ppb    Corrected Oxides of Nitrogen Concentrati 100.0
+NOZF         sccm   NO/NOY Detector Ozonizer Flow Rate       100.0
+NSYS         Vdc    NO/NOY Analyzer System Monitor             0.0   10.0
+O3CF         slpm   Chemiluminescent Ozone Sample Flow Rate    1.0
+O3CP         mbar   Chemiluminescent Ozone Sample Pressure   150.0
+O3CS         Vdc    Raw Chemiluminescent Ozone Output          0.0   10.0
+O3CSC        ppb    Corrected Chemiluminescent Ozone Concent   0.0  150.0
+O3FC         ppbv   Corrected Fast-Response Ozone Concentrat   0.0  150.0
+O3FF         slpm   Chemiluminescent Ozone Sample Flow Rate    1.0
+O3FN         slpm   Fast-Response Ozone Nitric Oxide Flow Ra   1.0
+O3FP         mbar   Fast-Response Ozone Reactor Sample Press 150.0
+O3FS         Vdc    Chemiluminescent Ozone Signal              0.0   10.0
+O3FSC        ppb    Corrected Fast-Response Ozone Concentrat   0.0  150.0
+O3FT         C      Fast-Response Ozone Reactor Temperature   20.0
+OAT          C      Ambient Temperature, Ophir III            10.0
+ONE          none   Constant value of 1.                       0.0    2.0
+P6E01        none   260X Housekeeping Data                    10.0
+P6E64        none   260X Housekeeping Data                    10.0
+P6RST        none   260X Housekeeping Data                    10.0
+P6TMP        none   260X Housekeeping Data                    10.0
+PACT         cnts   PCAS Raw Activity                        500.0
+PALT         M      NACA Pressure Altitude                  1000.0
+PALTF        feet   NACA Pressure Altitude                  1000.0
+PBRS         none   PCAS Beam Diffraction Ratio               10.0
+PCAB         mbar   Interior Cabin Static Pressure           150.0
+PCN          mbar   CN Counter Inlet Pressure                150.0
+PERFA        slpm   Hydrogen Peroxide Sample Flow Rate A       1.0
+PERFB        slpm   Hydrogen Peroxide Sample Flow Rate B       1.0
+PERLM        Vdc    Hydrogen Peroxide Lamp Intensity           0.0   10.0
+PERSA        Vdc    Hydrogen Peroxide Signal A                 0.0   10.0
+PERSB        Vdc    Hydrogen Peroxide Signal B                 0.0   10.0
+PFLW         Vdc    PCAS Flow                                 10.0
+PFLWC        slpm   PCAS Corrected Flow                       10.0
+PFSSP        cnts   FSSP-100 Particle Spacing                  0.0    0.0
+PITCH        deg    Aircraft Pitch Angle                     -10.0   10.0
+PLWC         W      Raw PMS-King Liquid Water Content Output   0.0   10.0
+PLWC1        W      Raw PMS-King Liquid Water Content Output   0.0   10.0
+PLWC3        g/M3   FSSP-300 Water/Ice Content                 0.0    2.5
+PLWC6        g/M3   260X Water/Ice Content                     0.0    2.5
+PLWCC        gm-3   Corrected PMS-King Liquid Water Content    0.0   10.0
+PLWCC1       gm-3   Corrected PMS-King Liquid Water Content    0.0   10.0
+PLWCF        g/M3   FSSP-100 Water/Ice Content                 0.0    2.5
+PLWCX        g/M3   200X Water/Ice Content                     0.0    2.5
+PLWCY        g/M3   200Y Water/Ice Content                     0.0    2.5
+PMODE        Vdc    Hydrogen Peroxide Analyzer Status          0.0   10.0
+PODFANL      boolea Pod Fan Status, Left Wing                  0.0    2.0
+PODFANR      boolea Pod Fan Status, Right Wing                 0.0    2.0
+PODTMPL      C      Pod Temperature, Left Wing                10.0
+PODTMPR      C      Pod Temperature, Right Wing               10.0
+PREF         Vdc    PCAS Laser Reference Voltage              10.0
+PSB          mbar   Raw Static Pressure, Boom                150.0
+PSBC         mbar   Corrected Static Pressure, Boom          150.0
+PSF          mbar   Raw Static Pressure, Fuselage            150.0
+PSFC         mbar   Corrected Static Pressure, Fuselage      150.0
+PSFD         mbar   Raw Static Pressure, Fuselage Digital    150.0
+PSFD1        cnts   Raw PSFD, Low-order word                 150.0
+PSFD2        cnts   Raw PSFD, High-order word                150.0
+PSFDC        mbar   Corrected Static Pressure, Fuselage Digi 150.0
+PSTT         cnts   PCAS Signal Transit Time                  10.0
+PSURF        mbar   Calculated Surface Pressure              900.0 1050.0
+PSW          mbar   Raw Static Pressure, Wing                150.0
+PSWC         mbar   Corrected Static Pressure, Wing          150.0
+PSX          mbar   Raw Static Pressure, Reference           150.0
+PSXC         mbar   Corrected Static Pressure, Reference     150.0
+PTALT1       feet   Parcel Tracking, Altitude Difference     500.0
+PTALT2       feet   Parcel Tracking, Altitude Difference     500.0
+PTDST1       nmi    Parcel Tracking, Distance to Parcel      500.0
+PTDST2       nmi    Parcel Tracking, Distance to Parcel      500.0
+PTIME        s      Processor Time                             0.0    0.0
+PTMP         Vdc    PCAS Detector Temperature                 10.0
+PTRAD1       deg    Parcel Tracking, Heading to Parcel         0.0  360.0
+PTRAD2       deg    Parcel Tracking, Heading to Parcel         0.0  360.0
+QCB          mbar   Raw Dynamic Pressure, Boom                10.0
+QCBC         mbar   Corrected Dynamic Pressure, Boom          10.0
+QCF          mbar   Raw Dynamic Pressure, Fuselage            10.0
+QCFC         mbar   Corrected Dynamic Pressure, Fuselage      10.0
+QCR          mbar   Raw Dynamic Pressure, Radome              10.0
+QCRC         mbar   Corrected Dynamic Pressure, Radome        10.0
+QCW          mbar   Raw Dynamic Pressure, Wing                10.0
+QCWC         mbar   Corrected Dynamic Pressure, Wing          10.0
+QCX          mbar   Raw Dynamic Pressure, Reference           10.0
+QCXC         mbar   Corrected Dynamic Pressure, Reference     10.0
+RHOCR        g/M3   Absolute Humidity, Cryogenic               5.0
+RHODB        g/M3   Absolute Humidity, T-Electric Bottom       5.0
+RHODT        g/M3   Absolute Humidity, T-Electric Top          5.0
+RHOLA        g/M3   Absolute Humidity, Lyman-alpha             5.0
+RHOLA1       g/M3   Absolute Humidity, Lyman-alpha             5.0
+RHUM         %      Relative Humidity                          0.0  100.0
+RICE         Vdc    Raw Icing-Rate Indicator                   0.0   10.0
+ROLL         deg    Aircraft Roll Angle                      -45.0   45.0
+RSTB         C      Radiometric Surface Temperature           15.0
+RSTB1        C      Radiometric Surface Temperature           15.0
+RSTT         C      Radiometric Sky/Cloud-Base Temperature    15.0
+SDWC1        cnts   2D-C Shadow OR Counts                    500.0
+SDWH1        cnts   HVPS Shadow OR Counts                    500.0
+SDWP1        cnts   2D-P Shadow OR Counts                    500.0
+SECOND       s      Raw Tape Time Component                    5.0
+SFMB         kV/M   Sensitive Field Mill, Bottom Fuselage    100.0
+SFMRB        kV/M   Sensitive Field Mill, Bottom Radome      100.0
+SFMRL        kV/M   Sensitive Field Mill, Left Radome        100.0
+SFMRR        kV/M   Sensitive Field Mill, Right Radome       100.0
+SFMRT        kV/M   Sensitive Field Mill, Top Radome         100.0
+SFMT         kV/M   Sensitive Field Mill, Top Fuselage       100.0
+SHDORC       cnts   2D-C Shadow OR Counts                    500.0
+SHDORP       cnts   2D-P Shadow OR Counts                    500.0
+SO2          ppb    Raw Sulfur Dioxide Output                  0.0   50.0
+SO2C         ppb    Corrected Sulfur Dioxide Concentration     0.0   50.0
+SO2P         mbar   Sulfur Dioxide Internal Pressure         150.0
+SSDF         deg    Sideslip Angle, Boom Diff. Pressure       -5.0    5.0
+SSLIP        deg    Sideslip Angle, Reference                 -5.0    5.0
+SSRD         deg    Sideslip Angle, Radome Diff. Pressure     -5.0    5.0
+STB          C      Pyrgeometer Sink Temperature, Bottom      10.0
+STT          C      Pyrgeometer Sink Temperature, Top         10.0
+SVR650       Vdc    Spectral Vegetation Radiometer (650 nm)    3.0
+SVR862       Vdc    Spectral Vegetation Radiometer (862 nm)    3.0
+SWB          W/M2   Shortwave Irradiance, Bottom               0.0 1000.0
+SWT          W/M2   Shortwave Irradiance, Top                  0.0 1500.0
+TA2D         C      2D Can Temperature                         5.0
+TADS         C      ADS Cabinet Temperature                   10.0
+TASB         M/s    Aircraft True Airspeed, Boom              25.0
+TASF         M/s    Aircraft True Airspeed, Fuselage          25.0
+TASHC        M/s    Aircraft True Airspeed, Humidity Correct  25.0
+TASR         M/s    Aircraft True Airspeed, Radome            25.0
+TASW         M/s    Aircraft True Airspeed, Wing              25.0
+TASX         M/s    Aircraft True Airspeed, Reference         25.0
+TCAVB        C      Cavity Temperature, Bottom PRT-5          35.0   50.0
+TCAVT        C      Cavity Temperature, Top PRT-5             35.0   50.0
+TDCH1        none   HVPS Housekeeping                         10.0
+TEMP1        C      CN Counter Inlet Temperature              10.0
+TEMP2        C      CVI CN Counter Sample Temperature         10.0
+TEO3         ppb    Raw TECO Ozone Output                      0.0  150.0
+TEO3C        ppbv   Corrected TECO (UV) Ozone Concentration    0.0  150.0
+TEP          mbar   Internal TECO Ozone Sampling Pressure    150.0
+TET          C      Internal TECO Ozone Sampling Temperature  10.0
+THC          ppb    Total Hydrocarbons (THC) Concentration   100.0
+THCF         sccm   Total Hydrocarbons, Sample Flow Rate     100.0
+THCH2        sccm   Total Hydrocarbons, Hydrogen Flow Rate   100.0
+THDG         deg    Aircraft True Heading Angle                0.0  360.0
+THETA        K      Potential Temperature                     12.5
+THETAE       K      Equivalent Potential Temperature          12.5
+THETAV       K      Virtual Potential Temperature             12.5
+TKAR         deg/S  Inertial Track Angle Rate                 10.0
+TKAT         deg    Inertial Track Angle, True                10.0
+TLSI         C      LSI System Temperature                     5.0
+TMLAG        s      LTN-51 ARINC Time Lag                      0.0    0.0
+TPTIME       s      Unaltered Tape Time                        0.0    0.0
+TRSTB        C      RSTB Sensor Head Temperature              15.0
+TS2D         C      2D Can Temperature                         5.0
+TTB          C      Total Temperature, Radome                 10.0
+TTF          C      Total Temperature, Fuselage               10.0
+TTFH         C      Total Temperature, Deiced Fuselage        10.0
+TTRF         C      Total Temperature, Reverse Flow           10.0
+TTRL         C      Total Temperature, Radome Left            10.0
+TTRR         C      Total Temperature, Radome Right           10.0
+TTW          C      Total Temperature, Wing                   10.0
+TTWH         C      Total Temperature, Deiced Wing            10.0
+TTX          C      Total Temperature, Reference              10.0
+TV10         C      Temperature of 10-Volt Reference          10.0
+TWCH1        none   2D Housekeeping                           10.0
+TWCH2        none   2D Housekeeping                           10.0
+TWDA1        none   2D-C Housekeeping                         10.0
+TWDB1        none   2D-P Housekeeping                         10.0
+UI           M/s    Wind Vector, East Component               10.0
+UIC          M/s    GPS-Corrected Wind Vector, East Componen  10.0
+UVB          W/M2   Ultraviolet Irradiance, Bottom             0.0   75.0
+UVT          W/M2   Ultraviolet Irradiance, Top                0.0   75.0
+UX           M/s    Wind Vector, Longitudinal Component       10.0
+UXC          M/s    GPS-Corrected Wind Vector, Longitudinal   10.0
+V10          Vdc    10-Volt Reference                          1.0
+V10R         Vdc    10-Volt Reference (through resistor)       1.0
+V28          Vdc    Aircraft DC Voltage Supply                 5.0
+VCRH         C      Dew/Frost Point Temperature, Cryogenic    10.0
+VDREF        Vdc    Difference of 10-Vdc References           -5.0    5.0
+VEW          M/s    Inertial Ground Speed Vector, East Compo  50.0
+VEWC         M/s    GPS-Corrected Inertial Ground Speed Vect  10.0
+VI           M/s    Wind Vector, North Component              10.0
+VIC          M/s    GPS-Corrected Wind Vector, North Compone  10.0
+VLA          Vdc    Raw Lyman-alpha Hygrometer Output          2.5
+VLA1         Vdc    Raw Lyman-alpha Hygrometer Output          2.5
+VM15A        Vdc    -15V Analog Voltage                        1.0
+VNS          M/s    Inertial Ground Speed Vector, North Comp  50.0
+VNSC         M/s    GPS-Corrected Inertial Ground Speed Vect  10.0
+VOLTAGE      Vdc                                             -10.0   10.0
+VP15A        Vdc    +15V Analog Voltage                        1.0
+VP15D        Vdc    +15V Digital Voltage                       1.0
+VSPD         M/s    IRS-Computed Aircraft Vertical Velocity   15.0
+VY           M/s    Wind Vector, Lateral Component            10.0
+VYC          M/s    GPS-Corrected Wind Vector, Lateral Compo  10.0
+VZI          M/s    Aircraft Integrated Vertical Velocity     25.0
+WD           deg    Horizontal Wind Direction                  0.0  360.0
+WDC          deg    GPS-Corrected Horizontal Wind Direction    0.0  360.0
+WI           M/s    Wind Vector, Vertical Gust Component      -5.0    5.0
+WIC          M/s    GPS-Corrected Wind Vector, Vertical Gust  10.0
+WP3          M/s    Damped Aircraft Vertical Velocity         15.0
+WS           M/s    Horizontal Wind Speed                     10.0
+WSC          M/s    GPS-Corrected Horizontal Wind Speed       10.0
+XFORF        Vdc    Formaldehyde Sample Flow Rate              0.0   10.0
+XFORM        Vdc    Formaldehyde Analyzer Status               0.0   10.0
+XFORS        Vdc    Raw Formaldehyde Signal Output             0.0   10.0
+XFZV         Vdc    Fixed Zero Voltage, External Chassis       1.0
+XICN         slpm   CN Isokinetic Side Flow Rate               0.0    5.0
+XICNC        vlpm   Corrected CN Isokinetic Side Flow Rate     0.0    5.0
+XLATC        deg    GPS-Corrected Inertial Latitude           10.0
+XLONC        deg    GPS-Corrected Inertial Longitude          10.0
+XMACH2       none   Aircraft Mach Number Squared               0.1
+XPSFD        mbar   Raw Static Pressure, Fuselage Digital    150.0
+XUIC         M/s    GPS-Corrected Wind Vector, East Componen  10.0
+XUXC         M/s    GPS-Corrected Wind Vector, Longitudinal   10.0
+XV10         Vdc    10-Volt Reference, External Chassis        1.0
+XVEWC        M/s    GPS-Corrected Inertial Ground Speed Vect  10.0
+XVIC         M/s    GPS-Corrected Wind Vector, North Compone  10.0
+XVNSC        M/s    GPS-Corrected Inertial Ground Speed Vect  10.0
+XVYC         M/s    GPS-Corrected Wind Vector, Lateral Compo  10.0
+XWDC         deg    GPS-Corrected Horizontal Wind Direction    0.0  360.0
+XWIC         M/s    GPS-Corrected Wind Vector, Vertical Gust  10.0
+XWSC         M/s    GPS-Corrected Horizontal Wind Speed       10.0
+ZERO         none   Constant value of 0.                      -1.0    1.0

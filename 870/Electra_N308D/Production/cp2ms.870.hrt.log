@@ -1,0 +1,423 @@
+ftp Archive log for 4-870 WISP High-Rate Processing
+prepared by Ronald L. Ruth
+----------------------------------------------------
+RF09  Source file: /home/local/staticdata/870rf09h.cdf
+Tried MIGS transfer, but must see if it gets put on the dedicated cartridge.
+I used the following command:
+mistral/ron % nrnet msput 870rf09h.cdf l df=tr r flnm=/RAF/1994/870/HRT/RF09.cdf  rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+Sequence number = CK8744
+mistral/ron % date
+Thu Jan 26 11:04:51 MST 1995
+mistral/ron %
+This was successful.  From now on, ftp transfers are not absolutely required.
+MIGS transfers are OK.
+
+
+RF11 (extension of session which archived RF33)
+ftp> ^Z
+Stopped (user)
+mistral/ron % date
+Wed Jan 25 11:40:07 MST 1995
+mistral/ron % fg
+ftp massive
+put 870rf11h.cdf RF11.cdf
+200 PORT command successful
+150 MS0893 Open data connection
+226 Transfer complete
+local: 870rf11h.cdf remote: RF11.cdf
+250792740 bytes sent in 2.2e+03 seconds (1.1e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+mistral/ron % date
+Wed Jan 25 12:31:55 MST 1995
+mistral/ron % 
+
+
+RF26
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> bi
+200 TYPE set to: I
+ftp> quote SITE PERS Y
+200 PERS set to: Y
+ftp> quote SITE RTPD 4096
+200 RTPD set to: 4096
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> quote SITE MDS 350
+200 MDS set to: 350
+ftp> put 870rf26h.cdf RF26
+200 PORT command successful
+150 MS7883 Open data connection
+226 Transfer complete
+local: 870rf26h.cdf remote: RF26
+290808980 bytes sent in 2.8e+03 seconds (1e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+mistral/ron % 
+Completed:  9 January 1995 4:00 p.m.
+
+After reprocessing RF26 to include more high-rate PMS-1D variables.
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> bi
+200 TYPE set to: I
+ftp> quote SITE PERS Y
+200 PERS set to: Y
+ftp> ^Z
+Stopped (user)
+mistral/ron % date
+Thu Jan 12 14:48:11 MST 1995
+mistral/ron % fg
+ftp massive
+quote SITE RTPD 4095
+200 RTPD set to: 4095
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> lcd /home/local/proj/870/Production
+Local directory now /home/local/proj/870/Production
+ftp> put 870RF26H.header RF26.header
+200 PORT command successful
+150 MS0537 Open data connection
+226 Transfer complete
+local: 870RF26H.header remote: RF26.header
+59236 bytes sent in 1.1 seconds (55 Kbytes/s)
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> put 870rf26h.cdf RF26.cdf
+200 PORT command successful
+150 MS0539 Open data connection
+451 MS0539 Error in data transfer, XSTATS[IO_ERR]
+local: 870rf26h.cdf remote: RF26.cdf
+371226212 bytes sent in 1.6e+03 seconds (2.3e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+mistral/ron % date
+Thu Jan 12 15:22:18 MST 1995
+mistral/ron %
+
+About Fri Jan 13 10:00:00 MST 1995
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> bi
+200 TYPE set to: I
+ftp> quote SITE PERS Y
+200 PERS set to: Y
+ftp> quote SITE RTPD 4095
+200 RTPD set to: 4095
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> put 870rf26h.cdf RF26.cdf
+200 PORT command successful
+150 MS0096 Open data connection
+451 MS0096 Error in data transfer, XSTATS[IO_ERR]
+local: 870rf26h.cdf remote: RF26.cdf
+371226212 bytes sent in 1.9e+03 seconds (1.9e+02 Kbytes/s)
+ftp> quote SITE MDS 350
+200 MDS set to: 350
+ftp> put 870rf26h.cdf RF26.cdf
+200 PORT command successful
+150 MS2117 Open data connection
+226 Transfer complete
+local: 870rf26h.cdf remote: RF26.cdf
+371226212 bytes sent in 2.1e+03 seconds (1.7e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+dmistral/ron % ate
+Fri Jan 13 11:12:17 MST 1995
+mistral/ron %
+
+RF26:  Before skeleton program (using MIGS transfer):
+From scdemail@migs.UCAR.EDU Wed Feb  8 14:39:42 1995
+Received: from migs.UCAR.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id OAA26776; Wed, 8 Feb 1995 14:39:39 -0700
+Date: Wed, 8 Feb 1995 14:39:23 -0700
+Message-Id: <199502082139.OAA02400@migs.ucar.EDU>
+Received: by migs.ucar.EDU (NCAR-local/ NCAR Backup Central Post Office 04/22/91)
+	id OAA02400; Wed, 8 Feb 1995 14:39:23 -0700
+From: gwuser@migs.UCAR.EDU (MASnet Gateway)
+To: ron@chinook.atd.ucar.edu
+Subject: IRJE/MIGS Request CK7766 Success
+Status: RO
+
+CK7766: Success!
+NRNET command line arguments:
+FLNM=/home/local/staticdata/870rf26h.cdf
+VERB=msput
+l
+df=tr
+r
+flnm=/RAF/1994/870/HRT/RF26.cdf
+rtpd=4095
+w=RAFDMG
+mvn=CTRAFDMG
+
+Remote file name is /RAF/1994/870/HRT/RF26.cdf
+File size (on MSS) is 371226248 bytes
+Sent file '/home/local/staticdata/870rf26h.cdf' to MS
+
+
+RF27
+Tue Jan 10 11:56:03 MST 1995
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> bi
+200 TYPE set to: I
+ftp> quote SITE PERS Y
+200 PERS set to: Y
+ftp> quote SITE RTPD 4095
+200 RTPD set to: 4095
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> quote SITE MDS 350
+200 MDS set to: 350
+ftp> put 870rf27h.cdf RF27.cdf
+200 PORT command successful
+150 MS9099 Open data connection
+226 Transfer complete
+local: 870rf27h.cdf remote: RF27.cdf
+142672788 bytes sent in 1e+03 seconds (1.4e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+mistral/ron % date
+Tue Jan 10 12:31:41 MST 1995
+mistral/ron %
+
+After reprocessing RF27 to include more high-rate PMS-1D variables.
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> bi
+200 TYPE set to: I
+ftp> quote SITE PERS Y
+200 PERS set to: Y
+ftp> quote SITE RTPD 4095
+200 RTPD set to: 4095
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> quote SITE MDS 350
+200 MDS set to: 350
+ftp> put 870rf27h.cdf RF27.cdf
+200 PORT command successful
+150 MS0190 Open data connection
+226 Transfer complete
+local: 870rf27h.cdf remote: RF27.cdf
+182117268 bytes sent in 1e+03 seconds (1.8e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+mistral/ron % date
+Tue Jan 17 16:38:50 MST 1995
+mistral/ron %
+
+RF28
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> bi
+200 TYPE set to: I
+ftp> ^Z
+Stopped (user)
+mistral/ron % date 
+Wed Jan 11 11:50:03 MST 1995
+mistral/ron % fg
+ftp massive
+quote SITE PERS Y
+200 PERS set to: Y
+ftp> quote SITE RTPD 4095
+200 RTPD set to: 4095
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> quote SITE MDS 350
+200 MDS set to: 350
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> put 870rf28h.cdf RF28.cdf
+200 PORT command successful
+150 MS0074 Open data connection
+226 Transfer complete
+local: 870rf28h.cdf remote: RF28.cdf
+174250052 bytes sent in 1.6e+03 seconds (1e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+mistral/ron % date
+Wed Jan 11 12:30:45 MST 1995
+mistral/ron %
+
+RF33
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> ^Z
+Stopped (user)
+mistral/ron % date
+Wed Jan 25 10:59:58 MST 1995
+mistral/ron % fg
+ftp massive
+bi
+200 TYPE set to: I
+ftp> quote SITE PERS Y
+200 PERS set to: Y
+ftp> quote SITE RTPD 4095
+200 RTPD set to: 4095
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> quote SITE MDS 350
+200 MDS set to: 350
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> put 870rf33h.cdf RF33.cdf
+200 PORT command successful
+150 MS0859 Open data connection
+226 Transfer complete
+local: 870rf33h.cdf remote: RF33.cdf
+161915592 bytes sent in 1.3e+03 seconds (1.2e+02 Kbytes/s)
+ftp> ^Z
+Stopped (user)
+mistral/ron % date
+Wed Jan 25 11:40:07 MST 1995
+mistral/ron % fg
+
+
+RF34
+mistral/ron % ftp massive
+Connected to massive.
+220 MASSIVE (128.117.2.6) idle timeout 05 min 00 sec
+Name (massive:ron): ruth
+331 Please give your password
+Password:
+332 Please give your scientist/project number sssspppppppp
+Account:
+230 RUTH logged in
+ftp> bi
+200 TYPE set to: I
+ftp> quote SITE PERS Y
+200 PERS set to: Y
+ftp> ^Z
+Stopped (user)
+mistral/ron % date
+Wed Jan 25 15:38:55 MST 1995
+mistral/ron % fg
+ftp massive
+quote SITE RTPD 4095
+200 RTPD set to: 4095
+ftp> quote SITE WPW RAFDMG
+200 WPW set to: XXXX
+ftp> quote SITE MVN CTRAFDMG
+200 MVN set to: CTRAFDMG
+ftp> bell
+Bell mode on.
+ftp> quote SITE MDS 350
+200 MDS set to: 350
+ftp> cd /RAF/1994/870/HRT
+250 Changed directory
+ftp> lcd /home/local/staticdata
+Local directory now /home/local/staticdata
+ftp> put 870rf34h.cdf RF34.cdf
+200 PORT command successful
+150 MS0981 Open data connection
+226 Transfer complete
+local: 870rf34h.cdf remote: RF34.cdf
+179537896 bytes sent in 1.2e+03 seconds (1.4e+02 Kbytes/s)
+ftp> bye
+221 Goodbye
+mistral/ron % date
+Wed Jan 25 16:03:19 MST 1995
+mistral/ron % 

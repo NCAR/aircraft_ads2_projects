@@ -1,0 +1,478 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 4-818 Boreas (Don Lenshow, et al.)
+#
+#  File created by '/home/users/ron/nimbus/tools/genar' Revision 1 on Wed Mar 29 11:50:31 MST 1995
+#
+date
+#
+set YEAR = 1994
+set PROJ = 818
+#
+#  Do the work
+#
+set LDIR = "/home/local/proj/818/Production"
+#
+set  file="README"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+echo " Done."
+#
+exit
+#
+# ----------------- Completed stuff below -------------------------------------
+#
+set TURBRT = "ORIG/LRT"
+#
+nrnet msput $PROD_DATA/818RF05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF17.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF18.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF19.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF20.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF21.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF22.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF23.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF24.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF25.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF12H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF13H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF14H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF15H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF16H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF17H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF18H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF21H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Wed Mar 29 11:59:00 MST 1995
+# Sequence number = MI0503 -- ORIG/LRT/RF13.cdf -- OK
+# Sequence number = MI0510 -- ORIG/LRT/RF14.cdf -- OK
+# Sequence number = MI0517 -- ORIG/LRT/RF15.cdf -- OK
+# Sequence number = MI0524 -- ORIG/LRT/RF16.cdf -- OK
+# Sequence number = MI0531 -- ORIG/LRT/RF17.cdf -- OK
+# Sequence number = MI0538 -- ORIG/LRT/RF18.cdf -- OK
+# Sequence number = MI0545 -- ORIG/HRT/RF17.cdf -- OK
+#
+#
+set TURBRT = "LRT"
+#
+nrnet msput /home/tmp/campos/818RF13b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF14b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF15b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF16b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF17b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF18b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "HRT"
+#
+nrnet msput /home/tmp/campos/818RF17Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Wed Mar 29 12:31:33 MST 1995
+# Sequence number = MI1187 -- LRT/RF13.cdf -- OK
+# Sequence number = MI1194 -- LRT/RF14.cdf -- OK
+# Sequence number = MI1201 -- LRT/RF15.cdf -- OK
+# Sequence number = MI1208 -- LRT/RF16.cdf -- OK
+# Sequence number = MI1215 -- LRT/RF17.cdf -- OK
+# Sequence number = MI1222 -- LRT/RF18.cdf -- OK
+# Sequence number = MI1230 -- HRT/RF17.cdf -- OK
+#
+#
+set TURBRT = "ORIG/LRT"
+#
+nrnet msput $PROD_DATA/818RF08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF19.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF20.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF21.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF08H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF12H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF13H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF14H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF15H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF16H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF18H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "LRT"
+#
+nrnet msput /home/tmp/campos/818RF08b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF09b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/818RF11b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF12b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF19b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF20b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF21b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "HRT"
+#
+nrnet msput /home/data/818RF08Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF12Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF13Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF14Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF15Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF16Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF18Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Thu Mar 30 12:55:20 MST 1995
+# Sequence number = MI4492 -- ORIG/LRT/RF08.cdf -- OK
+# Sequence number = MI4499 -- ORIG/LRT/RF09.cdf -- OK
+# Sequence number = MI4506 -- ORIG/LRT/RF11.cdf -- OK
+# Sequence number = MI4516 -- ORIG/LRT/RF12.cdf -- OK
+# Sequence number = MI4524 -- ORIG/LRT/RF19.cdf -- OK
+# Sequence number = MI4535 -- ORIG/LRT/RF20.cdf -- OK
+# Sequence number = MI4547 -- ORIG/LRT/RF21.cdf -- OK
+# Sequence number = MI4563 -- ORIG/HRT/RF08.cdf -- OK
+# Sequence number = MI4573 -- ORIG/HRT/RF12.cdf -- OK
+# Sequence number = MI4581 -- ORIG/HRT/RF13.cdf -- OK
+# Sequence number = MI4588 -- ORIG/HRT/RF14.cdf -- OK
+# Sequence number = MI4596 -- ORIG/HRT/RF15.cdf -- OK
+# Sequence number = MI4603 -- ORIG/HRT/RF16.cdf -- OK
+# Sequence number = MI4611 -- ORIG/HRT/RF18.cdf -- OK
+# Sequence number = MI4619 -- LRT/RF08.cdf -- OK
+# Sequence number = MI4626 -- LRT/RF09.cdf -- OK
+# Sequence number = MI4633 -- LRT/RF11.cdf -- OK
+# Sequence number = MI4642 -- LRT/RF12.cdf -- OK
+# Sequence number = MI4649 -- LRT/RF19.cdf -- OK
+# Sequence number = MI4657 -- LRT/RF20.cdf -- OK
+# Sequence number = MI4664 -- LRT/RF21.cdf -- OK
+# Sequence number = MI4671 -- HRT/RF08.cdf -- OK
+# Sequence number = MI4678 -- HRT/RF12.cdf -- OK
+# Sequence number = MI4685 -- HRT/RF13.cdf -- OK
+# Sequence number = MI4692 -- HRT/RF14.cdf -- OK
+# Sequence number = MI4699 -- HRT/RF15.cdf -- OK
+# Sequence number = MI4706 -- HRT/RF16.cdf -- OK
+# Sequence number = MI4713 -- HRT/RF18.cdf -- OK
+#
+#
+set TURBRT = "LRT"
+#
+nrnet msput /home/data/818RF04b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF07b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF08b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF10b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF11b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF22b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF23b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF24b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF25b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "HRT"
+#
+nrnet msput /home/data/818RF07Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF08Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF09Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF10Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/818RF11Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF19Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF21Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/LRT"
+#
+nrnet msput $PROD_DATA/818RF04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF22.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF23.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF24.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF25.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF07H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF09H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF10H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF11H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF19H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF21H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Fri Mar 31 15:01:58 MST 1995
+# Sequence number = MI1518 -- LRT/RF04.cdf -- OK
+# Sequence number = MI1525 -- LRT/RF07.cdf -- OK
+# Sequence number = MI1532 -- LRT/RF08.cdf -- OK
+# Sequence number = MI1539 -- LRT/RF10.cdf -- OK
+# Sequence number = MI1546 -- LRT/RF11.cdf -- OK
+# Sequence number = MI1553 -- LRT/RF22.cdf -- OK
+# Sequence number = MI1560 -- LRT/RF23.cdf -- OK
+# Sequence number = MI1567 -- LRT/RF24.cdf -- Failed (permission denied)
+# Sequence number = MI1574 -- LRT/RF25.cdf -- OK
+# Sequence number = MI1581 -- HRT/RF07.cdf -- OK
+# Sequence number = MI1589 -- HRT/RF08.cdf -- OK
+# Sequence number = MI1601 -- HRT/RF09.cdf -- OK
+# Sequence number = MI1610 -- HRT/RF10.cdf -- OK
+# Sequence number = MI1620 -- HRT/RF11.cdf -- OK
+# Sequence number = MI1636 -- HRT/RF19.cdf -- OK
+# Sequence number = MI1643 -- HRT/RF21.cdf -- OK
+# Sequence number = MI1650 -- ORIG/LRT/RF04.cdf -- OK
+# Sequence number = MI1657 -- ORIG/LRT/RF07.cdf -- OK
+# Sequence number = MI1664 -- ORIG/LRT/RF10.cdf -- OK
+# Sequence number = MI1671 -- ORIG/LRT/RF22.cdf -- OK
+# Sequence number = MI1678 -- ORIG/LRT/RF23.cdf -- Failed (permission denied)
+# Sequence number = MI1685 -- ORIG/LRT/RF24.cdf -- Failed (permission denied)
+# Sequence number = MI1692 -- ORIG/LRT/RF25.cdf -- OK
+# Sequence number = MI1699 -- ORIG/HRT/RF07.cdf -- OK
+# Sequence number = MI1706 -- ORIG/HRT/RF09.cdf -- OK
+# Sequence number = MI1713 -- ORIG/HRT/RF10.cdf -- OK
+# Sequence number = MI1720 -- ORIG/HRT/RF11.cdf -- OK
+# Sequence number = MI1727 -- ORIG/HRT/RF19.cdf -- OK
+# Sequence number = MI1734 -- ORIG/HRT/RF21.cdf -- OK
+#
+#
+set TURBRT = "ORIG/LRT"
+#
+nrnet msput $PROD_DATA/818RF24.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF23.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "LRT"
+#
+nrnet msput /home/tmp/campos/818RF24b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Fri Mar 31 17:28:39 MST 1995
+# Sequence number = MI3294 -- ORIG/LRT/RF24.cdf -- OK
+# Sequence number = MI3301 -- ORIG/LRT/RF23.cdf -- OK
+# Sequence number = MI3308 -- LRT/RF24.cdf -- OK
+#
+#
+set TURBRT = "HRT"
+#
+nrnet msput /home/tmp/campos/818RF20Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF22Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF20H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF22H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Mon Apr  3 14:49:58 MDT 1995
+# Sequence number = MI0871 -- HRT/RF20.cdf -- OK
+# Sequence number = MI0878 -- HRT/RF22.cdf -- OK
+# Sequence number = MI0885 -- ORIG/HRT/RF20.cdf -- OK
+# Sequence number = MI0892 -- ORIG/HRT/RF22.cdf -- OK
+#
+#
+set TURBRT = "HRT"
+#
+nrnet msput /home/tmp/campos/818RF23Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/tmp/campos/818RF24Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF23H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF24H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Tue Apr  4 12:34:40 MDT 1995
+# Sequence number = MI6192 -- HRT/RF23.cdf -- OK
+# Sequence number = MI6199 -- HRT/RF24.cdf -- OK
+# Sequence number = MI6206 -- ORIG/HRT/RF23.cdf -- OK
+# Sequence number = MI6213 -- ORIG/HRT/RF24.cdf -- OK
+#
+#
+set TURBRT = "ORIG/LRT"
+#
+nrnet msput $PROD_DATA/818RF01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF01H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF03H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF25H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "LRT"
+#
+nrnet msput $DATA_DIR/818RF01b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $DATA_DIR/818RF03b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "HRT"
+#
+nrnet msput $DATA_DIR/818RF01Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $DATA_DIR/818RF03Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $DATA_DIR/818RF25Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Wed Apr  5 15:39:45 MDT 1995
+# Sequence number = MI5436 -- ORIG/LRT/RF01.cdf -- OK
+# Sequence number = MI5443 -- ORIG/LRT/RF03.cdf -- OK
+# Sequence number = MI5450 -- ORIG/HRT/RF01.cdf -- OK
+# Sequence number = MI5457 -- ORIG/HRT/RF03.cdf -- OK
+# Sequence number = MI5464 -- ORIG/HRT/RF25.cdf -- OK
+# Sequence number = MI5471 -- LRT/RF01.cdf -- OK
+# Sequence number = MI5479 -- LRT/RF03.cdf -- OK
+# Sequence number = MI5486 -- HRT/RF01.cdf -- OK
+# Sequence number = MI5496 -- HRT/RF03.cdf -- OK
+# Sequence number = MI5503 -- HRT/RF25.cdf -- OK
+#
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF02H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF04H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "HRT"
+#
+nrnet msput $DATA_DIR/818RF02Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $DATA_DIR/818RF04Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Thu Apr  6 10:45:13 MDT 1995
+# Sequence number = MI5501 -- ORIG/HRT/RF02.cdf -- OK
+# Sequence number = MI5510 -- ORIG/HRT/RF04.cdf -- OK
+# Sequence number = MI5524 -- HRT/RF02.cdf -- OK (except file sizes differed)
+# Sequence number = MI5532 -- HRT/RF04.cdf -- OK
+#
+#
+set TURBRT = "HRT"
+#
+nrnet msput $DATA_DIR/818RF02Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Thu Apr  6 12:39:57 MDT 1995
+# Sequence number = MI9987 -- HRT/RF02.cdf -- OK
+#
+#
+set TURBRT = "ORIG/LRT"
+#
+nrnet msput $PROD_DATA/818RF02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "LRT"
+#
+nrnet msput $DATA_DIR/818RF02b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $DATA_DIR/818RF05b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $DATA_DIR/818RF06b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "ORIG/HRT"
+#
+nrnet msput $PROD_DATA/818RF05H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/818RF06H.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "HRT"
+#
+nrnet msput $DATA_DIR/818RF05Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $DATA_DIR/818RF06Hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Fri Apr  7 11:18:16 MDT 1995
+# Sequence number = MI8576 -- ORIG/LRT/RF02.cdf -- OK
+# Sequence number = MI8583 -- ORIG/LRT/RF05.cdf -- OK
+# Sequence number = MI8590 -- ORIG/LRT/RF06.cdf -- OK
+# Sequence number = MI8597 -- LRT/RF02.cdf -- OK
+# Sequence number = MI8604 -- LRT/RF05.cdf -- OK
+# Sequence number = MI8612 -- LRT/RF06.cdf -- OK
+# Sequence number = MI8622 -- ORIG/HRT/RF05.cdf -- OK
+# Sequence number = MI8638 -- ORIG/HRT/RF06.cdf -- OK
+# Sequence number = MI8649 -- HRT/RF05.cdf -- OK
+# Sequence number = MI8660 -- HRT/RF06.cdf -- OK
+#
+#
+#  Addendum to archive the NIMBUS support files
+#      RLR  27 April 1995
+#
+#  Templates:
+#
+#set  file=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file=""
+#set ofile=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$ofile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set LDIR = "/home/local/proj/818/Production"
+#
+set  file="818.tar"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="818.tar.dir"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="tarit.818.tar"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="nimbus.tar"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="nimbus.tar.dir"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="tarit.nimbus.tar"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="CO2skel.tar"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="CO2skel.tar.dir"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="MSCP_out.818"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="Mail.818"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="taplog.818"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="tp2ms.summary"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "LRT"
+#
+set  file="Production.log"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="818RF06.hdr"
+set ofile="RF06.hdr"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ofile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = "HRT"
+#
+set  file="Production.log.hrt"
+set ofile="Production.log"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ofile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="818RF06H.hdr"
+set ofile="RF06.hdr"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ofile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Thu Apr 27 16:56:04 MDT 1995
+# Sequence number = MI6341 -- 818.tar -- OK
+# Sequence number = MI6348 -- 818.tar.dir -- OK
+# Sequence number = MI6355 -- tarit.818.tar -- OK
+# Sequence number = MI6362 -- nimbus.tar -- OK
+# Sequence number = MI6369 -- nimbus.tar.dir -- OK
+# Sequence number = MI6376 -- tarit.nimbus.tar -- OK
+# Sequence number = MI6383 -- CO2skel.tar -- OK
+# Sequence number = MI6390 -- CO2skel.tar.dir -- OK
+# Sequence number = MI6397 -- MSCP_out.818 -- OK
+# Sequence number = MI6404 -- Mail.818 -- OK
+# Sequence number = MI6411 -- taplog.818 -- OK
+# Sequence number = MI6418 -- tp2ms.summary -- OK
+# Sequence number = MI6425 -- LRT/Production.log -- OK
+# Sequence number = MI6432 -- LRT/RF06.hdr -- OK
+# Sequence number = MI6439 -- HRT/Production.log -- OK
+# Sequence number = MI6446 -- HRT/RF06.hdr -- OK
+#
+#
+#  Job(s) submitted on Fri May  5 17:18:53 MDT 1995
+# Sequence number = MI8930 -- Failed:  RCP Error Messages:
+#                                      rcp: unknown user 150.
+#  (Mail from ron@raf.atd.ucar.edu, not ron@chinook.atd.ucar.edu
+#                                    or ron@mistral.atd.ucar.edu
+#
+#  Job(s) submitted on Fri Jun  9 11:37:53 MDT 1995
+# Sequence number = MI0919 -- README -- OK @ 11:38:16
+#

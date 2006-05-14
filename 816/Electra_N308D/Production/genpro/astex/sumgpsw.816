@@ -1,0 +1,19 @@
+Summary of processing information for GPS/wet-wind corrections
+Turbulence rate:  HRT      Project:  2-816 ASTEX
+Source bitfile MSS path name:  /RAF/1992/816/OLDHRT
+Destination bitfile MSS path name:  /RAF/1992/816/HRTW
+Rename bitfile MSS path name:  /RAF/1993/816/OLDERHRT
+Do the GPS corrections (yes or no)?
+   GPSCORR = yes
+Do the "wet-wind" corrections (yes or no)?
+   WETWIND = no
+Send output to MSS (yes or no)?
+   OUT2MSS = yes
+Rename GPS-uncorrected GENPRO output files (yes or no)?
+   RENAME = no
+-----------------------------------------------------------------------
+           Date      Start      Stop      
+ fltno   mm/dd/yy    Time       Time       bitfile(s)
+-----------------------------------------------------------------------
+ RF15A   06/22/92   10:32:25   11:30:00    RF15A
+ RF15B   06/22/92   11:15:00   16:22:14    RF15B

@@ -1,0 +1,187 @@
+From opns@niwot.scd.ucar.EDU Tue Dec 14 21:41:03 1993
+Received: from niwot.scd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA00577; Tue, 14 Dec 93 21:41:02 MST
+Date: Tue, 14 Dec 93 21:41:02 MST
+From: opns@niwot.scd.ucar.EDU (operations)
+Message-Id: <9312150441.AA17741@niwot.scd.ucar.EDU>
+Received: by niwot.scd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA17741; Tue, 14 Dec 93 21:41:02 MST
+To: ron@chinook.atd.ucar.edu
+Subject: R747
+Status: RO
+
+Hi Ron,  Not sure I'm sending this to the correct address BUT RAP import job
+using R747 failed last night (12/14).  The drives just lost their wits and had
+to be restarted.  Your job was lost - tape is AOK.  Please resubmit.  THANKS,
+Suzy X1200
+
+From ron Thu Jan 27 11:06:51 1994
+Subject: Brief NIMBUS Production Processing Procedures
+To: bruce (Bruce Morley), paul (Paul Spyers-Duran)
+Date: Thu, 27 Jan 1994 11:06:51 -0700 (MST)
+Cc: dick (Dick Friesen), allen (Allen Schanot), chris (Chris Webster)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3926      
+Status: RO
+
+Paul & Bruce,
+
+In the interim, while we are feeling our way through production processing
+using NIMBUS, I thought I'd give you a brief set of steps which you can
+use as a guideline for your processing.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+         Quick Overview of NIMBUS Production Processing Procedures
+         ---------------------------------------------------------
+                           Ronald L. Ruth
+                            January 1994
+
+  Note:  Production processing is a separate entity with an unique
+          procedure.  Do not confuse it with ordinary uses of NIMBUS.
+
+ 1)  Archive the Master raw ADS data tapes to the SCD Mass Store System (MSS).
+      Make sure this is done first.  (See RAF Data Manager for assistance.)
+ 2)  Peruse the entire project's data using quick-look tools.  Identify all
+      changes that are needed for production (final) processing.
+   a)  Use whatever tools you want, including WINDS, NIMBUS, PV-Wave,
+        MATLAB, Xanadu, DAP, etc.
+   b)  Note instrument anomalies, failures, etc.
+   c)  List equipment changes made during the project.
+   d)  Make a list of changes needed for production.  Examples include:
+        calibration changes, reference variable substitutions.
+   e)  If possible, create groups of flights which all need the same setup and
+        whose processing will be identical.  (A group consists of two or more
+        flights.)
+   f)  If you use NIMBUS during this time, you may want to save "setups" in
+        your own processing directory.  (List the setup files you may want to
+        recall for production processing.)
+ 3)  Completely summarize all the information needed for production processing,
+      put it in a Project Production Setup document and send a copy to the RAF
+      Data Manager.  (Include project's instrumentation list and ADS setup
+      table.)
+ 4)  Set up NIMBUS for LRT (low-rate turbulence) production processing (no
+      matter what the final output type will be).
+   a)  Login as user `nimbus.'  See Chris Webster or the RAF Data Manager if
+        you need the password.
+   b)  Use the project summary (from 3) to set up the NIMBUS processor with
+        help from Chris's "cheat sheet."
+   c)  You may have to add and/or change extended definitions in the
+        variable dictionary (using vared).
+ 5)  Make one production run using a representative flight.
+   a)  Make sure all the required variables are output to the netCDF file
+        (use `ncdump -h <file>').
+   a)  Review output data using WINDS or other available tools.
+   b)  Note changes that are needed, and rerun, if necessary.
+   c)  Repeat using one example from each group.
+ 6)  When all is ready for production, check available disk space to make
+      sure that room exists for the processed data.  (You may have to do
+      production runs in pieces, and archive them before continuing.  Also,
+      other project processing may compete for the available disk space and
+      may require negotiation with other users.)
+ 7)  Use NIMBUS to process each flight.
+ 8)  Thoroughly peruse the output from each production run, looking for errors 
+      and things overlooked in setup.
+ 9)  When all flights have been processed to your satisfaction, have the
+      RAF Data Manager archive the output files to the MSS.
+10)  If HRT (high-rate turbulence) processing is required, repeat steps 6), 7)
+      and 9) after selecting the `high-rate' button in the NIMBUS processor
+      window.
+11)  Check a representative sample of HRT processing using appropriate tools.
+      (This may include spectrum analysis.)
+12)  Repeat 9) for the HRT data.
+13)  Prepare final documentation binder for shipment to Principal
+      Investigator(s).
+14)  Determine type of output product(s) needed by PI(s) and schedule RDP
+      to copy and ship the output data.  (See RAF Data Manager for
+      instructions.)
+-- 
+Ron
+
+From ron Tue Feb  1 15:22:34 1994
+Subject: 888 Processing setup
+To: bruce (Bruce Morley)
+Date: Tue, 1 Feb 1994 15:22:34 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 761       
+Status: RO
+
+Bruce,
+ 
+Sorry I got the project number wrong in the "Subject" of my first mailing.
+
+I checked the 888 header for consistency with other data you included in your
+processing memo.  the only discrepancy I found was with DPB:
+            Post-cal  Nimbus
+   Coef #0   0.3448   0.3488
+Since this is the "constant" term, the error is negligible, but I suppose it
+would be good if they agreed.
+ 
+I compared the 886 header with what you've set up.  886 had DEI, DNI and
+DVALUE, all of which are not necessary.  It also had ATTACK and SSLIP which
+I would include only to complete the dependency tree.
+
+So, in summary, I'd recommend the following before going into production:
+  1)  Change DPB Coef #0 to 0.3448
+  2)  Add ATTACK and SSLIP to the output list.
+
+-- 
+Ron
+
+From ron Wed Mar  2 10:25:44 1994
+Subject: 4-888 ALOHA-94
+To: bruce (Bruce Morley)
+Date: Wed, 2 Mar 1994 10:25:44 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 625       
+Status: RO
+
+Bruce,
+
+I have finished archiving to the SCD Mass Store System (MSS) the data and
+support files for 4-888 ALOHA-94.
+
+Have you any need for the netCDF files on /home/local/staticdata?
+
+Also, should I have that data copied to tape and sent to the P.I.?  If so,
+please give me all pertinent details:
+  1.  name, email address and phone# of P.I. (Chet Gardner?);
+  2.  name, email address and phone# of person to recieve shipment
+   (if different from P.I.);
+  3.  UPS/USPS shipping address;
+  4.  tape type (1/2" 9-track, ExaByte);
+  5.  media density (800, 1600, 6250 or low, high).
+
+Are there any other recpipients?
+
+-- 
+Ron
+
+From ron Thu Apr 14 16:01:44 1994
+Subject: Re: Swenson's GPS data
+To: bruce@chinook.atd.ucar.edu (Bruce Morley)
+Date: Thu, 14 Apr 1994 16:01:44 -0600 (MDT)
+In-Reply-To: <9404142157.AA22701@chinook.atd.ucar.EDU> from "Bruce Morley" at Apr 14, 94 03:57:34 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 104       
+Status: RO
+
+Bruce,
+
+Thanks.  I'll archive that file to the MSS and pass the data along to
+Yiyun Gu at UI.
+
+-- 
+Ron
+

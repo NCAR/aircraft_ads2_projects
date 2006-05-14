@@ -1,0 +1,139 @@
+!
+! Resource file for Nimbus
+!
+!	Some Generics
+!
+skel*defaultFontList:		-adobe-courier-bold-r-*-*-14-140-75-75-*-*-*-*
+skel*XmPushButtonGadget.height:			32
+skel*XmTextField.background:			Burlywood
+skel*XmTextField.foreground:			black
+skel*buttonFrame.shadowType:			SHADOW_IN
+skel*buttonRC.XmPushButtonGadget.recomputeSize:	False
+skel*buttonRC.XmPushButtonGadget.width:		130
+skel*buttonRC.entryAlignment:			ALIGNMENT_CENTER
+skel*buttonRC.isAligned:			True
+skel*buttonRC.orientation:			HORIZONTAL
+!
+!	Defaults for First window to appear.
+!
+skel*topLevelShell.x:				75
+skel*topLevelShell.y:				75
+skel*topLevelShell.title:			Nimbus Skeleton
+skel*topLevelShell.iconName:			Skeleton
+skel*topLevelForm.horizontalSpacing:		8
+skel*topLevelForm.verticalSpacing:		8
+skel*topLevelForm.resizePolicy:			RESIZE_GROW
+skel*topLevelForm*buttonRC.spacing:		244
+skel*quitButton.labelString:			Quit
+skel*quitButton.traversalOn:			False
+skel*proceedButton.labelString:			Proceed
+skel*proceedButton.traversalOn:			False
+skel*fileNameRC.orientation:			VERTICAL
+skel*fileNameRC.rowColumnType:			WORK_AREA
+skel*fileNameRC*XmForm.horizontalSpacing:	5
+skel*fileNameRC*XmTextField.columns:		40
+skel*fileNameRC*XmTextField.maxLength:		256
+skel*fileNameRC*XmLabelGadget.alignment:	ALIGNMENT_END
+skel*FNlabel0.labelString:			Input file:
+skel*FNlabel1.labelString:			Output file:
+skel*inputFileText.value:			/home/local/staticdata/
+skel*outputFileText.value:			/home/local/staticdata/
+!
+!	Setup Window resources (2nd window to appear).
+!
+skel*setupShell.x:				240
+skel*setupShell.y:				100
+skel*setupForm.horizontalSpacing:		8
+skel*setupForm.verticalSpacing:			8
+skel*setupForm.resizePolicy:			RESIZE_GROW
+skel*menuBar*setupPD_CB.labelString:		Setup
+skel*menuBar*setupPD_CB.mnemonic:		S
+skel*menuBar*editPD_CB.labelString:		Edit
+skel*menuBar*editPD_CB.mnemonic:		E
+skel*menuBar*cancelSetupButton.labelString:	Cancel
+skel*menuBar*cancelSetupButton.mnemonic:	C
+skel*menuBar*cancelSetupButton.accelerator:	Ctrl<Key>Q
+skel*menuBar*cancelSetupButton.acceleratorText:	Ctrl-Q
+skel*menuBar*editTimeSlices.labelString:	Time Slices
+skel*menuBar*editTimeSlices.mnemonic:		T
+skel*menuBar*editTimeSlices.accelerator:	Ctrl<Key>T
+skel*menuBar*editTimeSlices.acceleratorText:	Ctrl-T
+skel*menuBar*toggleOutput.labelString:		Toggle Output
+skel*menuBar*toggleOutput.mnemonic:		O
+skel*menuBar*toggleOutput.accelerator:		Ctrl<Key>O
+skel*menuBar*toggleOutput.acceleratorText:	Ctrl-O
+skel*goButton.height:				37
+skel*goButton.labelString:			Go
+skel*goButton.recomputeSize:			False
+skel*goButton.width:				120
+skel*timeDisplayText.background:		black
+skel*timeDisplayText.columns:			9
+skel*timeDisplayText.cursorPositionVisible:	False
+skel*timeDisplayText.editable:			False
+skel*timeDisplayText.foreground:		red
+skel*timeDisplayText.maxLength:			10
+skel*timeDisplayText.value:			00:00:00
+skel*timeDisplayText.x:				550
+skel*timeDisplayText.y:				10
+skel*listRC.resizeWidth:			False
+skel*listRC.width:				350
+skel*listTitle.alignment:			ALIGNMENT_BEGINNING
+skel*varList.background:			black
+skel*varList.foreground:			green
+skel*varList.listSizePolicy:			CONSTANT
+skel*varList.selectionPolicy:			EXTENDED_SELECT
+skel*varList.scrollBarDisplayPolicy:		STATIC
+skel*varList.visibleItemCount:			25
+skel*logText.background:			Gray
+skel*logText.editable:				FALSE
+skel*logText.editMode:				MULTI_LINE_EDIT
+skel*logText.rows:				3
+skel*logText.scrollHorizontal:			TRUE
+skel*logText.scrollVertical:			TRUE
+!
+!	Time Slice Window
+!
+skel*timeSliceShell.x:				75
+skel*timeSliceShell.y:				300
+skel*timeSliceRC.numColumns:			2
+skel*timeSliceRC.packing:			PACK_COLUMN
+skel*timeSliceRC.XmTextField.columns:		9
+skel*timeSliceRC.XmTextField.maxLength:		8
+skel*timeSliceRC.XmTextField.traversalOn:	True
+!
+!	Pause Window
+!
+skel*pauseForm.defaultPosition:			FALSE
+skel*pauseForm.x:				525
+skel*pauseForm.y:				225
+skel*pauseForm.horizontalSpacing:		8
+skel*pauseForm.verticalSpacing:			8
+skel*pauseForm.resizePolicy:			RESIZE_GROW
+skel*pauseForm.XmPushButtonGadget.width:	130
+skel*pauseForm*pauseStop.labelString:		Stop
+skel*pauseForm*pauseCont.labelString:		Continue
+skel*pauseForm*pauseXTV.labelString:		View ADS
+!
+!	Dialog Boxes
+!
+skel*fileBox.defaultPosition:			FALSE
+skel*fileBox.x:					130
+skel*fileBox.y:					200
+skel*fileBox*textColumns:			50
+skel*fileBox*dialogTitle:			Select a File
+skel*errorBox.defaultPosition:			FALSE
+skel*errorBox.x:				450
+skel*errorBox.y:				100
+skel*errorBox*background:			DarkSlateGray
+skel*errorBox*dialogTitle:			Error Message
+skel*errorBox*foreground:			Red
+skel*errorBox*XmLabel.alignment:		ALIGNMENT_CENTER
+skel*queryBox*dialogTitle:			Need input
+skel*queryBox*alignment:			ALIGNMENT_CENTER
+skel*warnBox.defaultPosition:			FALSE
+skel*warnBox.x:					450
+skel*warnBox.y:					100
+skel*warnBox*background:			DarkSlateGray
+skel*warnBox*dialogTitle:			Warning Message
+skel*warnBox*foreground:			Yellow
+skel*warnBox*XmLabel.alignment:			ALIGNMENT_CENTER

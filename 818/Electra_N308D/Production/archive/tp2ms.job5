@@ -1,0 +1,53 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes to SCD Mass Store System
+#    for project:  1994-818 Boreas (Lenschow, et al.)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 818
+#set STAGE = "nrec=13000"
+#set STAGE = "skpr=13000 nrec=13000"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+#
+#  Third set, fifth try (mop up)
+set STAGE = "nfile=1"
+set TAPELIST = ( R0858 R0862 )
+set FLIGHTS =  ( FF09  RF19  )
+#
+#  Jobs submitted on Fri Sep 23 17:26:07 MDT 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1165 -- Failed after two-day delay without error message
+# Sequence number = CK1174 -- Failed after two-day delay without error message
+#
+#  Jobs submitted on Mon Sep 26 09:23:55 MDT 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK2432 -- Failed after two-day delay without error message
+# Sequence number = CK2437 -- Failed after two-day delay without error message
+#
+#
+#  Get started:
+echo `date`
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+#   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+#
+# done.
+exit

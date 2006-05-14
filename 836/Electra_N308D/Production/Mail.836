@@ -1,0 +1,109 @@
+From ron Wed Jan 12 10:24:08 1994
+Subject: KOFSE data
+To: edmands (Todd Edmands)
+Date: Wed, 12 Jan 1994 10:24:08 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 4059      
+Status: RO
+
+Todd,
+
+When Brenda gave me ASTEX Lidar tapes to stage to the SCE Mass Store System
+(MSS), included in the boxes were some KOFSE NAILS (Lidar) tapes.  (I'm not
+sure that all of them were Lidar.)
+
+At any rate, I took them to the Mesa Lab and put them into the machine
+room so we can stage them to the MSS if we want.  One tape had no number
+per se, just a hand-written Raaaa.
+
+The file below is one I made up to document the raw KOFSE data you took up to
+the Mesa Lab.  I added the NAILS data to it yesterday.  By comparing this file
+to the data extant on the MSS, I find some flight data missing.  We need to
+locate the missing tapes.  Would you please track down a complete list of the
+raw KOFSE data (including the NAILS Lidar data)?  (I would hope that Julie or
+Darrel have one.)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+chinook:/home/local/proj/836/Production/stage/tapes.836
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+1-836 Kuwait Data Archive (KuDA) Raw ADS Tape Summary       RLR  940104
+
+Tape            Date        Start       End      File Size
+ no.   fltno  mm/dd/yyyy     Time       Time      (Mbytes)    Comments
+-----  -----  ----------   --------   --------   ----------   -----------------
+R0024  RF01D  05/19/1991     
+R0128  RF02A  05/20/1991
+R0129  RF02B  05/20/1991
+R0130  RF03A  05/21/1991
+R0216  RF03B  05/21/1991
+R0249  RF03C  05/21/1991
+R0248  RF03D  05/21/1991
+R0135  RF04A  05/22/1991
+R0219  RF06   05/26/1991
+R0224  RF09A  05/29/1991
+R0226  RF10A  05/30/1991
+R0228  RF11A  05/31/1991
+R0229  RF11B  05/31/1991
+R0230  RF11C  05/31/1991
+R0231  RF11D  05/31/1991
+R0232  RF12   06/01/1991
+R0233  RF13A  06/02/1991
+R0234  RF13B  06/02/1991
+R0357  RF15A  06/04/1991
+R0358  RF15B  06/04/1991
+R0359  RF15C  06/04/1991
+R0250  RF16   06/04/1991
+
+R0118  RF02   05/20/1991                                      NAILS data
+R0119  RF04   05/22/1991                                      NAILS data
+R0120  RF05A  05/25/1991                                      NAILS ground test
+R0121  RF05B  05/25/1991                                      NAILS data
+R0253  RF06   05/26/1991                                      NAILS data
+R0254  RF07   05/27/1991                                      NAILS data
+R0255  RF08   05/28/1991                                      NAILS data
+R0251  RF09   05/29/1991                                      NAILS data
+Raaaa  RF10   05/30/1991                                      NAILS data
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Below is the current listing of KOFSE files on the Mass Store.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+chinook:/home/local/genpro/mss/msfiles/msls.836
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+/RAF/1991/836 as of 01/12/94 09:56:31
+08/06/93 -W--  87041280 RF01A/R0207
+06/26/91 -W--  21527040 RF01B/R0208
+06/27/91 -W--   1307520 RF01C/R0209
+01/07/94 -WD-   9507840 RF01D/R0024
+06/27/91 -W--  25503360 RF01E/R0211
+01/07/94 -W-S 129703680 RF02A/R0128
+01/07/94 -WD-  16519680 RF02B/R0129
+06/27/91 -W--  10540800 RF02C/R0214
+01/07/94 -WD-  10197120 RF03A/R0130
+01/07/94 -W-S  80561280 RF03D/R0248
+01/07/94 -W-S  33421440 RF04A/R0135
+06/27/91 -W-- 107573760 RF04B/R0218
+06/26/91 -W--  10978560 RF07A/R0220
+06/26/91 -W--  13326720 RF07B/R0221
+06/26/91 -W-- 123663360 RF07C/R0222
+06/27/91 -W-- 164699520 RF08/R0223
+06/27/91 -W--  40558080 RF09B/R0225
+01/10/94 -W-S 162789120 RF10A/R0226
+06/27/91 -W--  16456320 RF10B/R0227
+01/10/94 -W-S  39150720 RF11B/R0229
+01/10/94 -W-S  91267200 RF11C/R0230
+01/07/94 -WD-   9571200 RF11D/R0231
+01/10/94 -W-S  86883840 RF13A/R0233
+01/10/94 -W-S  74363520 RF13B/R0234
+06/27/91 -W--  13390080 RF13C/R0235
+06/27/91 -W--  15957120 RF14A/R0236
+06/27/91 -W-- 156247680 RF14B/R0247
+01/10/94 -W-S  74676480 RF15A/R0357
+01/07/94 -WD-  11041920 RF15C/R0359
+01/07/94 -W-S  55551360 RF16/R0250
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+

@@ -1,0 +1,25 @@
+to do list to divide this project into its component parts:  LakeIce/SNOWBAND
+
++ create a common README file which explains all this stuff and which will
+   be archived to both 812 and 813
++ retrieve HRT/RF01 and save its header to 812rf01h.hdr for archiving
++ retrieve LRT/RF03 and save its header to 813rf03.hdr for archiving
++ archive new file to 812
+    + README
++ rearchive some files to 812
+    + taplog.812
+    + LRT 812rf01.hdr --> /RAF/1998/812/LRT/RF01.hdr
+    + HRT 812rf01h.hdr --> /RAF/1998/812/HRT/RF01.hdr
++ archive some common (and new) files to 813
+    + README
+    + taplog.813
+    + 813rf03.hdr --> /RAF/1998/813/LRT/RF03.hdr
+    + /RAF/1998/812/LRT/RF13.cdf --> /RAF/1998/813/LRT/RF13.cdf
++ move (rename) the SNOWBAND LRT production netCDF bitfiles to 813
+    + RF03.cdf
+    + RF04.cdf
+    + RF06.cdf
+    + RF11.cdf
+    + RF12.cdf
+-------
+Ronald L. Ruth  20 July 1998

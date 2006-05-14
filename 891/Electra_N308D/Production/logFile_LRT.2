@@ -1,0 +1,85 @@
+FASTEX - 891, Flight #2
+DIFF1 has no description or units.
+DIFF2 has no description or units.
+RATIO has no description or units.
+Processed on: May 14 21:04 UTC 1997
+Flight Date: 01/12/1997
+Despiking enabled.
+Time interval(s) completed : 12:47:00-19:41:51
+SDWC1: 11 spikes removed with slope exceeding 2500.000000
+SDWP1: 51 spikes removed with slope exceeding 2000.000000
+TEP: 561 spikes removed with slope exceeding 10.000000
+TET: 1736 spikes removed with slope exceeding 0.250000
+Processing took 6.0 minutes.
+
+-----------------------------
+Supplemental Processing Notes
+-----------------------------
+mistral:/home/data 34% nimbus
+adsIO: RAW_ADS
+DIFF1 has no description or units.
+DIFF2 has no description or units.
+RATIO has no description or units.
+
+Loading setup file: /home/local/proj/891/Production/Flight_2
+Loading setup file: /home/local/proj/891/891o3fix_1t47.nimbus
+Despiking enabled.
+Time interval(s) completed : 12:47:00-19:41:51
+TEP: 561 spikes removed with slope exceeding 10.000000
+TET: 1735 spikes removed with slope exceeding 0.250000
+Processing took 1.2 minutes.
+
+mistral:/home/productiondata 79% ncmerge -v TEO3,TEO3C 891rf02.cdf /home/data/891rf02o3.cdf
+Variable TEO3 exists in primary file, it will be overwritten.
+Variable TEO3C exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/net/alpdream/data 104% cutc
+ 
+ 
+Enter netCDF file name: (without an extension)
+/home/productiondata/891rf02
+ 
+ 
+Enter variable name: TEO3C
+ 
+ 
+Enter time you want to cut (first start then end time)
+ 
+start:
+hour: 12
+minute (enter, if zero): 47
+ssecond (enter, if zero): 0
+ 
+end:
+hour: 13
+minute (enter, if zero): 10
+esecond (enter, if zero): 0
+Are you sure that you want to cut in /home/productiondata/891rf02.cdf parameter TEO3C
+from 12:47:0 to 13:10:0 ? (enter for yes) :
+ 
+Reading data...
+ 
+nstart : 0 , nend : 1380
+Do you want to cut another time period of same parameter (enter for yes) : 
+ 
+ 
+Enter time you want to cut (first start then end time)
+ 
+start:
+hour: 14
+minute (enter, if zero): 35
+ssecond (enter, if zero): 0
+ 
+end:
+hour: 19
+minute (enter, if zero): 41
+esecond (enter, if zero): 51
+Are you sure that you want to cut in /home/productiondata/891rf02.cdf parameter TEO3C
+from 14:35:0 to 19:41:51 ? (enter for yes) :
+ 
+nstart : 6480 , nend : 24891
+Do you want to cut another time period of same parameter (enter for yes) : no
+ 
+Writing data...
+

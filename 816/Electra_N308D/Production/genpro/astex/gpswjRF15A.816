@@ -1,0 +1,400 @@
+# QSUB -eo
+# q-class (premium-prem, regular-reg, economy-econ)
+# QSUB -q prem
+# use c-shell
+# QSUB -s /bin/csh
+# set time limit
+# QSUB -lt 600
+# QSUB -lT 750
+# set memory limit
+# QSUB -lM 1Mw
+#
+#  Script to run a GPS-correction job on a GENPRO data set and
+#    perform a "wet-wind" correction at the same time, if desired
+#
+#    Revision  RLR  931111
+#
+#    Revised to make it general and be backward compatible
+#     with the previous version (o2gpswcxx)                   11 November 1993
+#    Special version to work with GENPRO bitfiles from
+#     the Mass Store and write new output bitfile names
+#     Originally developed to fix the 3-817 TOGA-COARE data   15 September 1993
+#    Converted by Ron Ruth to a script to be manually-
+#     edited for each job (also adds output-file naming
+#     flexibility and source-file rename)                      24 May 1993
+#    Revised by Ron Ruth to read multiple (split) input
+#     data sets and merge them together before doing the
+#     corrections (includes splitting it up, if necessary
+#     on output)                                           20 October 1992
+#    Extensively revised by Ron Ruth to make it general and 
+#     to add error checking                                  21 April 1992
+#    Written by Dick Oye                                      ~ April 1992
+#
+#  Previous revision date (for backward compatiblilty)
+set REVISION = "931006"
+#
+#
+#  Merge specific flight's include file here.
+#
+#   Set GENPRO environment for Cray RF15A job
+set ACCT = 41113308
+set USER = ron
+set HOST = music
+set DOMAIN = atd.ucar.edu
+set SOURCE = /home/local/genpro/projects/astex
+set DSOURCE = /home/local/genpro/Cray/mcopy
+set MSOURCE = /home/local/genpro/Cray/merget
+set REVISION = 931111
+set MSSsource = /RAF/1992/816/OLDHRT
+set MSSdest = /RAF/1992/816/HRTW
+set MSSren = /RAF/1993/817/OLDERHRT
+set COMPILE = yes
+set DENSITY = 6250
+set LENGTH = 2400
+set PROJECT = 816
+set FLTNO = RF15
+set SEG = A
+set MULTMSS = no
+set TAPESEG = ( RF15A )
+set MSSMAXSZ = 195000000
+set GDAT = datgc.816
+set GPSCORR = yes
+set OUT2MSS = yes
+set RENAME = no
+#
+#  End of flight-specific data
+#
+# set following to "yes" only if new mergeg.f source code is to be compiled.
+set COMPILEG = "no"
+# set following to "yes" only if new mcopy.f source code is to be compiled.
+set COMPILE = "no"
+set DENSITY = 6250
+set LENGTH = 2400
+set MSSMAXSZ = 195000000
+#
+set MSSPATH = /RAF/GPSCORR
+#
+#  Change to $TMPDIR
+cd $TMPDIR
+#
+# Set account number for processing
+newacct $ACCT
+#
+# Start up the job account process
+ja jacct
+#
+# Set flight specification
+set FLIGHT = $FLTNO$SEG
+#
+echo Log file for GPS correction, project $PROJECT, flight $FLIGHT >! outlog
+#
+# Get the input-control-string file as "input.txt"
+rcp $USER@$HOST.$DOMAIN":"$SOURCE/$GDAT input.txt
+#
+#  Do I need to merge data?
+if ($MULTMSS == "no") then
+#   No.  Get single bitfile.
+  msread -f TR INPUT $MSSsource/$TAPESEG
+  set result = $status
+  if ($result != 0) then
+    echo Error $result acquiring $MSSsource/$TAPESEG data from MSS >> outlog
+    goto done
+  endif
+else
+#   Yes.  Get multiple bitfiles and merge them together.
+#
+#   Prepare data file for merge program.
+  echo INPUT >! tdata
+  foreach TAPE ($TAPESEG)
+    echo $MSSsource/$TAPE >> tdata
+  end
+  echo "ENDTAP" >> tdata
+#  Get tape merge program.
+  cp ~ruth/mergeg.exe .
+  set result = $status
+  if ($result != 0) then
+    echo "Could not retrieve mergeg.exe from ~ruth, try MSS" >> outlog
+    msread mergeg.exe /RAF/GENPRO/MERGE/MERGEG.EXE
+    set result = $status
+    if ($result != 0) then
+      echo "Could not retrieve mergeg.exe from MSS" >> outlog
+#  No executable on MSS, so get executable from $HOST, if possible.
+      rcp $USER@$HOST.$DOMAIN":"$MSOURCE/mergeg.exe mergeg.exe
+      set result = $status
+      if ($result != 0) then
+        echo "Error $result acquiring mergeg.exe from $HOST" >> outlog
+#  Get source code (temporarily).
+        set COMPILEG = "yes"
+        rcp $USER@$HOST.$DOMAIN":"$MSOURCE/mergeg.f mergeg.f
+        set result = $status
+        if ($result != 0) then
+          echo "Error $result acquiring mergeg.f from $HOST" >> outlog
+          goto done
+        endif
+#  Compile source code.
+#        cft7740 -i 64 -a static mergeg.f
+        cft77 -i 64 -a static mergeg.f
+        set result = $status
+        if ($result != 0) then
+          echo "Error $result compiling mergeg.f" >> outlog
+          goto done
+        endif
+#  Load it up.
+        segldr -o mergeg.exe mergeg.o  \
+             -L /lib,/usr/lib,/usr/local/lib \
+             -l ncaro,net
+#             -l ncarg,ncarg_gks,ncarg_loc,ncaro,net,ncaru
+        set result = $status
+        if ($result != 0) then
+          echo "Error $result running segldr on mergeg.o" >> outlog
+          goto done
+        endif
+      endif
+    endif
+  endif
+#   Let user know we are merging input data.
+  echo ' tdata file used for merge program:' >> outlog
+  cat tdata >> outlog
+  echo " " >> outlog
+  chmod +x mergeg.exe
+  echo 'pshell mergeg.exe < tdata' >> outlog
+#   Merge input data (MSS bitfiles) (output to file:  fort.11).
+  pshell mergeg.exe < tdata >> outlog
+  set result = $status
+  if ($result != 0) then
+    echo "Error $result running mergeg.exe" >> outlog
+    goto done
+  else
+#  Save new version on MSS for next time.
+    if ($COMPILEG == "yes") then
+      mswrite -t4095 -vCTRAFDMG -wRAFDMG mergeg.exe /RAF/GENPRO/MERGE/MERGEG.EXE
+      set result = $status
+      if ($result != 0) then
+        echo "Error $result saving MERGEG.EXE to MSS" >> outlog
+      else
+        echo "Saved file /RAF/GENPRO/MERGE/MERGEG.EXE to MSS" >> outlog
+      endif
+      mswrite -t4095 -vCTRAFDMG -wRAFDMG mergeg.f /RAF/GENPRO/MERGE/MERGEG.F
+      set result = $status
+      if ($result != 0) then
+        echo "Error $result saving MERGEG.F to MSS" >> outlog
+      else
+        echo "Saved file /RAF/GENPRO/MERGE/MERGEG.F to MSS" >> outlog
+      endif
+    endif
+  endif
+endif
+#
+#  Get the executable to do GPS correction
+cp ~/fix_winds.exe .
+set result = $status
+if ($result != 0) then
+  echo "Error $result acquiring fix_winds.exe file from shavano" >> outlog
+  msread -f TR fix_winds.exe $MSSPATH/FIX_WINDS.EXE.$REVISION
+  set result = $status
+  if ($result != 0) then
+    echo "Error $result acquiring fix_winds.exe file from MSS" >> outlog
+    goto done
+  endif
+endif
+chmod +x fix_winds.exe
+#
+#  GPS correction program expects input from unit 11
+assign -a INPUT fort.11
+#
+#  Run the program
+pshell fix_winds.exe >> outlog
+set result = $status
+if ($result != 0) then
+  echo "Error $result running fix_winds.exe" >> outlog
+  goto done
+endif
+#
+#
+# ---------------------------------------------------------------
+# Output area
+# ---------------------------------------------------------------
+#
+# Do I rename the GPS-uncorrected GENPRO data files?
+if ($RENAME == "yes") then
+  if ($#TAPESEG < 2) then
+    msmv -wRAFDMG $MSSsource/$TAPESEG $MSSren/$TAPESEG
+  else
+    foreach FILE ($TAPESEG)
+      msmv -wRAFDMG $MSSsource/$FILE  $MSSren/$FILE
+    end
+  endif
+endif
+#
+# fort.12 is the "corrected" GENPRO output dataset
+#
+# Send GPS-corrected output file to MSS, if requested.
+if ($OUT2MSS == "yes" && -e fort.12) then
+#
+# Get size of fort.12 file in bytes.
+  set size = (`ls -l fort.12`)
+# Check if fort.12 file is too big for MSS.
+  if ($#size > 3) then
+    if ($size[4] == 0) then
+      echo "fort.12 data file is zero length" >> outlog
+      goto done
+    endif
+  endif
+  if ($size[4] < $MSSMAXSZ ) then
+    mswrite -t4095 -vCTRAFDMG -wRAFDMG fort.12 $MSSdest/$TAPESEG
+    set result = $status
+    if ($result != 0) then
+      echo Error $result saving $MSSdest/$TAPESEG to MSS >> outlog
+    else
+      echo Saved file $MSSdest/$TAPESEG to MSS >> outlog
+    endif
+  else
+    echo "GPS-corrected data won't fit on MSS ($size[4] bytes)" >> outlog
+# Since single output file won't fit on the MSS, break it up into pieces.
+#  Get executable program, if available.
+    if ($COMPILE == "no") then
+      cp ~/mcopy.exe .
+      set result = $status
+      if ($result != 0) then
+        echo "Error $result accessing mcopy.exe from Cray " >> outlog
+        msread mcopy.exe /RAF/GENPRO/MCOPY/MCOPY.EXE
+        set result = $status
+        if ($result != 0) then
+          echo "Error $result accessing mcopy.exe from MSS " >> outlog
+
+          rcp "$USER@$HOST.$DOMAIN":"$DSOURCE/mcopy.ymp" mcopy.exe
+          set result = $status
+          if ($result != 0) then
+            echo "Error $result accessing mcopy.ymp from $HOST" >> outlog
+            set COMPILE = "yes"
+          endif
+        endif
+      endif
+    endif
+#  Get source, compile and load, if necessary.
+    if ($COMPILE == "yes") then
+      rcp "$USER@$HOST.$DOMAIN":"$DSOURCE/mcopy.f" mcopy.f
+      set result = $status
+      if ($result != 0) then
+        echo "Error $result accessing mcopy.f" >> outlog
+        echo FATAL -- cannot do multiple MSS copy >> outlog
+        echo Final processed data lost >> outlog
+        goto done
+      endif
+#  Compile.
+#   Run cft77 with 64-bit integer maximum option for INPUT code.
+#      cft77 -eD -o off -i 64 -a static mcopy.f
+#      cft77 -i 64 -a static mcopy.f
+#      cft7740 mcopy.f
+      cft77 mcopy.f
+      set result = $status
+      if ($result != 0) then
+        echo "Error $result compiling mcopy.f" >> outlog
+        echo FATAL -- cannot do multiple MSS copy >> outlog
+        echo Final processed data lost >> outlog
+        goto done
+      endif
+#  Load it up.
+      segldr -o mcopy.exe mcopy.o \
+        -L /lib,/usr/lib,/usr/local/lib \
+        -l net,ncaro
+      set result = $status
+      if ($result != 0) then
+        echo "Error $result loading mcopy.o" >> outlog
+        echo FATAL -- cannot do multiple MSS copy >> outlog
+        echo Final processed data lost >> outlog
+        goto done
+      endif
+    endif
+#  Rename previous output file for mcopy program.
+#   Input file for mcopy must be named LDATA.
+    mv fort.12 LDATA
+#  Run it.
+    echo "mcopy.exe 1 8 $LENGTH $DENSITY" >> outlog
+    mcopy.exe 1 8 $LENGTH $DENSITY >> outlog
+    set result = $status
+    if ($result != 0) then
+      echo "Error $result running mcopy.exe" >> outlog
+      echo Final processed data may be lost >> outlog
+    endif
+#  Send executable back, if desired.
+#    rcp mcopy.exe "$USER@$HOST.$DOMAIN":"$DSOURCE/mcopy.ymp"
+#  Output files for mcopy are called OUTPUTnn, where nn is between 01 and 99.
+#  Find out how many new MSS file(s) were produced.
+    set fil = (`ls OUTPUT*`)
+    if ($#fil > 0) then
+      if ($#fil <= $#TAPESEG) then
+#   Copy each one to MSS with correct file names.
+        set cnt=1
+        foreach OUTPUT ($fil)
+          if ( -e $OUTPUT ) then
+            mswrite -vCTRAFDMG -wRAFDMG -t4095 $OUTPUT $MSSdest/${TAPESEG[$cnt]}
+            set result = $status
+            if ($result != 0) then
+              echo "Error $result writing MSS file: $MSSdest/${TAPESEG[$cnt]}" >> outlog
+            else
+              echo "mswrite -vCTRAFDMG -wRAFDMG -t4095 $OUTPUT $MSSdest/${TAPESEG[$cnt]}" >> outlog
+            endif
+          else
+            echo "$OUTPUT file didn't exist.  No MSS file written." >> outlog
+          endif
+          @ cnt ++
+        end
+      else
+        echo "Not enough names ($#TAPESEG) for GPS-corrected output files ($#fil)" >> outlog
+#  Copy each one to MSS with names that will need changing.
+        foreach OUTPUT ($fil)
+          if ( -e $OUTPUT ) then
+            echo mswrite -vCTRAFDMG -wRAFDMG -t4095 $OUTPUT /RAF/MCOPY/$OUTPUT.NEW.$$ >> outlog
+            mswrite -vCTRAFDMG -wRAFDMG -t4095 $OUTPUT /RAF/MCOPY/$OUTPUT.NEW.$$
+            set result = $status
+            if ($result != 0) then
+              echo Error $result writing MSS file: /RAF/MCOPY/$OUTPUT.NEW.$$ >> outlog
+            else
+              echo "WARNING -- must move (rename) MSS file to proper directory path." >> outlog
+              echo File name is /RAF/MCOPY/$OUTPUT.NEW.$$ but should be a modified >> outlog
+              echo version of $MSSdest/$FLIGHT >> outlog
+            endif
+          else
+            echo "$OUTPUT file didn't exist.  No MSS file written." >> outlog
+          endif
+        end
+      endif
+    else
+      echo "directory list failed to determine number of files to output." >> outlog
+    endif
+  endif
+endif
+#
+done:
+#
+# Get directory list
+ls -l >> outlog
+ls -l
+#
+# Log file to host
+#  Use netng to return files within NQS batch job (only if submitted via MIGS)
+if (-e outlog) then
+  netng FLNM=outlog DF=bi df=bi flnm=logpsw$FLIGHT.$PROJECT
+  set result = $status
+  if ($result != 0) then
+    rcp outlog $USER@$HOST.$DOMAIN":"$SOURCE/logpsw$FLIGHT.$PROJECT
+    set result = $status
+    if ($result != 0) then
+      echo  Could not send log file back to $USER at $HOST
+      echo  Will try to send log file to MSS instead
+      echo  Log file name on MSS will be:  $MSSdest/LOGPSWFILE/$FLIGHT
+      mswrite -vCTRAFDMG -wRAFDMG outlog $MSSdest/LOGPSWFILE/$FLIGHT
+      set result = $status
+      if ($result != 0) then
+        echo Error $result sending log file to MSS
+      endif
+    endif
+  endif
+endif
+#
+# Get batch job information
+qstat -f $QSUB_REQID
+# End the job accounting process
+ja -cst jacct
+exit

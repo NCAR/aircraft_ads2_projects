@@ -1,0 +1,52 @@
+#  File copy to MSS for project 4-853 pre-Boreas
+#
+#  from:  chinook:/home/local/proj/853/Production
+#                 /home/local/staticdata
+#
+#    to:  MSS:/RAF/1994/853/LRT/
+#         MSS:/RAF/1994/853/HRT/
+#
+#  Method:  ftp
+#
+#  Commands:
+ftp massive
+bi
+quote SITE PERS Y
+quote SITE RTPD 4096
+quote SITE WPW RAFDMG
+quote SITE MVN CTRAFDMG
+cd /RAF/1994/853/LRT
+#
+lcd /home/local/proj/853/Production
+put tarit.4-853.tar
+put tarit.nimbus.tar
+put FlightGroups
+put Flight_1
+put Flight_11
+put Flight_9
+put README
+put taplog.853
+put tp2ms.summary
+put 4-853.tar
+put nimbus.tar
+#
+lcd /home/local/staticdata
+put 853RF01.cdf RF01.cdf
+put 853RF02.cdf RF02.cdf
+put 853RF03.cdf RF03.cdf
+put 853RF04.cdf RF04.cdf
+put 853RF05.cdf RF05.cdf
+put 853RF06.cdf RF06.cdf
+put 853RF07.cdf RF07.cdf
+put 853RF08.cdf RF08.cdf
+put 853RF09.cdf RF09.cdf
+put 853RF06.hdr RF06.header
+#
+cd /RAF/1994/853/HRT
+put 853RF04H.hdr RF04.header
+quote SITE MDS 170
+put 853RF04H.cdf RF04.cdf
+put 853RF07H.cdf RF07.cdf
+put 853RF08H.cdf RF08.cdf
+#
+bye

@@ -1,0 +1,405 @@
+#! /bin/csh -f
+#
+#   Archive production netCDF data files for 1999-803 MAP
+#    using the new ATD directory path
+#
+#   Must be run from a project's Production subdirectory
+#
+#  File adapted from file /jnet/local/proj/186/Production/atdarch.186
+#    by Ron Ruth   13 October 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user == "dmg") then
+   set dmg = "yes"
+else
+#  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+#  exit
+   set dmg = "no"
+endif
+#
+#  Get setup information for this project
+@ plat = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+@ plat /= 100
+if ($plat == 1) set PLATFORM = N130AR
+if ($plat == 8) set PLATFORM = N308D
+set YEAR = `grep CY proj.info | sed -e "s/CY=//"`
+if ($YEAR == "") then
+  echo "  Calendar year not present in proj.info file"
+  goto quit
+endif
+#set PROJ = `cat ../ProjectName`
+set PROJ = "MAP"
+#
+#  replace any <SPACE> characters in ProjectName with <UNDERSCORE>
+chk:
+@ spaces = `echo $PROJ | grep -c ' '`
+if ($spaces > 0) then
+  set PROJ = `echo $PROJ | sed -e "s/ /_/"`
+  goto chk
+endif
+#
+#  set extent for Production NIMBUS netCDF file
+set EXT = PNI.nc
+#
+# Set correct turbulence type
+set TYPE = LRT
+#set TYPE = HRT
+#
+#  set source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+#set SDIR = $DATA_DIR
+set SDIR = ~ftp/pub/projects/MAP
+#
+goto old
+#
+############################################################################
+#
+#  Automatically generate file list (adapted from "gentl")
+#
+#  Following code is untested.
+#  One needs a way to combine the four cases into a single group with
+#   flags, so some code doesn't need to be duplicated 4 times.
+#  It probably belongs down near the nrnet command, since one
+#  can then set the turbulence rate "on the fly" for each file.
+#
+pushd $DIR >& /dev/null
+#
+#  Find the netCDF data files
+ls ${proj}?f??.cdf >& /dev/null
+set result1 = $status
+if ($result1 == 0) set files1 = `ls ${proj}?f??.cdf`
+ls ${proj}?f??[a-gi-z].cdf >& /dev/null
+set result2 = $status
+if ($result2 == 0) set files2 = (`ls ${proj}?f??[a-z].cdf`)
+ls ${proj}?f??h.cdf >& /dev/null
+set result3 = $status
+if ($result3 == 0) set files3 = (`ls ${proj}?f??h.cdf`)
+ls ${proj}?f??[a-z]h.cdf >& /dev/null
+set result4 = $status
+if ($result4 == 0) set files4 = (`ls ${proj}?f??[a-z]h.cdf`)
+#  Check results of search
+if ( $result1 != 0 && $result2 != 0 && $result3 != 0 && $result4 != 0 ) then
+  echo No netCDF files match the standard naming conventions for this project.
+  goto quit
+endif
+popd >& /dev/null
+#
+#  Case #1, LRT without segments
+if ($result1 == 0) then
+  if ($debug == "yes") echo 'Case #1'
+  set files = ($files1)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+set SFILES = ($files)
+set DFILES = ($fltnos)
+#
+#  Case #2, LRT with segments (skip HRT without segments)
+if ($result2 == 0) then
+  if ($debug == "yes") echo 'Case #2'
+  set files = ($files2)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+  @ num = 0
+  foreach file ($files)
+    @ num ++
+#  Test file for HRT
+    set test = `echo $file | grep -c 'h.cdf'`
+    if ($test == 1) then
+      set line = `ncdump -h $DIR/$file | grep -c "OutputRate = $HRT"`
+      if ($line != 0) continue
+    endif
+#
+#####################  code goes here   ###########
+#
+#  Case #3, HRT without segments (skip LRT with segment "H")
+if ($result3 == 0) then
+  if ($debug == "yes") echo 'Case #3'
+  set files = ($files3)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\h.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+  @ num = 0
+  foreach file ($files)
+    @ num ++
+#  Test file for HRT
+    set line = `ncdump -h $DIR/$file | grep -c "OutputRate = $HRT"`
+    if ($line == 0) continue
+    endif
+#
+#####################  code goes here   ###########
+#
+#  Case #4, HRT with segments
+if ($result4 == 0) then
+  if ($debug == "yes") echo 'Case #4'
+  set files = ($files4)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\h.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+#
+############################################################################
+#
+old:
+#
+#  1st wave
+#set SFILES = ( \
+#803rf01.cdf \
+#803rf02.cdf \
+#803rf03.cdf \
+#803rf04.cdf \
+#803rf05.cdf \
+#803rf06.cdf \
+#803rf06.cdf \
+#803rf07.cdf \
+#803rf08.cdf \
+#803rf09.cdf \
+#803rf10.cdf \
+#803rf11.cdf \
+#803rf12.cdf \
+#803rf13.cdf \
+#803rf14.cdf \
+#803rf15.cdf \
+#803rf16.cdf \
+#803rf17.cdf \
+#803rf18.cdf \
+#803rf19.cdf \
+#803rf20.cdf \
+#803rf21.cdf \
+#803rf22.cdf \
+#803rf23.cdf \
+#803rf24.cdf \
+#803rf25.cdf \
+#803rf26.cdf \
+#803rf27.cdf \
+#803rf28.cdf \
+#803rf29.cdf \
+#)
+#set DFILES = ( \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15 \
+#RF16 \
+#RF17 \
+#RF18 \
+#RF19 \
+#RF20 \
+#RF21 \
+#RF22 \
+#RF23 \
+#RF24 \
+#RF25 \
+#RF26 \
+#RF27 \
+#RF28 \
+#RF29 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#
+# Compose extended bitfile name
+#  get flight date
+    set line = `ncdump -h $SDIR/$SFILE | grep FlightDate`
+    if ($status != 0) then
+      echo Could not find FlightDate in netCDF file $file
+      goto quit
+    endif
+#   Get rid of double quotes
+    set line = `echo $line  | sed -e 's/\"//g'`
+#   Get rid of time zone in date field, if extant
+    set line = `echo $line | sed -e 's/UTC//'`
+#   Test for styles #1 & 2
+    if ($#line == 4) then
+      set incnt1 = `echo $line[3] | wc -c`
+      if ($incnt1 == 11) then
+#   Style #1 (mm/dd/yyyy)
+        set fltdate = `echo $line[3]`
+      else if ($incnt1 == 10) then
+#   Style #2 (" m/dd/yyyy)
+        set fltdate = 0$line[3]
+      else
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else if ($#line == 5) then
+      set incnt1 = `echo $line[3] | wc -c`
+      set incnt2 = `echo $line[4] | wc -c`
+      if ($incnt1 == 3 && $incnt2 == 7) then
+#   Style #3, ( m/ d/yyyy)
+        set fltdate = `echo 0$line[3]0$line[4]`
+#   Style #4 (mm/ d/yyyy)
+      else if ($incnt1 == 4 && $incnt2 == 7) then
+        set fltdate = `echo $line[3]0$line[4]`
+      else
+#   Unknown date style
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else
+#   Unknown date style
+      echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+      goto quit
+    endif
+    set DATE = `echo $fltdate | awk -F/ '{print $3$1$2}'`
+#
+#  Get time interval
+    set tline = `ncdump -h $SDIR/$SFILE | grep TimeInterval`
+    if ($status != 0) then
+      echo Could not find TimeInterval in netCDF file $file
+      goto quit
+    endif
+    shift tline
+    shift tline
+    @ pass = 1
+newtime1:
+    echo $tline | grep , >& /dev/null
+#   Check for multiple time intervals
+    if ($status == 0) then
+      set multtime = "yes"
+    else
+      set multtime = "no"
+    endif
+#  Set time interval
+    set flttime = `echo $tline[1] | sed -e 's/\"//g'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    set flttime = `echo $flttime | sed -e 's/-/\ /'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    if ($multtime == "yes") then
+      set flttime = `echo $flttime | sed -e 's/\,//'`
+      if ($status != 0) then
+        echo Could not decode multiple TimeInterval in netCDF file $file
+        goto quit
+      endif
+    endif
+    set ST = `echo $flttime[1] | awk -F: '{print $1$2$3}'`
+    set ET = `echo $flttime[2] | awk -F: '{print $1$2$3}'`
+#
+#  Archive the file (if the "dmg" login)
+    if ($dmg == "yes") then
+#      echo \
+      nrnet msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}_$ET.$EXT \
+        rtpd=32767 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+    else
+      echo msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}_$ET.$EXT \
+        rtpd=32767 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+    endif
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+quit:
+echo "  Quitting."
+exit 1
+#
+#  MSS path for all bitfiles listed below:  /ATD/DATA/1999/MAP/N308D/LRT/
+#
+#  1st wave
+#  Job(s) submitted on Wed Mar 21 10:59:24 MST 2001
+# Sequence number = LN5605 -- RF01.19990915.135421_174927.PNI.nc -- OK @ 21 Mar 2001 11:05:07
+# Sequence number = LN5636 -- RF02.19990919.105300_135136.PNI.nc -- OK @ 21 Mar 2001 11:04:59
+# Sequence number = LN5669 -- RF03.19990920.045352_102524.PNI.nc -- OK @ 21 Mar 2001 11:06:43
+# Sequence number = LN5702 -- RF04.19990920.115048_155918.PNI.nc -- OK @ 21 Mar 2001 11:05:04
+# Sequence number = LN5735 -- RF05.19990925.152601_184037.PNI.nc -- OK @ 21 Mar 2001 11:10:00
+# Sequence number = LN5799 -- RF06.19990929.105046_135432.PNI.nc -- OK @ 21 Mar 2001 11:12:45
+# Sequence number = LN5830 -- RF07.19990930.115136_170606.PNI.nc -- OK @ 21 Mar 2001 11:10:04
+# Sequence number = LN5861 -- RF08.19991001.080035_142545.PNI.nc -- OK @ 21 Mar 2001 11:13:55
+# Sequence number = LN5893 -- RF09.19991002.095634_134014.PNI.nc -- OK @ 21 Mar 2001 11:13:18
+# Sequence number = LN5924 -- RF10.19991004.063254_115416.PNI.nc -- OK @ 21 Mar 2001 11:14:34
+# Sequence number = LN5955 -- RF11.19991013.131127_173929.PNI.nc -- OK @ 21 Mar 2001 11:18:06
+# Sequence number = LN5986 -- RF12.19991018.123913_182913.PNI.nc -- OK @ 21 Mar 2001 11:21:29
+# Sequence number = LN6018 -- RF13.19991020.110416_141112.PNI.nc -- OK @ 21 Mar 2001 11:22:48
+# Sequence number = LN6049 -- RF14.19991021.055230_120400.PNI.nc -- OK @ 21 Mar 2001 11:25:50
+# Sequence number = LN6080 -- RF15.19991023.064320_134730.PNI.nc -- OK @ 21 Mar 2001 11:21:15
+# Sequence number = LN6111 -- RF16.19991024.124748_154730.PNI.nc -- OK @ 21 Mar 2001 11:25:03
+# Sequence number = LN6142 -- RF17.19991030.075843_111819.PNI.nc -- OK @ 21 Mar 2001 11:29:16
+# Sequence number = LN6173 -- RF18.19991030.132503_182731.PNI.nc -- OK @ 21 Mar 2001 11:29:26
+# Sequence number = LN6204 -- RF19.19991101.125041_160117.PNI.nc -- OK @ 21 Mar 2001 11:29:15
+# Sequence number = LN6237 -- RF20.19991102.072157_120545.PNI.nc -- OK @ 21 Mar 2001 11:33:38
+# Sequence number = LN6268 -- RF21.19991103.120835_161611.PNI.nc -- OK @ 21 Mar 2001 11:33:30
+# Sequence number = LN6299 -- RF22.19991104.115052_174240.PNI.nc -- OK @ 21 Mar 2001 11:37:24
+# Sequence number = LN6330 -- RF23.19991106.072556_102624.PNI.nc -- OK @ 21 Mar 2001 11:37:07
+# Sequence number = LN6361 -- RF24.19991106.140726_185442.PNI.nc -- OK @ 21 Mar 2001 11:41:44
+# Sequence number = LN6392 -- RF25.19991107.125247_181133.PNI.nc -- OK @ 21 Mar 2001 11:41:54
+# Sequence number = LN6423 -- RF26.19991108.100249_144349.PNI.nc -- OK @ 21 Mar 2001 11:46:00
+# Sequence number = LN6454 -- RF27.19991111.095652_153610.PNI.nc -- OK @ 21 Mar 2001 11:47:00
+# Sequence number = LN6485 -- RF28.19991112.114525_160025.PNI.nc -- OK @ 21 Mar 2001 11:50:02
+# Sequence number = LN6516 -- RF29.19991113.112229_154625.PNI.nc -- OK @ 21 Mar 2001 11:49:48
+#
+#  2nd wave
+#  Job(s) submitted on 
+#
+#  3rd wave
+#  Job(s) submitted on 
+#
+#   th wave
+#  Job(s) submitted on 
+#
+#  Job(s) submitted on 
+#

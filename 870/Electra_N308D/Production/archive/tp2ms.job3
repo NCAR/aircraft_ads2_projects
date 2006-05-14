@@ -1,0 +1,44 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-870 WISP94 (Rasmussen, et. al.)
+#   Third wave -- mop-up operations for RF30
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 870
+#
+#set STAGE = "nfile=1"
+#  Set new size now that the MSS can stash 400Mbytes at a time
+#set STAGE = "nrec=13000"
+#set STAGE = "skpr=13000 nrec=13000"
+#set STAGE = "skpr=26000 nrec=13000"
+# 
+set STAGE = "nrec=l2141"
+set TAPELIST = ( R0810 )
+set FLIGHTS =  ( RF30  )
+#
+#  Job submitted on Mon Jun 20 16:29:49 MDT 1994
+#  Sequence number = CK3575 -- /RAF/1994/870/RF30/R0810 -- Failed -- too big
+#                                                          (bug in SCD code)
+# 
+#  Job submitted on Thu Jun 23 14:50:49 MDT 1994
+#  Sequence number = CK5431 -- /RAF/1994/870/RF30/R0810 -- Success !
+# 
+# 
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

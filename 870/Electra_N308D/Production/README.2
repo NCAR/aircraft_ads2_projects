@@ -1,0 +1,111 @@
+RF01 - RF02  Smith flow channel not set up correctly.  No offset.
+             Problem corrected for RF03.  Use different cal factor
+             for flts 1 & 2...C1=0.0
+
+RF01 - RF11 2D-C probe on right wingtip: Although we thought 
+            the probe was fuctioning well, it turns out that 
+            the images were being "squared off" by either a stuck
+            byte or a swapped wire.  General sizes and concentra-
+            tions appear to be unaffected so only the "habit" 
+            shapes are in question.  2D-P unaffected by problem.
+
+RF01 - RF15 FMB, FMSB, FMST all pegging out at 10 vdc upon
+            takeoff.  This is reasonable for the sensitive
+            channels, but not FMB.  Made change to wiring 
+            attachment of FMB following flight RF15.
+
+RF02 - RF18 Use following cal coeffs. for VCRH:
+          c1: 3.64; c2: 53.811; c3: 15.9131; c4: 1.91812
+
+RF19 - RF45 Use following cal coeffs. for VCRH:
+          c1: -105.0; c2: 16.508; c3: -2.46004; c4: 0.18571
+
+RF07 - Changed flow meter on CVI F1 / new calibration factors
+       installed in header - onboard.  Note for production
+       processing.
+
+RF11 - Many instruments iced up during the flight.  In particular
+       ATB, FSSP sample tube, PCASP inlet, Cooper bulk inlet.
+
+RF11 - RF15 Intermittent problem with carbon monoxide analyzer.
+       Mostly works, step changes in baseline, to crashes in
+       later flights.
+
+RF13 - Swapped in CSU 2D-C probe for 2D-Grey which wasn't working
+       anyway.  2D-C images now look good.
+
+RF14 - Radome iced up some on flight.  Winds out for short
+       portion.
+
+RF15 - 2D-C mirrors iced up on ground.  Data bad for short
+       interval, until heaters cleared up the problem.  Engine
+       (#2) and nose gear problems developed during flight.  A/C
+       grounded for repairs.
+
+RF16 - Swapped in RAF 2D-C for CSU unit on port wingtip at
+       recommendation of WISP investigators.  Moved 2D-P to right
+       wingtip after repairing signal cable to fix original
+       problem.  Swapped signal lines on field mills - now
+       getting "most insensitive" data on FMB.  Data looked
+       good in flight.  Hudson CCN counter installed for flight. 
+       Worked - OK.  Replaced cryogenic hygrometer with
+       Sabreliner unit.  Still some problems.  RAF CN counter
+       developed a leak during flight.  Lost sample flow at
+       altitude - data bad.  Some problems with carbon monoxide
+       analyzer continue.  Possible icing problem? A very noisey
+       signal.  Radome iced up some.  Heater intermittant.  WE'RE
+       WORKING ON IT!.  
+       Preparing cables, etc for Hallet cloud scope.  Should be
+       ready soon.
+
+RF18 - PLWCC element too sensitive to altitude changes... likely
+       gain problem at end of flight.  Element changed prior to
+       flight RF19.
+
+RF20 - Entire ADS replaced between RF18 & RF19.  See different
+       cal factor for VCRH.  Other cal adjustments likely due to
+       new A to D converter.  Ran out of butenol on CN counter 
+       about 2/3 rds thru the flight.  2-D airspeed clock left 
+       at 10m/s from ground check for early part of flight.  Use
+       std ADS data from TASF.  Changed PLWC element due to over
+       sensitive response to airspeed changes.
+
+RF22 - Problem with the CN counter from flight RF20 turned out
+       not to be low butenol.  Loss of counting sensitivity with
+       altitude on this flight.  Flows & pressure looked good. 
+       Checked interrnal plumbing following the flight.  No
+       obvious problem, but replaced internal tubing & checked
+       integrety of exhaust dump. Problem turned out to be caused
+       by new digital counter card we used to replace the card
+       damaged in ADS burnout.  CN counts for RR20-RF22 are
+       questionable.
+
+RF23 - CN response good up to 21,000 ft.  Then abnormally high
+       counts.  Possible leak at MAX cabin pressure differential.
+
+RF24 - Removed piece of inlet tubing closest to CN counter. 
+       Slight scoring of hose appears to have been the cause of
+       the problem.  No more high altitude problems with CN.
+       Good comparison between CN and CVI CN concentrations when
+       later placed in ambient sample mode.
+
+
+RF27/28 Heavy icing incidents affected many of the instruments.
+        PLWCC, LWCC, VCRH, L@, XRLWCC, 2D-C.
+
+RF29   CN pump inadvertently left OFF for this ferry leg from
+       FT Collins to Stapleton.
+
+RF30 - Deicing required so all PMS optics cleaned after this
+       flight.  PLWCC element bent during icing incident so it
+       was replaced prior to next flight. CVI inlet replaced with
+       Yale ice stick for the rest of the project.  Changed inlet
+       orientation on the Wyoming CCN inlet.  Now aft facing to 
+       avoid icing.
+
+RF40   Wyoming CCN inlet changed back to forward facing for 
+       remaining flights.
+
+Special note: OPHIR-III data processing will need some flight-to-
+flight adjustments to A1,A2, & ophir.names. RF28 - XXXX use
+A1=-6.1558e-5 ; A2=2.0565e-6 ; OTBBC = 501.0 ; OTBBF = 501.0.

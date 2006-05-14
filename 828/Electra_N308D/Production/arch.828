@@ -1,0 +1,68 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2000-828 AESOP/TEXAQS-2000 (Fred Fehsenfeld, NOAA)
+#
+#  File created by '/usr/local/scripts/genar' Revision  8 on Fri Oct 20 13:37:32 MDT 2000
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2000
+set PROJ = 828
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/828rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/828rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  MSS path for all bitfiles listed below:  /RAF/2000/828/
+#
+#  Job(s) submitted on Fri Oct 20 14:36:37 MDT 2000
+# Sequence number = LN2288 -- LRT/RF01.cdf -- OK @ 20 Oct 2000 14:38:26
+# Sequence number = LN2296 -- LRT/RF02.cdf -- OK @ 20 Oct 2000 14:38:22
+# Sequence number = LN2304 -- LRT/RF03.cdf -- OK @ 20 Oct 2000 14:38:37
+# Sequence number = LN2313 -- LRT/RF04.cdf -- OK @ 20 Oct 2000 14:38:43
+# Sequence number = LN2322 -- LRT/RF05.cdf -- OK @ 20 Oct 2000 14:44:04
+# Sequence number = LN2332 -- LRT/RF06.cdf -- OK @ 20 Oct 2000 14:44:20
+# Sequence number = LN2342 -- LRT/RF07.cdf -- OK @ 20 Oct 2000 14:44:28
+# Sequence number = LN2352 -- LRT/RF08.cdf -- OK @ 20 Oct 2000 14:44:32
+# Sequence number = LN2360 -- LRT/RF09.cdf -- OK @ 20 Oct 2000 14:47:24
+# Sequence number = LN2368 -- LRT/RF10.cdf -- OK @ 20 Oct 2000 14:47:38
+# Sequence number = LN2376 -- LRT/RF11.cdf -- OK @ 20 Oct 2000 14:47:31
+# Sequence number = LN2384 -- LRT/RF12.cdf -- OK @ 20 Oct 2000 14:47:42
+# Sequence number = LN2392 -- LRT/RF13.cdf -- OK @ 20 Oct 2000 14:49:49
+# Sequence number = LN2400 -- LRT/RF14.cdf -- OK @ 20 Oct 2000 14:49:54
+#
+#   Archive after reprocessing done on 1 February 2001
+#  Job(s) submitted on Thu Feb  1 16:34:03 MST 2001
+# Sequence number = LN6354 -- LRT/RF07.cdf -- OK @ 1 Feb 2001 16:45:12
+# Sequence number = LN6362 -- LRT/RF08.cdf -- OK @ 1 Feb 2001 16:49:30
+# Sequence number = LN6370 -- LRT/RF09.cdf -- OK @ 1 Feb 2001 16:39:40
+# Sequence number = LN6378 -- LRT/RF10.cdf -- OK @ 1 Feb 2001 16:50:15
+# Sequence number = LN6388 -- LRT/RF11.cdf -- OK @ 1 Feb 2001 16:45:52
+# Sequence number = LN6396 -- LRT/RF12.cdf -- OK @ 1 Feb 2001 16:42:28
+# Sequence number = LN6406 -- LRT/RF13.cdf -- OK @ 1 Feb 2001 16:42:06
+# Sequence number = LN6414 -- LRT/RF14.cdf -- OK @ 1 Feb 2001 16:45:35
+#

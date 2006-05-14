@@ -1,0 +1,74 @@
+#
+# This file contains variable names of Derived variables whose OutputRate
+# will default to LowRate for a HighRate nimbus run.
+#
+# Dummy variables
+ONE
+ZERO
+#
+# Derived variables
+ATFH
+CMRCR
+DPBC
+DPCRC
+DPTC
+DPXC
+DVALU
+EDPC
+FCNC
+FPCRC
+IRBC
+IRTC
+LWCC
+MR
+OAT
+OBBCR
+ODETOF
+ODSIGC
+OGAINF
+OTDETC
+#PALT   (This variable can derive from a high-rate pressure measurement.)
+PLWCC
+#PSFD   (This variable has a default 25sps sample rate.)
+#PSURF  (This variable has a default 25sps sample rate.)  <------------ VERIFY
+PSWC
+#PSXC   (This variable can derive from a high-rate pressure measurement.)
+RHOCR
+RHODB
+RHODT
+RHUM
+SOLAZ
+SOLDE
+SOLEL
+SOLZE
+TEO3C
+XICNC
+XLATC
+XLONC
+XRADCF
+XSWTC
+XRLWCC
+XVEWC
+XVNSC
+#
+# PMS-2D variables
+CON2C1
+CON2C2
+CON2P1
+CON2P2
+#
+# PMS-1D variables
+#C260X
+#CF300
+#CONC3
+#CONC6
+#CONCP
+#CPCAS
+#DBAR3
+#DBAR6
+#DBARP
+#DBZ6
+#DISP6
+#DISPP
+#PFLWC
+#PLWC6

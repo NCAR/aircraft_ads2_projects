@@ -1,0 +1,66 @@
+Heimann calibration comparison:
+
+818 RF25 XKT19:CalCoes = -61.083099f, -12.306f,    -0.1148f
+887 RF01 XKT19:CalCoes = -37.8829f,    -7.5367999f, 0.1047f
+887 post XKT19:CalCoes = -56.212299f, -11.3464f,   -0.079099998f
+
+Based upon plots of ATB vs. XKT19 for all the research flights, Al Schanot
+ and I determined that the best calibration to use is the 887 precal that was
+ put into all the ADS headers.  This particular Heimann (S/N 757) has not been
+ used since VORTEX, so there is no later calibration that can be used as a
+ comparison.
+
+Meeting with Dick Friesen, Bruce Morley and Ron Ruth on 3 January 1996, we
+ made the following decisions:
+  Use calibrations as recommended in my 20 December 1995 email:
+   ADIF:   pre-cal
+   BDIF:   post-cal
+   DPT:    post-cal
+   IRT:    pre-cal
+   IRB:    pre-cal
+   PSW:    post-cal
+   QCR:    pre-cal
+   QCF:    post-cal
+   QCW:    post-cal
+   SWB:    post-cal
+   SWT:    pre-cal
+   TTB:    post-cal
+   TTRF:   post-cal
+   UVB:    post-cal
+   UVT:    post-cal
+   XKT19:  pre-cal
+  Use the following as reference sensors* for all flights: TTB, DPT, PSFD
+   and QCR.
+  Omit the following variables from production output netCDF data files:
+   DOUT1, DOUT2, PLWC, TA2D, TADS, TEMP1, TEMP2, TLSI, TMP1, TS2D, EVTCKP,
+   EVTCTL, EVTFWD, EVTOBL, EVTOBR, DPB, DPBC, PLWC, PLWCC, QCF, QCFC, TASF,
+   HGME, FLXQQ, FLXTT, FLXUU, FLXVV, FLXWQ, FLXWT, FLXWU, FLXWV, FLXWW, DVALU,
+   PSURF, PLWCC and THETAV.
+  Include the following variables in production output netCDF data files:
+   PALTF, FLOADS, FZV, FZVR, TV10, V10, V10R, V28, VDREF, VM15A, VP15A, VP15D,
+   XFZV and XV10.
+  For the second tape of RF09 (which has a flight number of zero in its
+   header), correct the flight number in the netCDF header after processing.
+--------
+* RF13 to be processed with these reference variables until 26:05.  A second
+   data set will be produced using QCW as the reference QC from 26:00 to the
+   end of the flight.
+-------------------------------------------------------------------------------
+Since the GPS was not working properly on 1995-887 VORTEX flights RF01-RF03,
+ users should not necessarily trust the GPS-corrected wind data.  Calculations
+ for them normally use the humidity-corrected true airspeed (TASHC).  To give
+ the users the best wind data possible for those flights, I decided to change
+ the true airspeed dependency for the uncorrected winds (WI) to TASHC.  For
+ the other fights (RF04-RF15), the setup is normal (WI uses TASX, and XWIC
+ uses TASHC).                                    Ronald L. Ruth  4 January 1996
+-------------------------------------------------------------------------------
+Due to a setup problem (Unknown to me there was a need to have CHGME's output
+turned on to get proper data for HGME.), the HGME data actually are useful,
+although problems developed with the instrument later in the project.  As a
+result, I will reprocess all the flights and include HGME in the output.
+(Chris made a minor change to the NIMBUS code that allows CHGME to be turned
+off but still do the calculations correctly.  I think this also pertains to
+PSFD which had a dependency on PSFD1 and PSFD2.)
+                                                 Ronald L. Ruth  9 January 1996
+-------------------------------------------------------------------------------
+

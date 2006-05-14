@@ -1,0 +1,39 @@
+	Variable list for netCDF file /home/productiondata/807rf01.cdf
+	Created using /home/users/ron/scripts/getcdfvars
+	on Thu Jan 28 14:10:20 MST 1999
+
+Name	Units	Description
+----	-----	------------------------------------------------
+base_time	none	Seconds since Jan 1, 1970.
+time_offset	none	Seconds since base_time.
+DAY	day	Raw Tape Date Component
+GLAT	deg	GPS Latitude
+GLON	deg	GPS Longitude
+HOUR	hours	Raw Tape Time Component
+LAT	deg	Inertial Latitude
+LON	deg	Inertial Longitude
+MINUTE	minutes	Raw Tape Time Component
+MONTH	month	Raw Tape Date Component
+PITCH	deg	Aircraft Pitch Angle
+ROLL	deg	Aircraft Roll Angle
+SECOND	s	Raw Tape Time Component
+THDG	deg	Aircraft True Heading Angle
+YEAR	year	Raw Tape Date Component
+ATX	C	Ambient Temperature, Reference
+DPXC	C	Dew Point Temperature, Reference
+PALT	M	NACA Pressure Altitude
+PALTF	feet	NACA Pressure Altitude
+RHUM	%	Relative Humidity
+TASX	M/s	Aircraft True Airspeed, Reference
+UI	M/s	Wind Vector, East Component
+VI	M/s	Wind Vector, North Component
+WD	deg	Horizontal Wind Direction
+WI	M/s	Wind Vector, Vertical Gust Component
+WS	M/s	Horizontal Wind Speed
+XLATC	deg	GPS-Corrected Inertial Latitude
+XLONC	deg	GPS-Corrected Inertial Longitude
+XUIC	M/s	GPS-Corrected Wind Vector, East Component
+XVIC	M/s	GPS-Corrected Wind Vector, North Component
+XWDC	deg	GPS-Corrected Horizontal Wind Direction
+XWIC	M/s	GPS-Corrected Wind Vector, Vertical Gust Component
+XWSC	M/s	GPS-Corrected Horizontal Wind Speed

@@ -1,0 +1,550 @@
+<!doctype html public "-//IETF//DTD HTML//EN">
+<HTML>
+<TITLE>FASTEX Data Management Specification</TITLE>
+<HEAD>
+
+<META NAME="GENERATOR" CONTENT="Internet Assistant for Word 1.0Z">
+<META NAME="AUTHOR" CONTENT="Frederic MARIN">
+</HEAD>
+
+<BODY>
+
+<UL>
+<LI><A HREF="#data">4. Data Management  </A>
+<LI><A HREF="#intro">4.1 Introduction</A>
+<LI><A HREF="#requirement">4.2 Requirement for a FASTEX central data archive</A>
+<LI><A HREF="#central">4.3 FASTEX central data archive access policy</A>
+<UL>
+<LI><A HREF="#input">4.3.1 Data input to the central archive</A>
+<LI><A HREF="#output">4.3.2 Data output from the central archive</A>
+</UL>
+
+<LI><A HREF="#proposed">4.4 Proposed FASTEX central data archive functions</A>
+<UL>
+<LI><A HREF="#archival">4.4.1 Data archival</A>
+<LI><A HREF="#management">4.4.2 Data management</A>
+<LI><A HREF="#metadata">4.4.3 Data and metadata distribution</A>
+</UL>
+
+<LI><A HREF="#obs">4.5 FASTEX observational facilities</A>
+<LI><A HREF="#relevant">4.6 FASTEX relevant data sets available from M&eacute;t&eacute;o-France</A>
+<LI><A HREF="#summary">4.7 Summary of FASTEX Central Archive data volumes</A>
+</UL>
+
+<P>
+
+<H1><A NAME="data">4. Data Management</A></H1>
+
+<P>
+The following section is a version of the Project Specifications
+document of the FASTEX Centra Data Archive Project. It has been
+prepared by Martine Michou with contributions from Genevi&egrave;ve
+Jaubert, Catherine Piriou and Oliver Traulle, all of them working
+on data bases from recent field experiments at M&eacute;t&eacute;o-France.
+The full document is available on the FASTEX servers or from the
+FASTEX Project Office in Toulouse.
+<H3><A NAME="intro">4.1 Introduction</A></H3>
+
+<P>
+This document describes the requirement for a FASTEX %(Fronts
+and Atlantic Storm-Track Experiment) central data archive, and
+the M&eacute;t&eacute;o-France/CNRM (Centre National de Recherches
+M&eacute;t&eacute;orologiques) proposal to satisfy this requirement.
+The M&eacute;t&eacute;o-France proposal relies on its expertise
+in the development of field experiment databases (e.g., PYREX,
+SEMAPHORE, and TOGA COARE), and on the fact that a number of FASTEX
+relevant data sets is directly available from M&eacute;t&eacute;o-France
+(see details in 4.6).
+<H3><A NAME="requirement">4.2 Requirement for a FASTEX central
+data archive</A></H3>
+
+<P>
+The FASTEX field experiment will collect, in the North Atlantic
+region, over a 2-month period (January - February 1997), a unique
+variety of atmospheric data, measured from both research platforms
+(e.g., ships, aircraft) and operational ones (e.g., meteorological
+stations, atellites) as described in previous sections of this
+overview. The requirement for a FASTEX central data archive, recognized
+since the early stage of the field experiment preparation, was
+first formalized during the first FASTEX Scientific Steering Group
+(SSG) meeting (March 95, see Summary and Conclusions by A. Joly,
+pp. 6, 7). This requirement calls for:
+<OL>
+<LI>a facilitated access to selected data of interest to the international
+FASTEX scientific community (France, UK, USA, Canada, Ireland,
+etc\ldots). It is not intended to construct one central unique
+archival of all FASTEX data. The idea is to identify a subset
+of the data collected during the field experiment, for ingestion
+into the central archive structure. Data access through this structure
+should then be much simpler ;
+<LI>the long-term archival of the FASTEX data identified under
+1. In the short-term, the FASTEX central data archive will inevitably
+duplicate other archiving efforts. This duplication should be
+reduced to a large extent in the long-term, when the FASTEX central
+data archive becomes the primary, and possibly the only source
+of FASTEX data ;
+<LI>a first approach to all FASTEX data by putting together a
+centralized access to information about FASTEX data. This information
+would be reduced to a vital minimum (what is available/where).
+</OL>
+
+<P>
+All institutions already involved in the preparation of the field
+experiment are potential users of this central archive. These
+are as follows:
+<P>
+Canada: Atmospheric Environment Service;
+<P>
+France: INSU, Laboratoire d'A&eacute;rologie, M&eacute;t&eacute;o-France,
+CETP, IFREMER;
+<P>
+Ireland: Irish Meteorological Service;
+<P>
+Iceland: Icelandic Meteorological Service;
+<P>
+Norway: Norwegian Meteorological Service;
+<P>
+UK: University of Reading, UK Meteorological Office;
+<P>
+Ukraine: Ukrainian Scientific Centre of the Ecology of Sea;
+<P>
+USA: NCAR, NASA (still under discussions), NOAA; University of
+Washington, State University of New-York, UCLA, MIT;
+<P>
+World Meteorological Organization (COSNA group and WCRP).
+<P>
+Other groups may join the FASTEX research community, and hence
+access the FASTEX central data archive, at a later stage, during
+or after the field experiment (see details on the data access
+in 4.3.2).
+<P>
+SSG meeting participants agreed on the proposal made by Meteo-France
+to develop and host such a central archive at M&eacute;t&eacute;o-France/CNRM.
+Paragraphs below detail the CNRM plan, based on what was presented
+at the SSG and further discussions and work among a group of data
+managers and scientists at CNRM. It goes without saying that Meteo-France
+has some major interest in this project that would:
+<P>
+maximize the resources involved in the preparation of the field
+experiment;
+<P>
+prepare the FASTEX post-field experiment research work;
+<P>
+and enhance the Meteo-France interaction with other scientists,
+both nationally and internationally.
+<H3><A NAME="central">4.3 FASTEX central data archive access policy</A>
+</H3>
+
+<H4><A NAME="input"></A>4.3.1 Data input to the central archive
+</H4>
+
+<P>
+The FASTEX SSG, or an appropriate designated body, should agree
+on the list of data sets that will be ingested into the central
+archive.
+<P>
+The success of data ingestion into the central archive will be
+based on the two following principles:
+<P>
+1 there will be low entry requirements on the data providers.
+Input format or media will not be imposed, although a number of
+recommendations will be made in order to minimize the entry work;
+for instance, recommendations on the formulation of variables
+such as date and position, and recommendations on the input data
+format (GRIB, BUFR or other). Data transmission to the central
+archive will be achieved either on line (through Internet), or
+on an external media such as a CD-ROM, an Exabyte tape or other.
+Discussions with scientists will lead to recommendations on the
+characteristics of the central archive data sets (parameters that
+should be included in a data set, temporal and spatial resolution,
+etc\ldots). All efforts will be made to come to an agreement with
+the data providers on the basis of these recommendations (see
+first details in the document FASTEX Central Data Archive Project
+- Central Archive Content'').
+<P>
+Emphasis will be put on the availability of relevant data documentation
+in the central archive, noting that data are useless otherwise.
+It is known that this could represent a non-negligible burden
+on the data providers. All efforts will be made to minimize this
+burden: a preparational work will be done by the central archive
+managers with the available literature, on at least conventional
+data'', and the documentation request will be fragmented into
+pre and post field requests.
+<P>
+2 there should be a high responsiveness within the scientific
+community for providing both documentation and data, once committed
+to it. Individual responsibility, and possibly peer review pressure,
+should ensure the delivery of data to the central archive, as
+planned.
+<H4><A NAME="output">4.3.2 Data output from the central archive</A>
+</H4>
+
+<P>
+A general data access policy is described in the Summary and Conclusions
+of the 1st FASTEX SSG meeting'' by A. Joly, p 7. In brief, access
+to FASTEX data, in particular from the central archive, should
+not be restricted. In practice, restricted access to specific
+data, over a definite period of time that should not, in any case,
+be longer that 2 years, could be managed in the central archive.
+With regard to the preparation of the central archive, it will
+be recommended that professional credit be given to scientists
+who prepare data sets for public distribution, whenever making
+use of the data.
+<P>
+Data will be available either through an on-line access or on
+an external media (see Data Distribution in 4.4.3).
+<H3><A NAME="proposed">4.4 Proposed FASTEX central data archive
+functions</A></H3>
+
+<H4><A NAME="archival"></A>4.4.1 Data archival</H4>
+
+<P>
+The data sets listed below have been identified for a long-term
+archival in the FASTEX central archive (see details on the data
+sets in the document: FASTEX Central Data Archive Project, Central
+Archive Contents'', and details on the corresponding observational
+platforms in subsection 4.5}). In its preliminary version, this
+list of data must be considered to be tentative. In its final
+version, requests for archiving additional data sets will be examined
+on a case by case basis by the SSG.
+<P>
+The domain and period of interest of these data are the following,
+unless specified otherwise:
+<P>
+FASTEX domain: 20N-90N ; 100W-40E,
+<P>
+FASTEX field experiment period: January - February 1997.
+<P>
+<B>1 atmospheric in-situ data : </B>
+<P>
+Radiosonde: from all WMO upper-air stations in the FASTEX domain,
+and from specific FASTEX ship and land sites; both GTS and high-resolution
+data.
+<P>
+Dropsonde: from all equipped FASTEX research aircraft; both GTS
+and high-resolution data (all dropsonde data should circulate
+over the GTS).
+<P>
+Research aircraft: a selection of processed in-situ parameters
+at a given temporal resolution from all FASTEX research aircraft.
+<P>
+Commercial aircraft: GTS and high-resolution in-situparameters
+from agreed-upon aircraft.
+<P>
+<B>2 atmospheric remote data</B> 
+<P>
+UHF profilers: 1/2 hourly profiles from land and ship FASTEX sites.
+<P>
+Remote sensing device research aircraft data (interferometers,
+lidars, radiometers, scatterometers, and other): agreed-upon scans.
+<P>
+Conventional land surface radar data: agreed-upon scans from the
+UK, Irish, and Western France networks.
+<P>
+<B>3 analysed fields</B> 
+<P>
+Operational analyses, replaced later by re-analyses when available;
+global fields from the Meteo-France ARPEGE model, and the UKMO
+Unified Model at least.
+<P>
+<B>4 aircraft radar data</B> 
+<P>
+Doppler radar data: agreed-upon high-resolution and all largest
+domain coarse resolution wind and reflectivity 3D fields, all
+1 D profiles
+<P>
+Other radars: agreed-upon reflectivity fields.
+<P>
+<B>5 satellite data</B> 
+<P>
+A wide sample of satellite data for both geostationary (GOES and
+Meteosat) and polar-orbiting satellites (NOAA and DMSP ones).
+<P>
+The requirements are for images (IR, Vis, and water vapor channels),
+for radiances (raw and clear-air), and for inverted profiles and
+other elaborated parameters (in this third category, the main
+needs being for temperature profiles, water vapor profiles, total
+liquid water content, cloud liquid water, precipitation, surface
+wind, upper-level wind, sea surface temperature, and ozone).
+<P>
+The objectives are to study the assimilation of satellite data,
+and inversion techniques
+<P>
+Other data under consideration for ingestion in the central archive:
+soundings from new GOES, and GPS refractivity.
+<P>
+<B>6 surface in-situ data</B> 
+<P>
+GTS surface data from all land, ship, and buoy sites within the
+FASTEX domain.
+<H4><A NAME="management">4.4.2 Data management</A></H4>
+
+<P>
+The following data management tasks will be performed :
+<OL>
+<LI>reformat of data into the central archive data format;
+<LI>data checks. Minimal checks will be performed locally at CNRM
+(e.g., gross-limit checks). It is anticipated that the data validation
+will be performed before the transfer of data to CNRM;
+<LI>''assembly'' of data from similar-type platforms (e.g., radiosonde
+and dropsonde ones).
+</OL>
+
+<P>
+<B><A NAME="metadata">4.4.3 Data and metadata distribution </A></B>
+<P>
+The interface to the central archive will offer the following
+functions:
+<OL>
+<LI>catalog of all FASTEX data archived in the central archive;
+the catalogue will include all available documentation on the
+data;
+<LI>on-line data access, to the extent possible depending on the
+data volume, through a client/server configuration. A Mosaic-like
+interface will be developed; reading routines will be provided
+for all formats used, i.e., GRIB BUFR or other;
+<LI>selection of data, during the on-line access, using a variety
+of criteria (e.g., data type, period);
+<LI>on-line access to information about FASTEX data not included
+in the central archive (what is available/where);
+<LI>off-line data access. All data of the central archive will
+be transferred to an external media for large distribution. The
+preferred current technology is the CD-ROM one, which is widely
+spread, long-term reliable, and of easy production. For some data
+sets, there will be a 1-time transfer to such an external media.
+For others, it is anticipated that three versions will be produced
+(1st and 2nd versions 1 and 2 years after the field experiment,
+final version 4 years after the field experiment);
+<LI>documentation on the central archive contents will be available
+also as a hard-copy document. Three versions should be produced,
+along the same schedule as the data CD-ROM one (see 5 above);
+</OL>
+
+<H3><A NAME="obs">4.5 FASTEX observational facilities</A></H3>
+
+<P>
+Summary of agreed-upon or potential observational facilities of
+the FASTEX field experiment, the data of which will be ingested
+in the FASTEX central data archive.
+<P>
+Radiosonde sites
+<P>
+- land and sea WMO upper-air stations (35-40 land stations, 11
+Voluntary Observing Ships)
+<P>
+- research ships
+<P>
+5 ships equipped at most: 1 IFREMER ship, 1 Icelandic or other
+ship from Europe, 1 NOAA ship,
+<P>
+2 Ukrainian ships (probably only four ships operating simultaneously)
+<P>
+- Total: approximately 55 sites
+<P>
+- Soundings:
+<P>
+* every 6 hours during the field experiment
+<P>
+* every 3 hours for 18 hours during special IOPs (up to 10 during
+the field); at a given time during one of the 10 IOPs, about 1/3
+of the suggested network will operate at that rate
+<P>
+* every hour from ships during the special IOPs (hourly soundings
+up to 16 km, otherwise (ever six hours) up to 23 Km)
+<P>
+Dropsonde platforms
+<P>
+- NOAA Gulfstream IV ( 20 flights, altitude 10 km)
+<P>
+- NOAA P3-43 (still under discussions, possibly 20 flights, altitude
+8 km)
+<P>
+- NCAR WB57 ( 10 flights, altitude 10 km)
+<P>
+- UKMO C130 ( 10 flights, altitude 8 km)
+<P>
+- NASA DC8 (altitude 10 km)
+<P>
+- USAF C130 (or 53rd Weather Wing): 1 aircraft (uncertain, 3 to
+5 flights, altitude 8? km)
+<P>
+- a tested RPV (modified for dropsounding)(still under discussions,
+? flights, altitude ? km)
+<P>
+Research aircraft - Meteorological in-situ measurements
+<P>
+- NOAA Gulfstream IV ( 15 flights)
+<P>
+- NOAA P3-43 ( 10 or 20 flights)
+<P>
+- NCAR Electra ( 10 flights, microphysics and other data)
+<P>
+- UKMO C130 (10 to 20 flights, mostly upper air flights, no microphysics
+data)
+<P>
+- University of Washington CONVAIR (? flights, microphysics, cloud,
+precipitation, radiation, and chemical -data)
+<P>
+- Canadian AES CONVAIR (? flights, similar capabilities as the
+U of W CONVAIR)
+<P>
+- NCAR WB57 ( 15 flights)
+<P>
+Commercial aircraft - Meteorological in-situ measurements
+<P>
+- at least 13 aircraft (mostly British Airways) equipped with
+the ASDAR instrument ;
+<P>
+- most recent aircraft all equipped with the ACARS instrument.
+<P>
+UHF profiler sites
+<P>
+- 1 Ifremer ship (ISS-type instrument possibly)
+<P>
+- 1 NOAA research ship
+<P>
+- 1 land site on the Eastern US coast
+<P>
+- 1 land site in UK (Wales)
+<P>
+Research aircraft - Radars
+<P>
+- NCAR Electra ( 10 flights, ASTRAIA/ELDORA dual beam Doppler
+Radar)
+<P>
+- NOAA P3-43 (10 or 20 flights, ASTRAIA-type dual beam Doppler
+Radar, and C band lower fuselage radar)
+<P>
+- Others
+<P>
+Research aircraft - Remote sensing devices
+<P>
+- UKMO C130 ( 10 or 20 flights, ARIES interferometer giving temperature,
+humidity and ozone concentration)
+<P>
+- NOAA P3-43 (10 or 20 flights, remote sensing devices, including
+radiometers and a scatterometer)
+<P>
+- NASA DC8 : wind LIDAR, radiometers (?)
+<H3><A NAME="relevant">4.6 FASTEX relevant data sets available
+from M&eacute;t&eacute;o-France </A></H3>
+
+<UL>
+<LI>GTS data received at Meteo-France (Toulouse), including radiosonde
+data, possibly dropsonde data,
+<LI>commercial aircraft data, and surface in-situ data,
+<LI>UK and Irish mosaic surface radar data,
+<LI>M&eacute;t&eacute;o-France ARPEGE analyses,
+<LI>satellite data received at M&eacute;t&eacute;o-France Centre
+de M&eacute;t&eacute;orologie Spatiale (Lannion) including Meteosat
+data, GOES East data, NOAA AVHRR and TOVS data (2 or 3 orbits),
+and DMSP WETNET data
+</UL>
+
+<H3><A NAME="summary">4.7 Summary of FASTEX Central Archive data
+volumes</A></H3>
+<HR>
+
+<PRE WIDTH=132>
+Data set name         Data set format      Data set volume    
+RADIOSONDE            oracle tables        420 to 840 Mbytes  
+DROPSONDE             oracle tables        70 to 140 Mbytes   
+P-3 MET IN-SITU       oracle tables        140 Mbytes         
+P-3 MICRO             oracle tables        20 Mbytes          
+ELECTRA IN-SITU       oracle tables        60 Mbytes          
+ELECTRA MICRO         oracle tables        35 Mbytes          
+UKMO C130             oracle tables        75 Mbytes          
+WB57                  oracle tables        90 Mbytes          
+GULFSTREAM            oracle tables        90 Mbytes          
+WAS CONVAIR           oracle tables        90 Mbytes          
+CAN CONVAIR           oracle tables        90 Mbytes          
+COMM AIRCRAFT         oracle tables        50 Mbytes          
+WIND PROFILERS        oracle tables        60 Mbytes          
+RASS                  oracle tables        16 Mbytes          
+AIRCR REMOTE          ?                    ?                  
+SURF REFLEC           Burf files ?         ?                  
+SURFACE MOSAIC        Burf files ?         ?                  
+ARPEGE ANALYS         grib files           5.7 Gbytes         
+ukmo analyses         grib files           5.7 Gbytes         
+evad profiles         oracle tables        5.5 Mbytes         
+convect fields        grib files           12 Mbytes          
+mesosca fields        grib files           0.7 Mbytes         
+geostat images        grib files           26.6 Gbytes        
+avhrr                 grib files ?         4.3 Gbytes         
+tovs                  grib files ?         16.9 Gbytes        
+DMSP                  grib files ?         5.4 Gbytes         
+GOES sounder          grib files ?         ?                  
+in-situ               oracle tables        ?                  
+
+</PRE>
+<HR>
+
+<P>
+Total Estimated Volume of ORACLE Tables: ~1.8
+<P>
+Total ORACLE Estimated Volume: ~4 Gbytes
+<P>
+Total Estimated Volume of the FASTEX Central Data Archive: ~64.5
+Gbytes
+<H2>More information on the progress of FASTEX </H2>
+
+<P>
+<B>FASTEX Newsletter</B> 
+<P>
+The FASTEX Project Office, located in Toulouse, is producing a
+FASTEX Newsletter that is available by surface mail or as an electronic
+(Postcript) file. The next issue is due in January 1996.
+<P>
+You are welcome to contribute to the letter : send short articles
+on any FASTEX-related topics (scientific ideas, viewpoints, results
+; tests ; practical information, etc) via E-mail at
+<P>
+fastex@meteo.fr
+<P>
+If you want to receive the Newsletter, send your mailing address
+to the same E-mail.
+<P>
+<B>FASTEX on the World Wide Web</B> 
+<P>
+There are FASTEX pages available at
+<P>
+http://mrd3.mmm.ucar.edu/FASTEX
+<P>
+<B>Getting FASTEX files</B> 
+<P>
+We are trying to set-up two mirror file servers on which all the
+FASTEX papers should be available in compressed (gzip/gunzip)
+Postscript format. One is
+<P>
+ftp anonymous
+<P>
+mrd3.mmm.ucar.edu (128.117.88.200)
+<P>
+subdirectory/pub/fastex
+<P>
+The other is
+<P>
+ftp anonymous
+<P>
+cnrm-ftp.meteo.fr
+<P>
+directory /pub-fastex
+<P>
+<B>Making contact with FASTEX people</B> 
+<P>
+You can use E-mail (fastex@meteo.fr) or write to
+<P>
+FASTEX Project Office,
+<P>
+attn Fr&eacute;d&eacute;ric Marin,
+<P>
+M&eacute;t&eacute;o-France,
+<P>
+Centre National de Recherches M&eacute;t&eacute;orologiques,
+<P>
+42, avenue G. Coriolis,
+<P>
+F-31057 Toulouse cedex, France. 
+</BODY>
+
+</HTML>

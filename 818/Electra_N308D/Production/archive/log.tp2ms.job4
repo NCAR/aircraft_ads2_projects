@@ -1,0 +1,199 @@
+shavano: UNICOS 8.0.2.1, IOS 8.0.2
+=======================================================================
+THIS SYSTEM IS FOR THE USE OF AUTHORIZED USERS ONLY.  INDIVIDUALS USING
+THIS COMPUTER SYSTEM WITHOUT AUTHORITY, OR IN EXCESS OF THEIR AUTHORITY,
+ARE SUBJECT TO HAVING ALL THEIR ACTIVITIES ON THIS SYSTEM MONITORED AND
+RECORDED BY SYSTEM PERSONNEL.  IN THE COURSE OF MONITORING INDIVIDUALS
+IMPROPERLY USING THIS SYSTEM, OR IN THE COURSE OF SYSTEM MAINTENANCE,
+THE ACTIVITIES OF AUTHORIZED USERS MAY ALSO BE MONITORED.
+=======================================================================
+PM 10/10/94 05:00-08:00
+-----------------------------------------------------------------------
+news: 8.0.notes 7.0.5.notes SCC40.news CF7760.news CrayLibs10.news
+ emulator10.news CrayTools11.news packing nag gpfa imsl lapack autotask_error
+ libmv2 UNICOS70.news SCC30.news CF7750.news netcdf
+94.09.21 12:26:35 IDENTIFIER 95013.shavano NAME CK1245 JOBID 45557
+Principal Project GAU use:
+                 ---Project GAUs----  --Division GAUs--  ---Program GAUs--
+YYMMDD  Project  Allocated      Used     Mon  3_Mon_avg     Mon  3_Mon_avg
+======  ======== =========  ========  ======  =========  ======  =========
+940918  41113009   5000.00     24.39   16.6%      24.3%     N/A        N/A
++ exit
++ /usr/spool/nqs/scripts/++MB_+++++0+++
+Wed Sep 21 12:26:36 
+Wed Sep 21 12:26:36 + newacct 41113009
+Wed Sep 21 12:26:36 + chdir /usr/tmp/nqs.+++++0MB_
+Wed Sep 21 12:26:36 + ja jacct
+Wed Sep 21 12:26:36 + set TYPE = -mQD
+Wed Sep 21 12:26:36 + set YEAR = 1994
+Wed Sep 21 12:26:36 + set PROJ = 818
+Wed Sep 21 12:26:36 + set STAGE = -N1
+Wed Sep 21 12:26:36 + set TAPELIST = ( R0858 R0859 R0860 R0861 R0862 R0863 R0864 R0865 R0866 R0867 R0868 R0869 )
+Wed Sep 21 12:26:36 + set FLIGHTS = ( FF09 FF10 RF17 RF18 RF19 RF20 RF21 RF22 RF23 RF24 RF25 FF11 )
+Wed Sep 21 12:26:36 + set todo = 12
+Wed Sep 21 12:26:36 + set num = 1
+Wed Sep 21 12:26:36 + while ( 1 < = 12 )
+Wed Sep 21 12:26:36 + set TAPE = R0858
+Wed Sep 21 12:26:36 + set FLIGHT = FF09
+Wed Sep 21 12:26:36 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0858 /RAF/1994/818/FF09/R0858
+SH7197 R0858 will be written to /RAF/1994/818/FF09/R0858
+Wed Sep 21 12:26:56 + @ num ++
+Wed Sep 21 12:26:56 + end
+Wed Sep 21 12:26:56 + while ( 2 < = 12 )
+Wed Sep 21 12:26:56 + set TAPE = R0859
+Wed Sep 21 12:26:56 + set FLIGHT = FF10
+Wed Sep 21 12:26:56 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0859 /RAF/1994/818/FF10/R0859
+SH7268 R0859 will be written to /RAF/1994/818/FF10/R0859
+Wed Sep 21 12:27:12 + @ num ++
+Wed Sep 21 12:27:13 + end
+Wed Sep 21 12:27:13 + while ( 3 < = 12 )
+Wed Sep 21 12:27:13 + set TAPE = R0860
+Wed Sep 21 12:27:13 + set FLIGHT = RF17
+Wed Sep 21 12:27:13 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0860 /RAF/1994/818/RF17/R0860
+SH7293 R0860 will be written to /RAF/1994/818/RF17/R0860
+Wed Sep 21 12:27:28 + @ num ++
+Wed Sep 21 12:27:28 + end
+Wed Sep 21 12:27:28 + while ( 4 < = 12 )
+Wed Sep 21 12:27:28 + set TAPE = R0861
+Wed Sep 21 12:27:28 + set FLIGHT = RF18
+Wed Sep 21 12:27:29 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0861 /RAF/1994/818/RF18/R0861
+SH7310 R0861 will be written to /RAF/1994/818/RF18/R0861
+Wed Sep 21 12:27:44 + @ num ++
+Wed Sep 21 12:27:44 + end
+Wed Sep 21 12:27:44 + while ( 5 < = 12 )
+Wed Sep 21 12:27:44 + set TAPE = R0862
+Wed Sep 21 12:27:44 + set FLIGHT = RF19
+Wed Sep 21 12:27:44 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0862 /RAF/1994/818/RF19/R0862
+SH7358 R0862 will be written to /RAF/1994/818/RF19/R0862
+Wed Sep 21 12:27:56 + @ num ++
+Wed Sep 21 12:27:56 + end
+Wed Sep 21 12:27:56 + while ( 6 < = 12 )
+Wed Sep 21 12:27:56 + set TAPE = R0863
+Wed Sep 21 12:27:56 + set FLIGHT = RF20
+Wed Sep 21 12:27:56 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0863 /RAF/1994/818/RF20/R0863
+SH7374 R0863 will be written to /RAF/1994/818/RF20/R0863
+Wed Sep 21 12:28:12 + @ num ++
+Wed Sep 21 12:28:12 + end
+Wed Sep 21 12:28:12 + while ( 7 < = 12 )
+Wed Sep 21 12:28:12 + set TAPE = R0864
+Wed Sep 21 12:28:12 + set FLIGHT = RF21
+Wed Sep 21 12:28:12 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0864 /RAF/1994/818/RF21/R0864
+SH7406 R0864 will be written to /RAF/1994/818/RF21/R0864
+Wed Sep 21 12:28:24 + @ num ++
+Wed Sep 21 12:28:24 + end
+Wed Sep 21 12:28:24 + while ( 8 < = 12 )
+Wed Sep 21 12:28:24 + set TAPE = R0865
+Wed Sep 21 12:28:24 + set FLIGHT = RF22
+Wed Sep 21 12:28:24 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0865 /RAF/1994/818/RF22/R0865
+SH7426 R0865 will be written to /RAF/1994/818/RF22/R0865
+Wed Sep 21 12:28:39 + @ num ++
+Wed Sep 21 12:28:39 + end
+Wed Sep 21 12:28:39 + while ( 9 < = 12 )
+Wed Sep 21 12:28:39 + set TAPE = R0866
+Wed Sep 21 12:28:39 + set FLIGHT = RF23
+Wed Sep 21 12:28:39 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0866 /RAF/1994/818/RF23/R0866
+SH7462 R0866 will be written to /RAF/1994/818/RF23/R0866
+Wed Sep 21 12:28:55 + @ num ++
+Wed Sep 21 12:28:55 + end
+Wed Sep 21 12:28:55 + while ( 10 < = 12 )
+Wed Sep 21 12:28:55 + set TAPE = R0867
+Wed Sep 21 12:28:55 + set FLIGHT = RF24
+Wed Sep 21 12:28:55 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0867 /RAF/1994/818/RF24/R0867
+SH7478 R0867 will be written to /RAF/1994/818/RF24/R0867
+Wed Sep 21 12:29:11 + @ num ++
+Wed Sep 21 12:29:11 + end
+Wed Sep 21 12:29:11 + while ( 11 < = 12 )
+Wed Sep 21 12:29:11 + set TAPE = R0868
+Wed Sep 21 12:29:11 + set FLIGHT = RF25
+Wed Sep 21 12:29:11 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0868 /RAF/1994/818/RF25/R0868
+SH7504 R0868 will be written to /RAF/1994/818/RF25/R0868
+Wed Sep 21 12:29:29 + @ num ++
+Wed Sep 21 12:29:29 + end
+Wed Sep 21 12:29:29 + while ( 12 < = 12 )
+Wed Sep 21 12:29:29 + set TAPE = R0869
+Wed Sep 21 12:29:29 + set FLIGHT = FF11
+Wed Sep 21 12:29:29 + msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF -vCTRAFDMG -d1600 -mQD -MU -N1 R0869 /RAF/1994/818/FF11/R0869
+SH7556 R0869 will be written to /RAF/1994/818/FF11/R0869
+Wed Sep 21 12:29:47 + @ num ++
+Wed Sep 21 12:29:47 + end
+Wed Sep 21 12:29:47 + while ( 13 < = 12 )
+Wed Sep 21 12:29:47 + ja -cst jacct
+
+
+Job Accounting - Command Report
+===============================
+
+Command  Started    Elapsed    User CPU   Sys CPU   I/O Wait I/O Wait   
+  Name      At      Seconds     Seconds   Seconds   Sec Lck  Sec Unlck   GAUs
+======== ======== =========== ========== ========== ======== ========== =======
+ja       12:26:36      0.0251     0.0006     0.0076   0.0168     0.0004 0.000002
+surrogat 12:26:36     17.7655     0.0063     0.0187   0.0699     0.0274 0.000007
+msimport 12:26:36     19.0946     0.0036     0.0152   0.0402     0.0945 0.000005
+surrogat 12:26:56     14.9328     0.0062     0.0166   0.0722     0.0008 0.000006
+msimport 12:26:56     15.9992     0.0036     0.0134   0.0537     0.0212 0.000005
+surrogat 12:27:13     14.3728     0.0062     0.0170   0.0550     0.0202 0.000006
+msimport 12:27:13     14.9878     0.0036     0.0158   0.0281     0.0741 0.000006
+surrogat 12:27:29     12.9415     0.0062     0.0165   0.0707     0.0004 0.000006
+msimport 12:27:29     14.0488     0.0036     0.0151   0.0717     0.0169 0.000005
+surrogat 12:27:44     12.2217     0.0062     0.0170   0.1369     0.0004 0.000006
+msimport 12:27:44     12.7571     0.0036     0.0148   0.1628     0.3548 0.000005
+surrogat 12:27:56     13.4621     0.0062     0.0171   0.0687     0.0004 0.000006
+msimport 12:27:56     14.2328     0.0036     0.0133   0.0547     0.0118 0.000005
+surrogat 12:28:12     12.1020     0.0062     0.0166   0.0699     0.0003 0.000006
+msimport 12:28:12     12.1871     0.0036     0.0133   0.0495     0.0010 0.000005
+surrogat 12:28:24     12.7852     0.0062     0.0168   0.0783     0.0375 0.000006
+msimport 12:28:24     13.7563     0.0036     0.0152   0.0493     0.0185 0.000005
+surrogat 12:28:40     12.9635     0.0062     0.0171   0.0572     0.0210 0.000006
+msimport 12:28:39     14.2030     0.0036     0.0164   0.0334     0.1117 0.000006
+surrogat 12:28:55     13.8758     0.0062     0.0167   0.0575     0.0209 0.000006
+msimport 12:28:55     14.9988     0.0036     0.0144   0.0372     0.0779 0.000005
+surrogat 12:29:11     14.8227     0.0062     0.0168   0.0568     0.0203 0.000006
+msimport 12:29:11     15.9583     0.0036     0.0152   0.0383     0.0821 0.000006
+surrogat 12:29:30     14.3650     0.0062     0.0158   0.0854     0.0005 0.000006
+msimport 12:29:29     16.0479     0.0036     0.0131   0.6124     0.1080 0.000005
+
+
+Job Accounting - Summary Report
+===============================
+
+Job Accounting File Name         : jacct
+Operating System                 : sn1036 shavano 8.0.2 cbr.8 CRAY Y-MP
+User Name (ID)                   : ruth (6017)
+Group Name (ID)                  : ncar (100)
+Account Name (ID)                : 41113009 (13065)
+    GAUs Allocated               :    5000.0000
+    GAUs Used, as of 09/18/94    :      24.3900
+    Division Monthly Use         :    16.6 %
+    Division 3-Mon-Avg           :    24.3 %
+    Program Monthly Use          :   N/A
+Job Name (ID)                    : CK1245 (45557)
+Report Starts                    : 09/21/94 12:26:36
+Report Ends                      : 09/21/94 12:29:45
+Elapsed Time                     :          189      Seconds
+User CPU Time                    :            0.1184 Seconds
+System CPU Time                  :            0.3855 Seconds
+I/O Wait Time (Locked)           :            2.1266 Seconds
+I/O Wait Time (Unlocked)         :            1.1228 Seconds
+CPU Time Memory Integral         :            0.0297 Mword-seconds
+SDS Time Memory Integral         :            0.0000 Mword-seconds
+I/O Wait Time Memory Integral    :            0.1257 Mword-seconds
+Data Transferred                 :            0.0631 MWords
+Maximum job memory used          :            0.5493 MWords
+Maximum process memory used      :            0.0864 MWords
+Maximum SDS used                 :            0.0000 MWords
+Logical I/O Requests             :          482
+Physical I/O Requests            :          268
+Number of Commands               :           25
+
+                                                 GAU Components
+                                            Job Charge        :     0.00100
+CPU Hours            :     0.00014          CPU Charge        :     0.00013
+Avg Memory (mwd)     :     0.05889          Memory Charge     :     0.00000
+Disk Activity (mwd)  :     0.06307          Disk Act Charge   :     0.00001
+
+Charge before Queue Factor       :                              0.00114 GAUs
+      (Excluding MSS/NTWK/TAGS) 
+Multiplier for  reg Queue        :            1.00 
+Charged against Allocation       :                              0.00114 GAUs
+Wed Sep 21 12:29:48 + exit
+logout

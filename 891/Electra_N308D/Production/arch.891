@@ -1,0 +1,34 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 7-891 FASTEX (Dr. Jacques Testud, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Wed Jun 18 10:14:26 MDT 1997
+#
+date
+#
+set YEAR = 1997
+set PROJ = 891
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/891rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/891rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/891rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/891rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/891rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/891rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/891rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Wed Jun 18 10:18:33 MDT 1997
+# Sequence number = MI1069 -- LRT/RF01.cdf -- OK @ 18 Jun 1997 10:22:35
+# Sequence number = MI1076 -- LRT/RF02.cdf -- OK @ 18 Jun 1997 10:23:02
+# Sequence number = MI1083 -- LRT/RF03.cdf -- OK @ 18 Jun 1997 10:24:13
+# Sequence number = MI1091 -- LRT/RF04.cdf -- OK @ 18 Jun 1997 10:22:46
+# Sequence number = MI1104 -- LRT/RF05.cdf -- OK @ 18 Jun 1997 10:25:37
+# Sequence number = MI1124 -- LRT/RF06.cdf -- OK @ 18 Jun 1997 10:26:07
+# Sequence number = MI1144 -- LRT/RF07.cdf -- OK @ 18 Jun 1997 10:25:54
+#

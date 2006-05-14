@@ -1,0 +1,129 @@
+#! /bin/csh -f
+#
+#  Archive NIMBUS netCDF output files for 4-870 WISP94 (Rasmussen, et. al.)
+#
+set YEAR = 1994
+set PROJ = 870
+#set TURB = LRT
+set TURB = HRT
+#
+#  Following are production output file names (sans extension) on $PROD_DATA.
+#set FILES =  ( 870rf09h 870rf11h 870rf26h 870rf27h 870rf28h 870rf33h 870rf34h )
+#set FLIGHTS = (   RF09     RF11     RF26     RF27     RF28     RF33     RF34  )
+#
+set FILES =    ( 870rf34h )
+set FLIGHTS =  ( RF34 )
+#
+#
+#  Get started:
+date
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  echo \
+  nrnet msput ${PROD_DATA}/${FILE[$num]}.cdf l df=tr \
+    r flnm=/RAF/$YEAR/$PROJ/$TURB/${FLIGHT[$num]}.cdf \
+    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#
+#  Rename job for RF09
+# nrnet msmv % r flnm=/RAF/1994/870/HRT/RF09.cdf \
+#  npdn=/RAF/1994/870/OLDHRT/RF09.cdf w=RAFDMG
+#  Job submitted on Thu Feb 16 15:53:03 MST 1995
+# Sequence number = CK6137 -- OLDHRT/RF09.cdf -- OK
+#  Final production output file (after skeleton program corrections):
+#  Job submitted on Thu Feb 16 16:16:25 MST 1995
+# Sequence number = CK6522 -- HRT/RF09.cdf -- OK
+#
+#
+#  Rename job for RF11
+# nrnet msmv % r flnm=/RAF/1994/870/HRT/RF11.cdf \
+#  npdn=/RAF/1994/870/OLDHRT/RF11.cdf w=RAFDMG
+#  Job performed via ftp on Fri Feb 17 13:12:27 MST 1995
+#
+#  Final production output file (after skeleton program corrections):
+#  Job submitted on Fri Feb 17 13:05:33 MST 1995
+# Sequence number = CK2779 -- HRT/RF11.cdf -- Failed: nimbus cannot use MIGS
+#  Job submitted on Fri Feb 17 17:40:54 MST 1995
+# Sequence number = CK1405 -- HRT/RF11.cdf -- Failed:  permission denied
+#  Job submitted on Tue Feb 21 11:20:40 MST 1995
+# Sequence number = CK3150 -- HRT/RF11.cdf -- OK
+#
+#
+#  Production output file for RF26 before FSSP skeleton program corrections:
+#  Job submitted before Tue Feb  7 16:31:32 MST 1995
+# Sequence number = CK4685 -- HRT/RF26.cdf -- Failed:  exceeds MDS (400000)
+#  Job submitted on Tue Feb  7 16:57:57 MST 1995
+# Sequence number = CK4797 -- HRT/RF26.cdf -- Failed:  exceeds MDS (400000)
+#  Job submitted on Wed Feb  8 14:14:41 MST 1995
+# Sequence number = CK7766 -- HRT/RF26.cdf -- OK
+#
+#  Rename job for RF26
+#  nrnet msmv % r flnm=/RAF/1994/870/HRT/RF26.cdf \
+#    npdn=/RAF/1994/870/OLDHRT/RF26.cdf w=RAFDMG
+#  Job submitted on Thu Feb  9 12:35:36 MST 1995
+# Sequence number = CK1296 -- OK
+#
+#  Final production output file (after skeleton program corrections):
+# Job submitted on Fri Feb 17 10:09:59 MST 1995
+# Sequence number = CK4520 -- HRT/RF26.cdf -- OK
+#
+#
+#  Rename job for RF27
+#  nrnet msmv % r flnm=/RAF/1994/870/HRT/RF27.cdf \
+#    npdn=/RAF/1994/870/OLDHRT/RF27.cdf w=RAFDMG
+#  Job submitted on Fri Feb 17 17:27:19 MST 1995
+# Sequence number = CK4810 -- Failed:  nimbus cannot use MIGS
+#  Job submitted on Fri Feb 17 17:40:54 MST 1995
+# Sequence number = CK1412 -- OK
+#
+#  Final production output file (after skeleton program corrections):
+#  Job submitted on Tue Feb 21 14:40:59 MST 1995
+# Sequence number = CK4978 -- HRT/RF27.cdf -- 
+#
+#
+#  Production output file for RF28 before FSSP skeleton program corrections:
+#  nrnet msput ${PROD_DATA}/870rf28h.cdf l df=tr \
+#    r flnm=/RAF/$YEAR/$PROJ/OLD${TURB}/RF28.cdf \
+#    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#  Job submitted on Fri Feb 17 13:03:32 MST 1995
+# Sequence number = CK1276 -- OK (except it may be the new file, so redo)
+#  Job submitted on Fri Feb 17 16:58:35 MST 1995
+# Sequence number = CK4671 -- Failed:  nimbus cannot use MIGS
+#  Job submitted on Fri Feb 17 17:40:54 MST 1995
+# Sequence number = CK1419 -- Failed:  permission denied (chinook reboot?)
+#  Job submitted on Tue Feb 21 11:20:40 MST 1995
+# Sequence number = CK3157 -- OLDHRT/RF28.cdf -- OK
+#
+#  Final production output file (after skeleton program corrections):
+#  Job submitted on Fri Feb 17 13:50:00 MST 1995
+# Sequence number = CK6647 -- HRT/RF28.cdf -- OK
+#
+#
+#  Rename job for RF33
+#  nrnet msmv % r flnm=/RAF/1994/870/HRT/RF33.cdf \
+#    npdn=/RAF/1994/870/OLDHRT/RF33.cdf w=RAFDMG
+#  Job submitted on Tue Feb 21 14:06:05 MST 1995
+# Sequence number = CK4682 -- OLDHRT/RF33.cdf -- OK
+# 
+#  Final production output file (after skeleton program corrections):
+#  Job submitted on Tue Feb 21 14:32:11 MST 1995
+# Sequence number = CK4931 -- HRT/RF33.cdf -- OK
+#
+#
+#  Rename job for RF34
+#  nrnet msmv % r flnm=/RAF/1994/870/HRT/RF34.cdf \
+#    npdn=/RAF/1994/870/OLDHRT/RF34.cdf w=RAFDMG
+#  Job submitted on Tue Feb 21 15:57:01 MST 1995
+# Sequence number = CK5755 -- OLDHRT/RF34.cdf -- OK
+# 
+#  Final production output file (after skeleton program corrections):
+#  Job submitted on Tue Feb 21 16:53:39 MST 1995
+# Sequence number = CK8417 -- HRT/RF34.cdf -- OK
+#
+# done.
+exit

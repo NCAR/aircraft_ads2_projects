@@ -1,0 +1,185 @@
+************************************************************
+FASTEX (PROJECT 7-891) PROCESSED VARIABLES LIST
+************************************************************
+
+Name          Units            Definition
+----          -----            ----------
+
+A260X_IBL     cnts     260X Raw Accumulation (per cell)           
+ACINS         M/s2     Aircraft Vertical Acceleration          
+ACINS_PITR    M/s2     Aircraft Vertical Acceleration
+ADIFR         mbar     Vertical Differential Pressure, Radome
+AFSSP_IBR     cnts     FSSP-100 Raw Accumulation (per cell)
+AKRD          deg      Attack Angle, Radome Differential Pressure    
+ALT           M        IRS Baro-Inertial Altitude           
+ALT_PITR      M        IRS Baro-Inertial Altitude
+ATFH          C        Ambient Temperature, Deiced Fuselage 
+ATRL          C        Ambient Temperature, Radome Left    
+ATRR          C        Ambient Temperature, Radome Right    
+ATTACK        deg      Attack Angle, Reference              
+ATX           C        Ambient Temperature, Reference        
+BDIFR         mbar     Horizontal Differential Pressure, Radome
+C260X_IBL     N/L      260X Concentration (per cell)          
+CFSSP_IBR     N/cM3    FSSP-100 Concentration (per cell)      
+CHGME         deg      Coarse Geometric Altitude (APN-159)
+CON2C1        N/L      2D-C Concentration                 
+CON2P1        N/L      2D-P Concentration                
+CONC6_IBL     N/L      260X Concentration (all cells)       
+CONCF_IBR     N/cm3    FSSP-100 Concentration (all cells)    
+DBAR6_IBL     uM       260X Mean Particle Diameter           
+DBARF_IBR     uM       FSSP-100 Mean Particle Diameter       
+DBZ6_IBL      dBZ      260X Calculated Reflectivity          
+DBZF_IBR      dBZ      FSSP-100 Calculated Reflectivity     
+DISP6_IBL     none     260X Dispersion (sigma/dbarx)        
+DISPF_IBR     none     FSSP-100 Dispersion (sigma/dbarx)     
+DPB           C        Dew/Frost Point Temperature, Fuselage Bottom
+DPBC          C        Dew Point Temperature, T-Electric Bottom
+DPT           C        Dew/Frost Point Temperature, Fuselage Top 
+DPTC          C        Dew Point Temperature, T-Electric Top  
+DPX           C        Dew/Frost Point Temperature, Reference 
+DPXC          C        Dew Point Temperature, Reference      
+DTB           C        Pyrgeometer Dome Temperature, Bottom   
+DTT           C        Pyrgeometer Dome Temperature, Top     
+EDPC          mbar     Ambient Water Vapor Pressure, Reference 
+EVENT_CKP     none     Event Marker - Cockpit                 
+EVENT_CTL     none     Event Marker - ADS Operator Station     
+EVENT_FWD     none     Event Marker - Forward Observer Display 
+EVENT_IBL     none     Event Marker - Mid Left Observer Display
+EVENT_OBL     none     Event Marker - Aft Left Observer Display
+EVENT_OBR     none     Event Marker - Aft Right Observer Display 
+FACT_IBR      none     FSSP-100 Activity Fraction               
+FANV_IBR      Vdc      FSSP-100 Annulus Baseline Voltage       
+FBMFR_IBR     none     FSSP-100 Beam Fraction                    
+FREF_IBR      none     FSSP-100 Laser Reference Voltage      
+FRNG_IBR      none     FSSP-100 Size Range Category       
+FRST_IBR      cnts     FSSP-100 Fast Resets             
+FSIG_IBR      Vdc      FSSP-100 Signal Voltage          
+FSTB_IBR      cnts     FSSP-100 Strobes                 
+FSTT_IBR      cnts     FSSP-100 Signal Transit Time        
+FTMP_IBR      none     FSSP-100 Housekeeping Data       
+GLAT          deg      GPS Latitude                       
+GLON          deg      GPS Longitude                    
+GMODE         none     GPS Mode                           
+GSF           M/s      Inertial Ground Speed               
+GSF_PITR      M/s      Inertial Ground Speed
+GSTAT         none     GPS Status                                
+GVEW          M/s      GPS Ground Speed Vector, East Component  
+GVNS          M/s      GPS Ground Speed Vector, North Component 
+GVZI          M/s      GPS-Computed Aircraft Vertical Velocity 
+HGM           M        Geometric (Radio) Altitude              
+HGME          M        Geometric (Radar) Altitude (APN-159) 
+HOUR          hours    Raw Tape Time Component             
+IRB           W/M2     Raw Infrared Irradiance, Bottom        
+IRBC          W/M2     Corrected Infrared Irradiance, Bottom 
+IRT           W/M2     Raw Infrared Irradiance, Top          
+IRTC          W/M2     Corrected Infrared Irradiance, Top    
+LAT           deg      Inertial Latitude                    
+LAT_PITR      deg      Inertial Latitude
+LATC          deg      GPS-Corrected Inertial Latitude      
+LON           deg      Inertial Longitude                  
+LON_PITR      deg      Inertial Longitude
+LONC          deg      GPS-Corrected Inertial Longitude     
+MINUTE        minute   Raw Tape Time Component               
+MR            g/kg     Mixing Ratio, T-Electric              
+MRLA          g/kg     Mixing Ratio, Lyman-alpha             
+MRLA1         g/kg     Mixing Ratio, Lyman-alpha                
+P6E01_IBL     none     260X Housekeeping Data                 
+P6E64_IBL     none     260X Housekeeping Data                
+P6RST_IBL     none     260X Housekeeping Data               
+P6TMP_IBL     none     260X Housekeeping Data             
+PALT          M        NACA Pressure Altitude               
+PALTF         feet     NACA Pressure Altitude              
+PCAB          mbar     Interior Cabin Static Pressure       
+PITCH         deg      Aircraft Pitch Angle                    
+PITCH_PITR    deg      Aircraft Pitch Angle
+PLWC          W        Raw PMS-King Liquid Water Content Output  
+PLWC1         W        Raw PMS-King Liquid Water Content Output 
+PLWC6_IBL     g/M3     260X Water/Ice Content                    
+PLWCC         g/M3     Corrected PMS-King Liquid Water Content  
+PLWCC1        g/M3     Corrected PMS-King Liquid Water Content 
+PLWCF_IBR     g/M3     FSSP-100 Water/Ice Content               
+PSFD          mbar     Raw Static Pressure, Fuselage Digital   
+PSFD1         cnts     Raw PSFD, Low-order word                 
+PSFD2         cnts     Raw PSFD, High-order word               
+PSFDC         mbar     Corrected Static Pressure, Fuselage Digital 
+PSURF         mbar     Calculated Surface Pressure            
+PSW           mbar     Raw Static Pressure, Wing             
+PSWC          mbar     Corrected Static Pressure, Wing       
+PSX           mbar     Raw Static Pressure, Reference       
+PSXC          mbar     Corrected Static Pressure, Reference  
+QCF           mbar     Raw Dynamic Pressure, Fuselage          
+QCFC          mbar     Corrected Dynamic Pressure, Fuselage  
+QCR           mbar     Raw Dynamic Pressure, Radome            
+QCRC          mbar     Corrected Dynamic Pressure, Radome    
+QCW           mbar     Raw Dynamic Pressure, Wing           
+QCWC          mbar     Corrected Dynamic Pressure, Wing       
+QCX           mbar     Raw Dynamic Pressure, Reference       
+QCXC          mbar     Corrected Dynamic Pressure, Reference   
+RHODT         g/M3     Absolute Humidity, T-Electric Top      
+RHOLA         g/M3     Absolute Humidity, Lyman-alpha          
+RHOLA1        g/M3     Absolute Humidity, Lyman-alpha          
+RHUM          %        Relative Humidity                       
+RICE          Vdc      Raw Icing-Rate Indicator              
+ROLL          deg      Aircraft Roll Angle                  
+ROLL_PITR     deg      Aircraft Roll Angle
+RSTB          C        Radiometric Surface Temperature        
+RSTB1         C        Radiometric Surface Temperature      
+SDWC1         cnts     2D-C Shadow OR Counts                   
+SDWP1         cnts     2D-P Shadow OR Counts                 
+SECOND        s        Raw Tape Time Component                 
+SSLIP         deg      Sideslip Angle, Reference              
+SSRD          deg      Sideslip Angle, Radome Differential Pressure    
+STB           C        Pyrgeometer Sink Temperature, Bottom   
+STT           C        Pyrgeometer Sink Temperature, Top       
+SWB           W/M2     Shortwave Irradiance, Bottom             
+SWT           W/M2     Shortwave Irradiance, Top              
+TASF          M/s      Aircraft True Airspeed, Fuselage        
+TASHC         M/s      Aircraft True Airspeed, Humidity Corrected
+TASR          M/s      Aircraft True Airspeed, Radome          
+TASW          M/s      Aircraft True Airspeed, Wing            
+TASX          M/s      Aircraft True Airspeed, Reference     
+TEO3          ppb      Raw TECO Ozone Output                    
+TEO3C         ppb      Corrected TECO Ozone Concentration      
+TEP           mbar     Internal TECO Ozone Sampling Pressure  
+TET           C        Internal TECO Ozone Sampling Temperature 
+THDG          deg      Aircraft True Heading Angle             
+THDG_PITR     deg      Aircraft True Heading Angle
+THETA         K        Potential Temperature                 
+THETAE        K        Equivalent Potential Temperature    
+THETAV        K        Virtual Potential Temperature          
+TRSTB         C        Radiometric Head Temperature          
+TTFH          C        Total Temperature, Deiced Fuselage      
+TTRL          C        Total Temperature, Radome Left       
+TTRR          C        Total Temperature, Radome Right        
+TTX           C        Total Temperature, Reference         
+UI            M/s      Wind Vector, East Component            
+UVB           W/M2     Ultraviolet Irradiance, Bottom         
+UVT           W/M2     Ultraviolet Irradiance, Top              
+UX            M/s      Wind Vector, Longitudinal Component      
+VEW           M/s      Inertial Ground Speed Vector, East Component  
+VEW_PITR      M/s      Inertial Ground Speed Vector, East Component
+VI            M/s      Wind Vector, North Component            
+VLA           Vdc      Raw Lyman-alpha Hygrometer Output       
+VLA1          Vdc      Raw Lyman-alpha Hygrometer Output        
+VNS           M/s      Inertial Ground Speed Vector, North Component
+VNS_PITR      M/s      Inertial Ground Speed Vector, North Component
+VSPD          M/s      IRS-Computed Aircraft Vertical Velocity  
+VSPD_PITR     M/s      IRS-Computed Aircraft Vertical Velocity
+VY            M/s      Wind Vector, Lateral Component           
+WD            deg      Horizontal Wind Direction                  
+WI            M/s      Wind Vector, Vertical Gust Component     
+WP3           M/s      Damped Aircraft Vertical Velocity     
+WS            M/s      Horizontal Wind Speed                  
+XLATC         deg      GPS-Corrected Inertial Latitude         
+XLONC         deg      GPS-Corrected Inertial Longitude        
+XMACH2        none     Aircraft Mach Number Squared          
+XPSFD         mbar     Experimental Static Pressure, Fuselage Digital 
+XUIC          M/s      GPS-Corrected Wind Vector, East Component 
+XUXC          M/s      GPS-Corrected Wind Vector, Longitudinal Component
+XVEWC         M/s      GPS-Corrected Inertial Ground Speed Vector, East Component
+XVIC          M/s      GPS-Corrected Wind Vector, North Component
+XVNSC         M/s      GPS-Corrected Inertial Ground Speed Vector, North Component
+XVYC          M/s      GPS-Corrected Wind Vector, Lateral Component
+XWDC          deg      GPS-Corrected Horizontal Wind Direction    
+XWIC          M/s      GPS-Corrected Wind Vector, Vertical Gust Component
+XWSC          M/s      GPS-Corrected Horizontal Wind Speed     

@@ -1,0 +1,83 @@
+#
+# This file contains variable names of Derived variables whose OutputRate
+# will default to LowRate for a HighRate nimbus run.
+#
+# Project-specific variables
+DPXC
+EDPC
+MR
+RHUM
+XCVF2C
+XCVFCC
+XCVFHC
+XCVFXC
+XCVL
+XRHCV
+#C260X_WDL
+#CFSSP_IBL
+#CONC6_WDL
+#CONCF_IBL
+#CONCP_IBR
+#CPCAS_IBR
+#DBAR6_WDL
+#DBARF_IBL
+#DBARP_IBR
+#DISP6_WDL
+#DISPF_IBL
+#DISPP_IBR
+#FBMFR_IBL
+#PLWC6_WDL
+#PLWCF_IBL
+#
+# Dummy variables
+ONE
+ZERO
+#
+# Derived variables
+ATFH
+CMRCR
+DPBC
+DPCRC
+DPTC
+DVALU
+FCNC
+FPCRC
+IRBC
+IRTC
+LATC
+LONC
+LWCC
+#MR     (This variable can derive from a high-rate moisture measurement.)
+OAT
+OBBCR
+ODETOF
+ODSIGC
+OGAINF
+OTDETC
+#PALT   (This variable can derive from a high-rate pressure measurement.)
+PLWCC
+#PSFD   (This variable has a default 25sps sample rate.)
+#PSURF  (This variable has a default 25sps sample rate.)
+PSWC
+#PSXC   (This variable can derive from a high-rate pressure measurement.)
+RHOCR
+RHODB
+RHODT
+#RHUM   (This variable can derive from a high-rate moisture measurement.)
+TEO3C
+XICNC
+XRLWCC
+#
+# PMS-1D variables
+#C200X
+#C200Y
+#C260X
+#CF300
+#CFSSP
+#CPCAS
+#
+# PMS-2D variables
+CON2C1
+CON2C2
+CON2P1
+CON2P2

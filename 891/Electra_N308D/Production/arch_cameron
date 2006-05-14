@@ -1,0 +1,222 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 1997-891 FASTEX (Brad Cameron's request)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (debug)                                           16 Apr 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PDIR = $LOCAL/proj/$PROJ
+set PRDIR = $PDIR/Production
+cd $PDIR
+#
+set YEAR = `grep FY Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat ProjectName`
+#
+date
+#
+#  Current archive (nrnet) commands go here
+# -----------------------------------------
+#
+#  Cameron's files in the local Production directory (not renamed)
+#
+set TURBRT = CAMERON
+set DIR = $PRDIR
+set FILES = ( \
+Flight_2_HRT \
+Flight_4_HRT \
+logFile_HRT.4 \
+production_log_HRT_RF04 \
+nimbus.tar.cameron \
+nimbus.tar.cameron.dir \
+nimbus_defaults.tar.cameron \
+nimbus_defaults.tar.cameron.dir \
+Mail.cameron \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo "^G Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+nrnet msput $PROD_DATA/891rf04h.cdf l df=tr r flnm=/RAF/1997/891/CAMERON/RF04.0310-0430.cdf
+#
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+#  -------------------------------------------------------------
+#   T E M P L A T E S   ( e d i t ,   a s   n e c e s s a r y )
+#  -------------------------------------------------------------
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = 
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set TURBRT = 
+set DIR = 
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  -------------------------------------------------------------
+#   T E M P L A T E S   ( b r u t e - f o r c e   m e t h o d )
+#  -------------------------------------------------------------
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's `Production' directory
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  Set turbulence rate (LRT or HRT) here
+set TURBRT = 
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's `Production' directory
+set FILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+# -----------------------------------------------------------------------------
+#
+#  Job(s) submitted on Thu Sep 18 13:56:22 MDT 1997
+#   All files were put into the MSS directory /RAF/1997/891/CAMERON/
+# Sequence number = MI2209 -- Flight_2_HRT -- OK @ 18 Sep 1997 13:56:36
+# Sequence number = MI2216 -- Flight_4_HRT -- OK @ 18 Sep 1997 13:56:37
+# Sequence number = MI2223 -- logFile_HRT.4 -- OK @ 18 Sep 1997 13:56:40
+# Sequence number = MI2230 -- production_log_HRT_RF04 -- OK @ 18 Sep 1997 13:56:44
+# Sequence number = MI2237 -- nimbus.tar.cameron -- 
+# Sequence number = MI2244 -- nimbus.tar.cameron.dir -- OK @ 18 Sep 1997 13:56:49
+# Sequence number = MI2251 -- nimbus_defaults.tar.cameron -- OK @ 18 Sep 1997 13:56:52
+# Sequence number = MI2258 -- nimbus_defaults.tar.cameron.dir -- OK @ 18 Sep 1997 13:56:54
+# Sequence number = MI2265 -- Mail.cameron -- OK @ 18 Sep 1997 13:56:56
+#
+#  Job(s) submitted on Thu Sep 18 14:17:05 MDT 1997
+# Sequence number = MI0012 -- RF04.0310-0430.cdf -- OK @ 18 Sep 1997 14:18:35
+#

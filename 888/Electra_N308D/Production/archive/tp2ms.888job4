@@ -1,0 +1,44 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-888 ALOHA-94  (Gardner)
+#   Fourth try (Redo files that don't need to be split up)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 888
+set STAGE = nfile=1
+#set STAGE = nrec=6500
+#set STAGE = skpr=6500 nrec=6500
+#set STAGE = skpr=13000 nrec=6500
+#set STAGE = skpr=19500 nrec=6500
+#set STAGE = skpr=26000 nrec=6500
+#
+#  Jobs submitted @ 12:30 p.m. on 16 December 1993
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK5617  --  Rejected (no `nimbus' account)
+# Sequence number = CK5626  --  Rejected (no `nimbus' account)
+#
+#  Jobs submitted @ 12:45 p.m. on 16 December 1993
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK2283  --  OK
+# Sequence number = CK2288  --  OK
+# 
+set TAPELIST = ( R0743 R0758 )
+set FLIGHTS =  ( RF03  RF17  )
+#
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

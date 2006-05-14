@@ -1,0 +1,215 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Notes:  Create a copy of, modify and run this script from a project's 
+#            "Production/archive" subdirectory.
+#          IMPORTANT:  Use the "tarit.docs" script to create an archive
+#            file for the project's documentation in the "Production/docs"
+#            subdirectory.
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#  Revised by RLR (remind about "tarit.docs" script)                 4 Mar 2002
+#  Revised by RLR (change directory refs--now runs in archive dir)  28 Aug 2002
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+cd $PROJDIR
+tar chvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+DependTable.preEDPC \
+Despike \
+LowRateVars \
+PMSspecs \
+ProjectName \
+VarDB \
+adscmd \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+flat_panel_parms \
+flat_save \
+header \
+history_file.post-cals \
+landmarks \
+ophir3.names \
+plot_attr \
+plotspex \
+plotspexcindy \
+plotspexdef-passwd \
+plotspexpms1d \
+stats_selns \
+Production/870rf09.hdr \
+Production/870_QA.wp6 \
+Production/FlightGroups \
+Production/Flight_0 \
+Production/Flight_2 \
+Production/Flight_3 \
+Production/Flight_4 \
+Production/Flight_7 \
+Production/Flight_8 \
+Production/Flight_9 \
+Production/Flight_19 \
+Production/Flight_20 \
+Production/Flight_30 \
+Production/Flight_31 \
+Production/Flight_39 \
+Production/Flight_41 \
+Production/HRT.convert \
+Production/Mail.870 \
+Production/MSCP_out.870 \
+Production/Proc.instr \
+Production/README \
+Production/README.2 \
+Production/archive.support.old \
+Production/cp2ms.870 \
+Production/cp2ms.870.hrt.log \
+Production/logFile_HRT.9 \
+Production/logFile_HRT.11 \
+Production/logFile_HRT.15 \
+Production/logFile_HRT.26 \
+Production/logFile_HRT.27 \
+Production/logFile_HRT.28 \
+Production/logFile_HRT.33 \
+Production/logFile_HRT.34 \
+Production/logFile_LRT.1 \
+Production/logFile_LRT.2 \
+Production/logFile_LRT.3 \
+Production/logFile_LRT.4 \
+Production/logFile_LRT.5 \
+Production/logFile_LRT.6 \
+Production/logFile_LRT.7 \
+Production/logFile_LRT.8 \
+Production/logFile_LRT.9 \
+Production/logFile_LRT.10 \
+Production/logFile_LRT.11 \
+Production/logFile_LRT.12 \
+Production/logFile_LRT.13 \
+Production/logFile_LRT.14 \
+Production/logFile_LRT.15 \
+Production/logFile_LRT.16 \
+Production/logFile_LRT.17 \
+Production/logFile_LRT.18 \
+Production/logFile_LRT.19 \
+Production/logFile_LRT.20 \
+Production/logFile_LRT.21 \
+Production/logFile_LRT.22 \
+Production/logFile_LRT.23 \
+Production/logFile_LRT.24 \
+Production/logFile_LRT.25 \
+Production/logFile_LRT.26 \
+Production/logFile_LRT.27 \
+Production/logFile_LRT.28 \
+Production/logFile_LRT.29 \
+Production/logFile_LRT.30 \
+Production/logFile_LRT.31 \
+Production/logFile_LRT.32 \
+Production/logFile_LRT.33 \
+Production/logFile_LRT.34 \
+Production/logFile_LRT.35 \
+Production/logFile_LRT.36 \
+Production/logFile_LRT.37 \
+Production/logFile_LRT.38 \
+Production/logFile_LRT.39 \
+Production/logFile_LRT.40 \
+Production/logFile_LRT.41 \
+Production/logFile_LRT.42 \
+Production/logFile_LRT.43 \
+Production/logFile_LRT.44 \
+Production/logFile_LRT.45 \
+Production/mss_move \
+Production/nimbus.tar.dir \
+Production/nimbus_defaults.tar.dir \
+Production/notes \
+Production/proj.info \
+Production/re_production.notes \
+Production/taplog.870 \
+Production/tarit.870.old \
+Production/tp2ms.summary \
+Production/1st_production/870.hrt.tar.dir \
+Production/1st_production/870.lrt.tar.dir \
+Production/1st_production/870rf01.hdr \
+Production/1st_production/870rf01h.hdr \
+Production/1st_production/Production.hrt.log \
+Production/1st_production/Production.log.gz \
+Production/1st_production/VarDB \
+Production/1st_production/archive.log.gz \
+Production/1st_production/msput.870 \
+Production/1st_production/msput2.870 \
+Production/1st_production/nimbus.hrt.tar.dir \
+Production/1st_production/nimbus.lrt.tar.dir \
+Production/1st_production/taplog.870 \
+Production/1st_production/tarit.870.hrt.tar \
+Production/1st_production/tarit.870.lrt.tar \
+Production/1st_production/tarit.nimbus.tar \
+Production/archive/archive.support \
+Production/archive/tapes.870 \
+Production/archive/tarit.870 \
+Production/archive/tp2ms.job1 \
+Production/archive/tp2ms.job2 \
+Production/archive/tp2ms.job3 \
+Production/fsspskel/Makefile \
+Production/fsspskel/Process.log \
+Production/fsspskel/README \
+Production/fsspskel/XmSkeleton \
+Production/fsspskel/Xwin.c \
+Production/fsspskel/amlib.c \
+Production/fsspskel/cb_main.c \
+Production/fsspskel/cb_pause.c \
+Production/fsspskel/cb_time.c \
+Production/fsspskel/compute.c \
+Production/fsspskel/define.h \
+Production/fsspskel/error.c \
+Production/fsspskel/globals.c \
+Production/fsspskel/init.c \
+Production/fsspskel/lrloop.c \
+Production/fsspskel/netcdf.c \
+Production/fsspskel/search.c \
+Production/fsspskel/skel.c \
+Production/fsspskel/sort.c \
+Production/fsspskel/timeseg.c \
+Production/ncfixattr/doall \
+Production/ncfixattr/fix_attrs \
+Production/ncfixattr/makefile \
+Production/ncfixattr/ncfixattr \
+Production/ncfixattr/ncfixattr.c
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

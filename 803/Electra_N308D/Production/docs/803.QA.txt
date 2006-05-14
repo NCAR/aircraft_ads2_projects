@@ -1,0 +1,368 @@
+	Data Quality Report
+	 NCAR Electra - Project #9-803
+   	   Mesoscale Alpine Project
+  Kuettner, et al
+
+	by
+
+     Allen Schanot & Krista Laursen
+
+This summary has been written to outline basic instrumentation problems affecting the data set and is not intended to point out every bit of questionable data.  It is hoped that this information will facilitate use of the data as the research concentrates on specific flights and times.
+
+The following report covers only the RAF supplied instrumentation and is organized into two sections.  The first section lists recurring problems, general limitations, and systematic biases in the standard RAF measurements.  The second section lists isolated problems occurring on a flight-by-flight basis.  
+
+Section I:  General Discussion
+
+    1.  Moderate to heavy icing levels were encountered on several flights.  Incidents of aircraft icing can be easily detected by examining the output of the Rosemount Icing Detector (RICE).  Although many of the instruments on the aircraft are deiced, moderate icing of the instruments will significantly alter the performance characteristics of all of the available instruments.  Care should be used when examining data from these intervals.
+
+ 	2.  The wind data for this project were derived from measurements taken with the radome wind gust package.  As is the case with all wind gust systems, the ambient wind calculations can be adversely affected by either sharp changes in the aircraft's flight attitude or excessive drift in the onboard inertial reference system (IRS).  Turns, or more importantly, climbing turns are particularly disruptive to this type of measurement technique.  Wind data reported for these conditions should be used with caution.
+
+As an additional enhancement to this data set, a second pass correction was applied to the wind data using position and ground speed updates provided by the GPS positioning system.  Both the GPS corrected and uncorrected values are included in the final data set.  RAF strongly recommends that the GPS corrected winds be used for all research efforts.
+
+3.  A Trimble Global Positioning System (GPS) was used as a more accurate position reference during the program.  The system generally performed well and the GPS position values are normally used for all research efforts.  However, sharp turns do occasionally interrupt the reception from some satellites.  These cases are characterized by a small, instantaneous shift in position.  Once the aircraft has come out of the turn the track will typically shift back.  For a smooth transition across these position shifts, RAF recommends that the XLATC/XLONC position data be used.  These values are derived from a combination of the GPS and IRS position data.  NOTE: a lightning strike to the aircraft during flight rf21 resulted in some damage to the GPS system.  Data from subsequent flights exhibit some significant dropouts in GPS data collection.  Specific occurrences are noted in the flight-by-flight summary provided below. 
+
+
+ 	4.  RAF flies redundant sensors to assure data quality.   Performance characteristics differ from sensor to sensor with certain units being more susceptible to various thermal and dynamic effects than others.  Good comparisons were typically obtained between the two standard temperatures (ATRL, ATFH), three dynamic pressures (QCRC, QCFC, QCWC), two liquid water sensors (PLWCC, PLWCC1), the two dew pointers (DPT,DPB), and in the three static pressures (PSFDC,PSFC,PSWC).  The reference pressure used in all of the derived parameters (PSFDC) was obtained with a Model 1501 unit.  The two remote surface temperature sensors (RSTB, RSTB1) generally functioned well, but there were times when the two measurements differ significantly. Various derived parameters require input from one or more of these standard sensors.  Reference sensors are selected for each project, depending on a review of their performance.  Reference sensor designations can be found in the project Parameter List.
+
+5.  One of the key inputs to most of the derived parameters is aircraft true airspeed (TASX) which is calculated using  dynamic pressure.  Normally the radome dynamic pressure (QCR,QCRC) would be used as the reference input because the high rate characteristics (10 Hz)from the radome gust probe system are better than the other options.  Due to occasional problems with icing of the radome, however, the decision was made to use the fuselage dynamic pressure (QCF, QCFC) as the reference sensor in the standard low rate data set.  The two systems are well matched so this change will not affect the overall accuracy of the data set. 
+
+ 	6.  Temperature measurements were made using the standard heated (ATFH) and unheated (ATRL) Rosemount temperature sensors along with the OPHIR-III (OAT) radiometric temperature sensor.  All of the standard temperature sensors performed reasonably well, encountering the usual problems with sensor wetting and icing during cloud passes.  A comparison of the data sets yielded good correlation in instrument signatures and only small differences in absolute value (+-0.2 oC) through out the program. A comparison of pre and post program calibrations indicated that all units maintained stable and independent calibrations.  Due to the unusually high incidence of icing, ATFH was selected as the reference value used in calculating the derived parameters.  
+
+The OPHIR-III sensor was flown because it is not sensitive to interference from sensor wetting or icing.  The unit performed well and its output was well correlated to the in-situ sensors in clear air.  It should be noted, however, that the OPHIR-III installation on the Electra is biased with a slight upward tilt. With its integrated sample volume extending 10-30 meters out from the aircraft, the unit output provides a measurement of ambient temperature from a layer slightly higher in altitude than the in-situ sensors.  Under normal conditions the difference in temperatures over this height scale is not noticeable.  Some flight legs, however, were conducted in the presence of a very sharp thermal inversion.  Under those conditions the OPHIR-III output can differ by as much as 2 oC.
+
+
+ 	7.  Humidity measurements were made using two collocated thermoelectric dew point sensors and two Lyman-alpha fast response hygrometers.   Generally speaking, the humidity sensors performed well. As is typically the case, the two dew point sensors (DPBC,DPTC) were set up differently to provide the best coverage under the widest range of ambient conditions.  DPTC was set up for fast response, but its dynamic range was more limited and had a tendency to break into oscillation. DPBC was a little slower but had the capability of measuring greater dew point depressions.  A comparison of the data sets yielded good correlation in instrument signatures during the largest portions of the flights when both instruments were functioning normally. DPBC was selected as the reference value used in calculating the derived parameters.    
+
+There are two variations in sensor housings for the Lyman-alpha hygrometers: an exposed stub (VLA1, RHOLA1, MRLA1); and a cross-flow tube (VLA, RHOLA, MRLA).  The stub has a faster response but the sample volume is exposed to liquid water in the atmosphere and is very susceptible to wetting of the viewing windows.  The cross-flow tube is somewhat slower, but the sample volume is protected from wetting and will provide better data during cloud passes.  All Lyman-alpha hygrometers are susceptible to in-flight drift in the instrument's bias voltage.  Due to this problem, RAF uses a special data processing technique to remove the bias drift by referencing the long term humidity values to one of the more stable thermoelectric dew point sensors.  Measurements from the two systems remained well correlated for clear air sampling but showed significant differences during cloud penetrations.  
+
+ 	8.  A set of upward- and downward-looking radiometers were deployed on the Electra for the measurement of down welling and upwelling ultraviolet (UV), shortwave, and infrared (IR) radiation.  RAF recently implemented a processing algorithm that removes the effects of aircraft attitude from the upward-looking shortwave radiometer data.  Users should note that the uncorrected upward-looking shortwave radiometer data variable is SWT, while the correct upward-looking shortwave data variable is XSWTC.  A description of the process used to attitude correct the 
+shortwave data is given in RAF Technical Bulletin 25 (available on-line at http://raf.atd.ucar.edu/Bulletins/bulletin25.html).  The algorithm used to remove the effects of aircraft attitude from the upward-looking shortwave radiometer data requires estimates of the shortwave direct and diffuse radiation fractions.  For the MAP data set, a simple radiative transfer model was used to estimate these direct and diffuse fractions, and it was determined during this analysis that the same average fraction values could be used for the processing of each of the 29 research flights.  The direct and diffuse radiation fractions used during the processing of the data were 0.62 and 0.38, respectively.
+
+During processing and quality checking of the MAP hemispheric radiometer data, it was determined that small offsets (possibly attributable to inaccuracies in the sensor calibration data) existed in the down welling and upwelling shortwave and UV radiometer data.  The magnitude of the offset for each of the four affected sensors was determined and removed during processing of the SWT, SWB, UVT, and UVB data. 
+
+9.  Thermal temperature chamber experiments have indicated that the Heimann sensors used to remotely measure the surface temperature (RSTB, RSTB1) are sensitive to some thermal drift.   In an attempt to deal with these problems the units were equipped with a temperature control heater system.  Generally speaking, the heater system stabilized the signal fairly well.  Some drift is still apparent in the data set.  RSTB1 seemed to be the more stable of the two units and exhibited better accuracy in the regular, single point, precision tests run prior to each flight. RSTB1 is therefore recommended as the reference system for this measurement.
+
+An additional Heimann was placed looking upward (RSTT) in order to monitor the presence of cloud decks above the altitude of the aircraft.  When no upper layer decks are present, RSTT will be pegged around -50 oC.  During in-cloud passes or with upper level cloud decks present, the output of the sensor will reflect either the near field ambient temperature or the temperature of the cloud base, respectively.
+
+
+ 	10.  The altitude of the aircraft was measured in several ways. The primary measurement (PALT,PALTF) is derived from the static pressure using the hydrostatic equation and the U.S. Standard Atmosphere, which assumes a constant surface pressure of 1013 mb.  The inertial reference system outputs a similar measurement of altitude (ALT) by combining static pressure measurements with vertical accelerations.  These outputs are well correlated and either may be used.  RAF recommends PALT as the reference value, however, as it is typically a cleaner signal and uses the research grade static pressure sensor.
+
+Two radar altimeters were on-board the aircraft for the project. The primary unit (HGME) functions at all altitudes but can be affected by surface signal reflects at altitudes below 50 meters AGL.  The secondary unit (HGM) provides high precision data from the surface to a maximum altitude of 800 meters AGL.  Once the maximum limit on HGM has been exceeded the signal becomes very noisy and will no longer be of use.  Due to the errors in PALT & ALT introduced by using the standard atmosphere, HGME or HGM should be used as the low altitude reference.
+
+The GPS positioning system also provides an altitude readout (GALT).  The GALT signal has been "de-tuned" by the military and exhibits erratic oscillations of +-100 m.  These data have not been included in the final data set.
+
+11.  Two hot wire liquid water sensors were used on the Electra during the program.  The PMS King Probes (PLWCC, PLWCC1) worked reasonable well during the program and a comparison of the two units yielded a good correlation in most cases. Special note should be made of the fact that both these instruments are calibrated for a specific range of aircraft speeds.  Small changes in the baseline are apparent with speed changes, as are small zero offsets.  Each cloud penetration will require a baseline adjustment with the relative change providing the sampled liquid water content.
+
+Hot wire units will provide an un-calibrated positive response in the presence of significant concentrations of ice particles and in this case are not true measures of liquid water content. The two units were operated at significantly different wire temperatures.  During intervals when predominantly ice particles are affecting sensor output, the signatures of the two systems will vary.   At ambient temperatures less than zero degrees centigrade, RAF recommends that the output of the icing rate indicator (RICE) be examined to confirm the presence of liquid water. 
+
+12.  The calculation of CN sized aerosol particle 
+concentrations (CONCN) is dependent upon total particle counts (CNTS) and the measurement of sample flow (FCN,FCNC). Sample flows are routinely corrected for altitude changes but obstructions are possible.  During this project the CN sample flow was drawn from a special moisture separating inlet.  This inlet avoids the false, order of magnitude jumps in in-cloud measurements resulting from droplet shattering.
+
+13. Penetration of convective systems can sometimes result
+in lightning strikes to the aircraft.  During flight rf21, the Electra was struck by lightning two times.  Several research systems, specifically the PMS 2D-C and 2D-P particle probes, were lost at the time of the strikes and remained out for the rest of the flight.  It seems likely that several other systems were also affected and it took several flights to correct some of these problems.
+
+
+14.  Five PMS particle probes (FSSP100, 260X, PCASP, 2D-C, 2D-P) were used on the project.  Some specific details on each of the probes are summarized below:
+
+PCASP  The PCASP aerosol particle probe functioned 
+extremely well during the project.  The probe flown
+on the Electra for MAP has been modified in order to
+directly measure the sample flow through the 
+instrument.  These data, recorded as PFLWC_WDL, have 
+been used in the calculation of particle concentrations
+to provide a more accurate measurement of aerosol
+concentrations.
+
+FSSP100  The FSSP cloud droplet probe functioned
+extremely well. Weekly servicing and re-calibration of
+the sensor optics provided good documentation for data
+processing.  Being an optical scattering probe, the
+FSSP has no way of distinguishing between ice particles
+and water droplets. Therefore, the liquid water content
+calculated from this probe (PLWCF_IBR) should be used 
+with caution in this application.
+
+260X  The sampling size threshold of the 260 probe
+varies with air speed (Baumgardner and Korolev, 1997).
+During the MAP deployment, Electra airspeeds typically
+ranged in the 110-140 m/s, making the data collected
+in the first four size bins unusable.  This basically
+changes its sampling range of the probe to 50-640 um.
+Generally speaking, the resulting concentrations from 
+the 260X exhibited a good correlation to the particle 
+data from the 2D-C and 2D-P probes.  Like the FSSP 
+probe, the 260X has no way to distinguish between ice 
+and water.  Therefore, the liquid water content 
+calculated from this probe (PLWC6_IBR) should be used 
+with caution in this application.  
+
+2D-C  Generally speaking, this probe functioned
+well.  Some intermittant difficulties were encountered
+during some of the earlier flights.  Specifically, 
+bursts of empty records, occasional duplicate records, 
+and periods with stuck diodes can be found in the data 
+set.  Simple calculations of particle concentrations
+(CONC2C) have been included in the output data.  These
+calculations are intended for basic quality review,
+only and do not adjust sampling volume based on 
+particle distribution the way the PMS 1-D probes do. 
+
+2D-P  Generally speaking, this probe functioned
+well.  However, near the end of flight rf11 a problem
+developed in the probe that eventually resulted in a 
+complete loss of data for flights rf12-rf14.  Like the 
+2D-C probe, occasional duplicate records can also be 
+found in this data set. Simple calculations of particle 
+concentrations (CONC2P) have been included in the 
+output data.  These calculations are intended for basic 
+quality review, only and do not adjust sampling volume 
+based on particle distribution the way the PMS 1-D
+probes do.
+
+
+15. The RAF was responsible for the ozone measurements conducted on the Electra during the program.  The variable TEO3C contains corrected data from the TECO Model 49 UV ozone analyzer. Two nearly identical instruments of this type were flown on the MAP project.  Prior to this project, the sample cell windows of one of the instruments were modified, with highly polished sapphire windows.  This change was implemented in an effort to improve the performance of this sensor in rapidly changing humidity environments.  As a precautionary measure, an unmodified instruments was also deployed during this project.  The raw signals of the unmodified and modified instruments were recorded as variables TEO3 and INTEO3, respectively.  Comparison of the two raw signals led to the conclusion that this upgrade did not introduce new problems, and significantly improved data coverage during high humidity encounters.  Noise spikes and infrequent data dropouts were observed for both instruments, but fortunately did not occur simultaneously.  Except as noted below, the final data set was obtained using data from the upgraded instrument.
+
+The data have been corrected for pressure and temperature deviations from standard P and T using support measurements (variables TEP and TET, unless noted below).  Parameters TET and TEP contained occasional noise spikes.  This data was treated with a despiking filter to greatly reduce this noise contribution.  This filter removed single point noise spikes which exceeded a 5 mbar noise threshold.  Some noise spikes remained in the output; many of these were removed manually from the final data set.
+
+A final note: in areas of high aerosol content, the TECO instrument can have a positive interference.  The dual absorption cell instrument creates a blank by passing ambient air through an ozone destroyer.  This component alters the aerosol number density in the absorption cell, causing less scattering extinction in the blank measurement.  
+
+16.  Data recording typically begins well in advance of the actual aircraft takeoff time.  Virtually all measurements made on the aircraft require some sort of airspeed correction or the systems are simply not active while the aircraft remains on the ground.  None of the data collected while the aircraft is on the ground should be considered as valid.
+
+
+
+
+
+
+Section II:  Flight-by-Flight Summary
+
+RF01 
+
+   (	Failure in CN particle counter (CONCN); data bad for
+	Entire flight.
+   (	Temperature sensor ATRL iced up from 15:26 to end of flight;
+ 		data not usable during this time interval.
+   (	Intermittant wetting of the sensor cavity.  VLA1, MRLA1,
+	and RHOLA1 data are affected from 15:15-16:40.
+   (	Bad sensing element on king probe liquid water probe (PLWCC1);
+	data bad for entire flight.
+   (	QCR icing occurred from 16:00-16:39; data not usable during
+		this time interval.
+
+RF02	
+
+   (	Temperature sensor ATRL iced up from 12:41-13:03;
+ 		data not usable during this time interval.
+   (	PMS PCASP aerosol probe pump not turned on at start of
+		flight; data bad from 10:56-11:40.
+   (	OPHIR temperature sensor (OAT) not turned on at start of 
+		flight; data bad from 10:56-11:40.
+
+RF03	
+
+   (	QCR icing occurred from 05:55-06:52 and 08:00-10:15; data
+		not usable during this time interval.
+   (	Excessive drift in remote surface temperature sensor (RSTB1);
+		data questionable from 07:10-10:00.
+   (	Temperature sensor ATRL iced up from 07:46-08:24 and
+		09:38-09:59; data not usable during these time intervals.
+   (	Intermittant wetting of the sensor cavity.  VLA1, MRLA1,
+		and RHOLA1 data are affected through out the flight.
+   (	Error in GPS corrected winds (XWDC,XWSC).  Data 
+	questionable from 10:18-10:20.
+   (	Bottom dew pointer (DPBC) unresponsive from 10:15 to end
+	of flight.
+
+RF04	
+
+   (	Error in GPS corrected winds (XWDC,XWSC).  Data 
+	questionable from 12:31-12:45.
+   (	Intermittant short GPS dropouts.  Position data
+	affected from 14:00-14:29.
+   (	Bottom dew pointer (DPBC) unresponsive from 15:50 to end
+	of flight.
+
+
+RF05	
+
+   (	Temperature sensor ATRL iced up from 16:26-18:36; data not usable during this time interval.
+   (	Intermittant wetting of the sensor cavity.  VLA1, MRLA1,
+		and RHOLA1 data are affected from 16:24-18:00.
+
+RF06	
+
+   (	Radar altitude (HGME) data bad from 11:20-13:14.
+   (	Uncharacteristic response from OPHIR temperature sensor.
+	OAT data questionable from 12:28-12:31.
+   (	Ozone sensor fails in-flight. Data bad from 13:46 to
+	end of flight.
+
+RF07
+
+   (	Heavy radome icing.  Wind data bad from 16:53-17:00.
+   (	Intermittant wetting of the sensor cavity.  VLA1, MRLA1,
+		and RHOLA1 data are affected from 14:05 to end of flight.
+
+RF08	
+
+   (	Radar altitude (HGME) data bad from 15:11-15:19.
+   (	Intermittant short GPS dropouts.  Position data
+	affected from 15:38-15:40 and 16:16-16:20.
+   (	Top & bottom dew pointers (DPTC, DPBC) balanced in
+	flight.  Data bad from 10:31-10:48.
+   (	Lyman-alpha humidity outputs (MRLA, MRLA1, RHOLA, RHOLA1)
+	affected by dew pointer balancing.  Data questionable
+	from 10:31-11:02.
+   (	Bottom UV radiometer failure in flight.  Data bad from
+	10:41 to end of flight.
+	
+RF09	
+
+   (	Air flow into bottom dew pointer (DPBC) obstructed.  Data
+	Bad from 10:06-10:25.
+   (	VLA not working; VLA, MRLA, and RHOLA data bad for flight.
+   (	Bottom dew pointer (DPBC) unresponsive from 13:26 to end
+	of flight.
+
+RF10 
+  
+   (	Temperature sensor ATRL iced up from 07:18-09:46 and
+		10:30-11:44; data not usable during these time intervals.
+   (	Excessive oscillation in top dew pointer (DPTC); data not
+		usable from 09:29-10:15.
+   (	VLA not working; VLA, MRLA, and RHOLA data bad for entire
+		flight.
+   (	Intermittant wetting of the sensor cavity.  VLA1, MRLA1,
+		and RHOLA1 data are affected from 07:23-08:46.
+   (	QCR icing occurred from 08:00-08:08 and 08:46-08:58; data not usable during this time interval.
+
+RF11	
+
+   (	Radar altitude (HGME) data bad from 15:11-15:19.
+   (	Bottom dew pointer (DPBC) unresponsive from 17:34 to end
+	of flight.
+   (	Intermittant short GPS dropouts.  Position data
+	affected from 15:38-15:40 and 16:16-16:20.
+   (	VLA not working; VLA, MRLA, and RHOLA data bad for entire
+		flight.
+   (	Intermittant wetting of the sensor cavity.  VLA1, MRLA1,
+		and RHOLA1 data are affected.
+
+RF12
+
+	(	2D-P probe failures; no 2D-P data in output file.
+	(	RICE probe failed in flight; no RICE data in output file.
+	(	QCR icing occurred from 17:07:45-17:13:45; data not usable during this time interval.
+
+RF13
+
+   (	2D-P not working (sending blank and random records for entire
+flight); no 2D-P data in output file.
+   (	RICE not working; no RICE data in output file.
+   (	VLA1 failed in flight; no VLA1, MRLA1, and RHOLA1 data in
+		output file.
+
+RF14
+
+	(	2D-P not working; no 2D-P data in output file.
+	(	RICE not working; no RICE data in output file.
+	(	VLA1 not working; no VLA1, MRLA1, and RHOLA1 data in output
+		file.
+
+RF15
+
+	(	RICE not working; no RICE data in output file.
+	(	VLA1 not working; no VLA1, MRLA1, and RHOLA1 data in output
+		file.
+	(	DPT data questionable due to presence of significant 
+		oscillations in data.
+
+RF16
+
+	(	RICE not working; no RICE data in output file.
+	(	VLA1 not working; no VLA1, MRLA1, and RHOLA1 data in output
+		file.
+	(	DPT data questionable due to presence of significant 
+		oscillations in data.
+
+RF17
+
+	(	VLA1 not working; no VLA1, MRLA1, and RHOLA1 data in output
+		file.
+	(	DPT data questionable due to presence of significant 
+		oscillations in data.
+	(	FSSP-100 not working; no FSSP-100 data in output file.
+
+RF18
+
+	(	2D-P probe data stream "running away" in flight; no 2D-P data
+		in output file.
+	(	VLA1 not working; no VLA1, MRLA1, and RHOLA1 data in output 
+		file.
+	(	QCR and QCRC data questionable from 14:03-14:07, 16:31-16:37,
+and 17:49 to end of flight due to icing of radome.
+
+RF19
+
+	(	VLA1 not working; no VLA1, MRLA1, and RHOLA1 data in output file.
+	(	DPT data questionable due to period of significant oscillations in data.
+
+RF20
+
+	(	VLA1, MRLA, and RHOLA1 data questionable from 11:04 to end of flight; suspect that VLA1 sensor may have iced up.
+
+RF21
+
+** NOTE:  Electra struck by lightening twice during this flight. **
+
+   (	2D-C and 2D-P probes failed at 14:44 after lightening strike; no 2D-C and 2D-P data in output file.
+   (	PLWC1 failed at 14:44 after lightening strike; no PLWC1 and
+PLWCC1 data in output file.
+   (	VLA1 data bad from 14:57 to end of flight; no VLA1, MRLA1, and
+RHOLA1 data in output file.
+
+
+RF22
+
+   (	FSSP-100 not working; no FSSP-100 data in output file.
+   (	PLWC1 not working; no PLWC1 and PLWCC1 data in output file.
+
+RF23
+
+   (	PLWC1 not working; no PLWC1 and PLWCC1 data in output file.
+
+RF24
+
+   (	PLWC1 not working; no PLWC1 and PLWCC1 data in output file.
+   (	QCR data bad from 17:37-17:56 due to icing of radome.
+   (	No end diode voltages recorded for 260X probe.
+   (	2D-P probe housekeeping data bad when aircraft is in cloud.
+   (	No FSSP-100 laser reference voltage data (discovered that
+laser reference voltage wiring destroyed by lightening 
+strike).
+
+RF25
+
+   (	PLWC1 not working; no PLWC1 and PLWCC1 data in output file.
+   (	No end diode voltages recorded for 260X probe.
+   (	2D-P probe housekeeping data still bad.
+   (	No FSSP-100 laser reference voltage data.
+
+RF26
+
+   (	PLWC1 not working; no PLWC1 and PLWCC1 data in output file.
+   (	QCR bad this flight; no QCR, QCRC, and TASR data in output 
+file.
+
+RF27
+
+   (	2D-C and 2D-P data bad until 11:35; good for remainder of 
+flight.
+   (	GPS data unusable; no GLAT, GLON, GMODE, and GSTAT data in 
+output file.  Note that XLATC and XLONC data are included in 
+output file, but should be used with caution due to GPS 
+problems.
+   (	OPHIR temperature sensor not working; no OAT data in output
+file.
+
+
+*	*	*	*	*	*	*	*	*	*	*	*	

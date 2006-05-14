@@ -1,0 +1,100 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes to SCD Mass Store System
+#    for project:  1994-818 Boreas (Lenschow, et al.)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 818
+#set STAGE = "nrec=13000"
+#set STAGE = "skpr=13000 nrec=13000"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+#
+#  Third set, first try
+set STAGE = "nfile=1"
+set TAPELIST = ( R0858 R0859 R0860 R0861 R0862 R0863 R0864 R0865 R0866 R0867 \
+                 R0868 R0869 )
+set FLIGHTS =  ( FF09  FF10  RF17  RF18  RF19  RF20  RF21  RF22  RF23  RF24  \
+                 RF25  FF11 )
+#
+#  Jobs submitted on Wed Sep 21 10:48:58 MDT 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK0967 -- /RAF/1994/818/FF09/R0858 -- Failed*
+# Sequence number = CK0972 -- /RAF/1994/818/FF10/R0859 -- Failed*
+# Sequence number = CK0977 -- /RAF/1994/818/RF17/R0860 -- Failed*
+# Sequence number = CK0982 -- /RAF/1994/818/RF18/R0861 -- Failed*
+# Sequence number = CK0987 -- /RAF/1994/818/RF19/R0862 -- Failed*
+# Sequence number = CK0992 -- /RAF/1994/818/RF20/R0863 -- Failed*
+# Sequence number = CK0997 -- /RAF/1994/818/RF21/R0864 -- Failed*
+# Sequence number = CK1002 -- /RAF/1994/818/RF22/R0865 -- Failed*
+# Sequence number = CK1007 -- /RAF/1994/818/RF23/R0866 -- Failed*
+# Sequence number = CK1012 -- /RAF/1994/818/RF24/R0867 -- Failed*
+# Sequence number = CK1017 -- /RAF/1994/818/RF25/R0868 -- Failed*
+# Sequence number = CK1022 -- /RAF/1994/818/FF11/R0869 -- Failed*
+#
+#      *  -- MASnet Error Messages:
+#              msimport: invalid keyword: disp=KEEP
+#
+#  Jobs submitted on Wed Sep 21 11:06:56 MDT 1994
+#  Sequence numbers are (in order of submission):
+#  Sequence number = CK1068 -- /RAF/1994/818/FF09/R0858 -- Failed*
+#  Sequence number = CK1073 -- /RAF/1994/818/FF10/R0859 -- Failed*
+#  Sequence number = CK1080 -- /RAF/1994/818/RF17/R0860 -- Failed*
+#  Sequence number = CK1087 -- /RAF/1994/818/RF18/R0861 -- Failed*
+#  Sequence number = CK1094 -- /RAF/1994/818/RF19/R0862 -- Failed*
+#  Sequence number = CK1101 -- /RAF/1994/818/RF20/R0863 -- Failed*
+#  Sequence number = CK1108 -- /RAF/1994/818/RF21/R0864 -- Failed*
+#  Sequence number = CK1115 -- /RAF/1994/818/RF22/R0865 -- Failed*
+#  Sequence number = CK1122 -- /RAF/1994/818/RF23/R0866 -- Failed*
+#  Sequence number = CK1129 -- /RAF/1994/818/RF24/R0867 -- Failed*
+#  Sequence number = CK1136 -- /RAF/1994/818/RF25/R0868 -- Failed*
+#  Sequence number = CK1143 -- /RAF/1994/818/FF11/R0869 -- Failed*
+#
+#      *  -- MASnet Error Messages:
+#              msimport: invalid keyword: clas=QQ
+#
+#
+#  Jobs submitted on Wed Sep 21 11:14:58 MDT 1994
+#  Sequence numbers are (in order of submission):
+Sequence number = CK1156 -- /RAF/1994/818/FF09/R0858 -- Failed*
+Sequence number = CK1161 -- /RAF/1994/818/FF10/R0859 -- Failed*
+Sequence number = CK1168 -- /RAF/1994/818/RF17/R0860 -- Failed*
+Sequence number = CK1175 -- /RAF/1994/818/RF18/R0861 -- Failed*
+Sequence number = CK1182 -- /RAF/1994/818/RF19/R0862 -- Failed*
+Sequence number = CK1189 -- /RAF/1994/818/RF20/R0863 -- Failed*
+Sequence number = CK1196 -- /RAF/1994/818/RF21/R0864 -- Failed*
+Sequence number = CK1203 -- /RAF/1994/818/RF22/R0865 -- Failed*
+Sequence number = CK1210 -- /RAF/1994/818/RF23/R0866 -- Failed*
+Sequence number = CK1217 -- /RAF/1994/818/RF24/R0867 -- Failed*
+Sequence number = CK1224 -- /RAF/1994/818/RF25/R0868 -- Failed*
+Sequence number = CK1231 -- /RAF/1994/818/FF11/R0869 -- Failed*
+#
+#      *  -- MASnet Error Messages:
+#              msimport: invalid keyword: clas=qq
+#
+#
+#  Get started:
+echo `date`
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 clas=qq \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+#   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+#
+# done.
+exit

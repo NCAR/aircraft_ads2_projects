@@ -1,0 +1,36 @@
+                  Tape Stage Summary:  3-886  ANLC  (Gardner)
+                   prepared 26 August 1993 by Ronald L. Ruth
+
+
+                         MSS path name: /RAF/1993/886/
+ 
+ End                       Execution                                  Data Rate
+ Date     Begin    End     Time(min)  Bitfile Name   Recs    Bytes   (Bytes/sec)
+-------- -------- -------- --------- --------------- ----  --------- -----------
+08/25/93 16.38.02 17.02.20   24.28   ...FF01/R0484   3016   88758380    60927
+08/25/93 15.53.27 16.38.02   44.58   ...RF01/R0485   5799  170734428    63831
+08/25/93 17.09.57 17.18.47    8.83   ...RF02/R0486    947   27813916    52499
+08/25/93 19.51.27 20.20.30   29.05   ...RF03/R0488   3888  114444012    65659
+08/26/93 15.44.51 16.43.28   58.60   ...RF04/R0489   2534   74560588    21206
+08/25/93 17.22.43 18.07.30   44.77   ...RF05A/R0490* 6500  191383084    71247
+08/26/93 16.43.28 17.03.11   19.71   ...RF05B/R0490   152    4477312     3786
+08/25/93 19.11.07 19.51.26   40.31   ...RF06/R0491   5449  160424828    66330
+08/25/93 20.20.31 21.02.19   41.80   ...RF07/R0492   5991  176389980    70331
+08/25/93 21.02.20 22.00.36   58.27   ...RF08/R0595   6257  184225276    52693
+--------
+* Originally named RF05  (renamed on 26 August 1993)
+
+Failures:
+--------
+ End                       Execution
+ Date     Begin    End     Time (min) Bitfile Name   Recs    Bytes    Comments
+-------- -------- -------- --------- --------------- ----  --------- -----------
+08/25/93 18.10.04 19.11.06   61.03   ...RF04X/R0489* 6500  191383084 UNIT check
+--------
+* originally named RF04 (renamed on 26 August 1993); 6500-2534 UNIT check
+                                                     errors (no EOF?)
+--------
+  IMPORT USED TAPE DRIVE 560 FOR:  FF01, RF01,  RF02, RF04, RF04X, RF05A, RF08
+  IMPORT USED TAPE DRIVE 561 FOR:  RF06, RF05B
+  IMPORT USED TAPE DRIVE 562 FOR:  RF03
+  IMPORT USED TAPE DRIVE 563 FOR:  RF07

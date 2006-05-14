@@ -1,0 +1,156 @@
+#! /bin/csh -f
+#
+#  Move original production files that are to be replaced by the
+#   newly-created reproduction processing
+#    Ron Ruth   14 January 1999
+#
+#  Establish new directory:  1ST_PRODUCTION
+#
+# goto second
+nrnet msmv % r flnm=/RAF/1994/870/Flight_0 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_0 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_2 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_2 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_20 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_20 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_3 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_3 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_30 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_30 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_31 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_31 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_39 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_39 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_4 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_4 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_41 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_41 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_7 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_7 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_8 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_8 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Flight_9 newf=/RAF/1994/870/1ST_PRODUCTION/Flight_9 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/870.tar newf=/RAF/1994/870/1ST_PRODUCTION/HRT/870.tar wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/870.tar.dir newf=/RAF/1994/870/1ST_PRODUCTION/HRT/870.tar.dir wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/HRT.convert newf=/RAF/1994/870/1ST_PRODUCTION/HRT/HRT.convert wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/README.skeleton newf=/RAF/1994/870/1ST_PRODUCTION/HRT/README.skeleton wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF09.cdf newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF09.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF11.cdf newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF11.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF26.cdf newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF26.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF27.cdf newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF27.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF27.header newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF27.header wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF28.cdf newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF28.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF33.cdf newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF33.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/RF34.cdf newf=/RAF/1994/870/1ST_PRODUCTION/HRT/RF34.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/fsspskel.tar newf=/RAF/1994/870/1ST_PRODUCTION/HRT/fsspskel.tar wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/nimbus.tar newf=/RAF/1994/870/1ST_PRODUCTION/HRT/nimbus.tar wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/nimbus.tar.dir newf=/RAF/1994/870/1ST_PRODUCTION/HRT/nimbus.tar.dir wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/HRT/taplog.870 newf=/RAF/1994/870/1ST_PRODUCTION/HRT/taplog.870 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/870.tar newf=/RAF/1994/870/1ST_PRODUCTION/LRT/870.tar wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/870.tar.dir newf=/RAF/1994/870/1ST_PRODUCTION/LRT/870.tar.dir wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/Production.log newf=/RAF/1994/870/1ST_PRODUCTION/LRT/Production.log wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF01.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF01.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF01.header newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF01.header wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF02.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF02.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF03.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF03.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF04.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF04.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF05.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF05.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF06.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF06.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF07.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF07.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF08.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF08.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF09.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF09.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF10.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF10.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF11.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF11.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF12.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF12.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF13.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF13.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF14.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF14.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF15.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF15.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF16.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF16.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF17.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF17.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF18.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF18.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF19.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF19.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF20.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF20.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF21.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF21.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF22.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF22.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF23.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF23.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF24.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF24.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF25.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF25.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF26.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF26.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF27.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF27.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF28.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF28.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF29.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF29.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF30.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF30.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF31.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF31.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF32.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF32.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF33.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF33.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF34.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF34.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF35.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF35.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF36.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF36.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF37.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF37.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF38.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF38.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF39.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF39.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF40.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF40.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF41.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF41.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF42.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF42.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF43.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF43.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF44.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF44.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/RF45.cdf newf=/RAF/1994/870/1ST_PRODUCTION/LRT/RF45.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/nimbus.tar newf=/RAF/1994/870/1ST_PRODUCTION/LRT/nimbus.tar wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/nimbus.tar.dir newf=/RAF/1994/870/1ST_PRODUCTION/LRT/nimbus.tar.dir wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/taplog.870 newf=/RAF/1994/870/1ST_PRODUCTION/LRT/taplog.870 wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/tarit.870.tar newf=/RAF/1994/870/1ST_PRODUCTION/LRT/tarit.870.tar wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/LRT/tarit.nimbus.tar newf=/RAF/1994/870/1ST_PRODUCTION/LRT/tarit.nimbus.tar wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/Mail.870 newf=/RAF/1994/870/1ST_PRODUCTION/Mail.870 wpwd=RAFDMG
+#
+#  Done with first section.
+exit
+#
+second:
+#
+#  Move the newly-created re-production data files to the production
+#   subdirectory (to be done after the first section of this script
+#   has been completed)
+#    Ron Ruth   21 January 1999
+#
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF09.cdf  newf=/RAF/1994/870/HRT/RF09.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF11.cdf  newf=/RAF/1994/870/HRT/RF11.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF15.cdf  newf=/RAF/1994/870/HRT/RF15.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF26.cdf  newf=/RAF/1994/870/HRT/RF26.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF27.cdf  newf=/RAF/1994/870/HRT/RF27.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF28.cdf  newf=/RAF/1994/870/HRT/RF28.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF33.cdf  newf=/RAF/1994/870/HRT/RF33.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/HRT/RF34.cdf  newf=/RAF/1994/870/HRT/RF34.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF01.cdf  newf=/RAF/1994/870/LRT/RF01.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF02.cdf  newf=/RAF/1994/870/LRT/RF02.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF03.cdf  newf=/RAF/1994/870/LRT/RF03.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF04.cdf  newf=/RAF/1994/870/LRT/RF04.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF05.cdf  newf=/RAF/1994/870/LRT/RF05.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF06.cdf  newf=/RAF/1994/870/LRT/RF06.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF07.cdf  newf=/RAF/1994/870/LRT/RF07.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF08.cdf  newf=/RAF/1994/870/LRT/RF08.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF09.cdf  newf=/RAF/1994/870/LRT/RF09.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF10.cdf  newf=/RAF/1994/870/LRT/RF10.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF11.cdf  newf=/RAF/1994/870/LRT/RF11.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF12.cdf  newf=/RAF/1994/870/LRT/RF12.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF13.cdf  newf=/RAF/1994/870/LRT/RF13.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF14.cdf  newf=/RAF/1994/870/LRT/RF14.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF15.cdf  newf=/RAF/1994/870/LRT/RF15.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF16.cdf  newf=/RAF/1994/870/LRT/RF16.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF17.cdf  newf=/RAF/1994/870/LRT/RF17.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF18.cdf  newf=/RAF/1994/870/LRT/RF18.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF19.cdf  newf=/RAF/1994/870/LRT/RF19.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF20.cdf  newf=/RAF/1994/870/LRT/RF20.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF21.cdf  newf=/RAF/1994/870/LRT/RF21.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF22.cdf  newf=/RAF/1994/870/LRT/RF22.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF23.cdf  newf=/RAF/1994/870/LRT/RF23.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF24.cdf  newf=/RAF/1994/870/LRT/RF24.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF25.cdf  newf=/RAF/1994/870/LRT/RF25.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF26.cdf  newf=/RAF/1994/870/LRT/RF26.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF27.cdf  newf=/RAF/1994/870/LRT/RF27.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF28.cdf  newf=/RAF/1994/870/LRT/RF28.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF29.cdf  newf=/RAF/1994/870/LRT/RF29.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF30.cdf  newf=/RAF/1994/870/LRT/RF30.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF31.cdf  newf=/RAF/1994/870/LRT/RF31.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF32.cdf  newf=/RAF/1994/870/LRT/RF32.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF33.cdf  newf=/RAF/1994/870/LRT/RF33.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF34.cdf  newf=/RAF/1994/870/LRT/RF34.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF35.cdf  newf=/RAF/1994/870/LRT/RF35.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF36.cdf  newf=/RAF/1994/870/LRT/RF36.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF37.cdf  newf=/RAF/1994/870/LRT/RF37.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF38.cdf  newf=/RAF/1994/870/LRT/RF38.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF39.cdf  newf=/RAF/1994/870/LRT/RF39.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF40.cdf  newf=/RAF/1994/870/LRT/RF40.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF41.cdf  newf=/RAF/1994/870/LRT/RF41.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF42.cdf  newf=/RAF/1994/870/LRT/RF42.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF43.cdf  newf=/RAF/1994/870/LRT/RF43.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF44.cdf  newf=/RAF/1994/870/LRT/RF44.cdf wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/1994/870/NEW/LRT/RF45.cdf  newf=/RAF/1994/870/LRT/RF45.cdf wpwd=RAFDMG

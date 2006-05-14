@@ -1,0 +1,7 @@
+Project 852 has a different header.  If reading an ADS tape, you must use the
+header stored on disk.  There is a file header.new.bkup, this is the original
+we created, DO NOT LOOSE IT.  Project 852 also has both INS & IRS, the INS
+gets the primary set of names, not the IRS.  To get the IRS as the primary
+names, you must modify hdr_decode.c (comment out processingg of INS).
+
+--Chris

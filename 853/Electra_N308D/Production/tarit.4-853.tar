@@ -1,0 +1,54 @@
+#! /bin/csh -f
+#
+#  Save pertinent files for 4-853 pre-Boreas
+#
+cd /home/local/proj/853
+tar chlvf /home/local/proj/853/Production/4-853.tar \
+Defaults \
+DependTable \
+ProjectName \
+VarDB \
+adscmd \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+flat_panel_parms \
+header \
+landmarks \
+netconfig \
+plot_attr \
+plotspex \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_11 \
+Production/Flight_9 \
+Production/README \
+Production/cp2ms.853 \
+Production/oFlight_3 \
+Production/oFlight_4 \
+Production/oFlight_5 \
+Production/oFlight_6 \
+Production/oFlight_7 \
+Production/oFlight_8 \
+Production/taplog.853 \
+Production/tarit.nimbus.tar \
+Production/tarit.4-853.tar \
+Production/tp2ms.summary \
+Production/stage/RUTHprintRF01.Z \
+Production/stage/RUTHprintRF02.Z \
+Production/stage/RUTHprintRF03.Z \
+Production/stage/RUTHprintRF04.Z \
+Production/stage/RUTHprintRF05.Z \
+Production/stage/RUTHprintRF06.Z \
+Production/stage/RUTHprintRF07.Z \
+Production/stage/RUTHprintRF08.Z \
+Production/stage/RUTHprintRF09.Z \
+Production/stage/RUTHprintRF10.Z \
+Production/stage/RUTHprintRF11.Z \
+Production/stage/tape.mo.Z \
+Production/stage/tapes.853 \
+Production/stage/tp2ms.853job1.Z \
+Production/stage/tp2ms.853job2.Z
+#
+exit

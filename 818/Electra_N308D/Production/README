@@ -1,0 +1,983 @@
+                              Data Quality Report
+
+                      Electra N308D - Project No. 1994-818
+                                Lenschow, et al.
+
+                                       by
+                      Paul Spyers-Duran and Allen Schanot
+
+
+This summary has been written to outline basic instrumentation problems
+affecting the data set and is not intended to point out every bit of
+questionable data.  It is hoped that this information will facilitate
+use of the data as the research concentrates on specific flights and
+times.
+
+The following report is organized into three sections.  The first
+section lists recurring problems, general limitations, and systematic
+biases in the standard RAF measurements.  The second section lists
+isolated problems occurring on a flight-by-flight basis. The third
+section provides information on the special RAF supplied experimental
+instrumentation.
+
+Special pieces of both RAF and User supplied equipment were used  during
+the project and have been identified in the Research Instrumentation
+list included in this document.  These data require special handling and
+it will be necessary to obtain access to the on-board operator notes for
+this information to be of use during the analysis phase.  No attempt has
+been made to evaluate the performance of that equipment in this summary.
+
+A special DLR DIAL lidar was used to measure aerosol backscatter and
+water vapor profiles.  Those data were recorded independently by the
+User, and no attempt has been made to evaluate the performance of that
+equipment.  Information on, and access to these data can be obtained by
+contacting Dr. Gerhard Ehret at DLR through the Interned at
+pa2v@dlrvn.bitnet.
+
+An intermittent sampler was deployed by Dr. William Cooper at NCAR.  For
+further details, contact Dr. Cooper at (303)497-8939.
+
+
+Section I:  General Discussion
+
+ 1.  The wind data for this project were derived from measurements taken
+     with the radome wind gust package.  As is the case with all wind
+     gust systems, the ambient wind calculations can be adversely
+     affected by either sharp changes in the aircraft's flight attitude
+     of excessive drift in the on-board inertial reference system (IRS).
+     Turns, or more importantly, climbing turns are particularly
+     disruptive to this type of measurement technique.  Wind data
+     reported for these conditions should be used with caution.
+
+     Special sets of in-flight calibration maneuvers were conducted on
+     flights 5, 9, 13, 17, 18, and 25 to aid in the performance analysis
+     of the wind gust measurements.  The calibration data identified a
+     systematic bias in the sideslip variables.  This offset, which
+     resulted in roughly a 10 to 15 degree error in calculated wind
+     direction, has been removed from the final data set.  All of the
+     remaining information, including the summary of IRS performance,
+     indicated that the wind measurement system was performing within
+     standard RAF specifications.  The time intervals for each set of
+     maneuvers have been documented in both the flight-by-flight data
+     quality review (See below.) and on the individual Research Flight
+     Forms prepared for each flight.
+
+     As an additional enhancement to this data set, a correction was
+     applied to the wind data using position updates provided by the GPS
+     positioning system.  Both the GPS corrected and uncorrected values
+     are included in the final data set.
+
+ 2.  A Trimble Global Positioning System (GPS) was used as a more
+     accurate position reference during the program.  The reliability of
+     this system depends upon regional coverage by the number of
+     navigational satellites arrayed above the research area.  Coverage
+     over the local research area was generally good during the program.
+     Generally, position (GLAT, GLON) and ground speed (GSPD, GVEW,
+     GVNS) were readily available, but occasional dropouts did occur.
+     Such dropouts are easy to recognize and will therefore not be
+     specifically identified in the flight-by-flight summary.
+
+ 3.  RAF flies redundant sensors to assure data quality.   Performance
+     characteristics differ from sensor to sensor with certain units
+     being more susceptible to various thermal and dynamic effects than
+     others.  Good comparisons were typically obtained between the two
+     standard temperatures (ATB, ATRF), three dynamic pressures (QCWC,
+     QCRC, QCFC), two radiometric surface temperature sensors (RSTB,
+     XKT19), and the two dew pointers (DPT, DPB).  Exceptions are noted
+     in the flight-by-flight summary.  The differences observed in the
+     static pressures (PSFDC, PSWC) were somewhat excessive for this
+     type of project with the Model 1201 pressure transducer (PSWC)
+     exhibiting even more temperature sensitivity than normal.  The
+     reference pressure used in all of the derived variables (PSFDC)
+     was obtained with a Model 1501 unit which was unaffected by these
+     problems.
+
+ 4.  Temperature measurements were made using the standard   unheated
+     (ATB) Rosemount and  NCAR reverse flow (ATRF) temperature sensors.
+     These standard temperature sensors performed reasonably well,
+     encountering the usual problems with sensor wetting during cloud
+     passes.  A comparison of the data sets yielded an good correlation
+     in instrument signatures and only small differences in absolute
+     value (+-0.2C) through out the program.  A comparison of pre- and
+     post-program calibrations indicated that all units maintained
+     stable and independent calibrations.  Due to its reliability and
+     fast response, the Rosemount temperature (ATB) was selected as the
+     reference value used in calculating the derived variables.
+
+ 5.  Humidity measurements were made using two collocated thermoelectric
+     dew point sensors and a Lyman-alpha fast response hygrometer.
+     Generally speaking, all of the humidity sensors performed well when
+     they were available.
+
+     The bottom EG&G dew pointer (DPB, DPBC) was much less responsive
+     during periods of large dew point depression than the  two-stage
+     G.E. unit used in the top location (DPT, DPTC).  A number of cases
+     occurred where DPB was essentially pegged out when the actual dew
+     point was significantly lower.  Much of the fine scale humidity
+     signature was also lost in DPB at the low dew points. Due to these
+     factors, the top dew pointer (DPT, DPTC) was selected as the
+     reference sensor in calculating the derived humidity variables for
+     most flights.
+
+     Lyman-alpha hygrometers are susceptible to in-flight drift in the
+     instrument's bias voltage.  Due to this problem, RAF uses a special
+     data processing technique to remove the bias drift by referencing
+     the long term humidity values to one of the more stable
+     thermoelectric dew point sensors.  This technique can result in
+     occasional large spikes in the derived lyman-alpha data (RHOLA,
+     MRLA). Short (2-3 sec) intervals around these spikes should be
+     considered as bad data, but the remaining data points, as recorded
+     on magnetic tape, will be valid.  For programs requiring routine
+     cloud penetrations, the rapid changes in humidity or wetting of the
+     sensor windows can trigger a reset of the coupling technique at an
+     inopportune time.  Information on this technique and literature
+     references on high rate humidity measurements are available in RAF
+     Bulletin No. 22.
+
+ 6.  A set of upward and downward facing radiometers were used to
+     measure shortwave, ultraviolet and infrared irradiance.  It should
+     be noted that all units are hard mounted and that none of the data
+     have been corrected for changes in the aircraft's flight attitude.
+     Care should be used in identifying the aircraft attitude to
+     determine a relative sun angle.
+
+ 7.  The measurement of the surface temperature was made using both a
+     Barnes PRT-5 (RSTB) and a Heimann KT19 (XKT19) radiometric sensors.
+     The PRT-5 measurements are typically influenced by fluctuations in
+     the reference cavity temperature (TCAVB), the radiative "blackness"
+     of the surface and overhead sky conditions,  and the contribution
+     of water vapor in the sample volume which is moisture content and
+     altitude dependent.  These somewhat complex corrections are left to
+     judgement and skill of the investigator, since they must be handled
+     on a case-by-case basis.  Overall, the sensor performed extremely
+     well.  However, the dynamic range of the PRT-5 sensor is somewhat
+     limited and a specific operating range had to be designated.  By
+     targeting the instrument's range to the expected surface
+     temperatures (0 to 50C), the unit's best resolution was obtained.
+     However,  due to the highly variable nature of the surface
+     conditions encountered  the unit's minimum limit was exceeded on a
+     number of occasions.  The Heimann range is not limited but the
+     measurement loses some accuracy at temperatures below 0C.   A
+     comparison of the data sets yielded an good correlation in
+     instrument signatures and only small differences in absolute value
+     (+-0.5C) during Phase II & III of the program.  The Heimann
+     radiometer was not available during Phase I.
+
+ 8.  Three types of alternate altimeter were used during the program.
+     The Collins altimeter (HGM) is only functional from 0 to 780 m AGL.
+     At altitudes greater than 780 m the instrument is pegged full
+     scale.  The Stewart Warner altimeter (HGME) on the other hand is
+     functional from 150 m to 21,000 m AGL.  At altitudes less than 150
+     m the instrument's performance becomes intermittent due to
+     excessive signal refections off the surface.  Care must be taken
+     with HGME since the output will vary randomly but look fairly
+     realistic in this altitude region.  Differences between HGME and
+     the calculated pressure altitude (PALT) can be attributed to either
+     surface terrain features or the typical differences between the
+     surface pressure and the reference value of 1013 mbar.  The default
+     surface pressure and the NACA Standard Atmospheric lapse rate were
+     used in the calculation of PALT to provide an accurate comparison
+     with similar computations used for measurements taken by the other
+     aircraft.
+
+     The GPS positioning system also provides an altitude readout
+     (GALT).  This output requires coverage by at least four satellites
+     for accurate measurements.  Due to the uncertainty in satellite
+     coverage, GALT defaults back to PALT values when the fourth
+     satellite is lost.  This results in periodic jumps in the value of
+     GALT.  In addition, the GALT signal has been "detuned" by the
+     military and may  exhibit an oscillation of +-100 m.
+
+ 9.  A hot wire liquid water sensor was used on the Electra during the
+     BOREAS program.  The PMS King Probe (PLWCC) worked well during the
+     program, with the exception of flights 1-8.  Special note should be
+     made of the fact that this instrument is calibrated for a specific
+     range of aircraft speeds.  When the speed of the aircraft falls
+     outside that envelope, a shift in the zero baseline value will
+     occur.  This is typically limited to takeoff and landing intervals,
+     but there may be other situations where this occurs.
+
+     Due to the nature of this sampling technique, it should be clear
+     that water contained in ice particles will not be observed.  This
+     fact should be taken into account when comparing data from these
+     sensors with the calculated liquid water content obtained from the
+     optical particle probes.
+
+10.  The RAF was responsible for the ozone and carbon monoxide air
+     chemistry measurements conducted on the Electra during the program
+     (TEO3C, CO).   These occurrences are fairly obvious and have been
+     identified in the flight-by-flight summary.
+
+     CO data for RF09 - RF16
+
+     Report by Greg Kok
+
+     Carbon monoxide measurements were made using a modified TECO 48 CO
+     analyzer.  The modifications include, enhancement of the optical
+     system, thermostatic control of the optical bench, flow control of
+     the sample flow, and addition of a heated Pd zero trap.  The
+     instrument operates on a five minute measure cycle, followed by a
+     two minute zero.  The raw signal is recorded as the variables, CO,
+     and the zero/sample mode as the variables CMODE.  When CMODE is
+     greater than 0.1 volts, the instrument is in the zero mode, and
+     the data should be discarded.
+
+     Data processing in done in a two-pass process.  The raw signal is
+     first zero corrected, and then the zero baselined data are
+     calibrated to get the final signal.  The variables COZRO is the
+     zero baseline derived from fitting a cubic spline to the data when
+     the instrument is in the zero mode.  This is subtracted from the CO
+     signal to yield the zero corrected signal, COCOR.  A linear
+     calibration is applied to this signal to give the calibrated data,
+     COCAL.  The concentrations given are in ppmv.   The instrument was
+     calibrated several times during the program with a standard
+     cylinder of CO span gas.
+
+     The instrument response is about 30 seconds.   Turbulence will
+     increase the noise on the signal, and this is present in the BOREAS
+     data.  The data are updated at 1 sps (samples per second) but needs
+     to be averaged in 10- or 20-second periods for the most useful results.
+     The concentrations obtained in the BOREAS program are reasonable for
+     what would be expected in an environment like northern Canada.
+
+11.  The measurement of small CN size aerosol particle concentrations
+     can be influenced by two effects.  Droplet shattering during cloud
+     penetrations can increase indicated CN   concentrations by several
+     orders of magnitude.  For this application the CN inlet was altered
+     to a reverse flow configuration.  This inlet format seems to have
+     reduced  this problem significantly.  However, care should be used
+     when examining the quantitative values of CONCN during the cloud
+     passes.  The instrument uses Butanol to activate CN particles so
+     that they can be included in the measurement process.  Indicated CN
+     particle concentrations can decrease during intervals where the
+     Butanol level falls below the critical level.  This is typically
+     not a flight-to-flight concern as a fresh Butanol supply will
+     usually last for up to 50 hours of operation.  However, scattered
+     intervals of questionable data were noted during the QA review and
+     have been identified in flight summaries of Section II.
+
+12.  Generally speaking, the two PMS particle probes (FSSP, PCASP)
+     worked relatively well.  Some specific details on each of the
+     probes are summarized below:
+
+     PCASP -  Aerosol concentrations measured with the PCASP probe are
+     highly dependent upon the sample flow rate of the instrument.
+     Recent modifications to the probe/ADS interface now allow RAF to
+     monitor fluctuations in this flow rate directly (PFLW).   Generally
+     speaking, the size range of the CN counter is much broader than,
+     but is inclusive of the sampling range of the PCASP probe.
+     Therefore, intervals where CONCP exceed the value of the CN
+     concentrations (CONCN) will be suspect.
+
+     FSSP -  The FSSP cloud droplet probe functioned extremely well
+     through out the entire project.  Like all 1-D optical probes,
+     however, the FSSP has no way to distinguish between ice and water.
+     Therefore, the liquid water content calculated from this probe
+     (PLWCF) should be used with caution in mixed phase clouds.
+
+13.  Spectral Vegetation Radiometer (SVR) Calibration.  Background and
+     results by Krista K. Laursen.  This report was prepared during
+     February 1995 to aid the BOREAS investigators for deriving the
+     vegetation index such as the Normalized Difference Vegetation Index
+     (NDVI).  The respective radiances of wavelength 650 nm (WV650) and
+     862 nm (WV862) were recorded in the data set as voltages.
+
+The spectral vegetation radiometer (SVR) was calibrated at RAF using the
+ratio-Langley technique, which is discussed by Bannehr and Glover
+(1992).  Briefly, this calibration method involves making direct
+measurements of the SVR output voltage under clear, stable sky
+conditions for a range of air masses, m, between 2 and 6.5.
+Calculations are then carried out using these measured voltages to
+determine the calibration factor Vo (i.e. the voltage signal V for an
+air mass of zero) for each of the three channels.  The calibration
+calculations are performed using the program "vegcal" written by Lutz
+Bannehr.
+
+Figure 1 shows the data collected during the SVR calibration performed
+on 24 February 1995.  Table 1 gives the results from the calibration
+calculations.
+
+Following are the calibration-factor results for each of the three
+ channels:
+          Vo, 650 nm:  229.46 mV
+          Vo, 760 nm:  453.90 mV
+          Vo, 862 nm:  614.09 mV
+
+Table 1 also gives the calibration factors that must be multiplied
+by the 650 and 862 nm signals.  The values of these two calibration
+factors, denoted "C_650" and "C_862," were determined to be 2.5279 and
+0.5951, respectively.
+
+[Editor's note:  Figure 1 and Table 1 cannot be reproduced in this text
+file, and, therefore, are missing.  See the Project Documentation Summary
+notebook instead.]
+
+
+General Discussion
+
+It should be noted that the voltage values recorded during the 24
+February calibration of the SVR are significantly smaller than the
+values recorded during the last recorded calibration of the instrument
+(17 September 1991).  During the 1991 calibration, recorded voltage
+values for the three SVR channels were on the order of one to two
+thousand mV, rather than several hundred mV as were recorded during the
+most recent calibration.  This significant difference in the magnitude
+of the voltage readings is believed to be due to both filter degradation
+for each of the channels and contamination (i.e. dirt) on the aperture
+glass for each of the channels.  These two problems were left
+unaddressed for the calibration of the SVR, however, to obtain
+calibration data from the instrument while it was in the same
+operational status as during the BOREAS flights.
+
+References:
+
+Bannehr, L. and V. Glover, 1992:  A spectral vegetation radiometer for
+     airborne boundary-layer research.  NCAR Technical Note, NCAR/TN-
+     370+STR, 39 pp.
+
+
+14.  Data Quality Report by Teresa Campos on the LI-COR CO2 measurements:
+     A detailed report on instrument performance and on the flight-by-flight
+     data processing procedures.
+
+     The LI-COR Model 6262 CO2 and H2O analyzer measures CO2
+absorption of 4.26 æm and H2O absorption of 2.59  æm infrared
+radiation.  It is a differential non-dispersive IR instrument.
+The optical bench consists of a single source, two absorption
+cells, and a lead selenide detector for each analyzable gas.
+Ambient air samples are introduced into the sample cell, and
+hydrocarbon-free zero air is introduced into the reference cell
+to provide a measurement of transmittance in the absence of
+analyte absorption.  The broadband source alternately illuminates
+the sample and reference cells.  The output voltages, XCO2S and
+XLH2OS, are proportional to the difference in optical
+transmission between the two channels.
+
+     Correction must be made for cell temperature, pressure and
+water content.  These are recorded as variables XCO2T, XCO2P and
+XLH2OS.  The temperature sensor is a thermistor affixed to the
+gold-plated aluminum flow cell.  Ports for direct measurement of
+cell pressure were tapped near the center of the cell.  Pressures
+were measured using Rosemount 1201F absolute pressure sensors and
+recorded as variables XCO2P (sample cell pressure), and XCO2RP
+(reference cell pressure).
+
+     Calibration of the instrument was performed by introduction
+of a certified standard gas (about 350 ppmv) or a CO2-free
+synthetic air mixture into the sample cell.  When possible the
+front panel gain and offset amplifiers were adjusted to enable
+front panel display of the corrected CO2 and H2O concentrations.
+This was not possible for many BOREAS research flights.  It is
+believed that the cause of this problem was cell contamination.
+This theory is supported by reports from the LI-COR technical
+staff when the unit was returned for post-intensive cleaning and
+calibration checks.
+
+     Immediately prior to IFC-1, the unit was returned to LI-COR
+for replacement of amplifier filter components to enable a true
+10 Hz response for the CO2 channel.  Subsequent spectral analyses
+of data gathered during research flights indicate that these
+modifications did not bring about the desired result.
+Manufacturer specifications indicate an accuracy of 1 ppm, a zero
+drift of 1 ppmv/hr and a span drift of 0.12 ppmv/hr.  Many
+flights showed drift in excess of specifications.
+
+     LI-COR recommends the use of the following equation for
+conversion of raw voltage into CO2 mixing ratios:
+
+     XCO2C =[ (146.02 * x)+(11.167*x2)+(6.7154*x3)+(-0.89997*x4)+
+             (0.059722*x5)] * w * (273.15+XCO2T)/309.05                    (1)
+
+where
+     x = XCO2S * 1013 / XCO2P / w                                          (2)
+and
+     w = 1 + 0.5 * XLH2OC / 1000                                           (3).
+
+
+The expression recommended by LI-COR for converting XLH2OS to
+XLH2OC is:
+
+     XLH2OC = [(7.3525*y)+(3.4691*y2)+(0.0028791*y3)] *
+               (273.15+XCO2T)/313.85                                       (4)
+
+where
+     y = XLH2OS * 1013 / XCO2P                                             (5).
+
+From the results of ground tests, discussed in the immediately
+following paragraphs, the CO2 pressure correction was modified to
+better reflect the instrument pressure dependence over the broad
+range encountered during BOREAS flights.
+
+CO2 Notes:
+
+Flux bias estimates:
+
+     A test of flux bias was conducted during three flights of
+the third intensive.  Calibration gas was introduced into the
+sample cell for 5 to 20 minutes of a low altitude flux leg.  The
+"flux" during this interval was calculated to give an indication
+of the systematic bias to be expected from flux measurements
+using this instrument.  The results are summarized below:
+
+     Flight              Observed detrended "flux"
+       22                -0.010    ppmv-m/s
+       24                -0.003
+       25                -0.004
+
+     From this limited data set, it can be inferred that the effect
+is not strictly reproducible.  It would perhaps be best to state
+the bias estimate to be -0.01 ppmv-m/s.
+
+
+Modifications to pressure corrections, and justification:
+
+     On 22 September, 1994, the intermittent sampler and front
+cabin LI-COR instruments were calibrated from the same plumbing
+and pressure control configuration.  Both instruments were
+connected to the intermittent sampler distribution manifold.  The
+front cabin LI-COR was connected to intermittent sampler data
+lines, with replacement names indicated as follows:
+
+                                                       Sampling
+     Int. Samp. Variable Name      818 Var Name        Frequency
+     XISVLA                        XCO2S               25 sps
+     XSEAFL                        XCO2P                 1
+     XISTHC                        XCO2T                 1
+     XISTEO3                       XCO2F                 1
+     XISSUPR                       XCO2RP                1
+
+     Span gas was introduced into the sample plenum and
+measurements were recorded as the pressure was changed both
+continuously and in steps.  The data were then processed using
+the LI-COR recommended polynomial equation applied to the raw
+signal only (i.e. x = XCO2S in the aforementioned equation; w =1
+since synthetic gas mixture was measured).  Since the
+temperature, XCO2T, varied only 2øC over the course of these
+tests, a reasonable assumption was made that the variations in
+output were dependent on the instrument pressure response.  A
+power law fit to the ratio of standard pressure (1013 mb) to
+ambient yielded the following equations:
+
+     x = XCO2S
+     XCO2C =[ (146.02 * x)+(11.167*x2)+(6.7154*x3)+(-0.89997*x4)+
+             (0.059722*x5)] * (273.15+XCO2T)/309.05 *
+             (1013/XCO2P)1.3                                               (6)
+
+     The equation used for final data processing is a
+modification of equation (6) to compensate for calibration and
+zero drift over the course of the flight.  These adjustments were
+based on pre-, post- and intra-flight calibration and zero
+measurements using cylinder gases.  It was assumed that the drift
+would have a linear time dependence.  Also, the water correction
+for dilution was modified to reflect a LI-COR calculation error
+discovered by Ken Davis.  For most flights the water mixing ratio
+used was XLH2OC.  However, low rate data for flights 13,17,19-21
+used MR for water correction.  All high rate files used XLH2OC.
+No treatment was incorporated to compensate for the dependence of
+[CO2] on the pressure broadening of the water absorption line.
+The final equations are included below, followed by flight
+specific values.
+
+     x = XCO2S
+     q = XLH2OC/1000
+     XCO2C =[ (146.02 * x)+(11.167*x2)+(6.7154*x3)+(-0.89997*x4)+
+             (0.059722*x5)] *(273.15+XCO2T)/309.05 *
+             (1013/XCO2P)1.3 / (1-q)
+     XCO2C = XCO2C * (Cal. factor + cal drift * time) - (Offset -
+              off drift * time)                                            (7)
+
+
+Flight Notes:
+Flight            Time             Gas    Cal. factor(drift)   Offset(drift)
+                                             (min-1)           ppmv(ppmv/min)
+
+RF01:
+Calibrations:  pre-flight                     0.988               2.13
+               post-flight                    ()
+
+RF02:
+Calibrations:  pre-flight                     1.4837              3.3
+               post-flight                   (1.12E-4)
+
+RF03:
+Calibrations:  16:04:30-17:05:00  zero        1.142              71.22
+               16:56:48-16:59:12  span      (-2.7E-4)            (0.027)
+               17:23:30-17:26:30  span
+               17:48:10-17:53:00  span
+               18:12:18-18:16:54  span
+               18:34:59-18:35:36  span
+               19:29:00-19:29:43  span
+               19:53:22-19:54:13  span
+               20:14:19-20:15:06  span
+               20:37:42-20:38:26  span
+               21:00:20-21:01:02  span
+               21:27:36-21:28:20  span
+               21:30:02-21:30:51  zero
+               21:35:30-21:50:23  zero
+
+RF04:
+Calibrations:  start   -16:11:30  zero        1.142          68.91
+               18:13:00-18:16:20  span      (-3.3E-4)        (0.176)
+               20:17:10-20:20:24  span
+               22:15:44-22:18:15  span
+               22:19:40-22:22:05  zero
+               22:22:02-22:39:39  zero
+
+RF05:
+Calibrations:  pre-flight       zero,span     1.293          34.79
+               15:31:30-15:33:15  span      (-3.8E-4)       (-0.0105)
+               16:38:08-16:43:30  span
+               16:44:54-16:47:36  span
+               19:08:50-19:19:20  span
+               21:20:24-21:23:40  span
+
+RF06:
+Calibrations:  pre-flight       zero,span     1.269          33.33
+               17:03:18-17:08:05  span      (-2.6E-4)        (0.00393)
+               19:09:10-19:12:22  span
+
+RF07:
+Calibrations:  pre-flight       zero,span     1.06           37.98
+               17:26:09-17:26:42  span      (-1.9E-4)          ()
+               17:29:11-17:41:00  span
+               22:02:10-22:05:25  span
+               22:06:30-22:09:32  zero
+
+RF08:
+Calibrations:  pre-flight       zero,span     1.065          24.38
+               14:53:59-15:06:46  span       (1.54E-4)       (6.82E-3)
+               15:22:55-15:25:55  zero
+               15:27:05-15:32:30  span
+               16:30:00-16:41:30  span
+               16:42:05-16:47:16  zero
+               17:32:00-17:37:25  zero
+               17:38:15-17:44:35  span
+               18:33:35-18:40:35  zero
+               18:58:00-19:07:55  zero
+               19:08:10-19:13:10  span
+               19:21:10-19:42:33  zero
+
+RF09:
+Calibrations:  pre-flight       zero,span     1.082           8.76
+               18:57:29-19:00:30  span      (-3.8E-5)          ()
+               20:06:00-20:10:25  span
+        Down:  21:07:50-21:20:45
+
+Note:  CO2 instrument found to have a 4-s time constant,
+greatly reducing frequency response.  The manufacturers claimed
+that we didn't observe a 10 Hz frequency response in IFC-I
+because they had incorporated the 0.05-s time constant amplifier
+into the back panel output labeled "4-s."  The instrument was,
+therefore, modified for IFC-II to select the output from the 4-s
+channel.  Spectral analysis of flight data showed that the data
+collected from the 4-s channel had an approximately 0.2 Hz
+frequency response.  This implied that the amplifier improvements
+had not been properly implemented.  Affected research flights are
+RF09 and RF10.
+
+RF10:
+Calibrations:  pre-flight       zero,span     1.055          -0.17
+               18:55:35-18:59:00  span      (-1.0E-4)          ()
+               20:40:03-20:42:27  span
+               22:29:40-22:31:52  span
+        Down:  22:43:20-22:49:17
+
+RF11:
+Calibrations:  pre-flight       zero,span     1.058           0.16
+               18:53:20-18:55:24  zero       (2.3E-5)          ()
+               18:55:28-18:57:40  span
+               21:05:15-21:07:30  zero
+               21:07:35-21:09:47  span
+
+Note:  Data from 14:56:02-16:35:30 should be used with
+caution.  The cal/zero manifold valve was open to the instrument.
+Both cylinder valves were tightly closed.
+
+RF12:
+Calibrations:  pre-flight       zero,span     1.056           0.17
+               17:19:00-17:21:16  span       (5.8E-5)          ()
+               17:34:35-17:36:50  zero
+               17:36:55-17:39:00  span
+               19:00:30-19:05:20  span
+
+RF13:
+Calibrations:  pre-flight       zero,span     1.057           0.03
+              15:57:51-16:03:00   span   (-2.3E-5)          ()
+              18:25:25-18:28:10   span
+              20:18:36-20:20:40   span
+              20:21:36-20:23:45   zero
+
+Note:  CO2 data should be used with caution until 16:47:42,
+when cal manifold valve was closed.  Leak in manifold fixed.
+
+RF14:
+Calibrations:  pre-flight       zero,span        1.056     -0.17
+              16:09:36-16:11:36   span      (-8.6E-5) (7.3E-4)
+              18:57:36-18:59:36   span
+              21:28:45-21:30:45   span
+              21:30:45-21:32:45   zero
+Note:  CO2 cal manifold valve shut off at 19:14:30.  Cal cylinder
+and valve were shut off previously.
+
+RF15:
+Calibrations:  pre-flight       zero,span     1.057            0
+               18:56:37-18:57:55  span      (-5.6E-5)          ()
+               20:54:00-20:57:02  span
+        Down:  20:59:36-21:01:20
+
+RF16:
+Calibrations:  pre-flight       zero,span     1.058            0
+               16:13:20-16:15:00  span      (-1.1E-4)          ()
+               18:10:40-18:12:15  span
+               19:56:08-19:58:46  span
+               22:06:00-22:08:40  span
+
+RF17:
+Calibrations:  pre-flight       zero,span     1.056          -0.32
+               18:05:14-18:06:54  span      (-6.8E-5)          ()
+               20:17:04-20:19:01  span
+
+RF18:
+Calibrations:  pre-flight       zero,span     1.156           0.07
+               16:14:40-16:15:57  span      (-7.5E-5)       (-3.99E-3)
+               17:33:00-17:34:30  span
+               19:57:25-19:59:15  zero
+               20:00:25-20:01:45  span
+
+RF19:
+Calibrations:  pre-flight       zero,span     1.060           1.09
+               17:32:30-17:33:55  zero      (-2.5E-5)       (-3.21E-3)
+               17:33:55-17:35:33  span
+               19:33:22-19:34:16  span
+               19:34:40-19:36:45  span
+
+RF20:
+Calibrations:  pre-flight       zero,span     1.501           0.02
+               14:54:27-14:59:20  span      (-4.4E-4)        (5.4E-3)
+               16:03:09-16:04:27  span
+               18:36:45-18:38:16  zero
+               18:38:16-18:41:57  span
+               20:46:35-20:48:30  zero
+               20:48:30-20:51:00  span
+
+RF21:
+Calibrations:  pre-flight       zero,span     1.590           4.77
+               16:58:40-17:01:35  span      (-2.9E-4)       (-1.6E-2)
+               18:15:00-18:19:32  span
+               19:38:25-20:07:30  span
+               22:06:10-22:08:35  zero
+               22:09:10-22:11:45  span
+        Down:  18:13:17-18:13:27
+
+RF22:
+Calibrations:  pre-flight       zero,span     1.526          -0.70
+               17:26:1-17:31:35   span      (-1.6E-4)       (-1.89E-3)
+               18:51:30-18:58:40  span
+               19:29:00-19:51:00  span
+               21:10:40-21:14:40  span
+               22:11:15-22:19:00  span
+               22:19:40-22:23:25  zero
+RF23:
+Calibrations:  pre-flight       zero,span     1.198          -0.75
+               16:23:35-16:29:35  span      (-1.6E-4)       (-5.0E-4)
+               17:26:05-17:32:10  span
+               18:13:45-18:18:25  span
+               18:31:20-18:34:10  span
+               19:34:37-19:36:50  span
+               21:32:32-21:36:05  span
+               21:36:15-21:39:05  zero
+               21:42:40-21:53:21  span
+RF24
+Calibrations:  pre-flight       zero,span     1.419          -0.86
+               15:40:00-15:56:55  span      (-2.2E-4)       (-1.29E-3)
+               16:47:40-16:52:40  span
+               17:21:05-17:56:15  span
+               18:29:25-18:35:55  span
+               18:50:42-18:54:21  span
+               19:34:30-19:52:00  span
+               20:34:10-20:42:15  span
+               20:42:40-20:46:50  zero
+RF25:
+Calibrations:  pre-flight       zero,span     0.998          -0.30
+               16:19:20-16:24:15  span       (7.7E-5)          ()
+               17:15:00-17:17:50  span
+               18:18:10-18:21:00  span
+               19:12:50-19:24:20  span
+               21:45:35-21:58:02  span
+               21:58:25-21:59:58  zero
+               22:06:30-22:22:05  span
+        Down:  16:46:55-16:56:04
+
+Note:  Unexplained and sudden drop in XCO2S; leveled at about 1.3 V.
+At the end of this 10-minute interval, XCO2S returned to its previous
+level of about 1.7V.
+
+
+H2O Notes:
+
+     The H2O channel was not measuring ambient during the intervals listed
+in the previous discussion.
+
+Comparison with MR:
+
+     The trends in XMRLI mirrored those of MR, however, during many flights
+an offset was observed to occur between the values of the two sensors.
+Typically the water mixing ratio measured by the LI-COR was higher.  The
+table below lists the mean offset for each flight.
+
+             Flight      Mean difference (g/kg)
+                           (XMRLI - MR)
+                1              0.3
+                2              0.3
+                3              2.4
+                4              2.0
+                5              1.0
+                6              1.3
+                7              1.8
+                8              1.0
+                9              0.5
+                10             0.5
+                11             0.6
+                12             0.2
+                13             0.5
+                14             0.2
+                15             0.4
+                16             0.5
+                17             3.6
+                18             2.8
+                19             3.3
+                20             2.5
+                21             1.9
+                22             1.6
+                23             2.4
+                24             0.6
+                25             1.8
+
+Recommendations:
+
+     Much has been learned about the behavior and drawbacks of using the
+LI-COR CO2/H2O analyzer for aircraft measurements.  However, some issues
+remain unresolved.  In spite of modifications to the pressure correction of
+ambient data, a residual pressure/altitude effect remains.  This effect is
+variable and seems at first glance to be affected by the calibration factor
+and drift, as well as by the offset and offset drift.  Additionally, the
+effect of changing water mixing ratio on the measured CO2 concentration
+needs to be characterized or water removal from sampled air needs to be
+effected.
+
+     Apparently, the instrument performed well enough during this project
+(818) to produce flux measurements of reasonable quality.  However, the data
+should be used with extreme caution for evaluation of mean levels, and for
+comparison of measurements as a function of altitude.  Clearly, further
+development effort needs to be undertaken before this instrument is
+supported for airborne CO2 measurements.
+
+
+15.  Data Quality Report by Richard Schillawski on the RAF fast ozone
+     instrument.  Data processing algorithms, including temperature
+     correction, are provided for each of the intensive periods.
+
+Fast (NO Chemiluminescence) Ozone
+
+     Variables List:  XO3F1S; XO3F1P; XO3F1N; XO3F1F; XO3F1T.
+
+The fast ozone instrument is based upon the reaction of nitrogen oxide (NO)
+with ozone (O3).  The reaction produces light principally in the infrared;
+a small portion of the light produced can be detected by the red-sensitive
+photomultiplier tube (PMT) used as the measuring device by this instrument.
+This method is also used in the reverse direction in most instruments
+measuring low concentrations of nitrogen oxides in the atmosphere.  The
+flow rate of sample gas through the fast ozone instrument is kept high to
+be useful in eddy-correlation flux estimates where a response rate of at
+least 10 Hz is desired.  The signal level is also relatively large in the
+fast ozone instrument;  the PMT voltage can be measured directly, rather
+than by photon counting which is usual in nitrogen oxides analyzers.
+
+For the BOREAS project, two fast ozone instruments were operated in
+parallel to compare their performance.  The unit whose output was used to
+produce the derived variable XO3FC uses dry ice cooling;  the other unit
+uses refrigeration.  The refrigerated unit was coupled with a different
+reactor for each of the BOREAS intensives:  during the first intensive its
+reactor was nearly identical to that used on the dry ice-cooled unit;
+during the second, a slightly smaller reactor of the type commonly used for
+high-sensitivity nitrogen oxides detection was used;  and during the third
+intensive a much smaller reactor which is usually used for "semi-fast"
+ozone measurements by RAF was used.  The signals from the refrigerated
+system are intended for RAF in-house use only.
+
+Fast ozone data quality was generally good throughout the BOREAS project
+with the following exceptions:  during the first four flights of the
+project, a bad input card in the aircraft data system (ADS) added noise to
+the PMT signals from both fast ozone units (XO3F1S and XO3F2S);  reactor
+temperature control was not very good through much of the project, but a
+correction for variation in reactor temperature has been added to
+compensate for this problem in producing the calibrated ozone data.  The
+data from the slower ozone instrument suffered from aerosol effects, which
+were unexpectedly large during the BOREAS project, and its calibrated
+output (TEO3C) should be used with caution.
+
+The calibrated fast ozone output (XO3FC) was calculated by comparison with
+the slow ozone data (TEO3C), with provision made for the effect of aerosols
+on the latter.  As mentioned above, an adjustment for reactor temperature
+was also made.  The standard algorithm used to produce XO3FC includes a
+correction for the effect of humidity upon the amount of light produced by
+the reaction, and is
+
+     XO3FC(ppbv) = F1*XO3F1S*(1+3.43*EDPC/PSFDC)
+
+where EDPC is the partial pressure of water (gas phase) and PSFDC is the
+total static pressure outside the airplane.  The temperature-correction
+factor by which the right side of the standard algorithm was multiplied for
+the BOREAS project is
+
+     (1-(XO3FT-F2)*F3).
+
+The constants F1, F2, and F3 were adjusted for each of the intensive
+periods as follows:
+
+     Intensive      Flights   F1        F2        F3
+     1              1-8       10.0      40.0      0.0184
+     2              9-16      11.07     37.0      0.0148
+     3              17-24     12.1      37.0      0.0148
+     3              25        12.6      37.0      0.0148
+
+16.  Data recording typically begins well in advance of the actual aircraft
+     takeoff time.  Virtually all measurements made on the Electra require
+     some sort of airspeed correction, or the systems are simply not active
+     while the aircraft remains on the ground.  Typically the data
+     recording was allowed to continue during stops.  None of the data
+     collected while the aircraft is on the ground should be considered
+     valid.
+
+
+     *    *    *    *    *    *    *    *    *    *    *
+
+Section II: Flight-by-Flight Summary
+
+[Editor's note:  All times listed below are Coordinated Universal Time.]
+
+RF01 TTB and VLA sensors sampled at 5 sps and filtered at 1 Hz
+     PLWC sensor inoperative
+     RSTB's minimum values of -2.8C is of suspicion
+     PFLW (housekeeping) inoperative
+
+RF02 TTB and VLA sensors sampled at 5 sps and filtered at 1 Hz
+     UVT inoperative most of flight
+     RSTB has drop-outs around 8C
+     PFLW (housekeeping) inoperative
+
+RF03 VLA inoperative after 19:10 UTC
+     RSTB minimum values at 2.8C is questionable
+     UVT drop-outs ~17:33-17:53, ~20:51-21:05 UTC
+     PLWC inoperative
+     PFLW housekeeping status word not recorded
+
+RF04 Tape header list flight number as 0
+     UVT drop-outs 20:21-20:28, ~20:30-20:52, ~21:01-22:39 UTC
+     RSTB's minimum values of suspicion
+     PFLW status word not recorded
+     PLWC inoperative
+
+RF05 CONCN inoperative after ~20:12 UTC
+     PLWC inoperative
+     PFLW housekeeping status work not recorded
+     XCO2T inoperative
+
+RF06 Low dew/frost-point depressions (>42C) encountered during the flight.
+     Neither DPB or DPT can maintain these depressions
+     RSTT inoperative
+     CONCN inoperative
+     PLWC inoperative
+     PFLW housekeeping status work not recorded
+     XCO2T inoperative
+
+RF07 UVT drop-outs ~16:11-16:17, ~17:00-18:36 UTC
+     RSTT response questionable until ~20:44 UTC
+     PLWC inoperative
+     PFLW housekeeping status work not recorded
+     DPBC is questionable until ~21:19 UTC
+
+RF08 SVR inoperative
+     TEO3C inoperative until ~17:45 UTC
+     DPBC inoperative until ~18:16 UTC
+     PLWC inoperative
+     PFLW housekeeping status work not recorded
+
+RF09 VLA inoperative, with limited response
+     CONCN level shifts throughout flight
+
+RF10 CONCN drop-outs ~17:13-17:17, ~18:13-18:15 UTC
+
+RF11 UVT drop-outs ~15:21-15:23, ~15:26-15:29, ~18:52-21:18
+
+RF12 VLA is not functional
+     RSTB's output questionable ~21:03, ~21:22-21:50 UTC
+
+RF14 Reference dew-point temperature is DPB
+     MRLA measurements affected during cloud penetrations ~16:21, ~17:45,
+~19:14 UTC
+
+RF15 DPB measurement unreliable after ~18:42 UTC
+
+RF16 No comments
+
+RF17 Lyman-alpha Hygrometer (RHOLA,MRLA) sensor wetting.  Data bad from
+     17:18-17:46 and 20:08-20:35.
+
+     TECO Ozone (TEO3C) response uncharacteristic.  Data questionable from
+     18:40-20:15.
+
+     PRT-5 Remote Surface Temperature (RSTB) beyond OPS range.  Data bad
+     from 20:08 - 20:24.
+
+     Fuselage Dynamic Pressure (QCF,QCFC) exhibiting intermittent intervals
+     of baseline shift.  Use data with caution.
+
+RF18 Unusually low flow through the CN Counter (FCNC).  Cause unknown.  Has
+     little effect on concentration data but care should be used in using
+     these data from 16:00-21:15.
+
+RF19 Bottom Dew Pointer (DPB,DPBC) beyond OPS range.  Data bad from
+     15:42-16:00, 19:28-19:49, and 21:07-21:18.
+
+     Fuselage Dynamic Pressure (QCF,QCFC) exhibiting intermittent intervals
+     of baseline shift.  Use data with caution.
+
+     Uncharacteristic response noted in aerosol ratios through out the
+     flight.  (CONCP/CONCN > 1).  Cause unknown.
+
+RF20 Intermittent surface reflections appearing in Radar Altimeter data
+     (HGME) at low altitudes.
+
+     Bottom Dew Pointer (DPB,DPBC) beyond OPS range.  Data bad from
+     15:58-16:15 and 18:33-18:43.
+
+     Uncharacteristic response noted in aerosol ratios from 15:10-17:30
+     (CONCP/CONCN > 1).  Cause unknown.
+
+     Lyman-alpha Hygrometer (RHOLA,MRLA) sensor wetting.  Data bad from
+     20:45-21:10.
+
+RF21 Fuselage Dynamic Pressure (QCF,QCFC) exhibiting intermittent intervals
+     of baseline shift.  Use data with caution.
+
+RF22 Fuselage Dynamic Pressure (QCF,QCFC) exhibiting intermittent intervals
+     of baseline shift.  Use data with caution.
+
+     Data end in flight due to primary inverter failure.  All data lost
+     after 22:26:50.
+
+RF23 Intermittent surface reflections appearing in Radar Altimeter data
+     (HGME) at low altitudes.  Data from 20:24-20:48 are affected.
+
+     Power failure in CN Counter due to bad connection.  CN concentration
+     (CONCN) data bad from 17:38-18:24.
+
+RF24 Intermittent surface reflections appearing in Radar Altimeter data
+     (HGME) at low altitudes.  Data from 19:15-19:35 are affected.
+
+RF25 Intermittent surface reflections appearing in Radar Altimeter data
+     (HGME) at low altitudes.  Data from 19:55-20:12 are affected.
+
+----------
+Minor editing by Ron Ruth  5 May 1995

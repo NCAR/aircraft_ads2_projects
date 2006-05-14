@@ -1,0 +1,45 @@
+RLR  25 January 1995
+HRT processing problem:  FSSP data appear to have a problem with the
+STROBES signal.  To fix the data, a NIMBUS skeleton will have to be
+used.  The method will be to average the total STROBES signal for
+the second of interest and compute a mean sample volume for each sample.
+Then one recalculates concentration, liquid water, etc.
+
+
+RLR 7 February 1995
+NIMBUS Rev. 2.0 had a bug where the Dependencies were not being read
+from the corresponding Flight_xx file.  The default dependencies were
+used instead.  For the WISP-94 high-rate processing, this affected
+flights RF26 and RF28.
+
+The only requests for HRT data are for flights:  RF09, RF11, RF26, RF27,
+RF28, RF33 and RF34.
+
+For future reference, the Flight_xx files having affected lines are:
+  Flight_30  (RF26, RF28, RF30)
+  Flight_39  (RF39, RF42, RF44)
+  Flight_41  (RF41, RF45)
+
+
+RLR  15 February 1995
+Processing plan.
+
+Due to above problems, the following files need to be reprocessed with NIMBUS:
+       Reprocessed    Archived
+       -----------    --------
+RF26   <08Feb95       08Feb95
+RF28   17Feb95        21Feb95
+
+The following files need to be reprocessed with the NIMBUS skeleton program:
+
+Original file to be renamed and put in the /RAF/1994/870/OLDHRT directory.
+
+      Skeleton     Merge     Orig. MSS renamed    New File Archived
+      --------    -------    -----------------    -----------------
+RF09  15Feb95     15Feb95        16Feb95          16Feb95@17:00
+RF11  17Feb95     17Feb95        17Feb95          21Feb95@11:40
+RF26  08Feb95     10Feb95        09Feb95          17Feb95@10:44
+RF27  17Feb95     17Feb95        17Feb95          21Feb95@14:40
+RF28  17Feb95     17Feb95          N/A            17Feb95@14:17
+RF33  21Feb95     21Feb95        21Feb95          21Feb95@14:32
+RF34  21Feb95     21Feb95        21Feb95          21Feb95@16:53

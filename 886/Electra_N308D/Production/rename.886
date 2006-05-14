@@ -1,0 +1,32 @@
+#! /bin/csh -f
+#
+#  Rename MSS tar files for 3-886 ANLC
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886FF01.cdf.tar npdn=/RAF/1993/886/LRT/FF01.cdf.tar w=RAFDMG
+# Sequence number = CK3211  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF01.cdf.tar npdn=/RAF/1993/886/LRT/RF01.cdf.tar w=RAFDMG
+# Sequence number = CK3222  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF02.cdf.tar npdn=/RAF/1993/886/LRT/RF02.cdf.tar w=RAFDMG
+# Sequence number = CK3231  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF03.cdf.tar npdn=/RAF/1993/886/LRT/RF03.cdf.tar w=RAFDMG
+# Sequence number = CK3242  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF04.cdf.tar npdn=/RAF/1993/886/LRT/RF04.cdf.tar w=RAFDMG
+# Sequence number = CK3253  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF05.cdf.tar npdn=/RAF/1993/886/LRT/RF05.cdf.tar w=RAFDMG
+# Sequence number = CK3264  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF06.cdf.tar npdn=/RAF/1993/886/LRT/RF06.cdf.tar w=RAFDMG
+# Sequence number = CK3275  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF07.cdf.tar npdn=/RAF/1993/886/LRT/RF07.cdf.tar w=RAFDMG
+# Sequence number = CK3286  -- OK
+#
+nrnet msmv % r flnm=/RAF/1993/886/LRT/886RF08.cdf.tar npdn=/RAF/1993/886/LRT/RF08.cdf.tar w=RAFDMG
+# Sequence number = CK3299  -- OK
+#
+exit

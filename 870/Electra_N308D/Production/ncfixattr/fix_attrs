@@ -1,0 +1,319 @@
+#! /bin/csh -f
+#
+#  Fix units and long_name attributes for variables that were omitted
+#   from the VarDB file when nimbus reprocessed the data and used new
+#   and updated variable names (e.g., UIC --> XUIC).
+#
+if ($#argv != 1) then
+  echo "$0"
+  echo "  On the command line, specify a file name to change"
+  echo "  Quitting.
+  exit 1
+endif
+#
+set FILE = $argv
+echo "File to change is $FILE"
+#
+ncfixattr $FILE << EOF
+DAY
+units
+day
+EOF
+ncfixattr $FILE << EOF
+DAY
+long_name
+Raw Tape Date Component
+EOF
+ncfixattr $FILE << EOF
+EVENT_CKP
+units
+none
+EOF
+ncfixattr $FILE << EOF
+EVENT_CKP
+long_name
+Event Marker - Cockpit
+EOF
+ncfixattr $FILE << EOF
+EVENT_CTL
+units
+none
+EOF
+ncfixattr $FILE << EOF
+EVENT_CTL
+long_name
+Event Marker - ADS Operator Station
+EOF
+ncfixattr $FILE << EOF
+EVENT_FWD
+units
+none
+EOF
+ncfixattr $FILE << EOF
+EVENT_FWD
+long_name
+Event Marker - Forward Observer Display
+EOF
+ncfixattr $FILE << EOF
+EVENT_OBL
+units
+none
+EOF
+ncfixattr $FILE << EOF
+EVENT_OBL
+long_name
+Event Marker - Aft Left Observer Display
+EOF
+ncfixattr $FILE << EOF
+EVENT_OBR
+units
+none
+EOF
+ncfixattr $FILE << EOF
+EVENT_OBR
+long_name
+Event Marker - Aft Right Observer Display
+EOF
+ncfixattr $FILE << EOF
+MONTH
+units
+month
+EOF
+ncfixattr $FILE << EOF
+MONTH
+long_name
+Raw Tape Date Component
+EOF
+ncfixattr $FILE << EOF
+YEAR
+units
+year
+EOF
+ncfixattr $FILE << EOF
+YEAR
+long_name
+Raw Tape Date Component
+EOF
+ncfixattr $FILE << EOF
+DBZ6_WDL
+units
+dBZ
+EOF
+ncfixattr $FILE << EOF
+DBZ6_WDL
+long_name
+260X Calculated Reflectivity
+EOF
+ncfixattr $FILE << EOF
+DBZF_IBL
+units
+dBZ
+EOF
+ncfixattr $FILE << EOF
+DBZF_IBL
+long_name
+FSSP-100 Calculated Reflectivity
+EOF
+ncfixattr $FILE << EOF
+IAS
+units
+knots
+EOF
+ncfixattr $FILE << EOF
+IAS
+long_name
+Aircraft Indicated Airspeed
+EOF
+ncfixattr $FILE << EOF
+PFLWC_IBR
+units
+slpm
+EOF
+ncfixattr $FILE << EOF
+PFLWC_IBR
+long_name
+PCAS Corrected Flow
+EOF
+ncfixattr $FILE << EOF
+SOLAZ
+units
+radians
+EOF
+ncfixattr $FILE << EOF
+SOLAZ
+long_name
+Solar Azimuth Angle
+EOF
+ncfixattr $FILE << EOF
+SOLDE
+units
+radians
+EOF
+ncfixattr $FILE << EOF
+SOLDE
+long_name
+Solar Declination Angle
+EOF
+ncfixattr $FILE << EOF
+SOLEL
+units
+radians
+EOF
+ncfixattr $FILE << EOF
+SOLEL
+long_name
+Solar Elevation Angle
+EOF
+ncfixattr $FILE << EOF
+SOLZE
+units
+radians
+EOF
+ncfixattr $FILE << EOF
+SOLZE
+long_name
+Solar Zenith Angle
+EOF
+ncfixattr $FILE << EOF
+TASHC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+TASHC
+long_name
+Aircraft True Airspeed, Humidity Corrected
+EOF
+ncfixattr $FILE << EOF
+XLATC
+units
+deg
+EOF
+ncfixattr $FILE << EOF
+XLATC
+long_name
+GPS-Corrected Inertial Latitude
+EOF
+ncfixattr $FILE << EOF
+XLONC
+units
+deg
+EOF
+ncfixattr $FILE << EOF
+XLONC
+long_name
+GPS-Corrected Inertial Longitude
+EOF
+ncfixattr $FILE << EOF
+XRADCF
+units
+none
+EOF
+ncfixattr $FILE << EOF
+XRADCF
+long_name
+Radiation Correction Factor
+EOF
+ncfixattr $FILE << EOF
+XSWTC
+units
+W/M2
+EOF
+ncfixattr $FILE << EOF
+XSWTC
+long_name
+Shortwave Irradiance, Top, (Attitude-Corrected)
+EOF
+ncfixattr $FILE << EOF
+XUIC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XUIC
+long_name
+GPS-Corrected Wind Vector, East Component
+EOF
+ncfixattr $FILE << EOF
+XUXC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XUXC
+long_name
+GPS-Corrected Wind Vector, Longitudinal Component
+EOF
+ncfixattr $FILE << EOF
+XVEWC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XVEWC
+long_name
+GPS-Corrected Inertial Ground Speed Vector, East Component
+EOF
+ncfixattr $FILE << EOF
+XVIC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XVIC
+long_name
+GPS-Corrected Wind Vector, North Component
+EOF
+ncfixattr $FILE << EOF
+XVNSC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XVNSC
+long_name
+GPS-Corrected Inertial Ground Speed Vector, North Component
+EOF
+ncfixattr $FILE << EOF
+XVYC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XVYC
+long_name
+GPS-Corrected Wind Vector, Lateral Component
+EOF
+ncfixattr $FILE << EOF
+XWDC
+units
+deg
+EOF
+ncfixattr $FILE << EOF
+XWDC
+long_name
+GPS-Corrected Horizontal Wind Direction
+EOF
+ncfixattr $FILE << EOF
+XWIC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XWIC
+long_name
+GPS-Corrected Wind Vector, Vertical Gust Component
+EOF
+ncfixattr $FILE << EOF
+XWSC
+units
+M/s
+EOF
+ncfixattr $FILE << EOF
+XWSC
+long_name
+GPS-Corrected Horizontal Wind Speed
+EOF
+
+# Done
+exit

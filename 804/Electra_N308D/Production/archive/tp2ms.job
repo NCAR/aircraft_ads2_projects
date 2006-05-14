@@ -1,0 +1,164 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 2000-804 Huebert Inlet Test (Huebert)
+#
+#  Revised by RLR  (adapt to new MIGS "msimp" verb)                17 Mar 1999
+#  Revised by RLR  (add noglob, "start" code)                       3 May 1999
+#  Revised by RLR  (# TAPES and # FLIGHTS must match)              14 Jul 1999
+#  Revised by RLR  (add vi commands to ease flt and tape # lists)  30 Nov 1999
+#  Revised by RLR  (# SKIPS and # RECS must match, too,
+#                                               if greater than 1)  02 Dec 1999
+#  Revised by RLR (change the way $PROJ is determined)              20 Mar 2000
+#
+#  Note:  For the tape images to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#   Using 'vi' to edit lines extracted from a "tapes.ppp" file:
+#     first extract only tape and flight numbers
+#        :'a,'bs/\(............\)\(.*\)/\1
+#     copy the list to second section
+#        :'a,'bco.
+#     produce the tape number list
+#        :'a,'bs/.......$/ \\
+#     produce the flight number list
+#        :'c,'ds/\(.......\)\(.*\)/\2 \\
+#
+#   `vi' :map commands for annotating job completion:
+#   :map g eea 
+#   :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+#
+#  1st set, 1st try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1480 \
+#R1481 \
+#R1482 \
+#R1483 \
+#R1484 \
+#)
+#set FLIGHTS = ( \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#)
+#
+#  2nd set, 1st try
+set SKIPS   = ^B*0
+set RECS    = F*1
+set TAPES   = ( \
+R1486 \
+R1487 \
+)
+set FLIGHTS = ( \
+RF06 \
+RF07 \
+)
+#
+#      set, 1st try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#)
+#set FLIGHTS = ( \
+#)
+#
+#
+#  Get started:
+date
+#
+#  Make sure I have the same number of tapes, flights and command arguments
+if ($#TAPES != $#FLIGHTS) then
+  echo "TAPES and FLIGHTS don't match.  Quitting."
+  exit 1
+endif
+if ($#SKIPS > 1) then
+  if ($#SKIPS != $#FLIGHTS) then
+    echo "SKIPS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+if ($#RECS > 1) then
+  if ($#RECS != $#FLIGHTS) then
+    echo "RECS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+#
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st try
+#  Jobs submitted on Fri May  5 16:24:27 MDT 2000
+# Sequence number = LN8989 -- RF01/R1480 -- OK @ 05 May 2000 16:46:52
+# Sequence number = LN8997 -- RF02/R1481 -- OK @ 05 May 2000 16:42:02
+# Sequence number = LN9005 -- RF03/R1482 -- OK @ 05 May 2000 16:50:15
+# Sequence number = LN9013 -- RF04/R1483 -- OK @ 05 May 2000 16:55:18
+# Sequence number = LN9021 -- RF05/R1484 -- OK @ 05 May 2000 17:01:16
+#
+#  2nd set, 1st try
+#  Jobs submitted on Fri Aug  4 16:05:09 MDT 2000
+# Sequence number = LN5737 -- RF06/R1486 -- OK @ 04 Aug 2000 17:03:55
+# Sequence number = LN5745 -- RF07/R1487 -- OK @ 04 Aug 2000 18:41:58
+#
+#      set, 1st try
+#  Jobs submitted on 
+#

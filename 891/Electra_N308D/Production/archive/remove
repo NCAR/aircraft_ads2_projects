@@ -1,0 +1,51 @@
+#! /bin/csh -f
+#
+#  Remove unneeded MSS bitfiles for 1997-891 FASTEX (Dr. Jacques Testud, et al.)
+#    which were archived by mistake.
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set YEAR = 1997
+set PROJ = 891
+#
+set TAPES  = ( R1119 R1120 R1123 R1124 R1125 R1136 )
+set FLIGHTS= ( FF01A FF02A RF02A TF01A RF03A RF06A )
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+#  echo \
+  nrnet msrm % r w=RAFDMG flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#
+#  Job(s) submitted on Tue Mar  4 17:07:24 MST 1997
+# Sequence number = MI3948 -- FF01A/R1119 -- OK @ 4 Mar 1997 17:08:05
+# Sequence number = MI3955 -- FF02A/R1120 -- OK @ 4 Mar 1997 17:08:12
+# Sequence number = MI3962 -- RF02A/R1123 -- OK @ 4 Mar 1997 17:08:13
+# Sequence number = MI3969 -- TF01A/R1124 -- OK @ 4 Mar 1997 17:08:33
+# Sequence number = MI3976 -- RF03A/R1125 -- OK @ 4 Mar 1997 17:11:55
+# Sequence number = MI3983 -- RF06A/R1136 -- OK @ 4 Mar 1997 17:11:58
+#
+#  MSS bitfiles which should be removed:
+# Sequence number = MI7060 -- FF01A/R1119 -- Premature EOF after 7352 records
+# Sequence number = MI7069 -- FF02A/R1120 -- Premature EOF after 4700 records
+# Sequence number = MI7090 -- RF02A/R1123 -- Premature EOF after 13172 records
+# Sequence number = MI7097 -- TF01A/R1124 -- Premature EOF after 1884 records
+# Sequence number = MI7104 -- RF03A/R1125 -- Premature EOF after 10686 records
+# Sequence number = MI7118 -- RF06A/R1136 -- Premature EOF after 12853 records
+#

@@ -1,0 +1,290 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1999-803 MAP (Kuettner)
+#    rev. 990317  RLR  (adapt to new MIGS "msimp" verb)
+#    rev. 990503  RLR  (add noglob, "start" code)
+#    rev. 990714  RLR  (# TAPES and # FLIGHTS must match)
+#
+#  Note:  For the tape images to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+goto start
+#
+#  1st set, 1st segment, 1st try
+set SKIPS   = ^B*0
+set RECS    = F*1
+set TAPES   = ( \
+R1382 \
+R1383 \
+R1384 \
+R1385 \
+R1386 \
+R1387 \
+R1388 \
+R1389 \
+R1390 \
+R1391 \
+R1392 \
+R1393 \
+R1394 \
+R1395 \
+R1396 \
+R1397 \
+R1398 \
+R1399 \
+R1400 \
+R1401 \
+R1402 \
+R1403 \
+R1404 \
+R1405 \
+R1406 \
+R1407 \
+R1408 \
+R1409 \
+R1410 \
+R1411 \
+R1412 \
+R1413 \
+R1414 \
+R1415 \
+R1416 \
+R1417 \
+R1418 \
+R1419 \
+R1420 \
+R1421 \
+R1422 \
+R1425 \
+R1426 \
+)
+set FLIGHTS = ( \
+TF01 \
+TF02 \
+TF03 \
+FF02 \
+TF04 \
+FF03 \
+FF04 \
+FF05 \
+RF01 \
+RF02 \
+RF03 \
+RF04 \
+RF05 \
+RF06 \
+RF07 \
+RF08 \
+RF09 \
+RF10 \
+RF11 \
+RF12 \
+RF13 \
+RF14 \
+RF15 \
+RF16 \
+RF17 \
+RF18 \
+RF19 \
+RF20 \
+RF21 \
+RF22 \
+RF23 \
+RF24 \
+RF25 \
+RF26 \
+RF27 \
+RF28 \
+RF29 \
+FF06 \
+FF07 \
+FF08 \
+FF09 \
+FF01 \
+TF06 \
+)
+#
+#  1st set, 1st segment, 2nd try
+set SKIPS   = ^B*0
+set RECS    = (F*1 F*1 F*1 B*30000 B*30000 F*1)
+set TAPES   = ( \
+R1383 \
+R1384 \
+R1391 \
+R1404 \
+R1407 \
+R1414 \
+)
+set FLIGHTS = ( \
+TF02 \
+TF03 \
+RF02 \
+RF15 \
+RF18 \
+RF25 \
+)
+#
+#  1st set, 2nd segment, 1st try
+set SKIPS   = (^B*30000 ^B*30000)
+set RECS    = (F*1       F*1    )
+set TAPES   = ( \
+R1404 \
+R1407 \
+)
+set FLIGHTS = ( \
+RF15B \
+RF18B \
+)
+#
+start:
+#
+#
+#  Get started:
+set noglob
+date
+#
+#  Make sure I have the same number of tapes, flights and command arguments
+if ($#TAPES != $#FLIGHTS) then
+  echo "TAPES and FLIGHTS don't match.  Quitting."
+  exit 1
+endif
+if ($#SKIPS > 1) then
+  if ($#SKIPS != $#FLIGHTS) then
+    echo "SKIPS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+if ($#RECS > 1) then
+  if ($#RECS != $#FLIGHTS) then
+    echo "RECS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st segment, 1st try
+#  Jobs submitted on Mon Nov 29 15:35:20 MST 1999
+# Sequence number = LN1073 -- TF01/R1382 -- OK @ 30 Nov 99 11:42:10
+# Sequence number = LN1081 -- TF02/R1383 -- Failed* @ 29 Nov 99 19:04:49
+# Sequence number = LN1089 -- TF03/R1384 -- Failed* @ 29 Nov 99 19:01:22
+# Sequence number = LN1097 -- FF02/R1385 -- OK @ 29 Nov 99 19:19:03
+# Sequence number = LN1105 -- TF04/R1386 -- OK @ 29 Nov 99 20:25:16
+# Sequence number = LN1113 -- FF03/R1387 -- OK @ 29 Nov 99 19:29:32
+# Sequence number = LN1121 -- FF04/R1388 -- OK @ 29 Nov 99 19:58:27
+# Sequence number = LN1129 -- FF05/R1389 -- OK @ 29 Nov 99 20:42:16
+# Sequence number = LN1137 -- RF01/R1390 -- OK @ 29 Nov 99 21:14:18
+# Sequence number = LN1145 -- RF02/R1391 -- Failed** @ 29 Nov 99 21:31:03
+# Sequence number = LN1153 -- RF03/R1392 -- OK @ 29 Nov 99 22:41:58
+# Sequence number = LN1161 -- RF04/R1393 -- OK @ 29 Nov 99 23:05:28
+# Sequence number = LN1169 -- RF05/R1394 -- OK @ 29 Nov 99 23:49:54
+# Sequence number = LN1177 -- RF06/R1395 -- OK @ 30 Nov 99 01:06:31
+# Sequence number = LN1185 -- RF07/R1396 -- OK @ 30 Nov 99 00:55:58
+# Sequence number = LN1193 -- RF08/R1397 -- OK @ 29 Nov 99 23:24:17
+# Sequence number = LN1201 -- RF09/R1398 -- OK @ 30 Nov 99 01:42:51
+# Sequence number = LN1209 -- RF10/R1399 -- OK @ 30 Nov 99 04:21:25
+# Sequence number = LN1217 -- RF11/R1400 -- OK @ 30 Nov 99 04:52:39
+# Sequence number = LN1225 -- RF12/R1401 -- OK @ 30 Nov 99 03:11:58
+# Sequence number = LN1233 -- RF13/R1402 -- OK @ 30 Nov 99 06:01:42
+# Sequence number = LN1241 -- RF14/R1403 -- OK @ 30 Nov 99 06:55:18
+# Sequence number = LN1249 -- RF15/R1404 -- Failed++ @ 30 Nov 99 08:02:49
+# Sequence number = LN1257 -- RF16/R1405 -- OK @ 30 Nov 99 08:18:37
+# Sequence number = LN1265 -- RF17/R1406 -- OK @ 30 Nov 99 08:30:32
+# Sequence number = LN1273 -- RF18/R1407 -- Failed++ @ 30 Nov 99 09:45:40
+# Sequence number = LN1281 -- RF19/R1408 -- OK @ 30 Nov 99 10:09:44
+# Sequence number = LN1289 -- RF20/R1409 -- OK @ 30 Nov 99 10:54:11
+# Sequence number = LN1297 -- RF21/R1410 -- OK @ 30 Nov 99 15:03:35
+# Sequence number = LN1305 -- RF22/R1411 -- OK @ 30 Nov 99 11:29:22
+# Sequence number = LN1313 -- RF23/R1412 -- OK @ 30 Nov 99 17:38:04
+# Sequence number = LN1321 -- RF24/R1413 -- OK @ 30 Nov 99 13:07:36
+# Sequence number = LN1329 -- RF25/R1414 -- Failed+ @ 30 Nov 99 12:07:46
+# Sequence number = LN1337 -- RF26/R1415 -- OK @ 30 Nov 99 13:32:01
+# Sequence number = LN1345 -- RF27/R1416 -- OK @ 30 Nov 99 14:19:30
+# Sequence number = LN1353 -- RF28/R1417 -- OK @ 30 Nov 99 16:13:36
+# Sequence number = LN1361 -- RF29/R1418 -- OK @ 30 Nov 99 15:18:06
+# Sequence number = LN1369 -- FF06/R1419 -- OK @ 30 Nov 99 16:45:18
+# Sequence number = LN1377 -- FF07/R1420 -- OK @ 30 Nov 99 17:10:32
+# Sequence number = LN1385 -- FF08/R1421 -- OK @ 30 Nov 99 17:25:01
+# Sequence number = LN1393 -- FF09/R1422 -- OK @ 30 Nov 99 16:00:50
+# Sequence number = LN1401 -- FF01/R1425 -- OK @ 30 Nov 99 15:31:16
+# Sequence number = LN1409 -- TF06/R1426 -- OK @ 30 Nov 99 15:38:55
+#
+#  + Failed due to RESOURCES NOT AVAILABLE
+# ++ Failed due to FATAL TAPE READ ERROR.  RCODE=        13 (> 1500000000 BYTES)
+#  * Failed due to DATA CHECK ENCOUNTERED. RCODE=        20
+# ** Failed due to UNIT CHECK ENCOUNTERED. RCODE=        15
+#
+#  1st set, 1st segment, 2nd try
+#  Jobs submitted on Wed Dec  1 16:38:08 MST 1999
+# Sequence number = LN5840 -- TF02/R1383 -- OK @ 01 Dec 99 16:41:27
+# Sequence number = LN5848 -- TF03/R1384 -- OK @ 01 Dec 99 17:17:55
+# Sequence number = LN5856 -- RF02/R1391 -- OK* @ 01 Dec 99 17:37:41
+# Sequence number = LN5864 -- RF15/R1404 -- OK @ 01 Dec 99 18:29:19
+# Sequence number = LN5872 -- RF18/R1407 -- OK @ 01 Dec 99 19:19:35
+# Sequence number = LN5880 -- RF25/R1414 -- OK @ 01 Dec 99 19:47:05
+#  * No eof??      UNIT CHECK ENCOUNTERED. RCODE=        15
+#
+#  1st set, 2nd segment, 1st try
+#  Jobs submitted on Thu Dec  2 10:27:02 MST 1999
+# Sequence number = LN0317 -- RF15B/R1404 -- OK @ 02 Dec 99 11:59:23
+# Sequence number = LN0325 -- RF18B/R1407 -- OK @ 02 Dec 99 13:14:05
+#

@@ -1,0 +1,123 @@
+   159  cp amlib.o3.22.c amlib.c
+   160  make clean
+   161  make
+   162  skel
+   163  cp amlib.o3.23.c amlib.c
+   164  make clean
+   165  make
+   166  vi amlib.o3.23.c
+   167  cp amlib.o3.23.c amlib.c
+   168  make clean
+   169  make
+   170  skel
+   171  cp amlib.o3.24.c amlib.c
+   172  make clean
+   173  make
+   174  vi amlib.o3.24.c
+   175  cp amlib.o3.24.c amlib.c
+   176  make clean
+   177  make
+   178  skel
+   179  vi amlib.o3.25.c
+   180  cp amlib.o3.25.c amlib.c
+   181  make clean
+   183  skel
+   184  vi amlib.o3.27.c
+   185  cp amlib.o3.27.c amlib.c
+   186  make clean
+   187  make
+   188  skel
+   189  cd ..
+   190  ls
+   191  ncdump -v base_time 803rf12.o3.cdf
+   192  man ncmerge
+   193  ls
+   194  cp /jnet/productiondata/803rf12.cdf .
+   195  cp /jnet/productiondata/803rf13.cdf .
+   196  cp /jnet/productiondata/803rf15.cdf .
+   197  cp /jnet/productiondata/803rf18.cdf .
+   198  cp /jnet/productiondata/803rf21.cdf .
+   199  cp /jnet/productiondata/803rf22.cdf .
+   200  cp /jnet/productiondata/803rf23.cdf .
+   201  cp /jnet/productiondata/803rf24.cdf .
+   202  cp /jnet/productiondata/803rf25.cdf .
+   203  cp /jnet/productiondata/803rf27.cdf .
+   204  man ncmerge
+   205  ncmerge -v TEO3C 803rf12.cdf 803rf12.o3.cdf
+   206  vi amlib.o3.23.c
+   207  ls
+   208  vi skel/amlib.o3.23.c
+   209  cd skel
+   210  vi amlib.o3.24.c
+   211  vi amlib.o3.23.c
+   212  vi amlib.o3.27.c
+   213  cp amlib.o3.23.c amlib.c
+   214  make clean
+   215  make
+   216  skel
+   217  cp amlib.o3.24.c amlib.c
+   218  make clean
+   219  make
+   220  skel
+   221  cp amlib.o3.27.c amlib.c
+   222  make clean
+   223  make
+   224  skel
+   225  vi amlib.o3.23.c
+   226  vi amlib.o3.27.c
+   227  cp amlib.o3.27.c amlib.c
+   228  make clean
+   229  make
+   230  skel
+   231  cp amlib.o3.23.c amlib.c
+   232  make clean
+   233  make
+   234  skel
+   235  ncplot
+   236  vi amlib.o3.23.c
+   237  cp amlib.o3.23.c amlib.c
+   238  make clean
+   239  make
+   240  skelskel
+   241  skel
+   242  ncplot
+   243  vi amlib.o3.23.c
+   244  cp amlib.o3.23.c amlib.c
+   245  make clean
+   246  make
+   247  skel
+   248  ncplot
+   249  ncplot
+   250  ls am*
+   251  cp amlib.o3.12.c amlib.o3.01.c
+   252  vi amlib.o3.01.c
+   253  cp amlib.o3.12.c amlib.o3.03.c
+   254  vi amlib.o3.03.c
+   255  cp amlib.o3.02.c amlib.o3.03.c
+   256  history
+   257  vi amlib.o3.03.c
+   258  cp amlib.o3.12.c amlib.o3.04.c
+   259  vi amlib.o3.04.c
+   260  vi amlib.o3.05.c
+   261  cp amlib.o3.27.c amlib.o3.06.c
+   262  vi amlib.o3.06.c
+   263  cp amlib.o3.04.c amlib.o3.07.c
+   264  vi amlib.o3.07.c
+   265  cp amlib.o3.23.c amlib.o3.08.c
+   266  vi amlib.o3.08.c
+   267  cp amlib.o3.06.c amlib.o3.09.c
+   268  vi amlib.o3.09.c
+   269  cp amlib.o3.03.c amlib.o3.10.c
+   270  vi amlib.o3.10.c
+   271  cp amlib.o3.01.c amlib.o3.11.c
+   272  vi amlib.o3.11.c
+   273  cp amlib.o3.01.c amlib.c
+   274  make clean
+   275  make
+   276  skel
+   277  cp amlib.o3.02.c amlib.c
+   278  make clean
+   279  make
+   280  skel
+   281  history
+

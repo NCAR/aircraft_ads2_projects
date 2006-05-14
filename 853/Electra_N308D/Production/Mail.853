@@ -1,0 +1,429 @@
+From ron Tue Jan  4 13:51:34 1994
+Subject: 4-853 MSS Staging Complete
+To: paul (Paul Spyers-Duran)
+Date: Tue, 4 Jan 1994 13:51:34 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2258      
+Status: RO
+
+Paul,
+
+I have finished staging all the 4-853 Pre-BOREAS raw ADS ExaByte tapes to the
+SCD Mass Store System (MSS).  Following is a summary showing the MSS path,
+bitfile names, numbers of records and bitfile sizes.  (This summary is saved
+in the file /home/local/proj/853/Production/stage/tp2ms.summary.)  Please note
+that, even though the flights all occurred in calendar 1993, the project's data
+are stored in a path which uses the fiscal year (consistent with the project
+number).
+
+I have asked Sue Jensen to return the tapes to Barb.  I expect Barb to receive
+them either tomorrow or Thursday.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  cut here   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                    Tape Stage Summary:  4-853  Pre-BOREAS
+                  prepared 30 December 1993 by Ronald L. Ruth
+
+ 
+                         MSS path name: /RAF/1994/853/
+ 
+                           Execution                                  Data Rate
+  Date     Begin    End    Time(min)  Bitfile Name   Recs    Bytes   (Bytes/sec)
+-------- -------- -------- --------- --------------- ----  --------- -----------
+12/30/93 12.55.11 13.06.09   10.96   ...RF01/R0511    450   12084596    18377
+12/30/93 13.35.04 13.58.36   23.54   ...RF02/R0512   1353   36458372    25813
+12/30/93 12.47.30 12.55.10    7.66   ...RF03/R0513    789   21234884    46203
+12/30/93 13.06.10 13.35.03   28.89   ...RF04/R0514   2093   56432452    32556
+12/30/93 13.58.37 14.05.39    7.03   ...RF05/R0515    432   11598740    27498
+01/04/94 10.08.23 10.56.59   48.59   ...RF06/R0516   2394   64557044    22143
+01/04/94 10.56.59 11.44.32   47.55   ...RF07/R0517   4994  134736244    47226
+01/04/94 11.44.33 12.24.30   39.95   ...RF08/R0655   5066  136679668    57021
+12/30/93 12.08.11 12.36.38   28.45   ...RF09/R0656   3363   90712292    53141
+12/30/93 12.36.39 12.47.30   10.85   ...RF10/R0657    885   23826116    36599
+01/04/94 12.24.31 12.29.32    5.02   ...RF11/R0658    736   19804308    65751
+--------
+  IMPORT USED TAPE DRIVE 560 FOR:  RF06, RF08, RF11
+  IMPORT USED TAPE DRIVE 561 FOR:  RF01, RF02, RF04, RF07, RF09
+  IMPORT USED TAPE DRIVE 570 FOR:  RF05, RF10
+  IMPORT USED TAPE DRIVE 571 FOR:  RF03
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=  cut here   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From paul Thu Jan 20 10:51:12 1994
+Message-Id: <9401201751.AA12720@chinook.atd.ucar.EDU>
+Received: from ariel.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA12720; Thu, 20 Jan 94 10:51:10 MST
+Subject: pre-BOREAS data processing
+To: ron (Ron Ruth)
+Date: Thu, 20 Jan 1994 10:37:15 -0700 (MST)
+Cc: chris (Chris Webster), dick (Dick Friesen)
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 704       
+Status: RO
+
+
+Hi Ron;I have heard that you are under the weather,hope you feel better soon.
+I would like to set up a meeting between You,Chris,and Dick to discuss what needs
+to be done for pre-BOREAS.Do you know when you might be back again?Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From paul Thu Jan 20 11:30:21 1994
+Message-Id: <9401201830.AA16391@chinook.atd.ucar.EDU>
+Received: from ariel.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA16391; Thu, 20 Jan 94 11:30:20 MST
+Subject: Re: pre-BOREAS data processing meeting
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 20 Jan 1994 11:30:21 -0700 (MST)
+Cc: chris (Chris Webster), dick (Dick Friesen)
+In-Reply-To: <9401201804.AA12878@chinook.atd.ucar.EDU> from "Ron Ruth" at Jan 20, 94 11:04:48 am
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 863       
+Status: RO
+
+> 
+Ron,Chris,and Dick;Lets meet tomorrow (21 Jan,94) 09:30 a.m.Thanks Paul
+
+> Paul,
+> 
+> I hope to return tomorrow.  It's no fun having to rest so often during the day.
+> I also thought it best not to infect everyone out there.
+> 
+> Dick will be in tomorrow, too, so perhaps we can meet sometime during the day,
+> depending on their schedules.  I'm open, so far as I know.
+> 
+> -- 
+> Ron
+> 
+
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Thu Jan 20 11:04:48 1994
+Subject: Re: pre-BOREAS data processing
+To: paul@chinook.atd.ucar.edu (paul)
+Date: Thu, 20 Jan 1994 11:04:48 -0700 (MST)
+In-Reply-To: <9401201751.AA12720@chinook.atd.ucar.EDU> from "paul" at Jan 20, 94 10:37:15 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 293       
+Status: RO
+
+Paul,
+
+I hope to return tomorrow.  It's no fun having to rest so often during the day.
+I also thought it best not to infect everyone out there.
+
+Dick will be in tomorrow, too, so perhaps we can meet sometime during the day,
+depending on their schedules.  I'm open, so far as I know.
+
+-- 
+Ron
+
+From ron Mon Feb  7 14:44:46 1994
+Subject: PreBOREAS variables
+To: chris (Chris Webster)
+Date: Mon, 7 Feb 1994 14:44:46 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 741       
+Status: RO
+
+Chris,
+
+Paul Spyers-Duran requested two new functions be put in NIMBUS to calculate
+derived values for two new commercial instruments.  (For now these would not
+be put in our standard list but into the "user" list.)
+
+Fast Ozone Unit No. 1
+  XO3F = 16.0 * O3F1S * (1.0 + EDPC/PSXC * 3.43)
+  (ppb)
+
+LI-COR Model 6252 CO2
+  X = XECCO2 * 1013./XECCO2P
+  Y = (10. * XECCO2T + 273.)/308.11
+  XECO2C = Y * X * (0.1362 + X * (2.008E-5 + X * 2.029E-9)
+  (ppmv)
+
+Did we (Dick, you and I) decide put these into NIMBUS?  If so, have you had
+a chance to do that?  Paul would like to get started with final processing.
+
+If either of his requested variable names (XO3F, XECO2C) is already in use,
+let me know so Allen and I can create a new one.
+
+-- 
+Ron
+
+From ron Tue Feb  8 11:36:59 1994
+Subject: Re: PreBOREAS variables
+To: chris@chinook.atd.ucar.EDU
+Date: Tue, 8 Feb 1994 11:36:59 -0700 (MST)
+In-Reply-To: <9402081810.AA00892@sauvage> from "chris@chinook.atd.ucar.EDU" at Feb 8, 94 11:10:14 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 41        
+Status: RO
+
+Chris,
+
+Thanks for the update.
+
+-- 
+Ron
+
+From chris@chinook.atd.ucar.EDU Tue Feb  8 11:10:17 1994
+Received: from sauvage.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA08718; Tue, 8 Feb 94 11:10:16 MST
+Message-Id: <9402081810.AA00892@sauvage>
+Received: by sauvage (4.1/ NCAR Mail Client 04/19/90)
+	id AA00892; Tue, 8 Feb 94 11:10:15 MST
+Subject: Re: PreBOREAS variables
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 8 Feb 1994 11:10:14 -0700 (MST)
+Cc: paul (Paul Spyers-Duran)
+In-Reply-To: <9402072144.AA20010@chinook.atd.ucar.EDU> from "Ron Ruth" at Feb 7, 94 02:44:46 pm
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 799       
+Status: RO
+
+>Paul Spyers-Duran requested two new functions be put in NIMBUS to calculate
+>derived values for two new commercial instruments.  (For now these would not
+>be put in our standard list but into the "user" list.)
+>
+>Fast Ozone Unit No. 1
+>  XO3F = 16.0 * O3F1S * (1.0 + EDPC/PSXC * 3.43)
+>  (ppb)
+>
+>LI-COR Model 6252 CO2
+>  X = XECCO2 * 1013./XECCO2P
+>  Y = (10. * XECCO2T + 273.)/308.11
+>  XECO2C = Y * X * (0.1362 + X * (2.008E-5 + X * 2.029E-9)
+>  (ppmv)
+>
+>Did we (Dick, you and I) decide put these into NIMBUS?  If so, have you had
+>a chance to do that?  Paul would like to get started with final processing.
+>
+>If either of his requested variable names (XO3F, XECO2C) is already in use,
+>let me know so Allen and I can create a new one.
+
+Turns it this was installed several weeks ago.
+
+--Chris
+
+From paul Wed Apr  6 08:15:28 1994
+Message-Id: <9404061415.AA27514@chinook.atd.ucar.EDU>
+Received: from ariel.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA27514; Wed, 6 Apr 94 08:15:28 MDT
+Subject: Re: 853 Pre-Boreas data
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 6 Apr 1994 08:15:26 -0600 (MDT)
+In-Reply-To: <9404052146.AA18949@chinook.atd.ucar.EDU> from "Ron Ruth" at Apr 5, 94 03:46:46 pm
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 688       
+Status: RO
+
+
+Ron;go ahead and purge them all.Please let me know the mechanism how to bring
+it down here.Lets do it when both of us has time.Enjoyed working with you on 
+this data processing,thanks for your patience and help.Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Tue Apr  5 15:46:46 1994
+Subject: 853 Pre-Boreas data
+To: paul (Paul Spyers-Duran)
+Date: Tue, 5 Apr 1994 15:46:46 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 348       
+Status: RO
+
+Paul,
+
+Since all the netCDF files for 4-853 Pre-Boreas have been archived
+to the SCD Mass Store System (MSS), is it OK if we purge them from the
+/home/local/staticdata directory?  Except for the high-rate data files,
+it is very simple to get copies of them back from the MSS.  The HRT
+files are easy, too; they just take a little longer.
+
+-- 
+Ron
+
+From ron Wed Apr  6 09:10:53 1994
+Subject: Re: 853 Pre-Boreas data access
+To: paul@chinook.atd.ucar.edu (paul)
+Date: Wed, 6 Apr 1994 09:10:53 -0600 (MDT)
+In-Reply-To: <9404061415.AA27514@chinook.atd.ucar.EDU> from "paul" at Apr 6, 94 08:15:26 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 384       
+Status: RO
+
+Paul,
+
+Glad to help.
+
+I hope we can make a 3-month (or less) turn-around for future projects.
+With NIMBUS maturing I think that's a reasonable goal.
+
+Retrieving a netCDF file from the Mass Store will be very easy once we
+set up MIGS accounts for everyone who need Mass Store access.  When the
+new TLS service is installed, retrieving large HRT files should be
+fairly quick.
+
+-- 
+Ron
+
+From ron Fri Apr  1 14:49:17 1994
+Subject: Pre-Boreas data archived
+To: paul (Paul Spyers-Duran)
+Date: Fri, 1 Apr 1994 14:49:17 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2568      
+Status: RO
+
+Paul,
+
+I have completed archiving to the SCD Mass Store System (MSS) all the netCDF
+data and pertinent processing files (including the current version of NIMBUS).
+The files are located in the directory:  /RAF/1994/853.
+
+It took about 1 1/2 hours to transfer the two large high-rate data sets, but
+surprisingly, I had little trouble.  (I actually had some failures, but they
+were due to problems with the MSS and not the files.)  I hope the TLS link
+comes soon; it should shorten the transfer time to less than 3 minutes
+(assuming the machines at both ends can sustain the transfer rate)!
+
+>From talking with you, I understand that all recipients of this data set will
+be using the MSS copies and that RDP does not have to make any tape copies.
+
+I gave you paper copies of the tape log (...proj/853/taplog.853), raw tape log
+(...proj/853/tp2ms.summary) and a header dump (...staticdata/853RF0RH.hdr).
+
+If there is anything else you need, please let me know.
+
+Here is a recent listing of the pre-Boreas MSS directory:
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+/RAF/1994/853 as of 04/01/94 14:18:58
+03/31/94 -W-S  59577748 HRT/RF04.cdf
+03/30/94 -WD-     40243 HRT/RF04.header
+03/31/94 -W-S 151206392 HRT/RF07.cdf
+04/01/94 -W-S 156532016 HRT/RF08.cdf
+03/30/94 -WD-    204800 LRT/4-853.tar
+03/30/94 -WD-       198 LRT/FlightGroups
+03/30/94 -WD-      3699 LRT/Flight_1
+03/30/94 -WD-      3780 LRT/Flight_11
+03/30/94 -WD-      4662 LRT/Flight_9
+03/30/94 -WD-       427 LRT/README
+03/30/94 -WD-   1383476 LRT/RF01.cdf
+03/30/94 -WD-   4099700 LRT/RF02.cdf
+03/30/94 -WD-   2403184 LRT/RF03.cdf
+03/30/94 -WD-   6325616 LRT/RF04.cdf
+03/30/94 -WD-   1329332 LRT/RF05.cdf
+03/30/94 -WD-   7231028 LRT/RF06.cdf
+03/30/94 -WD-     40206 LRT/RF06.header
+03/30/94 -WD-  15051828 LRT/RF07.cdf
+03/30/94 -WD-  15268404 LRT/RF08.cdf
+03/30/94 -WD-  10145780 LRT/RF09.cdf
+03/30/94 -WD-   7577600 LRT/nimbus.tar
+03/30/94 -WD-      2022 LRT/taplog.853
+03/30/94 -WD-      1224 LRT/tarit.4-853.tar
+03/30/94 -WD-       169 LRT/tarit.nimbus.tar
+03/30/94 -WD-      1492 LRT/tp2ms.summary
+12/30/93 -W--  12113280 RF01/R0511
+12/30/93 -W--  36541440 RF02/R0512
+12/30/93 -W--  21283200 RF03/R0513
+12/30/93 -W--  56561280 RF04/R0514
+12/30/93 -W--  11625600 RF05/R0515
+01/04/94 -W--  64704000 RF06/R0516
+01/04/94 -W-- 135041280 RF07/R0517
+01/04/94 -W-S 136988160 RF08/R0655
+12/30/93 -W--  90917760 RF09/R0656
+12/30/93 -W--  23880960 RF10/R0657
+01/04/94 -W--  19850880 RF11/R0658
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+-- 
+Ron
+
+From ron Thu Mar 31 11:58:00 1994
+Subject: pre-Boreas header dump
+To: paul (Paul Spyers-Duran)
+Date: Thu, 31 Mar 1994 11:58:00 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 233       
+Status: RO
+
+Paul,
+
+I have a dump of both LRT and HRT headers in the `/home/local/staticdata'
+directory.  Their names are `853RF06.hdr' and `853RF04H.hdr.'  Do you want
+me to print out a paper copy, or is it OK in this electronic form?
+
+-- 
+Ron
+

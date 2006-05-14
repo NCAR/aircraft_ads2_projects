@@ -1,0 +1,26 @@
+#! /bin/csh -f
+#
+#  Test job to stage a tape for Kathy Fryberger
+#
+set TYPE = ct
+set STAGE = "nfile=1"
+#
+#  First try
+set TAPELIST = ( KFTEST )
+set FLIGHTS =  ( TEST )
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  echo  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RUTH/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

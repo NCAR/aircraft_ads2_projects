@@ -1,0 +1,55 @@
+#! /bin/csh -f
+#
+#  Archive files of raw PMS-2D data records for 1997-891 FASTEX
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+set YEAR = 1997
+set PROJ = 891
+set SDIR = /home/productiondata
+#
+# 1st set
+#set IFILES = ( 891rf01.2d 891rf02.2d 891rf03.2d )
+#set OFILES = ( RF01       RF02       RF03       )
+#
+# 2nd set
+set IFILES = ( 891rf04.2d 891rf05.2d 891rf06.2d 891rf07.2d )
+set OFILES = ( RF04       RF05       RF06       RF07       )
+#
+# 3rd set
+#set IFILES = ( )
+#set OFILES = ( )
+#
+#
+#  Get started.
+date
+set todo = $#IFILES
+set num = 1
+while ($num <= $todo)
+  set IFILE = $IFILES[$num]
+  set fltno = $OFILES[$num]
+  echo \
+  nrnet msput $SDIR/$IFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/$fltno \
+   mvn=CTRAFDMG w=RAFDMG rtpd=4095 name=RAF proj=41113009
+  @ num ++
+end
+#
+# Done.
+exit
+#
+# 1st set
+#  Job(s) submitted on Fri Apr 18 17:05:15 MDT 1997
+# Sequence number = MI5869 -- PMS2D/RF01 -- OK @ 18 Apr 1997 17:30:04
+# Sequence number = MI5876 -- PMS2D/RF02 -- OK @ 18 Apr 1997 17:19:58
+# Sequence number = MI5883 -- PMS2D/RF03 -- OK @ 18 Apr 1997 17:09:41
+#
+# 2nd set
+#  Job(s) submitted on Mon Apr 21 14:58:37 MDT 1997
+# Sequence number = MI6185 -- PMS2D/RF04 -- OK @ 21 Apr 1997 15:21:36
+# Sequence number = MI6192 -- PMS2D/RF05 -- OK @ 21 Apr 1997 15:19:09
+# Sequence number = MI6199 -- PMS2D/RF06 -- OK @ 21 Apr 1997 15:07:14
+# Sequence number = MI6206 -- PMS2D/RF07 -- OK @ 21 Apr 1997 15:20:18
+#

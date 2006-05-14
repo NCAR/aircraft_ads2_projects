@@ -1,0 +1,155 @@
+Notes for processing 2-816 ASTEX/MAGE           Ron Ruth
+Last revision:  21 September 1992
+---
+FSSP
+    Assumes:  Cell number 1 is in word 7  <--- need to check that
+    The FSSP constants are as follows:
+    These are the 16 size thresholds for range 0
+      DATA SIZE/
+     $3.0,4.7,8.5,12.9,15.0,16.9,20.5,25.2,27.6,31.7,37.8,40.1,44.4,
+     $47.6,51.3,54.1/
+    This is beam diameter and depth of field
+        data bd/0.22/,dof/2.59/
+
+ PROBLEM:   FSSP code only wants 15 cell sizes, not 16.  What should I do?
+    It's not easy to "change to a look-up table"  Average these cell boundaries
+    to get 15 average size cells.  --  OK
+
+    Are the new FSSP bin sizes something just derived for this project?
+    Does it have to do with the new interface?  Will our old code not work?
+
+    DBARF = DISPF = 0 in current code, so far.
+      Code seems to check out, so I don't know why they never read anything.
+      (Darrel's black box ??)
+
+---
+X260
+The variable names in the 260X subroutine need to be changed to accomodate
+ones without the X beginning them.  Also, check to see if all 62 cells are
+used for the SUMX6 (SUM626).  Sould cell #1 be omitted from this sum?
+Make sure all variables are in proper locations in pdud file.
+
+---
+EVENTS
+I need to find out how to decode the event markers and what to do with them.
+    Delete them.  --  OK
+
+---
+IRS
+Are there offsets for ROLL, PITCH and/or THI for the second IRS?  I must use
+both of these as reference platforms during the project, so these data need to
+be optimized.  Obtained.  --  OK
+
+---
+PLWC
+Concerning the King probe, you mentioned a new TWIRE value for new code.
+ What new code?  It's really code I already have (Don't use the z version.)
+ Same code I already have.  --  OK
+
+---
+Special derived output variables:
+XCVDPC -- uses SDPC
+RHOCV  -- uses SRHOX
+MRLA   -- needs new special subroutine
+XO3FSC -- needs new special subroutine
+XATO   -- needs new special subroutine
+XATO   -- translate Ophir code from C to FORTRAN and adapt for GENPRO
+RHOLA1 -- uses SDLA
+LWCCZ  -- check subroutine operation with ASTEX's specific case.
+          check variable rates (like CONCF)
+TOWAT  -- develop with attention to rate differences among source variables
+XMRTOW -- from new subroutine STOWAT
+XTLWCC -- from new subroutine STOWAT
+
+Rates of new variables:
+Rate = 20:  XO3FSC, XCVDPC, RHOCV, MRLA 
+Rate =  1:  XATO, XMRTOW, XTLWCC,
+
+CVI stuff:   XCVCNO, XCVCNC, XCVFCC. XCVF2C, XCVFHC, XCVFXC, XCVFACT
+From Schanot:  CVI derived variables will not be calculated
+
+---
+RATES:
+Rate =   1 -->  1 variables:  CVTEMP, TET, TEP
+Rate =   5 -->  1 variables:  XCVDP, CVFCN, CVPCN, XCVF2, XCVFH, XCVFX, XCVTT,
+                              XO3FP, XO3FF, XO3FN, XO3FT, XO3FV, XCVST, XCVF1,
+Rate =  50 --> 20 variables:  XCVLA, TTCF2, XO350, 
+Rate = 250 --> 20 variables:  XO3FS, TTCF1, to be omitted on output
+
+---
+These variables are undefined (after INPUT):
+     UHAW1, UHAW2, UHAW3
+There are no descriptions of the following variables:
+     UHAW1, UHAW2, UHAW3
+These are to be dropped.
+
+---
+Why did you delete SPHUM?  It is a BULLETIN 9 standard output variable.
+New revised Bulletin #9 omits it.
+
+---
+Don't forget to change IRS boxes for the specific flights.
+
+---
+Check output rate for CONCF.  
+
+---
+In GENPRO's CALIB subroutines, figure out how to get the IPSOU variables'
+input rates (LRTSOU).
+
+ALON2 -- decoding problem??
+
+XO3FSC:  First flight is unique.  An offset needs to be removed from the
+           calibration equation.  I'll do it by subtracting on offset of
+           10. in INICAL for the XO3FSC variable.  This will make the
+           subroutine work for all cases and document the special case.
+
+XATO:  Need to get O3Fxx and OPHxx into pdud file for each specific flight.
+         I guess it needs to be done similar to how astgxx is being inserted.
+         Since two variables are now needed, I chose to put one in the
+         standard CONSU space and the other in the (unused) PMS-200Y threshold
+         space.
+
+         Apparently there is a start-up problem with the XATO.  The first value
+         looks like zero.  I'm not sure why that is happening, since the time
+         segment I'm using is in mid-flight.  I need to investigate.  (I was
+         putting out data with the wrong index into the data array.)
+
+PLWCC:   There is still an offset of about 0.4 g/m3
+
+HGME:  Calibration off a bit??  RF01 maneuvers:  it is saying 1685
+                                                 PALT is at   1515
+                                                 GALT is at   1512
+
+RSTT:  Maneuvers:  constant at -4.02 C.  How is it on RF17?  The same!
+
+CNTS1, CNTS2, UFCNT, CVCNT:  These "counts" are being interpolated from 5sps
+               to 1sps.  Do you really want to do that?
+
+XO3FT:  temperature in RF01 maneuvers says 410C, a bit warm?
+        temperature in RF17           says 412.4C, a bit warm?
+
+Lidar:
+As of now, the staging data reside in the path name:
+      /home/chinook/sloss/genpro/astex/lidar
+They really belong in the path:
+      /home/local/genpro/projects/astex/lidar
+
+----------
+Post-processing observations requiring rerun:
+
+RF04 -- Ophir data curve-fit were compromised by bad curve-fit data.  Redone 
+          with constants derived from averaging the previous and succeeding
+          flights.  I changed the Ophir data for RF04 in the file "consts.816".
+          The Cray log file from processing these data was lost.  The version
+          on the MSS is from the original run and should only be used as an
+          example.
+        Successfully rerun:  4 December 1992
+
+RF16 -- Lyman-alpha data were compromised by the reference dew point sensor
+          being shut off briefly during the flight.  The Lyman-alpha software
+          was changed to handle that situation.  The newly-modified version of
+          the software is tdlaRF16.816.  Files created by this special run are:
+          "catrcpRF16.816" and "califRF16.816".
+        Successfully rerun:  11 December 1992
+

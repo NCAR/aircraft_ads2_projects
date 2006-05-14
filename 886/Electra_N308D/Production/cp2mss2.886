@@ -1,0 +1,39 @@
+#  Partial file copy to MSS for project 3-886 ANLC  (Gardner)
+#  This was done after moving the old files to the OLDLRT directory
+#
+#  from:  chinook:/home/local/genpro/projects/coare
+#  from:  chinook:/home/local/migs/ron
+#    to:  MSS:/RAF/1993/817/HRT/
+#
+#  Method:  ftp
+#
+#  Commands:
+ftp -i massive
+bi
+quote SITE RTPD 4096
+quote SITE WPW RAFDMG
+quote SITE MVN CTRAFDMG
+cd /RAF/1993/886/LRT
+#
+#
+lcd /home/local/data
+put 886FF01.cdf FF01.cdf
+put 886FF01.cdf.tar FF01.cdf.tar
+put 886RF01.cdf RF01.cdf
+put 886RF01.cdf.tar RF01.cdf.tar
+put 886RF02.cdf RF02.cdf
+put 886RF02.cdf.tar RF02.cdf.tar
+put 886RF03.cdf RF03.cdf
+put 886RF03.cdf.tar RF03.cdf.tar
+put 886RF04.cdf RF04.cdf
+put 886RF04.cdf.tar RF04.cdf.tar
+put 886RF05.cdf RF05.cdf
+put 886RF05.cdf.tar RF05.cdf.tar
+put 886RF06.cdf RF06.cdf
+put 886RF06.cdf.tar RF06.cdf.tar
+put 886RF07.cdf RF07.cdf
+put 886RF07.cdf.tar RF07.cdf.tar
+put 886RF08.cdf RF08.cdf
+put 886RF08.cdf.tar RF08.cdf.tar
+#
+bye

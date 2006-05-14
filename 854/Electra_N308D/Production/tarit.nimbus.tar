@@ -1,0 +1,7 @@
+#! /bin/csh -f
+#
+#   Save present version of the NIMBUS processor for 4-854 Eldora Test
+#
+cd /home/local
+tar chlvf /home/local/proj/854/Production/nimbus.tar nimbus
+exit

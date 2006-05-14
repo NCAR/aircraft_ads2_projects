@@ -1,0 +1,97 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for yyyy-ppp name (PI)
+#    rev. 990317  RLR  (adapt to new MIGS "msimp" verb)
+#    rev. 990503  RLR  (add noglob, "start" code)
+#
+#  Note:  For the tape images to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+goto start
+#
+start:
+#
+#      set,     segment,     try (using raf's "dmg" login)
+set SKIPS   = ^B*0
+set RECS    = B*100000
+set TAPES   = ( \
+Rx \
+)
+set FLIGHTS = ( \
+RFx \
+)
+#
+#  Get started:
+set noglob
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+#   Discontinued version (replaced by the verb "msimp")
+#  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+#   name=RAF proj=41113009 mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+#   skpf=0 $SKIP $REC \
+#   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#      set,     segment,     try (using raf's "dmg" login)
+#  Jobs submitted on 
+#

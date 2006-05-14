@@ -1,0 +1,1523 @@
+From ron Thu Aug 26 17:33:51 1993
+Subject: ANLC ExaByte tape staging complete
+To: vince (Vince Glover)
+Date: Thu, 26 Aug 93 17:33:51 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Vince,
+
+I have completed staging all the 3-886 ANLC data tapes to the Mass Store.
+Below is a MSS directory list followed by a staging summary.  Please check
+the numbers (records, bytes) and make sure they jibe with what you expect.
+RF04 appeared not to have an EOF.  It's possible that it just didn't read
+properly.  If you suspect there is a problem, I can restage it.  I have
+requested that all tapes be sent back to Barbara Knowles, so if you want me
+to redo it, please have Barb send it back to Sue Jensen.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=   cut here   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+NCAR SCD Mass Store System directory list:
+
+/RAF/1993/886 as of 08/26/93 17:30:24
+08/25/93 -W-S  88957440 FF01/R0484
+08/25/93 -W-S 171116160 RF01/R0485
+08/25/93 -W-S  27876480 RF02/R0486
+08/25/93 -W-S 114700800 RF03/R0488
+08/26/93 -W-S  74728320 RF04/R0489
+08/26/93 -W-S 191809920 RF04X/R0489
+08/26/93 -W-S 191809920 RF05A/R0490
+08/26/93 -WD-   4488960 RF05B/R0490
+08/25/93 -W-S 160782720 RF06/R0491
+08/25/93 -W-S 176784000 RF07/R0492
+08/25/93 -W-- 184636800 RF08/R0595
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=   cut here   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+                Tape Stage Summary:  3-886  ANLC
+            prepared 26 August 1993 by Ronald L. Ruth
+
+
+                  MSS path name: /RAF/1993/886/
+
+ 
+                           Execution                                 Data Rate
+ Date     Begin    End     Time (min) Bitfile Name   Recs    Bytes  (Bytes/sec)
+08/25/93 16.38.02 17.02.20   24.28   ...FF01/R0484   3016   88758380   60927
+08/25/93 15.53.27 16.38.02   44.58   ...RF01/R0485   5799  170734428   63831
+08/25/93 17.09.57 17.18.47    8.83   ...RF02/R0486    947   27813916   52499
+08/25/93 19.51.27 20.20.30   29.05   ...RF03/R0488   3888  114444012   65659
+08/26/93 15.44.51 16.43.28   58.60   ...RF04/R0489   2534   74560588   21206
+08/25/93 17.22.43 18.07.30   44.77   ...RF05A/R0490* 6500  191383084   71247
+08/26/93 16.43.28 17.03.11   19.71   ...RF05B/R0490   152    4477312    3786
+08/25/93 19.11.07 19.51.26   40.31   ...RF06/R0491   5449  160424828   66330
+08/25/93 20.20.31 21.02.19   41.80   ...RF07/R0492   5991  176389980   70331
+08/25/93 21.02.20 22.00.36   58.27   ...RF08/R0595   6257  184225276   52693
+
+* Originally named RF05  (renamed on 26 August 1993)
+
+
+Failures:
+--------
+                           Execution
+ Date     Begin    End     Time (min) Bitfile Name   Recs    Bytes    Comments
+08/25/93 18.10.04 19.11.06   61.03   ...RF04X/R0489* 6500  191383084  UNIT check
+
+* original name RF04 (renamed on 26 August 1993); 6500-2534 UNIT check errors
+   (no EOF?)
+
+
+  IMPORT USED TAPE DRIVE 560 FOR:  FF01, RF01,  RF02, RF04, RF04X, RF05A, RF08
+  IMPORT USED TAPE DRIVE 561 FOR:  RF06, RF05B
+  IMPORT USED TAPE DRIVE 562 FOR:  RF03
+  IMPORT USED TAPE DRIVE 563 FOR:  RF07
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=   cut here   -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From vince@chinook.atd.ucar.EDU Wed Sep  8 13:21:42 1993
+Received: from cisco.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA15595; Wed, 8 Sep 93 13:21:41 MDT
+Date: Wed, 8 Sep 93 13:21:40 MDT
+Message-Id: <9309081921.AA01510@cisco>
+Received: by cisco (4.1/ NCAR Mail Client 04/19/90)
+	id AA01510; Wed, 8 Sep 93 13:21:40 MDT
+To: ron
+Subject: Re: Friday meeting
+Cc: chris
+Status: RO
+
+Ron,
+
+I vote for 9:00 am Friday the 10th.  Chris is available.  Let's meet at RAF.
+
+Vince
+
+
+From ron Tue Sep  7 17:23:14 1993
+Subject: Friday meeting
+To: vince (Vince Glover)
+Date: Tue, 7 Sep 93 17:23:14 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Vince,
+
+I just checked my calendar, and Friday looks OK to me.  I'd prefer start times
+of 8:30-9:00 a.m. or 3:30-4:00 p.m.
+
+-- 
+Ron
+
+From ron Wed Sep  8 14:52:52 1993
+Subject: Re: Friday meeting
+To: vince@chinook.atd.ucar.EDU
+Date: Wed, 8 Sep 93 14:52:52 MDT
+In-Reply-To: <9309081921.AA01510@cisco>; from "vince@chinook.atd.ucar.EDU" at Sep 8, 93 1:21 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Vince,
+ 
+BJC @ 9:00 a.m. on Friday the 10th it is!
+
+-- 
+Ron
+
+From ron Fri Nov  5 15:53:56 1993
+Subject: Gardner ExaByte tapes
+To: vince (Vince Glover)
+Date: Fri, 5 Nov 93 15:53:56 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Vince,
+
+I have an email from Sue Jensen dated 27 August 1993 saying that she was
+returning the Gardner ExaByte tapes to Barbara Knowles at Jeffco.  I don't
+have any confirmation that the tapes actually made it back here, but I have
+no reason to doubt it.
+
+-- 
+Ron
+
+From ron Tue Nov 16 14:53:54 1993
+Subject: Gardner processing
+To: vince (Vince Glover)
+Date: Tue, 16 Nov 93 14:53:54 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Vince,
+
+Here is the verification memo regarding the topics we discussed earlier this
+afternoon.
+
+ 1)  Make production runs with NIMBUS and put the output files on $DAPDATA
+      with unique names.
+ 2)  Copy the screen message summary from each NIMBUS run and save each one
+      in a separate log file.  Identify each log by giving it a name such as,
+      nimbuslog.886.fltno.
+ 3)  Verify that NIMBUS actually processed all the data from a flight tape.
+ 4)  Give me file names for these data sets and log files as soon as you can,
+      and I'll transfer them to the .../staticdata directory for safekeeping
+      before archival to the SCD Mass Store System (MSS).
+ 5)  Prepare an output log file having flight number, date, start time, end
+      time and any other information you deem appropriate.  To each flight
+      entry I will add the netCDF file size (Mbytes).  For my header I need
+      the following boiler-plate information (Please correct what is wrong.):
+           Project no.:  4-886           Project name:  ALOHA-94
+              Aircraft:  N308D      Project Leader(s):  Vince Glover
+             Data type:  LRT             Scientist(s):  Chet Gardner
+        Processor used:  NIMBUS         Programmer(s):  Chris Webster
+         Output format:  netCDF
+      When it is complete (all flights entered), you may tell me where to
+      get the file or email it to me.
+
+I know there were two sections to this project.  Does the earlier one have
+its own project name and number (like 3-886)?  Were all the flights numbered
+consecutively?  I assume that time was kept as UTC.
+
+I can use the netCDF utility `ncdump' to get a copy of a typical header
+which we should include in the data packet.  Also, I'd like to get a "dump"
+of a short section of one of the output files as a verification that we can
+actually read the data we're creating.  I can use `ncdump,' too, but perhaps
+a conversion to DAP is in order here.
+
+I must find a way to archive the software used for processing this project.
+I'll let Chris know; perhaps we'll just save (to the MSS) all the files in the
+affected directories as large tar files.  We need to save the source code as
+well as the binaries.  It could be a lot of files.
+
+That's all for now.  I'm sure I'll have more later.
+
+-- 
+Ron
+
+From ron Tue Nov 16 16:03:21 1993
+Subject: nimbus status
+To: allen
+Date: Tue, 16 Nov 1993 16:03:21 -0700 (MST)
+Cc: dick, chris
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 827       
+Status: RO
+
+Allen,
+
+I had Vince making NIMBUS production runs for Gardner.  After he had run a few
+flights, I checked the header from one of the flights just to see if it looked
+OK.  Voila!  I found that the following variables had "No title" long_name
+descriptions and "Unknown" units:
+
+TS2D
+HOUR
+MINUTE
+SECOND
+VSPD
+ATTACK
+ATX
+DPXC
+DVALUE
+EDPC
+PSX
+PSXC
+QCX
+QCXC
+SSLIP
+TASX
+THETAV
+TTX
+XMACH2
+
+I think we should have all these defined before sending data to a user.
+
+I also found a few abbreviations that deviate from SI units which we really
+should use:
+
+mb    -->  mbar    (SI abbreviation for millibars)
+oC    -->  C       (SI abbreviation for Celsius)
+oK    -->  K       (SI abbreviation for Kelvins)
+press -->  presr   (SI abbreviation for pressure)
+m     -->  M       (SI abbreviation for meters)
+
+Can we discuss this soon?
+
+-- 
+Ron
+
+From ron Tue Nov 16 16:22:48 1993
+Subject: vared
+To: allen
+Date: Tue, 16 Nov 1993 16:22:48 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 108       
+Status: RO
+
+Allen,
+
+I don't have write permission for the 886 VarDB file, so I can't make any
+of the changes.
+
+-- 
+Ron
+
+From ron Tue Nov 16 15:47:06 1993
+Subject: Gardner processing
+To: vince
+Date: Tue, 16 Nov 1993 15:47:06 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 366       
+Status: RO
+
+Vince,
+
+I just looked at the netCDF header for the file 886r3.cdf and found the
+following variables had "Unknown" descriptions.  I'm not sure I want to
+output a final data set without most of these being adequately described.
+
+What do you think?
+
+TMP1
+TS2D
+HOUR
+MINUTE
+SECOND
+VSPD
+ATTACK
+ATX
+DPXC
+DVALUE
+EDPC
+PSX
+PSXC
+QCX
+QCXC
+SSLIP
+TASX
+THETAV
+TTX
+XMACH2
+
+-- 
+Ron
+
+From chris Mon Nov 29 09:47:30 1993
+From: chris (Chris Webster)
+Message-Id: <9311291647.AA23499@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA23499; Mon, 29 Nov 93 09:47:29 MST
+Subject: Re: nimbus.tar (version 3-886)
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Mon, 29 Nov 1993 09:47:29 -0700 (MST)
+In-Reply-To: <9311242048.AA01327@chinook.atd.ucar.EDU> from "Ron Ruth" at Nov 24, 93 01:48:44 pm
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 446       
+Status: RO
+
+>I dumped the directory for `nimbus.tar' and discovered some directories without
+>any subsequent file entries:
+>nimbus/src/filter/obj5/              (empty)
+>nimbus/src/amlib/std/profiled/       (empty)
+>nimbus/src/amlib/user/profiled/      (empty)
+>nimbus/src/amlib/xlate/profiled/     (empty)
+>nimbus/lib/                          (libstd.a libuser.a libxlate.a)
+>
+>I can understand the first 4, but is the last one intentional?
+
+Yes.
+
+--Chris
+
+From ron Wed Nov 24 13:48:44 1993
+Subject: nimbus.tar (version 3-886)
+To: chris (Chris Webster)
+Date: Wed, 24 Nov 1993 13:48:44 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 440       
+Status: RO
+
+Chris,
+
+I dumped the directory for `nimbus.tar' and discovered some directories without
+any subsequent file entries:
+nimbus/src/filter/obj5/              (empty)
+nimbus/src/amlib/std/profiled/       (empty)
+nimbus/src/amlib/user/profiled/      (empty)
+nimbus/src/amlib/xlate/profiled/     (empty)
+nimbus/lib/                          (libstd.a libuser.a libxlate.a)
+
+I can understand the first 4, but is the last one intentional?
+
+-- 
+Ron
+
+From ron Tue Nov 30 15:14:42 1993
+Subject: Tape Copy for 3-886 ANLC
+To: hurst@stout (Jean Hurst)
+Date: Tue, 30 Nov 1993 15:14:42 -0700 (MST)
+Cc: dick (Dick Friesen), rilling@stout (Bob Rilling), paul (Paul Spyers-Duran),
+	barbara (Barbara Knowles)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1785      
+Status: RO
+
+Memo to:  Jean Hurst
+
+From:     Ron Ruth
+
+Subject:  Tape Copy for 3-886 ANLC
+
+
+This is the first distribution for the new NIMBUS data written in netCDF
+format.  Since you have not copied this format before, I thought I would
+suggest a procedure to use.  If you come up with something better, please
+let me know.
+
+I put the data on the MSS using commands similar to the following example:
+   nrnet msput /home/local/data/886RF04.cdf l df=tr \
+     r flnm=/RAF/1993/886/LRT/RF04.c df rtpd=4095 w=xxxxxx v=CTRAFDMG
+
+If I read the MIGS documentation correctly, the default record size is
+32768 bytes.  I would imagine that, when copying the data to tape, this
+record size would be used.  I am now waiting for word from the P.I. as
+to which kind of tape he can read.  The last time we shipped him data
+on 9-track 1/2" tapes.  Hopefully he can read ExaByte tapes by now.
+
+To write the data to an ExaByte using the simplest command, I suppose
+one could try:
+
+nrnet msexport % r flnm=<bitfile> dvty=EX vlsr=<output> df=TR mult=YES
+ 
+Contents of <bitfile>:
+/RAF/1993/886/LRT/RF01.cdf
+/RAF/1993/886/LRT/RF02.cdf
+/RAF/1993/886/LRT/RF03.cdf
+/RAF/1993/886/LRT/RF04.cdf
+/RAF/1993/886/LRT/RF05.cdf
+/RAF/1993/886/LRT/RF06.cdf
+/RAF/1993/886/LRT/RF07.cdf
+/RAF/1993/886/LRT/RF08.cdf
+
+For this data set the file sizes are all less than 8Mbytes, so you will
+not have any trouble with tape length.  After you make the copy, please
+send it to me at RAF, and I'll try to access it as a verification that
+we did things correctly.
+
+I'll get back to you with an output tape specification within an official
+RDP Data Request Form.
+
+Good luck.
+
+                           - e o m -
+
+cc:  Dick Friesen
+     Bob Rilling
+     Paul Spyers-Duran
+     Barbara Knowles
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From ron Tue Nov 30 16:54:57 1993
+Subject: Re: Tape Copy for 3-886 ANLC
+To: rilling@stout.atd.ucar.EDU (Bob Rilling)
+Date: Tue, 30 Nov 1993 16:54:57 -0700 (MST)
+In-Reply-To: <9311302322.AA12899@malt> from "Bob Rilling" at Nov 30, 93 04:22:56 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1432      
+Status: RO
+
+Bob,
+
+Thanks for your insight.  The ncdump routine is a netCDF utility we have
+here at Jeffco, too.  I plan to use it to dump a small amount of data to
+compare with some plotted data we have.  I shouldn't have to verify all
+data from the files.
+
+I just got confirmation that, indeed, sending a file to the MSS as
+transparent produces a bitfile with no blocksize whatsoever.  One would
+have to specify a block size on output.
+
+Because of this new format, I'm learning, too.  To make a tar library of these
+files seems impractical if they get large.  Even doing that with this small
+project would produce a large tar file that may be a problem for a recipient to
+put on his local disk.  I know s/he could tar off one file at at time, and that
+may be practical for him/her, but it could be a big pain for us to produce.
+Also, working with the MSS and its maximum limit would also be a problem.  For
+now, it would seem that the `dd' option would work, but there is no self-
+documenting file name.  I suppose we could copy each file in tar format.
+
+It makes sense to ask the user which format works best for him/her.
+
+I don't really care whether the copies are done via msexport or some other
+method.  I just want to give my users our best service.  The GAUs are
+funny money for us, so I'm not too worried about them unless SCD starts
+shutting us down after we exceed our allocation.
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From rilling@stout.atd.ucar.EDU Tue Nov 30 16:22:24 1993
+Received: from stout.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA24555; Tue, 30 Nov 93 16:22:22 MST
+From: rilling@stout.atd.ucar.EDU (Bob Rilling)
+Received: from malt.atd.ucar.edu by stout.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA11732; Tue, 30 Nov 93 16:22:20 MST
+Message-Id: <9311302322.AA12899@malt>
+Received: by malt (4.1/ NCAR Mail Client 04/19/90)
+	id AA12899; Tue, 30 Nov 93 16:22:56 MST
+Subject: Re: Tape Copy for 3-886 ANLC
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 30 Nov 1993 16:22:56 -0700 (MST)
+Cc: rilling@stout.atd.ucar.EDU (Bob Rilling),
+        hurst@stout.atd.ucar.EDU (Jean Hurst)
+In-Reply-To: <9311302214.AA22954@chinook.atd.ucar.EDU> from "Ron Ruth" at Nov 30, 93 03:14:42 pm
+X-Mailer: ELM [version 2.4 PL22]
+Content-Type: text
+Content-Length: 1602      
+Status: RO
+
+Ron,
+
+>From what little I know of netcdf, it's a little hard to develop
+"checking" routines (you basically need the whole darn cdf library to
+do anything worthwhile, and everything you run is somewhat slow!).
+
+One item: you put the data on the MSS using df=tr.  As near as I can
+tell, there is *no* default record length associated with these
+records on the MSS -- you have to consider your file one long byte
+stream, without any record marks, imposed or defaulted.
+
+When exporting, you have to declar a blocksize (BLKS parameter?).  For
+various reasons, this should likely be a multiple of 1024, with
+certain multiples prefered for various reasons.  When someone accesses
+the data, they will have to know the blocksize, and then read the data
+to disk using the UNIX dd command (I'm certainly not sure how cdf
+records are handled on a non-UNIX system [VAX] when going from tape to
+disk!).
+
+A reasonable option is to give up on the mass-store for tape writing.
+We can "nrnet msget" files from the mass-store, then write local files
+to EXAbyte or 9-track (this writing can be done using either "tar" or
+"dd", depending upon what the end user wants).  Such a scheme will
+only work for MSS datasets less than about 100 Mb (currently), but
+saves considerably on GAUS.
+
+In any event, I would not use your suggested "nrnet msexport" command
+unless I put in a blocksize.
+
+Hope this helps.
+
+Bob
+
+
+P.S. -- there is a utility on stout called ncdump (in /localbin) that
+can be used to dump netcdf files.  The dump process is slow, and there
+are limited things that can be specified.  It works on your NIMBUS
+files.
+
+From ron Thu Dec  2 13:50:13 1993
+Subject: Data from 4-886 ALOHA-94
+To: paul (Paul Spyers-Duran)
+Date: Thu, 2 Dec 1993 13:50:13 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 304       
+Status: RO
+
+Paul,
+
+Vince went on extended leave just after the Electra returned from ALOHA-94.
+What are the plans for processing these data?  Are you taking over for Vince,
+or will someone else be assigned this task.  I'd like to stage the raw data
+tapes to the Mass Store, but I am not sure who has them.
+
+-- 
+Ron
+
+From ron Fri Dec  3 14:08:42 1993
+Subject: Data from 4-886 ALOHA-94
+To: bruce (Bruce Morley)
+Date: Fri, 3 Dec 1993 14:08:42 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 391       
+Status: RO
+
+Bruce,
+
+When Vince went on extended leave, Gardner's 4-886 ALOHA-94 project was just
+finishing up.  I understand that you took over for Vince.  He indicated to me
+that very little work remained to be done before we could do final processing
+of the data.  (That could have been a lik.)  I have not even seen the ADS data
+tapes yet.  Can we work together very soon to expedite this?
+
+-- 
+Ron
+
+From paul Fri Dec  3 13:14:38 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9312032014.AA20380@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA20380; Fri, 3 Dec 93 13:14:37 MST
+Subject: Re: Data from 4-886 ALOHA-94
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Fri, 3 Dec 1993 13:14:36 -0700 (MST)
+In-Reply-To: <9312022050.AA17156@chinook.atd.ucar.EDU> from "Ron Ruth" at Dec 2, 93 01:50:13 pm
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 535       
+Status: RO
+
+
+Ron;I believe Dick F.asked Bruce M. to complete this task.Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Mon Dec 20 16:49:10 1993
+Subject: ANLC-93 Data delayed
+To: yiyun@uiuc.edu
+Date: Mon, 20 Dec 1993 16:49:10 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 228       
+Status: RO
+
+Yiyun,
+
+We have been having some problem transferring the netCDF files to a tar tape
+for your use.  Please bear with us for a week or two while we sort out our
+troubles.
+
+-- 
+Ron Ruth  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From hurst@stout.atd.ucar.EDU Thu Dec 30 11:16:15 1993
+Received: from stout.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA19038; Thu, 30 Dec 93 11:16:14 MST
+From: hurst@stout.atd.ucar.EDU (Jean Hurst)
+Received: from doppelbock.atd.ucar.edu.atd.ucar.EDU by stout.atd.ucar.EDU (8.6.4/ NCAR Mail Server 04/10/90)
+	id LAA04841; Thu, 30 Dec 1993 11:16:13 -0700
+Message-Id: <199312301816.LAA00832@doppelbock.atd.ucar.edu>
+Received: from localhost by doppelbock.atd.ucar.edu (8.6.4/ NCAR Mail Client 04/19/90)
+	id LAA00832; Thu, 30 Dec 1993 11:16:11 -0700
+Subject: netCDF tar files
+To: ron@stout.atd.ucar.EDU (Ron Ruth)
+Date: Thu, 30 Dec 1993 11:16:08 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL22]
+Content-Type: text
+Content-Length: 616       
+Status: RO
+
+Ron,
+
+Thanks for the command line.  I'm going to try it, though I think I finally
+have a decent tar tape.  It would probably be worth your while to check one
+of the files in dt/hurst.
+
+I copied your 886RF0x.cdf files to stout.  I "tar"red them to an exabyte here,
+and extracted those files back.  The file sizes look good at least.  The
+files extracted from the exabyte are the files with names like:
+
+	886FF01.cdf.f1      
+
+If you think it's the thing to do, have a look at a couple of these and let
+me know if this tape can be sent.
+
+Meanwhile, I'll see if I can write another exabyte directly from the MSS.
+
+Jean
+
+From chris Thu Jan  6 11:39:20 1994
+From: chris (Chris Webster)
+Message-Id: <9401061839.AA13583@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA13583; Thu, 6 Jan 94 11:39:19 MST
+Subject: Re: 886 patch for base_time
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 6 Jan 1994 11:39:18 -0700 (MST)
+In-Reply-To: <9401061830.AA13478@chinook.atd.ucar.EDU> from "Ron Ruth" at Jan 6, 94 11:30:53 am
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 294       
+Status: RO
+
+>In keeping with the policy of saving everything needed to recreate a data set,
+>can you tell me what files are/were used to fix the `base_time' variable for
+>all the 886 netCDF files.  I'd like to archive them on the MSS.
+
+The file you need is /home/local/dev/nimbus/src/wrk/fix_bt.c
+
+--Chris
+
+From ron Mon Jan  3 16:10:11 1994
+Subject: ANLC data delivery
+To: bruce (Bruce Morley)
+Date: Mon, 3 Jan 1994 16:10:11 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 311       
+Status: RO
+
+Bruce,
+
+According to Barbara Knowles, there are three copies of the ANLC data to be
+shipped to users:  Chet Gardner, Gary Swensen and Patrick Espy.  Can you
+verify that they all are to receive the data, and if so, how do I contact
+them about media options (1/2"tape, Exabyte, density, tar or binary)?
+
+-- 
+Ron
+
+From ron Thu Jan  6 11:30:53 1994
+Subject: 886 patch for base_time
+To: chris (Chris Webster)
+Date: Thu, 6 Jan 1994 11:30:53 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 238       
+Status: RO
+
+Chris,
+
+In keeping with the policy of saving everything needed to recreate a data set,
+can you tell me what files are/were used to fix the `base_time' variable for
+all the 886 netCDF files.  I'd like to archive them on the MSS.
+
+-- 
+Ron
+
+From ron Thu Jan  6 16:43:42 1994
+Subject: 886 ANLC data
+To: hurst@stout (Jean Hurst)
+Date: Thu, 6 Jan 1994 16:43:42 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 390       
+Status: RO
+
+Jean,
+
+I just thought I'd let you know that the MSS bitfiles in the path
+/RAF/1993/886/LRT now have the corrected ANLC data.  The bitfiles with
+the incorrect `base_time' has been moved to the /RAF/1993/886/OLDLRT
+directory.  If you want, you may remake the tar copy for Yiyun Gu.
+I still haven't heard about the other two possibilities.
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From ron Mon Jan 10 14:23:39 1994
+Subject: ANLC data
+To: bruce (Bruce Morley)
+Date: Mon, 10 Jan 1994 14:23:39 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 109       
+Status: RO
+
+Bruce,
+
+Any word from Gary Swensen or Patrick Espy regarding what, if any, ANLC data
+they require?
+
+-- 
+Ron
+
+From bruce Mon Jan 10 15:51:55 1994
+Date: Mon, 10 Jan 94 15:51:54 MST
+From: bruce (Bruce Morley)
+Message-Id: <9401102251.AA29512@chinook.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA29512; Mon, 10 Jan 94 15:51:54 MST
+To: ron
+Subject: Re: ANLC data
+Status: RO
+
+Ron,
+
+No response yet but I have sent a follow-up message.  I will let you know as
+soon as I hear from them.
+
+Bruce
+
+
+From bruce Tue Jan 11 13:21:15 1994
+Date: Tue, 11 Jan 94 13:21:14 MST
+From: bruce (Bruce Morley)
+Message-Id: <9401112021.AA21998@chinook.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA21998; Tue, 11 Jan 94 13:21:14 MST
+To: ron
+Subject: Re: ANLC tapes
+Status: RO
+
+Ron,
+
+Here is Pat Espy's reply to what format he would like his data in.
+
+Bruce
+
+> From sdlpespy@cc.usu.edu Tue Jan 11 13:01:31 1994
+> Date: Tue, 11 Jan 94 13:01:20 MST
+> To: bruce@chinook.atd.ucar.edu
+> Subject: ANLC tapes
+> From: sdlpespy@psi.sci.sdl.usu.edu  (Patrick J. Espy)
+> Reply-To: sdlpespy@cc.usu.edu
+> Content-Length: 1073
+> 
+> Hi Bruce,
+> 
+> I think that the best system for us would be the hi density
+> exabyte with a tar format.  We will do the initial processing on
+> a sun workstation which is equipped with this drive.  I have
+> downloaded the netCDF stuff from unidata, but I have not yet
+> digested it.  Hope all is well there.  Have you started on your
+> lidar yet?
+>  
+>  
+> -- 
+>                                       Best Regards,              
+>                                       Patrick J. Espy            
+> 
+>                                       Space Dynamics Laboratory  
+>                                       Utah State University      
+>                                       Logan, UT 84322-4437       
+>  
+>                                       Phone +1 (801) 750-3570    
+>                                       FAX   +1 (801) 750-4044    
+>  
+>                                       Email:                     
+>                                        (Span) USU::SDLPESPY      
+>                                        (IN)   sdlpespy@cc.usu.edu
+>                                        (Bit)  sdlpespy@USU       
+> 
+> 
+
+From yygui@ux1.cso.uiuc.edu Fri Jan 14 11:02:09 1994
+Received: from ux1.cso.uiuc.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA00718; Fri, 14 Jan 94 11:02:08 MST
+Received: by ux1.cso.uiuc.edu id AA23223
+  (5.67b8/IDA-1.5 for ron@chinook.atd.ucar.EDU); Fri, 14 Jan 1994 12:01:53 -0600
+Date: Fri, 14 Jan 1994 12:01:53 -0600
+From: gu yiyun <yygui@ux1.cso.uiuc.edu>
+Message-Id: <199401141801.AA23223@ux1.cso.uiuc.edu>
+To: ron@chinook.atd.ucar.EDU, yygui@ux1.cso.uiuc.edu
+Subject: Re: ANLC data shipment
+Status: RO
+
+Ron,
+
+If it is not too much trouble, I would like to have just tape and a log of its files shipped to me and the project binder to Chet.
+
+Thanks!
+
+Yiyun
+
+
+From ron Fri Jan 14 09:45:07 1994
+Subject: Re: ANLC data shipment
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Fri, 14 Jan 1994 09:45:07 -0700 (MST)
+In-Reply-To: <199401141622.AA21176@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 14, 94 10:22:17 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 595       
+Status: RO
+
+Yiyun,
+
+I'm happy to report that we have successfully transferred your data to a
+single tar file on a high-density ExaByte tape.  We will be shipping it
+today (14th) or next Tuesday (18th).  Dr. Gardner is supposed to receive
+a project binder having complete information for this project, since he
+is the Principal Investigator.  Should I ship all this information to you
+or just the tape and a log of its files?
+
+I had your correct address except for the `&' (C&SRL).
+                                                -
+Happy New Year to you!
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From ron Fri Jan 14 11:06:51 1994
+Subject: Re: ANLC data shipment
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Fri, 14 Jan 1994 11:06:51 -0700 (MST)
+In-Reply-To: <199401141801.AA23223@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 14, 94 12:01:53 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 190       
+Status: RO
+
+Yiyun,
+
+Both of these will leave our building today.  With luck you should have the
+tape in about a week.  I'll ship the binder to Chet.
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From bruce Tue Jan 25 09:02:09 1994
+Date: Tue, 25 Jan 94 09:02:08 MST
+From: bruce (Bruce Morley)
+Message-Id: <9401251602.AA09412@chinook.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA09412; Tue, 25 Jan 94 09:02:08 MST
+To: ron
+Subject: ANLC data
+Cc: bruce
+Status: RO
+
+Ron,
+
+This is the message I received from Gary Swenson.  It isn't real clear but
+I think he will wants to get an e-mail data from Pat Espy.  I will get in
+contact with him on Thursday or as soon as I can.
+
+Bruce
+
+**************************************************************************
+>From SWENSON@lockhd.span.nasa.gov Mon Jan 24 12:24:44 1994
+Date: Mon, 24 Jan 94 11:24:33 PST
+From: SWENSON@lockhd.span.nasa.gov
+X-To: AMES::"bruce@chinook.atd.ucar.EDU"
+Subject: RE: ANLC data
+To: bruce@chinook.atd.ucar.EDU
+Content-Length: 239
+
+Bruce,
+I do need a copy of the Electra data.  I think it's best though that
+you givbe
+Esppat
+
+Pat Espy and then he can e-mail to me.  
+
+I just  got back in town from Sondre.  I'll be back in the office
+from travel on Thursday, 1/27.
+
+Gary
+
+***************************************************************************
+
+From ron Thu Feb  3 12:46:59 1994
+Subject: Re: data files
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Thu, 3 Feb 1994 12:46:59 -0700 (MST)
+In-Reply-To: <199402031929.AA25851@ux1.cso.uiuc.edu> from "gu yiyun" at Feb 3, 94 01:29:14 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 573       
+Status: RO
+
+Yiyun,
+
+I am glad we could help you.  I'm just sorry it took so long to get you
+on the right track.
+
+We are new at using netCDF files.  Yours is the first distribution of our
+data in this format.  After you have had a chance to work with netCDF,
+please give me some feedback regarding how easy or hard it has been for
+you to access our data using the netCDF software.
+
+My hope is that most of your time will be spent using our data in your
+research and analysis instead of just being able to read the files.
+
+Good luck!
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From yygui@ux1.cso.uiuc.edu Fri Jan 14 09:22:37 1994
+Received: from ux1.cso.uiuc.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA17152; Fri, 14 Jan 94 09:22:33 MST
+Received: by ux1.cso.uiuc.edu id AA21176
+  (5.67b8/IDA-1.5 for ron ruth<ron@chinook.atd.ucar.edu>); Fri, 14 Jan 1994 10:22:17 -0600
+Date: Fri, 14 Jan 1994 10:22:17 -0600
+From: gu yiyun <yygui@ux1.cso.uiuc.edu>
+Message-Id: <199401141622.AA21176@ux1.cso.uiuc.edu>
+To: ron ruth<ron@chinook.atd.ucar.edu>
+Status: RO
+
+Hi Ron,
+
+	Happy New Year!
+
+	Have you solved the data transferring problem?  I haven't received the
+data diskettes yet.  Hope that I didn't give you the wrong mailing address.
+The correct address is:
+
+	Dr. Yiyun Gu
+	Rm313, C&SRL
+	University of Illinois
+	1308 W. Main Street
+	Urbana, IL 61801
+
+Thanks!
+
+Yiyun
+
+
+
+From yygui@ux1.cso.uiuc.edu Wed Jan 19 09:49:41 1994
+Received: from ux1.cso.uiuc.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA25810; Wed, 19 Jan 94 09:49:39 MST
+Received: by ux1.cso.uiuc.edu id AA27442
+  (5.67b8/IDA-1.5 for ron ruth<ron@chinook.atd.ucar.edu>); Wed, 19 Jan 1994 10:49:18 -0600
+Date: Wed, 19 Jan 1994 10:49:18 -0600
+From: gu yiyun <yygui@ux1.cso.uiuc.edu>
+Message-Id: <199401191649.AA27442@ux1.cso.uiuc.edu>
+To: ron ruth<ron@chinook.atd.ucar.edu>
+Status: RO
+
+Hi Ron,
+
+I had trouble reading your tar file.  The system we have is a Unix Dec Station
+with Ultrix4.3 operating system. I tried tar and fsf command.  None of them
+worked.  Somehow the computer thinks that the beginning of the tape is the 
+end of the file.  Could you tell me what is in the beginning of the tape and
+what command you used to tar the data files?
+
+Thanks!
+
+Best regards,
+Yiyun
+
+
+
+From ron Wed Jan 19 13:58:03 1994
+Subject: Re: your mail
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Wed, 19 Jan 1994 13:58:03 -0700 (MST)
+In-Reply-To: <199401191649.AA27442@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 19, 94 10:49:18 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1290      
+Status: RO
+
+> 
+> Hi Ron,
+> 
+> I had trouble reading your tar file.  The system we have is a Unix Dec Station
+> with Ultrix4.3 operating system. I tried tar and fsf command.  None of them
+> worked.  Somehow the computer thinks that the beginning of the tape is the 
+> end of the file.  Could you tell me what is in the beginning of the tape and
+> what command you used to tar the data files?
+> 
+> Thanks!
+> 
+> Best regards,
+> Yiyun
+> 
+
+So far as I know, you should have received a standard tar tape.  There should
+be no leading EOF.  However, if it thinks there is one, try the `mt' command
+to skip a file first, then run tar.
+
+Our tar file has a block size of 102409 bytes.  A command such as:
+    tar -xf /dev/<tape> 10240
+should work, where <tape> is your tape drive's name.
+
+The tape was created using a Sun UNIX system, so I suppose there could be
+an incompatibility.
+
+At first you may want to try to use tar to list the files on the tape:
+   tar -tf /dev/<tape> 10240
+
+If neither of these work, let me know, and I'll try to find someone here
+who knows ULTRIX.
+
+Does ULTRIX do byte-swapping the same as the VAX?  If so, that may get in
+the way, too.  I understand there is a way to tell a DEC machine that a
+tape is "foreign" to it.
+
+Good luck!
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From yygui@ux1.cso.uiuc.edu Mon Jan 24 10:15:46 1994
+Received: from ux1.cso.uiuc.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA13651; Mon, 24 Jan 94 10:15:45 MST
+Received: by ux1.cso.uiuc.edu id AA19204
+  (5.67b8/IDA-1.5 for ron ruth<ron@chinook.atd.ucar.edu>); Mon, 24 Jan 1994 11:15:27 -0600
+Date: Mon, 24 Jan 1994 11:15:27 -0600
+From: gu yiyun <yygui@ux1.cso.uiuc.edu>
+Message-Id: <199401241715.AA19204@ux1.cso.uiuc.edu>
+To: ron ruth<ron@chinook.atd.ucar.edu>
+Status: RO
+
+Hi, Ron,
+
+Thanks for the help on how to read the anlc-93 data files.  We tried both
+methods you recommended ("tar" command).  But neither of them worked.  We
+also tried "dd" and "mt" commands, and it didn't help.  There is a Sun Unix
+system in our building.  It couldn't read it either.  I don't know if
+you tried to read the tape after you copied data files to it.
+
+Any help will be appreciated.
+
+Thanks!
+
+Best Regards,
+Yiyun
+
+From ron Mon Jan 24 10:26:43 1994
+Subject: Re: Problems reading ANLC-93
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Mon, 24 Jan 1994 10:26:43 -0700 (MST)
+In-Reply-To: <199401241715.AA19204@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 24, 94 11:15:27 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1124      
+Status: RO
+
+> 
+> Hi, Ron,
+> 
+> Thanks for the help on how to read the anlc-93 data files.  We tried both
+> methods you recommended ("tar" command).  But neither of them worked.  We
+> also tried "dd" and "mt" commands, and it didn't help.  There is a Sun Unix
+> system in our building.  It couldn't read it either.  I don't know if
+> you tried to read the tape after you copied data files to it.
+> 
+> Any help will be appreciated.
+> 
+> Thanks!
+> 
+> Best Regards,
+> Yiyun
+> 
+Yiyun,
+
+The tape that we sent you was written as high-density and requires an ExaByte
+8500 series drive.  By chance are you trying to read this tape with a low-
+density drive?
+
+Before we sent the tape to you, we used our Sun machine to retrieve at least
+one file and read the data from it, so I suspect the tape and its data are OK.
+
+I'm sorry to hear of your troubles.  We can send you a low-density tape, if
+you need it, or we can replace the tape with a new one in case yours got
+traumatized in shipment.  These 8mm tapes can be very sensitive to unhealthy
+storage condtions.
+
+Please keep me informed.
+
+-- 
+Ron Ruth  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From yygui@ux1.cso.uiuc.edu Mon Jan 24 14:42:30 1994
+Received: from ux1.cso.uiuc.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA22038; Mon, 24 Jan 94 14:42:29 MST
+Received: by ux1.cso.uiuc.edu id AA23832
+  (5.67b8/IDA-1.5 for ron ruth<ron@chinook.atd.ucar.edu>); Mon, 24 Jan 1994 15:42:07 -0600
+Date: Mon, 24 Jan 1994 15:42:07 -0600
+From: gu yiyun <yygui@ux1.cso.uiuc.edu>
+Message-Id: <199401242142.AA23832@ux1.cso.uiuc.edu>
+To: ron ruth<ron@chinook.atd.ucar.edu>
+Status: RO
+
+Ron,
+
+Our tape driver is an ExaByte 8200 series drive.  It reads only one-side
+tape.  No wonder we can't read the tape.
+
+Does NCAR have anonymous FTP acount?  If you have one, could you put the data
+files in that account so that we can retrieve data from there?  Or, we can
+set up an account so that you can email data to our account.  The data we
+need right now is flight number RF07 on August 6th.
+
+Thanks!
+
+Best Regards,
+Yiyun
+
+From ron Mon Jan 24 16:32:33 1994
+Subject: Re: ExaByte 8200
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Mon, 24 Jan 1994 16:32:33 -0700 (MST)
+In-Reply-To: <199401242142.AA23832@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 24, 94 03:42:07 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2877      
+Status: RO
+
+Yiyun,
+
+I have started the process of generating a new 8200-compatible tape for you.
+
+Also, since that will take awhile, I will bring the netCDF binary files (not
+the tar files) to an anonymous ftp area you can access.  It may take until
+the end of tomorrow (Tuesday 25 January) for all the files to be present,
+but I'll put RF07 there first and let you know when all are present.  (Mass
+Store file transfers to our computer are very slow.)
+
+Procedure:  (Some files are present now, including RF07.)
+  1)  login anonymous ftp to chinook.atd.ucar.edu
+  2)  for the password, use your email address
+  2)  change to the pub/genpro directory
+  3)  get all files of the form `886[RF]F0[0-9].cdf' (e.g., 886RF07.cdf)
+  4)  there will be a total of 9 files (FF01, RF01-RF08)
+  5)  log out
+  6)  send me email when you have retrieved all the files.
+
+The project documentation should have all other information you need, but I'll
+include a MSS bitfile log with this message.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                    PRODUCTION MASS STORE BITFILE LOG
+ 
+     Project no.:  3-886              Project name:  ANLC-93
+        Aircraft:  N308D         Project Leader(s):  Vince Glover
+       Data type:  LRT                Scientist(s):  Dr. Chester S. Gardner
+  Processor used:  NIMBUS            Programmer(s):  Chris Webster
+   Output format:  netCDF    Production Processing:  Vince Glover & Ron Ruth
+
+
+          MSS path names: /RAF/1993/886/LRT/fltno.cdf      (binary)
+                          /RAF/1993/886/LRT/fltno.cdf.tar  (tar)
+ 
+-----------------------------------------------------------------------------
+                                          File Sizes      NIMBUS     ADS
+          Date      Start     End      Binary     Tar     Process   Source
+ fltno  mm/dd/yy    Time      Time    (Mbytes)  (Mbytes)   Time      Tape
+-----------------------------------------------------------------------------
+ FF01   07/18/93  08:33:37  11:54:23  3.488584  3.497984  0:06.3   R0484 copy
+ RF01   07/21/93  03:57:57  10:24:15  6.694600  6.701056  0:12.7   R0485 copy
+ RF02   07/23/93  03:57:32  05:00:22  1.105096  1.114112  0:02.2   R0486 copy
+ RF03   07/30/93  08:16:56  12:35:50  4.493128  4.497408  0:08.8   R0488 copy
+ RF04   08/01/93  04:49:19  07:37:57  2.933320  2.940928  0:05.6   R0489 copy
+ RF05   08/02/93  05:19:57  12:43:07  7.677256  7.684096  0:14.1   R0490 copy
+ RF06   08/04/93  04:42:52  10:45:50  6.291400  6.299648  0:11.4   R0491 copy
+ RF07   08/06/93  04:18:46  10:57:52  6.915784  6.922240  0:12.8   R0492 copy
+ RF08   08/12/93  04:46:58  11:43:48  7.222216  7.225344  0:13.2   R0495 copy
+-----------------------------------------------------------------------------
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From ron Mon Jan 24 17:13:51 1994
+Subject: Re: Files ready
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Mon, 24 Jan 1994 17:13:51 -0700 (MST)
+In-Reply-To: <199401242142.AA23832@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 24, 94 03:42:07 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 850       
+Status: RO
+
+Yiyun,
+
+I have transferred all the netCDF files to the pub/genpro directory.  It took
+a lot less time than I thought!  Below is a partial directory list including
+only your pertinent files:
+
+ls -l ~ftp/pub/genpro/886*
+-rw-r--r--  1 ron       3488584 Jan 24 16:06 886FF01.cdf
+-rw-r--r--  1 ron       6694600 Jan 24 16:22 886RF01.cdf
+-rw-r--r--  1 ron       1105096 Jan 24 16:28 886RF02.cdf
+-rw-r--r--  1 ron       4493128 Jan 24 16:31 886RF03.cdf
+-rw-r--r--  1 ron       2933320 Jan 24 16:34 886RF04.cdf
+-rw-r--r--  1 ron       7677256 Jan 24 16:44 886RF05.cdf
+-rw-r--r--  1 ron       6291400 Jan 24 16:54 886RF06.cdf
+-rw-r--r--  1 ron       6915784 Jan 24 16:16 886RF07.cdf
+-rw-r--r--  1 ron       7222216 Jan 24 17:04 886RF08.cdf
+
+Please let me know when you have retrieved all of them.
+
+Thanks.
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From ron Mon Jan 24 17:13:51 1994
+Subject: Re: Files ready
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Mon, 24 Jan 1994 17:13:51 -0700 (MST)
+In-Reply-To: <199401242142.AA23832@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 24, 94 03:42:07 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 850       
+Status: RO
+
+Yiyun,
+
+I have transferred all the netCDF files to the pub/genpro directory.  It took
+a lot less time than I thought!  Below is a partial directory list including
+only your pertinent files:
+
+ls -l ~ftp/pub/genpro/886*
+-rw-r--r--  1 ron       3488584 Jan 24 16:06 886FF01.cdf
+-rw-r--r--  1 ron       6694600 Jan 24 16:22 886RF01.cdf
+-rw-r--r--  1 ron       1105096 Jan 24 16:28 886RF02.cdf
+-rw-r--r--  1 ron       4493128 Jan 24 16:31 886RF03.cdf
+-rw-r--r--  1 ron       2933320 Jan 24 16:34 886RF04.cdf
+-rw-r--r--  1 ron       7677256 Jan 24 16:44 886RF05.cdf
+-rw-r--r--  1 ron       6291400 Jan 24 16:54 886RF06.cdf
+-rw-r--r--  1 ron       6915784 Jan 24 16:16 886RF07.cdf
+-rw-r--r--  1 ron       7222216 Jan 24 17:04 886RF08.cdf
+
+Please let me know when you have retrieved all of them.
+
+Thanks.
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From yygui@ux1.cso.uiuc.edu Tue Jan 25 14:21:52 1994
+Received: from ux1.cso.uiuc.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA18639; Tue, 25 Jan 94 14:21:51 MST
+Received: by ux1.cso.uiuc.edu id AA20547
+  (5.67b8/IDA-1.5 for ron ruth<ron@chinook.atd.ucar.edu>); Tue, 25 Jan 1994 15:21:34 -0600
+Date: Tue, 25 Jan 1994 15:21:34 -0600
+From: gu yiyun <yygui@ux1.cso.uiuc.edu>
+Message-Id: <199401252121.AA20547@ux1.cso.uiuc.edu>
+To: ron ruth<ron@chinook.atd.ucar.edu>
+Status: RO
+
+Ron,
+
+Thanks for all the helps.
+
+I tried to access your anonymous account but was not successful.
+I connected to your site through "telnet Chinook.atd.ucar.edu",
+then type "anonymous" at login and my email address at password.
+I got "login incorrect" message.
+
+The atmospheric science department in our campus has an ExaByte
+8500 tape driver.  So I got data transferred to our computer
+already.  Sorry for the troubles.
+
+About data file, could you tell me what the data file format is?  
+
+Yiyun 
+
+
+
+
+From ron Tue Jan 25 16:18:02 1994
+Subject: Re: netCDF format
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Tue, 25 Jan 1994 16:18:02 -0700 (MST)
+In-Reply-To: <199401252121.AA20547@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 25, 94 03:21:34 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1698      
+Status: RO
+
+Yiyun,
+
+I'm glad you were finally able to unpack the files and put them on your
+system.  We are still going to send you a low-density (8200 compatible)
+tape, so you'll have a backup.
+
+You needed to use `ftp' instead of `telnet' to be able to transfer
+the files.  (I thought you were familiar with the concept of
+"anonymous ftp."  What you should have done was execute the following:
+    ftp chinook.atd.ucar.edu  (NOT  telnet chinook.atd.ucar.edu)
+      at the <user> prompt, you type "anonymous"
+      at the <password> prompt, you type your email address
+
+   You type `bi' to change ftp's mode to binary.  You can then use `cd' to
+   change directories and `get <filename>' to transfer a file.  Before you
+   use ftp, make sure you are in the desired directory path on your home
+   machine.
+
+The RAF data sets we sent are in netCDF format.  Instructions for netCDF
+access were included in the binder of information sent to Dr. Gardner.
+Basically, you get the netCDF utilities via anonymous ftp from
+`unidata.ucar.edu.'
+    ftp unidata.ucar.edu
+
+The files I'd suggest you `get' in the directory `pub/netcdf' are:
+    COPYRIGHT
+    netcdf.tar.Z
+    utilities.txt
+    FAQ
+    README
+
+The compressed tar file has the entire netCDF release which includes C and
+FORTRAN source codes, manuals, etc.  Address any questions you have about
+netCDF via email to `support@unidata.ucar.edu.'  I am new to netCDF myself, so
+they are best able to help you.  One utility I have used is `ncdump -h <file>'
+to list all the variables in a netCDF file.  (Output goes to stdout which, for
+our data, you may want to redirect to a file.  There are many!)
+
+Good Luck!
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From ron Tue Jan 25 16:18:02 1994
+Subject: Re: netCDF format
+To: yygui@ux1.cso.uiuc.edu (gu yiyun)
+Date: Tue, 25 Jan 1994 16:18:02 -0700 (MST)
+In-Reply-To: <199401252121.AA20547@ux1.cso.uiuc.edu> from "gu yiyun" at Jan 25, 94 03:21:34 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1698      
+Status: RO
+
+Yiyun,
+
+I'm glad you were finally able to unpack the files and put them on your
+system.  We are still going to send you a low-density (8200 compatible)
+tape, so you'll have a backup.
+
+You needed to use `ftp' instead of `telnet' to be able to transfer
+the files.  (I thought you were familiar with the concept of
+"anonymous ftp."  What you should have done was execute the following:
+    ftp chinook.atd.ucar.edu  (NOT  telnet chinook.atd.ucar.edu)
+      at the <user> prompt, you type "anonymous"
+      at the <password> prompt, you type your email address
+
+   You type `bi' to change ftp's mode to binary.  You can then use `cd' to
+   change directories and `get <filename>' to transfer a file.  Before you
+   use ftp, make sure you are in the desired directory path on your home
+   machine.
+
+The RAF data sets we sent are in netCDF format.  Instructions for netCDF
+access were included in the binder of information sent to Dr. Gardner.
+Basically, you get the netCDF utilities via anonymous ftp from
+`unidata.ucar.edu.'
+    ftp unidata.ucar.edu
+
+The files I'd suggest you `get' in the directory `pub/netcdf' are:
+    COPYRIGHT
+    netcdf.tar.Z
+    utilities.txt
+    FAQ
+    README
+
+The compressed tar file has the entire netCDF release which includes C and
+FORTRAN source codes, manuals, etc.  Address any questions you have about
+netCDF via email to `support@unidata.ucar.edu.'  I am new to netCDF myself, so
+they are best able to help you.  One utility I have used is `ncdump -h <file>'
+to list all the variables in a netCDF file.  (Output goes to stdout which, for
+our data, you may want to redirect to a file.  There are many!)
+
+Good Luck!
+
+-- 
+Ron  (ron@chinook.atd.ucar.edu)  (303)497-1084
+
+From yygui@ux1.cso.uiuc.edu Thu Feb  3 12:29:34 1994
+Received: from ux1.cso.uiuc.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA10709; Thu, 3 Feb 94 12:29:33 MST
+Received: by ux1.cso.uiuc.edu id AA25851
+  (5.67b8/IDA-1.5 for ron ruth<ron@chinook.atd.ucar.edu>); Thu, 3 Feb 1994 13:29:14 -0600
+Date: Thu, 3 Feb 1994 13:29:14 -0600
+From: gu yiyun <yygui@ux1.cso.uiuc.edu>
+Message-Id: <199402031929.AA25851@ux1.cso.uiuc.edu>
+To: ron ruth<ron@chinook.atd.ucar.edu>
+Status: RO
+
+Ron,
+
+Thanks for the ANLC-93 data on low density disk.  The computer reads it
+fine.  
+
+I also ftp the data files from NCAR anonymous account.  I did some ftp
+in the past, but am not very familiar with it.  Thanks for pointing me
+in the right direction.
+
+I really appreciate all the help you gave.  
+
+Best regards,
+Yiyun
+
+
+From ron Wed Jan  5 11:10:06 1994
+Subject: 886 cdf data
+To: chris (Chris Webster)
+Date: Wed, 5 Jan 1994 11:10:06 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 311       
+Status: RO
+
+Chris,
+
+I checked the nimbus output files for 886 in the hl/data directory, and they
+have the corrected `base_time' variable.  I will proceed to archive these data
+to the MSS replacing the (incorrect) bitfiles that are there now.  I assume
+that you haven't changed any of the other data in the files.
+
+-- 
+Ron
+

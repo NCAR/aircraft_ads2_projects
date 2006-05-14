@@ -1,0 +1,527 @@
+C -----------------------------------------------------------
+C  PROJECT 2-816 ASTEX/MAGE Mods:  October 1992  RLR
+C   This change only affects some of the variable names
+C      Old        New        Description
+C     XSUMX6 --> SUM626:   Sum of all counts
+C     XPLWC6 -->  PLWC6:   Calculated liquid water content (g/m3)
+C     XCONC6 -->  CONC6:   Concentration (#/liter)
+C     XDBAR6 -->  DBAR6:   Mean particle diameter
+C     XDBZ6  -->   DBZ6:   Calculated radar reflectivity
+C     XDISP6 -->  DISP6:   Dispersion
+C
+C  PROJECT 1-276 CaPE Mods:  October 1991  RLR
+C   This change is cosmetic to reflect the actual data returned by the routine.
+C  PROJECT 876 HaRP MODS:                    Nov. 1990  -CC
+C  This PMS-1D 260X probe processor includes Darrel Baumgardner's newest mods
+C  to correct (fix) the accumulated raw counts and the concentrations
+C
+C  Darrel's black box contains the subroutine:  FXOAP
+C
+C The input parameters required for this processor are:
+C  1. TIME (seconds)
+C  2. TAS  (m/s3)
+C  3. 260X data block  (though not declared in CALIB via LETVAR statement)
+C
+C This subroutine will produce the following output data set, by request
+C  1. ACC260H: A data block of raw counts at high rate (If the 260X data
+C              come in at high rate)
+C  2. ACC260L:  Data block of raw accumulated counts @ 1/s
+C  3. XACC260L: Data block of corrected raw accumulated counts @ 1/s
+C  4. XCON260L: Data block of concentrations from corrected raw counts @ 1/s
+C  5. XSUMX6:   Sum of all counts
+C  6. XPLWC6:   Calculated liquid water content (g/m3)
+C  7. XCONC6:   Concentration (#/liter)
+C  8. XDBAR6:   Mean particle diameter
+C  9. XDBZ6:    Calculated radar reflectivity
+C 10. XDISP6:   Dispersion
+C ----------------------------------------------------------------------------
+C
+      SUBROUTINE SX260
+.REPL
+.USE  TBLANK
+.USE  BLANK
+.USE  IOUNIT
+.USE  TCYCVAR
+.USE  CYCVAR
+.USE  ERROR
+.USE  TOP
+.USE  OP
+.USE  CALCOM
+.NOREP
+      DIMENSION SMKN(64),SMCON(64),RCOUNT(64),CONC(64)
+      INTEGER ALABX(5),ALABY(5),CLABX(5),CLABY(5)
+      COMMON/HIST/LT(5),NCELLS,SIZE(64),NSIZE
+      COMMON/PX260/NCSUM6,THRESH6,MRATE6,MWORD6,MCELL6,SIZE6
+      COMMON/QC/IPQC1,IPQC2,LRTQC1,LRTQC2
+C     DATA NSUMX6/8HXSUMX6  /,  NACC260H /8HACC260H /
+      DATA NSUMX6/8HSUM626  /,  NACC260H /8HACC260H /
+      DATA NACC260L/8HACC260L /
+      DATA NXCC260L/8HXACC260L/,NCON260L/8HXCON260L/
+C     DATA NX6LWC /8HXPLWC6  /, NX6DBZ/8HXDBZ6   /
+C     DATA NAX260 /8HAX260   /, NCX260/8HCX260   /
+C     DATA NX6CONC/8HXCONC6  /,NX6DBAR/8HXDBAR6  /,NX6DISP /8HXDISP6  /
+      DATA NX6LWC /8HPLWC6   /, NX6DBZ/8HDBZ6    /
+      DATA NAX260 /8HAX260   /, NCX260/8HCX260   /
+      DATA NX6CONC/8HCONC6   /,NX6DBAR/8HDBAR6   /,NX6DISP /8HDISP6   /
+C     PRINT 1234,  NSTAGE
+C1234 FORMAT (' X260 called. NSTAGE ='I23)
+      IPRAW = INDGET
+C--------------------------------------------------------------------
+C       ACCESS THE FUNCTION CONTROLS
+C DEFFUN=1-NAMFUN;                2-PMS PLT NSIZE;
+C        3-PMS PLT LOGLIN,4-PMS PLT MGRY;5-PMS PLT MINRY;6-PMS PLT BOT;
+C        7-PMS PLT TOP; 8-PMS PLT LABX; 9-PMS PLT LABY
+      INDST =3
+.USE  INDEX
+C     CALL CPRINT(0,6,128,8,5,DUM,0)
+      IOF01= ICON(INDOFF+ 1)
+      IOF02= ICON(INDOFF+ 2)
+      IOF03= ICON(INDOFF+ 3)
+      IOF04= ICON(INDOFF+ 4)
+      IOF05= ICON(INDOFF+ 5)
+      IOF06= ICON(INDOFF+ 6)
+      IOF07= ICON(INDOFF+ 7)
+      IOF08= ICON(INDOFF+ 8)
+      IOF09= ICON(INDOFF+ 9)
+C
+      DO (I=1,NUMVEC)
+       IND = INDVAL+LENCON*(I-1)
+       NAMFUN= ICON( IND+ IOF01)
+       NSIZE = ICON( IND+ IOF02)
+C AX260  ---------------------------------------------
+       IF(NAMFUN.EQ.NAX260   )
+        LLA   = ICON( IND +IOF03)
+        IF(LLA.LT.0 .OR. LLA.GT.2) LLA=0
+        MGRYA = ICON( IND+ IOF04)
+        MINRYA= ICON( IND +IOF05)
+        BA    =  CON( IND+ IOF06)
+        TA    =  CON( IND +IOF07)
+        DO(IL=1,5)
+          ALABX(IL)  = ICON(IND+IOF08+IL-1)
+          ALABY(IL)  = ICON(IND+IOF09+IL-1)
+        END DO
+       END IF
+C CX260  ------------------------------------------------
+       IF(NAMFUN.EQ.NCX260    )
+        LLC   = ICON( IND +IOF03)
+        IF(LLC.LT.0 .OR. LLC.GT.2) LLC=0
+        MGRYC = ICON( IND+ IOF04)
+        MINRYC= ICON( IND +IOF05)
+        BC    =  CON( IND+ IOF06)
+        TC    =  CON( IND +IOF07)
+        DO(IL=1,5)
+          CLABX(IL)  = ICON(IND+IOF08+IL-1)
+          CLABY(IL)  = ICON(IND+IOF09+IL-1)
+        END DO
+       END IF
+      END DO
+C
+C       ACCESS THE VARIABLE CONTROLS
+      INDST =2
+.USE  INDEX
+C      CALL CPRINT(0,6,128,8,5,DUM,0)
+      IOFF01= ICON(INDOFF+  1)
+      IOFF02= ICON(INDOFF+  2)
+      IOFF03= ICON(INDOFF+  3)
+      IOFF04= ICON(INDOFF+  4)
+      IOFF05= ICON(INDOFF+  5)
+      DO (K=1,NUMVEC)
+       IND = INDVAL+LENCON*(K-1)
+       NAMVAR=ICON(IND +IOFF01)
+       INDGET   = ICON(IND+IOFF02)
+       INRATE   = ICON(IND+IOFF03)
+       INDPUT   = ICON(IND+IOFF04)
+       LRATE = ICON(IND+IOFF05)
+       IF(NAMVAR .EQ. NACC260H) IPACCH  = INDPUT - 1
+       IF(NAMVAR .EQ. NACC260L) IPACCL  = INDPUT - 1
+       IF(NAMVAR .EQ. NXCC260L) IPACCLX = INDPUT - 1
+       IF(NAMVAR .EQ. NCON260L) IPCONCL = INDPUT - 1
+       IF(NAMVAR .EQ. NSUMX6)   IPSUMX6 = INDPUT - 1
+       IF(NAMVAR .EQ. NX6CONC)  IPX6CON = INDPUT - 1
+       IF(NAMVAR .EQ. NX6DBAR)  IPX6DBA = INDPUT - 1
+       IF(NAMVAR .EQ. NX6DISP)  IPX6DIS = INDPUT - 1
+       IF(NAMVAR .EQ. NX6DBZ )  IPX6DBZ = INDPUT - 1
+       IF(NAMVAR .EQ. NX6LWC )  IPX6LWC = INDPUT - 1
+      END DO
+C-----------------------------
+C  ***** INITIALIZATION FOR A NEW CASE
+      IPTIME= IPSOU(1) - 1
+      IPTAS = IPSOU(2) - 1
+      IPQC1 = IPQC1
+      IPQC2 = IPQC2
+      SECSUM = CONS1
+      IF(NSTAGE.EQ.4) NUMSMP=0
+C  Start Diagnostic
+C     IF(NSTAGE.EQ.4)
+C       WRITE (6,1234) IPACCH, IPACCL, IPACCLX, IPCONCL, IPSUMX6,
+C    &                 IPX6CON, IPX6DBA, IPX6DIS, IPX6DBZ, IPX6LWC,
+C    &                 IPTIME, IPTAS, NCSUM6, MRATE6, MWORD6, MCELL6,
+C    &                 THRESH6, SECSUM, SIZE6
+C1234   FORMAT (
+C    &"  SX260:  IPACCH, IPACCL, IPACCLX, IPCONCL, IPSUMX6 ="5I8/
+C    &"          IPX6CON, IPX6DBA, IPX6DIS, IPX6DBZ, IPX6LWC ="5I8/
+C    &"          IPTIME, IPTAS, NCSUM6, MRATE6, MWORD6, MCELL6 ="6I8/
+C    &"          THRESH6, SECSUM, SIZE6 ="3G15.7)
+C     END IF
+C  End Diagnostic
+      LDO = NCDO
+C
+C PMS 1-D PROBE X260 DATA PROCESSING
+C INPUT INFORMATION REQUIRED:
+C   1. PMS BLOCK SIZE IN WORDS              MSIZE
+C   2. PMS BLOCK SAMPLING RATE              MRATE
+C   3. NO. OF WORDS PER SAMPLE              MWORD
+C   4. NO. OF SIZE CELLS                    NCELLS
+C   5. FIRST ADDRESS OF THE PMS BLOCK*NCDO  IPRAW
+C PMS BLOCK STRUCTURE
+C-----------------------------------------------------------------------
+C|SAMPLE ONE: WD1.SPARE ;WD2.SPARE;WD3.SPARE;WD4.SPARE;WD5.SPARE;
+C|            WD6.CELL 0;WD7-WD68.CELL 1-62;WD69-WD70.FILL
+C----------------------------------------------------------------------
+C ASSUMING PMS DATA COMING IN TO THIS ROUTINE AS (PMS BLOCK) * NCDO
+C DATA() IS THE DATA ARRAY TO PICK UP PMS BLOCK DATA
+C INDGET IS THE INDEX TO PICK UP THE FIRST WORD OF PMS BLOCK FROM DATA()
+C
+C     if(nstage.eq.4) print 11,mword6,mrate6
+C  11 format(' X260: mword6,mrate6',2i8)
+      MSIZE= MRATE6 * MWORD6
+      KCELL = 7
+      KTL = 0
+      KTLX = 0
+      KTH = 0
+C
+C LOOP OVER THE TOTAL NUMBER OF CYCLES TO PROCESS
+C
+      IRTAS = LRTSOU(2)
+      IRQC1 = LRTQC1
+      IRQC2 = LRTQC2
+      DO (IX=1,LDO)
+       IQC1 = (IX-1)*IRQC1
+       IQC2 = (IX-1)*IRQC2
+       QC1 = DATA(IPQC1+IQC1)
+       QC2 = DATA(IPQC2+IQC2)
+       ITAS = (IX-1)*IRTAS
+       DIST1 = DATA(IPTAS+ITAS)
+       IF(DIST1.EQ.0.0) DIST1 = 1.0
+       TIME = DATA(IPTIME+IX)
+C** PRINT OUT THE RAW DATA POINTS-----------------
+C      IZ1 = IPRAW + (IX-1)*MSIZE
+C      IZ2 = IZ1+MSIZE-1
+C      IF(NSTAGE.EQ.4)PRINT 21,TIME,MSIZE,IX,(DATA(IM),IM=IZ1,IZ2)
+C  21  FORMAT(' X260:TIME,MSIZE,IX,CELLS ',F9.1,2I8,/,(14F6.0))
+C
+        X6CONC = 0.0
+        X6DBAR = 0.0
+        X6DBAR2= 0.0
+        X6DBZ = -30.
+        Z = 0.0
+        DI = 0.0
+        X6LWC = 0.0
+        ACONC = 0.0
+        do (k=1,64)
+         rcount(k)=0.0
+         conc(k)=0.0
+        end do
+C
+C LOOP OVER THE SAMPLING RATE MRATE
+       DO(IY= 1,MRATE6)
+        INDX1 = IPRAW + ((IX-1)*MSIZE) + ((IY-1)*MWORD6)
+        INDEX7 = INDX1 + KCELL -1
+        SUMX6 = 0.0
+        IND2 = INDEX7 + 64 -1
+C      IF(NSTAGE.EQ.4)PRINT 20,TIME,IX,IY,(DATA(M),M=INDEX7,IND2)
+C      PRINT 20,TIME,IX,IY,(DATA(M),M=INDEX7,IND2)
+C  20  FORMAT(' X260:TIME,IX,IY,CELLS ',F9.1,2I8,/,(32F4.0))
+        DO(ICELL=1,MCELL6)
+         INDEX = INDEX7 + ICELL - 1
+         RC = DATA(INDEX)
+         IF(RC.LE.0.) RC=0.0
+         RCOUNT(ICELL)= RCOUNT(ICELL)+RC
+         KTH = KTH + 1
+         IF(IPACCH.GT.0) DATA(IPACCH + KTH) = RC
+C
+C** SUM UP THE RAW COUNTS FOR THE PROBE
+C        SUMX6 = SUMX6 + RCOUNT(ICELL)
+        END DO
+       END DO
+       DO(ICELL=1,MCELL6)
+        KTL = KTL + 1
+        IF(IPACCL .GT. 0) DATA(IPACCL+KTL) = RCOUNT(ICELL)
+C** ACCUMULATE FOR HISTOGRAMS: RAW COUNTS - Jan. 11,1991 (DB)
+         SMKN(ICELL) = SMKN(ICELL)+RCOUNT(ICELL)
+       END DO
+C
+C      IF(NSTAGE.EQ.4)PRINT 22,TIME,RCOUNT
+C      PRINT 22,TIME,RCOUNT
+C  22  FORMAT(' X260(before fxoap call):TIME,CELLS ',F9.1,/,(10F9.1))
+C
+C ** Call Darrel's Black Box here
+       T = 1.
+       RES = 10.
+       IPRB = 1
+       NDIOD = 64
+       CALL FXOAP(RCOUNT,CONC,DIST1,T,RES,IPRB,NDIOD,MCELL6)
+C      IF(NSTAGE.EQ.4)PRINT 23,TIME,RCOUNT
+C      PRINT 23,TIME,RCOUNT
+C  23  FORMAT(' X260(after fxoap call):TIME,CELLS ',F9.1,/,(10F9.1))
+C
+        SUMX6 = 0.0
+        DO(ICELL=1,MCELL6)
+         KTLX = KTLX + 1
+C** Summing up the corrected counts for the probe
+C**  ##########  For 2-816 ASTEX/MAGE, ignore the first cell.
+         IF (ICELL.NE.1) SUMX6 = SUMX6 + RCOUNT(ICELL)
+         IF(IPCONCL .GT. 0) DATA(IPCONCL+KTLX) = CONC(ICELL)
+         IF(IPACCLX .GT. 0) DATA(IPACCLX+KTLX) = RCOUNT(ICELL)
+C
+C   D IS THE CELL DIAMETER IN MICROMETERS (E-6 METERS)
+C   DIST1 IS TRUE AIRSPEED (M/S)
+         D = ICELL * SIZE6
+C
+C** ZERO CONC BEFORE TAKEOFF
+         IF(QC1.LT.10.0.AND.QC2.LT.10.0) CONC(ICELL)=0.0
+         ACONC = ACONC + CONC(ICELL)
+C
+C** ACCUMULATE FOR HISTOGRAMS CONCENTRATIONS, SIZE()
+C         SMKN(ICELL) = SMKN(ICELL)+RCOUNT(ICELL)
+         SMCON(ICELL)= SMCON(ICELL) + CONC(ICELL)
+         SIZE(ICELL) = D
+C
+C** X6CONC- PARTICLE CONCENTRATION NUMBER/LITER SUMMED OVER ALL CHANNELS.
+C   X6DBAR AND X6DBAR2 INTERMEDIATE VARIABLES USED FOR COMPUTING
+C   THE MEAN PARTICLE DIAMETER AND STANDARD DEVIATION.
+C
+         X6CONC = X6CONC + CONC(ICELL)
+         X6DBAR = X6DBAR + D * CONC(ICELL)
+         X6DBAR2 = X6DBAR2 + D*D*CONC(ICELL)
+C
+C   X6LWC LIQUID WATER CONTENT IN GRAMS PER CUBIC METER SUMMED OVER ALL
+C   CHANNELS.  IT ASSUMES SPHERICAL DROPLETS WITH DENSITY OF WATER
+C   OF 1.0 GRAM/CC (FOR PROJECT 1-668 PER BOB KELLY, UNIV. CHICAGO)
+C   AND USES D IN MICROMETERS AND CONCENTRATION IN NUMBER PER LITER.
+C
+         X6DSY = 1.
+      X6LWC=X6LWC+X6DSY*4./3.*3.1415927*(D*1.E-4/2)**3*CONC(ICELL)*1.E3
+C
+C** FOR DBZ (REFLECTIVITY FACTOR) CALCULATIONS
+C   CONVERT PARTICLE DIAMETER FROM MICROMETERS TO MILLIMETERS AND
+C   CONCENTRATION  FROM N/LITER TO N/M3 FINAL UNITS WILL BE MM6/M3
+         D = D * 0.001
+         CONC(ICELL) = CONC(ICELL) * 1000.
+C
+C** SUM OVER ALL THE CHANNELS THE PRODUCT OF DIAMETER TO THE SIXTH POWER
+C   TIMES THE CONCENTRATION IN EACH CHANNEL.  UNITS ARE MM6/M3.  THIS
+C   NUMBER IS THE REFLECTIVITY FACTOR, Z, AS DEFINED BY DAVID ATLAS IN
+C   EQ.3.15 PAGE 363 ADVANCES IN GEOPHSYSICS, 1964, EDITED BY LANDBERG
+C   AND MIEGHEM
+         Z = D **6 * CONC(ICELL) + Z
+       END DO
+C
+C** CORRECT FOR FACT THAT PARTICLES ARE ICE, NOT WATER, AND ARE LESS
+C   DENSE THAN PURE ICE.  THE EQUATION USED IS
+C   EZ = (1K1**2(ICE)/1K1**2(WATER)*(YDNSTY**2/DENSH20**2)*Z
+C   WHERE
+C   EZ IS THE EQUIVALENT REFLECTIVITY FACTOR
+C   1K1**2(ICE) = 0.197
+C   1K1**2(WATER) = 0.93
+C   K VALUES FROM PAGE 338 IBBID
+C   DENSITY OF ICE FOR PROJECT 1-668 FROM BOB KELLY
+C   ZE EQUATION FROM KELLY/CHIGAGO AND U. OF WYOMING SOFTWARE.
+        ZE = 0.00212 * Z
+C** CONVERT TO DBZ
+        IF(ZE .GT. 0.0) X6DBZ = 10.*ALOG10(ZE)
+        IF(X6DBZ .LT. -30.) X6DBZ = -30.0
+C
+C     X6DISP IS THE RATIO OF STANDARD DEVIATION TO MEAN DIAMETER
+C      AND IS A MEASURE OF THE DISPERSION OF THE DISTRIBUTION.
+C     X6DBAR IS MEAN PARTICLE DIAMETER IN MICROMETERS COMPUTED USING THE
+C      EQUATIONS FOR GROUPED DATA SUCH AS ARE FOUND IN EQ. 24 ON PAGE
+C      164 OF SCHAUMS OUTLINE OF PROBABILITY AND STATISTICS (1975) BY
+C      M. SPIEGEL
+C     SIGMA IS THE STANDARD DEVIATION IN MICROMETERS OF THE DIAMETER
+C      DISTRIBUTION EQUATION 28  IBBID.
+C
+        IF(X6CONC .GT. 0.05)
+         X6DBAR = X6DBAR  / X6CONC
+         SQRD=X6DBAR2/X6CONC-X6DBAR*X6DBAR
+         SIGMA = SQRT( ABS(SQRD))
+         IF(X6DBAR.NE.0.) X6DISP = SIGMA/X6DBAR
+        ELSE
+         X6DBAR = 0.0
+         X6DISP = 0.0
+        END IF
+C
+C *******************     OUTPUT PMS PARAMETERS    ***************************
+C
+C     ZERO X6LWC AND X6CONC BEFORE TAKEOFF
+        IF(QC1.LT.10.0.AND.QC2.LT.10.0)
+         X6CONC = 0.0
+         X6LWC  = 0.0
+        END IF
+        IF(IPSUMX6.GT.0) DATA(IPSUMX6+IX) = SUMX6
+        IF(IPX6LWC.GT.0) DATA(IPX6LWC+IX) = X6LWC
+        IF(IPX6CON.GT.0) DATA(IPX6CON+IX) = X6CONC
+        IF(IPX6DBA.GT.0) DATA(IPX6DBA+IX) = X6DBAR
+        IF(IPX6DBZ.GT.0) DATA(IPX6DBZ+IX) = X6DBZ
+        IF(IPX6DIS.GT.0) DATA(IPX6DIS+IX) = X6DISP
+C
+C******  END OF X260 CALCULATIONS AND CORRECTIONS ****************************
+C
+C                  HISTOGRAM PLOTS NEXT
+C    AFTER THE LAST PMS CELL, CHECK FOR PLOT INTERVAL (START HISTOGRAM
+C     PERIODS ON AN EVEN PLOT INTERVAL)
+       NCELLS = MCELL6
+       NSEC= SECSUM
+       NUMSMP=NUMSMP+1
+       IF(NUMSMP.EQ.1)
+       TIM1=TIME
+       NMN= MOD(INT(TIM1),NSEC)
+       IF(NMN .GT. 0)
+        DO ( KNCNT=1,NCELLS)
+         SMCON(KNCNT) = 0.
+         SMKN(KNCNT) = 0.
+        END DO
+        NUMSMP = 0
+       END IF
+      END IF
+      SECS = NUMSMP*DELIV
+      IF(SECS.EQ.SECSUM)
+       TIM2 = TIM1 + SECSUM - 1.0
+C
+C     AVERAGE CONCENTRATIONS OVER PERIOD SECSUM FOR HISTO
+      DO ( KNCNT = 1,NCELLS )
+C       SMCON(KNCNT) = SMCON(KNCNT)/(SECSUM*FLOAT(MRATE6))
+       SMCON(KNCNT) = SMCON(KNCNT)/SECSUM
+       IF(SMCON(KNCNT).LT..0001) SMCON(KNCNT) = 0.
+      END DO
+      SUM=0.
+       DO (K=1,NCSUM6)
+        SUM =SUM +SMKN(K)
+       END DO
+C      PRINT 28,TIME,SMKN
+C  28  FORMAT(' X260:TIME,SMKN ',F9.1,/,(10F9.1))
+C      PRINT 29,TIME,SMCON
+C  29  FORMAT(' X260:TIME,SMCON ',F9.1,/,(10F9.1))
+C
+C THE PLOT INTERVAL, SECSUM, HAS BEEN REACHED FOR THE SUMS.
+C IF THE SUM OF NCSUM CELL COUNTS EXCEED THRESH, PLOT A HISTOGRAM .
+C IF THE ACCUMULATION .LT.1 THEN SET IT TO .0001,FOR LOG-SCALED
+C HISTOGRAM PLOT.
+       IF(SUM.GE.THRESH6 )
+        IF(LLA.GT.0)
+         BA=1.
+         CALL HISTO(SMKN,LLA,MGRYA,MINRYA,BA,TA,ALABX,ALABY,TIM1,TIM2)
+        END IF
+        IF(LLC.GT.0)
+         CALL HISTO(SMCON,LLC,MGRYC,MINRYC,BC,TC,CLABX,CLABY,TIM1,TIM2)
+        END IF
+       END IF
+C
+C  BLANK THE ACCUMULATORS
+C
+       NUMSMP=0
+       DO (K=1,NCELLS)
+        SMKN(K) =0.
+        SMCON(K) =0.
+       END DO
+      END IF
+C
+      END DO
+      RETURN
+      END
+C ************************************************************************
+      SUBROUTINE FXOAP(SPEC,CONC,TAS,T,RES,IPRB,ndiod,NCHN)
+C
+C ** CONC array added to stored the concentrations
+C    Nov. 1990     -- cc
+C
+C                   <870531.1526>
+C...........THE SUBROUTINE IS ENTERED WITH THE FOLLOWING ARGUMENTS
+C
+C           SPEC- N CHANNELS OF COUNTS FROM THE 1D OR 2D PROBE
+C*****************NOTE, MAKE SURE SPEC IS DIMENSIONED TO NCHN **************
+C*****************IN CALLING ROUTINE                        **************
+C           CONC- CORRECTED CONCENTRATIONS IN EACH SIZE BIN IN UNITS OF #/l
+C           TAS - THE TRUE AIR SPEED (M/S)
+C           T   - THE SAMPLE TIME    (SECONDS)
+C           RES - THE SIZE RESOLUTION OF THE PROBE IN UM
+C           IPRB- PROBE FLAG,  = 1 FOR 1D-C PROBE, 2 FOR 2D-C PROBE
+C                               -1 FOR 1D-P PROBE, -2 FOR 2D-P PROBE
+C           ndiod- # OF DIODES IN PROBE ARRAY
+C           NCHN - # OF size channels to compute
+C
+	common/stats/svol
+      DIMENSION SVOL(64),SPEC(1),CONC(1)
+C...........THIS IS THE ASSUMED RESPONSE TIME OF THE OAP PROBES IN US
+      DATA TAUR/0.80/
+C..........FIRST SHIFT ALL DATA TO ONE SIZE CHANNEL HIGHER SINCE ALL THE
+C..........OAP PROBES UNDERSIZE BY AT LEAST ONE CHANNEL DUE TO DIGITIZATION
+C..........ERRORS AT AIRSPEEDS GREATER THAN ABOUT 50 M/S.
+C       write(6,8943)(spec(j),j=1,nchn)
+      DO 10 I=nchn,2,-1
+      SPEC(I)=SPEC(I-1)
+10    CONTINUE
+      SPEC(1)=0.0
+C..............CALCULATE THE CHANNEL BY CHANNEL SAMPLE VOLUMES, ADJUSTING
+C..............FOR THE DECREASING DEPTH OF FIELD WITH AIRSPEED
+      DO 200 I=1,NCHN
+      RADIUS=I*RES/2000.
+C.............multiply by the magnification factor
+	rad=radius*200./res
+C..............diminish this radius by an amount that accounts for the fact that
+C..............the particle is not on the diode array 100% of the time 50%
+C..............shadowed. This amount is approximately one diode array width
+C..............wide.
+	rad=rad-.35
+C..............If this value is less or equal to zero, any counts in this
+C..............channel should be discounted since they either come from
+C..............higher channels or they have to be noise since they cannot
+C.............theoretically occur due to airspeed restrictions.
+	if (rad.le.0.0)then
+		spec(i) = 0
+		goto 200
+	else
+	end if
+      TIMEX=(RAD*2.0)/(TAS*1000.)
+      TIMEX=TIMEX*1.0E6
+C..........THIS IS THE FRACTION OF TOTAL AMPLITUDE CAUSED BY RESPONSE TIME
+      FRAC=1.0-EXP(-TIMEX/TAUR)
+C.........HAVE TO MEET 70% OCCULTATION FOR THE 1D
+      FRC=.7/FRAC
+C.........50% FOR THE 2D
+      IF (ABS(IPRB).EQ.2)FRC=.5/FRAC
+      IF (FRC.GT.1.0)FRC=1.0
+C................CAUTIONARY NOTE TO USERS OF THIS SUBROUTINE, THIS RELATIONSHIP
+C................BETWEEN DOF AND Z WAS DERIVED FROM LABORATORY STUDIES WHICH
+C...............ARE SOMEWHAT PRELIMINARY IN NATURE AND NEED ADDITIONAL
+C...............VERIFICATION
+      F=FRC*100.
+      Z=30.46-.628*F+.003246*F*F
+      DOF=1580.*Z*RADIUS*RADIUS
+	if (res.lt.100.)then
+		if (dof.gt.61)dof=61.
+	else
+		if (dof.gt.263.)dof=263
+	end if
+      IF (FRC.EQ.1.0)DOF=0.0
+C..........ADJUST FOR DECREASING ARRAY WIDTH IF A 1D
+C..........OR INCREASING WIDTH FOR A 2D
+      IF (ABS(IPRB).EQ.2)then
+		sa=RES*ndiod*1.0E-3+2.0*RADIUS
+	else
+      		sa=RES*1.0E-3*(ndiod-1-I)
+	end if
+      SVOL(I)=dof*Sa
+	if (svol(i).lt.0.0)svol(i)=0.0
+200   CONTINUE
+C      	write(6,8943)(spec(j),j=1,nchn)
+8943	format(15f8.0)
+      DO 310 I=1,NCHN
+      IF (SVOL(I).GT.0.0)CNC=SPEC(I)*1000./(T*tas*SVOL(I))
+      IF (SVOL(I).LE.0.0)CNC=0.0
+      CONC(I)=CNC
+310   CONTINUE
+C write(6,8944)(svol(j),j=1,nchn)
+8944	format(15f8.3)
+      RETURN
+      END

@@ -1,0 +1,24 @@
+#! /bin/csh -f
+#
+nrnet msput /home/local/data/886RF02.cdf l df=tr r flnm=/RAF/1993/886/LRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Sequence number = CK0526  OK
+#
+nrnet msput /home/local/data/886RF03.cdf l df=tr r flnm=/RAF/1993/886/LRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Sequence number = CK0531  OK
+#
+nrnet msput /home/local/data/886RF04.cdf l df=tr r flnm=/RAF/1993/886/LRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Sequence number = CK0538  OK
+#
+nrnet msput /home/local/data/886RF05.cdf l df=tr r flnm=/RAF/1993/886/LRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Sequence number = CK0545  OK
+#
+nrnet msput /home/local/data/886RF06.cdf l df=tr r flnm=/RAF/1993/886/LRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Sequence number = CK0552  OK
+#
+nrnet msput /home/local/data/886RF07.cdf l df=tr r flnm=/RAF/1993/886/LRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Sequence number = CK0559  OK
+#
+nrnet msput /home/local/data/886RF08.cdf l df=tr r flnm=/RAF/1993/886/LRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Sequence number = CK0566  OK
+#
+exit

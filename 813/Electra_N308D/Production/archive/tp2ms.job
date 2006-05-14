@@ -1,0 +1,176 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1998-812 Lake-ICE (Young, Verlinde)
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+#set RECS   = ( "nfile=1" )
+#set RECS   = ( "nrec=16000" )
+#set SKIPS  = ( "skpr=0" )
+#set SKIPS  = ( "skpr=16000" )
+#set SKIPS = ( "skpr=32000" )
+#
+#  1st set, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS = ( "nfile=1" )
+#set TAPES = ( \
+#R1189 \
+#R1190 \
+#R1191 \
+#R1192 \
+#R1193 \
+#R1194 \
+#R1195 \
+#R1196 \
+#R1197 \
+#R1199 \
+#R1200 \
+#R1201 \
+#)
+#set FLIGHTS = (  \
+#TF01 \
+#TF02 \
+#TF03 \
+#TF04 \
+#FF01 \
+#RF01A \
+#RF01B \
+#RF02 \
+#RF03 \
+#TF05 \
+#RF05A \
+#RF05B \
+#)
+#
+#  2nd set, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS = ( "nfile=1" )
+#set TAPES = ( \
+#R1198 \
+#)
+#set FLIGHTS = (  \
+#RF04 \
+#)
+#
+#  3nd set, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS = ( "nfile=1" )
+#set TAPES = ( \
+#R1202 \
+#R1203 \
+#R1204 \
+#R1205 \
+#R1206 \
+#R1207 \
+#R1208 \
+#)
+#set FLIGHTS = (  \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#)
+#
+#  4th set, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS = ( "nfile=1" )
+#set TAPES = ( \
+#R1209 \
+#)
+#set FLIGHTS = (  \
+#FF02 \
+#)
+#
+#
+#  5th set, 1st try
+set SKIPS = ( "skpr=0" )
+set RECS = ( "nfile=1" )
+set TAPES = ( \
+R1210 \
+)
+set FLIGHTS = (  \
+RF13 \
+)
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $SKIP $REC \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st try
+#  Jobs submitted on Tue Jan  6 14:36:57 MST 1998
+# Sequence number = MI9259 -- TF01/R1189 -- OK @ 06 Jan 98 14:57:49
+# Sequence number = MI9266 -- TF02/R1190 -- OK @ 06 Jan 98 14:48:31
+# Sequence number = MI9273 -- TF03/R1191 -- OK @ 06 Jan 98 15:13:02
+# Sequence number = MI9280 -- TF04/R1192 -- OK @ 06 Jan 98 15:20:31
+# Sequence number = MI9287 -- FF01/R1193 -- OK @ 06 Jan 98 16:04:05
+# Sequence number = MI9294 -- RF01A/R1194 -- OK @ 06 Jan 98 16:09:15
+# Sequence number = MI9301 -- RF01B/R1195 -- OK @ 06 Jan 98 16:30:33
+# Sequence number = MI9308 -- RF02/R1196 -- OK @ 06 Jan 98 16:55:37
+# Sequence number = MI9315 -- RF03/R1197 -- OK @ 06 Jan 98 18:06:30
+# Sequence number = MI9322 -- TF05/R1199 -- OK @ 06 Jan 98 15:38:38
+# Sequence number = MI9330 -- RF05A/R1200 -- OK @ 06 Jan 98 15:45:35
+# Sequence number = MI9357 -- RF05B/R1201 -- OK @ 06 Jan 98 15:52:42
+#
+#  2nd set, 1st try
+#  Job submitted on Thu Jan  8 10:19:52 MST 1998
+# Sequence number = MI3794 -- RF04/R1198 -- OK @ 08 Jan 98 10:30:51
+#
+#  3rd set, 1st try
+#  Jobs submitted on Tue Jan 27 14:51:42 MST 1998
+# Sequence number = MI4701 -- RF06/R1202 -- OK @ 27 Jan 98 15:49:25
+# Sequence number = MI4708 -- RF07/R1203 -- OK @ 27 Jan 98 15:10:45
+# Sequence number = MI4715 -- RF08/R1204 -- OK @ 27 Jan 98 16:06:23
+# Sequence number = MI4722 -- RF09/R1205 -- OK @ 27 Jan 98 16:33:02
+# Sequence number = MI4729 -- RF10/R1206 -- OK @ 27 Jan 98 18:16:06
+# Sequence number = MI4736 -- RF11/R1207 -- OK @ 27 Jan 98 17:08:41
+# Sequence number = MI4743 -- RF12/R1208 -- OK @ 27 Jan 98 18:04:22
+#
+#  4th set, 1st try
+#  Job submitted on Thu Jan 29 10:50:36 MST 1998
+# Sequence number = MI5755 -- FF02/R1209 -- OK @ 29 Jan 98 11:06:49
+#
+#  5th set, 1st try
+#  Job submitted on Fri Jan 30 11:54:22 MST 1998
+# Sequence number = MI6002 -- RF13/R1210 -- OK @ 30 Jan 98 12:02:20
+#

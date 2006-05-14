@@ -1,0 +1,122 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file $LOCAL/proj/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+#
+tar chlvf $OFILE \
+812.vd \
+Categories \
+Defaults \
+DependTable \
+LowRateVars \
+PMSspecs \
+ProjectName \
+UserNames \
+VarDB \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+def.vd \
+despike \
+header \
+lags \
+landmarks \
+ophir3.names \
+plot_attr \
+plotspex \
+proj_setup_done \
+regions \
+Production/812rf01.hdr \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_12 \
+Production/Flight_13 \
+Production/Flight_2 \
+Production/Flight_3 \
+Production/Flight_5 \
+Production/Flight_6 \
+Production/Flight_7 \
+Production/Flight_8 \
+Production/Flight_9 \
+Production/MSCP_out.812 \
+Production/Mail.812 \
+Production/arch.812 \
+Production/arch_support.812 \
+Production/logFile_HRT.1 \
+Production/logFile_HRT.10 \
+Production/logFile_HRT.2 \
+Production/logFile_HRT.5 \
+Production/logFile_HRT.7 \
+Production/logFile_HRT.8 \
+Production/logFile_HRT.9 \
+Production/logFile_LRT.1 \
+Production/logFile_LRT.10 \
+Production/logFile_LRT.11 \
+Production/logFile_LRT.12 \
+Production/logFile_LRT.13 \
+Production/logFile_LRT.2 \
+Production/logFile_LRT.3 \
+Production/logFile_LRT.4 \
+Production/logFile_LRT.5 \
+Production/logFile_LRT.6 \
+Production/logFile_LRT.7 \
+Production/logFile_LRT.8 \
+Production/logFile_LRT.9 \
+Production/nimbus.tar.dir \
+Production/nimbus_defaults.tar.dir \
+Production/proj.info \
+Production/taplog.812 \
+Production/tarit.812 \
+Production/tp2ms.summary \
+Production/archive/tapes.812 \
+Production/archive/tp2ms.job
+#
+#  Brief summary for standard project files
+# !!ls ..
+#      (project's directory)
+# !!ls
+#      (Production subdirectory)
+# !!ls archive
+#      (Production/archive subdirectory)
+#   filter out undesired files
+#   prepend appropriate subdirectory to affected file names
+#   Add backslash at end of each line (except last)
+#   Save and exit
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

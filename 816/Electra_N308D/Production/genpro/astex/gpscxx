@@ -1,0 +1,96 @@
+# QSUB -eo
+# q-class (premium-prem, regular-reg, economy-econ)
+# QSUB -q reg
+# use c-shell
+# QSUB -s /bin/csh
+# set time limit
+# QSUB -lt 200
+# QSUB -lT 250
+# set memory limit
+# QSUB -lM 1Mw
+#
+#  Script to run a GPS correction job on a GENPRO data set
+#    Written by Dick Oye                                      ~ April 1992
+#    Extensively revised by Ron Ruth to make it general and 
+#     to add error checking                                  21 April 1992
+#    Revision 920422
+#
+#
+#  WARNING:  Don't change format of next line!  It's used by sed.
+#  Merge specific flight's include file here.
+#
+#
+#  Change to $TMPDIR
+cd ${TMPDIR}
+#
+# Set account number for processing
+newacct $ACCT
+#
+# Start up the job account process
+ja jacct
+#
+# Set flight specification
+set FLIGHT = $FLTNO$SEG
+#
+echo Log file for GPS correction, project $PROJECT, flight $FLIGHT >! outlog
+#
+# Get the input-control-string file put it in "input.txt"
+rcp $USER@$HOST.$DOMAIN":"$SOURCE/$GDAT input.txt
+#
+# The program expects to use FORTRAN unit 11 as genpro input
+msread -f TR fort.11 /RAF/$YEAR/$PROJECT/OLD$TURBRT/$FLIGHT
+set result = $status
+if ($result != 0) then
+  echo Error $result acquiring /RAF/$YEAR/$PROJECT/OLD$TURBRT/$FLIGHT data from MSS >> outlog
+  goto done
+endif
+#
+#  Get the executable
+msread -f TR fix_winds.exe /FOFASG/UNICOS/fix_winds.exe
+set result = $status
+if ($result != 0) then
+  echo Error $result acquiring fix_winds.exe file from MSS >> outlog
+  goto done
+endif
+chmod +x fix_winds.exe
+#
+#  Run the program
+pshell fix_winds.exe >> outlog
+#
+ls -l >> outlog
+#
+# fort.12 is the "corrected" GENPRO dataset
+if ( -e fort.12 ) then
+  mswrite -fTR -t4095 -vCTRAFDMG -wRAFDMG fort.12 /RAF/$YEAR/$PROJECT/$TURBRT/$FLIGHT
+  if ($result != 0) then
+    echo Error $result writing /RAF/$YEAR/$PROJECT/$TURBRT/$FLIGHT to MSS >> outlog
+    goto done
+  endif
+endif
+#
+# Log file to host
+#  Use netng to return files within NQS batch job (only if submitted via MIGS)
+if (-e outlog) then
+  netng FLNM=outlog DF=bi df=bi flnm=logps$FLIGHT.$PROJECT
+  set result = $status
+  if ($result != 0) then
+    rcp outlog $USER@$HOST.$DOMAIN":"$SOURCE/logps$FLIGHT.$PROJECT
+    set result = $status
+    if ($result != 0) then
+      echo  Could not send log file back to $USER at $HOST
+      echo  Will try to send log file to MSS instead
+      echo  Log file name on MSS will be:  /RAF/$YEAR/$PROJECT/$TURBRT/LOGPSFILE/$FLIGHT
+      mswrite -vCTRAFDMG -wRAFDMG outlog /RAF/$YEAR/$PROJECT/$TURBRT/LOGPSFILE/$FLIGHT
+      set result = $status
+      if ($result != 0) then
+        echo Error $result sending log file to MSS
+      endif
+    endif
+  endif
+endif
+#
+done:
+# Get batch job information
+qstat -f $QSUB_REQID
+# End the job accounting process
+ja -cst jacct

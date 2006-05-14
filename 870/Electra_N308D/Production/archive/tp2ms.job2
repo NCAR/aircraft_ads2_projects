@@ -1,0 +1,81 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-870 WISP94 (Rasmussen, et. al.)
+#   Second wave -- mop-up operations
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 870
+#
+#set STAGE = "nfile=1"
+#  Set new size now that the MSS can stash 400Mbytes at a time
+#set STAGE = "nrec=13000"
+#set STAGE = "skpr=13000 nrec=13000"
+#set STAGE = "skpr=26000 nrec=13000"
+# 
+# 
+#set STAGE = "nrec=1285"
+#set TAPELIST = ( R0782 )
+#set FLIGHTS =  ( RF02  )
+#
+#  Job submitted on Thu Apr 21 10:11:07 MDT 1994
+#  Sequence number = CK2581 -- /RAF/1994/870/RF02/R0782 -- OK
+# 
+# 
+#set STAGE = "nrec=13000"
+#set TAPELIST = ( R0810 )
+#set FLIGHTS =  ( RF30A )
+#
+#  Job submitted on Fri Apr 22 16:03:47 MDT 1994
+#  Sequence number = CK3251 -- /RAF/1994/870/RF30A/R0810 -- Failed (> 400 Mb)
+# 
+# 
+#set STAGE = "nrec=10000"
+#set TAPELIST = ( R0810 )
+#set FLIGHTS =  ( RF30A )
+#
+#  Job submitted on Fri Apr 22 17:53:53 MDT 1994
+#  Sequence number = CK4946 -- /RAF/1994/870/RF30A/R0810 -- OK
+# 
+# 
+#set STAGE = "skpr=10000 nrec=2142"
+#set TAPELIST = ( R0810 )
+#set FLIGHTS =  ( RF30B )
+#
+#  Job submitted on Mon Apr 25 17:36:11 MDT 1994
+#  Sequence number = CK3959 -- /RAF/1994/870/RF30B/R0810 -- 
+#
+#
+#  Rename files (final step)
+nrnet msmv % r flnm=/RAF/1994/870/RF49/R0820 npdn=/RAF/1994/870/RF39/R0820 w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/870/RF50/R0821 npdn=/RAF/1994/870/RF40/R0821 w=RAFDMG
+#
+#  Jobs submitted on Mon Apr 25 17:40:09 MDT 1994
+#  Sequence number = CK3971 -- RF39/R0820 -- Failed (write password ignored)
+#  Sequence number = CK3976 -- RF40/R0821 -- Failed (write password ignored)
+#
+#  Jobs submitted on Mon Apr 25 17:42:43 MDT 1994
+#  Sequence number = CK3989 -- RF39/R0820 -- OK
+#  Sequence number = CK3994 -- RF40/R0821 -- OK
+#
+#
+exit
+#
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

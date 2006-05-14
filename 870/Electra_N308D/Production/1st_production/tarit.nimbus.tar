@@ -1,0 +1,7 @@
+#! /bin/csh -f
+#
+#   Save present version of the NIMBUS processor for 4-870 WISP 94
+#
+cd /home/local
+tar chlvf /home/local/proj/870/Production/nimbus.tar nimbus
+exit

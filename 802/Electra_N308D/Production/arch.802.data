@@ -1,0 +1,47 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1988-802 ACLAIM (Bogue) (Rod Bogue)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Thu Aug 20 15:20:12 MDT 1998
+#
+date
+#
+set YEAR = 1998
+set PROJ = 802
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+#  netCDF data
+# echo nrnet msput $SDIR/802rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/802rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/802rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/802rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/802rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#  ASCII data
+nrnet msput $SDIR/802rf01.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/802rf02.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/802rf03.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/802rf04.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/802rf05.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  netCDF data
+#  Job(s) submitted on Fri Aug 21 14:37:43 MDT 1998
+# Sequence number = MI3512 -- LRT/RF01.cdf -- OK @ 21 Aug 1998 14:39:08
+# Sequence number = MI3519 -- LRT/RF02.cdf -- OK @ 21 Aug 1998 14:38:53
+# Sequence number = MI3528 -- LRT/RF03.cdf -- OK @ 21 Aug 1998 14:38:37
+# Sequence number = MI3537 -- LRT/RF04.cdf -- OK @ 21 Aug 1998 14:39:00
+# Sequence number = MI3546 -- LRT/RF05.cdf -- OK @ 21 Aug 1998 14:42:52
+#
+#  ASCII data
+#  Job(s) submitted on Mon Aug 24 17:20:44 MDT 1998
+# Sequence number = MI0978 -- LRT/RF01.asc -- OK @ 24 Aug 1998 17:21:07
+# Sequence number = MI0985 -- LRT/RF02.asc -- OK @ 24 Aug 1998 17:21:14
+# Sequence number = MI0994 -- LRT/RF03.asc -- OK @ 24 Aug 1998 17:21:12
+# Sequence number = MI1003 -- LRT/RF04.asc -- OK @ 24 Aug 1998 17:21:19
+# Sequence number = MI1012 -- LRT/RF05.asc -- OK @ 24 Aug 1998 17:42:01
+#

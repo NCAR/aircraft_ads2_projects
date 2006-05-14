@@ -1,0 +1,63 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-818 Boreas (Lenschow, et al.)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 818
+set STAGE = "nfile=1"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+#  First set, first try
+#set TAPELIST = ( R0284 R0832 R0833 R0834 R0837 R0838 R0839 R0840 R0841 R0842 \
+#                 R0843 R0844 R0845 R0846 )
+#set FLIGHTS =  ( FF01  FF02  RF01  RF02  RF03  RF04  RF05  RF06  TF05  RF07  \
+#                 TF06  RF08  FF03A FF03B )
+#
+#  Jobs submitted on Wed Jul 20 16:49:16 MDT 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK5421  --  /RAF/1994/818/FF01/R0284   -- OK
+# Sequence number = CK5430  --  /RAF/1994/818/FF02/R0832   -- OK
+# Sequence number = CK5443  --  /RAF/1994/818/RF01/R0833   -- OK
+# Sequence number = CK5452  --  /RAF/1994/818/RF02/R0834   -- OK
+# Sequence number = CK5463  --  /RAF/1994/818/RF03/R0837   -- OK
+# Sequence number = CK5474  --  /RAF/1994/818/RF04/R0838   -- OK
+# Sequence number = CK5485  --  /RAF/1994/818/RF05/R0839   -- OK
+# Sequence number = CK5496  --  /RAF/1994/818/RF06/R0840   -- OK
+# Sequence number = CK5507  --  /RAF/1994/818/TF05/R0841   -- OK
+# Sequence number = CK5518  --  /RAF/1994/818/RF07/R0842   -- OK
+# Sequence number = CK5529  --  /RAF/1994/818/TF06/R0843   -- OK
+# Sequence number = CK5540  --  /RAF/1994/818/RF08/R0844   -- OK
+# Sequence number = CK5551  --  /RAF/1994/818/FF03A/R0845  -- OK
+# Sequence number = CK5563  --  /RAF/1994/818/FF03B/R0846  -- Failed (hung)
+#
+#
+#  First set, second try
+set TAPELIST = ( R0846 )
+set FLIGHTS =  ( FF03B )
+#
+#  Job submitted on Fri Jul 22 10:17:18 MDT 1994
+# Sequence number = CK5790  --  /RAF/1994/818/FF03B/R0846  -- 
+#
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

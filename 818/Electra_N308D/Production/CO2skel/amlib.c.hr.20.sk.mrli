@@ -1,0 +1,265 @@
+/*  Cut and Paste the next line.
+:set tabstop=4
+-------------------------------------------------------------------------
+OBJECT NAME:	amlib.c
+
+FULL NAME:	
+
+ENTRY POINTS:	SetComputeFunctions()
+				sadifr()
+				slatc()
+				sxnoym()
+
+STATIC FNS:		none
+
+DESCRIPTION:	Template for AMLIB std & user directories.
+
+INPUT:			
+
+OUTPUT:			
+
+REFERENCES:		none
+
+REFERENCED BY:	compute.c
+
+COPYRIGHT:		University Corporation for Atmospheric Research, 1993,1994
+-------------------------------------------------------------------------
+*/
+
+#include "define.h"
+#include <math.h>
+
+
+/* Step 4: To appease the compiler, place all AMLIB function names here.
+ * By convention, AMLIB functions start with the letter 's'.  These should
+ * be the same names you used in steps 2 & 3.
+ */
+void	sco(), scmode(), scocal(), scozro(), scocor(), sxco2c();
+
+
+/* Step 1: List variables to pass through unaltered by default.  HOUR,
+ * MINUTE & SECOND are mandatory.  NULL must be last.
+ */
+char	*passThrough[] = 
+	{
+	"HOUR",
+	"MINUTE",
+	"SECOND",
+	"XCO2P",
+ 	"XCO2T",
+ 	"XCO2S",
+ 	"XLH2OC",
+ 	NULL
+	};
+
+
+/* Step 2: New variables get added here.  Also add existing variables that
+ * you would like to enter additional processing for.  Remove the examples
+ * given below, leaving the "NULL, NULL" line in.  Make sure to leave off
+ * the parentheses.
+ */ DERVAR	derivftns[] = {
+	"XCO2C",	sxco2c, 
+	"CO",		sco, 
+	"CMODE",	scmode, 
+	"COCAL",	scocal, 
+	"COZRO",	scozro, 
+	"COCOR",	scocor, 
+	NULL,		NULL
+	};
+
+
+/* Step 3: Create AMLIB functions here.  Use these examples as templates.
+ * First example is one of modifying an existing variable (ADIFR).  The
+ * second example is of a new variable, using 2 existing inputs.  The third
+ * example is more complex, using high-rate data.  You want one function
+ * for each variable output, do NOT have one function outputting several
+ * variables.  However you may use the same function for multiple variables.
+ * Each of these functions will be called once per second of data, so if
+ * you are dealing with high-rate data or vector data, make sure you handle
+ * all the samples for a given second.
+ */
+
+static long	start[3] = {0, 0, 0};
+static long	count[3] = {0, 0, 0};
+static long	mindex[3] = {0, 0, 0};
+/* -------------------------------------------------------------------- */
+void sco(varp)
+VARTBL	*varp;		/* Information about current variable	*/
+{
+	NR_TYPE	co;
+
+	/* Get current value of CO.
+	 */
+	mindex[0] = CurrentInputRecordNumber;
+	ncvarget1(InputFile, varp->inVarID, mindex, (void *)&co);
+
+	co = -9999;
+
+	/* Write out new CO
+	 */
+        mindex[0] = CurrentOutputRecordNumber;
+        ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&co);
+
+}	/* END SCO */
+
+/* -------------------------------------------------------------------- */
+void scmode(varp)
+VARTBL	*varp;		/* Information about current variable	*/
+{
+	NR_TYPE	cmode;
+
+	/* Get current value of CMODE.
+	 */
+	mindex[0] = CurrentInputRecordNumber;
+	ncvarget1(InputFile, varp->inVarID, mindex, (void *)&cmode);
+
+	cmode = -9999;
+
+	/* Write out new CMODE
+	 */
+        mindex[0] = CurrentOutputRecordNumber;
+        ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&cmode);
+
+}	/* END SCMODE */
+
+/* -------------------------------------------------------------------- */
+void scocal(varp)
+VARTBL	*varp;		/* Information about current variable	*/
+{
+	NR_TYPE	cocal;
+	int		i;
+
+	/* Get current value of COCAL.
+	 */
+	mindex[0] = CurrentInputRecordNumber;
+	ncvarget1(InputFile, varp->inVarID, mindex, (void *)&cocal);
+
+		cocal = -9999;
+
+	/* Write out new COCAL
+	 */
+        mindex[0] = CurrentOutputRecordNumber;
+	ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&cocal);
+
+}	/* END SCOCAL */
+
+/* -------------------------------------------------------------------- */
+void scozro(varp)
+VARTBL	*varp;		/* Information about current variable	*/
+{
+	NR_TYPE	cozro;
+
+	/* Get current value of COZRO.
+	 */
+	mindex[0] = CurrentInputRecordNumber;
+	ncvarget1(InputFile, varp->inVarID, mindex, (void *)&cozro);
+
+	cozro = -9999;
+
+	/* Write out new COZRO
+	 */
+	mindex[0] = CurrentOutputRecordNumber;
+        ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&cozro);
+
+}	/* END SCOZRO */
+
+/* -------------------------------------------------------------------- */
+void scocor(varp)
+VARTBL	*varp;		/* Information about current variable	*/
+{
+	NR_TYPE	cocor;
+
+	/* Get current value of COCOR.
+	 */
+	mindex[0] = CurrentInputRecordNumber;
+	ncvarget1(InputFile, varp->inVarID, mindex, (void *)&cocor);
+
+	cocor = -9999;
+
+	/* Write out new COCOR
+	 */
+        mindex[0] = CurrentOutputRecordNumber;
+        ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&cocor);
+
+}	/* END SCOCOR */
+
+/* -------------------------------------------------------------------- */
+void sxco2c(varp)
+VARTBL	*varp;		/* Information about current variable	*/
+{
+	int		i;
+	NR_TYPE	xco2c[25], hour, minute, second;  
+	float	driftrate, time, w[25], x[25];
+	NR_TYPE	xco2p[25], xco2s[25], xco2t[25], xlh2oc[25];
+
+	static bool	first_time = TRUE;
+	static int	inVarID[8];
+
+	if (first_time)
+		{
+		/* Obtain ID's of input variables.
+		 */
+		inVarID[0] = ncvarid(InputFile, "XCO2C");
+		inVarID[1] = ncvarid(InputFile, "HOUR"); 
+		inVarID[2] = ncvarid(InputFile, "MINUTE"); 
+		inVarID[3] = ncvarid(InputFile, "SECOND"); 
+		inVarID[4] = ncvarid(InputFile, "XCO2P");
+		inVarID[5] = ncvarid(InputFile, "XCO2T");
+		inVarID[6] = ncvarid(InputFile, "XCO2S");
+		inVarID[7] = ncvarid(InputFile, "XLH2OC");
+		first_time = FALSE;
+		}
+
+
+/* Example to get 50 samples of 1hz data
+ *
+ *	start[0] = CurrentInputRecordNumber - 25,	start[1] = start[2] = 0;
+ *	count[0] = 1, count[1] = 25,	count[2] = 0;
+ */
+
+	/* Example to get 50 samples of 50hz data */
+
+	start[0] = mindex[0] = CurrentInputRecordNumber;
+	start[1] = start[2] = 0;
+	count[0] = 1, count[1] = 25,	count[2] = 0;
+
+	/* Get current values of inputs.  */
+	ncvarget1(InputFile, inVarID[1], mindex, (void *)&hour);
+	ncvarget1(InputFile, inVarID[2], mindex, (void *)&minute);
+	ncvarget1(InputFile, inVarID[3], mindex, (void *)&second);
+	ncvarget(InputFile, inVarID[4], start, count, (void *)xco2p);
+	ncvarget(InputFile, inVarID[5], start, count, (void *)xco2t);
+	ncvarget(InputFile, inVarID[6], start, count, (void *)xco2s);
+	ncvarget(InputFile, inVarID[7], start, count, (void *)xlh2oc);
+
+
+	for (i = 0; i < 25; ++i)
+		{
+	time = hour*60 + (second + ((float)i/25))/60 + minute - 930;
+        w[i] = (xlh2oc[i] -29*3/(18-0.011*3))/1000;
+        x[i] = (xco2s[i]);
+xco2c[i]=x[i]*(146.08+x[i]*(11.167+x[i]*(6.7154+x[i]*(-0.89997+x[i]*.059722))));
+xco2c[i] = xco2c[i]/(1-w[i])*pow(1013/xco2p[i],1.3)*(273.15+xco2t[i])/309.05;
+xco2c[i] = xco2c[i]*(1.5007-0.00044*time)-(0.020868+0.005395*time);
+		}
+
+	start[0] = CurrentOutputRecordNumber;
+	count[0] = 1, count[1] = 25,	count[2] = 0;
+	ncvarput(OutputFile, varp->outVarID, start, count, (void *)&xco2c);
+
+}	/* END SXco2c */
+
+/* -------------------------------------------------------------------- */
+/* Leave this function alone.
+ */
+void SetComputeFunctions()
+{
+	register int	i, indx;
+
+	for (i = 0; derivftns[i].Compute; ++i)
+		if ((indx = SearchTable(Variable,nVariables,derivftns[i].Name)) != ERR)
+			Variable[indx]->Compute = derivftns[i].Compute;
+
+}	/* END SETCOMPUTEFUNCTIONS */
+
+/* END AMLIB.C */

@@ -1,0 +1,182 @@
+C **********************************************************************        
+C                                                                               
+C UNICOS MODS: PWRT CALLS REPLACED  (7/90 -CC)
+C
+.SAVE CALCOM                                                                    
+      INTEGER CONSN                                                             
+      COMMON/CAL/NAMVAR,IPSOU(9),LDO,INDPUT,INDGET,LRATE,LRTSOU(9),             
+     1           CONS1,CONSN,CONVERT                                            
+.END                                                                            
+.SAVE LINPR                                                                     
+       NLIN=50                                                                  
+       IY= IY - 15                                                              
+       IXK = IXK + 1                                                            
+       IF(IXK.EQ.NLIN)                                                          
+        CALL FRAME                                                              
+        IY= 1000                                                                
+        IXK=0                                                                   
+       END IF                                                                   
+.END                                                                            
+.SAVE D99999                                                                    
+        INDPUT=INDPUT -1                                                        
+        DO(I=1,LDO)                                                             
+          DATA(INDPUT+I)= 99999.                                                
+        END DO                                                                  
+.END                                                                            
+.SAVE FTFHERR                                                                   
+      COMMON/PWRITE/ARAY(20),IY,IXK                                             
+C                                                                               
+C TFHERR = FUNCTION TO COMPUTE DEICED ROSEMOUNT TOTAL TEMPERATURE               
+C ERROR (C) AS A FUNCTION OF Z,WHERE Z IS MACH NUMBER ADJUSTED                  
+C BY DENSITY RATIO (STP DRY AIR REFERENCE)                                      
+C     TFHERR(Z) = ((-.382943*Z+23.603347)*Z-14.912448)*Z+2.454213               
+C MODEL 102U SN 27581 SINGLE ELEMENT -- SABRELINER ONLY (7JUN1985)              
+C                                                                               
+C  THE FOLLOWING CORRECTION IS APPLICABLE ONLY TO SENSOR MODEL 102DBICB,        
+C  SN 34260, DUAL ELEMENT.  THE VALUE OF THE FUNCTION BECOMES CONSTANT          
+C  AT Z=0.275, ROUGHLY QUEEN AIR MAXIMUM Z VALUES.  FUNCTION DERIVED            
+C  FROM MEAN DATA FOUND ON PAGES 17-18 OF ROESMOUNT TOTAL TEMPERATURE           
+C  SENSORS TECHNICAL REPORT 5755 BY STICKNEY, SHEDLOV AND THOMPSON, MAY         
+C  1975.                                                                        
+C  THIS IS A DUAL ELEMENT SENSOR.                                               
+C  THE FOLLOWING TEST IS GOOD FOR BOTH QUEEN AIR AND KING AIR AS PER            
+C  KEITH GRIFFITH AND DICK FRIESEN OF RAF, ATD, NCAR ON FEB. 21, 1984           
+C  NEW CORRECTION - 5JUN1985 K. GRIFFITH MEMO                                   
+C     IF(Z.GE. 0.3) TFHERR(Z)=0.3                                               
+C                                                                               
+E     TFHERR(Z) = 10.0**(-1.7841*(ALOG10(Z))-1.4025)                            
+F     TFHERR(Z) = 10.0**(-1.7841*(ALOG10(Z))-1.4025)                            
+Q     TFHERR(Z) = 10.0**(-1.7841*(ALOG10(Z))-1.4025)                            
+S     TFHERR(Z) = 10.0**(-1.7244*(ALOG10(Z))-1.5989)                            
+.END                                                                            
+.SAVE ZLOG                                                                      
+        IF(ZEE .LT. 0.1) ZEE = 0.99                                             
+        ZFUN = TFHERR(ZEE)                                                      
+.END                                                                            
+.SAVE WTFHERR                                                                   
+      IF(NSTAGE.EQ.4)                                                           
+        WRITE(KPROC,203) NAMVAR                                                 
+        WRITE(KPRINT,203) NAMVAR                                                
+  203   FORMAT(' CALIB: ',A8,' USES TFHERR FUNCTION -- ',                       
+E    1' TFHERR(Z) = 10.0**(-1.7841*(ALOG10(Z))-1.4025)    ')                    
+F    1' TFHERR(Z) = 10.0**(-1.7841*(ALOG10(Z))-1.4025)    ')                    
+Q    1' TFHERR(Z) = 10.0**(-1.7841*(ALOG10(Z))-1.4025)    ')                    
+S    1' TFHERR(Z) =  10.0**(-1.7244*(ALOG10(Z))-1.5989)   07MAY1985 ')          
+        ENCODE(102,203,ARAY) NAMVAR                                             
+        CALL PWRIT(CPUX(10),CPUY(IY),ARAY,102,0,0,-1)                           
+        IY = IY -15                                                             
+        IXK = IXK + 1                                                           
+        IF(IXK.EQ.NLIN)                                                         
+         CALL FRAME                                                             
+         IY= 1000                                                               
+         IXK=0                                                                  
+        END IF                                                                  
+      END IF                                                                    
+.END                                                                            
+.SAVE FRECFRN                                                                   
+      COMMON/PWRITE/ARAY(20),IY,IXK                                             
+C   RECFRN = RECOVERY FACTOR FOR NEW REVERSE FLOW TEMP - 1982 (BY KEITH G.)     
+C     RECFRN(Q) = 0.8571395945 -.004064675726 *Q                                
+C** RECOVERY FACTORS RECOMPUTED FOR REVERSE FLOW PROBE MOUNTED ON L.H.          
+C   PYLON - FROM 12/17/86 TOWER FLY-BY - ED BROWN (FEB 24,1987)                 
+      RECFRN(Q) = 0.8744 - .002003*Q                                            
+.END                                                                            
+.SAVE WRECFRN                                                                   
+      IF(NSTAGE.EQ.4 .AND. IX.EQ.1)                                             
+        WRITE(KPROC,203) NAMVAR                                                 
+  203 FORMAT(' CALIB: ',A8,' USES RECOVERY FACTOR FUNCTION -- ',                
+     1' RECFRN(Q)=.8744-.002003*Q           24FEB1987 ')                        
+C    1' RECFRN(Q) = .8571395945 - .004064675726 * Q   ')                        
+        ENCODE(97,203,ARAY) NAMVAR                                              
+        IY = IY-5                                                               
+        CALL PWRIT(CPUX(10),CPUY(IY),ARAY,97,0,0,-1)                           
+         IY= IY - 15                                                            
+         IXK = IXK + 1                                                          
+         IF(IXK.EQ.NLIN)                                                        
+          CALL FRAME                                                            
+          IY= 1000                                                              
+          IXK=0                                                                 
+         END IF                                                                 
+      END IF                                                                    
+.END                                                                            
+.SAVE FHSSATK                                                                   
+      COMMON/PWRITE/ARAY(20),IY,IXK                                             
+C** HSSATK = FIXED VANE CALIBRATION FUNCTION IN DEGREES, WHERE F IS             
+C   IN GRAMS AND Q IS IN MILLIBARS.                                             
+C** HSSATK(F,Q) = DEICED VANE CALIB FCN -- F=GM, Q=MB 23JAN 79                  
+      HSSATK(F,Q) = F/Q*(0.342263 - 0.000080*(F/Q)**2)                          
+.END                                                                            
+.SAVE WHSSATK                                                                   
+      IF(NSTAGE.EQ.4)                                                           
+       WRITE(KPROC,203) NAMVAR                                                  
+  203 FORMAT(' CALIB: ',A8,' USES HSSATK FUNCTION--',                           
+     1' HSSATK(F,Q) = F/Q*(0.342263 - 0.000080*(F/Q)**2)              ')        
+       ENCODE(102,203,ARAY) NAMVAR                                              
+       IY = IY-5                                                                
+        CALL PWRIT(CPUX(10),CPUY(IY),ARAY,102,0,0,-1)                           
+       NLIN=55                                                                  
+       IY= IY - 15                                                              
+       IXK = IXK + 1                                                            
+       IF(IXK.EQ.NLIN)                                                          
+        CALL FRAME                                                              
+        IY= 1000                                                                
+        IXK=0                                                                   
+       END IF                                                                   
+      END IF                                                                    
+.END                                                                            
+.SAVE FRECFKN                                                                   
+      COMMON/PWRITE/ARAY(20),IY,IXK                                             
+C** RECOVERY FACTORS RECOMPUTED FOR K PROBE ON BOOM TIP                         
+C   FROM 12/17/86 TOWER FLY-BY - ED BROWN (FEB 24,1987)                         
+      RECFKN(Q) = 1.0670 - .001586*Q                                            
+.END                                                                            
+.SAVE WRECFKN                                                                   
+      IF(NSTAGE.EQ.4 .AND. IX.EQ.1)                                             
+        WRITE(KPROC,203) NAMVAR                                                 
+  203 FORMAT(' CALIB: ',A8,' USES RECOVERY FACTOR FUNCTION -- ',                
+     1' RECFRN(Q)=1.067-.001586*Q           24FEB1987 ')                        
+        ENCODE(97,203,ARAY) NAMVAR                                              
+        IY = IY-5                                                               
+        CALL PWRIT(CPUX(10),CPUY(IY),ARAY,97,0,0,-1)                           
+         IY= IY - 15                                                            
+         IXK = IXK + 1                                                          
+         IF(IXK.EQ.NLIN)                                                        
+          CALL FRAME                                                            
+          IY= 1000                                                              
+          IXK=0                                                                 
+         END IF                                                                 
+      END IF                                                                    
+.END                                                                            
+.SAVE FESUBT                                                                    
+      COMMON/PWRITE/ARAY(20),IY,IXK                                             
+C ESUBT FUNCTION IMPLEMENTS VAPOR PRESR EQN COMPUTED BY METHOD OF               
+C PAUL R. LOWE (JOURNAL OF APPLIED METEOROLOGY, VOL 16,                         
+C PP 100-103, 1977)                                                             
+      ESUBT(T)=6.107799961+T*(0.4436518521+T*(0.01428945805+T*(2.6506484        
+     X71E-4+T*(3.031240396E-6+T*(2.034080948E-8+T*6.136820929E-11)))))          
+.END                                                                            
+.SAVE WESUBT                                                                    
+      IF(NSTAGE.EQ.4)                                                           
+        WRITE(KPROC,203) NAMVAR                                                 
+        WRITE(KPROC,204)                                                        
+  203 FORMAT(' CALIB: ',A8,' USES ESUBT FUNCTION --',                           
+     1' ESUBT(T)=6.107799961+T*(.4436518521+T*(.01428945805+T*        ')        
+  204 FORMAT(' (2.650648471E-4+T*(3.031240396E-6+T*',                           
+     2' (2.034080948E-8+T*6.136820929E-11)))))                        ')        
+        ENCODE(102,203,ARAY) NAMVAR                                             
+        IY = IY-5                                                               
+        CALL PWRIT(CPUX(10),CPUY(IY),ARAY,102,0,0,-1)                           
+        IY= IY - 15                                                             
+        IXK= IXK+1                                                              
+        ENCODE(111,204,ARAY)                                                    
+        CALL PWRIT(CPUX(10),CPUY(IY),ARAY,111,0,0,-1)                           
+       NLIN=55                                                                  
+       IY= IY - 15                                                              
+       IXK = IXK + 1                                                            
+       IF(IXK.EQ.NLIN)                                                          
+        CALL FRAME                                                              
+        IY= 1000                                                                
+        IXK=0                                                                   
+       END IF                                                                   
+      END IF                                                                    
+.END                                                                            

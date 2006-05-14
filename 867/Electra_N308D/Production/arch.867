@@ -1,0 +1,49 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1999-867 Arctic Mesopause Temperature Study (AMTS) (Chester Gardner)
+#
+#  File created by '/home/local/scripts/genar' Revision 7 on Fri Oct 1 14:34:31 MDT 1999
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /home/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 867
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/867ff01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867ff02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/867rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  Job(s) submitted on Fri Oct  1 14:35:47 MDT 1999
+# Sequence number = MI6000 -- LRT/FF01.cdf -- OK @ 1 Oct 1999 14:36:09
+# Sequence number = MI6009 -- LRT/FF02.cdf -- OK @ 1 Oct 1999 14:36:12
+# Sequence number = MI6016 -- LRT/RF01.cdf -- OK @ 1 Oct 1999 14:36:17
+# Sequence number = MI6023 -- LRT/RF02.cdf -- OK @ 1 Oct 1999 14:40:20
+# Sequence number = MI6030 -- LRT/RF03.cdf -- OK @ 1 Oct 1999 14:40:09
+# Sequence number = MI6037 -- LRT/RF04.cdf -- OK @ 1 Oct 1999 14:36:18
+# Sequence number = MI6044 -- LRT/RF05.cdf -- OK @ 1 Oct 1999 14:40:23
+# Sequence number = MI6051 -- LRT/RF06.cdf -- OK @ 1 Oct 1999 14:46:21
+# Sequence number = MI6058 -- LRT/RF07.cdf -- OK @ 1 Oct 1999 14:40:23
+# Sequence number = MI6065 -- LRT/RF08.cdf -- OK @ 1 Oct 1999 14:44:22
+# Sequence number = MI6073 -- LRT/RF09.cdf -- OK @ 1 Oct 1999 14:44:20
+#

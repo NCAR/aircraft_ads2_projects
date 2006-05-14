@@ -1,0 +1,232 @@
+C  This template file can be used as a reference when setting up a new
+C   project which requires customization by adding new derived variables
+C   There are sections for each derivation level.  Generally you cannot go
+C   wrong by placing new variables in level 8.
+C
+C  The order of some calculations was changed in 1991 when the cryogenic
+C   hygrometer was used as a reference for moisture variables.  (There is
+C   no reason to change it, at present.)
+C
+C  Originally this caladd file came from 1990-876 HaRP project and was
+C  modified by RLR for 1991-739 Smith/Kok project (to change the CALIB1
+C  subroutine order of calculations)
+C
+C-------------------------------------------------------------------------------
+C  Existing CALIB1 levels of derivation and the variables derived in each level
+C-------------------------------------------------------------------------------
+C Variable names:                                 Derivation subroutine:
+C -------------------------------------- Level 1 -------------------------------
+C DPC DPBC DPTC DPGEC DPCVC                       SDPC
+C GSF                                             SGSF
+C IRBC IRTC TPYGC2                                SIRTBC
+C POSDF                                           SPOSDF
+C PSFC PSBC PSWC PSFDC PSFDC20                    SPSXC
+C QCWC QCGC QCFC QCBC QCDC QCFC20                 SQCXC
+C QCFC (ELECTRA PROJECT ONLY 308)                 SQCFC
+C QCRC                                            SQCRC
+C ATOPH                                           SATOPH
+C TEPC                                            STEPC
+C -------------------------------------- Level 2 -------------------------------
+C AKFXL AKFXR SSFXB SSFXT                         SABFIX
+C AKDF SSDF                                       SATKSLP
+C ATRF                                            SATRF
+C ATB ATF ATKP ATW ATRW ATFR                      SATX
+C ATB1 ATR3 ATR6 ATRE ATKPR ATF20                 SATX
+C ATBH ATFH ATWH                                  SATXH
+C IAS                                             SIAS
+C PALT PALT20                                     SPALT
+C PALTF                                           SPALTF
+C TASB TASF TASG TASW TASR TASD                   STASX
+C BMACH FMACH RMACH GMACH WMACH                   SXMACH
+C BMACH2 FMACH2 RMACH2 GMACH2 WMACH2              SXMACH2
+C -------------------------------------- Level 3 -------------------------------
+C CONC2C                                          SCONC2C
+C CONC2P                                          SCONC2P
+C DO3C                                            SDO3C
+C COC                                             SCOC
+C SCLWC                                           SSCLWC
+C DVALU                                           SDIF
+C CRYOC                                           SCRYOC
+C RHORF                                           SRHORF
+C CNC                                             SCNC
+C DMEC                                            SDMEC
+C GUSTO                                           SGUST
+C LWCC CLWC                                       SLWCC
+C PLWCC                                           SPLWCC
+C PSURF                                           SPSURF
+C RHODT RHODB GERHOTD RHODGE RHOCR                SRHOTD
+C RHOCD                                           SRHOTD
+C THETA THETAK                                    STHETA
+C TEO3C                                           STEO3C
+C -------------------------------------- Level 4 -------------------------------
+C MR                                              SMR
+C SPHUM                                           SSPHUM
+C RHUM                                            SRHUM
+C AKRD                                            SAKRD
+C DLA1                                            SDLA
+C SSRD                                            SSSRD
+C -------------------------------------- Level 5 -------------------------------
+C THETAE                                          STHETAE
+C THETAV                                          STHETAV
+C PLCL                                            SPLCL
+C TLCL                                            STLCL
+C TVIR                                            STVIR
+C GUSTR GUSTD                                     SGUST
+C CVI                                             SCVI
+C -------------------------------------- Level 6 -------------------------------
+C DIF                                             SDIF
+C NETT                                            SSUM2
+C NETV                                            SDIF
+C NETI                                            SDIF
+C SUM                                             SSUM2
+C RATIO                                           SRATIO
+C TRKI                                            STRKI
+C ASAS                                            SASAS
+C FSSP                                            SFSSP
+C X200                                            SX200
+C X260                                            SX260
+C Y200                                            SY200
+C -------------------------------------- Level 7 -------------------------------
+C DA                                              SDA
+C LWCCF                                           SLWCCF
+C PLWCCF                                          SPLWCCF
+C ---------------------------------- ----------- -------------------------------
+.SAVE  ADDNVAR
+C ---------------------------------- ----------- -------------------------------
+C ** NEW VARIABLE NAMES TO BE ADDED HERE
+C     DATA NXSO2C/8HXSO2C   /, NCNCC/8HCNCC    /
+C    Project ASTEX/MAGE new derived variables:   (4 September 1992 Ron Ruth)
+      DATA NXO3FSC/8HXO3FSC  /, NTOWAT /8HTOWAT   /, NMRLA  /8HMRLA    /
+      DATA NXATO  /8HXATO    /
+      DATA NXCVDPC/8HXCVDPC  /, NRHOCV /8HRHOCV   /
+.END
+.SAVE  ADDV1
+C ---------------------------------- ----------- -------------------------------
+C ** NEW LEVEL 1 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C      OR IF (NAMVAR.EQ.NXXXXXX)
+C       CALL SXXXXXX
+C ** NEW LEVEL 1 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C
+C------------------------------------------------------------------- XCVDPC
+C ** CVI SAMPLE CORRECTED DEW POINT TEMPERATURE (C)    
+       OR IF (NAMVAR.EQ.NXCVDPC)
+        CALL SDPC
+C------------------------------------------------------------------- XATO
+C** OPHIR-III AMBIENT TEMPERATURE (C)
+       OR IF (NAMVAR.EQ.NXATO)
+        CALL SXATO
+.END
+.SAVE  ADDV2
+C ---------------------------------- ----------- -------------------------------
+C ** NEW LEVEL 2 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C      OR IF (NAMVAR.EQ.NXXXXXX)
+C       CALL SXXXXXX
+C ---------------------------------- ----------- -------------------------------
+C **  XSO2C
+C     OR IF (NAMVAR.EQ.NXSO2C )
+C      CALL SXSO2C
+C **  CNCC
+C     OR IF (NAMVAR.EQ.NCNCC )
+C      CALL SCNCC
+.END
+.SAVE  ADDV3
+C ---------------------------------- ----------- -------------------------------
+C ** NEW LEVEL 3 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C      OR IF (NAMVAR.EQ.NXXXXXX)
+C       CALL SXXXXXX
+.END
+.SAVE  ADDV4
+C-----------------------------------------------------------------------
+C ** NEW LEVEL 4 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C      OR IF (NAMVAR.EQ.NXXXXXX)
+C       CALL SXXXXXX
+.END
+.SAVE  ADDV5
+C ---------------------------------- ----------- -------------------------------
+C ** NEW LEVEL 5 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C     OR IF (NAMVAR.EQ.NXXXXXX)
+C      CALL SXXXXXX
+      OR IF (NAMVAR.EQ.NRHOCV)
+       CALL SRHOTD
+.END
+.SAVE  ADDV6
+C ---------------------------------- ----------- -------------------------------
+C ** NEW LEVEL 6 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+      OR IF (NAMVAR.EQ.NXXXXXX)
+       CALL SXXXXXX
+.END
+.SAVE  ADDV7
+C ---------------------------------- ----------- -------------------------------
+C ** NEW LEVEL 7 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C------------------------------------------------ TPL
+C** TEMPERATURE PROBE - Paul Lawson
+C   Example:  HaRP project  Sept. 1990   -cc
+C
+C     OR IF(NAMVAR.EQ.NTPL)
+C      CALL  STPL
+.END
+.SAVE  ADDV8
+C-----------------------------------------------------------------------
+C ** NEW LEVEL 8 DERIVATION VARIABLE NAMES TO BE ADDED HERE
+C**NEW LEVEL**NEW LEVEL**NEW LEVEL**NEW LEVEL**NEW LEVEL**NEW LEVEL**
+C***************************************************************************
+C****************       LEVEL EIGHT DERIVATION      ************************
+C***************************************************************************
+      IF(KT7.GT.0)
+      DO (KT=1,KT7)
+       K= KTSV(KT)
+       IND = INDVAL+LENCON*(K-1)
+       NAMVAR   =ICON(IND +IOFF01)
+       INDGET   = ICON(IND+IOFF02)
+       INDPUT   = ICON(IND+IOFF04)
+       LRATE    = ICON(IND+IOFF05)
+       CONS1   = CON(IND+IOFF08)
+       LDO= LRATE * NCDO
+       DO (N=1,MAXSOU)
+        LRTSOU(N) = 1
+        IPSOU(N) = 0
+       END DO
+       NUMSOU = ICON(IND+IOFF11)
+       DO(J=1,NUMSOU)
+        INDD= IND+IOFF12+(J-1)
+        KSOU= ICON(INDD)
+        INDS = INDVAL + LENCON *(KSOU-1)
+        LRTSOU(J) = ICON  (INDS + IOFF05)
+        IPSOU(J ) = ICON(INDS + IOFF04)
+       END DO
+C------------------------------------------------ XXXXXX
+C  **********  Use following calls as examples
+C** TITLE FOR VARIABLE NAME XXXXXX
+      IF(NAMVAR.EQ.NXXXXXX)
+       CALL  SXXXXXX
+C------------------------------------------------ YYYYY
+C** TITLE FOR VARIABLE NAME YYYYY
+      OR IF(NAMVAR.EQ.NYYYYY    )
+        CALL SYYYYY
+C------------------------------------------------------------------- XO3FSC
+C** CORRECTED NCAR FAST OZONE CONCENTRATION (PPB)
+      OR IF(NAMVAR.EQ.NXO3FSC    )
+        CALL SXO3FSC
+C------------------------------------------------------------------- TOWAT
+C** SIRO TOTAL LIQUID WATER CONTENT (G/M3)
+      OR IF(NAMVAR.EQ.NTOWAT    )
+        CALL STOWAT
+C------------------------------------------------------------------- MRLA
+C** MIXING RATIO FROM LYMAN ALPHA ABSOLUTE HUMIDITY (G/M3)
+      OR IF(NAMVAR.EQ.NMRLA    )
+        CALL SMRHO
+C-----------------------------------------------------------------------
+      ELSE
+       KT8= KT8+1
+       KTSV(KT8)= K
+      END IF
+      END DO
+      END IF
+      KTEND=KT8
+.END
+       SUBROUTINE SXXXXXX
+       RETURN
+       END
+       SUBROUTINE SYYYYY
+       RETURN
+       END

@@ -1,0 +1,225 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1999-803 Mesoscale Alpine Programme (MAP) (Joachim Kuettner)
+#
+#  File created by '/usr/local/scripts/genar' Revision  8 on Wed Mar 15 11:49:23 MST 2000
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 803
+#
+#  Original NIMBUS Data (before merge of Corrected Ozone data)
+#   (Note:  RF01 through RF11 already had O3 merged in before archival and
+#           RF27 was reprocessed later.)
+#set SDIR = $PROD_DATA
+#set TURBRT = ORIGINAL/LRT
+#nrnet msput $SDIR/803rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf17.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf18.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf19.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf20.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf21.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf22.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf23.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf24.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf25.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf26.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF26.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf27.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27.cdf wpwd=RAFDMG
+#nrnet msput $SDIR/803rf28.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF28.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf29.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF29.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  Corrected Ozone data
+#set SDIR = /jnet/tmp/campos/map
+#set TURBRT = LRT/O3
+#nrnet msput $SDIR/803rf01.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf02.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf03.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf04.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf05.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf06.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf07.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf08.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf09.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf10.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf11.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf12.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf13.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf14.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf15.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf16.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf17.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf18.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf19.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf20.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf21.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf22.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf23.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf24.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf25.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf26.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF26.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf27.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf28.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF28.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf29.o3.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF29.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  Final Production Data (after merge of Corrected Ozone data)
+#set SDIR = $PROD_DATA
+#set TURBRT = LRT
+#nrnet msput $SDIR/803rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf17.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf18.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf19.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf20.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf21.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf22.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf23.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf24.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf25.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf26.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF26.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf27.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf28.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF28.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf29.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF29.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  Production HRT Data (without any merged data)
+set SDIR = $PROD_DATA
+set TURBRT = HRT
+#nrnet msput $SDIR/803rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf20h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf24h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#
+#  Original NIMBUS Data (before merge of Corrected Ozone data)
+#   MSS path = /RAF/1999/803/ORIGINAL/LRT/
+#  Job(s) submitted on Wed Mar 15 12:09:07 MST 2000
+# Sequence number = LN7771 -- ORIGINAL/LRT/RF12.cdf -- OK @ 15 Mar 2000 13:00:14
+# Sequence number = LN7779 -- ORIGINAL/LRT/RF13.cdf -- OK @ 15 Mar 2000 12:58:38
+# Sequence number = LN7787 -- ORIGINAL/LRT/RF14.cdf -- OK @ 15 Mar 2000 13:00:25
+# Sequence number = LN7797 -- ORIGINAL/LRT/RF15.cdf -- OK @ 15 Mar 2000 13:02:10
+# Sequence number = LN7809 -- ORIGINAL/LRT/RF16.cdf -- OK @ 15 Mar 2000 13:04:40
+# Sequence number = LN7819 -- ORIGINAL/LRT/RF17.cdf -- OK @ 15 Mar 2000 13:02:35
+# Sequence number = LN7829 -- ORIGINAL/LRT/RF18.cdf -- OK @ 15 Mar 2000 13:02:47
+# Sequence number = LN7837 -- ORIGINAL/LRT/RF19.cdf -- OK @ 15 Mar 2000 13:02:38
+# Sequence number = LN7845 -- ORIGINAL/LRT/RF20.cdf -- OK @ 15 Mar 2000 13:07:16
+# Sequence number = LN7853 -- ORIGINAL/LRT/RF21.cdf -- OK @ 15 Mar 2000 13:07:06
+# Sequence number = LN7861 -- ORIGINAL/LRT/RF22.cdf -- OK @ 15 Mar 2000 12:54:29
+# Sequence number = LN7869 -- ORIGINAL/LRT/RF23.cdf -- OK @ 15 Mar 2000 12:54:50
+# Sequence number = LN7877 -- ORIGINAL/LRT/RF24.cdf -- OK @ 15 Mar 2000 12:54:36
+# Sequence number = LN7886 -- ORIGINAL/LRT/RF25.cdf -- OK @ 15 Mar 2000 12:57:37
+# Sequence number = LN7895 -- ORIGINAL/LRT/RF26.cdf -- OK @ 15 Mar 2000 12:55:23
+# Sequence number = LN7903 -- ORIGINAL/LRT/RF27.cdf -- OK @ 15 Mar 2000 12:57:53
+# Sequence number = LN7911 -- ORIGINAL/LRT/RF28.cdf -- OK @ 15 Mar 2000 12:58:21
+# Sequence number = LN7919 -- ORIGINAL/LRT/RF29.cdf -- OK @ 15 Mar 2000 12:58:17
+#
+#  Corrected Ozone data
+#   MSS path = /RAF/1999/803/LRT/O3/
+#  Job(s) submitted on Wed Mar 15 13:37:24 MST 2000
+# Sequence number = LN1189 -- LRT/O3/RF01.cdf -- OK @ 15 Mar 2000 13:37:33
+# Sequence number = LN1197 -- LRT/O3/RF02.cdf -- OK @ 15 Mar 2000 13:37:32
+# Sequence number = LN1205 -- LRT/O3/RF03.cdf -- OK @ 15 Mar 2000 13:37:34
+# Sequence number = LN1215 -- LRT/O3/RF04.cdf -- OK @ 15 Mar 2000 13:37:33
+# Sequence number = LN1227 -- LRT/O3/RF05.cdf -- OK @ 15 Mar 2000 13:41:35
+# Sequence number = LN1237 -- LRT/O3/RF06.cdf -- OK @ 15 Mar 2000 13:41:34
+# Sequence number = LN1245 -- LRT/O3/RF07.cdf -- OK @ 15 Mar 2000 13:41:36
+# Sequence number = LN1257 -- LRT/O3/RF08.cdf -- OK @ 15 Mar 2000 13:43:39
+# Sequence number = LN1265 -- LRT/O3/RF09.cdf -- OK @ 15 Mar 2000 13:45:36
+# Sequence number = LN1273 -- LRT/O3/RF10.cdf -- OK @ 15 Mar 2000 13:45:40
+# Sequence number = LN1281 -- LRT/O3/RF11.cdf -- OK @ 15 Mar 2000 13:45:40
+# Sequence number = LN1289 -- LRT/O3/RF12.cdf -- OK @ 15 Mar 2000 13:45:40
+# Sequence number = LN1297 -- LRT/O3/RF13.cdf -- OK @ 15 Mar 2000 13:49:38
+# Sequence number = LN1305 -- LRT/O3/RF14.cdf -- Failed* @ 15 Mar 2000 13:49:31
+# Sequence number = LN1313 -- LRT/O3/RF15.cdf -- OK @ 15 Mar 2000 13:43:39
+# Sequence number = LN1321 -- LRT/O3/RF16.cdf -- Failed* @ 15 Mar 2000 13:49:33
+# Sequence number = LN1329 -- LRT/O3/RF17.cdf -- Failed* @ 15 Mar 2000 13:49:33
+# Sequence number = LN1337 -- LRT/O3/RF18.cdf -- OK @ 15 Mar 2000 13:49:38
+# Sequence number = LN1345 -- LRT/O3/RF19.cdf -- Failed* @ 15 Mar 2000 13:37:33
+# Sequence number = LN1353 -- LRT/O3/RF20.cdf -- Failed* @ 15 Mar 2000 13:37:35
+# Sequence number = LN1363 -- LRT/O3/RF21.cdf -- OK @ 15 Mar 2000 13:37:43
+# Sequence number = LN1371 -- LRT/O3/RF22.cdf -- OK @ 15 Mar 2000 13:37:43
+# Sequence number = LN1383 -- LRT/O3/RF23.cdf -- OK @ 15 Mar 2000 13:41:39
+# Sequence number = LN1399 -- LRT/O3/RF24.cdf -- OK @ 15 Mar 2000 13:37:43
+# Sequence number = LN1430 -- LRT/O3/RF25.cdf -- OK @ 15 Mar 2000 13:37:43
+# Sequence number = LN1448 -- LRT/O3/RF26.cdf -- Failed* @ 15 Mar 2000 13:41:38
+# Sequence number = LN1463 -- LRT/O3/RF27.cdf -- OK @ 15 Mar 2000 13:41:44
+# Sequence number = LN1473 -- LRT/O3/RF28.cdf -- Failed* @ 15 Mar 2000 13:41:40
+# Sequence number = LN1481 -- LRT/O3/RF29.cdf -- Failed* @ 15 Mar 2000 13:41:40
+#   * Failure message:  No such (source) file or directory
+#
+#   MSS path = /RAF/1999/803/LRT/
+#  Job(s) submitted on Mon Mar 20 11:32:06 MST 2000
+# Sequence number = LN3294 -- LRT/RF01.cdf -- OK @ 20 Mar 2000 11:37:44
+# Sequence number = LN3299 -- LRT/RF02.cdf -- OK @ 20 Mar 2000 11:37:17
+# Sequence number = LN3304 -- LRT/RF03.cdf -- OK @ 20 Mar 2000 11:34:41
+# Sequence number = LN3313 -- LRT/RF04.cdf -- OK @ 20 Mar 2000 11:33:56
+# Sequence number = LN3320 -- LRT/RF05.cdf -- OK @ 20 Mar 2000 11:33:50
+# Sequence number = LN3327 -- LRT/RF06.cdf -- OK @ 20 Mar 2000 11:38:46
+# Sequence number = LN3334 -- LRT/RF07.cdf -- OK @ 20 Mar 2000 11:42:59
+# Sequence number = LN3341 -- LRT/RF08.cdf -- OK @ 20 Mar 2000 11:43:31
+# Sequence number = LN3348 -- LRT/RF09.cdf -- OK @ 20 Mar 2000 11:34:06
+# Sequence number = LN3355 -- LRT/RF10.cdf -- OK @ 20 Mar 2000 11:59:30
+# Sequence number = LN3362 -- LRT/RF11.cdf -- OK @ 20 Mar 2000 11:50:57
+# Sequence number = LN3369 -- LRT/RF12.cdf -- OK @ 20 Mar 2000 12:02:15
+# Sequence number = LN3376 -- LRT/RF13.cdf -- OK @ 20 Mar 2000 11:50:11
+# Sequence number = LN3381 -- LRT/RF14.cdf -- OK @ 20 Mar 2000 11:59:21
+# Sequence number = LN3388 -- LRT/RF15.cdf -- OK @ 20 Mar 2000 11:55:35
+# Sequence number = LN3393 -- LRT/RF16.cdf -- OK @ 20 Mar 2000 11:54:08
+# Sequence number = LN3398 -- LRT/RF17.cdf -- OK @ 20 Mar 2000 11:38:24
+# Sequence number = LN3405 -- LRT/RF18.cdf -- OK @ 20 Mar 2000 11:42:52
+# Sequence number = LN3412 -- LRT/RF19.cdf -- OK @ 20 Mar 2000 11:42:14
+# Sequence number = LN3419 -- LRT/RF20.cdf -- OK @ 20 Mar 2000 11:46:58
+# Sequence number = LN3426 -- LRT/RF21.cdf -- OK @ 20 Mar 2000 11:46:36
+# Sequence number = LN3433 -- LRT/RF22.cdf -- OK @ 20 Mar 2000 11:54:49
+# Sequence number = LN3440 -- LRT/RF23.cdf -- OK @ 20 Mar 2000 11:58:11
+# Sequence number = LN3447 -- LRT/RF24.cdf -- OK @ 20 Mar 2000 11:47:01
+# Sequence number = LN3454 -- LRT/RF25.cdf -- OK @ 20 Mar 2000 11:58:59
+# Sequence number = LN3461 -- LRT/RF26.cdf -- OK @ 20 Mar 2000 11:46:52
+# Sequence number = LN3468 -- LRT/RF27.cdf -- OK @ 20 Mar 2000 11:51:55
+# Sequence number = LN3475 -- LRT/RF28.cdf -- OK @ 20 Mar 2000 11:50:52
+# Sequence number = LN3482 -- LRT/RF29.cdf -- OK @ 20 Mar 2000 11:54:36
+#
+# Redo after RF27 was reprocessed
+#   MSS path = /RAF/1999/803/
+#  Job(s) submitted on Wed Apr  5 11:50:54 MDT 2000
+# Sequence number = LN2867 -- LRT/RF27.cdf -- OK @ 5 Apr 2000 11:50:55
+#
+# Remove, since data are no longer valid
+#   MSS path = /RAF/1999/803/ORIGINAL/
+#  Job(s) submitted on Wed Apr  5 11:57:43 MDT 2000
+# Sequence number = LN2951 -- LRT/RF27.cdf -- OK @ 5 Apr 2000 11:57:45
+#
+#   MSS path = /RAF/1999/803/HRT/
+#  Job(s) submitted on Tue May  9 11:40:16 MDT 2000
+# Sequence number = LN1514 -- HRT/RF08.cdf -- OK @ 9 May 2000 12:06:16
+# Sequence number = LN1522 -- HRT/RF20.cdf -- OK @ 9 May 2000 12:00:55
+# Sequence number = LN1531 -- HRT/RF24.cdf -- OK @ 9 May 2000 12:01:50
+#
+#  Job(s) submitted on 
+#

@@ -1,0 +1,67 @@
+#! /bin/csh -f
+# Combines all GENPRO CALIB IFTRAN modification code into one file
+#  Must edit this file to suit a given project
+#  This version is generic for Electra N308D
+#
+# Since this file will reside in the project's directory, any files to be
+#  added to the CALIB list must be entered here somewhere after the 'cat
+#  statement.  Don't forget to include the correct path (unless it is in
+#  the current path) and to add the backslash at the end of the line.
+#
+#  Must change xxx on next line to the 3-digit project number
+set proj = 816
+onintr abort
+if ($proj == "xxx") then
+  echo " Must edit this file to insert the appropriate 3-digit project number."
+  echo "  Quitting."
+  exit 1
+endif
+set file = calif.$proj
+set ofile = temp$$
+if (-e $file) echo overwriting $file
+cat \
+ $GPCALIBREF/repsav.x \
+ $GPCALIBREF/calsvblk \
+ $GPCALIBREF/rpsv08r \
+ $GPCALIBREF/rdm08 \
+ caladd.816 \
+ $GPCALIBREF/input \
+ $GPCALIBREF/calib1 \
+ $GPCALIBREF/stdlib \
+ $GPCALIBREF/radome.el \
+ $GPCALIBREF/gusth \
+ $GPCALIBREF/ethetae.if \
+ $GPCALIBREF/nplwcc.if \
+ $GPCALIBREF/shgme \
+ $GPCALIBREF/spalt \
+ $GPCALIBREF/sdeni \
+ sfssp816.if \
+ $GPCALIBREF/fxfsp.f \
+ sx260.if \
+ $GPCALIBREF/pmsplt \
+ $GPCALIBREF/nlwccz.if \
+ smrho.if \
+ stowat.if \
+ sxo3fsc.if \
+ sxato.if \
+ tdlaRF16.816 \
+> $ofile
+if ($status != 0) goto abort
+if (-e $file) /bin/rm $file >& /dev/null
+mv $ofile $file
+if ($status != 0) goto abort
+exit 0
+abort:
+onintr -
+/bin/rm $ofile >& /dev/null
+exit 1
+#
+#  Code not presently used
+# $GPCALIBREF/gusto \
+# $GPCALIBREF/pms1d.if \
+# $GPCALIBREF/newsefm \
+# $GPCALIBREF/gusth.if \  <-- uses IVSPD instead of ACINS
+# $GPCALIBREF/newfssp \
+#
+#  Code not used in this special version.
+# $GPCALIBLIB/tdla \

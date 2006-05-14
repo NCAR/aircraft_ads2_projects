@@ -1,0 +1,141 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 1994-870 WISP-94 (Rasmussen, et al.)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (debug)                                           16 Apr 1996
+#  Revised by RLR (add some comment lines)                           1 Jul 1997
+#  Revised by RLR (streamline the way things are set up)            11 Aug 1997
+#  Revised by RLR (minor changes and more template examples)        20 Aug 1998
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#   4.  Script is run from affected project's "Production" subdirectory
+#
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PRDIR = `pwd`
+set PDIR = $PRDIR/..
+set PROJ = `echo $PRDIR | sed -e "s/[a-zA-Z\/]//g"`
+set YEAR = `grep FY proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PDIR/ProjectName`
+#
+#
+date
+#
+#  Current archive (nrnet) commands go here
+#  ----------------------------------------
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR, $PRDIR, $PDIR
+#        (or set to a specific directory)
+#
+set FILES = ( \
+870.tar \
+870.tar.dir \
+Mail.870 \
+nimbus.tar \
+nimbus.tar.dir \
+nimbus_defaults.tar \
+nimbus_defaults.tar.dir \
+taplog.870 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG mvn=CTRAFDMG
+  else
+    echo "^G Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  Files to go to MSS subdirectory (renamed)
+#   to LRT directory:
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+set FILES = ( \
+870rf09.hdr \
+)
+set OFILES = ( \
+RF09.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG mvn=CTRAFDMG
+  else
+    echo "^G Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  Files to go to MSS subdirectory (renamed)
+#   to HRT directory:
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+870rf09h.hdr \
+set FILES = ( \
+)
+set OFILES = ( \
+RF09.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG mvn=CTRAFDMG
+  else
+    echo "^G Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+# Done.
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#  Job(s) submitted on 

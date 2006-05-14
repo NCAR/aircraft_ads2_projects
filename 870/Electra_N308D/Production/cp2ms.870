@@ -1,0 +1,143 @@
+#  File copy to MSS for project 4-870 WISP-94
+#
+#  from:  chinook:/home/local/proj/870/Production
+#                 /home/local/staticdata
+#
+#    to:  MSS:/RAF/1994/870/LRT/
+#         MSS:/RAF/1994/870/HRT/
+#
+#  Method:  ftp
+#
+#
+#  Commands:
+ftp massive
+bi
+quote SITE PERS Y
+quote SITE RTPD 4095
+quote SITE WPW RAFDMG
+quote SITE MVN CTRAFDMG
+bell
+#prompt  <-- toggle interactive prompting on multiple commands (default = on)
+#
+#lcd /home/local/proj/870/Production
+#cd /RAF/1994/870
+#
+#put MSCP_out.870
+#put tp2ms.summary
+#
+#cd /RAF/1994/870/LRT
+#put 870RF01.header RF01.header
+#put tarit.870.tar
+#put tarit.nimbus.tar
+#put 870.tar.dir
+#put nimbus.tar.dir
+#put FlightGroups
+#put Flight_0
+#put Flight_2
+#put Flight_3
+#put Flight_4
+#put Flight_7
+#put Flight_8
+#put Flight_9
+#put Flight_20
+#put Flight_30
+#put Flight_31
+#put Flight_39
+#put Flight_41
+#put Mail.870
+#put Production.log
+#put README
+#put taplog.870
+#put 870.tar
+#put nimbus.tar
+#
+bye
+#
+#
+#lcd /home/local/staticdata
+#   Adjust following command to accomodate any file larger than 30Mbytes
+#quote SITE MDS 60
+#put 870RF01.cdf RF01.cdf
+#put 870RF02.cdf RF02.cdf
+#put 870RF03.cdf RF03.cdf
+#put 870RF04.cdf RF04.cdf
+#put 870RF05.cdf RF05.cdf
+#put 870RF06.cdf RF06.cdf
+#put 870RF07.cdf RF07.cdf
+#put 870RF08.cdf RF08.cdf
+#put 870RF09.cdf RF09.cdf
+#put 870RF10.cdf RF10.cdf
+#put 870RF11.cdf RF11.cdf
+#put 870RF12.cdf RF12.cdf
+#put 870RF13.cdf RF13.cdf
+#put 870RF14.cdf RF14.cdf
+#put 870RF15.cdf RF15.cdf
+#put 870RF16.cdf RF16.cdf
+#put 870RF17.cdf RF17.cdf
+#put 870RF18.cdf RF18.cdf
+#put 870RF19.cdf RF19.cdf
+#put 870RF20.cdf RF20.cdf
+#put 870RF21.cdf RF21.cdf
+#put 870RF22.cdf RF22.cdf
+#put 870RF23.cdf RF23.cdf
+#put 870RF24.cdf RF24.cdf
+#put 870RF25.cdf RF25.cdf
+#put 870RF26.cdf RF26.cdf
+#put 870RF27.cdf RF27.cdf
+#put 870RF28.cdf RF28.cdf
+#put 870RF29.cdf RF29.cdf
+#put 870RF30.cdf RF30.cdf
+#put 870RF31.cdf RF31.cdf
+#put 870RF32.cdf RF32.cdf
+#put 870RF33.cdf RF33.cdf
+#put 870RF34.cdf RF34.cdf
+#put 870RF35.cdf RF35.cdf
+#put 870RF36.cdf RF36.cdf
+#put 870RF37.cdf RF37.cdf
+#put 870RF38.cdf RF38.cdf
+#put 870RF39.cdf RF39.cdf
+#put 870RF40.cdf RF40.cdf
+#put 870RF41.cdf RF41.cdf
+#put 870RF42.cdf RF42.cdf
+#put 870RF43.cdf RF43.cdf
+#put 870RF44.cdf RF44.cdf
+#put 870RF45.cdf RF45.cdf
+#
+#bye
+#
+#
+#  Archive the HRT data (future)
+#  Notes:  Don't forget to archive support files, if they have changed.
+#          Don't forget to archive the NIMBUS processor, if it has changed.
+#
+cd /RAF/1994/870/HRT
+#
+lcd /home/local/staticdata
+# put 870RF26H.header RF26.header  <----- Adjust to actual header
+#
+#   Adjust following command to accomodate any file larger than 30Mbytes
+quote SITE MDS 350
+#put 870rf09h.cdf RF09.cdf
+#put 870rf11h.cdf RF11.cdf
+#put 870rf26h.cdf RF26.cdf
+#put 870rf27h.cdf RF27.cdf
+#put 870rf28h.cdf RF28.cdf
+#put 870rf33h.cdf RF33.cdf
+put 870rf34h.cdf RF34.cdf
+#
+bye
+#
+#  ******  Begin special for Rachel Ames  *****
+#          (Already done)
+#ftp massive
+#bi
+#quote SITE PERS Y
+#quote SITE RTPD 4096
+#quote SITE WPW RAFDMG
+#quote SITE MVN CTRAFDMG
+#
+#cd /RAF/1994/870/PRELIMINARY/LRT
+#lcd /home/local/staticdata
+#put 870RF31.cdf RF31.cdf
+#bye
+#  ******  End special for Rachel Ames  *****

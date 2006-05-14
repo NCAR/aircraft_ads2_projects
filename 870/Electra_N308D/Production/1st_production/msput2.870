@@ -1,0 +1,110 @@
+#! /bin/csh -f
+#
+#  Archive NIMBUS HRT support files for 4-870 WISP94 (Rasmussen, et. al.)
+#
+set YEAR = 1994
+set PROJ = 870
+set TURB = HRT
+#
+#  Bitfiles to remove:
+#   /RAF/1994/870/HRT/RF26.header
+#   /RAF/1994/870/LRT/Mail.870
+#   /RAF/1994/870/LRT/README
+#   /RAF/1994/870/PRELIMINARY/LRT/RF31.cdf
+#nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$TURB/RF26.header w=RAFDMG
+#nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/LRT/Mail.$PROJ w=RAFDMG
+#nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/LRT/README w=RAFDMG
+#nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/PRELIMINARY/LRT/RF31.cdf w=RAFDMG
+#
+#  Files to move to the parent directory (from the LRT directory):
+#   FlightGroups Flight_*
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/FlightGroups npdn=/RAF/$YEAR/$PROJ/FlightGroups w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_0 npdn=/RAF/$YEAR/$PROJ/Flight_0 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_2 npdn=/RAF/$YEAR/$PROJ/Flight_2 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_20 npdn=/RAF/$YEAR/$PROJ/Flight_20 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_3 npdn=/RAF/$YEAR/$PROJ/Flight_3 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_30 npdn=/RAF/$YEAR/$PROJ/Flight_30 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_31 npdn=/RAF/$YEAR/$PROJ/Flight_31 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_39 npdn=/RAF/$YEAR/$PROJ/Flight_39 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_4 npdn=/RAF/$YEAR/$PROJ/Flight_4 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_41 npdn=/RAF/$YEAR/$PROJ/Flight_41 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_7 npdn=/RAF/$YEAR/$PROJ/Flight_7 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_8 npdn=/RAF/$YEAR/$PROJ/Flight_8 w=RAFDMG mvn=CTRAFDMG
+#nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/Flight_9 npdn=/RAF/$YEAR/$PROJ/Flight_9 w=RAFDMG mvn=CTRAFDMG
+#
+#  Other files to archive separately (not in the HRT directory):
+#   README README.2 notes Mail.870
+#nrnet msput README l df=tr r flnm=/RAF/$YEAR/$PROJ/README \
+#    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#nrnet msput README.2 l df=tr r flnm=/RAF/$YEAR/$PROJ/README.2 \
+#    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#nrnet msput notes l df=tr r flnm=/RAF/$YEAR/$PROJ/Notes \
+#    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#nrnet msput Mail.870 l df=tr r flnm=/RAF/$YEAR/$PROJ/Mail.870 \
+#    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#   
+#set IFILES = ( 870.hrt.tar 870.hrt.tar.dir taplog.870.hrt nimbus.tar \
+#  nimbus.tar.htr.dir fsspskel/README fsspskel.tar 870RF27H.header \
+#  HRT.convert )
+#set OFILES = ( 870.tar     870.tar.dir     taplog.870     nimbus.tar \
+#  nimbus.tar.dir     README.skeleton fsspskel.tar RF27.header \
+#  HRT.convert )
+#
+#set IFILES = ( nimbus.tar.hrt.dir )
+#set OFILES = ( nimbus.tar.dir     )
+#
+#  Get started:
+date
+set todo = $#IFILES
+set num = 1
+while ($num <= $todo)
+  echo \
+  nrnet msput ${IFILES[$num]} l df=tr \
+    r flnm=/RAF/$YEAR/$PROJ/$TURB/${OFILES[$num]} \
+    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#
+#  Jobs submitted on Fri Mar  3 13:45:58 MST 1995
+# Sequence number = MI2040 -- msrm RF26.header -- Failed (didn't exist)
+# Sequence number = MI2047 -- msrm Mail.870 -- OK
+# Sequence number = MI2054 -- msrm LRT/README -- OK
+# Sequence number = MI2061 -- msrm PRELIMINARY/LRT/RF31.cdf -- OK
+# Sequence number = MI2068 -- msmv --> LRT/FlightGroups -- OK
+# Sequence number = MI2075 -- msmv --> Flight_0 -- OK
+# Sequence number = MI2082 -- msmv --> Flight_2 -- OK
+# Sequence number = MI2089 -- msmv --> Flight_20 -- OK
+# Sequence number = MI2096 -- msmv --> Flight_3 -- OK
+# Sequence number = MI2103 -- msmv --> Flight_30 -- OK
+# Sequence number = MI2110 -- msmv --> Flight_31 -- OK
+# Sequence number = MI2117 -- msmv --> Flight_39 -- OK
+# Sequence number = MI2124 -- msmv --> Flight_4 -- OK
+# Sequence number = MI2131 -- msmv --> Flight_41 -- OK
+# Sequence number = MI2138 -- msmv --> Flight_7 -- OK
+# Sequence number = MI2145 -- msmv --> Flight_8 -- OK
+# Sequence number = MI2152 -- msmv --> Flight_9 -- OK
+# Sequence number = MI2159 -- README -- OK
+# Sequence number = MI2166 -- README.2 -- OK
+# Sequence number = MI2173 -- Notes -- OK
+# Sequence number = MI2180 -- Mail.870 -- OK
+# Sequence number = MI2188 -- HRT/870.tar -- OK
+# Sequence number = MI2195 -- HRT/870.tar.dir -- OK
+# Sequence number = MI2202 -- HRT/taplog.870 -- OK
+# Sequence number = MI2209 -- HRT/nimbus.tar -- OK
+# Sequence number = MI2216 -- HRT/nimbus.tar.dir -- Failed (bad source name)
+# Sequence number = MI2223 -- HRT/README.skeleton -- OK
+# Sequence number = MI2230 -- fsspskel.tar -- OK
+# Sequence number = MI2237 -- HRT/RF27.header -- OK
+# Sequence number = MI2245 -- HRT/HRT.convert -- OK
+#
+#  Job submitted on Fri Mar  3 14:11:55 MST 1995
+# Sequence number = MI2456 -- HRT/nimbus.tar.dir -- OK
+#
+#  Job submitted on Fri Mar  3 14:30:30 MST 1995
+# Sequence number = MI0559 -- HRT/RF26.header -- OK
+#
+#
+# done.
+exit

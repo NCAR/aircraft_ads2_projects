@@ -1,0 +1,7 @@
+#! /bin/csh -f
+#
+#   Save present version of the NIMBUS processor for 4-818 BOREAS
+#
+cd /home/local
+tar chlvf /home/local/proj/818/Production/nimbus.tar nimbus
+exit

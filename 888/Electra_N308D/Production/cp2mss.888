@@ -1,0 +1,55 @@
+#  File copy to MSS for project 4-888 ALOHA-94
+#
+#  from:  chinook:/home/local/proj/888/Production
+#                 /home/local/staticdata
+#
+#    to:  MSS:/RAF/1994/888/LRT/
+#
+#  Method:  ftp
+#
+#  Commands:
+ftp -i massive
+bi
+quote SITE PERS Y
+quote SITE RTPD 4096
+quote SITE WPW RAFDMG
+quote SITE MVN CTRAFDMG
+cd /RAF/1994/888/LRT
+#
+lcd /home/local/staticdata
+#put 888FF02.cdf FF02.cdf
+#put 888RF01.cdf RF01.cdf
+#put 888RF02.cdf RF02.cdf
+#put 888RF03.cdf RF03.cdf
+#put 888RF04.cdf RF04.cdf
+#put 888RF05.cdf RF05.cdf
+#put 888RF06.cdf RF06.cdf
+#put 888RF07A.cdf RF07A.cdf
+#put 888RF07B.cdf RF07B.cdf
+#put 888RF08.cdf RF08.cdf
+#put 888RF09.cdf RF09.cdf
+#put 888RF10.cdf RF10.cdf
+#put 888RF11.cdf RF11.cdf
+#put 888RF12.cdf RF12.cdf
+#put 888RF13.cdf RF13.cdf
+#put 888RF14.cdf RF14.cdf
+#put 888RF15.cdf RF15.cdf
+#put 888RF16.cdf RF16.cdf
+#put 888RF17.cdf RF17.cdf
+#put 888RF18.cdf RF18.cdf
+#put 888RF19.cdf RF19.cdf
+#put 888TF01.cdf TF01.cdf
+#
+lcd /home/local/proj/888/Production
+#put tp2ms.summary
+#put taplog.888
+#put tarit.4-888.tar
+#put tarit.nimbus.tar
+#put nimbus.tar.dir
+#put 4-888.tar.dir
+#put nimbus.tar
+#put 4-888.tar
+#  (There is no README file, at present.)
+#put README
+#
+bye

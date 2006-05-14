@@ -1,0 +1,24 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-888 ALOHA-94  (Gardner)
+#   Fifth try (Remove split files that were replaced by a single file)
+#
+nrnet msrm % r flnm=/RAF/1994/888/RF03A/R0743 w=RAFDMG
+nrnet msrm % r flnm=/RAF/1994/888/RF03B/R0743 w=RAFDMG
+nrnet msrm % r flnm=/RAF/1994/888/RF17A/R0758 w=RAFDMG
+nrnet msrm % r flnm=/RAF/1994/888/RF17B/R0758 w=RAFDMG
+#
+#   Jobs submitted @  4:00 p.m. on 16 December 1993
+#  Sequence number = CK2443  --  failed (didn't include Rxxxx)
+#  Sequence number = CK2448  --  failed (didn't include Rxxxx)
+#  Sequence number = CK2455  --  failed (didn't include Rxxxx)
+#  Sequence number = CK2462  --  failed (didn't include Rxxxx)
+#
+#   Jobs submitted @  4:04 p.m. on 16 December 1993
+# Sequence number = CK2475 -- OK
+# Sequence number = CK2480 -- OK
+# Sequence number = CK2487 -- OK
+# Sequence number = CK2494 -- OK
+# 
+# done.
+exit

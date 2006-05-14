@@ -1,0 +1,80 @@
+#! /bin/csh -f
+#
+#  Move SCD Mass Store System (MSS) bitfiles associated with 1998-813 SNOWBAND
+#    from the /RAF/1998/812 directory to the /RAF/1998/813 directory
+#
+#    This script file created by Ron Ruth on 6 May 1998
+#     for the project 1998-813 SNOWBAND (Rauber)
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set YEAR = 1998
+set OPROJ = 812
+set NPROJ = 813
+set SDIR = /home/local/proj/812
+set SPDIR = /home/local/proj/812/Production
+#
+#  Move MSS bitfiles from LakeICE directory to SNOWBAND directory
+#   Production data
+set TURBRT = LRT
+echo \
+ nrnet msmv % r flnm=/RAF/$YEAR/$OPROJ/$TURBRT/RF03.cdf newf=/RAF/$YEAR/$NPROJ/$TURBRT/RF03.cdf name=RAF proj=41113009 wpwd=RAFDMG
+echo \
+ nrnet msmv % r flnm=/RAF/$YEAR/$OPROJ/$TURBRT/RF04.cdf newf=/RAF/$YEAR/$NPROJ/$TURBRT/RF04.cdf name=RAF proj=41113009 wpwd=RAFDMG
+echo \
+ nrnet msmv % r flnm=/RAF/$YEAR/$OPROJ/$TURBRT/RF06.cdf newf=/RAF/$YEAR/$NPROJ/$TURBRT/RF06.cdf name=RAF proj=41113009 wpwd=RAFDMG
+echo \
+ nrnet msmv % r flnm=/RAF/$YEAR/$OPROJ/$TURBRT/RF11.cdf newf=/RAF/$YEAR/$NPROJ/$TURBRT/RF11.cdf name=RAF proj=41113009 wpwd=RAFDMG
+echo \
+ nrnet msmv % r flnm=/RAF/$YEAR/$OPROJ/$TURBRT/RF12.cdf newf=/RAF/$YEAR/$NPROJ/$TURBRT/RF12.cdf name=RAF proj=41113009 wpwd=RAFDMG
+echo \
+ nrnet msput $MIGS/812rf13.cdf l df=tr r flnm=/RAF/$YEAR/$NPROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+#
+#  Archive new support files
+echo \
+ nrnet msput $SDIR/README l df=tr r flnm=/RAF/$YEAR/$NPROJ/README rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+echo \
+ nrnet msput $SPDIR/taplog.813 l df=tr r flnm=/RAF/$YEAR/$NPROJ/taplog.813 rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+echo \
+ nrnet msput $SPDIR/813rf03.hdr l df=tr r flnm=/RAF/$YEAR/$NPROJ/$TURBRT/RF03.hdr rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+#
+#  Rearchive some 812 stuff that has changed
+echo \
+ nrnet msput $SDIR/README l df=tr r flnm=/RAF/$YEAR/$OPROJ/README rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+echo \
+ nrnet msput $SPDIR/taplog.812 l df=tr r flnm=/RAF/$YEAR/$OPROJ/taplog.812 rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+echo \
+ nrnet msput $SPDIR/812rf01.hdr l df=tr r flnm=/RAF/$YEAR/$OPROJ/$TURBRT/RF01.hdr rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = HRT
+echo \
+ nrnet msput $SPDIR/812rf01h.hdr l df=tr r flnm=/RAF/$YEAR/$OPROJ/$TURBRT/RF01.hdr rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1998/
+#
+#   1st wave
+#  Job(s) submitted on Mon Jul 20 12:23:14 MDT 1998
+# Sequence number = MI8209 -- 813/LRT/RF03.cdf -- OK @ 20 Jul 1998 12:23:18
+# Sequence number = MI8216 -- 813/LRT/RF04.cdf -- OK @ 20 Jul 1998 12:23:19
+# Sequence number = MI8225 -- 813/LRT/RF06.cdf -- OK @ 20 Jul 1998 12:23:22
+# Sequence number = MI8241 -- 813/LRT/RF11.cdf -- OK @ 20 Jul 1998 12:23:25
+# Sequence number = MI8254 -- 813/LRT/RF12.cdf -- OK @ 20 Jul 1998 12:23:27
+# Sequence number = MI8265 -- 813LRT/RF13.cdf -- OK @ 20 Jul 1998 12:23:50
+# Sequence number = MI8279 -- 813/README -- OK @ 20 Jul 1998 12:23:37
+# Sequence number = MI8293 -- 813/taplog.813 -- OK @ 20 Jul 1998 12:23:41
+# Sequence number = MI8302 -- 813/LRT/RF03.hdr -- OK @ 20 Jul 1998 12:23:45
+# Sequence number = MI8312 -- 812/README -- OK @ 20 Jul 1998 12:23:50
+# Sequence number = MI8327 -- 812/taplog.812 -- OK @ 20 Jul 1998 12:23:50
+# Sequence number = MI8341 -- 812/LRT/RF01.hdr -- OK @ 20 Jul 1998 12:23:53
+# Sequence number = MI8351 -- 812/HRT/RF01.hdr -- OK @ 20 Jul 1998 12:27:54
+#

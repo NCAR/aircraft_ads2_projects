@@ -1,0 +1,78 @@
+From barr@ash.mmm.ucar.EDU Tue Jan 26 17:18:57 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA11037; Tue, 26 Jan 93 17:18:56 MST
+Received: from ash.mmm.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 07/14/92)
+	id AA04941; Tue, 26 Jan 93 17:18:45 MST
+From: barr@ash.mmm.ucar.EDU (Keith Barr)
+Received: from walnut.mmm.ucar.edu by ash.mmm.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA08892; Tue, 26 Jan 93 17:18:43 MST
+Message-Id: <9301270018.AA05721@walnut.mmm.ucar.edu>
+Received: by walnut.mmm.ucar.edu (5.65/ NCAR Mail Client 04/19/90)
+	id AA05721; Tue, 26 Jan 93 17:18:43 MST
+Subject: APSATRAT.FOR
+To: twohy@ncar.ucar.edu (Cindy Twohy)
+Date: Tue, 26 Jan 93 17:18:43 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+      PROGRAM APSATRAT
+
+C          This program will take data from unit 10 which is the file
+C     KBYYMMDD.DAT, and will process the data, ending up with the
+C     apparent saturation ratio NOy*/HNO3.  It will then output
+C     this data to a file ASRYYMMDD.DAT, which will be unit 20.  Null 
+C     values in the data set are set to 1.E36, which is the bad data
+C     value already recognized in new NCAR graphics.
+C
+
+      REAL TIME,AN20,PRESS,TEMP,THETA,VAPOR,AHNO3,ANOYST
+
+C     get a line of data
+
+5     READ(10,10,END=1010) TIME,AN2O,PRESS,TEMP,THETA,VAPOR
+10    FORMAT(' ',F5.0,2X,F8.2,2X,F5.1,2X,F5.1,2X,F5.1,2X,F7.2)
+
+      IF (AN2O .GE. 99999.) THEN
+               APSTRT=1.E36
+               GO TO 1000
+            ELSE IF (AN2O .GT. 275.) THEN
+               APSTRT=1.E36
+               GO TO 1000
+            ELSE IF (PRESS .GE. 999.) THEN
+               APSTRT=1.E36
+               GO TO 1000
+            ELSE IF (TEMP .GE. 999.) THEN
+               APSTRT=1.E36
+               GO TO 1000
+            ELSE IF (THETA .GE. 999.) THEN
+               APSTRT=1.E36
+               GO TO 1000
+            ELSE IF (VAPOR .GE. 9999.) THEN
+               APSTRT=1.E36
+               GO TO 1000
+      END IF
+
+C     calculate APSTRT
+
+      ANOYST=0.082*(275-AN2O)
+
+      PH2O=(VAPOR*PRESS)/(1.E6*1013.25)
+      BLPH2O=LOG10(PH2O)
+
+      AM=-2.7836-(8.8E-4)*TEMP
+      AB=36.1047-(11397./TEMP)+(9.179E-3)*TEMP
+
+      BLPHNO=AM*(BLPH2O+2.8808)+AB
+
+      PHNO3=10**(BLPHNO)
+
+      AHNO3=(PHNO3*1.E9*1013.25)/PRESS
+
+      APSTRT=ANOYST/AHNO3
+
+1000  WRITE(20,*)TIME,APSTRT
+      GO TO 5
+1010  STOP
+      END
+
+

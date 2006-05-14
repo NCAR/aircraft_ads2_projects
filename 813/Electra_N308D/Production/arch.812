@@ -1,0 +1,253 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1998-812 Lake-ICE (Young, Verlinde)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Fri Mar 27 11:58:28 MST 1998
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set YEAR = 1998
+set PROJ = 812
+set SDIR = $PROD_DATA
+#
+#goto 2nd
+#goto 3rd
+#goto 4th
+#goto 5th
+goto 6th
+exit
+#
+#  Production data
+set TURBRT = LRT
+echo nrnet msput $SDIR/812rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+echo nrnet msput $SDIR/812rf05a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf05b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#  Original data (without CVI merge)
+set TURBRT = ORIGINAL/LRT
+echo nrnet msput $SDIR/812rf01_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf02_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf03_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf04_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf06_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf07_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf08_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf09_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf10_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf11_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf12_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+echo nrnet msput $SDIR/812rf05a_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf05b_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#  CVI data files merged into ORIGINAL/LRT data files
+set TURBRT = ORIGINAL/LRT/CVI
+echo nrnet msput $SDIR/cvrf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+echo nrnet msput $SDIR/cvrf05a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/cvrf05b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+2nd:
+#  2nd wave (retry failed RF01)
+#   Original data (withoug CVI merge)
+set TURBRT = ORIGINAL/LRT
+echo nrnet msput $SDIR/812rf01_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+3rd:
+#  3rd wave (after RF01 reprocess; add stripped PMS-2D data)
+#   Production data
+set TURBRT = LRT
+echo nrnet msput $SDIR/812rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#   Original data (without CVI merge)
+set TURBRT = ORIGINAL/LRT
+echo nrnet msput $SDIR/812rf01_old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#   CVI data files merged into ORIGINAL/LRT data files
+set TURBRT = ORIGINAL/LRT/CVI
+echo nrnet msput $SDIR/cvrf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#  Stripped PMS-2D data
+set TURBRT = PMS2D
+echo nrnet msput $SDIR/812rf01.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf02.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf03.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf04.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf06.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf07.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf08.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf09.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf10.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf11.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf12.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12 rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+echo nrnet msput $SDIR/812rf05a.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf05b.2D l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+4th:
+#  4th wave (remove stripped PMS-2D data bitfile for RF01)
+set TURBRT = PMS2D
+echo nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01 wpwd=RAFDMG
+#
+5th:
+#  5th wave (archive HRT data sets and rearchive some "fixed" LRT data sets)
+set TURBRT = LRT
+echo nrnet msput $SDIR/812rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf05a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+set TURBRT = HRT
+echo nrnet msput $SDIR/812rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf05ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf05bh.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+6th:
+#  6th wave (archive more reprocessed data and the remaining HRT data sets)
+#   Original data (without CVI merge)
+set TURBRT = ORIGINAL/LRT
+echo nrnet msput $SDIR/812rf01Orig.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf05aOrig.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#   Remaining HRT data sets
+set TURBRT = HRT
+echo nrnet msput $SDIR/812rf05ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/812rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1998/812/
+#
+#   1st wave
+#  Job(s) submitted on Fri Mar 27 12:24:55 MST 1998
+# Sequence number = MI2538 -- LRT/RF01.cdf -- OK @ 27 Mar 1998 12:26:47
+# Sequence number = MI2545 -- LRT/RF02.cdf -- OK @ 27 Mar 1998 12:27:10
+# Sequence number = MI2552 -- LRT/RF03.cdf -- OK @ 27 Mar 1998 12:27:20
+# Sequence number = MI2559 -- LRT/RF04.cdf -- OK @ 27 Mar 1998 12:37:59
+# Sequence number = MI2566 -- LRT/RF06.cdf -- OK @ 27 Mar 1998 12:27:33
+# Sequence number = MI2573 -- LRT/RF07.cdf -- OK @ 27 Mar 1998 12:28:25
+# Sequence number = MI2580 -- LRT/RF08.cdf -- OK @ 27 Mar 1998 12:35:51
+# Sequence number = MI2587 -- LRT/RF09.cdf -- OK @ 27 Mar 1998 12:32:00
+# Sequence number = MI2594 -- LRT/RF10.cdf -- OK @ 27 Mar 1998 12:31:51
+# Sequence number = MI2601 -- LRT/RF11.cdf -- OK @ 27 Mar 1998 12:36:24
+# Sequence number = MI2608 -- LRT/RF12.cdf -- OK @ 27 Mar 1998 12:28:48
+# Sequence number = MI2615 -- LRT/RF13.cdf -- OK @ 27 Mar 1998 12:27:48
+# Sequence number = MI2622 -- LRT/RF05A.cdf -- OK @ 27 Mar 1998 12:28:55
+# Sequence number = MI2629 -- LRT/RF05B.cdf -- OK @ 27 Mar 1998 12:36:42
+# Sequence number = MI2636 -- ORIGINAL/LRT/RF01.cdf -- Failed* @ 27 Mar 1998 12:28:40
+# Sequence number = MI2643 -- ORIGINAL/LRT/RF02.cdf -- OK @ 27 Mar 1998 12:33:45
+# Sequence number = MI2650 -- ORIGINAL/LRT/RF03.cdf -- OK @ 27 Mar 1998 12:33:54
+# Sequence number = MI2657 -- ORIGINAL/LRT/RF04.cdf -- OK @ 27 Mar 1998 12:28:48
+# Sequence number = MI2664 -- ORIGINAL/LRT/RF06.cdf -- OK @ 27 Mar 1998 12:34:42
+# Sequence number = MI2671 -- ORIGINAL/LRT/RF07.cdf -- OK @ 27 Mar 1998 12:34:21
+# Sequence number = MI2678 -- ORIGINAL/LRT/RF08.cdf -- OK @ 27 Mar 1998 12:37:27
+# Sequence number = MI2685 -- ORIGINAL/LRT/RF09.cdf -- OK @ 27 Mar 1998 12:30:25
+# Sequence number = MI2692 -- ORIGINAL/LRT/RF10.cdf -- OK @ 27 Mar 1998 12:30:45
+# Sequence number = MI2699 -- ORIGINAL/LRT/RF11.cdf -- OK @ 27 Mar 1998 12:30:54
+# Sequence number = MI2706 -- ORIGINAL/LRT/RF12.cdf -- OK @ 27 Mar 1998 12:31:02
+# Sequence number = MI2713 -- ORIGINAL/LRT/RF05A.cdf -- OK @ 27 Mar 1998 12:37:44
+# Sequence number = MI2720 -- ORIGINAL/LRT/RF05B.cdf -- OK @ 27 Mar 1998 12:35:32
+# Sequence number = MI2727 -- ORIGINAL/LRT/CVI/RF01.cdf -- OK @ 27 Mar 1998 12:34:21
+# Sequence number = MI2734 -- ORIGINAL/LRT/CVI/RF02.cdf -- OK @ 27 Mar 1998 12:31:52
+# Sequence number = MI2741 -- ORIGINAL/LRT/CVI/RF03.cdf -- OK @ 27 Mar 1998 12:32:08
+# Sequence number = MI2749 -- ORIGINAL/LRT/CVI/RF04.cdf -- OK @ 27 Mar 1998 12:39:55
+# Sequence number = MI2756 -- ORIGINAL/LRT/CVI/RF06.cdf -- OK @ 27 Mar 1998 12:36:14
+# Sequence number = MI2763 -- ORIGINAL/LRT/CVI/RF07.cdf -- OK @ 27 Mar 1998 12:39:58
+# Sequence number = MI2770 -- ORIGINAL/LRT/CVI/RF08.cdf -- OK @ 27 Mar 1998 12:32:00
+# Sequence number = MI2777 -- ORIGINAL/LRT/CVI/RF09.cdf -- OK @ 27 Mar 1998 12:32:03
+# Sequence number = MI2784 -- ORIGINAL/LRT/CVI/RF10.cdf -- OK @ 27 Mar 1998 12:36:24
+# Sequence number = MI2791 -- ORIGINAL/LRT/CVI/RF11.cdf -- OK @ 27 Mar 1998 12:40:07
+# Sequence number = MI2798 -- ORIGINAL/LRT/CVI/RF12.cdf -- OK @ 27 Mar 1998 12:40:10
+# Sequence number = MI2805 -- ORIGINAL/LRT/CVI/RF05A.cdf -- OK @ 27 Mar 1998 12:32:12
+# Sequence number = MI2812 -- ORIGINAL/LRT/CVI/RF05B.cdf -- OK @ 27 Mar 1998 12:32:14
+#  * rcp permission denied
+#
+#   2nd wave (retry failed RF01)
+#  Job(s) submitted on Fri Mar 27 15:29:41 MST 1998
+# Sequence number = MI3092 -- ORIGINAL/LRT/RF01.cdf -- OK @ 27 Mar 1998 15:30:37
+#
+#   3rd wave (after RF01 reprocess; add stripped PMS-2D data)
+#  Job(s) submitted on Wed Apr  1 17:24:37 MST 1998
+# Sequence number = MI4247 -- LRT/RF01.cdf -- OK @ 1 Apr 1998 17:26:13
+# Sequence number = MI4254 -- ORIGINAL/LRT/RF01.cdf -- OK @ 1 Apr 1998 17:26:25
+# Sequence number = MI4261 -- ORIGINAL/LRT/CVI/RF01.cdf -- OK @ 1 Apr 1998 17:25:24
+# Sequence number = MI4268 -- PMS2D/RF01 -- OK @ 1 Apr 1998 17:25:11
+# Sequence number = MI4275 -- PMS2D/RF02 -- OK @ 1 Apr 1998 17:57:46
+# Sequence number = MI4282 -- PMS2D/RF03 -- OK @ 1 Apr 1998 18:15:55
+# Sequence number = MI4289 -- PMS2D/RF04 -- OK @ 1 Apr 1998 17:26:52
+# Sequence number = MI4298 -- PMS2D/RF06 -- OK @ 1 Apr 1998 18:19:32
+# Sequence number = MI4306 -- PMS2D/RF07 -- OK @ 1 Apr 1998 17:57:06
+# Sequence number = MI4316 -- PMS2D/RF08 -- OK @ 1 Apr 1998 18:16:19
+# Sequence number = MI4323 -- PMS2D/RF09 -- OK @ 1 Apr 1998 18:16:51
+# Sequence number = MI4330 -- PMS2D/RF10 -- OK @ 1 Apr 1998 18:19:33
+# Sequence number = MI4337 -- PMS2D/RF11 -- OK @ 1 Apr 1998 18:21:55
+# Sequence number = MI4344 -- PMS2D/RF12 -- OK @ 1 Apr 1998 17:56:41
+# Sequence number = MI4351 -- PMS2D/RF05A -- OK @ 1 Apr 1998 17:27:02
+# Sequence number = MI4358 -- PMS2D/RF05B -- OK @ 1 Apr 1998 18:19:36
+#
+#   4th wave (remove stripped PMS-2D data bitfile for RF01)
+#  Job(s) submitted on Thu Apr  2 12:16:42 MST 1998
+# Sequence number = MI4856 -- PMS2D/RF01 -- OK @ 2 Apr 1998 12:16:52
+#
+#   5th wave (archive HRT data sets and rearchive some "fixed" LRT data sets)
+#  Job(s) submitted on Fri Apr 17 14:26:01 MDT 1998
+# Sequence number = MI4783 -- LRT/RF01.cdf -- OK @ 17 Apr 1998 14:27:02
+# Sequence number = MI4790 -- LRT/RF05A.cdf -- OK @ 17 Apr 1998 14:27:06
+# Sequence number = MI4797 -- HRT/RF01.cdf -- OK @ 17 Apr 1998 14:44:03
+# Sequence number = MI4804 -- HRT/RF02.cdf -- OK @ 17 Apr 1998 14:46:56
+# Sequence number = MI4811 -- HRT/RF05A.cdf -- Failed @ 17 Apr 1998 14:46:59
+#      RCP Error Messages: permission denied
+# Sequence number = MI4819 -- HRT/RF05B.cdf -- OK @ 17 Apr 1998 14:43:27
+# Sequence number = MI4826 -- HRT/RF07.cdf -- OK @ 17 Apr 1998 14:47:42
+# Sequence number = MI4833 -- HRT/RF08.cdf -- Failed @ 17 Apr 1998 14:45:14
+#      RCP Error Messages: permission denied
+# Sequence number = MI4841 -- HRT/RF09.cdf -- Failed @ 17 Apr 1998 14:45:06
+#      RCP Error Messages: permission denied
+# Sequence number = MI4849 -- HRT/RF10.cdf -- Failed @ 17 Apr 1998 14:47:21
+#      RCP Error Messages: permission denied
+#  (Permission denied messages resulted from changing the "migs" password to
+#    interrupt the transfers which were eating up too many system resources.)
+#
+#   6th wave (archive more reprocessed data and the remaining HRT data sets)
+#  Job(s) submitted on Fri Apr 17 17:20:26 MDT 1998
+# Sequence number = MI5122 -- ORIGINAL/LRT/RF01.cdf -- OK @ 17 Apr 1998 17:22:29
+# Sequence number = MI5129 -- ORIGINAL/LRT/RF05A.cdf -- OK @ 17 Apr 1998 17:21:11
+# Sequence number = MI5136 -- HRT/RF05A.cdf -- OK @ 17 Apr 1998 17:24:29
+# Sequence number = MI5143 -- HRT/RF08.cdf -- OK @ 17 Apr 1998 17:35:09
+# Sequence number = MI5150 -- HRT/RF09.cdf -- OK @ 17 Apr 1998 17:35:58
+# Sequence number = MI5157 -- HRT/RF10.cdf -- OK @ 17 Apr 1998 17:34:00
+#

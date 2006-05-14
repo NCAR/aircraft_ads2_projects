@@ -1,0 +1,279 @@
+                    Data Quality Report
+                NCAR Electra - Project #0-828
+    AESOP / TEXAQS - 2000
+                     Fehsenfeld, et al
+
+                            by
+
+    	   Allen Schanot 
+
+This summary has been written to outline basic instrumentation problems affecting the data set and is not intended to point out every bit of questionable data.  It is hoped that this information will facilitate use of the data as the research concentrates on specific flights and times.
+
+The following report covers only the RAF supplied instrumentation and is organized into two sections.  The first section lists recurring problems, general limitations, and systematic biases in the standard RAF measurements.  The second section lists isolated problems occurring on a flight-by-flight basis.  
+
+Section I:  General Discussion
+
+1. Aircraft position, ground speed, and attitude are provided by a Honeywell Inertial Laser Reference System (IRS).  The values of PITCH, ROLL, and THDG are recorded at 50 sps and are highly accurate.  However, the position and ground speed data are susceptible to long term drift known as the Schuler oscillation, typically reducing their accuracy over the duration of a flight.  A Trimble Global Positioning System (GPS) was used as a more accurate position reference during the program. When the GPS is working properly it can provide data with an accuracy of better than 100 meters in position and 1 meter/sec in ground speed. The GPS provides a good absolute measurement over the entire duration of a flight while the IRS provides a good relative measurement and is good for short term variations. 
+
+Both systems generally performed well and the GPS position values are normally recommended for all research efforts.  However, sharp turns do occasionally interrupt the reception from some satellites.  These cases are characterized by a small, instantaneous shift in position and thus ground speed.  Once the aircraft has come out of the turn the track will typically shift back, but the wind calculations can be adversely affected by the resulting discontinuities in the key input variables.  Rather than use the GPS data directly, the RAF uses the GPS parameters to correct the position and ground speed errors that are inherent in the IRS measurements. The simplest way to take advantage of the relative strengths of these two measurements when both are present is to apply a low pass filter to the GPS measurements and the complementary high pass filter to the IRS measurements and then add the two. The RAF algorithm accomplishes this with the addition of some tests and corrections for when the GPS signal is not present.  For the most accurate data with smooth transitions under all conditions, RAF recommends that the XLATC/XLONC position data be used. 
+
+ 	2.  The wind data for this project were derived from measurements taken with the radome wind gust package.  As is the case with all wind gust systems, the ambient wind calculations can be adversely affected by either sharp changes in the aircraft's flight attitude or excessive drift in the onboard inertial reference system (IRS).  Turns, or more importantly, climbing turns are particularly disruptive to this type of measurement technique.  Wind data reported for these conditions should be used with caution.  As an additional enhancement to this data set, a second pass correction was applied to the wind data using position and ground speed updates provided by the GPS positioning system. Both the GPS corrected and uncorrected values are included in the final data set. 
+
+	3.  RAF flies redundant sensors to assure data quality.  Performance characteristics differ from sensor to sensor with certain units being more susceptible to various thermal and dynamic effects than others.  Good comparisons were typically obtained between the three standard temperatures (ATRL, ATRR, ATFH), three dynamic pressures (QCRC, QCFC, QCWC), two liquid water sensors (PLWCC, PLWCC1), the two dew pointers (DPT,DPB), and the three static pressures (PSFDC,PSFC,PSWC).  The reference pressure used in all of the derived parameters (PSFDC) was obtained with a Model 1501 unit.  The two remote surface temperature sensors (RSTB, RSTB1) generally functioned well, but there were short intervals when the two measurements differ significantly.
+ 
+Various derived parameters require input from one or more of these standard sensors.  Reference sensors are selected for each project, depending on a review of their performance.  Reference sensor designations can be found in the project Parameter List.
+
+ 	4.  Temperature measurements were made using the standard heated (ATFH) and two unheated (ATRL) Rosemount temperature sensors.  All of the standard temperature sensors performed reasonably well.  A comparison of the data sets yielded good correlation in instrument signatures and only small differences in absolute value (+-0.2 oC) through out the program. A comparison of pre and post program calibrations indicated that all units maintained stable and independent calibrations.  ATRL was selected as the reference value used in calculating the derived parameters.  
+
+
+ 	5.  Humidity measurements were made using two collocated thermoelectric dew point sensors and one Lyman-alpha fast response hygrometer.   Generally speaking, the humidity sensors performed well. As is typically the case, the two dew point sensors (DPBC,DPTC) were set up differently to provide the best coverage under the widest range of ambient conditions.  DPTC was set up for fast response, but its dynamic range was more limited and had a tendency to break into oscillation. DPBC was a little slower but had the capability of measuring greater dew point depressions.  A comparison of the data sets yielded good correlation in instrument signatures during the largest portions of the flights when both instruments were functioning normally. DPBC was selected as the reference value used in calculating the derived parameters for most of the flights.  On four flights, (rf02, rf04, rf10, rf14) DPTC performed better and was substituted into the calculations as the reference.   
+
+All Lyman-alpha hygrometers are susceptible to in-flight drift in the instrument's bias voltage.  Due to this problem, RAF uses a special data processing technique to remove the bias drift by referencing the long term humidity values to one of the more stable thermoelectric dew point sensors.  In this manner absolute humidity (RHOLA1) and mixing ratio (MRLA1) data from the lyman-alpha can provide improved response and fine scale structure while maintaining the overall accuracy of the dew point sensors. During flights rf01-rf03,  the unit was unusually susceptible to thermal drift.  After the sensing head was replaced following flight rf03, performance was greatly improved and the output was well correlated with the output of the reference dew point sensor.
+
+ 	6.  A set of upward- and downward-looking radiometers were deployed on the Electra for the measurement of down welling and upwelling ultraviolet (UV), shortwave (SW), and infrared (IR) radiation.  RAF recently implemented a processing algorithm that removes the effects of aircraft attitude from the upward-looking shortwave radiometer data.  Users should note that the uncorrected upward-looking shortwave radiometer data variable is SWT, while the correct upward-looking shortwave data variable is XSWTC.  A description of the process used to attitude correct the 
+shortwave data is given in RAF Technical Bulletin 25 (available on-line at http://raf.atd.ucar.edu/Bulletins/bulletin25.html).  The algorithm used to remove the effects of aircraft attitude from the upward-looking shortwave radiometer data requires estimates of the shortwave direct and diffuse radiation fractions.  For the AESOP/TEXAQS-2000 data set, a simple radiative transfer model was used to estimate these direct and diffuse fractions.  The direct and diffuse radiation fractions used during the processing of the data were 0.66 and 0.34, respectively.
+
+
+All three up-looking systems (SWT, UVT, IRTC) and the down-looking infrared (IRBC) worked well throughout the project. A variety of problems with the down-looking shortwave (SWB) and ultraviolet (UVB) systems plagued the project for the entire deployment.  Both sensors were replaced during the project and water, accumulated in the bottom radiometer pod following a rain storm during a static ground display, apparently damaged some of the interface wiring.  Data from both systems were unusable for many of the research flights.
+
+7.  Thermal temperature chamber experiments have indicated that the Heimann sensors used to remotely measure the surface temperature (RSTB, RSTB1) are sensitive to some thermal drift, primarily at the colder temperatures.   In an attempt to deal with these problems the units were equipped with a temperature control heater system.  Some drift is still apparent in the data set.  RSTB1 seemed to be the more stable of the two units and exhibited better accuracy. 
+
+An additional Heimann was placed looking upward (RSTT) in order to monitor the presence of cloud decks above the altitude of the aircraft.  When no upper layer decks are present, RSTT will be pegged around -50 oC.  During in-cloud passes or with upper level cloud decks present, the output of the sensor will reflect either the near field ambient temperature or the temperature of the cloud base, respectively.
+
+
+	8.  The altitude of the aircraft was measured in several ways. The primary measurement (PALT,PALTF) is derived from the static pressure using the hydrostatic equation and the U.S. Standard Atmosphere, which assumes a constant surface pressure of 1013 mb and a base surface temperature of 288 oK.  Whenever the aircraft is operating in areas that significantly differ from this basic profile, adjustments are typically made to the input constants to improve the calculation.  In this case the input surface temperature was changed to 305 oK for all flights.  The value of this change is apparent in comparisons made with the alternate altitude measurements made over Gulf of Mexico. 
+
+The inertial reference system outputs a similar measurement of altitude (ALT) by combining static pressure measurements with vertical accelerations.  These outputs are well correlated but no adjustment can be made to this value for operations in conditions that vary significantly from the standard atmosphere.  RAF therefore recommends PALT as the reference value.
+
+Two radar altimeters were on-board the aircraft for the project. The primary unit (HGME) functions at all altitudes but can be affected by surface signal reflects at altitudes below 50 meters AGL.  The secondary unit (HGM) provides high precision data from the surface to a maximum altitude of 800 meters AGL.  Once the maximum limit on HGM has been exceeded the signal becomes very noisy and will no longer be of use. HGME or HGM should be used as the low altitude reference.
+The GPS positioning system also provides an altitude readout (GALT).  In the past this output was 'de-tuned' by the military and was not particularly useful due to a superimposed oscillation of +-150 m.  However, the signal has now been cleaned up and seems to be as accurate as the PALT measurements.
+
+11.  Two hot wire liquid water sensors were used on the Electra during the program.  The PMS King Probes (PLWCC, PLWCC1) worked reasonable well during the program and a comparison of the two units yielded a good correlation in most cases. Special note should be made of the fact that both these instruments are calibrated for a specific range of aircraft speeds.  Small changes in the baseline are apparent with speed changes, as are small zero offsets.  Each cloud penetration will require a baseline adjustment with the relative change providing the sampled liquid water content.
+
+12.  The calculation of CN sized aerosol particle 
+concentrations (CONCN) is dependent upon total particle counts (CNTS) and the measurement of sample flow (FCN,FCNC). Sample flows are routinely corrected for altitude changes but obstructions are possible.  During this project the CN sample flow was drawn from a special, moisture separating inlet.  This inlet avoids the false, order of magnitude jumps in in-cloud measurements resulting from droplet shattering.  During a routine servicing of the unit following flight rf03, a leak developed in the intake for this instrument and the unit was partially sampling cabin air for several flights.  The data (CONCN) are bad for flights rf04-rf10.  After a repair the unit functioned well for the remaining flights.
+
+13.  Three PMS particle probes (PCASP, FSSP300, FSSP100) were used on the project.  It should be noted that the three probes have overlapping ranges.  Routine comparisons of the total particle size distributions show good agreement between the different data streams.  Some specific details on each of the probes are summarized below:
+
+
+FSSP100  A catastrophic failure of the FSSP cloud
+droplet probe occurred during the ferry down to 
+Houston.  The unit could not be replaced until flight 
+rf07. During the remainder of the project the probe 
+functioned well, although only a very limited number of 
+clouds were penetrated during the deployment.  Weekly
+servicing and re-calibration of the sensor optics 
+provided good documentation for data processing.  The 
+unit was operated only in sampling range zero, covering
+particles in the 3 to 65 um size range.  It should be 
+noted that many large aerosols fell within this range
+making these data useful to the overall research.
+
+
+PCASP  The PCASP aerosol particle probe functioned 
+reasonably well during the project but suffered from 
+noise problems in the lower size bins and housekeeping
+data.  The probe was flown on a wingtip mount to 
+provide easier access for servicing.  It appears that 
+the long signal line lengths resulting from this 
+configuration were the cause of the problem because 
+bench checks in the field remained clean.  The 
+probe has been modified in order to directly measure 
+the sample flow through the instrument.  These data, 
+recorded as PFLWC_OBL, are typically used in the 
+calculation of particle concentrations.  In this case 
+the value of PFLWC_OBL was replaced with a constant 
+value of 1.0 cm3/s to clean up the data.  The error in 
+the concentration data (CONCP_OBL) introduced by this 
+adjustment will be limited to less than 5 %. The lowest
+two size bins were subtracted from CONCP_OBL as well.
+
+
+FSSP300  The 300 probe covers a particle size range
+from 0.3 to 20 um. The unit functioned well, but was
+also mounted on a wing tip for easier servicing.  Some
+noise was encountered in the smallest size bin when the
+aircraft was operating at altitudes above 2500 m.  In order to avoid confusion over comparisons with the 
+PCASP data, the bin #1 counts have been removed from the calculation of total particle concentrations (CONC3_OBR).  In some cases this process will have a
+Significant impact on the magnitude of CONC3_IBR.
+
+
+
+14.  Data recording typically begins well in advance of the actual aircraft takeoff time.  During flights rf01 & rf08 the data system was even left running during short refueling stops. Virtually all measurements made on the aircraft require some sort of airspeed correction or the systems are simply not active while the aircraft remains on the ground.  None of the data collected while the aircraft is on the ground should be considered as valid.
+
+Problems with data streams that have been identified in this quality assurance process have been noted in the following section.  In order to avoid any confusion or misinterpretation of the data provided by RAF, the output from systems deemed to be bad for an entire flight have been replaced with the missing data flag: -32767.
+
+
+
+*	*	*	*	*	*	*	*
+
+
+
+
+
+Section II:  Flight-by-Flight Summary
+
+
+RF01 
+
+* Icing encountered.  Radome dynamic pressure QCR affected from 1733-1802 CUT.  Reference airspeed sensor changed to QCF for the entire flight.
+
+* Ambient temperature sensors ATRR & ATRL also affected
+By aircraft icing from 1733-1802 CUT.  Reference temperature
+Sensor changed to ATFH for the entire flight.
+
+* Bottom ultraviolet sensor failed.  UVB data bad for flight.
+
+* Catastrophic failure of FSSP100 probe.  Data bad from 1910-
+2109 CUT.
+
+* Excessive drift in Lyman-alpha hygrometer signal (VLA1).
+
+* Aircraft on the ground from 1831-1910 CUT.
+
+RF02	
+
+* Radar altimeter (HGME) not turned on at start of flight.
+Data bad from 1737-1802 CUT.
+
+* Ground reflections affecting HGME data from 1819-1827 CUT.
+
+* Excessive oscillation in bottom dew point signal (DPB, DPBC).
+Reference humidity sensor changed to DPTC for entire flight.
+
+* PCASP particle concentrations affected by noise in lowest
+bins.  Total concentration values (CONCP_OBL) too high.
+
+* FSSP100 probe not on board for this flight.
+
+* Bottom ultraviolet sensor failed.  UVB data bad for flight.
+
+* Excessive drift in Lyman-alpha hygrometer signal (VLA1).
+
+RF03	
+* PCASP particle concentrations affected by noise in lowest
+bins.  Total concentration values (CONCP_OBL) too high.
+
+* FSSP100 probe not on board for this flight.
+
+* Uncharacteristic response in Lyman-alpha hygrometer signal
+VLA1.  Data bad for entire flight.
+
+ 
+RF04	
+* Radar altimeter (HGME) not turned on at start of flight.
+Data bad from 1632-1709 CUT.
+
+* Excessive oscillation in bottom dew point signal (DPB, DPBC).
+Reference humidity sensor changed to DPTC for entire flight.
+
+* FSSP100 probe not on board for this flight.
+
+* Intermittent signal from Bottom ultraviolet sensor.  UVB data bad from 1719-2155 CUT.
+
+* Leak in inlet section of CN counter.  CONCN data bad for entire flight.
+
+RF05	
+* Radome dynamic pressure orifice obstructed by foreign materials. Reference airspeed sensor changed to QCF for the entire flight.
+
+* Contamination of top dew point optics.  DPTC data bad from
+1628-2147 CUT.
+
+Both dew pointers balanced to improve response.  DPTC, DPBC,
+DPXC data bad from 2146-2147 CUT.
+
+* FSSP100 probe not on board for this flight.
+
+* Bottom ultraviolet sensor failed.  UVB data bad for flight.
+
+* Bottom shortwave radiometer failed.  SWB data bad from
+2225-2232 CUT.
+
+* Leak in inlet plumbing of CN counter.  CONCN data bad for entire flight.
+
+* ADS data system hang-up.  All data bad from 170737-170740 CUT.
+
+RF06	
+* FSSP100 probe not on board for this flight.
+
+* Bottom ultraviolet sensor failed.  UVB data bad for flight.
+
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+* Uncharacteristic response in top dew point led to a balance adjustment. DPTC data bad from 1818-1828 and 2251-2302 CUT.
+
+* Leak in inlet plumbing of CN counter.  CONCN data bad for entire flight.
+RF07
+* Uncharacteristic response in top dew point led to a balance adjustment. DPTC data bad from 1818-1828 and 2212-2223 CUT.
+
+* Leak in inlet plumbing of CN counter.  CONCN data bad for entire flight.
+
+* Bottom ultraviolet sensor failed.  UVB data bad for flight.
+
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+* Inertial Reference System (IRS) failed at takeoff.  Switched
+to attitude reference mode only.  Position, ground speed and
+heading data are not there or are unusable. Lack of these 
+inputs make the horizontal wind speed (WS, WSC) and wind
+direction (WD, WDC) data bad for the entire flight.  ALT, 
+PITCH, WI, WIC are all affected from 1647-1719 CUT when the 
+Switch over occurred.
+
+RF08	
+* Aircraft on the ground from 1831-1910 CUT.
+
+* Leak in inlet plumbing of CN counter.  CONCN data bad for entire flight.
+
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+RF09	
+* Leak in inlet plumbing of CN counter.  CONCN data bad for entire flight.
+
+* Bottom ultraviolet signal intermittent.  UVB data bad 
+from 1539-1708 CUT.
+
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+RF10 
+* Leak in inlet plumbing of CN counter.  CONCN data bad for entire flight.
+
+* Bottom ultraviolet signal intermittent.  UVB data bad 
+from 1549-1840 CUT.
+
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+
+* Excessive oscillation in bottom dew point signal (DPB, DPBC).
+Reference humidity sensor changed to DPTC for entire flight.
+
+RF11	
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+* Uncharacteristic response in top dew point led to a balance adjustment. DPTC data bad from 1648-1700 and 1822-1831 CUT.
+
+RF12
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+* Uncharacteristic response in top dew point led to a balance adjustment. DPTC data bad from 1636-1650 and 2151-2208 CUT.
+
+RF13
+* Uncharacteristic response in bottom shortwave radiometer.  SWB
+data bad for flight.
+
+* Uncharacteristic response in top dew point led to a balance adjustment. DPTC data bad from 2110-2120 CUT.
+
+RF14
+* Initialization problem with lyman-alpha data processing algorithm.  Derived outputs (RHOLA1, MRLA1) are questionable
+from 1553-1640 CUT.
+
+* Excessive oscillation in bottom dew point signal (DPB, DPBC).
+Reference humidity sensor changed to DPTC for entire flight.
+

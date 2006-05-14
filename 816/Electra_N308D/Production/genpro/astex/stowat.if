@@ -1,0 +1,213 @@
+      SUBROUTINE STOWAT
+C***********************************************************************
+C**  Experimental Total Water Content Processing  Ron Ruth  August 1992
+C**  Requires:  1-TDRY:  Dry-bulb Temperature (C)
+C**             2-TWET:  Wet-bulb Temperature (C)
+C**             3-DPXC:  Reference Corrected Dew Point Temperature (C)
+C**             4-ATX:   Reference Ambient Temperature (C)
+C**             5-PSXC:  Reference Static Pressure (mbar)
+C**             6-CONC:  PMS Probe Concentration (#/cm3)
+C**  Following is picked up from reference indices
+C**               QCXC:  Primary Reference Dynamic Pressure (mbar)
+C** 
+C**  Output:    1-TOWAT:  Total liquid water content (g/m3)
+C**             2-RTOT:   Total water mixing ratio (g/kg) (XMRTOW)
+C** 
+C**
+C**  Adapted from DAP Skeleton Program of Darrel Baumgardner
+C**   file:  /home/chinook/darrel/katests/totalwater.f
+C**
+C
+.REPL
+.USE  TBLANK
+.USE  BLANK
+.USE  IOUNIT
+.USE  TCYCVAR
+.USE  CYCVAR
+.USE  ERROR
+.USE  TOP
+.USE  OP
+.USE  CALCOM
+.NOREP
+      COMMON/QC/IPQC1,IPQC2,LRTQC1,LRTQC2
+C
+C  Define output variable names here:
+      DATA NTOWAT  / 8HXTLWC   /
+      DATA NRTOT   / 8HXMRTOW  /
+C
+C These are the thermodynamic constants needed in the calculations
+      DATA ALHV0 / 2.49910E10 /, DALHV / 0.0234E10 /
+      DATA CPD   / 1.005E7 /
+C
+C
+C     * * * * * * * * * * * * * * *
+C    *                             *
+C   *  Executable code starts here  *
+C    *                             *
+C     * * * * * * * * * * * * * * *
+C
+C       ACCESS THE VARIABLE CONTROLS
+      INDST = 2
+.USE  INDEX
+C      CALL CPRINT (0,6,128,8,5,DUM,0)
+      IOFF01 = ICON(INDOFF+1)
+      IOFF02 = ICON(INDOFF+2)
+      IOFF03 = ICON(INDOFF+3)
+      IOFF04 = ICON(INDOFF+4)
+      IOFF05 = ICON(INDOFF+5)
+      DO (K=1,NUMVEC)
+        IND    = INDVAL+LENCON*(K-1)
+        NAMVAR = ICON(IND+IOFF01)
+C       INDGET = ICON(IND+IOFF02)
+C       INRATE = ICON(IND+IOFF03)
+        INDPUT = ICON(IND+IOFF04)
+C       LRATE  = ICON(IND+IOFF05)
+C
+C  Output variables
+        IF (NAMVAR .EQ. NTOWAT) IPTOWAT = INDPUT-1
+        IF (NAMVAR .EQ. NRTOT)  IPRTOT  = INDPUT-1
+      END DO
+C-----------------------------
+C
+C  Source variable indicess
+      IPTDRY = IPSOU(1) - 1
+      IPTWET = IPSOU(2) - 1
+      IPDPXC = IPSOU(3) - 1
+      IPATX  = IPSOU(4) - 1
+      IPPSXC = IPSOU(5) - 1
+      IPCONC = IPSOU(6) - 1
+      IPQC   = IPQC1 - 1
+C
+C  Source variable rates
+      LRTDRY  = LRTSOU(1)
+      LRTWET  = LRTSOU(2)
+      LRTDPXC = LRTSOU(3)
+      LRTATX  = LRTSOU(4)
+      LRTPSXC = LRTSOU(5)
+      LRTCONC = LRTSOU(6)
+C      SECSUM  = CONS1
+C
+C  ***** INITIALIZATION FOR A NEW CASE
+      IF (NSTAGE.EQ.4)
+C  Check rates and warn if problems.
+        IF (LRTDRY.NE.LRTWET .OR. LRTDRY.GT.LRTDPXC .OR.
+     &      LRTDRY.GT.LRTATX .OR. LRTDRY.GT.LRTPSXC .OR.
+     &      LRTDRY.GT.LRTCONC .OR. LRTDRY.GT.LRATE .OR.
+     &      MOD(LRTWET,LRTDRY).NE.0 .OR. MOD(LRTDPXC,LRTDRY).NE.0 .OR.
+     &      MOD(LRTATX,LRTDRY).NE.0 .OR. MOD(LRTPSXC,LRTDRY).NE.0 .OR. 
+     &      MOD(LRTCONC,LRTDRY).NE.0 )
+          WRITE (6,10100)  LRTDRY, LRTWET, LRTDPXC, LRTATX, LRTPSXC,
+     &                     LRTCONC, LRATE
+10100     FORMAT ("  TOTWATER:  WARNING:  RATE DIFFERENCES WILL CAUSE PR
+     &OBLEMS"/
+     &"            LRTDRY, LRTWET, LRTDPXC, LRTATX, LRTPSXC, LRTCONC, LR
+     &ATE ="/"          "6I8)
+        END IF
+      END IF
+      LDO = NCDO
+C
+C Calculate index multipliers for DPXC, ATX, PSXC, CONC and QCXC
+      IRDPXC = LRTDPXC/LRATE
+      IRATX  = LRTATX/LRATE
+      IRPSXC = LRTPSXC/LRATE
+      IRCONC = LRTCONC/LRATE
+      IRQC1  = LRTQC1/LRATE
+C
+      DO (IX=1,LDO)
+        IDPXC = (IX-1)*IRDPXC + 1
+        IATX  = (IX-1)*IRATX  + 1
+        IPSXC = (IX-1)*IRPSXC + 1
+        ICONC = (IX-1)*IRCONC + 1
+        IQC1  = (IX-1)*IRQC1  + 1
+C  High-rate variables
+        DPXC = DATA(IPDPXC+IDPXC)
+        ATX  = DATA(IPATX +IATX)
+        PSXC = DATA(IPPSXC+IPSXC)
+        CONC = DATA(IPCONC+ICONC)
+        QCXC = DATA(IPQC  +IQC1)
+C  Low-rate variables
+        TDRY = DATA(IPTDRY+IX)
+        TWET = DATA(IPTWET+IX)
+C
+C*****************************************************************************
+C   subroutine twater (tdry,twet,dpbc,atb,psfdc,qcxc,concf,towat,rtot,xmrb)
+C
+C  This is the code for the CSIRO total water probe used during ASTEX.
+C   There are a number of extra parameters that must be included.
+C   They are:  DPBC, ATB, PSFDC, QCXC and CONCF.
+C              DPXC, ATX, PSXC,  QC1  and CONC  <-- local representations
+C
+C  Calculate the mixing ratio from the reference dew pointer (g/g)
+        CALL SEWIC (DPXC,PSXC,EDPX)
+        DENOM = PSXC - EDPX
+        XMRB = 0.
+        IF (DENOM.NE.0.) XMRB = 622.*EDPX/DENOM 
+C  Calculate the saturation mixing ratio at this temperature (g/g)
+        CALL SEWIC (ATX,PSXC,ESAT)
+        DENOM = PSXC - ESAT
+        SATMR = 0.
+        IF (DENOM.NE.0.) SATMR = 622.*ESAT/DENOM
+C  If in cloud, assume that the mixing ratio is that at saturation for the
+C    given temperature
+        IF (CONC.GT.5.) THEN
+          XMR = SATMR
+        ELSE
+          XMR = XMRB
+        END IF
+C  Calculate the wet bulb mixing ratio (g/kg)
+        CALL SEWIC (TWET,PSXC,ETW)
+        DENOM = PSXC - ETW + QCXC
+        RW = 0.
+        IF (DENOM.NE.0.) RW = 0.62197*ETW/DENOM
+C  Calculate the dry bulb mixing ratio
+C   Ratio Cw/Cp = 4.166667
+        CP = CPD*(1.+4.166667*RW)
+C  Calculate latent heat for average temperature in range
+        ALHV = ALHV0 + DALHV*TWET
+C  Get mixing ratio inside, hence also outside
+        R = 0.
+        IF (ALHV.NE.0.) R = CP/ALHV*(TWET-TDRY) + RW
+C  If R is bogus, use RW instead
+        IF (R.LE.0.) R = RW
+C  Convert from g/g to g/kg
+        R = R*1000.
+C
+C!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ASTEX ONLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+C!                THE DARREL BAUMGARDNER FUDGE FACTOR                    !
+C!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+C! This is a correction to account for things we don't understand.       !
+C! This makes the out-of-cloud mixing ratio values between the bottom    !
+C! dew pointer and wet bulb agree fairly well.                           !
+C!        r = 0.419268 + 0.397572*r + 0.0649092*r*r                      !
+C!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        r = 0.419268 + (0.397572 + 0.0649092*r)*r
+C
+C  Solve for total water (g/m3)
+        IF (R.LT.XMR) R = XMRB
+        ATXK  = ATX+273.16
+        ATXK  = MAX(ATXK, 1.0)
+        RHOD  = 0.34838*PSXC/ATXK
+        TOWAT = (R-XMR)*RHOD
+        IF (TOWAT.LT.0. .OR. CONC.LT.1.) TOWAT = 0.
+        RTOT = R
+C
+C  Dump the stuff out
+        IF (IPTOWAT.GT.0) DATA(IPTOWAT+IX) = TOWAT
+        IF (IPRTOT.GT.0)  DATA(IPRTOT+IX)  = RTOT
+C
+      END DO
+      RETURN
+C      END
+C
+C      FUNCTION VAPOR(TFP)
+C  For GENPRO, this function is superseded by subroutine SEWIC
+C       INPUT IS IN DEGREES C.
+C       ROUTINE CODES GOFF-GRATCH FORMULA
+C      T=273.15+TFP
+C       THIS IS WATER SATURATION VAPOR PRESSURE
+C      E=-7.90298*(373.16/T-1.)+5.02808*ALOG10(373.16/T)
+C     $  -1.3816E-7*(10.**(11.344*(1.-T/373.16))-1.)
+C     $  +8.1328E-3*(10.**(3.49149*(1.-373.16/T))-1.)
+C      VAPOR=1013.246*10.**E
+C      RETURN
+      END

@@ -1,0 +1,3769 @@
+From ron Tue Nov  1 16:01:47 1994
+Subject: BOREAS
+To: paul (Paul Spyers-Duran)
+Date: Tue, 1 Nov 1994 16:01:47 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 289       
+Status: RO
+
+Paul,
+
+What's happening with BOREAS?  The last I spoke with you people were
+pondering the CO2 measurements.  Have the pos-calibrations been done
+yet?  When do you anticipate that we can begin setting up NIMBUS for
+the production processing?  Will you need help from Allen or me?
+
+-- 
+Ron
+
+From campos Mon Dec 19 12:58:37 1994
+From: campos (Teresa Campos)
+Message-Id: <199412191958.MAA12566@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id MAA12566; Mon, 19 Dec 1994 12:58:37 -0700
+Subject: no subject (file transmission)
+To: ron (Ron Ruth)
+Date: Mon, 19 Dec 1994 12:58:36 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1211      
+Status: RO
+
+Date:    15 December, 1994
+
+To: Paul Spyers-Duran
+    Allen Schanot
+    Krista Laursen
+    Ron Ruth
+
+From:    Teresa Campos
+
+Subject: BOREAS CO2 cal factors
+
+Included below is a list of calibration factors and offsets for Project 818 CO2 data. 
+I've also attached a copy of the updated euqation for calculating the derived
+variable XCO2C.  Chris has received a copy of these equations.  If you have any
+questions, please let me know.
+
+     Flight        Cal Factor    Offset
+         (ppmv)
+     
+     
+     1   1.0181.9
+       2   1.5223.3
+       3   0.99839.5
+       4   0.98640.4
+       5   1.21725.1
+       6   1.25623.7
+       7   0.92535.0
+       8   0.95723.0
+       9   1.0458.0
+       10             1.050   0
+      11             1.046   0
+      12             1.045   -0.1
+      13             1.046   0
+      14             1.045   0
+      15             1.046   0
+      16             1.045   0
+      17             1.043   -0.3
+      18             1.153   -0.5
+      19             1.042   0.6
+      20             1.475   0.7
+      21             1.558   17.0
+      22             1.507   -0.7
+      23             1.185   -0.7
+      24             1.402   -0.8
+      25             0.985   -0.3
+
+From campos@chinook.atd.ucar.EDU Thu Feb  9 13:04:57 1995
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA11687; Thu, 9 Feb 1995 13:04:57 -0700
+Date: Thu, 9 Feb 1995 13:04:03 -0700
+Message-Id: <199502092004.NAA02615@gruyere.atd.ucar.edu>
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA02615; Thu, 9 Feb 1995 13:04:03 -0700
+To: ron
+Subject: hi rate vars
+X-Sun-Charset: US-ASCII
+Status: RO
+
+Hi, Ron.  I'm sorry that I didn't send this out sooner.  Here are the names of 
+the variables I'm going to use in the hi rate skel program.
+
+	CO, CMODE, COCAL, COZRO, COCOR
+	XCO2S, XCO2T, XCO2P, XCO2C, MR
+	HOUR, MINUTE, SECOND
+
+I'll only change the values of all 5 CO variables and XCO2C.  If you need any
+more information, please let me know.  
+
+Teresa
+
+From ron Wed Mar  1 10:21:46 1995
+Subject: Boreas netCDF files
+To: campos (Teresa Campos)
+Date: Wed, 1 Mar 1995 10:21:46 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1822      
+Status: RO
+
+Teresa,
+
+I have archived all the netCDF files whose names you gave me yesterday.
+
+/RAF/1994/818 as of 03/01/95 09:57:35  (mistral file names)
+02/28/95 -W-S 303515480 HRT/RF23.cdf   <--  818HR23b.cdf
+02/28/95 -W-S 338081240 HRT/RF25.cdf   <--  818HR25b.cdf
+02/28/95 -WD-  13864612 LRT/RF17.cdf   <--  818RF17b.cdf
+02/28/95 -WD-  23224996 LRT/RF18.cdf   <--  818RF18b.cdf
+02/28/95 -WD-  22946212 LRT/RF19.cdf   <--  818RF19b.cdf
+02/28/95 -WD-  23875492 LRT/RF20.cdf   <--  818RF20b.cdf
+02/28/95 -WD-  28879680 LRT/RF21.cdf   <--  818RF21b.cdf
+02/28/95 -WD-  20931364 LRT/RF22.cdf   <--  818RF22b.cdf
+02/28/95 -WD-  25837056 LRT/RF23.cdf   <--  818RF23b.cdf
+02/28/95 -WD-  25994928 LRT/RF24.cdf   <--  818RF24b.cdf
+02/28/95 -WD-  25396132 LRT/RF25.cdf   <--  818RF25b.cdf
+
+I have a request, and I'm not sure of the best way to carry it out.  I'd
+like to have the files put into the $PROD_DATA directory with a specific
+naming convention.  That way, I can run a script I wrote to produce a "tape"
+log which will make a file that lists flight number, date, start and end
+times, etc. for all the files.  I think the easiest way to do that would be
+for you to add world write permission to those files.  Then I should be able
+to move them to the $PROD_DATA directory and run my script.  I would make
+`nimbus' the owner and restore write permissions.  That way, it will reflect
+the true production status of those files.
+
+Would that be OK with you?
+
+In the future, I also request that, any time you are running a "production"
+job, that you run `nimbus' or your skeleton program when logged in as
+`nimbus,' and put the output files in the `/home/local/data/production'
+directory.  That way, they are better protected, and if non-standard file
+names are chosen, I can rename them easily, so my scripts will work.
+
+Thanks.
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Thu Feb  9 13:04:57 1995
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA11687; Thu, 9 Feb 1995 13:04:57 -0700
+Date: Thu, 9 Feb 1995 13:04:03 -0700
+Message-Id: <199502092004.NAA02615@gruyere.atd.ucar.edu>
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA02615; Thu, 9 Feb 1995 13:04:03 -0700
+To: ron
+Subject: hi rate vars
+X-Sun-Charset: US-ASCII
+Status: RO
+
+Hi, Ron.  I'm sorry that I didn't send this out sooner.  Here are the names of 
+the variables I'm going to use in the hi rate skel program.
+
+	CO, CMODE, COCAL, COZRO, COCOR
+	XCO2S, XCO2T, XCO2P, XCO2C, MR
+	HOUR, MINUTE, SECOND
+
+I'll only change the values of all 5 CO variables and XCO2C.  If you need any
+more information, please let me know.  
+
+Teresa
+
+From campos@chinook.atd.ucar.EDU Wed Mar  1 13:16 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA09888; Wed, 1 Mar 1995 13:16:36 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA00591; Wed, 1 Mar 1995 13:16:34 -0700
+Date: Wed, 1 Mar 1995 13:16:34 -0700
+Message-Id: <199503012016.NAA00591@gruyere.atd.ucar.edu>
+To: ron
+Subject: Re: Boreas netCDF files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 203
+Status: RO
+
+Ron,
+
+I added global write permission to the skel-modified netCDF files, for your
+convenience.  Your plan sounds fine to me.
+
+I will run all future files with the nimbus login, as you recommend.
+
+Teresa
+
+From ron Wed Mar 22 13:26:02 1995
+Subject: 4-818 BOREAS HRT processing
+To: campos (Teresa Campos), paul (Paul Spyers-Duran)
+Date: Wed, 22 Mar 1995 13:26:02 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1787      
+Status: RO
+
+Teresa and Paul,
+
+Teresa mentioned to me today that she is preparing to do high-rate
+production processing for BOREAS.  In anticipation of that I reviewed a
+low-rate netCDF file header and found minor problems with the low-rate
+processing.
+  1)  Two of the LRT output variables have no definitions:  DVALU and
+       XO3FDG.  For the high-rate processing, these should be fixed
+       (by adding them to the `VarDB' file or eliminating them from
+       output). 
+  2) Some of the special variables (XISCO2T, XISSP1, XISSP2, XISSUPR
+       and XISTHC) have units of "V" instead of "Vdc."  These are not
+       worth changing.
+
+Changes needed for high-rate processing:
+  1)  You need to choose the output rate for the following variables:
+       CNTS, CONCN, COCAL, COCOR, COZRO, XCO2C, XLH2OC, XMRLI, XO3FDG,
+       VEWC and VNSC.
+  2)  The proper output rate for VEW and VNS is 10 sps.  Both need to
+       be set manually since they default to 1 sps.
+
+When I prepared for high-rate processing of 4-870 WISP-94, I created a
+special setup file which I called `HRT.convert.'  (The file is in the
+`.../proj/870/Production' directory in case you want to look at it.)  It
+contained the unique changes necessary for high-rate processing (including
+setting NIMBUS to "high-rate").  I manually loaded it before each production
+run.  Because of the `FlightGroups' file and the individual `Flight_xx'
+setup files from the low-rate processing, all the other unique changes were
+brought in automatically without having to do anything else.  (This, of
+course, assumes that all the setup files are correct.)  If you would like
+to do something similar, I can help you set it up.
+
+Teresa, before you do any production high-rate processing, please see me
+for some additional pointers.  Thanks.
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Fri Mar 24 08:15 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA19353; Fri, 24 Mar 1995 08:15:00 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA00570; Fri, 24 Mar 1995 08:14:56 -0700
+Date: Fri, 24 Mar 1995 08:14:56 -0700
+Message-Id: <199503241514.IAA00570@gruyere.atd.ucar.edu>
+To: ron
+Subject: HRT file size
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 495
+Status: RO
+
+Ron,
+
+I have generated 4 HRT .cdf files.  They range from 250-300 M.  
+
+I have talked with John Lind regarding project 201 .cdf and .asc files.  He has 
+one more processing task which he must perform before we can delete the .cdf 
+files.  He has promised to finish everything by the end of work today, and will 
+then delete all the 201 files.  I have plenty to do in the meantime with the
+files already in /home/data, so I don't foresee any problems with this plan.  
+What do you think?
+
+Teresa
+
+From campos@chinook.atd.ucar.EDU Tue Mar 28 17:07 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id RAA03965; Tue, 28 Mar 1995 17:07:53 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id RAA00782; Tue, 28 Mar 1995 17:07:50 -0700
+Date: Tue, 28 Mar 1995 17:07:50 -0700
+Message-Id: <199503290007.RAA00782@gruyere.atd.ucar.edu>
+To: ron
+Subject: BOREAS files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 454
+Status: RO
+
+Ron,
+
+Some files have been merged with my skel program output.  They are located in
+/home/data and have the names listed below.  I would greatly appreciate it if
+you would archive these to the mass store.  I will be churning out some more
+tonight (or early tomorrow am) and will send you a list of new files tomorrow 
+morning. 
+
+LRT:	818RF13b.cdf
+	818RF14b.cdf
+	818RF15b.cdf
+	818RF16b.cdf
+	818RF17b.cdf
+	818RF18b.cdf
+
+HRT:	818RF17Hb.cdf
+
+Thanks,
+
+Teresa
+
+From ron Tue Mar 28 17:25:44 1995
+Subject: Re: BOREAS files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Tue, 28 Mar 1995 17:25:44 -0700 (MST)
+In-Reply-To: <199503290007.RAA00782@gruyere.atd.ucar.edu> from "Teresa Campos" at Mar 28, 95 05:07:50 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 689       
+Status: RO
+
+> 
+> Ron,
+> 
+> Some files have been merged with my skel program output.  They are located in
+> /home/data and have the names listed below.  I would greatly appreciate it if
+> you would archive these to the mass store.  I will be churning out some more
+> tonight (or early tomorrow am) and will send you a list of new files tomorrow 
+> morning. 
+> 
+> LRT:	818RF13b.cdf
+> 	818RF14b.cdf
+> 	818RF15b.cdf
+> 	818RF16b.cdf
+> 	818RF17b.cdf
+> 	818RF18b.cdf
+> 
+> HRT:	818RF17Hb.cdf
+> 
+> Thanks,
+> 
+Teresa,
+
+As per our recent conversation, I will not archive these files yet, since
+you have found space to put them in /home//staticdata.  Please let me know
+when you do want these archived.
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Wed Mar 29 07:45 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id HAA05975; Wed, 29 Mar 1995 07:45:14 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id HAA00807; Wed, 29 Mar 1995 07:45:12 -0700
+Date: Wed, 29 Mar 1995 07:45:12 -0700
+Message-Id: <199503291445.HAA00807@gruyere.atd.ucar.edu>
+To: ron
+Subject: Re: BOREAS files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 115
+Status: RO
+
+Ron,
+
+I moved the processed BOREAS files to /home/tmp/campos, and you can archive 
+them at your leisure.  
+
+Teresa
+
+From ron Wed Mar 29 13:05:58 1995
+Subject: BOREAS archiving
+To: paul (Paul Spyers-Duran), campos (Teresa Campos)
+Date: Wed, 29 Mar 1995 13:05:58 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1692      
+Status: RO
+
+Teresa and Paul,
+
+I have archived the NIMBUS production netCDF files from 4-818 BOREAS
+that Teresa specified via email yesterday.  I have archived both the
+original NIMBUS-produced files and the production output files after
+output from Teresa's skeleton program was merged into the original
+data.
+
+The Mass Store System bitfiles have the following names:
+
+Original, unmodified data (from directory `mistral:/home/productiondata'):
+/RAF/1994/818/ORIG/LRT/RF13.cdf
+/RAF/1994/818/ORIG/LRT/RF14.cdf
+/RAF/1994/818/ORIG/LRT/RF15.cdf
+/RAF/1994/818/ORIG/LRT/RF16.cdf
+/RAF/1994/818/ORIG/LRT/RF17.cdf
+/RAF/1994/818/ORIG/LRT/RF18.cdf
+
+/RAF/1994/818/ORIG/HRT/RF17.cdf
+
+Final "skeletonized" data (from directory `chinook:/home/tmp/campos'):
+/RAF/1994/818/LRT/RF13.cdf
+/RAF/1994/818/LRT/RF14.cdf
+/RAF/1994/818/LRT/RF15.cdf
+/RAF/1994/818/LRT/RF16.cdf
+/RAF/1994/818/LRT/RF17.cdf
+/RAF/1994/818/LRT/RF18.cdf
+
+/RAF/1994/818/HRT/RF17.cdf
+
+Since these have now been archived, I suspect it is OK to remove their disk
+file copies here at Jeffco.  I archived these data from the directories
+`/home/productiondata' (original) and `/home/tmp/campos' (skeleton).
+
+Some previous data have already been archived to the MSS.  I suspect, with
+your current processing, that you will want me to overwrite these.  Please
+let me know.  I have already overwritten two of these.
+
+Already overwritten:
+/RAF/1994/818/LRT/RF17.cdf
+/RAF/1994/818/LRT/RF18.cdf
+
+To be overwritten:
+/RAF/1994/818/LRT/RF19.cdf
+/RAF/1994/818/LRT/RF20.cdf
+/RAF/1994/818/LRT/RF21.cdf
+/RAF/1994/818/LRT/RF22.cdf
+/RAF/1994/818/LRT/RF23.cdf
+/RAF/1994/818/LRT/RF24.cdf
+/RAF/1994/818/LRT/RF25.cdf
+/RAF/1994/818/HRT/RF23.cdf
+/RAF/1994/818/HRT/RF25.cdf
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Thu Mar 30 07:44 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id HAA19370; Thu, 30 Mar 1995 07:44:54 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id HAA00954; Thu, 30 Mar 1995 07:44:48 -0700
+Date: Thu, 30 Mar 1995 07:44:48 -0700
+Message-Id: <199503301444.HAA00954@gruyere.atd.ucar.edu>
+To: ron
+Subject: more 818 files ready
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 631
+Status: RO
+
+Ron,
+
+Thanks for your email confirming archiving of BOREAS data files.  I'm glad we
+can remove the Jeffco copies, because of serious memory limitations in the
+data and productiondata directories.  It has become a real bottleneck.  
+
+As you suspected, the files we wrote to the mass store a while back should be
+overwritten.  Below are listed some more file ready for archiving.
+
+LRT:	/home/tmp/campos/818RF21b.cdf
+	/home/tmp/campos/818RF20b.cdf
+	/home/tmp/campos/818RF19b.cdf
+
+HRT:	/home/tmp/campos/818RF18Hb.cdf
+	/home/tmp/campos/818RF16Hb.cdf
+	/home/tmp/campos/818RF15Hb.cdf
+	/home/tmp/campos/818RF14Hb.cdf
+
+Many thanks,
+
+Teresa
+
+From campos@chinook.atd.ucar.EDU Thu Mar 30 12:21 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA23510; Thu, 30 Mar 1995 12:21:50 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA01003; Thu, 30 Mar 1995 12:21:48 -0700
+Date: Thu, 30 Mar 1995 12:21:48 -0700
+Message-Id: <199503301921.MAA01003@gruyere.atd.ucar.edu>
+To: ron
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 366
+Status: RO
+
+Ron,
+
+Some more files are ready for archiving.  I have used up available space on /home/
+tmp, so two of the files are in /home/data.
+
+LRT	/home/tmp/campos/818RF12b.cdf
+	/home/tmp/campos/818RF09b.cdf
+	/home/tmp/campos/818RF08b.cdf
+	/home/data/818RF11b.cdf
+
+HRT	/home/tmp/campos/818RF13Hb.cdf
+	/home/tmp/campos/818RF12Hb.cdf
+	/home/data/818RF08Hb.cdf
+
+Thanks,
+
+Teresa
+
+From ron Thu Mar 30 15:13:19 1995
+Subject: 818 archive
+To: campos (Teresa Campos)
+Date: Thu, 30 Mar 1995 15:13:19 -0700 (MST)
+Cc: paul (Paul Spyers-Duran)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1612      
+Status: RO
+
+Teresa and Paul,
+
+I have begun the archive process for the following files (and the original
+NIMBUS parent files prior to your skeleton processing).  These files should
+be archived over the next few hours, barring any undue problems with file
+transfers over the network.  As of now, about 60% of the files have already
+been transferred.  (The larger HRT files will take the longest, because they
+are large and get put at the bottom of the queue.)  I'll let you know when
+they have completed.
+
+Final production NIMBUS files (to the .../xRT MSS directory)
+LRT:    /home/tmp/campos/818RF21b.cdf
+        /home/tmp/campos/818RF20b.cdf
+        /home/tmp/campos/818RF19b.cdf
+ 
+HRT:    /home/tmp/campos/818RF18Hb.cdf
+        /home/tmp/campos/818RF16Hb.cdf
+        /home/tmp/campos/818RF15Hb.cdf
+        /home/tmp/campos/818RF14Hb.cdf
+
+LRT     /home/tmp/campos/818RF12b.cdf
+        /home/tmp/campos/818RF09b.cdf
+        /home/tmp/campos/818RF08b.cdf
+        /home/data/818RF11b.cdf
+ 
+HRT     /home/tmp/campos/818RF13Hb.cdf
+        /home/tmp/campos/818RF12Hb.cdf
+        /home/data/818RF08Hb.cdf
+
+Original unmodified NIMBUS files (to the .../ORIG/xRT MSS directory)
+LRT:    /home/data/818RF21.cdf
+        /home/data/818RF20.cdf
+        /home/data/818RF19.cdf
+ 
+HRT:    /home/data/818RF18H.cdf
+        /home/data/818RF16H.cdf
+        /home/data/818RF15H.cdf
+        /home/data/818RF14H.cdf
+
+LRT     /home/data/818RF12.cdf
+        /home/data/818RF09.cdf
+        /home/data/818RF08.cdf
+        /home/data/818RF11.cdf
+ 
+HRT     /home/data/818RF13H.cdf
+        /home/data/818RF12H.cdf
+        /home/data/818RF08H.cdf
+
+-- 
+Ron
+
+From ron Thu Mar 30 17:22:58 1995
+Subject: Files have all been transferred
+To: paul (Paul Spyers-Duran), campos (Teresa Campos)
+Date: Thu, 30 Mar 1995 17:22:58 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 828       
+Status: RO
+
+The following files have all been archived to the SCD Mass Store System:
+
+$PROD_DATA/818RF08.cdf
+$PROD_DATA/818RF09.cdf
+$PROD_DATA/818RF11.cdf
+$PROD_DATA/818RF12.cdf
+$PROD_DATA/818RF19.cdf
+$PROD_DATA/818RF20.cdf
+$PROD_DATA/818RF21.cdf
+$PROD_DATA/818RF08H.cdf
+$PROD_DATA/818RF12H.cdf
+$PROD_DATA/818RF13H.cdf
+$PROD_DATA/818RF14H.cdf
+$PROD_DATA/818RF15H.cdf
+$PROD_DATA/818RF16H.cdf
+$PROD_DATA/818RF18H.cdf
+/home/tmp/campos/818RF08b.cdf
+/home/tmp/campos/818RF09b.cdf
+/home/data/818RF11b.cdf
+/home/tmp/campos/818RF12b.cdf
+/home/tmp/campos/818RF19b.cdf
+/home/tmp/campos/818RF20b.cdf
+/home/tmp/campos/818RF21b.cdf
+/home/data/818RF08Hb.cdf
+/home/tmp/campos/818RF12Hb.cdf
+/home/tmp/campos/818RF13Hb.cdf
+/home/tmp/campos/818RF14Hb.cdf
+/home/tmp/campos/818RF15Hb.cdf
+/home/tmp/campos/818RF16Hb.cdf
+/home/tmp/campos/818RF18Hb.cdf
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Fri Mar 31 09:33 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA03453; Fri, 31 Mar 1995 09:33:09 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA00342; Fri, 31 Mar 1995 09:33:05 -0700
+Date: Fri, 31 Mar 1995 09:33:05 -0700
+Message-Id: <199503311633.JAA00342@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 517
+Status: RO
+
+Ron, 
+
+The following files are ready for archiving.  You will notice that the LRT and HRT
+files for RF08 are being overwritten.  I discovered a math error in my skel 
+program and re-processed both .cdf files.  Bon appetit!
+
+LRT	/home/tmp/campos/818RF07b.cdf
+			/818RF08b.cdf
+			/818RF10b.cdf
+			/818RF11b.cdf
+			/818RF22b.cdf
+			/818RF23b.cdf
+			/818RF24b.cdf
+			/818RF25b.cdf
+	/home/data/818RF04b.cdf
+
+HRT	/home/tmp/campos/818RF08Hb.cdf
+			/818RF09Hb.cdf
+			/818RF21Hb.cdf
+	/home/data/818RF11Hb.cdf
+
+Thanks,
+
+Teresa
+
+From ron Fri Mar 31 10:56:41 1995
+Subject: Re: 818 files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Fri, 31 Mar 1995 10:56:41 -0700 (MST)
+In-Reply-To: <199503311633.JAA00342@gruyere.atd.ucar.edu> from "Teresa Campos" at Mar 31, 95 09:33:05 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1329      
+Status: RO
+
+> Ron, 
+> 
+> The following files are ready for archiving.  You will notice that the LRT
+> and HRT files for RF08 are being overwritten.  I discovered a math error
+> in my skel program and re-processed both .cdf files.  Bon appetit!
+> 
+> LRT	/home/tmp/campos/818RF07b.cdf
+> 			/818RF08b.cdf
+> 			/818RF10b.cdf
+> 			/818RF11b.cdf
+> 			/818RF22b.cdf
+> 			/818RF23b.cdf
+> 			/818RF24b.cdf
+> 			/818RF25b.cdf
+> 	/home/data/818RF04b.cdf
+> 
+> HRT	/home/tmp/campos/818RF08Hb.cdf
+> 			/818RF09Hb.cdf
+> 			/818RF21Hb.cdf
+> 	/home/data/818RF11Hb.cdf
+> 
+Teresa and Paul,
+
+I assume that you, Teresa, ran only your skeleton program for RF08, not
+the original NIMBUS processing, too, and therefore, only the final output
+files need to be rearchived.  Please let me know if this is NOT the case.
+
+I also assume that you reprocessed the LRT data for RF11, since you are
+includinga it in the list above and the file is dated Mar 30 21:24.
+(I had already archived it yesterday).
+
+Just for your information, in addition to the files mentioned above, the
+following MSS bitfiles will be overwritten by this request:
+
+/RAF/1994/818/LRT/RF22.cdf  (archived 28 February 1995)
+/RAF/1994/818/LRT/RF23.cdf  (archived 28 February 1995)
+/RAF/1994/818/LRT/RF24.cdf  (archived 28 February 1995)
+/RAF/1994/818/LRT/RF25.cdf  (archived 28 February 1995)
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Fri Mar 31 11:26 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA04605; Fri, 31 Mar 1995 11:26:40 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA00353; Fri, 31 Mar 1995 11:26:37 -0700
+Date: Fri, 31 Mar 1995 11:26:37 -0700
+Message-Id: <199503311826.LAA00353@gruyere.atd.ucar.edu>
+To: ron
+Subject: Re: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 92
+Status: RO
+
+Ron,
+
+You were right in all your assumptions.  Thanks for keeping on top of things.
+
+Teresa
+
+From campos@chinook.atd.ucar.EDU Fri Mar 31 15:06 MST 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA07300; Fri, 31 Mar 1995 15:06:44 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA00371; Fri, 31 Mar 1995 15:06:41 -0700
+Date: Fri, 31 Mar 1995 15:06:41 -0700
+Message-Id: <199503312206.PAA00371@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 244
+Status: RO
+
+Ron,
+
+As we discussed, the following files are also ready for archiving:
+
+HRT	/home/data/818RF07Hb.cdf
+	/home/tmp/campos/818RF10Hb.cdf
+			/818RF19Hb.cdf
+
+I'll clear out much of the contents of /home/tmp/campos by this weekend.
+
+Thanks,
+
+Teresa
+
+From ron Fri Mar 31 15:16:01 1995
+Subject: Re: 818 files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Fri, 31 Mar 1995 15:16:01 -0700 (MST)
+In-Reply-To: <199503312206.PAA00371@gruyere.atd.ucar.edu> from "Teresa Campos" at Mar 31, 95 03:06:41 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 449       
+Status: RO
+
+> 
+> Ron,
+> 
+> As we discussed, the following files are also ready for archiving:
+> 
+> HRT	/home/data/818RF07Hb.cdf
+> 	/home/tmp/campos/818RF10Hb.cdf
+> 			/818RF19Hb.cdf
+> 
+> I'll clear out much of the contents of /home/tmp/campos by this weekend.
+> 
+> Thanks,
+> 
+Teresa,
+
+I have included these in my latest series of MIGS archive jobs which I
+submitted about 3:00 p.m. today.  As before, I'll let you know when
+these jobs have completed.
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Mon Apr  3 10:56 MDT 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA02465; Mon, 3 Apr 1995 10:55:58 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA00533; Mon, 3 Apr 1995 10:55:53 -0600
+Date: Mon, 3 Apr 1995 10:55:53 -0600
+Message-Id: <199504031655.KAA00533@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 file
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 255
+Status: RO
+
+Ron,
+
+The only file which is ready for archiving is listed below.  I am in the
+process of moving it to /home/tmp/campos and things are proceeding slowly, so it 
+might be awhile before it arrives there.
+
+HRT	/home/tmp/campos/818RF20Hb.cdf
+
+Thanks,
+
+Teresa
+
+From campos@chinook.atd.ucar.EDU Mon Apr  3 14:09 MDT 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA08392; Mon, 3 Apr 1995 14:09:36 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA00557; Mon, 3 Apr 1995 14:09:32 -0600
+Date: Mon, 3 Apr 1995 14:09:32 -0600
+Message-Id: <199504032009.OAA00557@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 100
+Status: RO
+
+Ron,
+
+One more file is ready to be archived.  
+
+HRT	/home/tmp/campos/818RF22Hb.cdf
+
+Thanks,
+
+Teresa
+
+From ron Mon Apr  3 15:17:48 1995
+Subject: Re: 818 files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Mon, 3 Apr 1995 15:17:48 -0600 (MDT)
+Cc: paul (Paul Spyers-Duran)
+In-Reply-To: <199504032009.OAA00557@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 3, 95 02:09:32 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2968      
+Status: RO
+
+> Ron,
+>  
+> The only file which is ready for archiving is listed below.  I am in the
+> process of moving it to /home/tmp/campos and things are proceeding slowly,
+> so it might be awhile before it arrives there.
+>  
+> HRT     /home/tmp/campos/818RF20Hb.cdf
+>  
+> Thanks,
+>  
+> Teresa
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+> 
+> Ron,
+> 
+> One more file is ready to be archived.  
+> 
+> HRT	/home/tmp/campos/818RF22Hb.cdf
+> 
+> Thanks,
+> 
+Teresa,
+
+I have submitted jobs to archive the following netCDF files to the MSS:
+  /home/tmp/campos/818RF20Hb.cdf  -->  /RAF/1994/818/HRT/RF20
+  /home/tmp/campos/818RF22Hb.cdf  -->  /RAF/1994/818/HRT/RF22
+  $PROD_DATA/818RF20H.cdf         -->  /RAF/1994/818/ORIG/HRT/RF20
+  $PROD_DATA/818RF22H.cdf         -->  /RAF/1994/818/ORIG/HRT/RF22
+
+I will let you know when they have been transferred successfully.
+
+The following files transferred successfully over the weekend:
+/home/data/818RF04b.cdf        --> /RAF/1994/818/LRT/RF04.cdf
+/home/tmp/campos/818RF07b.cdf  --> /RAF/1994/818/LRT/RF07.cdf
+/home/tmp/campos/818RF08b.cdf  --> /RAF/1994/818/LRT/RF08.cdf
+/home/tmp/campos/818RF10b.cdf  --> /RAF/1994/818/LRT/RF10.cdf
+/home/tmp/campos/818RF11b.cdf  --> /RAF/1994/818/LRT/RF11.cdf
+/home/tmp/campos/818RF22b.cdf  --> /RAF/1994/818/LRT/RF22.cdf
+/home/tmp/campos/818RF23b.cdf  --> /RAF/1994/818/LRT/RF23.cdf
+/home/tmp/campos/818RF24b.cdf  --> /RAF/1994/818/LRT/RF24.cdf
+/home/tmp/campos/818RF25b.cdf  --> /RAF/1994/818/LRT/RF25.cdf
+/home/data/818RF07Hb.cdf       --> /RAF/1994/818/HRT/RF07.cdf
+/home/tmp/campos/818RF08Hb.cdf --> /RAF/1994/818/HRT/RF08.cdf
+/home/tmp/campos/818RF09Hb.cdf --> /RAF/1994/818/HRT/RF09.cdf
+/home/tmp/campos/818RF10Hb.cdf --> /RAF/1994/818/HRT/RF10.cdf
+/home/data/818RF11Hb.cdf       --> /RAF/1994/818/HRT/RF11.cdf
+/home/tmp/campos/818RF19Hb.cdf --> /RAF/1994/818/HRT/RF19.cdf
+/home/tmp/campos/818RF21Hb.cdf --> /RAF/1994/818/HRT/RF21.cdf
+
+$PROD_DATA/818RF04.cdf         --> /RAF/1994/818/ORIG/LRT/RF04.cdf
+$PROD_DATA/818RF07.cdf         --> /RAF/1994/818/ORIG/LRT/RF07.cdf
+$PROD_DATA/818RF10.cdf         --> /RAF/1994/818/ORIG/LRT/RF10.cdf
+$PROD_DATA/818RF22.cdf         --> /RAF/1994/818/ORIG/LRT/RF22.cdf
+$PROD_DATA/818RF23.cdf         --> /RAF/1994/818/ORIG/LRT/RF23.cdf
+$PROD_DATA/818RF24.cdf         --> /RAF/1994/818/ORIG/LRT/RF24.cdf
+$PROD_DATA/818RF25.cdf         --> /RAF/1994/818/ORIG/LRT/RF25.cdf
+$PROD_DATA/818RF07H.cdf        --> /RAF/1994/818/ORIG/HRT/RF07.cdf
+$PROD_DATA/818RF09H.cdf        --> /RAF/1994/818/ORIG/HRT/RF09.cdf
+$PROD_DATA/818RF10H.cdf        --> /RAF/1994/818/ORIG/HRT/RF10.cdf
+$PROD_DATA/818RF11H.cdf        --> /RAF/1994/818/ORIG/HRT/RF11.cdf
+$PROD_DATA/818RF19H.cdf        --> /RAF/1994/818/ORIG/HRT/RF19.cdf
+$PROD_DATA/818RF21H.cdf        --> /RAF/1994/818/ORIG/HRT/RF21.cdf
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Mar 31 17:50:01 1995
+Subject: 818 output archive status
+To: paul (Paul Spyers-Duran), campos (Teresa Campos)
+Date: Fri, 31 Mar 1995 17:50:01 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 735       
+Status: RO
+
+Paul & Teresa,
+
+As of now the following files have been successfully archived to the MSS,
+so we are a little more than half finished:
+
+Skeleton LRT files:
+  /home/data/818RF04b.cdf
+  /home/tmp/campos/818RF07b.cdf
+  /home/tmp/campos/818RF08b.cdf
+  /home/tmp/campos/818RF10b.cdf
+  /home/tmp/campos/818RF11b.cdf
+  /home/tmp/campos/818RF22b.cdf
+  /home/tmp/campos/818RF23b.cdf
+  /home/tmp/campos/818RF25b.cdf
+
+Original LRT files:
+  $PROD_DATA/818RF07.cdf
+  $PROD_DATA/818RF10.cdf
+  $PROD_DATA/818RF24.cdf
+  $PROD_DATA/818RF25.cdf
+
+Skeleton HRT files:
+  /home/data/818RF11Hb.cdf
+
+Original HRT files:
+  $PROD_DATA/818RF07H.cdf
+  $PROD_DATA/818RF09H.cdf
+  $PROD_DATA/818RF10H.cdf
+  $PROD_DATA/818RF11H.cdf
+  $PROD_DATA/818RF19H.cdf
+
+-- 
+Ron
+
+From ron Mon Apr  3 16:41:23 1995
+Subject: 818 files archived
+To: paul (Paul Spyers-Duran), campos (Teresa Campos)
+Date: Mon, 3 Apr 1995 16:41:23 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 349       
+Status: RO
+
+Paul & Teresa,
+
+The following files have been successfully archived to the MSS:
+
+/home/tmp/campos/818RF20Hb.cdf --> /RAF/1994/818/HRT/RF20.cdf
+/home/tmp/campos/818RF22Hb.cdf --> /RAF/1994/818/HRT/RF22.cdf
+$PROD_DATA/818RF20H.cdf        --> /RAF/1994/818/ORIG/HRT/RF20.cdf
+$PROD_DATA/818RF22H.cdf        --> /RAF/1994/818/ORIG/HRT/RF22.cdf
+
+-- 
+Ron
+
+From ron Mon Apr  3 16:54:10 1995
+Subject: Archive update
+To: campos (Teresa Campos), paul (Paul Spyers-Duran)
+Date: Mon, 3 Apr 1995 16:54:10 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3468      
+Status: RO
+
+Teresa and Paul,
+
+Just thought I'd give you a summary of the production data files that
+are present on the Mass Store.  This should tell you what is left to
+be done.  The dates in the first column are the date of last access.
+(For us that is probably the creation date.)  All the following bitfiles
+are in the MSS directory:  /RAF/1994/818/
+
+The bitfiles in the HRT and LRT directories are merged files from Teresa's
+ skeleton:
+03/31/95 -W-S 293381092 HRT/RF07.cdf
+03/31/95 -W-S 214636340 HRT/RF08.cdf
+03/31/95 -W-S 247952824 HRT/RF09.cdf
+03/31/95 -W-S 284708372 HRT/RF10.cdf
+03/31/95 -W-S 290073780 HRT/RF11.cdf
+03/30/95 -W-S 327982644 HRT/RF12.cdf
+03/30/95 -W-S 245696340 HRT/RF13.cdf
+03/30/95 -W-S 268712436 HRT/RF14.cdf
+03/30/95 -W-S 297595380 HRT/RF15.cdf
+03/30/95 -W-S 298347540 HRT/RF16.cdf
+03/29/95 -W-S 162009776 HRT/RF17.cdf
+03/30/95 -W-S 274378708 HRT/RF18.cdf
+03/31/95 -W-S 271069204 HRT/RF19.cdf
+04/03/95 -W-S 282100884 HRT/RF20.cdf
+03/31/95 -W-S 301356180 HRT/RF21.cdf
+04/03/95 -W-S 247150516 HRT/RF22.cdf
+02/28/95 -W-S 303515480 HRT/RF23.cdf
+02/28/95 -W-S 338081240 HRT/RF25.cdf
+
+03/31/95 -WD-  25720704 LRT/RF04.cdf
+03/31/95 -WD-  24929600 LRT/RF07.cdf
+03/31/95 -WD-  18268336 LRT/RF08.cdf
+03/30/95 -WD-  20998964 LRT/RF09.cdf
+03/31/95 -WD-  24095152 LRT/RF10.cdf
+03/31/95 -WD-  24547120 LRT/RF11.cdf
+03/30/95 -W--  27740464 LRT/RF12.cdf
+03/29/95 -W--  20808892 LRT/RF13.cdf
+03/29/95 -W--  22747708 LRT/RF14.cdf
+03/29/95 -W--  25180732 LRT/RF15.cdf
+03/29/95 -W--  25244092 LRT/RF16.cdf
+03/29/95 -W--  15704544 LRT/RF17.cdf
+03/29/95 -W--  23224996 LRT/RF18.cdf
+03/30/95 -WD-  22946212 LRT/RF19.cdf
+03/30/95 -WD-  23875492 LRT/RF20.cdf
+03/30/95 -W--  28879680 LRT/RF21.cdf
+03/31/95 -WD-  20931364 LRT/RF22.cdf
+03/31/95 -WD-  25837056 LRT/RF23.cdf
+03/31/95 -WD-  25994928 LRT/RF24.cdf
+03/31/95 -WD-  25396132 LRT/RF25.cdf
+
+
+The bitfiles in the ORIG/HRT and ORIG/LRT directories are the original,
+ unmodified files created by NIMBUS.
+03/31/95 -W-S 293381168 ORIG/HRT/RF07.cdf
+03/30/95 -W-S 214636416 ORIG/HRT/RF08.cdf
+03/31/95 -W-S 247952900 ORIG/HRT/RF09.cdf
+03/31/95 -W-S 284708448 ORIG/HRT/RF10.cdf
+03/31/95 -W-S 290073856 ORIG/HRT/RF11.cdf
+03/30/95 -W-S 327982720 ORIG/HRT/RF12.cdf
+03/30/95 -W-S 245696416 ORIG/HRT/RF13.cdf
+03/30/95 -W-S 268712512 ORIG/HRT/RF14.cdf
+03/30/95 -W-S 297595456 ORIG/HRT/RF15.cdf
+03/30/95 -W-S 298347616 ORIG/HRT/RF16.cdf
+03/29/95 -W-S 163259680 ORIG/HRT/RF17.cdf
+03/30/95 -W-S 274378784 ORIG/HRT/RF18.cdf
+03/31/95 -W-S 271069280 ORIG/HRT/RF19.cdf
+04/03/95 -W-S 282100960 ORIG/HRT/RF20.cdf
+03/31/95 -W-S 301356256 ORIG/HRT/RF21.cdf
+04/03/95 -W-S 247150592 ORIG/HRT/RF22.cdf
+
+03/31/95 -WD-  25720780 ORIG/LRT/RF04.cdf
+03/31/95 -WD-  24929676 ORIG/LRT/RF07.cdf
+03/30/95 -WD-  18268412 ORIG/LRT/RF08.cdf
+03/30/95 -WD-  20999040 ORIG/LRT/RF09.cdf
+03/31/95 -WD-  24095228 ORIG/LRT/RF10.cdf
+03/30/95 -WD-  24547196 ORIG/LRT/RF11.cdf
+03/30/95 -W--  27740540 ORIG/LRT/RF12.cdf
+03/29/95 -W--  20808968 ORIG/LRT/RF13.cdf
+03/29/95 -W--  22747784 ORIG/LRT/RF14.cdf
+03/29/95 -W--  25180808 ORIG/LRT/RF15.cdf
+03/29/95 -W--  25244168 ORIG/LRT/RF16.cdf
+03/29/95 -W--  13864612 ORIG/LRT/RF17.cdf
+03/29/95 -W--  23224996 ORIG/LRT/RF18.cdf
+03/30/95 -WD-  22946212 ORIG/LRT/RF19.cdf
+03/30/95 -WD-  23875492 ORIG/LRT/RF20.cdf
+03/30/95 -W--  28879680 ORIG/LRT/RF21.cdf
+03/31/95 -WD-  20931364 ORIG/LRT/RF22.cdf
+03/31/95 -WD-  25837056 ORIG/LRT/RF23.cdf
+03/31/95 -WD-  25994928 ORIG/LRT/RF24.cdf
+03/31/95 -WD-  25396132 ORIG/LRT/RF25.cdf
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Tue Apr  4 12:07 MDT 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA21300; Tue, 4 Apr 1995 12:07:02 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA00596; Tue, 4 Apr 1995 12:07:00 -0600
+Date: Tue, 4 Apr 1995 12:07:00 -0600
+Message-Id: <199504041807.MAA00596@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 194
+Status: RO
+
+Ron,
+
+Two more files are ready to be archived.  They are both HRT and located in 
+/home/tmp/campos.  Thanks, as always.
+
+HRT	/home/tmp/campos/818RF23H.cdf
+	/home/tmp/campos/818RF24H.cdf
+
+Teresa
+
+From ron Tue Apr  4 13:28:57 1995
+Subject: Re: 818 files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Tue, 4 Apr 1995 13:28:57 -0600 (MDT)
+In-Reply-To: <199504041807.MAA00596@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 4, 95 12:07:00 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 583       
+Status: RO
+
+> 
+> Ron,
+> 
+> Two more files are ready to be archived.  They are both HRT and located in 
+> /home/tmp/campos.  Thanks, as always.
+> 
+> HRT	/home/tmp/campos/818RF23H.cdf
+> 	/home/tmp/campos/818RF24H.cdf
+> 
+Teresa and Paul,
+
+I have submitted jobs to archive the following 1994-818 output data files.
+  /home/tmp/campos/818RF23Hb.cdf  -->  /RAF/1994/818/HRT/RF23.cdf
+  /home/tmp/campos/818RF24Hb.cdf  -->  /RAF/1994/818/HRT/RF24.cdf
+  $PROD_DATA/818RF23H.cdf         -->  /RAF/1994/818/ORIG/HRT/RF23.cdf
+  $PROD_DATA/818RF24H.cdf         -->  /RAF/1994/818/ORIG/HRT/RF24.cdf
+
+-- 
+Ron
+
+From ron Tue Apr  4 13:35:29 1995
+Subject: Re: 818 files archived
+To: paul (Paul Spyers-Duran), campos (Teresa Campos)
+Date: Tue, 4 Apr 1995 13:35:29 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 373       
+Status: RO
+
+Teresa and Paul,
+
+The following files have been successfully archived to the Mass Store:
+  /home/tmp/campos/818RF23Hb.cdf  -->  /RAF/1994/818/HRT/RF23.cdf
+  /home/tmp/campos/818RF24Hb.cdf  -->  /RAF/1994/818/HRT/RF24.cdf
+  $PROD_DATA/818RF23H.cdf         -->  /RAF/1994/818/ORIG/HRT/RF23.cdf
+  $PROD_DATA/818RF24H.cdf         -->  /RAF/1994/818/ORIG/HRT/RF24.cdf
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Wed Apr  5 09:11 MDT 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA09901; Wed, 5 Apr 1995 09:11:55 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA00637; Wed, 5 Apr 1995 09:11:52 -0600
+Date: Wed, 5 Apr 1995 09:11:52 -0600
+Message-Id: <199504051511.JAA00637@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 210
+Status: RO
+
+Ron,
+
+Here is the latest list of BOREAS files ready for archiving.  Thanks, as always.
+
+HRT	/home/data/818RF01Hb.cdf
+		  /818RF03Hb.cdf
+		  /818RF25Hb.cdf
+
+LRT	/home/data/818RF01b.cdf
+		  /818RF03b.cdf
+
+Teresa
+
+From ron Wed Apr  5 15:45:38 1995
+Subject: Re: 818 files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Wed, 5 Apr 1995 15:45:38 -0600 (MDT)
+Cc: paul (Paul Spyers-Duran)
+In-Reply-To: <199504051511.JAA00637@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 5, 95 09:11:52 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 939       
+Status: RO
+
+Thoust spake thusly:
+> 
+> Ron,
+> 
+> Here is the latest list of BOREAS files ready for archiving.  Thanks, as always.
+> 
+> HRT	/home/data/818RF01Hb.cdf
+> 		  /818RF03Hb.cdf
+> 		  /818RF25Hb.cdf
+> 
+> LRT	/home/data/818RF01b.cdf
+> 		  /818RF03b.cdf
+> 
+Teresa and Paul,
+
+I have submitted jobs to archive the following files to the MSS:
+
+$DATA_DIR/818RF01b.cdf   -->  /RAF/1994/818/LRT/RF01.cdf
+$DATA_DIR/818RF03b.cdf   -->  /RAF/1994/818/LRT/RF03.cdf
+$DATA_DIR/818RF01Hb.cdf  -->  /RAF/1994/818/HRT/RF01.cdf
+$DATA_DIR/818RF03Hb.cdf  -->  /RAF/1994/818/HRT/RF03.cdf
+$DATA_DIR/818RF25Hb.cdf  -->  /RAF/1994/818/HRT/RF25.cdf
+
+$PROD_DATA/818RF01.cdf   -->  /RAF/1994/818/ORIG/LRT/RF01.cdf
+$PROD_DATA/818RF03.cdf   -->  /RAF/1994/818/ORIG/LRT/RF03.cdf
+$PROD_DATA/818RF01H.cdf  -->  /RAF/1994/818/ORIG/HRT/RF01.cdf
+$PROD_DATA/818RF03H.cdf  -->  /RAF/1994/818/ORIG/HRT/RF03.cdf
+$PROD_DATA/818RF25H.cdf  -->  /RAF/1994/818/ORIG/HRT/RF25.cdf
+
+-- 
+Ron
+
+From ron Wed Apr  5 18:07:40 1995
+Subject: 818 files archived
+To: paul (Paul Spyers-Duran), campos (Teresa Campos)
+Date: Wed, 5 Apr 1995 18:07:40 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 689       
+Status: RO
+
+Teresa and Paul,
+
+The following files have been successfully archived to the MSS:
+
+$DATA_DIR/818RF01b.cdf   -->  /RAF/1994/818/LRT/RF01.cdf
+$DATA_DIR/818RF03b.cdf   -->  /RAF/1994/818/LRT/RF03.cdf
+$DATA_DIR/818RF01Hb.cdf  -->  /RAF/1994/818/HRT/RF01.cdf
+$DATA_DIR/818RF03Hb.cdf  -->  /RAF/1994/818/HRT/RF03.cdf
+$DATA_DIR/818RF25Hb.cdf  -->  /RAF/1994/818/HRT/RF25.cdf
+
+$PROD_DATA/818RF01.cdf   -->  /RAF/1994/818/ORIG/LRT/RF01.cdf
+$PROD_DATA/818RF03.cdf   -->  /RAF/1994/818/ORIG/LRT/RF03.cdf
+$PROD_DATA/818RF01H.cdf  -->  /RAF/1994/818/ORIG/HRT/RF01.cdf
+$PROD_DATA/818RF03H.cdf  -->  /RAF/1994/818/ORIG/HRT/RF03.cdf
+$PROD_DATA/818RF25H.cdf  -->  /RAF/1994/818/ORIG/HRT/RF25.cdf
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Thu Apr  6 08:18 MDT 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA03087; Thu, 6 Apr 1995 08:18:41 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA00690; Thu, 6 Apr 1995 08:18:38 -0600
+Date: Thu, 6 Apr 1995 08:18:38 -0600
+Message-Id: <199504061418.IAA00690@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 234
+Status: RO
+
+Ron,
+
+Greetings.  Two more files to be archived reside in /home/data.  I have only two
+more flights to skeletonize, then hopefully BOREAS can be laid to rest.  
+
+HRT	/home/data/818RF02Hb.cdf
+	/home/data/818RF04Hb.cdf
+
+Thanks,
+
+Teresa
+
+From ron Thu Apr  6 09:40:57 1995
+Subject: Re: 818 files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos), paul (Paul Spyers-Duran)
+Date: Thu, 6 Apr 1995 09:40:57 -0600 (MDT)
+In-Reply-To: <199504061418.IAA00690@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 6, 95 08:18:38 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 467       
+Status: RO
+
+Teresa and Paul,
+
+I have submitted jobs to archive the following files to the MSS:
+   $PROD_DATA/818RF02H.cdf --> /RAF/1994/818/ORIG/HRT/RF02
+   $PROD_DATA/818RF04H.cdf --> /RAF/1994/818/ORIG/HRT/RF04
+   $DATA_DIR/818RF02Hb.cdf --> /RAF/1994/818/HRT/RF02
+   $DATA_DIR/818RF04Hb.cdf --> /RAF/1994/818/HRT/RF04
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Apr  6 12:03:10 1995
+Subject: 818 files archived
+To: campos (Teresa Campos), paul (Paul Spyers-Duran)
+Date: Thu, 6 Apr 1995 12:03:10 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 727       
+Status: RO
+
+Teresa and Paul,
+
+The following files have been successfully archived to the MSS:
+   $PROD_DATA/818RF02H.cdf --> /RAF/1994/818/ORIG/HRT/RF02
+   $PROD_DATA/818RF04H.cdf --> /RAF/1994/818/ORIG/HRT/RF04
+   $DATA_DIR/818RF02Hb.cdf --> /RAF/1994/818/HRT/RF02
+   $DATA_DIR/818RF04Hb.cdf --> /RAF/1994/818/HRT/RF04
+
+The following raw ADS data files are still present in the following
+MIGS directories:
+
+../campos:
+818rf25.ADS
+
+../chris:
+818rf08.ADS
+
+../paul:
+818rf01.ADS   818rf03.ADS   818rf05.ADS
+818rf02.ADS   818rf04.ADS   818rf06.ADS
+
+I'm pretty sure Chris was using RF08 as a test case, so it should remain.
+I remember archiving the processed from most of the other files, so if
+they are no longer needed ...
+
+Thanks.
+
+-- 
+Ron
+
+From ron Thu Apr  6 12:39:26 1995
+Subject: Re: 818 files archived
+To: paul (Paul Spyers-Duran), campos (Teresa Campos)
+Date: Thu, 6 Apr 1995 12:39:26 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 414       
+Status: RO
+
+Teresa and Paul,
+
+I have just looked at the MSS directory listing following completion of
+the archive jobs, and I found a file-size discrepancy
+
+   $DATA_DIR/818RF02Hb.cdf --> /RAF/1994/818/HRT/RF02
+                 274528116     274528192
+
+To avoid a potential problem, I will rearchive this file, so please
+don't remove it from the system.  I'll let you know when it transferred
+successfully.
+
+Thanks.
+
+-- 
+Ron
+
+From ron Thu Apr  6 13:13:24 1995
+Subject: Re: 818 files archived
+To: campos (Teresa Campos), paul (Paul Spyers-Duran)
+Date: Thu, 6 Apr 1995 13:13:24 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 323       
+Status: RO
+
+Teresa and Paul,
+
+I have just looked at the MSS directory listing following completion of
+rearchiving the following file, and their sizes now agree.
+
+   $DATA_DIR/818RF02Hb.cdf --> /RAF/1994/818/HRT/RF02
+                 274528116     274528116
+
+So, I think I am finished with all of the 818 archiving as of now.
+
+-- 
+Ron
+
+From campos@chinook.atd.ucar.EDU Thu Apr  6 15:58 MDT 1995
+From: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@chinook.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA10379; Thu, 6 Apr 1995 15:58:25 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA00706; Thu, 6 Apr 1995 15:58:22 -0600
+Date: Thu, 6 Apr 1995 15:58:22 -0600
+Message-Id: <199504062158.PAA00706@gruyere.atd.ucar.edu>
+To: ron
+Subject: 818 files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 690
+Status: RO
+
+Ron,
+
+Thanks for noticing the problem with HRT RF02.  I noticed a problem after sending
+you the archive request.  The original file hadn't yet been merged with the
+skeleton output.  I tried to make the necessary changes before it was actually
+archived, and obviously I didn't make it.
+
+The final BOREAS files are finally ready to be archived.  I think also there is
+a LRT file that hasn't been included in an archive request.  If I'm in error,
+please disregard that part of this request.  Also, if any flights seem to be 
+missing from the archive, please let me know.
+
+LRT	/home/data/818RF02b.cdf
+		  /818RF05b.cdf
+		  /818RF06b.cdf
+
+HRT	/home/data/818RF05Hb.cdf
+		  /818RF06Hb.cdf
+
+Teresa
+
+From paul@chinook.atd.ucar.EDU Thu Apr  6 16:26 MDT 1995
+From: paul@chinook.atd.ucar.EDU (Paul Spyers-Duran)
+Return-Path: <paul@chinook.atd.ucar.EDU>
+Received: from ariel.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA10785; Thu, 6 Apr 1995 16:26:41 -0600
+Received: by ariel.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA04392; Thu, 6 Apr 1995 16:26:39 -0600
+Message-Id: <199504062226.QAA04392@ariel.atd.ucar.edu>
+Subject: Re: 818 files archived
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Thu, 6 Apr 1995 16:26:37 -0600 (MDT)
+Cc: teresa
+In-Reply-To: <199504061913.NAA00368@mistral.atd.ucar.edu> from "Ron Ruth" at Apr 6, 95 01:13:24 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 705
+Status: RO
+
+         
+Hi Ron:thanks for your archiving efforts and keeping a sharp eye on all
+the bits and pieces.When you have a chance could you organize this 
+information in a log form for both LRT and HRT processed flights.
+Many thanks.
+Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Fri Apr  7 11:45:24 1995
+Subject: Re: 818 files
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Fri, 7 Apr 1995 11:45:24 -0600 (MDT)
+In-Reply-To: <199504062158.PAA00706@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 6, 95 03:58:22 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1278      
+Status: RO
+
+Teresa and Paul,
+
+I have submitted jobs to archive the following files to the MSS:
+   $PROD_DATA/818RF02.cdf  --> /RAF/1994/818/ORIG/LRT/RF02
+   $PROD_DATA/818RF05.cdf  --> /RAF/1994/818/ORIG/LRT/RF05
+   $PROD_DATA/818RF06.cdf  --> /RAF/1994/818/ORIG/LRT/RF06
+   $DATA_DIR/818RF02b.cdf  --> /RAF/1994/818/LRT/RF02
+   $DATA_DIR/818RF05b.cdf  --> /RAF/1994/818/LRT/RF05
+   $DATA_DIR/818RF06b.cdf  --> /RAF/1994/818/LRT/RF06
+   $PROD_DATA/818RF05H.cdf --> /RAF/1994/818/ORIG/HRT/RF05
+   $PROD_DATA/818RF06H.cdf --> /RAF/1994/818/ORIG/HRT/RF06
+   $DATA_DIR/818RF05Hb.cdf --> /RAF/1994/818/HRT/RF05
+   $DATA_DIR/818RF06Hb.cdf --> /RAF/1994/818/HRT/RF06
+
+I just looked at the MSS directory, and these are the only files
+that have not yet been archived to the MSS.  Once these complete
+you will have archived the entire data set.
+
+To Paul:  I have a complete MSS bitfile log for the LRT data.  I will
+          have to retrieve some data sets from the MSS to complete one
+          for the HRT data.  (The start and end times will be different
+          for those data.)  I thought I was getting this information
+          often enough, but a few flights slipped throgh the cracks.
+          FYI, I'm missing HRT info for RF07, RF09, RF11-RF18, RF20-RF22
+          and RF24.
+
+-- 
+Ron
+
+From ron Fri Apr  7 11:54:25 1995
+Subject: Re: 818 files
+To: paul (Paul Spyers-Duran)
+Date: Fri, 7 Apr 1995 11:54:25 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1278      
+Status: RO
+
+Teresa and Paul,
+
+I have submitted jobs to archive the following files to the MSS:
+   $PROD_DATA/818RF02.cdf  --> /RAF/1994/818/ORIG/LRT/RF02
+   $PROD_DATA/818RF05.cdf  --> /RAF/1994/818/ORIG/LRT/RF05
+   $PROD_DATA/818RF06.cdf  --> /RAF/1994/818/ORIG/LRT/RF06
+   $DATA_DIR/818RF02b.cdf  --> /RAF/1994/818/LRT/RF02
+   $DATA_DIR/818RF05b.cdf  --> /RAF/1994/818/LRT/RF05
+   $DATA_DIR/818RF06b.cdf  --> /RAF/1994/818/LRT/RF06
+   $PROD_DATA/818RF05H.cdf --> /RAF/1994/818/ORIG/HRT/RF05
+   $PROD_DATA/818RF06H.cdf --> /RAF/1994/818/ORIG/HRT/RF06
+   $DATA_DIR/818RF05Hb.cdf --> /RAF/1994/818/HRT/RF05
+   $DATA_DIR/818RF06Hb.cdf --> /RAF/1994/818/HRT/RF06
+
+I just looked at the MSS directory, and these are the only files
+that have not yet been archived to the MSS.  Once these complete
+you will have archived the entire data set.
+
+To Paul:  I have a complete MSS bitfile log for the LRT data.  I will
+          have to retrieve some data sets from the MSS to complete one
+          for the HRT data.  (The start and end times will be different
+          for those data.)  I thought I was getting this information
+          often enough, but a few flights slipped throgh the cracks.
+          FYI, I'm missing HRT info for RF07, RF09, RF11-RF18, RF20-RF22
+          and RF24.
+
+-- 
+Ron
+
+From ron Tue Apr 11 12:24:13 1995
+Subject: BOREAS GPS Corrections?
+To: paul (Paul Spyers-Duran)
+Date: Tue, 11 Apr 1995 12:24:13 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1709      
+Status: RO
+
+Paul,
+
+   I know you want to include in your QC report some information about
+the strange operation of the NIMBUS GPS-correction software.  Below is
+the explanation that Chris Webster gave me.  It is important to note that
+only the high-rate processing is affected.  The result is that I would not
+recommend that any of the GPS-corrected data (LATC, LONC, VEWC, VNSC, UIC,
+VIC, WIC, UXC, VYC, WDC and WSC) be used for critical research.
+   I don't know whether I can simplify what he said below, but the gist of
+it is that he was making too many correction passes through the data.  It
+may mean that the "corrected" values follow the GPS too closely.  As we
+discovered, it can also create short (~ 1-minute) excursions away from the
+other two measurements that are obviously incorrect.
+   If you want further information, perhaps you and I should get together
+with Chris for a talk.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+The directly-affected variables were LATC, LONC, VEWC, & VNSC, then whatever
+derived variables they fed into.
+
+The problem was that the variables are not generated each pass into the amlib;
+rather, they are iteratively refined.  I was not storing the low-rate pass data
+separately from the high-rate pass data; therefore, the high-rate pass was
+drastically affecting the low-rate pass.  I would also hazard a guess that
+the low-rate pass was nominally affecting the high-rate pass.  In other words,
+there were 26 iterative refinments per second to one variable when there
+should have been 1 for the low-rate data, and 25 for the high-rate data.
+
+--Chris
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Fri Mar 24 10:48:25 1995
+Subject: Re: HRT file size
+To: campos@chinook.atd.ucar.EDU (Teresa Campos)
+Date: Fri, 24 Mar 1995 10:48:25 -0700 (MST)
+In-Reply-To: <199503241514.IAA00570@gruyere.atd.ucar.edu> from "Teresa Campos" at Mar 24, 95 08:14:56 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1594      
+Status: RO
+
+> 
+> Ron,
+> 
+> I have generated 4 HRT .cdf files.  They range from 250-300 M.  
+> 
+> I have talked with John Lind regarding project 201 .cdf and .asc files.  He has 
+> one more processing task which he must perform before we can delete the .cdf 
+> files.  He has promised to finish everything by the end of work today, and will 
+> then delete all the 201 files.  I have plenty to do in the meantime with the
+> files already in /home/data, so I don't foresee any problems with this plan.  
+> What do you think?
+> 
+Teresa,
+
+Looks OK to me.
+
+I strongly urge you to write your `nimbus' production output files to the
+`/home/productiondata' directory.  I also recommend that you move the
+files you have already created to that directory.   Ultimately, I don't
+want anyone writing production data to /home/data unless the
+`/home/productiondata' directory is full.  Right now, the
+`/home/productiondata' directory is only about 50% full (2Gbytes
+available).
+
+I have a request in to Chris for the next NIMBUS release that would preset
+the file paths for input and output in the initial NIMBUS window.  For
+production files, it would have already suggested a file name based upon
+the input ADS file header and the login name.  That would save a lot of
+confusion on the part of those running NIMBUS.  I have not yet figured out
+NIMBUS would treat high-rate processing, since that choice comes after
+selecting an output file name.  If the user has absolutely no choice in
+the matter, the file name could be chosen by NIMBUS after one clicks the
+GO button.  I have to talk with Chris about this.
+
+-- 
+Ron
+
+From ron Tue Apr  4 09:07:57 1995
+Subject: Anomalies in 818 GPS-corrections
+To: chris (Chris Webster)
+Date: Tue, 4 Apr 1995 09:07:57 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 453       
+Status: RO
+
+Chris,
+
+I have a few plots showing "glitches" in LATC and LONC when it appears that
+no corresponding changes occur with either GLAT, LAT, GLON or LON.  I'm
+wondering if there might be something strange going on with the NIMBUS code.
+I put example plots in your mailbox which include comparisons to the low-
+rate processing.  (The low-rate "corrected" GPS latitudes and longitudes
+look considerably different from the high-rate versions, too.)
+
+-- 
+Ron
+
+From campos@raf.atd.ucar.EDU Wed Apr 26 07:48 MDT 1995
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id HAA02950; Wed, 26 Apr 1995 07:48:24 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id HAA00963; Wed, 26 Apr 1995 07:48:20 -0600
+Date: Wed, 26 Apr 1995 07:48:20 -0600
+Message-Id: <199504261348.HAA00963@gruyere.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: Files in ~nimbus directory
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 473
+Status: RO
+
+
+Ron,
+
+The files you listed which are in the nimbus home directory are not mine.  It 
+looks like they may well belong to greg, or were generated by his skel program.
+
+The amlib* files in the 818 directory do indeed need to be archived.  I also have
+the files produced by the skeleton program, which are stored in /home/tmp/campos.
+Please let me know how I can save them to the mass store (and suggestions about
+where they should reside).  Thanks for all your help,
+
+Teresa
+
+From ron Tue Apr 25 16:18:04 1995
+Subject: Files in ~nimbus directory
+To: campos (Teresa Campos)
+Date: Tue, 25 Apr 1995 16:18:04 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 758       
+Status: RO
+
+Teresa,
+
+There are a number of files in the `nimbus' home directory that I'd like
+to move.  Can you tell me if any are yours, and, if so, what is their
+purpose?  I assume that the 818 subdirectory has your skeleton processor
+(which I should archive).
+
+Thanks.
+
+Directory:  /home/users/nimbus
+drwxrwxr-x   3 nimbus   proj         512 Feb 16 09:31 120/
+drwxrwxr-x   2 nimbus   proj        3072 Apr 20 16:33 818/
+-rw-rw-r--   1 nimbus   proj         350 Feb 21 10:33 CO_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:39 XNOY_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:36 XNO_zero.pts
+-rw-rw-r--   1 nimbus   proj           0 Feb 14 12:53 XNST_zero.pts
+-rw-rw-r--   1 nimbus   proj         154 Feb 21 10:41 XSO2S_zero.pts
+
+-- 
+Ron
+
+From ron Wed Apr 26 10:46:53 1995
+Subject: Re: Files in ~nimbus directory
+To: campos@raf.atd.ucar.EDU (Teresa Campos)
+Date: Wed, 26 Apr 1995 10:46:53 -0600 (MDT)
+In-Reply-To: <199504261348.HAA00963@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 26, 95 07:48:20 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1137      
+Status: RO
+
+Teresa,
+
+Thanks for the prompt reply.  Greg owned up to the files and has already
+moved them.  How's that for efficiency?
+
+I hope you are `touch'ing those files in /home/tmp!  Otherwise, they could
+disappear at any time, and they are NOT backed up.
+
+Normally I take responsibility for doing the archiving.  Since all this
+information is related to the Boreas project, I think it best to create a
+subdirectory off the home/local/proj/818 directory and stashing stuff there.
+The ~nimbus/818 directory can be moved to the 818 directory and renamed to
+something like "CO2skel."  (I assume the skeleton improved the CO2 data.)
+The skeleton output data is another matter.  It's too large to put in the
+project's directory, so I should move them directly to the MSS.  I need to
+come up with a subdirectory name for them.  Since I have saved the original
+output files to the MSS as well as the ones modified by the skeleton output,
+are you sure that you want me to save these data, too?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From campos@raf.atd.ucar.EDU Wed Apr 26 11:00 MDT 1995
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA06535; Wed, 26 Apr 1995 10:59:56 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA00982; Wed, 26 Apr 1995 10:59:52 -0600
+Date: Wed, 26 Apr 1995 10:59:52 -0600
+Message-Id: <199504261659.KAA00982@gruyere.atd.ucar.edu>
+To: ron
+Subject: Re: Files in ~nimbus directory
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 384
+Status: RO
+
+Ron,
+
+Since we are saving the original data files and the code used to produce the 
+skeletonized data files, it sounds like we don't have to save the data files
+produced thereby.  If (perish the thought) we are required to re-run any of the
+BOREAS files, it would not take an inordinate amount of time to re-skel the 
+new data files.  So, it's ok by me to let them be removed.
+Teresa
+
+From ron Wed Apr 26 11:02:51 1995
+Subject: Re: Files in ~nimbus directory
+To: campos@raf.atd.ucar.EDU (Teresa Campos)
+Date: Wed, 26 Apr 1995 11:02:51 -0600 (MDT)
+In-Reply-To: <199504261659.KAA00982@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 26, 95 10:59:52 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 393       
+Status: RO
+
+Thoust spake thusly:
+> ... it would not take an inordinate amount of time to re-skel the 
+> new data files.  So, it's ok by me to let them be removed.
+> 
+Teresa,
+
+Well, thanks.  That will save me some work.  I'll let you destroy them.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From paul@raf.atd.ucar.EDU Wed Aug 16 11:40 MDT 1995
+From: paul@raf.atd.ucar.EDU (Paul Spyers-Duran)
+Return-Path: <paul@raf.atd.ucar.EDU>
+Received: from ariel.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA09592; Wed, 16 Aug 1995 11:40:56 -0600
+Received: by ariel.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA02500; Wed, 16 Aug 1995 11:40:54 -0600
+Message-Id: <199508161740.LAA02500@ariel.atd.ucar.edu>
+Subject: Re: Typo in the BOREAS Project Summary?
+To: oncley@stout.atd.ucar.EDU (Steve Oncley)
+Date: Wed, 16 Aug 1995 11:40:52 -0600 (MDT)
+Cc: ron (Ron Ruth)
+In-Reply-To: <199508161727.LAA06195@atd.atd.ucar.EDU> from "Steve Oncley" at Aug 16, 95 11:27:13 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 792
+Status: RO
+
+         
+STEVE:You are right,on RF01 and RF02 TTB was sampled at 5sps/filtered at 1Hz.This was correctly
+identified in QC report but not on the sampling table.
+I can't comment what Ron does or doesn't know about BOREAS project,but usually he is very
+much knows what is going on.
+Sorry about the confusion.
+Regards.Paul
+
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Wed Aug 16 11:51:36 1995
+Subject: Re: Typo in the BOREAS Project Summary?
+To: paul@raf.atd.ucar.EDU (Paul Spyers-Duran)
+Date: Wed, 16 Aug 1995 11:51:36 -0600 (MDT)
+In-Reply-To: <199508161740.LAA02500@ariel.atd.ucar.edu> from "Paul Spyers-Duran" at Aug 16, 95 11:40:52 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1099      
+Status: RO
+
+Thou spake thusly:
+> 
+>          
+> STEVE:You are right,on RF01 and RF02 TTB was sampled at 5sps/filtered at 1Hz.This was correctly
+> identified in QC report but not on the sampling table.
+> I can't comment what Ron does or doesn't know about BOREAS project,but usually he is very
+> much knows what is going on.
+> Sorry about the confusion.
+> Regards.Paul
+> 
+Paul,
+
+Steve called me a short time ago, and we discussed the NIMBUS processing.
+I looked at the BOREAS output files that we still have here, and the NIMBUS
+header for both those flights show the sample rate for VLA was 50 sps for
+RF01 and RF02, not 5 sps.  Apparently VLA was only put through a 1Hz filter
+prior to sampling.  Therefore, the QC report is wrong when discussing
+anomalies for RF01 and RF02.  I have already pencilled in the correct
+sample-rate information in our local Project Summary binder.  I'm not sure
+whether this is something that needs further dissemination.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Wed Jul  3 10:30:26 1996
+Subject: BOREAS On-line Documentation
+To: oncley@atd.atd.ucar.edu
+Date: Wed, 3 Jul 1996 10:30:26 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 451       
+Status: RO
+
+Steve,
+
+At your request, I am assembling the electronic (mostly WordPerfect)
+documentation for the BOREAS project.  Once I collect everything together,
+where would you like me to put it?  I can send you 3.5" PC disks or put it
+in a directory you can access.  (Other suggestions welcome, too.)
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From oncley@stout.atd.ucar.edu Wed Jul  3 10:36 MDT 1996
+Return-Path: <oncley@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA09333; Wed, 3 Jul 1996 10:36:11 -0600
+Received: by atd.atd.ucar.EDU (8.7.5/ NCAR Mail Server 04/10/90)
+	id KAA15210; Wed, 3 Jul 1996 10:36:10 -0600 (MDT)
+From: oncley@stout.atd.ucar.edu (Steve Oncley)
+Message-Id: <199607031636.KAA15210@atd.atd.ucar.EDU>
+Subject: Re: BOREAS On-line Documentation
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Date: Wed, 3 Jul 1996 10:36:10 -0600 (MDT)
+In-Reply-To: <199607031630.KAA01372@music.atd.ucar.edu> from "Ron Ruth" at Jul 3, 96 10:30:26 am
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 57
+Status: RO
+
+A directory on stout (or chinook) would be great...Steve
+
+From ron Fri Jul 12 10:11:22 1996
+Subject: Re: BOREAS On-line Documentation
+To: oncley@stout.atd.ucar.edu (Steve Oncley)
+Date: Fri, 12 Jul 1996 10:11:22 -0600 (MDT)
+In-Reply-To: <199607031636.KAA15210@atd.atd.ucar.EDU> from "Steve Oncley" at Jul 3, 96 10:36:10 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1262      
+Status: RO
+
+Steve,
+> 
+> A directory on stout (or chinook) would be great.
+> 
+I put the pertinent files on "stout" in the directory:  "/dt/ron/boreas"
+All the files except "taplog.818" (the Mass Store Bitfile Log) are in
+WordPerfect 6.1 format.  taplog.818 is a UNIX ASCII file.
+
+These files should be the text portion of all the sections of the BOREAS
+Project Summary binder.  If anything is missing, please let me know, and
+I'll try to get it for you.  (We have misplaced our own copy of the BOREAS
+Project Summary binder, so I cannot verify it myself.)
+
+  File         Description
+------------   ----------------------------------------------------------
+ari.wpd        Aircraft Instrumentation Summary
+coverlet.wpd   Project Summary Cover Letter
+dqr.wpd        Data Quality Report
+iru.wpd        Inertial Reference Unit Performance Summary
+maneuver.wpd   Calibration Maneuver Summary
+paramlst.wpd   Output Variable List
+rfr.wpd        Research Flight Reports
+slide.wpd      Project Slide Log
+tapelog.wpd    Raw ADS Data Tape Summary
+taplog.818     Mass Store Bitfile Log (data only)
+vdtaplog.wpd   Video Tape Log
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From oncley@stout.atd.ucar.edu Sat Jul 13 14:22 MDT 1996
+Return-Path: <oncley@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA13288; Sat, 13 Jul 1996 14:22:28 -0600
+Received: from steam.atd.ucar.edu.atd.ucar.EDU by atd.atd.ucar.EDU (8.7.5/ NCAR Mail Server 04/10/90)
+	id OAA22239; Sat, 13 Jul 1996 14:22:27 -0600 (MDT)
+Received: by steam.atd.ucar.edu (8.7.5/ NCAR Mail Client 04/19/90)
+	id UAA12464; Sat, 13 Jul 1996 20:22:26 GMT
+From: oncley@stout.atd.ucar.edu (Steve Oncley)
+Message-Id: <199607132022.UAA12464@steam.atd.ucar.edu>
+Subject: Re: BOREAS On-line Documentation
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Date: Sat, 13 Jul 1996 14:22:25 -0600 (MDT)
+In-Reply-To: <199607121611.KAA01382@music.atd.ucar.edu> from "Ron Ruth" at Jul 12, 96 10:11:22 am
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 117
+Status: RO
+
+Thanks Ron,
+
+I'm in the field now (FLATLANDS), but will try to take a look at the
+files when I get some time...Steve
+
+From ron Wed Jul 31 10:16:04 1996
+Subject: Boreas documentation
+To: oncley@stout
+Date: Wed, 31 Jul 1996 10:16:04 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 468       
+Status: RO
+
+Steve,
+
+The `stout' disk partition in which I put all the Boreas documentation for you
+is subject to scrubbing.  So if you find the files in `/dt/ron/boreas' missing,
+you may grab them from the stout directory `~ron/boreas.'  I put a copy of all
+the files there.  (I'll be on vacation from 14-23 August 1996.)
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From oncley@stout.atd.ucar.edu Tue Aug  6 10:35 MDT 1996
+Return-Path: <oncley@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA00976; Tue, 6 Aug 1996 10:35:13 -0600
+Received: from clover.atd.ucar.edu.atd.ucar.EDU by atd.atd.ucar.EDU (8.7.5/ NCAR Mail Server 04/10/90)
+	id KAA27371; Tue, 6 Aug 1996 10:37:02 -0600 (MDT)
+Received: by clover.atd.ucar.edu (8.7.5/ NCAR Mail Client 04/19/90)
+	id QAA06190; Tue, 6 Aug 1996 16:36:58 GMT
+From: oncley@stout.atd.ucar.edu (Steve Oncley)
+Message-Id: <199608061636.QAA06190@clover.atd.ucar.edu>
+Subject: BOREAS documentation
+To: ron@raf.atd.ucar.edu
+Date: Tue, 6 Aug 1996 10:36:56 -0600 (MDT)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 403
+Status: RO
+
+Ron,
+
+I've checked through the documentation files and they look good.
+The only gaps I saw were:
+- RAF Bulletins
+- NCAR Tech. Notes
+- The actual slides (obviously!)
+- Output Tape Format (from ncdump -h)
+- Figure 1 and Table 1 from Krista's Section 13 of the Data Quality Report
+Of these, I was only surprised by the last, but it certainly isn't
+serious.
+
+Thanks a lot for making these available...Steve
+
+From ron Tue Aug  9 17:18:14 1994
+Subject: New tapes from Boreas
+To: barbara (Barbara Knowles)
+Date: Tue, 9 Aug 1994 17:18:14 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 4356      
+Status: RO
+
+Barb,
+
+Here is the latest information from the Boreas project.  I thought you
+may be able to use the information below instead of having to retype
+all the numbers, since I've already done it.
+
+I've put the information in two forms:  one the way it appears on the Data
+Tape Log that Krista gave me and one the way I want it.  (I didn't add
+Krista's remsrks, however.)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Data Tape Log version
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Phase I
+         Date               Start     End
+fltno  mm/dd/yyyy  tape#    Time      Time
+-----  ----------  -----  --------  --------
+FF01   05/22/1994  R0284     ?         ?    
+FF02   05/23/1994  R0832     ?         ?    
+FF03A  06/14/1994  R0845  15:55:09  17:18:31
+FF03B  06/14/1994  R0846  17:43:47  20:00:13
+RF01   05/25/1994  R0833  15:54:12  21:55:54
+RF02   05/26/1994  R0834  15:57:40  22:06:30
+RF03   05/31/1994  R0837  16:00:05  21:50:23
+RF04   06/01/1994  R0838  15:53:01  22:39:39
+RF05   06/06/1994  R0839  15:15:15  22:04:35
+RF06   06/07/1994  R0840  14:31:07  20:51:25
+RF07   06/10/1994  R0842  15:55:19  22:29:25
+RF08   06/13/1994  R0844  14:53:59  19:42:33
+TF05   06/09/1994  R0841  17:20:13  19:05:55
+TF06   06/12/1994  R0843  20:55:45  21:56:23
+
+Phase II
+FF05   07/18/1994  R0847  16:11:27  16:40:49
+FF06   07/18/1994  R0848  17:14:02  20:10:00
+RF09   07/20/1994  R0849  15:50:11  21:20:45
+RF10   07/21/1994  R0850  16:29:51  22:49:17
+RF11   07/24/1994  R0851  14:56:02  21:18:32
+RF12   07/30/1994  R0852  15:20:53  22:37:51
+RF13   08/01/1994  R0853  15:57:51  21:25:25
+RF14   08/02/1994  R0854  15:49:16  21:47:26
+RF15   08/03/1994  R0855  15:49:11  22:25:45
+RF16   08/04/1994  R0856  15:48:27  22:26:01
+FF08   08/05/1994  R0857  15:51:21  20:08:23
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+The way I want it
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+4-818 Boreas (Lenschow, et al) Raw ADS Tape Summary       RLR  940720
+                                                          rev. 940722
+
+       MSS path name: /RAF/1994/818/fltno/tape#
+ 
+Phase I
+                Date        Start     End       #    File Size
+tape#  fltno  mm/dd/yyyy    Time      Time     Recs   (Mbytes)
+-----  -----  ----------  --------  --------  -----  ----------
+R0284  FF01   05/22/1994     ?         ?        384   12.166740
+R0832  FF02   05/23/1994     ?         ?       2262   72.022356
+R0845  FF03A  06/14/1994  15:55:09  17:18:31   1255   39.806988
+R0846  FF03B  06/14/1994  17:43:47  20:00:13   2051   65.100684
+R0833  RF01   05/25/1994  15:54:12  21:55:54   5430  172.992852
+R0834  RF02   05/26/1994  15:57:40  22:06:30   5537  175.871820
+R0837  RF03   05/31/1994  16:00:05  21:50:23   5259  167.038092
+R0838  RF04   06/01/1994  15:53:01  22:39:39   6104  193.888812
+R0839  RF05   06/06/1994  15:15:15  22:04:35   6297  200.021580
+R0840  RF06   06/07/1994  14:31:07  20:51:25   5709  181.337292
+R0842  RF07   06/10/1994  15:55:19  22:29:25   5916  187.914924
+R0844  RF08   06/13/1994  14:53:59  19:42:33   4333  137 613516
+R0841  TF05   06/09/1994  17:20:13  19:05:55   1590   50.451948
+R0843  TF06   06/12/1994  20:55:45  21:56:23    914   28.971372
+
+Phase II
+                Date        Start     End       #    File Size
+tape#  fltno  mm/dd/yyyy    Time      Time     Recs   (Mbytes)
+-----  -----  ----------  --------  --------  -----  ----------
+R0847  FF05   07/18/1994  16:11:27  16:40:49   
+R0848  FF06   07/18/1994  17:14:02  20:10:00
+R0849  RF09   07/20/1994  15:50:11  21:20:45
+R0850  RF10   07/21/1994  16:29:51  22:49:17
+R0851  RF11   07/24/1994  14:56:02  21:18:32
+R0852  RF12   07/30/1994  15:20:53  22:37:51
+R0853  RF13   08/01/1994  15:57:51  21:25:25
+R0854  RF14   08/02/1994  15:49:16  21:47:26
+R0855  RF15   08/03/1994  15:49:11  22:25:45
+R0856  RF16   08/04/1994  15:48:27  22:26:01
+R0857  FF08   08/05/1994  15:51:21  20:08:23
+
+Phase III
+                Date        Start     End       #    File Size
+tape#  fltno  mm/dd/yyyy    Time      Time     Recs   (Mbytes)
+-----  -----  ----------  --------  --------  -----  ----------
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From mike Wed Aug 24 10:33:16 1994
+From: mike (Mike Daniels)
+Message-Id: <199408241633.KAA11171@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id KAA11171; Wed, 24 Aug 1994 10:33:15 -0600
+Subject: Re: NCAR Graphics on zappa
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 24 Aug 1994 10:33:15 -0600 (MDT)
+In-Reply-To: <199408241533.JAA09877@chinook.atd.ucar.EDU> from "Ron Ruth" at Aug 24, 94 09:33:40 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1094      
+Status: RO
+
+Ron,
+
+> Chris said I should get all the info on NCAR Graphics from you.  He never
+> did say that it was installed on zappa, but the implication is that it is
+> not.  So, I'll need the files and some detailed instructions on how to
+> install NCAR Graphics unless it is a simple matter of restoring files from
+> a tar tape.
+> 
+> I hadn't planned to be a system administrator for zappa while I was there,
+> so I'm not sure what my duties are.  Is there anything unique about zappa
+> that I should know (like what kind of Sparc it is)?  I have not been "in"
+> on any sysadmin stuff lately, so I'm a real dummy.  Does zappa have a
+> handbook similar to chinook, or do I have to go digging in all the Sparc
+> manuals?
+
+Rob says that NCAR graphics is installed on zappa already (as I had thought
+before).  Chris also was unsure if he took the groundsystem maintenance
+manual.  This manual hasn't been updated for Solaris yet, because of staff
+limitations.  I would grab your notes from the sysadmin class you took and use
+the "whatnow" command on zappa to determine SunOS<>Solaris differences.
+
+Mike
+
+
+From cooper@banyan.mmm.ucar.EDU Wed Aug 24 11:55:35 1994
+Received: from banyan.mmm.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA13308; Wed, 24 Aug 1994 11:55:34 -0600
+From: cooper@banyan.mmm.ucar.EDU (Al Cooper)
+Message-Id: <9408241755.AA01030@banyan.mmm.ucar.EDU>
+Received: by banyan.mmm.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01030; Wed, 24 Aug 94 11:55:33 MDT
+Subject: Re: NCAR Graphics on zappa
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 24 Aug 1994 11:55:32 -0600 (MDT)
+In-Reply-To: <199408241650.KAA11521@chinook.atd.ucar.EDU> from "Ron Ruth" at Aug 24, 94 10:50:08 am
+X-Mailer: ELM [version 2.4 PL23]
+Content-Type: text
+Content-Length: 437       
+Status: RO
+
+Ron,
+
+  My memory is hazy on what led me to think NCAR graphics was
+not present on zappa.  I'm fairly sure that I did such things
+as "which ctrans" and found none, at least using the normal
+path settings for a "user" login.  If it's there, maybe the
+problem is environment variables.  I do remember looking where
+I thought it should be, and not finding it.
+
+  Might be good to carry along a copy for installation, just
+in case.
+
+  -- Al
+
+From mike Wed Aug 24 13:19:34 1994
+From: mike (Mike Daniels)
+Message-Id: <199408241919.NAA18528@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA18528; Wed, 24 Aug 1994 13:19:33 -0600
+Subject: Re: NCAR Graphics on zappa
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 24 Aug 1994 13:19:33 -0600 (MDT)
+In-Reply-To: <199408241804.MAA13616@chinook.atd.ucar.EDU> from "Ron Ruth" at Aug 24, 94 12:04:45 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 713       
+Status: RO
+
+Ron,
+
+> I queried Al Cooper to find out what problem he was having.  He was hazy in
+> his reply, but thought doing a `which ctrans' came up empty.  If the sofware
+> is on zappa, perhaps the environment variables are not set up right.
+> 
+> Al thought it would be a good idea to take a copy of NCAR Graphics with me
+> in case I do need to reinstall it.  How can I get a copy on Exabyte (with
+> appropriate instructions)?
+
+The code is on mistral in /home/local/src/ncarg_3.2  I will not be able to help
+with this since I have a crucial deadline to get our system maintenance
+contracts updated before I leave on vacation next week.  There should be
+documentation in the directory structure under ncarg_3.2/man
+
+Mike
+
+
+From ron Wed Aug 24 15:28:41 1994
+Subject: Warning message
+To: paul (Paul Spyers-Duran)
+Date: Wed, 24 Aug 1994 15:28:41 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 340       
+Status: RO
+
+Paul,
+
+How about the following disclaimer?
+
+ WARNING:  This file contains PRELIMINARY DATA that are NOT to be used
+           for critical analysis.  For advice using this file, contact:
+             NCAR Research Aviation Facility
+             P.O. Box 3000
+             Boulder, CO 80307-3000
+             Phone:  (303)497-1030
+
+-- 
+Ron
+
+From krista@chinook.atd.ucar.EDU Wed Aug 24 16:33:14 1994
+Received: from lhotse.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id QAA22030; Wed, 24 Aug 1994 16:33:13 -0600
+Date: Wed, 24 Aug 94 16:33:12 MDT
+Message-Id: <9408242233.AA00965@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA00965; Wed, 24 Aug 94 16:33:12 MDT
+To: lenschow@ncar.ucar.edu, mann@ncar.ucar.edu, oncley@ncar.ucar.edu
+Subject: Release of BOREAS Data
+Cc: paul, ron, krista
+Status: RO
+
+Dear Don, Jakob, and Steve:
+
+After conversations with Paul Spyers-Duran and Ron Ruth out
+here at RAF, I wanted to email you further information regarding
+the RAF policy for distribution of data.  As has been pointed
+out by Ron, it is not our policy to archive data on the Mass
+Store until it has gone through our final quality analysis here
+at Jeffco and we have certified and processed it for release.
+Only then do we place it on the Mass Store for general use of
+the public.
+
+As Ron pointed out, we do not wholly approve of preliminary
+data having been placed on the Mass Store.  We therefore ask
+that you place a read password on the data you have already
+placed there, and further that you notify either Ron, Paul, or
+myself before you give out the password to anyone else.  By
+way of explanation for our decisions--and so you do not think
+our policy to be at all arbitrary--I would like to explain
+why this policy has been implemented at RAF.  In the past,
+we have released preliminary (what we often call "quick look")
+data to the public after having stressed that it is only
+preliminary and should not be used for publication.  Despite
+our emphasizing that the data are preliminary, we have had
+people come back to us later and complain that the data does
+not look right and were not processed correctly.  Despite
+having been "on the record" as having classified the data
+as quick look, numerous people here have had to spend a
+considerable amount of time doing damage control to explain
+what was found in the data.  It is for this reason that RAF
+is now trying to exert greater control over to whom the 
+preliminary data are released.  We are not trying to prevent
+you from using the data; rather, we are simply trying to
+make sure that the general public is given only the best
+quality data.
+
+Having outlined our reasons, we would like to make the following
+requests:
+
+1) If you decide to release some of the data to researchers at
+OSU, we ask that you restrict the release of data to a very
+small number of people, perhaps only one person.  We also ask
+that you make very clear to whomever wants the data that it
+is preliminary *only*, and as such *is not to be widely distributed
+or used for publication*.
+
+2) We also must assert that, in future, all requests for preliminary
+data should be made to either Ron Ruth, Paul Spyers-Duran, or
+myself out here at RAF.  In this manner, we will be able to keep
+track of who all has received preliminary data and can make
+sure that they receive copies of the final data when we have
+finished processing it.
+
+As I stated above, we are not trying to be overly hardline or
+exert undue control over use of the data.  We simply want to make
+sure that users do not become confused by too many data sets
+floating around on the Mass Store and that users are provided
+with the best possible data for the project.
+
+Please contact any one of us out here at Jeffco should you have
+any further questions.
+
+Krista
+
+*************************************************************
+Name: Krista Laursen           Phone: (303)497-1031
+Mailing Address:               Fax:   (303)497-1092
+   NCAR/RAF                    Internet e-mail:
+   P.O. Box 3000                  krista@chinook.atd.ucar.edu
+   Boulder, CO 80307-3000
+
+From chris Tue Aug 30 10:24:51 1994
+From: chris (Chris Webster)
+Message-Id: <199408301624.KAA20694@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id KAA20694; Tue, 30 Aug 1994 10:24:50 -0600
+Subject: Re: new nimbus for zappa
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Tue, 30 Aug 1994 10:24:50 -0600 (MDT)
+In-Reply-To: <199408301548.JAA20282@chinook.atd.ucar.EDU> from "Ron Ruth" at Aug 30, 94 09:48:15 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1174      
+Status: RO
+
+>I noticed that the new version of nimbus was twice the file size as the
+>original.  Does this mean that the version that was here has the 100-weight
+>filter while the new one has the 200-weight.
+
+A couple hundred floats is not going to equal several hundred kilo-bytes.
+The new version is from the development and has debugging information compiled
+into it.
+
+
+>If so, people will not want to run it because of the extra processing time.
+
+If people don't like how long it takes tell them I would be glad to remove the
+ability to do high-rate in the field from nimbus.
+
+
+>It now runs at about real time.
+
+It was always running in real-time up there.
+
+
+>I did try it out, however, on the low-rate processing, and it seemed to
+>work just fine.  We'd like to know all the differences between the old
+>and present versions in addition to the disclaimer you added for me.
+>I already noticed the asterisk added to a "dirty" variable.  That is
+>really a nice touch!
+
+You are running version 1.6 + current developments in 1.7.  Which includes
+PSFD support for the DSM's, a re-arrangement in the way SDI variables are
+handled internally, and a fix for the disk full problem.
+
+--Chris
+
+From gary@chinook.atd.ucar.EDU Wed Aug 31 09:42:54 1994
+Received: from scraff.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id JAA12415; Wed, 31 Aug 1994 09:42:53 -0600
+Date: Wed, 31 Aug 1994 09:42:51 -0600
+Message-Id: <199408311542.JAA01798@scraff.atd.ucar.edu>
+Received: by scraff.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA01798; Wed, 31 Aug 1994 09:42:51 -0600
+To: ron
+Subject: Re: galileo
+X-Sun-Charset: US-ASCII
+Status: RO
+
+
+Ron,
+
+> 
+> I left a voice mail on your phone last night, but I thought I should
+> follow up with this message, too.
+> 
+> We have looked all over and have not found a CD-ROM drive.  Therefore,
+> please include one, along with an interface cable and CD carrier, with your
+> shipment.
+> 
+
+We've got a better idea...Rob is installing the disk here, hopefully 
+with everything you'll need including the "finish" portion of onboard
+install. Then we'll mail the disk and all you need do is install it
+physically into galileo's box. This is still all assuming that the 
+disk is actually the problem. If that doesn't get it, Larry says
+to simply contact a Sun rep (chris webster knows where one is in
+Canada, I think) and pay him, it comes out of the deployment fund
+which makes Larry happier than losing me out here for the 2-3 days it
+would take. Given my schedule with Buckley shuttling, test flights,
+etc., and the inefficiency of working via phone/email with you in
+a process that likely would not be without its glitches, I'd say this
+approach is the best one at the moment.
+
+Robb should have this completed by sometime Thursday morning, to be shipped
+out by the p.m. to you guys. 
+
+Gary
+
+From andzik Wed Aug 31 09:57:21 1994
+From: andzik (Rob Andzik)
+Message-Id: <199408311557.JAA12545@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id JAA12545; Wed, 31 Aug 1994 09:57:21 -0600
+Subject: Hard Drive replacement
+To: ron (Ron Ruth)
+Date: Wed, 31 Aug 1994 09:57:20 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 423       
+Status: RO
+
+Ron,
+
+Slight change in plans.  We're going to send out an entire CPU to you rather
+than just the hard drive.  This means that we need to have the old galileo
+shipped back here ASAP.  The new machine will be installed as galilieo and
+you should be able to just plug it right in.
+
+If you have an questions/concerns please let me know.  I'll be reading my
+email all day, although I won't be in the office past 11:00 MST.
+
+Rob
+
+From ron Fri Sep  2 09:53:51 1994
+Subject: Re: Exabyte tape
+To: andzik@chinook.atd.ucar.edu (Rob Andzik)
+Date: Fri, 2 Sep 1994 09:53:51 -0600 (MDT)
+In-Reply-To: <199409021534.JAA07954@chinook.atd.ucar.EDU> from "Rob Andzik" at Sep 2, 94 09:34:25 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 445       
+Status: RO
+
+Rob,
+
+Teresa is due to arrive here on Saturday night, so it may not be too late.
+Also, Alan Schanot is coming up on Sunday, so you may also be able to give
+it to him.
+
+If both of those avenues fail, there is US mail and FedEx.  The address to
+use is:  Saskatoon Aerocentre
+         Hangar #10, Saskatoon Airport
+         Saskatoon, Saskatchewan  S7L 6S1
+         Attention:  Ron Ruth
+                     NCAR Boreas Operations Centre
+
+-- 
+Ron
+
+From paul Tue Sep  6 10:14:20 1994
+Message-Id: <199409061614.KAA07996@chinook.atd.ucar.EDU>
+Received: from ariel.raf by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id KAA07996; Tue, 6 Sep 1994 10:14:19 -0600
+Subject: 9/06/94
+To: ron (Ron Ruth)
+Date: Tue, 6 Sep 1994 10:14:17 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1214      
+Status: RO
+
+
+Hi Ron;I am sending you this message,since I know you will check it.
+This morning I put in for 8 hrs "Holiday Worked" for all the RAF Exempt Employees.These are Barber,Boynton,Campos,Ruth,Schanot,Taylor,Tejcek.
+For Kurt,Bob,and Bill need to be indicated on the weekly time sheet.
+(May I suggest to you,not to advertise this with non-RAF folks,since there
+maybe different interpretation by some others since we didn't fly etc.)
+I don't know whether I mentioned to you,that I wrote the weekly report
+last Sunday.Since no copier was available I didn't leave a copy in Sask.,
+I hope all is well at Saskatoon.I am leaving for a conference I'll be back
+in the office Thursday p.m.Feel free to send me messages.Regards.Best wishes
+to the gang.Paul
+
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Wed Sep  7 09:23:33 1994
+Subject: Re: Exabyte tape
+To: andzik@chinook.atd.ucar.edu (Rob Andzik)
+Date: Wed, 7 Sep 1994 09:23:33 -0600 (MDT)
+In-Reply-To: <199409021534.JAA07954@chinook.atd.ucar.EDU> from "Rob Andzik" at Sep 2, 94 09:34:25 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 74        
+Status: RO
+
+Rob,
+
+I received the tape via FedEx yesterday.  Thanks a bunch!
+
+-- 
+Ron
+
+From andzik Wed Sep  7 09:24:19 1994
+From: andzik (Rob Andzik)
+Message-Id: <199409071524.JAA03898@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id JAA03898; Wed, 7 Sep 1994 09:24:18 -0600
+Subject: Re: Exabyte tape
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 7 Sep 1994 09:24:18 -0600 (MDT)
+In-Reply-To: <199409071523.JAA03877@chinook.atd.ucar.EDU> from "Ron Ruth" at Sep 7, 94 09:23:33 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 145       
+Status: RO
+
+Message sent by Ron Ruth:
+> 
+> Rob,
+> 
+> I received the tape via FedEx yesterday.  Thanks a bunch!
+> 
+
+No problem.  I'm glad it got to you.
+
+Rob
+
+From ron Fri Sep  9 13:46:39 1994
+Subject: Greetings from Saskatoon
+To: greg (Greg Kok)
+Date: Fri, 9 Sep 1994 13:46:39 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 450       
+Status: RO
+
+Greg,
+
+Teresa asked me to write you in her absence.  She's flying right now.
+
+She apologizes for not writing sooner and plans to update you on
+instrument performance after today's flight (RF-23).  (Please be
+patient, as there is always a run on this email lap-top after each
+flight, especially now with the ASR due.)
+
+Teresa also wanted me to inform you that the equipment from Brazil
+is coming Air Cargo only to Stapleton (not to Jeffco).
+
+-- 
+Ron
+
+From ron Tue Sep 13 10:19:39 1994
+Subject: End of BOREAS-III coming
+To: paul (Paul Spyers-Duran)
+Date: Tue, 13 Sep 1994 10:19:39 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 898       
+Status: RO
+
+Paul,
+
+If things go as planned, our last research flight will be tomorrow.  We
+will then either pack up the ops center during that flight or the day
+after.  That means we will be returning Thursday or Friday.  (RF-24 is
+presently going on, and time remains for one more flight which is planned
+for tommorow.  In jest, I think, Don mentioned doing an additional 1-hour
+jaunt to finish up his alloted hours.)
+
+Allen wanted me to write you about the potential transportation problem
+at Buckley when we return.  He asked that the van you are presently using
+as the C-130 shuttle be kept for our arrival.  Since it probably won't hold
+all the people coming back on the Electra, I was planning to have Judy (my
+wife) bring our van.  Potentially we could take four more people with modest
+luggage or three more with a lot of luggage.
+
+Please let us know your plans so we can make ours.
+
+Thanks.
+
+-- 
+Ron
+
+From paul Tue Sep 13 10:44:14 1994
+Message-Id: <199409131644.KAA05984@chinook.atd.ucar.EDU>
+Received: from ariel.raf by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id KAA05984; Tue, 13 Sep 1994 10:44:13 -0600
+Subject: Re: End of BOREAS-III coming
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 13 Sep 1994 10:44:11 -0600 (MDT)
+In-Reply-To: <199409131619.KAA05049@chinook.atd.ucar.EDU> from "Ron Ruth" at Sep 13, 94 10:19:39 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1235      
+Status: RO
+
+
+HI Ron;
+Good thinking and planning ahead!The C-130 is planning to depart to Seattle,
+on Thursday around 1 p.m.We will have the vehicles out at Buckley.It is a 
+good idea to have Judy come out,since the pickup truck will have to bring
+back some or most of the luggage,if it is rainy we can put some of it in your
+Van.
+Let me know about the plans as they unfold.I will let you know from this end also.Regards Paul...
+P.S.(Assuming that C-130 leaves around 1 p.m. it would be good if you guys
+can come in shortly after that.)
+You might want to suggest to the Germans to make an advanced reservation for 
+the car.Andi had problems before w/o reservations.
+Ask them also,whether Barb needs to make room res.,or they will take care of it.
+Plse let me know.Regards Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Tue Sep 13 16:55:19 1994
+Subject: Re: End of BOREAS-III coming
+To: paul@chinook.atd.ucar.edu (paul)
+Date: Tue, 13 Sep 1994 16:55:19 -0600 (MDT)
+In-Reply-To: <199409131644.KAA05984@chinook.atd.ucar.EDU> from "paul" at Sep 13, 94 10:44:11 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 367       
+Status: RO
+
+Paul,
+
+Hans and Kris would both like room reservations when we return, and they
+are planning to make their own car reservations here.
+
+The decision about whether to fly tomorrow (last flight) will be made
+early tomorrow morning.  If not tomorrow, it is likely we will fly
+Thrusday.  We'll keep you posted on progress, so you know when we will
+be coming in.
+
+-- 
+Ron
+
+From paul Wed Sep 14 09:04:27 1994
+Message-Id: <199409141504.JAA15761@chinook.atd.ucar.EDU>
+Received: from ariel.raf by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id JAA15761; Wed, 14 Sep 1994 09:04:26 -0600
+Subject: 14/9/94
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Wed, 14 Sep 1994 09:04:25 -0600 (MDT)
+In-Reply-To: <199409132255.QAA03409@chinook.atd.ucar.EDU> from "Ron Ruth" at Sep 13, 94 04:55:19 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1138      
+Status: RO
+
+ Ron;
+Thanks for your note.There are istrumentation problems w/ C-130,it is unlikely
+that it will leave on Thursday(tomorrow).This might complicate the pick-up
+for you guys at Buckley,as far as the GSA van/pickup is concerned.
+If needed,can Don arrange for his people for a pick-up?
+Ron,can you give me a headcount how many returning on EL?
+Barbara is out with sick child,it might be the best if the Germans make their
+own reservations,(I can do it,if needed).
+Last time they stayed at LaQuinta(303) 425 9099 in Westminster,this will
+only take a long distance phonecall,and they can give their own creditcard
+rather than using mine.  
+Hope to hear fr ya.Regards.Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From ron Wed Sep 14 09:28:08 1994
+Subject: Re: 14/9/94
+To: paul@chinook.atd.ucar.edu (paul)
+Date: Wed, 14 Sep 1994 09:28:08 -0600 (MDT)
+In-Reply-To: <199409141504.JAA15761@chinook.atd.ucar.EDU> from "paul" at Sep 14, 94 09:04:25 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 490       
+Status: RO
+
+Paul,
+
+Today is a no-fly day, so we will be delayed, too.  It looks like 13 of us
+will be returning on the Electra.
+
+>From RAF:
+Jerry, Henry, Harold, Bob, Allen, Ron, Teresa, Bill and Kurt.
+
+>From MMM:
+Don, Ken, Hans and Kris.
+
+Regarding Buckley, if we come at a weird time (i.e., when no one is down
+there), would a GSA vehicle be there for us to use, or would someone have
+to contact RAF for a pickup?
+
+I will query Don about MMM pickup arrangements and let you know his reply.
+
+-- 
+Ron
+
+From paul Wed Sep 14 10:04:36 1994
+Message-Id: <199409141604.KAA16685@chinook.atd.ucar.EDU>
+Received: from ariel.raf by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id KAA16685; Wed, 14 Sep 1994 10:04:35 -0600
+Subject: Re: 14/9/94-No.2
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Wed, 14 Sep 1994 10:04:33 -0600 (MDT)
+In-Reply-To: <199409141528.JAA16087@chinook.atd.ucar.EDU> from "Ron Ruth" at Sep 14, 94 09:28:08 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 839       
+Status: RO
+
+Ron;Although it is not official yet,Bruce M.told me that most likely that
+they will leave on Saturday.That would be ideal,since they can leave 3 vehicles
+for you guys,if you would arrive on the same date.C-130 will have 13 people
+also.(We are not superstitious!).
+The keys to the vehicles can be left at base ops. at Buckley in an envelope.
+How does this sounds?
+Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From paul Thu Sep 15 11:14:01 1994
+Message-Id: <199409151714.LAA08790@chinook.atd.ucar.EDU>
+Received: from ariel.raf by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA08790; Thu, 15 Sep 1994 11:14:01 -0600
+Subject: 15/9/94
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Thu, 15 Sep 1994 11:13:59 -0600 (MDT)
+In-Reply-To: <199409141528.JAA16087@chinook.atd.ucar.EDU> from "Ron Ruth" at Sep 14, 94 09:28:08 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 664       
+Status: RO
+
+
+Hi Ron;Since I have not heard from you,and AJS is talking to BM about exchangingGSA cars in Buckley,I will assume that I am out of the loop.This is fine with
+me.
+Hope all is well.Regards.Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From greg Thu Sep 15 11:24:31 1994
+From: greg (Greg Kok)
+Message-Id: <199409151724.LAA09024@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA09024; Thu, 15 Sep 1994 11:24:31 -0600
+Subject: misc
+To: ron (Ron Ruth)
+Date: Thu, 15 Sep 1994 11:24:30 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 198       
+Status: RO
+
+Ron:
+
+I managed to get Dick Schillawski to give some help with WINDS, so we
+are up and running.
+
+Please have Dick Taylor leave me a message on where the spare ADS chassis
+is for HK.
+
+Thanks,
+
+Greg
+
+
+From gary Thu Sep 15 13:15:18 1994
+From: gary (Gary Horton)
+Message-Id: <199409151915.NAA10927@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA10927; Thu, 15 Sep 1994 13:15:17 -0600
+Subject: etcetera
+To: sysadmin
+Date: Thu, 15 Sep 1994 13:15:16 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1785      
+Status: RO
+
+gents,
+
+I've done some things that you'all should know. LD_LIBRARY_PATH was
+recently cleaned up, as per a previous memo. One thing done was to
+remove ucb libraries path from it so WINDS would run correctly. A
+side effect of this is that without it, xautolock won't run. I've 
+installed a workaround in my own .openwin-init file as follows:
+
+#
+# screen saver - temporary need for ucb library
+#
+SAVELIB=$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=/usr/ucblib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH
+toolwait xautolock -time 10 -locker "xlock -mode flame -nice 6 -nolock"
+LD_LIBRARY_PATH=$SAVELIB
+export LD_LIBRARY_PATH
+
+
+I've also changed the password for operator to "exadump", since I didn't
+know what it had been changed to since the last time it *was* exadump.
+BTW, the operator account has exceeded its quota...I didn't know what
+to remove, so I didn't do anything. But tape labels on the solaris_netback
+are not getting written since operator can't create anything new.
+
+I've used the $LOCAL/scripts/solaris_netback utility and made some more
+improvements to it, seems to work OK backing up scraff via mistral. Haven't
+tested multiple hosts yet. One thing missing is the ability to fsck
+some disks, since they are mounted and operator doesn't have permission to
+umount them. fsck simply refuses to check disks that *can* be umounted,
+ostensibly by root. 
+
+Marley is coming off the net soon, either disks today or early tomorrow.
+I want to run a LAN test with the Suns going to BASE, then back up marley
+and finally pack it up. Packing should start, then, late morning or early
+afternoon. Any help is appreciated!
+
+-- 
+
+==========================================
+Gary Horton
+Research Aviation Facility
+
+phone:  x1051
+email: gary@chinook.atd.ucar.edu
+==========================================
+
+From ron Thu Sep 15 16:42:02 1994
+Subject: Re: 15/9/94
+To: paul@chinook.atd.ucar.edu (paul)
+Date: Thu, 15 Sep 1994 16:42:02 -0600 (MDT)
+In-Reply-To: <199409151714.LAA08790@chinook.atd.ucar.EDU> from "paul" at Sep 15, 94 11:13:59 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 300       
+Status: RO
+
+Paul,
+
+Bruce is our contact regarding where the vehicle keys will be put,
+assuming we arrive after the C-130 departs.  So, I guess you are
+out of the loop.
+
+Tomorrow is a research flight day.  We plan to do some packing while
+the flight is going on and complete it after the plane returns.
+
+-- 
+Ron
+
+From ron Thu Sep 15 16:46:32 1994
+Subject: Re:  Taylor
+To: greg@chinook.atd.ucar.edu (Greg Kok)
+Date: Thu, 15 Sep 1994 16:46:32 -0600 (MDT)
+In-Reply-To: <199409151724.LAA09024@chinook.atd.ucar.EDU> from "Greg Kok" at Sep 15, 94 11:24:30 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 147       
+Status: RO
+
+Greg,
+
+Glad to see you are up and running with WINDS.
+
+Dick Taylor left here about a week ago.
+I will ask Kurt Zrubek; perhaps he knows.
+
+-- 
+Ron
+
+From barbara Fri Sep 16 10:17:48 1994
+From: barbara (Barbara Knowles)
+Message-Id: <199409161617.KAA02133@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id KAA02133; Fri, 16 Sep 1994 10:17:47 -0600
+Subject: travel junk
+To: ron (Ron Ruth)
+Date: Fri, 16 Sep 1994 10:17:47 -0600 (MDT)
+Cc: paul (Paul Spyers-Duran)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 840       
+Status: RO
+
+Ron,
+
+1.  Reservations:
+
+Christoph and Hans Georg have a reservation at 
+
+La Quinta, 3975 Peoria, 371-5640, beginning Saturday (9/17) (check in by 
+6p.m.) and checking out on Monday morning (9/19).  $70.30 per night per 
+person.
+
+
+La Quinta, 8701 Turnpike Drive, 425-9099, beginning Monday (9/19) and 
+checking out Saturday morning (9/24).  $56.00 per night per person.  It 
+is ok for them to check out earlier.
+
+
+2.  Cars:
+
+Julie Haggerty will check after today's flight if someone will be at the 
+plane tomorrow to get you guys.  How many are you anyway?  However, I 
+will check with PSD about other options if noone is at the plane.
+
+Not to worry, we will get you home!!!
+
+
+3.  Memory Board:
+
+PSD asked me to remind you that the Memory Board needs to be hand 
+carried and put on Paul Herzegh's desk.
+
+
+Have a great trip home.
+
+barbara
+
+
+
+From barbara Fri Sep 16 10:51:22 1994
+From: barbara (Barbara Knowles)
+Message-Id: <199409161651.KAA02594@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id KAA02594; Fri, 16 Sep 1994 10:51:21 -0600
+Subject: confirm
+To: ron (Ron Ruth)
+Date: Fri, 16 Sep 1994 10:51:20 -0600 (MDT)
+Cc: paul (Paul Spyers-Duran)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 60        
+Status: RO
+
+Ron,
+
+Please confirm receipt of my first message.
+
+barbara
+
+
+From ron Fri Sep 16 11:43:40 1994
+Subject: Re: travel junk
+To: barbara@chinook.atd.ucar.edu (Barbara Knowles)
+Date: Fri, 16 Sep 1994 11:43:40 -0600 (MDT)
+In-Reply-To: <199409161617.KAA02133@chinook.atd.ucar.EDU> from "Barbara Knowles" at Sep 16, 94 10:17:47 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2137      
+Status: RO
+
+> 
+> Ron,
+> 
+> 1.  Reservations:
+> 
+> Christoph and Hans Georg have a reservation at 
+> 
+> La Quinta, 3975 Peoria, 371-5640, beginning Saturday (9/17) (check in by 
+> 6p.m.) and checking out on Monday morning (9/19).  $70.30 per night per 
+> person.
+> 
+> 
+> La Quinta, 8701 Turnpike Drive, 425-9099, beginning Monday (9/19) and 
+> checking out Saturday morning (9/24).  $56.00 per night per person.  It 
+> is ok for them to check out earlier.
+> 
+> 
+> 2.  Cars:
+> 
+> Julie Haggerty will check after today's flight if someone will be at the 
+> plane tomorrow to get you guys.  How many are you anyway?  However, I 
+> will check with PSD about other options if noone is at the plane.
+> 
+> Not to worry, we will get you home!!!
+> 
+> 
+> 3.  Memory Board:
+> 
+> PSD asked me to remind you that the Memory Board needs to be hand 
+> carried and put on Paul Herzegh's desk.
+> 
+> 
+> Have a great trip home.
+> 
+Barb,
+
+I have received your message and will pass the hotel information on
+to Hans and Kris.
+
+There will be thirteen (13) of us coming back plus luggage.
+
+I had mentionted to Paul that my wife, Judy, would be willing to come
+down to Buckley with our van to help pick up people.  (We could probably
+take 3 others + luggage with us.)  But after talking with Allen, he said
+that if one hasn't been to Buckley before, it isn't a good idea to go
+down there.  However, if you people have to make a special trip to pick
+us up, I'm sure Judy would be willing to come to Jeffco and follow someone
+down there, if needed.  If Julie or Bruce would like to enlist her aid,
+I would ask that someone give her a call today to make the arrangements
+(469-0841).
+
+The spare NC6600 memory card must be on the airplane, because Kurt could
+not find it amongst the grey boxes in the hangar.  We will isolate it
+after the flight today and hand-carry it back to Jeffco tomorrow afternoon.
+
+We have just about everything packed up.  The box of office supplies and
+manuals is here along with this laptop PC.  Ken Davis has all his stuff
+to pack, but it should not take too long once he returns from today's
+flight.
+
+Thanks for all the help from your end.
+
+-- 
+Ron
+
+From paul Fri Sep 16 12:20:16 1994
+Message-Id: <199409161820.MAA03219@chinook.atd.ucar.EDU>
+Received: from ariel.raf by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id MAA03219; Fri, 16 Sep 1994 12:20:16 -0600
+Subject: 16/9/94
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Fri, 16 Sep 1994 12:20:14 -0600 (MDT)
+In-Reply-To: <199409152242.QAA12868@chinook.atd.ucar.EDU> from "Ron Ruth" at Sep 15, 94 04:42:02 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1485      
+Status: RO
+
+
+Ron;since you said you will be checking your mail,here is more information.
+Greg K.,would like to know your guys arrival time at BNG.He voluntered
+to drive out the Van.(he wants to get off the fast-O3 reactor from EL.)
+Bruce is flying now w/130.,we do not know tomorrows schedule yet whether
+further work is required on the C-130.
+Greg would like if someone will call him tomorrow morning at his office
+at ext 1070.He might be out in hangar,so leave a message on his phone about
+your ETA.
+Please tell DLR folks,that Barbara spent hrs.,of time to be able locate
+room for them in the Bldr/Brommfield/Westminster/Stapelton area.I don't 
+want them to think that we didn't put in an effort to find resonable rates.
+This arrangment was the only one with reasonable rates.
+Good luck!
+Please acknowledge reading of this message.Thanks.Paul
+P.S.I'll be out of town this weekend,otherwise I would be part of the 
+welcoming committee.
+Allen should check w/Bruce later today about schedule/GSA car availability,
+for tomorrow.
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From barbara Fri Sep 16 15:28:02 1994
+From: barbara (Barbara Knowles)
+Message-Id: <199409162128.PAA06260@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id PAA06260; Fri, 16 Sep 1994 15:28:02 -0600
+Subject: pickup
+To: ron (Ron Ruth)
+Date: Fri, 16 Sep 1994 15:28:01 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 661       
+Status: RO
+
+Ron,
+
+Well, I hope you either check this or get your messages from the hotel.
+
+Anyway,  No problem getting picked up.
+
+
+It will work best if you cal me before you leave so I have an idea of 
+when to get to RAF. 
+
+
+Greg Kok and I will be coming.  I have left a message for your wife to 
+call me to see if she would like to come along also.  If not,  I think 
+Greg and I can do it.
+
+
+My home number is 303-428-6057.  If your wife wants to meet us here at 
+RAF to go to Buckley, I will call her in the morning after I hear from 
+you.  I will also let Greg know.  
+
+I somewhat expect a call from you (or someone) between 8:30 and 9:30 a.m.
+
+See you then.
+
+barbara
+
+
+From ron Fri Sep 16 16:08:59 1994
+Subject: Re: 16/9/94
+To: paul@chinook.atd.ucar.edu (paul)
+Date: Fri, 16 Sep 1994 16:08:59 -0600 (MDT)
+In-Reply-To: <199409161820.MAA03219@chinook.atd.ucar.EDU> from "paul" at Sep 16, 94 12:20:14 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 499       
+Status: RO
+
+Paul,
+
+I got your message from about 12:30 p.m. today.  There is also a message
+from Barb regarding tomorrow's transportation arrangements.  She wrote
+that she and Greg will come down to pick us up with the possibility of
+my wife, Judy, coming along, too.
+
+I guess we'll call Barb from Aerocentre if a phone is available, else the
+hotel.  Our ETD is 9:00 a.m. MDT.  I expect an arrival at Buckley about
+1:00 p.m. unless we get unduly delayed going through Customs at Great
+Falls, Montana.
+
+-- 
+Ron
+
+From ron Fri Sep 16 16:25:20 1994
+Subject: Re: pickup
+To: barbara@chinook.atd.ucar.edu (Barbara Knowles)
+Date: Fri, 16 Sep 1994 16:25:20 -0600 (MDT)
+In-Reply-To: <199409162128.PAA06260@chinook.atd.ucar.EDU> from "Barbara Knowles" at Sep 16, 94 03:28:01 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 353       
+Status: RO
+
+Barb,
+
+I'm replying to this message even though I just talked to you.  As a
+verification, we will call you either from the hotel probably before
+8:00 a.m. or from Aerocentre just before we leave, probably before 9:00 a.m.
+
+Thanks again for your help in all this, especially your travails at getting
+the Germans a place to stay.
+
+See you soon!
+
+-- 
+Ron
+
+From dick@chinook.atd.ucar.EDU Tue Sep 20 12:49:34 1994
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id MAA08316; Tue, 20 Sep 1994 12:49:33 -0600
+Message-Id: <199409201849.MAA01510@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA01510; Tue, 20 Sep 1994 12:49:32 -0600
+Subject: BOREAS
+To: ron (Ron Ruth)
+Date: Tue, 20 Sep 1994 12:49:31 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 518       
+Status: RO
+
+Ron:
+     We can either do this by email or in person, but I would like you to
+give me your thoughts on RAF maintenance of Mosaic and any thoughts for 
+the future on the BOREAS project. Sort of a mini-critique. As far as BOREAS
+anything that might improve service to users, better procedures, shortcommings,
+and, of course, what we are doing right. 
+     (just a short note of significant things)
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Wed Sep 21 10:27:30 1994
+Subject: Boreas tape information
+To: barbara (Barbara Knowles)
+Date: Wed, 21 Sep 1994 10:27:30 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3158      
+Status: RO
+
+Barb,
+
+Following this message is a summary with as much information as I have
+regarding the Boreas project ADS data tapes.  I thought perhaps it would
+save you some typing, since I have dates and start & end times for all
+of the research flights and some of the tests and ferries.
+
+Hope you and Jackie are feeling much better soon!
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+4-818 Boreas (Lenschow, et al) Raw ADS Tape Summary       RLR  940720
+                                                          rev. 940921
+
+       MSS path name: /RAF/1994/818/fltno/tape#
+ 
+                Date        Start     End       #    File Size
+tape#  fltno  mm/dd/yyyy    Time      Time     Recs   (Mbytes)   Comments
+-----  -----  ----------  --------  --------  -----  ----------  --------------
+R0284  FF01   05/22/1994     ?         ?        384   12.166740
+R0832  FF02   05/23/1994     ?         ?       2262   72.022356
+R0845  FF03A  06/14/1994  15:55:09  17:18:31   1255   39.806988
+R0846  FF03B  06/14/1994  17:43:47  20:00:13   2051   65.100684
+R0833  RF01   05/25/1994  15:54:12  21:55:54   5430  172.992852
+R0834  RF02   05/26/1994  15:57:40  22:06:30   5537  175.871820
+R0837  RF03   05/31/1994  16:00:05  21:50:23   5259  167.038092
+R0838  RF04   06/01/1994  15:53:01  22:39:39   6104  193.888812
+R0839  RF05   06/06/1994  15:15:15  22:04:35   6297  200.021580
+R0840  RF06   06/07/1994  14:31:07  20:51:25   5709  181.337292
+R0842  RF07   06/10/1994  15:55:19  22:29:25   5916  187.914924
+R0844  RF08   06/13/1994  14:53:59  19:42:33   4333  137 613516
+R0841  TF05   06/09/1994  17:20:13  19:05:55   1590   50.451948
+R0843  TF06   06/12/1994  20:55:45  21:56:23    914   28.971372
+
+R0847  FF05   07/18/1994  16:11:27  16:40:49    445   14.436604
+R0848  FF06   07/18/1994  17:14:02  20:10:00   2644   86.141596
+R0849  RF09   07/20/1994  15:50:11  21:20:45   4963  159.934052
+R0850  RF10   07/21/1994  16:29:51  22:49:17   5696  183.565972
+R0851  RF11   07/24/1994  14:56:02  21:18:32   5803  187.015652
+R0852  RF12   07/30/1994  15:20:53  22:37:51   6559  211.389092
+R0853  RF13   08/01/1994  15:57:51  21:25:25   4918  158.483252
+R0854  RF14   08/02/1994  15:49:16  21:47:26   5377  173.281412
+R0855  RF15   08/03/1994  15:49:11  22:25:45   5953  191.851652
+R0856  RF16   08/04/1994  15:48:27  22:26:01   5968  192.335252
+R0857  FF08   08/05/1994  15:51:21  20:08:23   1590   50.451948
+
+R0858  FF09   08/28/1994  16:25:38  17:09:28     ?    (Ignore data beyond EOF)
+R0859  FF10   08/28/1994  17:45:32  20:47:38     ?
+R0860  RF17   08/30/1994  16:57:22  20:35:20     ?
+R0861  RF18   08/31/1994  15:54:32  22:00:14     ?
+R0862  RF19   09/02/1994  15:21:48  21:23:06   5425
+R0863  RF20   09/03/1994  14:54:27  21:10:25   5645
+R0864  RF21   09/06/1994  15:56:40  22:38:14   6029
+R0865  RF22   09/07/1994  16:57:20  22:26:50     ?
+R0866  RF23   09/09/1994  15:54:11  21:53:21   5393
+R0867  RF24   09/13/1994  15:19:41  21:21:03   5426
+R0868  RF25   09/16/1994  15:55:45  22:35:43   6005
+R0869  FF11   09/17/1994     ?         ?       3670
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Wed Sep 21 10:45:36 1994
+Subject: Another version of Boreas III tape log
+To: barbara (Barbara Knowles)
+Date: Wed, 21 Sep 1994 10:45:36 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1058      
+Status: RO
+
+Barb,
+
+Here is another version of the latest information from the Boreas project,
+phase III only.  This version has data in the order they appear on the Data
+Tape Log.  Hope it's useful to you.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+4-818 Boreas Phase III
+
+         Date               Start     End
+fltno  mm/dd/yyyy  tape#    Time      Time
+-----  ----------  -----  --------  --------
+FF09   08/28/1994  R0858  16:25:38  17:09:28
+FF10   08/28/1994  R0859  17:45:32  20:47:38
+RF17   08/30/1994  R0860  16:57:22  20:35:20
+RF18   08/31/1994  R0861  15:54:32  22:00:14
+RF19   09/02/1994  R0862  15:21:48  21:23:06
+RF20   09/03/1994  R0863  14:54:27  21:10:25
+RF21   09/06/1994  R0864  15:56:40  22:38:14
+RF22   09/07/1994  R0865  16:57:20  22:26:50
+RF23   09/09/1994  R0866  15:54:11  21:53:21
+RF24   09/13/1994  R0867  15:19:41  21:21:03
+RF25   09/16/1994  R0868  15:55:45  22:35:43
+FF11   09/17/1994  R0869     ?         ?    
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From oncley@stout.atd.ucar.edu Wed Sep 21 13:27:06 1994
+Received: from atd.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA21743; Wed, 21 Sep 1994 13:27:06 -0600
+From: oncley@stout.atd.ucar.edu (Steve Oncley)
+Message-Id: <199409211926.NAA02610@atd.atd.ucar.EDU>
+Received: from localhost by atd.atd.ucar.EDU (8.6.4/ NCAR Mail Server 04/10/90)
+	id NAA02610; Wed, 21 Sep 1994 13:26:43 -0600
+Subject: Flight 25
+To: ron@stout.atd.ucar.edu (Ron Ruth)
+Date: Wed, 21 Sep 1994 13:26:43 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL22]
+Content-Type: text
+Content-Length: 163       
+Status: RO
+
+
+PSD informs me that you have run R25 through nimbus (including high-rate?).
+Could we get a copy of both the low- and high-rate files to play with?
+Thanks...Steve
+
+From ron Wed Sep 21 13:47:11 1994
+Subject: Re: Flight 25
+To: oncley@stout.atd.ucar.edu (Steve Oncley)
+Date: Wed, 21 Sep 1994 13:47:11 -0600 (MDT)
+In-Reply-To: <199409211926.NAA02610@atd.atd.ucar.EDU> from "Steve Oncley" at Sep 21, 94 01:26:43 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1322      
+Status: RO
+
+> 
+> 
+> PSD informs me that you have run R25 through nimbus (including high-rate?).
+> Could we get a copy of both the low- and high-rate files to play with?
+> Thanks...Steve
+> 
+Steve,
+
+I did run RF25 through NIMBUS at low rate using only the ADS header
+information and the local BOREAS Defaults file (without the pitch bias
+change or the new Lyman-Alpha hygrometer coefficients).  I just wanted
+to get accurate start and end times.  The netCDF header does NOT have
+the disclaimer, so please be careful with it.
+
+Zappa is still in its large box on the Electra, and I don't know when
+it is due to arrive at Jeffco.  Therefore, all the changes we made to
+zappa's BOREAS NIMBUS files are also stashed away.  I'll contact Al
+Schanot to see if he has the new Lyman-Alpha coefficients here somewhere.
+The low-rate file here on chinook or mistral is:
+   /home/local/data/818rf25.cdf
+If there is writeable space somewhere on an FL-1 machine (e.g., stout),
+I could do a quick `rcp' for you.
+
+If these deficiencies are not important to you, I can also run the
+high-rate data for you.
+
+Please let me know what you want me to do.
+
+When did you make it back to Boulder?  Did you get any sleep on the way
+(besides at the wheel)?
+
+-- 
+Ron        NCAR/ATD/RDP&RAF   Voice: (303)497-1084
+  (ron@raf.atd.ucar.edu)        Fax: (303)497-1092
+
+From ron Wed Sep 21 14:32:12 1994
+Subject: Re: Flight 25
+To: oncley@stout.atd.ucar.edu (Steve Oncley)
+Date: Wed, 21 Sep 1994 14:32:12 -0600 (MDT)
+In-Reply-To: <199409211926.NAA02610@atd.atd.ucar.EDU> from "Steve Oncley" at Sep 21, 94 01:26:43 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 339       
+Status: RO
+
+Steve,
+
+Al hasn't found the Lyman-Alpha coefficients yet.  He said he had some
+notes at home that, he hoped, would have those numbers.
+
+Therefore, I'll run the data through low-rate nimbus again with only the
+pitch bias changed.  
+
+-- 
+Ron Ruth   NCAR/ATD/RDP&RAF   Voice: (303)497-1084
+  (ron@raf.atd.ucar.edu)        Fax: (303)497-1092
+
+From ron Thu Sep 22 17:15:23 1994
+Subject: Boreas-III RF25
+To: oncley@stout
+Date: Thu, 22 Sep 1994 17:15:23 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1009      
+Status: RO
+
+Steve,
+
+This morning I got the proper Lyman-Alpha coefficients from Al Schanot.
+I also had to add some variables to the NIMBUS data base so you get proper
+names and units in the netCDF header.  There are still quite a few
+discriptions missing (like all the fluxes and some of the air chemistry
+variables).  We'll straighten that out before final processing.
+
+I am presently transferring the low-rate file for RF25 (81825.cdf) to your
+`/sssf4/oncley/boreas' directory on stout.  I'm not sure how long it will
+take to transfer the file, but the low-rate data are taking quite a bit
+longer than I thought it would.  I am presently running NIMBUS on the
+high-rate data.  If that succeeds, I will transfer the file tomorrow
+morning; it should be ready by then.
+
+Ah!  The low-rate transfer just finished!  It took less than 15 minutes.
+It may take a good part of the morning to transfer the high-rate file.
+
+-- 
+Ron Ruth   NCAR/ATD/RDP&RAF   Voice: (303)497-1084
+  (ron@raf.atd.ucar.edu)        Fax: (303)497-1092
+
+From oncley@stout.atd.ucar.edu Thu Sep 22 17:32:04 1994
+Received: from atd.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id RAA04239; Thu, 22 Sep 1994 17:32:03 -0600
+From: oncley@stout.atd.ucar.edu (Steve Oncley)
+Message-Id: <199409222331.RAA08407@atd.atd.ucar.EDU>
+Received: from localhost by atd.atd.ucar.EDU (8.6.4/ NCAR Mail Server 04/10/90)
+	id RAA08407; Thu, 22 Sep 1994 17:31:40 -0600
+Subject: Re: Boreas-III RF25
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 22 Sep 1994 17:31:39 -0600 (MDT)
+In-Reply-To: <199409222315.RAA04109@chinook.atd.ucar.EDU> from "Ron Ruth" at Sep 22, 94 05:15:23 pm
+X-Mailer: ELM [version 2.4 PL22]
+Content-Type: text
+Content-Length: 227       
+Status: RO
+
+
+If the timing works out, you might want to copy the high-rate data
+to tape and "black-bag" it to here, to save the network some anguish.
+...Steve
+
+P.S. Could you inquire about 2 tickets to Saturday's Verdi performance
+for me?
+
+From ron Fri Sep 23 09:40:02 1994
+Subject: Re: Boreas-III RF25
+To: oncley@stout.atd.ucar.edu (Steve Oncley)
+Date: Fri, 23 Sep 1994 09:40:02 -0600 (MDT)
+In-Reply-To: <199409222331.RAA08407@atd.atd.ucar.EDU> from "Steve Oncley" at Sep 22, 94 05:31:39 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1463      
+Status: RO
+
+> 
+> 
+> If the timing works out, you might want to copy the high-rate data
+> to tape and "black-bag" it to here, to save the network some anguish.
+> ...Steve
+> 
+> P.S. Could you inquire about 2 tickets to Saturday's Verdi performance
+> for me?
+> 
+Steve,
+
+You may be correct, except that Jeffco doesn't have "black bag" service.
+About the best I can do is to put it in the noon mail.  Normally they
+deliver that to FL-1 about 2:30 p.m. if they get a chance to sort it
+beforehand.  The other option is for someone to hand-carry it.
+
+Personally, I'm not worried about loading down the network a little,
+so I've started a transfer already.  The file will be called 81825hr.cdf
+and is 394387452 bytes long.
+
+
+I'm certain that the Verdi tickets are selling well, so I don't expect
+to be able to get the $1 comps.  (Also I won't know that until next
+Tuesday or Wednesday.)  If I buy the tickets for you, I can get a 15%
+discount off the regular prices of:  $8 to $33.  The better seats will
+cost more than $20 each except for the rings (which I like, but which
+others may not, because they are so high and isolated).  Personally,
+I like Mezannine 4,5,6&7 better than Orchestra; they are higher,
+albeit a bit farther away.
+
+After inquiring, tickets are available in all sections of the hall for
+Saturday's performance.  Please let me know what you want me to do.
+
+-- 
+Ron        NCAR/ATD/RDP&RAF   Voice: (303)497-1084
+  (ron@raf.atd.ucar.edu)        Fax: (303)497-1092
+
+From ron Thu Sep 29 11:18:46 1994
+Subject: BOREAS tape summary
+To: barbara (Barbara Knowles)
+Date: Thu, 29 Sep 1994 11:18:46 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3029      
+Status: RO
+
+Barb,
+
+Here is the final raw ADS tape list for Boreas.  Hope it is useful to you.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+4-818 Boreas (Lenschow, et al) Raw ADS Tape Summary       RLR  940720
+                                                          rev. 940929
+
+       MSS path name: /RAF/1994/818/fltno/tape#
+ 
+         Date               Start     End       #    File Size
+fltno  mm/dd/yyyy  tape#    Time      Time     Recs   (Mbytes)   Comments
+-----  ----------  -----  --------  --------  -----  ----------  --------------
+FF01   05/22/1994  R0284     ?         ?        384   12.166740
+FF02   05/23/1994  R0832     ?         ?       2262   72.022356
+FF03A  06/14/1994  R0845  15:55:09  17:18:31   1255   39.806988
+FF03B  06/14/1994  R0846  17:43:47  20:00:13   2051   65.100684
+RF01   05/25/1994  R0833  15:54:12  21:55:54   5430  172.992852
+RF02   05/26/1994  R0834  15:57:40  22:06:30   5537  175.871820
+RF03   05/31/1994  R0837  16:00:05  21:50:23   5259  167.038092
+RF04   06/01/1994  R0838  15:53:01  22:39:39   6104  193.888812
+RF05   06/06/1994  R0839  15:15:15  22:04:35   6297  200.021580
+RF06   06/07/1994  R0840  14:31:07  20:51:25   5709  181.337292
+RF07   06/10/1994  R0842  15:55:19  22:29:25   5916  187.914924
+RF08   06/13/1994  R0844  14:53:59  19:42:33   4333  137 613516
+TF05   06/09/1994  R0841  17:20:13  19:05:55   1590   50.451948
+TF06   06/12/1994  R0843  20:55:45  21:56:23    914   28.971372
+
+FF05   07/18/1994  R0847  16:11:27  16:40:49    445   14.436604
+FF06   07/18/1994  R0848  17:14:02  20:10:00   2644   86.141596
+RF09   07/20/1994  R0849  15:50:11  21:20:45   4963  159.934052
+RF10   07/21/1994  R0850  16:29:51  22:49:17   5696  183.565972
+RF11   07/24/1994  R0851  14:56:02  21:18:32   5803  187.015652
+RF12   07/30/1994  R0852  15:20:53  22:37:51   6559  211.389092
+RF13   08/01/1994  R0853  15:57:51  21:25:25   4918  158.483252
+RF14   08/02/1994  R0854  15:49:16  21:47:26   5377  173.281412
+RF15   08/03/1994  R0855  15:49:11  22:25:45   5953  191.851652
+RF16   08/04/1994  R0856  15:48:27  22:26:01   5968  192.335252
+FF08   08/05/1994  R0857  15:51:21  20:08:23   1590   50.451948
+
+FF09   08/28/1994  R0858  16:25:38  17:09:28    662   21.269812
+FF10   08/28/1994  R0859  17:45:32  20:47:38   2736   88.135572
+RF17   08/30/1994  R0860  16:57:22  20:35:20   3274  105.480692
+RF18   08/31/1994  R0861  15:54:32  22:00:14   5490  176.924532
+RF19   09/02/1994  R0862  15:21:48  21:23:06   5424  174.796692
+RF20   09/03/1994  R0863  14:54:27  21:10:25   5644  181.889492
+RF21   09/06/1994  R0864  15:56:40  22:38:14   6028  194.269652
+RF22   09/07/1994  R0865  16:57:20  22:26:50   4947  159.418212
+RF23   09/09/1994  R0866  15:54:11  21:53:21   5392  173.765012
+RF24   09/13/1994  R0867  15:19:41  21:21:03   5425  174.828932
+RF25   09/16/1994  R0868  15:55:45  22:35:43   6004  193.495892
+FF11   09/17/1994  R0869     ?         ?       3669  118.215492
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+

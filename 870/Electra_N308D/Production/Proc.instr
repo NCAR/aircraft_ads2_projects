@@ -1,0 +1,30 @@
+Brief processing instructions for WISP-94:
+
+1.  Check the available disk space on both the `.../ADSdata' and
+     `.../staticdata' directories to make sure there is room for more data.
+2.  Bring raw ADS file for a flight from Mass Store using `msgetads' script.
+     (You need to do this from your own login.)
+3.  Move the ADS file to the `/home/local/ADSdata' directory.
+     (You need to do this from your own login.)
+4.  Run `nimbus' on mistral to process the flight.
+     (You need to do this from a `nimbus' login.)
+   a.  Create output files in `/home/local/staticdata' with a name of the
+        form 870RF##.cdf, where ## is the flight number (01-45).
+       Note:  nimbus will automatically add the `.cdf' extension.
+   b.  Compare requested flight number with displayed flight number, and
+        if it does not agree, see me or Al Schanot before proceeding.
+5.  Save processing information in the production log file.
+     (You need to do this from a `nimbus' login.)
+   a.  After data from a flight have been processed but before the main
+        nimbus window is closed, save all the information in the gray area
+        of the window to a section of the file `Production.log' in the
+        `/home/local/proj/870/Production' directory.  (See the file for
+        an example.)
+   b.  Also, check for messages in the window where nimbus had been
+        running. (When running nimbus with an input file rather than a tape,
+        typically, there will be no messages.)  Save any messages to the
+        same section of the same log file.
+6.  While a flight is being processed, you may retrieve raw data for
+     subsequent flights and remove raw ADS files for flights that have been
+     processed.
+

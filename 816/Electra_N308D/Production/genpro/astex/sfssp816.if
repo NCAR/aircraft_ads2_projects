@@ -1,0 +1,581 @@
+      SUBROUTINE SFSSP
+C ----------------------------------------------------------------------------
+C    FSSP Calculations
+C ----------------------------------------------------------------------------
+C  PROJECT ASTEX/MAGE:  September 1992  RLR
+C    This special code for ASTEX/MAGE is needed because of the new cell size
+C      arrangement for the FSSP.  The "it will never change" principle has now
+C      ended.  I will use the cell sizes given in the SIZEF array instead of
+C      the hard-wired ones previously used.
+C    This modification to the FSSP incorporates changes needed as a result of
+C      implementing the new ADS header.  To make sure all data end on a 64-bit
+C      boundary, all PMS channels have pads.  The FSSP now has 22 words per
+C      frame instead of 21.  This required changes to the software.
+C    This modification to the FSSP changes the way activity is calculated.
+C    It also multiplies FRESET by 10 to account for a divide-by-ten done
+C      within the probe.
+C  PROJECT HaRP:  24 Oct. 1990  CC
+C  This PMS-1D FSSP probe processor includes Darrel Baumgardner's newest mods 
+C  to correct (fix) the accumulated raw counts before the concentrations
+C  are calculated.  
+C
+C  Darrel's black box contains the following subroutines:
+C  FXFSP
+C  VBIAS
+C  TWOMY
+C  SIG
+C  SMOOTH
+C  EXTRP - FUNCTION
+C
+C  THE INPUT PARAMETERS REQUIRED FOR THIS PROCESSOR ARE:
+C  1. TIME IN SECONDS
+C  2. TAS
+C  3. FSSP DATA BLOCK
+C
+C  This subroutine will produce the following output data set, by request
+C
+C  0. ACCFSPH:  A data block of raw counts at high rate if the FSSP data 
+C                come in at high rate
+C  1. ACCFSPL:  A data block of raw counts at low rate if the FSSP data 
+C                come in at low rate
+C  2. AFSP01-AFSP15:  ACCUMULATED RAW COUNTS FOR EACH CELL AT 1/SEC
+C  3. CFSP01-CFSP15:  CONCENTRATIONS FROM FIXED RAW COUNTS FOR EACH CELL AT
+C                      1/SEC
+C  4. SUM15F:  TOTAL OF ALL COUNTS
+C  5. FACT:  ACTIVITY COUNTS
+C  6. FLWC:  LIQUID WATER CONTENT IN GRAMS PER CUBIC METER
+C  7. FDBAR:  MEAN PARTICLE DIAMETER
+C  8. FDISP:  DISPERSION 
+C  9. AFSC01-AFSC15:  ACCUMULATED CORRECTED COUNTS FOR EACH CELL AT 1/SEC
+C ----------------------------------------------------------------------------
+C
+.REPL
+.USE  TBLANK
+.USE  BLANK
+.USE  IOUNIT
+.USE  TCYCVAR
+.USE  CYCVAR
+.USE  ERROR
+.USE  TOP
+.USE  OP
+.USE  CALCOM
+.NOREP
+      DIMENSION ACC(15),SMKN(15),SMCON(15),AREA(15)
+C     DIMENSION ARAY1(15),ARAY2(15),ARAY3(15),ARAY4(15)
+      DIMENSION IPAFSP(15),IPCFSP(15),IPAFSC(15)
+      INTEGER ALABX(5),ALABY(5),CLABX(5),CLABY(5)
+      COMMON/HIST/LT(5),NCELLS,SIZE(64),NSIZE
+      COMMON/PFSSP/TAU1,TAU2,TAU3,CWD(4),CBIAS(4),DOF,BDIA,NCSUMF,
+     1             THRESHF,KRANGE,KSTROB,KRESET,MRATEF,MWORDF,MCELLF,
+     2             SIZEF(15)
+      COMMON/QC/IPQC1,IPQC2,LRTQC1,LRTQC2
+C
+C ** VARIABLE NAMES OF ACCUMULATED RAW COUNTS FOR EACH CELL
+      DATA NAFSP01/8HAFSP01  /, NAFSP02/8HAFSP02  /, NAFSP03/8HAFSP03  /
+      DATA NAFSP04/8HAFSP04  /, NAFSP05/8HAFSP05  /, NAFSP06/8HAFSP06  /
+      DATA NAFSP07/8HAFSP07  /, NAFSP08/8HAFSP08  /, NAFSP09/8HAFSP09  /
+      DATA NAFSP10/8HAFSP10  /, NAFSP11/8HAFSP11  /, NAFSP12/8HAFSP12  /
+      DATA NAFSP13/8HAFSP13  /, NAFSP14/8HAFSP14  /, NAFSP15/8HAFSP15  /
+C
+C ** VARIABLE NAMES OF CONCENTRATION, FROM CORRECTED COUNTS, FOR EACH CELL
+      DATA NCFSP01/8HCFSP01  /, NCFSP02/8HCFSP02  /, NCFSP03/8HCFSP03  /
+      DATA NCFSP04/8HCFSP04  /, NCFSP05/8HCFSP05  /, NCFSP06/8HCFSP06  /
+      DATA NCFSP07/8HCFSP07  /, NCFSP08/8HCFSP08  /, NCFSP09/8HCFSP09  /
+      DATA NCFSP10/8HCFSP10  /, NCFSP11/8HCFSP11  /, NCFSP12/8HCFSP12  /
+      DATA NCFSP13/8HCFSP13  /, NCFSP14/8HCFSP14  /, NCFSP15/8HCFSP15  /
+C
+      DATA NFACT  /8HFACT    /, NPLWCF /8HPLWCF   /
+      DATA NCONCF /8HCONCF   /, NDBARF /8HDBARF   /, NDISPF /8HDISPF   /
+      DATA NFRANGE/8HFRANGE  /, NFSTROB/8HFSTROB  /, NSUM15F/8HSUM15F  /
+      DATA NFRESET/8HFRESET  /, NFBMFR /8HFBMFR   /
+      DATA NACCFSPH/8HACCFSPH /, NACCFSPL/8HACCFSPL /
+      DATA NACXFSPL/8HACXFSPL /
+C
+C ** FLAGs for histogram plots
+      DATA NAFSSP /8HAFSSP   /, NCFSSP/8HCFSSP   /
+C
+C ** SIZE TABLES FOR RANGE 1-4  
+C    Use the mid point of the size channel--nominal PMS values from 
+C    Darrel's black box (the DATA Block section)   Oct. 23, 1990  
+C    These values should not be changed from now on.
+C    -cc
+C     DATA ARAY1/ 3.5, 6.5, 9.5,12.5,15.5,18.5,21.5,24.5,27.5,30.5,
+C    1           33.5,36.5,39.5,42.5,45.5/
+C     DATA ARAY2/ 3.0, 5.0, 7.0, 9.0,11.0,13.0,15.0,17.0,19.0,21.0,
+C    1           23.0,25.0,27.0,29.0,31.0/
+C     DATA ARAY3/ 1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5, 9.5,10.5,
+C    1           11.5,12.5,13.5,14.5,15.5/
+C     DATA ARAY4/0.75,1.25,1.75,2.25,2.75,3.25,3.75,4.25,4.75,5.25,
+C    1           5.75,6.25,6.75,7.25,7.75/
+C  Above sizes changed for ASTEX, used only one range; using only one table
+C   (the SIZEF array)   RLR  4 September 1992  (ASTEX/MAGE)
+C
+      IPRAW = INDGET
+C--------------------------------------------------------------------
+C       ACCESS THE FUNCTION CONTROLS
+C DEFFUN=1-NAMFUN;2-PMS PLT NSIZE;
+C        3-PMS PLT LOGLIN,4-PMS PLT MGRY;5-PMS PLT MINRY;6-PMS PLT BOT;
+C        7-PMS PLT TOP; 8-PMS PLT LABX; 9-PMS PLT LABY
+C
+C     IF(NSTAGE.EQ.4)PRINT 90, MRATEF,MWORDF,IPRAW
+      NCELLS = MCELLF
+C
+C Begin Diagnostic
+C     IF (NSTAGE.EQ.4)
+C    &  WRITE (6,1234) MRATEF,MWORDF,IPRAW,NCELLS,DOF,BDIA,
+C    &                 LRATE,LRTSOU(1),LRTSOU(2),SIZEF
+C1234 FORMAT ("  SFSSP:  MRATEF, MWORDF, IPRAW, NCELLS = "4I10/
+C    &        "          DOF, BDIA = "2G15.7/
+C    &        "          LRATE, LRTSOU(1-2) = "3I10/
+C    &        "          SIZEF ARRAY:"/(X5G15.7/))
+C End Diagnostic
+C
+      INDST =3
+.USE  INDEX
+C     CALL CPRINT (0,6,128,8,5,DUM,0)
+      IOF01 = ICON(INDOFF+1)
+      IOF02 = ICON(INDOFF+2)
+      IOF03 = ICON(INDOFF+3)
+      IOF04 = ICON(INDOFF+4)
+      IOF05 = ICON(INDOFF+5)
+      IOF06 = ICON(INDOFF+6)
+      IOF07 = ICON(INDOFF+7)
+      IOF08 = ICON(INDOFF+8)
+      IOF09 = ICON(INDOFF+9)
+C
+      DO (I=1,NUMVEC)
+       IND = INDVAL + LENCON*(I-1)
+       NAMFUN = ICON(IND+IOF01)
+       NSIZE  = ICON(IND+IOF02)
+C** FSSP ACCUMULATION  ------------------------------------- AFSSP
+       IF (NAMFUN.EQ.NAFSSP)
+        LLA = ICON(IND+IOF03)
+        IF (LLA.LT.0 .OR. LLA.GT.2) LLA = 0
+        MGRYA  = ICON(IND+IOF04)
+        MINRYA = ICON(IND+IOF05)
+        BA     =  CON(IND+IOF06)
+        TA     =  CON(IND+IOF07)
+        DO (IL=1,5)
+         ALABX(IL) = ICON(IND+IOF08+IL-1)
+         ALABY(IL) = ICON(IND+IOF09+IL-1)
+        END DO
+       END IF
+C** FSSP CONCENTRATION ------------------------------------- CFSSP
+       IF (NAMFUN.EQ.NCFSSP)
+        LLC = ICON(IND+IOF03)
+        IF (LLC.LT.0 .OR. LLC.GT.2) LLC = 0
+        MGRYC  = ICON(IND+IOF04)
+        MINRYC = ICON(IND+IOF05)
+        BC     =  CON(IND+IOF06)
+        TC     =  CON(IND+IOF07)
+        DO (IL=1,5)
+         CLABX(IL) = ICON(IND+IOF08+IL-1)
+         CLABY(IL) = ICON(IND+IOF09+IL-1)
+        END DO
+       END IF
+      END DO
+C
+C       ACCESS THE VARIABLE CONTROLS
+      INDST = 2
+.USE  INDEX
+C     CALL CPRINT(0,6,128,8,5,DUM,0)
+      IOFF01 = ICON(INDOFF+1)
+      IOFF02 = ICON(INDOFF+2)
+      IOFF03 = ICON(INDOFF+3)
+      IOFF04 = ICON(INDOFF+4)
+      IOFF05 = ICON(INDOFF+5)
+      DO (K=1,NUMVEC)
+       IND    = INDVAL + LENCON*(K-1)
+       NAMVAR = ICON(IND+IOFF01)
+       INDGET = ICON(IND+IOFF02)
+       INRATE = ICON(IND+IOFF03)
+       INDPUT = ICON(IND+IOFF04)
+       LRATE  = ICON(IND+IOFF05)
+       IF (NAMVAR .EQ. NACCFSPH) IPACCH     = INDPUT-1
+       IF (NAMVAR .EQ. NACCFSPL) IPACCL     = INDPUT-1
+       IF (NAMVAR .EQ. NACXFSPL) IPACXL     = INDPUT-1
+       IF (NAMVAR .EQ. NFRANGE)  IPFRANGE   = INDPUT-1
+       IF (NAMVAR .EQ. NFRESET)  IPFRESET   = INDPUT-1
+       IF (NAMVAR .EQ. NSUM15F)  IPSUMF     = INDPUT-1
+       IF (NAMVAR .EQ. NFSTROB)  IPFSTROB   = INDPUT-1
+       IF (NAMVAR .EQ. NCONCF)   IPFCON     = INDPUT-1
+       IF (NAMVAR .EQ. NDBARF)   IPFDBA     = INDPUT-1
+       IF (NAMVAR .EQ. NDISPF)   IPFDIS     = INDPUT-1
+       IF (NAMVAR .EQ. NFACT)    IPFACT     = INDPUT-1
+       IF (NAMVAR .EQ. NPLWCF)   IPFLWC     = INDPUT-1
+       IF (NAMVAR .EQ. NFBMFR)   IPFBMFRA   = INDPUT-1
+C
+       IF (NAMVAR .EQ. NAFSP01)  IPAFSP( 1) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP02)  IPAFSP( 2) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP03)  IPAFSP( 3) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP04)  IPAFSP( 4) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP05)  IPAFSP( 5) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP06)  IPAFSP( 6) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP07)  IPAFSP( 7) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP08)  IPAFSP( 8) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP09)  IPAFSP( 9) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP10)  IPAFSP(10) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP11)  IPAFSP(11) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP12)  IPAFSP(12) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP13)  IPAFSP(13) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP14)  IPAFSP(14) = INDPUT-1
+       IF (NAMVAR .EQ. NAFSP15)  IPAFSP(15) = INDPUT-1
+C
+       IF (NAMVAR .EQ. NCFSP01)  IPCFSP( 1) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP02)  IPCFSP( 2) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP03)  IPCFSP( 3) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP04)  IPCFSP( 4) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP05)  IPCFSP( 5) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP06)  IPCFSP( 6) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP07)  IPCFSP( 7) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP08)  IPCFSP( 8) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP09)  IPCFSP( 9) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP10)  IPCFSP(10) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP11)  IPCFSP(11) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP12)  IPCFSP(12) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP13)  IPCFSP(13) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP14)  IPCFSP(14) = INDPUT-1
+       IF (NAMVAR .EQ. NCFSP15)  IPCFSP(15) = INDPUT-1
+C
+      END DO
+C-----------------------------
+C  ***** INITIALIZATION FOR A NEW CASE
+      IF (NSTAGE.EQ.4) NUMSMP = 0
+      LDO = NCDO
+C
+C  **********************     P M S  PROBE MODULE      **********************
+C  *                                                                        *
+C  **********************    FSSP PROBE           SEPT. 1983
+C PMS 1-D PROBE FSSP DATA PROCESSING
+C INPUT INFORMATION REQUIRED:
+C   1. PMS BLOCK SIZE IN WORDS              MSIZE
+C   2. PMS BLOCK SAMPLING RATE              MRATE
+C   3. NO. OF WORDS PER SAMPLE              MWORD
+C   4. NO. OF SIZE CELLS                    NCELLS
+C   5. FIRST ADDRESS OF THE PMS BLOCK*NCDO  IPRAW
+C PMS BLOCK STRUCTURE
+C-----------------------------------------------------------------------
+C|P |SAMPLE ONE: WD1.RANGE;WD2.SPARE;WD3.REFERENCE VOLTAGE;
+C|R |            WD4.STROBE; WD5.RESET; WD6.CELL 0;
+C|O |            WD7-WD21.CELL 1-15; WD22.FILL
+C|B |
+C|E |SAMPLE TWO:
+C|1 |.
+C----------------------------------------------------------------------
+C ASSUMING PMS DATA COMING INTO THIS ROUTINE = (PMS BLOCK)*NCDO
+C DATA() ARE THE DATA ARRAY TO PICK UP PMS BLOCK DATA
+C INDGET IS THE INDEX TO PICK UP THE FIRST WORD OF PMS BLOCK FROM DATA()
+C
+      MSIZE = MRATEF*MWORDF
+C ***  ASSUMING: 7TH WORD OF PMS FSSP BLOCK STARTS THE CELL DATA
+C     KCELL = 7
+C
+C ############   As a test, try starting everything on the 6th position
+      KCELL = 6
+C
+      IPTIME= IPSOU(1)-1
+      IPTAS = IPSOU(2)
+      SECSUM = CONS1
+C     IRTAS = LRTSOU(2)/MRATEF
+C     IRQC1 = LRTQC1/MRATEF
+C     IRQC2 = LRTQC2/MRATEF
+      IRTAS = LRTSOU(2)
+      IRQC1 = LRTQC1
+      IRQC2 = LRTQC2
+      KTH   = 0
+      KTL   = 0
+      KTX   = 0
+C
+C LOOP OVER THE TOTAL NUMBER OF CYCLES TO PROCESS
+      DO (IX=1,LDO)
+C      IQC1  = (IX-1)*IRQC1
+C      IQC2  = (IX-1)*IRQC2
+       IQC1  = (IX-1)*IRQC1 + 1
+       IQC2  = (IX-1)*IRQC2 + 1
+       QC1   = DATA(IPQC1+IQC1)
+       QC2   = DATA(IPQC2+IQC2)
+       ITAS  = (IX-1)*IRTAS
+       DIST1 = DATA(IPTAS+ITAS)
+       TIME  = DATA(IPTIME+IX)
+C** PRINT OUT THE RAW DATA POINTS-----------------
+C      IZ1 = IPRAW + (IX-1)*MSIZE
+C      IZ2 = IZ1+MSIZE-1
+C      IF (NSTAGE.EQ.4) PRINT 21,TIME,IX,(DATA(IM),IM=IZ1,IZ2)
+C      PRINT 21,TIME,IX,(DATA(IM),IM=IZ1,IZ2)
+C  21  FORMAT(/,' FSSP:TIME,IX,CELLS ',F9.1,I8,/,(21F6.1))
+C
+       DO (MCELL= 1,NCELLS)
+        ACC(MCELL) = 0.0
+       END DO
+       ASTROB = 0.0
+       ARESET = 0.0
+       ABMFRA = 0.0
+       SUM15F = 0.0
+C
+C LOOP OVER THE SAMPLING RATE MRATE
+       DO (IY= 1,MRATEF)
+        INDEX = IPRAW + ((IX-1)*MSIZE) + ((IY-1)*MWORDF)
+        IXRANG = INDEX + KRANGE-1
+        IXRSET = INDEX + KRESET-1
+        IXSTRO = INDEX + KSTROB-1
+C**      THE RANGE VALUES SHOULD BE PROTECTED (ADS:0,1,2,3;ARIS4:1,2,3,4)
+        IRANGE = DATA(IXRANG) + 0.5 + 1.0
+        IF (IRANGE.LE.0 .OR. IRANGE.GT.4) IRANGE = 1
+        RANGE = float(IRANGE)
+C
+        SUM15 = 0.0
+        KNCNT = 0
+C       DO (ICELL=KCELL,MWORDF)
+C        INDEX7 = INDEX + ICELL - 1
+        DO (ICELL=1,NCELLS)
+         KTH    = KTH + 1
+         KNCNT  = KNCNT + 1
+         INDEX7 = INDEX + KCELL + ICELL - 1
+         ICOUNT = DATA(INDEX7) + 0.5
+         RCOUNT = ICOUNT
+         IF (RCOUNT.LT.0.0) RCOUNT = 0.0
+         IF (QC1.LT.10.0.AND.QC2.LT.10.0) RCOUNT = 0.0
+         ACC(KNCNT) = ACC(KNCNT) + RCOUNT
+         SUM15 = SUM15 + RCOUNT
+C**       STORE RAW COUNTS FOR THE RAW DATA BLOCK AT HIGH RATE
+         IF (IPACCH.GT.0) DATA(IPACCH+KTH) = RCOUNT
+        END DO
+C
+C ** SUM15F - SUM OF ALL FSSP COUNTS OVER 15 CELLS FOR 1 SEC
+        SUM15F = SUM15F + SUM15
+        IF (KSTROB .GT. 0)
+         ISTROB = DATA(IXSTRO)+0.5
+         STROB  = FLOAT(ISTROB)
+        ELSE
+         STROB  = SUM15/0.4
+        END IF
+        ASTROB = ASTROB + STROB
+C
+        IF (KRESET .GT. 0)
+         IRESET = DATA(IXRSET) + 0.5
+C
+C*******   Change from Al Schanot for ASTEX.   RLR  921013
+C        RESET  = FLOAT(IRESET)
+         RESET  = FLOAT(IRESET)*10.
+        ELSE
+         RESET = STROB*((12.-DOF)/DOF)
+        END IF
+        ARESET = ARESET + RESET
+C
+C **     FSSP BEAM FRACTION   (BMFRAC)                              BMFRAC
+        IF (STROB.LT.1. .OR. SUM15.LE.0.0)
+         BMFRA = 0.40
+        ELSE
+         BMFRA = SUM15/STROB
+        END IF
+        ABMFRA = ABMFRA + BMFRA
+       END DO
+C**  Beam fraction should be the average over the sample rate.
+       ABMFRA = ABMFRA/MRATEF
+C
+C**       STORE RAW COUNTS FOR THE RAW DATA BLOCK AT LOW RATE
+       DO (KNCNT=1,MCELLF)
+        KTL = KTL + 1
+        IF (IPACCL.GT.0) DATA(IPACCL+KTL) = ACC(KNCNT)
+C        SUM PER CELL RAW ACCUMULATIONS FOR HISTO
+C       SMKN(KNCNT) = SMKN(KNCNT) + ACC(KNCNT)
+       END DO
+C
+       IF (IPFSTROB .GT. 0) DATA(IPFSTROB+IX) = ASTROB
+       IF (IPFRESET .GT. 0) DATA(IPFRESET+IX) = ARESET
+       IF (IPFBMFRA .GT. 0) DATA(IPFBMFRA+IX) = ABMFRA
+       IF (IPFRANGE .GT. 0) DATA(IPFRANGE+IX) = RANGE
+       IF (IPSUMF .GT. 0)   DATA(IPSUMF+IX)   = SUM15F
+C
+C*******    FSSP ACTIVITY CORRECTION FACTOR   (FACTIV)                 FACTIV
+C           TAU1,TAU2,TAU3,DOF,BDIA - CONSTANTS
+C      ACTIV = (ASTROB*TAU1+(ARESET-ASTROB)*TAU2+TAU3)*0.71
+C
+C*******      Revised by RLR to reflect current thinking 921013
+C                tau3 is no longer used.
+       ACTIV = (ASTROB*TAU1+ARESET*TAU2)*0.71
+C      activ = activ/float(mratef)
+       IF (IPFACT.GT.0) DATA(IPFACT+IX) = ACTIV
+C
+       FLWC   = 0.0
+       FCONC  = 0.0
+       FDBAR  = 0.0
+       FDBAR2 = 0.0
+C ***************************************************************************** 
+C **  CALL DARREL'S BLACK BOX HERE    
+C      IF (NSTAGE.EQ.4) PRINT 22,TIME,ACC
+C      PRINT 22,TIME,ACC
+C  22  FORMAT(/,' FSSP(before fxfsp call):TIME,CELLS ',F9.1,/,(10F9.1))
+C
+C  For ASTEX, DO NOT call Darrel's Black Box.
+C      CALL FXFSP (ACC,ABMFRA,DIST1,IRANGE,1)
+C
+C      IF (NSTAGE.EQ.4) PRINT 23,TIME,ACC
+C      PRINT 23,TIME,ACC
+C  23  FORMAT(/,' FSSP(after fxfsp call):TIME,CELLS ',F9.1,/,(10F9.1))
+C
+C*******     PMS CONCENTRATIONS  (INDIVIDUAL CELLS)  (CNTS/CC)        FCN/1-15
+C            AREA - SAMPLE AREA 
+       DO (KNCNT=1,MCELLF)
+C**       STORE FIXED COUNTS FOR THE RAW DATA BLOCK AT LOW RATE
+        KTX = KTX + 1
+        IF (IPACXL.GT.0) DATA(IPACXL+KTX) = ACC(KNCNT)
+C  Calculate area this way if using Darrel's Black Box:
+C       AREA(KNCNT) = DOF*BDIA
+C  Calculate area this way if not using Darrel's Black Box:
+        AREA(KNCNT) = DOF*BDIA*ABMFRA
+C  Following is used if data are output at the sample rate:
+C       VOL = DIST1*AREA(KNCNT)*(1./FLOAT(MRATEF))
+C  Following is used if data are output at 1 sps:
+        VOL = DIST1*AREA(KNCNT)
+C
+C       IF (ACTIV.EQ.1.0) ACTIV = .99
+C  Value of ACTIV should never get to 1.0, hence I'll limit it.
+        ACTIV = MIN(ACTIV,0.99)
+C
+C     ZERO FLWC AND FCONC BEFORE TAKEOFF
+        CONC = 0.0
+        IF (VOL.GT.0.) CONC = ACC(KNCNT)/VOL
+
+C** CORRECTION TO FSSP CONCENTRATION IS APPLIED HERE
+C ** Assumes 1 sec accumulation
+C     Following test already taken care of above, hence ignored here.
+C       if (activ.lt. 1.0) CONC = CONC/(1.0-ACTIV)
+C
+        CONC = CONC/(1.0-ACTIV)
+C
+C** STORE CORRECTED ACCUMULATIONS AND CONCENTRATIONS FOR EACH CELL
+        IF (IPAFSP(KNCNT).GT.0) DATA(IPAFSP(KNCNT)+IX) = ACC(KNCNT)
+        IF (IPCFSP(KNCNT).GT.0) DATA(IPCFSP(KNCNT)+IX) = CONC
+C
+C      SUM PER CELL ACCUMULATIONS AND CONCENTRATIONS FOR HISTO
+        SMKN(KNCNT)  = SMKN(KNCNT) + ACC(KNCNT)
+        SMCON(KNCNT) = SMCON(KNCNT) + CONC
+C
+C         D IS CELL DIAMETER IN MICROMETERS
+C         FSSP RANGE IN ARIS IS 1,2,3,4
+C       D = KNCNT*CWD(IRANGE) + CBIAS(IRANGE)
+C** SIZE ASSIGNED TO THE 15 CHANNELS OF FSSP (JAN7,1986-D.BAUMGARDNER)
+C** SIZE ASSIGNED TO THE 15 CHANNELS OF FSSP (ASTEX/MAGE 4SEP1992 - A. Schanot)
+        D = SIZEF(KNCNT)
+C       IF (IRANGE.EQ.1) SIZE(KNCNT)=ARAY1(KNCNT)
+C       IF (IRANGE.EQ.2) SIZE(KNCNT)=ARAY2(KNCNT)
+C       IF (IRANGE.EQ.3) SIZE(KNCNT)=ARAY3(KNCNT)
+C       IF (IRANGE.EQ.4) SIZE(KNCNT)=ARAY4(KNCNT)
+C       D = SIZE(KNCNT)
+        SIZE(KNCNT) = D
+C
+C   CONC THE PARTICLE CONCENTRATION IN NUMBER PER CUBIC CENTIMETER (N/CC)
+C    FOR 1 SECOND FOR 1 CELL. FSSP SAMPLE AREAS ARE CALCULATED.
+C    AND DIST1(TASX) IS TRUE AIRSPEED IN METERS PER SECOND.
+C
+C  FCONC PARTICLE CONCENTRATION NUMBER PER CC (N/CC) SUMMED OVER ALL CHANNELS.
+C
+        FCONC = FCONC + CONC
+C
+C     FDBAR AND FDBAR2 INTERMEDIATE VARIABLES USED FOR COMPUTING
+C     THE MEAN PARTICLE DIAMETER AND STANDARD DEVIATION.
+C
+        FDBAR  = FDBAR + D*CONC
+        FDBAR2 = FDBAR2 + D*D*CONC
+C
+C   FLWC LIQUID WATER CONTENT IN GRAMS PER CUBIC METER SUMMED OVER ALL CHANNEL
+C     IT ASSUMES SPHERICAL DROPLETS WITH DENSITY OF WATER (1 GRAM PER CC)
+C     AND USES D IN MICROMETERS AND CONCENTRATION, AN, NUMBER PER CC.
+C
+        FLWC = FLWC+4./3.*3.1415927*(D*1.E-4/2)**3*CONC*1.E6
+       END DO
+C
+C     FDBAR MEAN PARTICLE DIAMETER IN MICROMETERS COMPUTED USING THE EQUATIONS
+C     FOR GROUPED DATA SUCH AS ARE FOUND IN EQ. 24 ON PAGE 164 OF SCHAUMS
+C     OUTLINE OF PROBABILITY AND STATISTICS (1975) BY M. SPIEGEL
+C     SIGMA IS THE STANDARD DEVIATION IN MICROMETERS OF THE DIAMETER
+C     DISTRIBUTION EQUATION 28  IBID.
+C
+       IF (FCONC .GT. 5.0)
+        FDBAR = FDBAR/FCONC
+        SQRD = FDBAR2/FCONC - FDBAR*FDBAR
+        SIGMA = SQRT(ABS(SQRD))
+        IF (FDBAR.NE.0.) FDISP = SIGMA/FDBAR
+       ELSE
+        FDBAR = 0.0
+        FDISP = 0.0
+       END IF
+C
+C     FDISP RATIO OF STANDARD DEVIATION TO MEAN DIAMETER IS MEASURE OF
+C     THE DISPERSION OF THE DISTRIBUTION.
+       IF (IPFLWC.GT.0) DATA(IPFLWC+IX) = FLWC
+       IF (IPFCON.GT.0) DATA(IPFCON+IX) = FCONC
+       IF (IPFDBA.GT.0) DATA(IPFDBA+IX) = FDBAR
+       IF (IPFDIS.GT.0) DATA(IPFDIS+IX) = FDISP
+C******  END OF FSSP CALCULATIONS AND CORRECTIONS ****************************
+C
+C                  HISTOGRAM PLOTS NEXT
+C
+C    AFTER THE LAST PMS CELL, CHECK FOR PLOT INTERVAL (START HISTOGRAM
+C     PERIODS ON AN EVEN PLOT INTERVAL)
+C
+        NSEC = SECSUM
+        NUMSMP = NUMSMP + 1
+        IF (NUMSMP.EQ.1)
+         TIM1 = TIME
+         NMN = MOD(INT(TIM1),NSEC)
+         IF (NMN .GT. 0)
+          DO (KNCNT=1,MCELLF)
+           SMCON(KNCNT) = 0.
+           SMKN(KNCNT) = 0.
+          END DO
+          NUMSMP = 0
+         END IF
+        END IF
+        SECS = NUMSMP*DELIV
+        IF (SECS.EQ.SECSUM)
+        TIM2 = TIM1 + SECSUM - 1.0
+C
+C     AVERAGE CONCENTRATIONS OVER PERIOD SECSUM FOR HISTO
+        DO (KNCNT=1,MCELLF)
+C        SMCON(KNCNT) = SMCON(KNCNT)/(SECSUM*FLOAT(MRATEF))
+         SMCON(KNCNT) = SMCON(KNCNT)/SECSUM
+         IF (SMCON(KNCNT) .LT. 0.0001) SMCON(KNCNT) = 0.
+        END DO
+        SUM=0.
+        DO (K=1,NCSUMF)
+         SUM = SUM + SMKN(K)
+        END DO
+C       PRINT 29,TIME,SMKN,SMCON
+C  29   FORMAT(' time,smkn,smcon ', f12.2,/,15f8.1,/,15f8.1)
+C
+C THE PLOT INTERVAL, SECSUM, HAS BEEN REACHED FOR THE KNOLLENBERG SUMS.
+C IF THE SUM OF NCSUM CELL COUNTS EXCEED THRESH, PLOT A HISTOGRAM .
+C IF THE ACCUMULATION .LT.1 THEN SET IT TO .0001,FOR LOG SCALED
+C HISTOGRAM PLOT.
+C
+        IF (SUM.GE.THRESHF)
+         IF (LLA.GT.0)
+          BA = 1.
+          CALL HISTO(SMKN,LLA,MGRYA,MINRYA,BA,TA,ALABX,ALABY,TIM1,TIM2)
+         END IF
+         IF (LLC.GT.0)
+          CALL HISTO(SMCON,LLC,MGRYC,MINRYC,BC,TC,CLABX,CLABY,TIM1,TIM2)
+         END IF
+        END IF
+C
+C  BLANK THE ACCUMULATORS
+        NUMSMP = 0
+        DO (K=1,MCELLF)
+         SMKN(K)  = 0.
+         SMCON(K) = 0.
+        END DO
+       END IF
+C
+C *******************     OUTPUT PMS PARAMETERS    ***************************
+C
+C     ZERO FLWC AND FCONC BEFORE TAKEOFF
+       IF (QC1.LT.10.0 .AND. QC2.LT.10.0)
+        FCONC = 0.0
+        FLWC  = 0.0
+       END IF
+C
+      END DO
+      RETURN
+      END

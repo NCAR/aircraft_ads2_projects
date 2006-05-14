@@ -1,0 +1,116 @@
+Notes to users of data for 1998-812 LakeICE and 1998-813 SNOWBAND projects:
+
+These two projects used the same aircraft and shared the same overall time
+period.  Because of this commonality, they used the same project set up at
+RAF, and therefore, many files are shared by both projects.  The research
+flights were consecutively numbered and did not differentiate between
+projects.  Also, the netCDF data file headers reference project number
+"812" and project name "LakeICE" irrespective of whether they were LakeICE
+or SNOWBAND.  RF13, a flight to obtain calibration maneuvers, was common
+to both projects.
+
+To clarify:
+              1998-812 LakeICE flights
+
+                Date        Start      End
+     fltno   mm/dd/yyyy     Time (UTC) Time
+     ----------------------------------------
+     RF01    12/05/1997   15:26:26   21:17:35
+     RF02    12/06/1997   15:34:53   22:22:06
+     RF05A   12/20/1997   15:22:10   17:08:24
+     RF05B   12/20/1997   17:17:04   21:57:18
+     RF07    01/10/1998   13:54:09   20:23:08
+     RF08    01/13/1998   12:18:49   18:35:31
+     RF09    01/18/1998   09:29:24   14:03:23
+     RF10    01/19/1998   13:07:24   18:14:48
+     RF13    01/28/1998   15:48:20   18:56:00
+
+
+              1998-813 SNOWBAND flights
+
+                Date        Start      End
+     fltno   mm/dd/yyyy     Time (UTC) Time
+     ----------------------------------------
+     RF03    12/10/1997   11:51:03   18:12:42
+     RF04    12/11/1997   14:48:27   16:09:36
+     RF06    01/08/1998   12:44:33   18:48:08
+     RF11    01/20/1998   11:47:12   16:59:11
+     RF12    01/21/1998   11:49:45   17:55:21
+     RF13    01/28/1998   15:48:20   18:56:00
+
+A high-rate data set was produced only for the LakeICE project.
+
+-------
+
+Because all of the SCD Mass Store System (MSS) bitfiles for this project
+originally were archived to the LakeICE directory (/RAF/1998/812), this README
+file (common to both projects) serves as a pointer to the data and support
+files used for this project.  For example, the archived production netCDF
+data are kept in separate project directories (LakeICE in /RAF/1998/812
+and SNOWBAND in /RAF/1998/813), but all the support files are kept in
+the LakeICE directory.  (It is just impractical to move all the bitfiles
+pertinent to the SNOWBAND directory.)  The raw ADS files are kept in the
+LakeICE directory to avoid confusing the NIMBUS processor needed to produce
+the production data sets.
+
+Following is a list of MSS bitfiles pertinent to the SNOWBAND project that
+reside in the LakeICE directory (/RAF/1998/812):
+
+   /RAF/1998/812/812.tar                      \  Project production
+   /RAF/1998/812/812.tar.dir                  /   processing support files
+   /RAF/1998/812/LRT/nimbus.tar               \
+   /RAF/1998/812/LRT/nimbus.tar.dir            \  NIMBUS processor code
+   /RAF/1998/812/LRT/nimbus_defaults.tar       /   and support files
+   /RAF/1998/812/LRT/nimbus_defaults.tar.dir  /
+   /RAF/1998/812/MSCP_out.812                 - raw ADS MSS archive logs
+   /RAF/1998/812/Mail.812                     - project-related email
+   /RAF/1998/812/ORIGINAL/LRT/CVI/RF03.cdf    \
+   /RAF/1998/812/ORIGINAL/LRT/CVI/RF04.cdf     \
+   /RAF/1998/812/ORIGINAL/LRT/CVI/RF06.cdf      } CVI data for merging
+   /RAF/1998/812/ORIGINAL/LRT/CVI/RF11.cdf     /
+   /RAF/1998/812/ORIGINAL/LRT/CVI/RF12.cdf    /
+   /RAF/1998/812/ORIGINAL/LRT/RF03.cdf        \
+   /RAF/1998/812/ORIGINAL/LRT/RF04.cdf         \
+   /RAF/1998/812/ORIGINAL/LRT/RF06.cdf          } Original data for merging
+   /RAF/1998/812/ORIGINAL/LRT/RF11.cdf         /
+   /RAF/1998/812/ORIGINAL/LRT/RF12.cdf        /
+   /RAF/1998/812/PMS2D/RF03                   \
+   /RAF/1998/812/PMS2D/RF04                    \
+   /RAF/1998/812/PMS2D/RF06                     } Stripped PMS-2D data
+   /RAF/1998/812/PMS2D/RF11                    /
+   /RAF/1998/812/PMS2D/RF12                   /
+   /RAF/1998/812/RF03/R1197                   \
+   /RAF/1998/812/RF04/R1198                    \
+   /RAF/1998/812/RF06/R1202                     \ Raw ADS
+   /RAF/1998/812/RF11/R1207                     /  Data
+   /RAF/1998/812/RF12/R1208                    /
+   /RAF/1998/812/RF13/R1210                   /
+   /RAF/1998/812/tp2ms.summary                - raw ADS MSS archive summary
+
+-------
+
+For the RAF computer system at Jeffco, a UNIX hard link was made to equate the
+project 812 directory with the project 813 directory.  (This cannot be done on
+the MSS, since it does not support links.)
+
+Shared files in project directory 812 or 813 that misrepresent project
+813 SNOWBAND are:
+   ProjectName 
+   Production/proj.info
+
+Shared files in project directory 812 or 813 that, perhaps, should be
+linked with two names are:
+   Production/812.tar.dir
+   Production/MSCP_out.812
+   Production/arch.812
+   Production/arch_support.812
+   Production/tarit.812
+   Production/archive/tapes.812
+
+Those who want to use the NIMBUS software to process data from the SNOWBAND
+project need to reference Project 812, since that is the project number that
+appears in the raw ADS data headers.
+
+-------
+Ron Ruth,  RAF Data Manager  20 July 1998
+

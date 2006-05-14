@@ -1,0 +1,40 @@
+Notes on Production processing for 3-886 ANLC
+by Ronald L Ruth  931124
+rev.  1   by RLR  940103
+rev.  2   by RLR  940106
+ 
+The data sets were processed on 18 and 19 November 1993 on `chinook,' RAF's Sun
+server reading Exabyte tape copies of the original RAF ADS data and using a
+late `beta' version of the RAF NIMBUS software processor (before Revision 1).
+
+Prior to Production (final processing), NIMBUS bugs were fixed primarily
+affecting angular data, such as True Heading.  Only one extant NIMBUS bug,
+present at the time of Production, is known to have affected the final,
+processed data.  The variable "base_time," which is supposed to represent the
+UNIX date/time at the start of the data set, has incorrect values that are
+one month ahead and 2 seconds behind the true values.  "base_time" is used in
+conjunction with "time_offset" to obtain the date/time of any record.  The
+variables "HOUR," "MINUTE" and "SECOND" and the global values "FlightDate" and
+"TimeInterval" can be used to replace the incorrect values.
+ 
+Data sets FF01 and RF01 were extensively reviewed after Production using the
+WINDS software.  These data looked to be in good order.  I understand from
+Vince Glover that he used DAP to preview all the project's flight data looking
+for discrepancies.  Revisions to tables, calibrations, etc. were made based
+upon that review.  By the time I made the final production runs, all known
+anomalies had been accounted for.
+ 
+Data for this project have been archived on 24 November 1993 to the NCAR Mass
+Store System (MSS) in the directory /RAF/1993/886/LRT.  A second set of netCDF
+data files were produced using `tar' and also archived to the MSS.  The file
+`nimbus.tar' contains (according to Chris Webster) all the necessary software
+files to document how these data were processed.  Other files in this directory
+(in addition to the archived data) are support files which are intended to
+completely document the data processing for this project.
+
+In December 1993 Chris Webster wrote a program to apply a patch to the
+original processed data sets and create new netCDF data sets having corrected
+`base_time' values.  These new data sets were archived on the MSS in the
+/RAF/1993/886/LRT directory on 6 January 1993.  The old, uncorrected data sets
+(written on 18 and 19 November 1993) were moved to the /RAF/1993/886/OLDLRT
+directory and may be purged at some time in the future.

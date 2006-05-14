@@ -1,0 +1,3894 @@
+From krista@raf.atd.ucar.EDU Wed Aug 14 14:48 MDT 1996
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA13466; Wed, 14 Aug 1996 14:44:06 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA00604; Wed, 14 Aug 1996 14:44:02 -0600
+Date: Wed, 14 Aug 1996 14:44:02 -0600
+Message-Id: <199608142044.OAA00604@lhotse.atd.ucar.edu>
+To: raf_staff
+Subject: FASTEX per diem
+Cc: krista
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1860
+Status: RO
+
+All,
+
+It has been brought to my attention by several people both here
+at RAF and at RSF that the news is rapidly spreading regarding
+a possible decision to lower the per diem rate for the deployment
+in Ireland.  Before too many more people get worked up about this,
+I wanted to make sure that everyone has the most accurate information
+at this time on this subject.
+
+The idea of lowering the per diem was, in fact, mentioned
+by ATD management yesterday in a meeting I had with
+Dave, Brigitte, Wen-Chau Lee, and Michele Case.  I spoke with
+Brigitte this afternoon to find out the exact status of this
+proposal, and I have been informed that it is NOT definite that
+the per diem will be lowered.  It is one idea that Dave is considering
+in order to lower some of the costs of the FASTEX deployment, and
+he will be discussing this possibility with Cliff Jacobs during
+meetings this week back in D.C.
+
+I know there are serious concerns about this idea here at the
+RAF (as there are in RSF, witnessing the number of email messages
+and phone calls I've received on this topic so far today), and
+I share the same concerns as everyone else.  I have requested
+from both Dave and Brigitte that, before any action or firm
+decision is made on this issue, Wen-Chau Lee and I be given the
+chance to give our input on the idea and to represent RAF and RSF concerns
+on this topic.  Brigitte is hoping to have more information on this
+idea by the end of this week and will let me know as soon as she
+gets any more word from Dave.
+
+In the mean time, I would ask that people please try and not get
+too worked up about this issue and that we all try and refrain
+from too much speculation.  As I said, I share everyone's concerns
+about this and will do my best to make sure that these concerns
+are accurately and fairly represented to Dave before a final
+decision is made.
+
+Krista
+
+From rilling@stout.atd.ucar.edu Tue Jun 18 14:04 MDT 1996
+Return-Path: <rilling@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA11458; Tue, 18 Jun 1996 14:04:46 -0600
+Received: from malt.atd.ucar.edu.atd.ucar.EDU by atd.atd.ucar.EDU (8.7.5/ NCAR Mail Server 04/10/90)
+	id OAA21437; Tue, 18 Jun 1996 14:04:54 -0600 (MDT)
+Received: by malt.atd.ucar.edu (8.7.5/ NCAR Mail Client 04/19/90)
+	id UAA08035; Tue, 18 Jun 1996 20:04:52 GMT
+From: rilling@stout.atd.ucar.edu (Bob Rilling)
+Message-Id: <199606182004.UAA08035@malt.atd.ucar.edu>
+Subject: FASTEX: format for aircraft meteo.data (fwd)
+To: ron@stout.atd.ucar.edu (Ron Ruth)
+Date: Tue, 18 Jun 1996 14:04:50 -0600 (MDT)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 8605
+Status: RO
+
+Ron,
+
+Just to keep you in the loop.  this has to do with a summary file for
+aircraft state variables in the upcoming FASTEX project.
+
+Bob
+
+
+Forwarded message:
+> From genevieve.jaubert@meteo.fr  Tue Jun 18 05:34:20 1996
+> From: Genevieve JAUBERT <Genevieve.JAUBERT@meteo.fr>
+> Message-Id: <199606181124.AA00519@mc22.cnrm.meteo.fr>
+> Subject: FASTEX: format for aircraft meteo.data
+> To: phobbs@atmos.washington.edu (Peter Hobbs),
+>         krista@ucar.edu (Krista Laursen),
+>         peter@elder.mmm.ucar.edu (Peter Hildebrand),
+>         rilling@ucar.edu (Bob Rilling), daugherby@mc22.cnrm.meteo.fr,
+>         saclough@meto.govt.uk (Sid Clough),
+>         davej@ncar.ucar.edu (Dave Jorgensen), chriss@ucart.edu (Chris Snyder)
+> Date: Tue, 18 Jun 96 13:24:14 METDST
+> Cc: Genevieve.JAUBERT@meteo.fr
+> Mailer: Elm [revision: 70.85]
+> 
+> >From 
+> Genevieve Jaubert 
+> FASTEX Central Data Archive Manager
+> Meteo-France
+> 
+>                        to
+> 
+>                           NCAR:  Peter Hildebrand,Krista Laursen,
+>                                  Bob Rilling,Chris Snyder NCAR
+>                           NOAA:  Dave Jorgensen,John Daugherty
+>               Washington Univ.:  Peter Hobbs 
+>                   JCMM/Reading:  Sid Clough 
+> 
+>    object: Proposal of file format for Aircraft in-situ meteorological data 
+>            broadcast by the FASTEX Central Archive (first draft)
+> 
+>   FASTEX Aircraft data (NCAR/ELECTRA, NCAR/G-IV, NOAA/WB57, NOAA/P3,
+> UK/C130, Wash.Univ.CONVAIR) will be broadcast to the scientists by two ways:
+> 
+> 1) The raw data will be archived and broadcast by specialised data bases:
+> 
+>    - NOAA/NSSL for P3 and WB57 
+>      (all aircraft data included airborne doppler radar data)
+> 
+>    - NCAR/ATD for ELECTRA and G-IV 
+>      (all aircraft data included airborne doppler radar data)
+> 
+>    - CETP for ELECTRA (and P3 ?) airborne doppler radar data
+> 
+>    - Specialised data base are not defined for Wash.Univ.CONVAIR and UK C130
+>      Response for location and disponibility date is welcome for this
+>      aircraft
+> 
+> 2) Aircraft data, validated by its providers will be archived and broadcast
+>    by the FASTEX Central Archive in Toulouse:
+> 
+>    - Aircraft in-situ meteorological average data, all aircraft data in the
+>      same format. (Two data set will be sent to the Central archive: the
+>      first just after the flight(s), and a validated data set few months
+>      after the experiment). Average time will be defined by PI before fall 96.
+>    - Aircraft in-situ microphysics data, all aircraft data in the same format
+>      ( This format will be proposed by B.Rilling and J.Daugherty)
+> 
+>    - High resolution dropsonde data (CLASS Format)
+> 
+>    - C-Band reflectivity radar : composite maps
+> 
+>    - 3D wind fields and EVAD profiles from Airborne Doppler Radar
+> 
+>   
+>   The object of this mail is to propose a unified format for in-situ 
+> meteorological data. It is a draft, and your amendments are welcome.
+>   As data providers said at the Boulder meeting, a large set of measurements
+> are included in this proposal, with a flag for selectionne the most accurate
+> measurement. The header lines format is close to CLASS header lines format
+> used for radiosonde and dropsonde measurements.
+> 
+>   Please send me your opinion
+>  
+>   Best Regards
+> 
+>         Genevieve JAUBERT                Tel: (33) 61 07 93 23
+>            Meteo-France                  Fax: (33) 61 07 96 26
+> CNRM/Groupe Meteorologique de Moyenne Echelle
+>         42, av. Coriolis
+>       31057 TOULOUSE Cedex             E_mail:Genevieve.Jaubert@meteo.fr
+>              FRANCE      
+>                                    
+>    
+>   ----------------------------------------------------------------
+>   Proposal of file format for Aircraft in-situ meteorological data 
+>    broadcast by the FASTEX Central Archive (First draft)
+>   ----------------------------------------------------------------
+> 
+> Detailed Data Description
+> 
+> All in-situ meteorological aircraft data are in the same ASCII format.
+> It consists of 15 header records for each flight followed by the data records.
+> 
+> Header Records
+> 
+>   The header records (15 total records) contain the data type and resolution, 
+> project ID, aircraft ID, take-off and landing date and time, and comments. 
+> The first five header lines contain information identifying the flight,
+> and have a rigidly defined form. The following 6 header lines are used
+> for auxiliary information and comments. The last 4 header records contain
+> header information for the data columns. Lines 12 and 13 hold the field
+> names, line 14 contains the field units, and line 15 contains dashes 
+> delineating the extent of the field. The six standard header lines are as follows:
+> 
+> Line Label (padded to 35 char)                Contents
+> 
+>   1  Data type:                        Description of type and 
+>                                          resolution  of data
+>   2  Project ID:                       Identification (ID) of weather project
+>   3  Aircradt ID:                      Identification (ID) of the aircraft
+>   4  GMT take-off Time (y,m,d,h,m,s) : Time in format:
+>                                        yyyy, mm, dd, hh:mm:ss
+>   5  GMT landing Time (y,m,d,h,m,s) :  Time in format:
+>                                        yyyy, mm, dd, hh:mm:ss
+> 
+> Data Records
+> 
+>  The remaining records are data records containing the following data:
+>  (fields,except date and time,are separated by spaces)
+> Missing
+> Value   Format Units   Descriptor
+> ------- ------ ------- ----------
+>         i2     UTC     Month    |
+>         i2     UTC     Day      |
+>         i2     UTC     Hour     | middle date and time of the average 
+>         i2     UTC     Minute   | (UTC time)
+>         i2     UTC     Second   |
+> 						   aircraft position
+>         f8.3   degrees Latitude
+>         f8.3   degrees Longitude
+>         f6.1   hPa     Static pressure (or Pitot-static Pressure >100mb)
+> -9999.  f6.0   meters  Radar altitude (alt1)
+>         f6.0   meters  Pressure altitude (alt2)
+>         f6.0   meters  Geometric radio altitude (alt3)
+> 9       i1             altitude flag (1=alt1,2=alt2,3=alt3)
+> 					   flight parameters
+> 999.9   f5.1   degrees Track angle (North relative)
+> 999.9   f5.1   degrees Heading angle (North relative)
+> 999.9   f5.1   degrees Pich angle (North up)
+> 999.9   f5.1   degrees Roll angle (positive right wing down)
+> -99.9   f5.1   m/s     Ground speed
+> -99.9   f5.1   m/s     True airspeed
+> -99.9   f5.1   m/s     Vertical ground speed
+> -99.9   f5.1   m/s     Vertical air speed           
+> -99.9   f5.1   (m/s)**2Vertical accelerometer 
+> 						    general meteorological
+> 999.9   f5.1   C       Surface radiative temperature
+> 999.9   f5.1   m/s     U: Easterly wind component
+> 999.9   f5.1   m/s     V: Northerly wind component
+> 999.9   f5.1   m/s     W: Vertical wind
+> 999.9   f5.1   C       Static air temperature (Rosemont) (t1)  
+> 999.9   f5.1   C       Static air temperature (Reverse-flow)(t2) 
+> 999.9   f5.1   C       Static air temperature (de-iced)(Rosemont)(t3) 
+> 999.9   f5.1   C       Radiometric air temperature(t4)
+> 9       i1             Temperature flag(1=t1,2=t2,3=t3,4=t4)
+> 	f5.1   C       Dew point (hu1)
+> 99.99   f5.2   g/m3    Absolute humidity (Lyman Alpha) (hu2)
+> 99.99   f5.2   g/m3    Absolute humidity (other humidity sensor) (hu3)
+> 9       i1             Humidity flag (1=hu1,2=hu2,3,hu3)
+> 
+> 9999.   f5.0   W/m2    Shortwave clear  irradiance, top
+> 9999.  	f5.0   W/m2    Shortwave red    irradiance, top
+> 9999.   f5.0   W/m2    Shortwave yellow irradiance, top
+> 9999.   f5.0   W/m2    Shortwave clear  irradiance, bottom
+> 9999.   f5.0   W/m2    Shortwave red    irradiance, bottom
+> 9999.   f5.0   W/m2    Shortwave yellow irradiance, bottom
+> 9999.   f5.0   W/m2    Ultraviolet irradiance, top
+> 9999.   f5.0   W/m2    Ultraviolet irradiance, bottom
+> 
+> 99.99   f5.2   g/m3    Liquid water content (hot wire ; Johnson-William)(lwc1)
+> 99.99   f5.2   g/m3    Liquid water content (hot wire ; King probe)(lwc2)
+> 99.999  f6.3   g/m3    Liquid water content (optical  ; Gerber)(lwc3)
+> 99.999  f6.3   g/m3    Liquid water content (optical  ; Spec)(lwc4)
+> 9       i1             Liquid water content flag (1=lwc1,2=lwc2,3=lwc3,4=lwc4)
+> 99.99   f5.2   g/m3    Total water content
+> 
+> 999.9   f5.1   ppmv    Ozone
+> 
+>  In fortran,data records format is:
+> (5i2,2(1x,f8.3),1x,f6.1,3(1x,f6.0),1x,i1,17(1x,f5.1),1x,i1,1x,f5.1,
+>  2(1x,f5.2),1x,i1,8(1x,f5.0),2(1x,f5.2),2(1x,f6.3),1x,i1,1x,f5.2,1x,f5.1)
+> 
+
+From aref Mon Dec 16 10:20 MST 1996
+From: aref (Aref Nammari)
+Return-Path: <aref>
+Message-Id: <199612161720.KAA04898@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA04898; Mon, 16 Dec 1996 10:20:16 -0700
+Subject: VISA card in Europe
+To: raf_staff
+Date: Mon, 16 Dec 1996 10:20:15 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 438
+Status: RO
+
+Hi everyone !
+
+I have received a notification from UofC credit union saying that the use 
+of their VISA card is suspended in Europe because of fraud. After 
+inquiring with First Bank the issuer of the corporate VISA credit card, 
+it appears that the suspension of VISA credit card use in Europe is NOT 
+general and pertains only to those issued by U of C credit union. If you 
+have the corporate VISA card you still can use it in Irland.
+
+From jcowan Tue Dec 31 09:28 MST 1996
+From: jcowan (John Cowan)
+Return-Path: <jcowan>
+Message-Id: <199612311627.JAA21383@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA21383; Tue, 31 Dec 1996 09:27:30 -0700
+Subject: AT&T phone plan to Ireland.
+To: raf_staff
+Date: Tue, 31 Dec 1996 09:27:30 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 444
+Status: RO
+
+
+For those going to Ireland I have found the best rate for AT&T calls FROM 
+the US to Ireland.  It's called the WORLD DEAL PLAN and it gives you the 
+rate of .42 per min 24 hours a day when calls are placed from the US to 
+Ireland.  It costs $3 per month and is good for 6 months but we don't 
+need that much <grin>. The standard rate goes from .92 to 1.62 per min 
+for calls from the US.
+
+I called 1-800-222-0300 to set it up.
+
+			John Cowan
+
+
+From krista Sat Jan 25 02:52 MST 1997
+From: krista (Krista Laursen)
+Return-Path: <krista>
+Message-Id: <199701250951.CAA07335@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id CAA07335; Sat, 25 Jan 1997 02:51:47 -0700
+Subject: FASTEX Electra Updates
+To: raf_staff
+Date: Sat, 25 Jan 1997 02:51:46 -0700 (MST)
+Cc: krista (Krista Laursen)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 15528
+Status: RO
+
+All,
+
+It occurred to me (only today...sorry, I'm a little bit slow) that
+for the past couple of weeks I've been trying to send weekly
+status updates to the RAF staff regarding the status of the Electra
+here at FASTEX, but since I've been using the wrong email alias,
+none of you folks have probably been receiving them.  My apologies.
+
+Given below are copies of the status reports for the first three weeks
+of the Electra deployment for FASTEX.  This will, hopefully, give
+every one back at Jeffco an idea of how the project has been going to
+date.  And again, I'm sorry it took me so long to catch this oversight.
+
+Also, by now I'm sure that everyone back at the RAF had heard of the
+decision to ground the Electra after it was discovered that the funds
+from the French had not, in fact, been received.  Following a phone
+conversation yesterday (1/24) afternoon between Bob Serafin, Warren
+Johnson, and Peter Hildebrand, the Electra has been returned to flight
+status.  This decision will take place immediately and will be in effect
+until further notice.  Research flight four is presently planned for
+this evening, with a takeoff time of 9:00 p.m. scheduled.
+
+Should any of you have any questions after looking over the following
+summaries, please do not hesitate to email me.
+
+See you all in a couple of weeks!
+
+Krista
+
+*******************************************
+FASTEX WEEKLY UPDATE #3
+*******************************************
+All --
+ 
+This weekly update is arriving a little bit later than the
+previous two, primarily due to the fact that Electra activity
+has been a bit slow here for the past several days due to
+unsuitable weather conditions/case studies for flying.  What
+follows is a brief summary of the Electra status to date:
+ 
+--------------------
+FLIGHT HOURS SUMMARY
+--------------------
+ 
+RF03 was flown yesterday (Wed., 1/22/97).  This was a general
+systematic survey type mission flown with the P-3 and the UKMO
+C-130.  (The C-130 aborted their mission earlier than planned,
+however, due to problems with their dropsonde system.)  A total
+of 7.0 hours were flown by the Electra.  It should also be noted
+that a brief test flight was flown on 1/16/97 in order to give
+the ELDORA support staff an opportunity to try and isolate some
+of the problems that they had been encountering with the radar
+during RF01 and RF02.  The flight hour summary for the Electra
+is, therefore, presently as follows:
+ 
+Research hours flown to date:  21.7 (including the test flight
+                               flown on 1/16/97)
+Research hours remaining:      64.3
+ 
+RF04, planned for this evening, was cancelled at approximately
+noon today.
+ 
+------------------------------
+INSTRUMENTATION STATUS SUMMARY
+------------------------------
+ 
+As of this writing, there are no new or significant instrumentation
+problems to report.  The radome left temperature probe still
+exhibits the problem of "saturation" during flight segments through
+heavy cloud and/or precipitation areas.  (I.e., the TTRL and ATRL
+traces drop out temporarily; this behavior was seen again during
+RF03 flown yesterday.)  However, once the instrument dries
+out, it returns to normal operational behavior and gives data that
+are in agreement with values obtained from TTRR and TTFH.
+ 
+ADS-2 continues to perform very well, and no major problems have
+been encountered with the Electra data system during any of the
+flights.
+ 
+Some small problems have been encountered with ELDORA during the
+flights here.  While specific details on these problems should
+be obtained from Wen-Chau Lee, my understanding is that these
+problems presently consist of a ground location problem, as well
+as intermittent problems with "failure" messages on the various
+systems.  The RSF technicians and engineers are still working
+to isolate the cause of these problems, but none of the problems
+have, to date, prevented us from flying.  Again, exact details
+on these problems are available from Wen-Chau Lee.
+ 
+ 
+That's all for now.  Should anyone have any questions, please do
+not hesitate to email me.
+ 
+Krista
+
+******************************************
+FASTEX WEEKLY UPDATE #2
+******************************************
+
+> RAF Staff,
+> 
+> What follows is the second weekly update outlining the status
+> of the Electra deployment for FASTEX here in Shannon, Ireland.
+> 
+> 
+> --------------------
+> FLIGHT HOURS SUMMARY
+> --------------------
+> 
+> 
+> As of this writing, two research flights have been flown by
+> the Electra.  Details are as follows:
+> 
+> RF01, 1/10/97 -- 6.1 hours flown (a general radar survey
+>                    type of mission)
+> 
+> RF02, 1/12/97 -- 6.9 hours flown (a post-frontal rainband
+>                    study)
+> 
+> A total of 73.0 research hours now remain for the Electra 
+> deployment for FASTEX.
+> 
+> 
+> ----------------------------------
+> INSTRUMENTATION/DATA SYSTEM STATUS
+> ----------------------------------
+> 
+> 
+> In general, all instrumentation on the Electra and the ADS-2
+> data system are performing very well.  The most significant
+> problem encountered to date occurred during RF01.  Accumulation
+> of ice on the radome affected the dynamic pressure (i.e., QCR)
+> measurements and subsequently the wind measurements.  However,
+> once the radome de-ice was turned on, this problem was seen
+> to go away.  There were also problems with TTRL and TTRR roughly
+> corresponding to the same time intervals during which the dynamic
+> pressure data had gone bad.  These temperature probe problems
+> (i.e., dropouts and downward spikes in the data) were also believed
+> to be attributable to freezing of the sensors and/or possibly
+> saturation of the temperature sensors during flight segements
+> through heavy preciptation.  Problems with the wind data during
+> RF01 were fixed during post-flight processing of the data by
+> replacing QCR with QCF prior to running Nimbus.  The wind and
+> other data now appear to be of good quality.
+> 
+> DPB failed during RF01 and was replaced the following day (1/11/97).
+> DPB performed well during RF02 and is in good agreement with values
+> measured for DPT.
+> 
+> For RF02, the radome de-ice was turned on immediately after takeoff
+> and was left on for the duration of the flight.  This appears
+> to have eliminated the problem of icing on the radome, and 
+> in-flight perusal of QCR and the wind data revealed that all
+> data were fine.  One other problem encountered during RF02
+> was a failure of TTRL roughly halfway through the flight.  This
+> problem is believed to be attributable to saturation of the
+> sensor during several passes through quite heavy precipitation.
+> TTRR and TTFH both performed well during the flight.  Kurt and
+> Aref will take a look at TTRL today to make sure that the
+> temperature probe has not been permanently damaged.  VLA also
+> dropped out intermittently during RF02 but returned to normal
+> operation toward the end of the flight.  These occasional
+> dropouts were also believed to be due to saturation of the 
+> sensor during passes through heavy precipitation.
+> 
+> All 1-D and 2-D probes are, to date, performing well.  Kurt and
+> Aref will perform maintenance (i.e., cleaning and checkout) of
+> all four probes today.
+> 
+> For both RF01 and RF02, the estimated surface pressure values
+> (PSURF) are bad; they consistently "peg" at 1000 Mbar.  Chris
+> has arrived here in Shannon, and when he gets a break from
+> working with the AOC folks on the Gulfstream, I will have him
+> look at the software where these values are calculated.
+> 
+> In general, I report that the RAF-supported instrumentation and
+> ADS-2 are performing very well to date, and that so far, Roger
+> Wakimoto and the other Electra PIs are happy with the data set
+> that they are collecting on the aircraft.
+> 
+> 
+> -----------------------------
+> OUTLOOK FOR THE NEXT FEW DAYS
+> -----------------------------
+> 
+> 
+> At present, the next Electra flight is planned for Wednesday,
+> 1/15/97, with a takeoff time of 8:00 a.m. presently planned.
+> This will be a joint mission with the P-3 and UKMO C-130.
+> 
+> 
+> -----------------
+> OTHER INFORMATION
+> -----------------
+> 
+> 
+> Work still continues here to resolve the issue of dropping sondes
+> from the GIV.  The Gulfstream was down over the weekend for
+> repairs on the navigation system, and a test flight has shown that
+> this problem has been fixed.  At present, the plan is for some
+> of the project personnel to travel to Preswick on Wednesday (1/15)
+> in the Gulfstream to meet with Scottish ATC authorities in an
+> effort to gain clearance to drop sondes from the aircraft.  If
+> matters can be resolved on Wednesday, it is hoped that the Gulfstream
+> can begin flying research missions toward the end of this week.
+
+****************************************
+FASTEX WEEKLY REPORT #1
+****************************************
+
+> -------------------
+> GENERAL INFORMATION
+> -------------------
+> 
+> The Electra arrived safely here in Shannon this past Saturday,
+> 4 January at approximately 3:00 p.m. local (GMT) time.  Sunday,
+> 5 January was a hard down day for all RAF flight crew members
+> and Mike Daniels in order to get everyone rested up for the
+> start of the project.  The NOAA P-3 and Gulfstream IV arrived
+> safely on Saturday, 4 January, also.
+> 
+> Today (Monday, 6 January) was designated a maintenance day on
+> the Electra in order to give the maintenance staff and technicians
+> an opportunity to address a few minor problems encountered
+> during the ferry from Jeffco to Ireland.  In general, the Electra
+> has arrived for FASTEX in very good shape, from both a maintenance
+> and an instrumentation standpoint.  Specific problems that needed
+> to be addressed today are as follows:
+> 
+> 
+> 1)  The left ("stubby") Lyman-Alpha needed to be replaced.  Tests/
+> comparisons with the second Lyman-Alpha this afternoon show that
+> the two instruments now compare very well.  Further assessment of
+> the data quality will be carried out during the first research
+> flight (more on this below).
+> 
+> 2)  The dewpointers needed to be cleaned, primarily due to material 
+> that collected on both instruments when the Electra was de-iced
+> in Maine.
+> 
+> 
+> Two offices have been made available to RAF, RSF, and UCLA staff
+> working here at FASTEX:  one for data processing and quality
+> analysis, and the other for use by the RAF pilots, technicians, and
+> mechanics and the RSF technicians and engineers.  Mike Daniels has
+> finished setting up the two RAF workstations (Marley and Finster)
+> here in our office, and we are successfully linked up with the
+> main FASTEX server (central) being supported by RDP.  Some work
+> still remains to be done to give the techs, mechs, pilots, and
+> engineers Internet access in their office, but Mike is making very
+> good headway toward getting this done.
+> 
+> So far, the network link that has been established via the
+> University of Limerick is quite good, although at some points
+> during the day, connections back to the U.S. can be quite slow
+> (presumably during those times that lots of data transfers, etc.
+> are going on here at the FASTEX Ops center).  As a general note to
+> RAF staff back at Jeffco, all RAF staff in the field here for
+> FASTEX have an account here on central, and email can be sent
+> to us here at the following email address:
+> 
+> 
+> [Staff member's last name, first 8 characers]@central.fastex.ul.ie
+> 
+> 
+> The primary problem that we have encountered to date here in the
+> data processing office stems from a very touchy ground fault circuit
+> system here in the terminal building where we are housed.  Not
+> plugging computers and other equipment into the wall outlets in
+> the appropriate fashion causes the circuit breakers to pop (to date,
+> we've done the latter three or four times).  Once all of our
+> (RAF, RSF, and UCLA) equipment is plugged in and up and running,
+> we are hopeful that these power dropouts will cease, or at least
+> diminish in frequency.  In the mean time, Mike D. and I are
+> considering getting a UPS unit over here to "back up" Marley and
+> Finster should any more drop outs occur in order to try and protect
+> our disks, peripherals, etc.
+> 
+> Both RAF workstations are working fine, and all software and hardware
+> that are needed to process and analyze data (tape drives, Nimbus,
+> ncplot, etc.) have been tested out and are fully operational.
+> 
+> In general, I note that the office and meeting facilities
+> here at the Shannon Airport are very good, and all of the support
+> that we (the RAF) have received from Aer Rianta (the primary airport
+> operations company) and SRS Aviation (our handler) has been outstanding.
+> Everyone has been very friendly and has, for the most part, bent
+> over backwards to help us get situated and get whatever it is we
+> need to safely support the Electra.
+> 
+> ---------------------------------------
+> FLIGHT OUTLOOK FOR THE REST OF THE WEEK
+> ---------------------------------------
+> 
+> As I'm sure you all know, Ireland and Europe have been in the
+> grip of very cold weather and snow for the past several days.  The
+> easterly flow responsible for these conditions is supposed to
+> diminish over the next couple of days, and by the middle of this
+> week, the forecasters here anticipate that the more southwesterly
+> flow needed to create the right conditions for FASTEX will be
+> enhanced.  As of this morning's status and forecast meeting, the
+> outlook and schedule is roughly as follows:
+> 
+> -->  Tomorrow (Tues., 7 January) will be a hard down day for all
+>      Electra and ELDORA staff and the NOAA air crews; this will
+>      enable us to "re-start" the six-day research clock on
+>      Wednesday, 8 January.
+> 
+> -->  A turbo-prop (i.e., Electra and P-3) mission is presently
+>      being considered for a takeoff centered around 0Z Thursday,
+>      9 January.  "Centered" means, roughly, that this is the mid-
+>      point time at which we could be asked to launch (i.e., we
+>      could takeoff slightly earlier or slightly later than this).
+>      This mission, should it occur, will primarily be considered
+>      a test of the various radar and aircraft systems and will give
+>      us a chance to "shake out" the aircraft-to-aircraft communications
+>      before we head into an actual IOP (intensive observing period).
+>      As a point of interest, the first near upstream (NUS) or 
+>      Gulfstream flight is presently scheduled for Wed., 8 January,
+>      with an 8:00 p.m. local time takeoff presently being planned.
+> 
+> -->  Under the RAF's flight rules, RAF crew will be given a minimum
+>      of 36 hours of rest before they are asked to switch from flying
+>      a night-time mission to flying a day-time mission.  Hence, the
+>      soonest the Electra crew will be asked to fly again should
+>      a flight occur Thursday will be Saturday, 11 January.  At present,
+>      it is believed by the forecasters here that flight activity 
+>      could pick up over the coming weekend as more fronts and cyclones
+>      start moving into the research area off the west coast of Ireland.
+> 
+> -------------------
+> FLIGHT HOUR SUMMARY
+> -------------------
+> 
+> Flight hours flown to date for FASTEX are as follows:
+> 
+>      Test hours flown:  10.0
+>      Ferry hours flown:  14.0
+> 
+> The remaining 6.0 test flight hours allocated to FASTEX will be
+> rolled over and added to the total of 80.0 research hours allocated
+> to the project.  Hence, we are starting off this week with a total
+> of 86.0 hours available to Wakimoto, Testud, and Hildebrand.
+
+
+From ron Tue Mar  4 16:48:14 1997
+Subject: FASTEX RF04 tape(s)
+To: chris (Chris Webster)
+Date: Tue, 4 Mar 1997 16:48:14 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 492       
+Status: RO
+
+Chris,
+
+Krista told me that you are trying to recover as much data as possible from
+the FASTEX RF04 tape.  When you have that job done (which is, I hope, soon),
+I'd like to archive all the data to the SCD Mass Store System.  I have
+already finished archiving the raw ADS data from all the other flights.
+
+Please let me know.
+
+Thanks.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From chris Tue Mar  4 19:23 MST 1997
+From: chris (Chris Webster)
+Return-Path: <chris>
+Message-Id: <199703050223.TAA05036@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id TAA05036; Tue, 4 Mar 1997 19:23:24 -0700
+Subject: Re: FASTEX RF04 tape(s)
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 4 Mar 1997 19:23:24 -0700 (MST)
+In-Reply-To: <199703042348.QAA03910@music.atd.ucar.edu> from "Ron Ruth" at Mar 4, 97 04:48:14 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 399
+Status: RO
+
+>Krista told me that you are trying to recover as much data as possible from
+>the FASTEX RF04 tape.  When you have that job done (which is, I hope, soon),
+>I'd like to archive all the data to the SCD Mass Store System.  I have
+>already finished archiving the raw ADS data from all the other flights.
+>
+>Please let me know.
+
+It was comleted weeks ago, the ADS image should be in /home/data.
+
+--Chris
+
+From ron Wed Mar  5 17:48:43 1997
+Subject: FASTEX raw data archive
+To: krista (Krista Laursen), dick (Dick Friesen)
+Date: Wed, 5 Mar 1997 17:48:43 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1895      
+Status: RO
+
+Dick and Krista,
+
+Just a short note to let you know that I have archived to the SCD Mass Store
+System (MSS), the following raw ADS tapes for 1997-891 FASTEX.  All the
+archiving jobs took less than one day's time.  (The MSS turnaround is
+very good right now.)
+
+       MSS path name: /RAF/1997/891/fltno/tape#
+ 
+                Date        Start     End       #     File Size
+tape#  fltno  mm/dd/yyyy    Time      Time     Recs    (Mbytes)   Comments
+-----  -----  ----------  --------  --------  -----  -----------  --------------
+R1119  FF01   01/02/1997                       7352  198.353044
+R1120  FF02   01/03/1997                       4700  127.879408
+R1121  FF03   01/04/1997                      16062  445.945684
+R1122  RF01   01/10/1997                      22542  633.328204
+R1123  RF02   01/12/1997                      13172  361.212076
+R1124  TF01   01/16/1997                       1884   50.098108
+R1125  RF03   01/22/1997                      10686  289.662304
+
+R1135  RF05   02/02/1997  19:19:20  02:19:56  20286  565.928104
+R1136  RF06   02/04/1997                      12853  350.040256
+R1138  RF07   02/05/1997                      21116  588.891196
+
+The ExaByte-reconstructed tape for RF04 is on its way to ML, and I plan to
+get its data archived before week's end.  Chris told me that ExaByte took
+care of the bad blocks (1K byte in size) by replacing them with some fixed
+data pattern.  This will produce bad data that we'll have to deal with
+when processing the flight, but Chris, apparently thinks these blocks
+do not cause NIMBUS to die.  However, the ADS image size in /home/data
+(192 Mbytes) dumped from that tape, is much smaller than what ExaByte
+wrote on a hand-written message on the tape (~600 Mbytes).
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Thu Mar  6 09:10 MST 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA08528; Thu, 6 Mar 1997 09:10:16 -0700
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA02084; Thu, 6 Mar 1997 09:10:13 -0700
+Date: Thu, 6 Mar 1997 09:10:13 -0700
+Message-Id: <199703061610.JAA02084@lhotse.atd.ucar.edu>
+To: ron
+Subject: Re: FASTEX raw data archive
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 2555
+Status: RO
+
+Ron,
+
+Thanks for doing the archiving.
+
+RE the small file size of the ADS image for RF04 on /home/data,
+don't worry about that.  I believe that is the ADS image that I
+ftp'd to Chris from Ireland, and it won't be the complete tape.
+The bad data records on the tape caused the "dump to hard disk"
+program to see the first bad record as an EOF.  Hence, not all
+of the tape shows up in the ADS image.  So I'm inclined to believe
+that Exabyte's note about 600 Mb is correct.
+
+When the archiving is complete, can you please return all of the
+tapes to me so that I can start on the processing?  Thanks.
+
+Krista
+
+
+From ron Thu Mar  6 09:14:38 1997
+Subject: Re: FASTEX raw data archive
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Thu, 6 Mar 1997 09:14:38 -0700 (MST)
+In-Reply-To: <199703061610.JAA02084@lhotse.atd.ucar.edu> from "Krista Laursen" at Mar 6, 97 09:10:13 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 558       
+Status: RO
+
+Thou spake thusly:
+> 
+> When the archiving is complete, can you please return all of the
+> tapes to me so that I can start on the processing?  Thanks.
+> 
+Krista,
+
+I have all the tapes except RF04 will return them to you shortly.  To keep
+from mounting tapes, you are welcome to use the MSS images.  I have updated
+the local MSS master directory, so the "msget" scripts will work with those
+bitfiles.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Mar  6 17:25:41 1997
+Subject: 891RF04 ADS data archived
+To: dick (Dick Friesen), krista (Krista Laursen)
+Date: Thu, 6 Mar 1997 17:25:41 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 621       
+Status: RO
+
+Krista and Dick,
+
+Another short note to let you know that I have archived to the SCD Mass
+Store System (MSS) the RF04 raw ADS tape for 1997-891 FASTEX.  It was the
+reconstructed (by ExaByte) version of the original and has some 1k byte
+blocks of erroneous data (where ExaByte "fixed" the bad sections).
+
+I am not planning to archive the original master tape from this flight.
+
+The tape should be back at Jeffco tomorrow at which time I'll give it to
+you, Krista.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Fri Mar  7 09:10 MST 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA23003; Fri, 7 Mar 1997 09:10:35 -0700
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA02189; Fri, 7 Mar 1997 09:10:33 -0700
+Date: Fri, 7 Mar 1997 09:10:33 -0700
+Message-Id: <199703071610.JAA02189@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: 891RF04 ADS data archived
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 692
+Status: RO
+
+Sounds good.  Thanks, Ron.
+
+Krista
+
+
+From krista@raf.atd.ucar.EDU Tue Mar 25 09:16 MST 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA07097; Tue, 25 Mar 1997 09:16:32 -0700
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA06391; Tue, 25 Mar 1997 09:16:28 -0700
+Date: Tue, 25 Mar 1997 09:16:28 -0700
+Message-Id: <199703251616.JAA06391@lhotse.atd.ucar.edu>
+To: raf_staff, wlee@stout.atd.ucar.EDU, craigw@ncar.ucar.edu,
+        rick@ncar.ucar.edu, ericloew@ncar.ucar.edu, rucker@ncar.ucar.edu,
+        mstrong@ncar.ucar.edu
+Subject: FASTEX Review and "Post Mortem"
+Cc: krista
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1071
+Status: RO
+
+All --
+
+A "post mortem" meeting to review the various aspects of the
+deployment of the Electra for FASTEX has been scheduled for
+1:00 p.m. on Wednesday, 2 April in the RAF conference room.
+RAF staff involved with the support of FASTEX, RSF staff
+involved with the ELDORA deployment, and RAF staff who wish to
+listen in on the critique of the FASTEX deployment are invited
+to attend.  For those staff who took part in the field deployment
+of the Electra, please come prepared with any comments, concerns,
+and/or suggestions for future aircraft deployments that you may
+have.
+
+See you on 2 April!
+
+Krista
+
+*************************************************************
+Name: Krista Laursen           Phone: (303)497-1031
+   Project Manager/            Fax:   (303)497-1092
+   Associate Scientist
+Mailing Address:               Internet e-mail:
+   NCAR/RAF                       krista@raf.atd.ucar.edu
+   P.O. Box 3000                  
+   Boulder, CO 80307-3000      
+
+URL: http://chinook.atd.ucar.edu/~krista/
+*************************************************************
+
+From ron Mon Mar 31 16:17:56 1997
+Subject: Production processing for FASTEX
+To: krista (Krista Laursen), dick (Dick Friesen)
+Date: Mon, 31 Mar 1997 16:17:56 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 9852      
+Status: RO
+
+Dick and Krista,
+
+I see that you are doing some preliminary NIMBUS processing of the FASTEX
+data, so now that you have begun reviewing them prior to production, I thought
+I'd see if you want to touch bases with me.
+
+Since a new version of NIMBUS (rev 4.2.1, Nov 1996, March 1997) has been
+released with some new features and bug fixes, and since the new ADS Reference
+Manual (with its Chapter 5 covering NIMBUS) has been published, I made some
+minor revisions to my brief Production Processing Procedures.  Rather than
+make you go search for it, I have added a copy of it for you at the end of
+this message.
+
+If I can help you with your preparations or during production, please let
+me know.
+
+Thanks.
+
+Ron
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        -----------------------------------------------------------
+         Quick Overview of NIMBUS Production Processing Procedures
+            for Project Managers and Data Management Personnel
+        -----------------------------------------------------------
+                           Ronald L. Ruth
+                          RAF Data Manager
+                           rev. Mar 1996
+        -----------------------------------------------------------
+
+  Note:  Production processing is unique.  Do not use the `nimbus' login
+          unless you are prepared to set up and perform production (final)
+          processing.
+
+ A)  The master raw ADS data tapes need to be archived to the SCD Mass Store
+      System (MSS).  Make sure this is done before doing any production
+      processing.  (See Ron for assistance.)
+ B)  Peruse the entire project's data using quick-look tools.  Identify all
+      changes that are needed for production processing.
+   1)  Use whatever tools you want, including NIMBUS, ncplot, WINDS, PV-Wave,
+        MATLAB, Xanadu, etc.
+   2)  Make a list of instrument anomalies, failures, etc., that occurred
+        during the project.
+   3)  Make a list of equipment changes made during the project.
+   4)  Edit the `Defaults' file in the project's directory
+        (`hl proj/### ; vi Defaults') to make changes that reflect the
+        typical flight.  (This file has reference constants used for
+        making derived calculations.)
+   5)  Make a list of per-flight changes needed for production.  Examples
+        include:  new calibrations, reference variable substitutions, unique
+        Defaults values.
+   6)  Using information from B)5), create groups of flights which all need
+        the same setup and whose processing will be identical.  (A group
+        consists of one or more flights.)  Select one reference flight from
+        each group.
+   7)  If you use NIMBUS during this time, be sure to use your own login (not
+        the `nimbus' login).  You may want to save setup files in your own
+        processing directory.  (Make a list of those you want to recall for
+        production processing.)
+   8)  Completely summarize all the information needed for production
+        processing (basically, all the above information); put it in a
+        Project Production Setup document (or file); and send a copy to Ron.
+        (Include the project's instrumentation list and ADS setup table.)
+ C)  Set up NIMBUS for the default, low-rate processing (no matter what the
+      final output rate will be).
+   1)  Login as user `nimbus.'  See Chris Webster or Ron if you need the
+        password.
+   2)  Change to the project's directory (`hl proj/###'). 
+   3)  Edit the `Production/FlightGroups' file to agree with B)6).  See Chris
+        or Ron if you need help with this.
+   4)  Edit the `DependTable' file to make changes that reflect the typical
+        flight.  (This file determines the reference variables used for
+        the derived calculations.)
+   5)  If you will be doing high-rate processing later, make appropriate
+        changes to the project's LowRateVars file, if necessary.  (This file
+        determines which derived variables are to be unconditionally output
+        at low rate.)
+   6)  Please make sure that the project's VarDB file is up to date.  You
+        may have to add and/or change extended definitions to the variable
+        dictionary (using the command:  `vared VarDB').
+   7)  Get the reference raw ADS data sets from the MSS.  One can use the
+        "msget" or "msgetads" script for this.  If a data set is split into
+        contiguous segments, retrieve all of them.  NIMBUS will process the
+        entire flight as one output file by sequentially reading each ADS
+        data set.
+   8)  Run NIMBUS with each reference flight to create the reference setup
+        files.  Refer to the ADS Reference Manual, Chapter 5, or the NIMBUS
+        `walkthrough' document (located in the `nimbus' home directory), if
+        necessary.
+     a)  If present, load appropriate setup file from B)6) above, and check to
+          make sure it makes no inappropriate changes.  (It can change rates,
+          defaults, calibration coefficients, dependencies, variable output
+          on/off.)  Multiple setup files can be loaded, one after another in
+          case multiple changes are necessary.
+     b)  From within NIMBUS, edit the Defaults file, if necessary.
+     c)  Make appropriate changes to the calibration coefficients.
+     d)  Make appropriate changes to the dependencies.
+     e)  Carefully choose which variables are to be output to or omitted
+          from the production netCDF file.
+     f)  Be sure all output rates are correct.
+     g)  Save the setup.  (You will not be asked for a setup file name,
+          since, in production mode, it is predefined.)
+     h)  Repeat for the next reference data set, if necessary.
+ D)  Preproduction test
+   1)  Make one production run using a representative flight.
+     a)  The output data set will be put in the directory
+          `/home/productiondata,' and its name will follow the prescribed
+          naming convention:  ppptFnn[H].cdf  (Example:  120rf03b.cdf)
+          where:  ppp = 3-digit project number
+                    t = type of flight (f=ferry, r=research, t=test)
+                   nn = flight number and possible segment letter
+                         (e.g., 03b)
+                  [h] = suffix letter to indicate high-rate data
+                         (Example:  120rf03bh.cdf)
+   2)  Peruse the production log file in the project's `Production'
+        subdirectory created during the NIMBSU run.  (See Ron for help,
+        if needed.)
+   3)  Peruse the netCDF header.  (Use `ncdump -h <file> | more'.)
+     a)  Make sure that the variable list is correct.
+     b)  Make sure that no variable has "units" of "Unk" or "Unknown" and
+          "long_name" of "No title".  If any do exist, repeat step C)8).
+          (Within the `more' comand, use the `vi'-like command:  "/Unk" and
+          "/No title" to find them.)
+   4)  Review output data using ncplot, WINDS or other available tools.
+   5)  Note changes that are needed to the processing, and rerun, if
+        necessary.  Update the associated setup file.
+   6)  Repeat this section using the reference example from each flight group.
+ E)  Production
+   1)  When all is ready for production, check available disk space to make
+       sure that room exists for the processed data.  (You may have to do
+       production runs in sections and have the output data archived before
+       continuing.  Also, other project processing may compete for the
+       available disk space which may require negotiation with other users.)
+   2)  Use NIMBUS to process each flight/segment.
+     a)  NIMBUS now has automatic output file naming, and if a flight has
+          to be processed in segments, one must rename each output file to
+          add the segment's letter, for example, 120rf05.cdf --> 120rf05a.cdf.
+     b)  If necessary, rename the production log file for this segment, too.
+          It will be located in the project's `Production' subdirectory.
+     c)  Thoroughly peruse the output from each production run, looking for
+          errors and things overlooked in setup.
+     d)  When flight/segments have been processed to your satisfaction, have
+          Ron archive the output files to the MSS.  (This may have to be done
+          in sections if disk space is at a premium.)  It is recommended that
+          all the low-rate files be archived before commencing with high-rate
+          production processing.
+ F)  If high-rate processing is required, repeat steps D) and E), but
+      select the `high-rate' button in the NIMBUS window before starting
+      the processing.
+   1)  You may need to make alterations to the setup.  One example would be
+        setting the output rates for variables like VEW and VNS to 10 sps.
+        A separate and independent setup file could be loaded to make these
+        changes (and set the "high-rate" flag, too).  (For an example, see
+        the file `HRT.convert' in the `870/Production' directory.)
+   2)  NIMBUS now has automatic production output file naming, so one should 
+        not have to rename the low-rate output file to avoid overwriting
+        extant data.
+   3)  Check a representative sample of high-rate, processed data using
+        appropriate tools.  (This may include spectrum analysis.)
+ G)  When all data have been processed to your satisfaction and archived to
+      the MSS, prepare the final documentation binder(s) for shipment to the
+      Principal Investigator(s).
+ H)  Determine the type of output product(s) needed by PI(s) and schedule RDP
+      to copy and ship the output data.  (See Ron for instructions.)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dcarlson@stout.atd.ucar.edu Wed Apr 16 07:28 MDT 1997
+Return-Path: <dcarlson@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id HAA01934; Wed, 16 Apr 1997 07:28:01 -0600
+Received: from steam.atd.ucar.edu by atd.atd.ucar.EDU (8.7.6/ NCAR Mail Server 04/10/90)
+	id HAA03108; Wed, 16 Apr 1997 07:27:27 -0600 (MDT)
+Message-Id: <199704161327.HAA03108@atd.atd.ucar.EDU>
+To: all_atd@stout.atd.ucar.edu
+Subject: Hepatitis fr FASTEX
+Date: Wed, 16 Apr 1997 07:27:27 -0600
+From: David Carlson <dcarlson@stout.atd.ucar.edu>
+Content-Type: text
+Content-Length: 2759
+Status: RO
+
+
+Please read the following msg from Steve Sadler.  Refer any questions to Bob Snow.
+
+Dave C.
+
+------- Forwarded Message
+
+Date:    Tue, 15 Apr 1997 16:48:53 -0700
+From:    "Steve Sadler" <sadler@galaxy.ucar.edu>
+To:      "anthes,richard a." <anthes@ucar.edu>, "carlson,david" <dcarlson@ucar.
+	  edu>,
+	 "comedy,edna" <comedy@ucar.edu>, "dabberdt,walter" <dabberdt@ucar.edu>
+	  ,
+	 "pennell,william" <pennell@ucar.edu>,
+	 "rawson,william" <rawson@ucar.edu>, "roesch,bob" <broesch@ucar.edu>,
+	 "serafin,robert" <serafin@ucar.edu>, "taylor,butch" <btaylor@ucar.edu>
+	  ,
+	 "sawyer,karyn" <karyn@ucar.edu>
+Subject: Hepatitis A
+
+Please be advised that two ATD employees have returned from Ireland and 
+have been diagnosed with hepatitis A. An employee's wife, who was also 
+in Ireland, may also have been affected. They are under physicians 
+treatment. I have discussed the situation with both of our physicians 
+(Dr. Brandt and Dr.Turnbow) as well as with the Boulder County Health 
+Department (they contacted me first).  They all report that immune 
+globulin shots are ineffective if given more than 14 days following 
+exposure.  Since most employees left Ireland over 14 days ago, it 
+appears there is little to be done at this time. I am working with ATD 
+to identify potentially affected employees and will verify when they 
+left Ireland.  If any have left within 14 days I will immediately refer 
+them to our physicians for further treatment.
+
+I propose the following:
+1.  Identify all participants, both UCAR, NCAR and non-UCAR 
+collaborators.
+2.  Notify all participants of these developments and provide a 
+technical overview and recommendations for hepatitis a.  I intend to use 
+an information sheet developed by the Boulder County Health Department.
+3.  I will ask for anyone who may have had symptoms to contact me and I 
+will determine appropriate follow-up.
+
+The Boulder County Health Department along with the Centers for Disease 
+Control will be doing an investigation.  I will keep you advised of any 
+special requests they have i.e. they may want data on ill employees such 
+as where they stayed, ate, etc.
+
+Please let me know if you have any questions or comments.
+
+Regards,
+s2
+
+- -- 
+
+
+Steve Sadler, University Corporation for Atmospheric Research
+Director, Health, Environment and Safety Services 
+303-497-8550
+FAX: 303-497-8552
+"Whatever your life's work is, do it well...If it falls your lot to be a street
+ sweeper, sweep streets like Michelangelo painted pictures, like Shakespeare wr
+ote poetry, like Beethoven composed music; sweep streets so well that all the h
+osts of Heaven and earth will have to pause and say, "Here lived a great street
+ sweeper, who swept his job well."  Dr. Martin Luther King
+
+------- End of Forwarded Message
+
+
+From krista@raf.atd.ucar.EDU Fri Apr 18 08:54 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA23517; Fri, 18 Apr 1997 08:54:52 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA00730; Fri, 18 Apr 1997 08:54:49 -0600
+Date: Fri, 18 Apr 1997 08:54:49 -0600
+Message-Id: <199704181454.IAA00730@lhotse.atd.ucar.edu>
+To: ron
+Subject: FASTEX Processing
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 479
+Status: RO
+
+I'm getting ready to start stripping off the 2D data records from
+the FASTEX data tapes for separate archiving, but before I proceed
+I need a couple pieces of information from you.  First, can you
+email the file size limitation for sending files up to the MSS?
+I recall that, for SCMS, I had to split up some of the 2D data files
+in order for you to be able to get them up to the MSS.  Second, can
+you let me know what the Nimbus login is when you get a chance?
+
+Thanks.
+
+Krista
+
+From ron Fri Apr 18 11:41:16 1997
+Subject: Re: FASTEX Processing
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Fri, 18 Apr 1997 11:41:16 -0600 (MDT)
+In-Reply-To: <199704181454.IAA00730@lhotse.atd.ucar.edu> from "Krista Laursen" at Apr 18, 97 08:54:49 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1596      
+Status: RO
+
+Thou spake thusly:
+> 
+> I'm getting ready to start stripping off the 2D data records from
+> the FASTEX data tapes for separate archiving, but before I proceed
+> I need a couple pieces of information from you.  First, can you
+> email the file size limitation for sending files up to the MSS?
+> I recall that, for SCMS, I had to split up some of the 2D data files
+> in order for you to be able to get them up to the MSS.
+
+Krista,
+
+This is a tricky question to answer.  The limit used to be 400 Mbytes, but
+since the Mass Store limit has now been raised to 6 Gbytes, our MIGS limit has
+now increased to 1 Gbyte.  We have never transferred files of this size from
+Jeffco, so I'm not sure how successful it will be.  If you are willing to be
+a guinea pig, we can try transferring large files.  If it fails, we can fall
+back to something smaller.
+
+One concern, right now is the amount of disk space available.  There is
+plenty of room on "/home/productiondata" but not much in "/home/data"
+or "/home/staticdata."  To use "/home/productiondata" you need to be
+logged in as "nimbus."  I moved 4 of the FASTEX ads files and filled up
+"/home/staticdata."  If you are hurting for space, we can always move
+other stuff around, even to an ExaByte tape, if necessary.
+
+> Second, can you let me know what the Nimbus login is when you get a chance?
+The nimbus login is simply the user named "nimbus."  I'll give you the
+password verbally if you need it.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Fri Apr 18 15:46 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA26826; Fri, 18 Apr 1997 15:46:16 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA00914; Fri, 18 Apr 1997 15:46:15 -0600
+Date: Fri, 18 Apr 1997 15:46:15 -0600
+Message-Id: <199704182146.PAA00914@lhotse.atd.ucar.edu>
+To: ron
+Subject: 2D Files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 361
+Status: RO
+
+Ron,
+
+The first three 2D files for FASTEX are ready and are sitting
+in /home/productiondata.  They are:
+
+891rf01.2d
+891rf02.2d
+891rf03.2d
+
+The file for RF01 is the largest, at around 438 Mb.  Why don't you
+try archiving these on the MSS before I proceed with stripping
+off the 2D data for the other flights and let me know if things
+work okay.
+
+Thanks.
+
+Krista
+
+From ron Fri Apr 18 17:06:55 1997
+Subject: Re: 2D Files
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Fri, 18 Apr 1997 17:06:55 -0600 (MDT)
+In-Reply-To: <199704182146.PAA00914@lhotse.atd.ucar.edu> from "Krista Laursen" at Apr 18, 97 03:46:15 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 317       
+Status: RO
+
+Krista,
+
+The three pms2d files are on their way.  I'll report back on the results of
+their transfer on Monday.  Their path will be:
+  /RAF/1997/891/PMS2D/RFxx
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Apr  3 15:48:18 1997
+Subject: Moved files
+To: krista (Krista Laursen)
+Date: Thu, 3 Apr 1997 15:48:18 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 801       
+Status: RO
+
+Krista,
+
+I have moved the following FASTEX raw ADS data files to /home/staticdata:
+
+-rw-rw-rw-   1 ron      computin 238516140 Mar 27 09:36 891rf01b.ads
+-rw-rw-rw-   1 ron      computin 394812064 Mar 27 09:39 891rf01a.ads
+-rw-rw-rw-   1 ron      computin 361212076 Mar 27 10:04 891rf02.ads
+-rw-rw-rw-   1 ron      computin 289662304 Mar 28 11:10 891rf03.ads
+
+As you can see, I am now the owner, but, since they have world write
+permission, you should be able to remove them when you are finished
+with them.  If not, I can do it for you.
+
+These files are now not subject to the scrubber and will remain here
+until someone overtly removes them.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Mon Apr 21 10:50:04 1997
+Subject: PMS-2D Archived :)
+To: krista (Krista Laursen)
+Date: Mon, 21 Apr 1997 10:50:04 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 755       
+Status: RO
+
+Krista,
+
+I have archived to the SCD Mass Store System the following stripped PMS-2D
+data files:
+
+         Source file name             MSS bitfile name       Size (Mbytes)
+  /home/productiondata/891rf01.2d  /RAF/1997/891/PMS2D/RF01   438.461016
+  /home/productiondata/891rf02.2d  /RAF/1997/891/PMS2D/RF02   140.314440
+  /home/productiondata/891rf03.2d  /RAF/1997/891/PMS2D/RF03    69.696228
+
+I had no problem with the file larger than 400 Mbytes.  I'm reasonably sure
+that our present MIGS limit is 1 Gbyte, so you may proceed to generate the
+other files, and I'll archive them when you're ready.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Mon Apr 21 10:58 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA09437; Mon, 21 Apr 1997 10:55:38 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA01260; Mon, 21 Apr 1997 10:54:25 -0600
+Date: Mon, 21 Apr 1997 10:54:25 -0600
+Message-Id: <199704211654.KAA01260@lhotse.atd.ucar.edu>
+To: ron
+Subject: Re: PMS-2D Archived :)
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 982
+Status: RO
+
+Okay, good.  I'm glad these big files aren't going to be a problem.
+
+I'll go ahead and start on the other 2D data and will let you know
+when the flights are ready to be archived.
+
+Krista
+
+> 
+> Krista,
+> 
+> I have archived to the SCD Mass Store System the following stripped PMS-2D
+> data files:
+> 
+>          Source file name             MSS bitfile name       Size (Mbytes)
+>   /home/productiondata/891rf01.2d  /RAF/1997/891/PMS2D/RF01   438.461016
+>   /home/productiondata/891rf02.2d  /RAF/1997/891/PMS2D/RF02   140.314440
+>   /home/productiondata/891rf03.2d  /RAF/1997/891/PMS2D/RF03    69.696228
+> 
+> I had no problem with the file larger than 400 Mbytes.  I'm reasonably sure
+> that our present MIGS limit is 1 Gbyte, so you may proceed to generate the
+> other files, and I'll archive them when you're ready.
+> 
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+> 
+
+From krista@raf.atd.ucar.EDU Mon Apr 21 14:19 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA12763; Mon, 21 Apr 1997 14:19:02 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01310; Mon, 21 Apr 1997 14:18:58 -0600
+Date: Mon, 21 Apr 1997 14:18:58 -0600
+Message-Id: <199704212018.OAA01310@lhotse.atd.ucar.edu>
+To: ron
+Subject: FASTEX 2D Files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 190
+Status: RO
+
+Okay Ron, the rest of the FASTEX 2D data files are ready to
+go up to the MSS.  They are in /home/productiondata, and the
+file names are:
+
+891rf04.2d
+891rf05.2d
+891rf06.2d
+891rf07.2d
+
+Krista
+
+From ron Mon Apr 21 15:46:41 1997
+Subject: PMS-2D Archived :)
+To: krista (Krista Laursen)
+Date: Mon, 21 Apr 1997 15:46:41 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 622       
+Status: RO
+
+Krista,
+
+I have archived to the SCD Mass Store System the following stripped PMS-2D
+data files:
+
+         Source file name             MSS bitfile name       Size (Mbytes)
+  /home/productiondata/891rf04.2d  /RAF/1997/891/PMS2D/RF04   423.594024
+  /home/productiondata/891rf05.2d  /RAF/1997/891/PMS2D/RF05   341.969628
+  /home/productiondata/891rf06.2d  /RAF/1997/891/PMS2D/RF06   105.134988
+  /home/productiondata/891rf07.2d  /RAF/1997/891/PMS2D/RF07   353.407992
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Tue May  6 11:24 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA21521; Tue, 6 May 1997 11:24:40 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01502; Tue, 6 May 1997 11:24:37 -0600
+Date: Tue, 6 May 1997 11:24:37 -0600
+Message-Id: <199705061724.LAA01502@lhotse.atd.ucar.edu>
+To: ron
+Subject: FASTEX Data Info
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 505
+Status: RO
+
+Ron,
+
+I'm starting to get more of the necessary materials ready for
+the FASTEX data notebooks, and I need a couple of pieces of
+documentation from you.  Can you prepare for me:
+
+1)  A Production Mass Store Bitfile Log for the PMS-2D data
+files you archived for me for FASTEX (document can have the
+same format as the one you prepared for me for SCMS);
+
+2)  An RAF netCDF Information Sheet (or just tell me where
+it is on our system and I can print out a copy).
+
+Thanks, in advance, for your help.
+
+Krista
+
+From krista@raf.atd.ucar.EDU Tue May  6 11:30 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA23734; Tue, 6 May 1997 11:30:47 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01504; Tue, 6 May 1997 11:30:44 -0600
+Date: Tue, 6 May 1997 11:30:44 -0600
+Message-Id: <199705061730.LAA01504@lhotse.atd.ucar.edu>
+To: ron
+Subject: Addendum
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 236
+Status: RO
+
+.....to my last message.
+
+I found the netCDF information sheet I need ("netCDF.txt2") in your
+home directory and have printed out a copy to use in the FASTEX
+notebooks.
+
+Let me know if this is not the version I should be using.
+
+Krista
+
+From ron Tue May  6 12:24:34 1997
+Subject: Re: FASTEX Data Info
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Tue, 6 May 1997 12:24:34 -0600 (MDT)
+In-Reply-To: <199705061724.LAA01502@lhotse.atd.ucar.edu> from "Krista Laursen" at May 6, 97 11:24:37 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1218      
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron,
+> 
+> I'm starting to get more of the necessary materials ready for
+> the FASTEX data notebooks, and I need a couple of pieces of
+> documentation from you.  Can you prepare for me:
+> 
+> 1)  A Production Mass Store Bitfile Log for the PMS-2D data
+> files you archived for me for FASTEX (document can have the
+> same format as the one you prepared for me for SCMS);
+
+Krista,
+Will do.
+
+> 2)  An RAF netCDF Information Sheet (or just tell me where
+> it is on our system and I can print out a copy).
+
+Krista,
+You certainly may use that information file (netCDF.txt2) which you retrieved
+from my home directory.  (I don't think it contains any misinformation, but I
+have not read through it lately.)  However, if you want to use it, I direct
+you to our published Web version which also has a sample header.  It's URL is:
+     http://raf.atd.ucar.edu/Bulletins/b9appdx_D.html
+Since you undoubtedly will include in the project summary binder an example
+FASTEX netCDF header, this extra one may only be confusing, so use your best
+judgment.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Thu May  8 11:12 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA09244; Thu, 8 May 1997 11:12:04 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01885; Thu, 8 May 1997 11:12:02 -0600
+Date: Thu, 8 May 1997 11:12:02 -0600
+Message-Id: <199705081712.LAA01885@lhotse.atd.ucar.edu>
+To: ron
+Subject: Flight numbers
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 270
+Status: RO
+
+Quick question for you.....
+
+When I do the FASTEX production processing, I'm going to edit
+the flight numbers so that they are in a consistent format
+across flights.  What have we decided is the format we're going
+to use:  "RFxx" or "rfxx" (caps or lower-case)?
+
+Krista
+
+From ron Thu May  8 12:08:35 1997
+Subject: Re: Flight numbers
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Thu, 8 May 1997 12:08:35 -0600 (MDT)
+In-Reply-To: <199705081712.LAA01885@lhotse.atd.ucar.edu> from "Krista Laursen" at May 8, 97 11:12:02 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 814       
+Status: RO
+
+Thou spake thusly:
+> 
+> Quick question for you.....
+> 
+> When I do the FASTEX production processing, I'm going to edit
+> the flight numbers so that they are in a consistent format
+> across flights.  What have we decided is the format we're going
+> to use:  "RFxx" or "rfxx" (caps or lower-case)?
+> 
+Krista,
+
+Within the netCDF or raw ADS files I would prefer to see caps.  For
+data files (mainly to ease typing), use lower case.  In production
+mode (i.e., the "nimbus" login) example nimbus output names are
+"891rf03.cdf" and "891rf03h.cdf" to indicate low-rate and high-rate
+data, respectively.  A segment letter would immediately follow the
+flight number.
+
+--
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Thu May  8 15:07 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA19328; Thu, 8 May 1997 15:07:21 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA01922; Thu, 8 May 1997 15:07:18 -0600
+Date: Thu, 8 May 1997 15:07:18 -0600
+Message-Id: <199705082107.PAA01922@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: Flight numbers
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 631
+Status: RO
+
+Okay, I'll use the "RFxx" (caps) format when I edit the
+flight numbers in Nimbus.  Thanks.
+
+Krista
+
+From krista@raf.atd.ucar.EDU Tue May 13 11:05 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA24846; Tue, 13 May 1997 11:05:40 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA02330; Tue, 13 May 1997 11:05:38 -0600
+Date: Tue, 13 May 1997 11:05:38 -0600
+Message-Id: <199705131705.LAA02330@lhotse.atd.ucar.edu>
+To: ron, chris
+Subject: Nimbus question
+Cc: krista
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1087
+Status: RO
+
+Ron and Chris,
+
+I've started the production processing for FASTEX, and I've
+noticed something in processing RF01 that I wanted to ask you
+both about.
+
+I have DESPIKE enabled for SDWC1, SDWP1, TEP, and TET.  When
+I run Nimbus, it finds the "despike" file no problem, but only
+prints out the following message in the Nimbus window:
+
+TEP: 114 spikes removed with slope exceeding 10.000000
+TET: 410 spikes removed with slope exceeding 0.250000
+
+It does not print out any such messages for the 2D probe shadow
+OR variables.
+
+It has done this to me both when I run Nimbus as myself and as
+"nimbus," but in all cases, the code does seem to despike the
+2D data as I want.
+
+I guess this really isn't a big deal since the data are getting
+despiked.  However, I'm just curious as to why no messages show
+up for the two 2D variables in processing.  Also, there won't be
+any 2D despiking messages to archive in the FASTEX production.log.lrt
+file.  I can rectify this by adding my own such messages, but I
+wanted to check with you both on this first before I continue on
+with the processing.
+
+Krista
+
+
+From ron Tue May 13 11:50:41 1997
+Subject: Re: Nimbus question
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Tue, 13 May 1997 11:50:41 -0600 (MDT)
+Cc: chris (Chris Webster)
+In-Reply-To: <199705131705.LAA02330@lhotse.atd.ucar.edu> from "Krista Laursen" at May 13, 97 11:05:38 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 343       
+Status: RO
+
+Krista,
+
+Chris will have to answer this one.  I haven't studied that part of the
+NIMBUS code yet.  Obviously I would want NIMBUS to provide those statistics
+for all despiked variables.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Tue May 13 12:07:31 1997
+Subject: Production processing
+To: krista (Krista Laursen)
+Date: Tue, 13 May 1997 12:07:31 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 440       
+Status: RO
+
+Krista,
+
+In a recent upgrad to NIMBUS Chris has added a log file output for each
+production run, so there is, perhaps, no need for you to maintain your
+own production log file.  The information you have put in the file
+"production.log.lrt" also appears in the file "logFile_LRT.1."
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Tue May 13 12:06 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA26039; Tue, 13 May 1997 12:06:55 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA02336; Tue, 13 May 1997 12:06:52 -0600
+Date: Tue, 13 May 1997 12:06:52 -0600
+Message-Id: <199705131806.MAA02336@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: Nimbus question
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 420
+Status: RO
+
+Chris has found the problem and is working on a solution.
+
+Krista
+
+> 
+> Chris will have to answer this one.  I haven't studied that part of the
+> NIMBUS code yet.  Obviously I would want NIMBUS to provide those statistics
+> for all despiked variables.
+> 
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+> 
+
+From krista@raf.atd.ucar.EDU Tue May 13 12:09 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA26200; Tue, 13 May 1997 12:09:25 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA02340; Tue, 13 May 1997 12:09:22 -0600
+Date: Tue, 13 May 1997 12:09:22 -0600
+Message-Id: <199705131809.MAA02340@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: Production processing
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 488
+Status: RO
+
+Okay, thanks.
+
+Krista
+
+From ron Mon May 19 12:09:21 1997
+Subject: Re: FASTEX Files
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Mon, 19 May 1997 12:09:21 -0600 (MDT)
+In-Reply-To: <199705191721.LAA00922@lhotse.atd.ucar.edu> from "Krista Laursen" at May 19, 97 11:21:34 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1187      
+Status: RO
+
+Krista,
+
+The files shown below have been archived to the SCD Mass Store System
+on 19 May 1997 before noon MDT.
+
+  source name                        destination name
+  --------------------------------   -----------------------------------
+  /home/productiondata/891rf01.cdf   /RAF/1997/891/ORIGINAL/LRT/RF01.cdf
+  /home/productiondata/891rf02.cdf   /RAF/1997/891/ORIGINAL/LRT/RF02.cdf
+  /home/productiondata/891rf03.cdf   /RAF/1997/891/ORIGINAL/LRT/RF03.cdf
+  /home/productiondata/891rf04.cdf   /RAF/1997/891/ORIGINAL/LRT/RF04.cdf
+  /home/productiondata/891rf05.cdf   /RAF/1997/891/ORIGINAL/LRT/RF05.cdf
+  /home/productiondata/891rf06.cdf   /RAF/1997/891/ORIGINAL/LRT/RF06.cdf
+  /home/productiondata/891rf07.cdf   /RAF/1997/891/ORIGINAL/LRT/RF07.cdf
+
+All have been protected by both READ and WRITE passwords.
+
+The job file, which shows the passwords, has been put in a restricted
+subdirectory which only the `nimbus' login can access.  The complete file
+name is "/home/local/proj/891/Production/archive/restricted/org_arch.891."
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Mon May 19 11:21 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA19778; Mon, 19 May 1997 11:21:36 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA00922; Mon, 19 May 1997 11:21:34 -0600
+Date: Mon, 19 May 1997 11:21:34 -0600
+Message-Id: <199705191721.LAA00922@lhotse.atd.ucar.edu>
+To: ron
+Subject: FASTEX Files
+Cc: krista
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 898
+Status: RO
+
+Ron,
+
+Per our discussion last Friday, the "first run" of the final FASTEX
+files are ready to be archived to the MSS.  Recall that these are
+the files that have been generated using the Nimbus login but that
+have not had a little bit of final chemistry processing done to them.
+
+As we discussed, I would like to have these backed up on the MSS just
+as a form of insurance before I finish applying the appropriate
+chemistry corrections to them.  Please put them in a directory that
+will not be readily accessible to users retrieving files from the
+MSS (so that users do not inadvertently grab the wrong, final-release
+files).
+
+The files are all in /home/productiondata and follow the typical
+naming convention (891rfxx.cdf).  Also, let me know if you change the
+file names when you place them on the MSS.
+
+I will let you know when the final data files are ready to go up to
+the MSS.
+
+Thanks!
+
+Krista
+
+From krista@raf.atd.ucar.EDU Mon May 19 12:13 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA21681; Mon, 19 May 1997 12:13:55 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA00932; Mon, 19 May 1997 12:13:51 -0600
+Date: Mon, 19 May 1997 12:13:51 -0600
+Message-Id: <199705191813.MAA00932@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: FASTEX Files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1319
+Status: RO
+
+Great.  Thanks, Ron.
+
+As I said, I'll let you know when the final files are ready.
+
+Krista
+
+From krista@raf.atd.ucar.EDU Fri May 23 14:37 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA20591; Fri, 23 May 1997 14:37:28 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01526; Fri, 23 May 1997 14:37:23 -0600
+Date: Fri, 23 May 1997 14:37:23 -0600
+Message-Id: <199705232037.OAA01526@lhotse.atd.ucar.edu>
+To: ron
+Subject: Bitfile reports
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 568
+Status: RO
+
+Ron,
+
+I'm trying to wrap up certain parts of the FASTEX data documentation
+effort, and I still need copies of the 2D and raw ADS MSS Bitfile
+reports from you for the notebooks.  If at all possible, can you
+please get these to me by Wed., 28 May?  I leave for vacation on
+29 May and am trying to get most (if not all) of the FASTEX work
+wrapped up before I leave.  (I'll be back on 9 June).
+
+Also, I'm waiting on some input from Greg and Dick F. before processing
+of the LRT files can be completed.  I'll let you know as soon as those
+files are ready.
+
+Thanks.
+
+Krista
+
+From ron Fri May 23 14:47:13 1997
+Subject: Re: Bitfile reports
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Fri, 23 May 1997 14:47:13 -0600 (MDT)
+In-Reply-To: <199705232037.OAA01526@lhotse.atd.ucar.edu> from "Krista Laursen" at May 23, 97 02:37:23 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1053      
+Status: RO
+
+Krista,
+
+The raw ADS tape to MSS bitfile summary can be found as the file:
+     /home/local/proj/891/Production/archive/tapes.891
+Another raw ADS tape report (not useful to users) can be found in the file:
+     /home/local/proj/891/Production/tp2ms.summary
+
+I'm not exactly sure what you want in a 2D bitfile report.  I can give
+you a MSS listing showing the bitfile path name and bitfile sizes.
+Is there an example file somewhere that you would like me to mimic?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Fri May 23 14:50 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA20712; Fri, 23 May 1997 14:50:13 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01554; Fri, 23 May 1997 14:50:08 -0600
+Date: Fri, 23 May 1997 14:50:08 -0600
+Message-Id: <199705232050.OAA01554@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: Bitfile reports
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 491
+Status: RO
+
+Yep, I need something with the path name and file sizes.
+
+You can use the SCMS 2D log as an example.
+
+Krista
+
+From ron Fri May 23 14:57:16 1997
+Subject: Re: PMS-2D bitfile log
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Fri, 23 May 1997 14:57:16 -0600 (MDT)
+In-Reply-To: <199705232050.OAA01554@lhotse.atd.ucar.edu> from "Krista Laursen" at May 23, 97 02:50:08 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 274       
+Status: RO
+
+Thou spake thusly:
+> 
+> You can use the SCMS 2D log as an example.
+> 
+Krista,
+
+I'll use that as a template.  Thanks
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Fri May 23 14:59 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA20812; Fri, 23 May 1997 14:59:02 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01558; Fri, 23 May 1997 14:58:58 -0600
+Date: Fri, 23 May 1997 14:58:58 -0600
+Message-Id: <199705232058.OAA01558@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: PMS-2D bitfile log
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 306
+Status: RO
+
+No problem.  And thanks for letting me know where the other
+log is....it'll work fine.
+
+Krista
+
+From ron Fri May 23 15:26:06 1997
+Subject: log files
+To: krista (Krista Laursen)
+Date: Fri, 23 May 1997 15:26:06 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 436       
+Status: RO
+
+Krista,
+
+I have created two log files that, I hope will satisfy your needs.
+     /home/local/proj/891/Production/taplog.ads.891
+     /home/local/proj/891/Production/taplog.pms2d.891
+
+I'm off the rest of today, so if you need more from me, I'll be at
+FL-1 on Tuesday (ext 8815).
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Fri May 23 15:29 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA21168; Fri, 23 May 1997 15:29:30 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA01579; Fri, 23 May 1997 15:29:27 -0600
+Date: Fri, 23 May 1997 15:29:27 -0600
+Message-Id: <199705232129.PAA01579@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: log files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 515
+Status: RO
+
+Bueno....thanks, Ron.
+
+Have a nice three-day weekend!
+
+Krista
+
+From krista@raf.atd.ucar.EDU Wed May 28 12:01 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA05631; Wed, 28 May 1997 12:01:52 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA00611; Wed, 28 May 1997 12:01:45 -0600
+Date: Wed, 28 May 1997 12:01:45 -0600
+Message-Id: <199705281801.MAA00611@lhotse.atd.ucar.edu>
+To: jacques.testud@cetp.ipsl.fr, roger@cisk.atmos.ucla.edu,
+        peter@stout.atd.ucar.EDU, dcarlson@stout.atd.ucar.EDU,
+        alain.joly@meteo.fr, wlee@stout.atd.ucar.EDU
+Subject: FASTEX Electra Data Update
+Cc: herzegh, dick, greg, ron, krista
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1830
+Status: RO
+
+All,
+
+The purpose of this email message is to give you a brief update 
+regarding the status of the in situ and microphysical data collected
+on the NCAR/NSF Electra during FASTEX.  Please note that the discussion
+below focusses only on these data and does not include discussion of
+the status of the FASTEX ELDORA data.
+
+Processing of the data obtained on the Electra during the seven research
+flights flown is almost complete.  All that remains is to "polish up"
+and complete processing of some of the dewpoint and ozone data before
+the final netCDF files can be officially released to the Mass Storage
+System (MSS) here at NCAR.  The data documentation notebooks to accompany
+these files will, after the addition of approximately two more documents,
+also be ready for distribution.
+
+In terms of scheduling, I will be out of the office on personal travel
+from 29 May to 8 June 1997.  I will be back in the office on Monday,
+9 June, and I anticipate that the FASTEX data processing and notebook
+preparation will be completed within approximately two weeks of my return.
+I will notify you all again by email when the data files are ready and
+archived on the MSS.
+
+Should any of you have any questions, please do not hesitate to contact
+me, either via email or by phone at 303-497-1031.
+
+Best regards,
+
+Krista
+
+*************************************************************
+Krista Laursen            Project Manager/Associate Scientist
+
+Address: NCAR/RAF                 Phone: (303)497-1031
+         P.O. Box 3000            Fax:   (303)497-1092
+         Boulder, CO 80307-3000   Email: krista@ncar.ucar.edu
+
+"Two roads diverged in a wood, and I--I took the one less
+traveled by, and that has made all the difference."
+         From "The Road Not Taken" by Robert Frost
+************************************************************* 
+
+From ron Wed May 28 12:19:06 1997
+Subject: Re: FASTEX Electra Data Update
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Wed, 28 May 1997 12:19:06 -0600 (MDT)
+In-Reply-To: <199705281801.MAA00611@lhotse.atd.ucar.edu> from "Krista Laursen" at May 28, 97 12:01:45 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 708       
+Status: RO
+
+Krista,
+
+Just thought I'd let you know that I'll also be on personal travel between
+9 and 20 June, so I will probably be archiving the FASTEX data to the MSS
+during the week of 23 June.  If that timetable doesn't suit you, I can show
+you how to archive the files yourself and create a preliminary (but usable)
+MSS bitfile log for the netCDF data.  In any case I'll archive the support
+files after I come back.  (Please make sure that Chris doesn't release a
+new version of the NIMBUS software, since I want to archive the version you
+used, as well.)
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Wed May 28 13:23 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA06190; Wed, 28 May 1997 13:23:15 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA00617; Wed, 28 May 1997 13:23:10 -0600
+Date: Wed, 28 May 1997 13:23:10 -0600
+Message-Id: <199705281923.NAA00617@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: FASTEX Electra Data Update
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1152
+Status: RO
+
+If you can fill me in via email how to archive the files to
+the MSS, that would be best.  I might try to get them archived
+while you're gone, but I'm not going to have time to touch bases
+with you on the archival process today before I leave.  I will
+be checking my email periodically while I'm gone next week, so
+you can just fill me in via email.  Otherwise, I guess we'll
+have to wait until the week of 23 June.
+
+Krista
+
+> 
+> Just thought I'd let you know that I'll also be on personal travel between
+> 9 and 20 June, so I will probably be archiving the FASTEX data to the MSS
+> during the week of 23 June.  If that timetable doesn't suit you, I can show
+> you how to archive the files yourself and create a preliminary (but usable)
+> MSS bitfile log for the netCDF data.  In any case I'll archive the support
+> files after I come back.  (Please make sure that Chris doesn't release a
+> new version of the NIMBUS software, since I want to archive the version you
+> used, as well.)
+> 
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+> 
+
+From ron Wed May 28 17:00:39 1997
+Subject: FASTEX archive
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Wed, 28 May 1997 17:00:39 -0600 (MDT)
+In-Reply-To: <199705281923.NAA00617@lhotse.atd.ucar.edu> from "Krista Laursen" at May 28, 97 01:23:10 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3306      
+Status: RO
+
+Krista,
+
+Here is the info to make an MSS Bitfile Log and for archiving production
+netCDF files to the MSS.  If you wish, you may wait until my return, and
+I'll do the work.  I provide this only in case you are in a time bind and
+want to get things done pronto.  For these procedures to work, you must
+have all the production netCDF files in the `productiondata' directory,
+and they also must use the standard naming convention (i.e., the names
+that NIMBUS gives them when running in production mode).
+
+
+M A K E   P R O D U C T I O N   M A S S   S T O R E   B I T F I L E   L O G
+- - - -   - - - - - - - - - -   - - - -   - - - - -   - - - - - - -   - - -
+
+Log in as `nimbus.'
+Change to the FASTEX Production directory:
+     hl proj/891/Production
+Enter the following command:
+     gentl 891
+  (Using the FASTEX output data files in the `productiondata' directory,
+  assuming that they have standard names, this script will produce a bitfile
+  log named `taplog.891,' in your current directory.  If any flights have
+  segments, it will list them after the others.  If both high- and low-rate
+  data files exist, it will have two separate sections.
+If necessary, edit the resulting `taplog.891' file to put the entries in
+flight numerical order.
+
+
+A R C H I V E   P R O D U C T I O N   n e t C D F   D A T A
+- - - - - - -   - - - - - - - - - -   - - - - - -   - - - -
+
+Log in as `nimbus.'
+Change to the FASTEX Production directory.
+     hl proj/891/Production
+Enter the following command:
+     genar 891
+  (Using the FASTEX output data files in the `productiondata' directory,
+  assuming that they have standard names, this script will produce C-shell
+  script in your current directory, named `arch.891,' having MIGS Mass Store
+  copy commands.  It will have its execute permissions set.)
+Run the script `arch.891,' and it will echo to your screen a series of
+  "nrnet" commands to archive all the production netCDF files found.  If
+  everything looks OK (i.e., the path and bitfile names are as they should
+  be), edit the `arch.891' file to remove the leading "echo" words at the
+  beginning of each affected line.  (If editing with `vi' you can use the
+  following command:
+     :%s/^echo //
+Save and exit.
+Logout as the `nimbus' login.
+Login as yourself!  (IMPORTANT)
+Using X windows, change to the FASTEX Production directory and run the
+  `arch.891' script again.  It will echo to your screen the date and time
+  followed by a series of Sequence numbers.  Please capture those lines
+  with your mouse/track ball.
+Again edit the `arch.891' script and insert the previously-captured lines as
+  new lines of text at the end of the file.  (It has group write permission,
+  so you should have no problem editing it.)  Save and exit.
+Each sequence number corresponds to a MIGS job that will archive one netCDF
+  file.  For each of these you will get an email message from MIGS telling
+  you whether or not the MSS archive job was successful.  Please SAVE or
+  forward to me every one of these messages.
+(The reason you submit this script under your own login and not `nimbus' is
+  that `nimbus' has no separate MIGS account.)
+
+Have a nice vacation.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Wed Jun 18 11:53 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA20382; Wed, 18 Jun 1997 11:53:03 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA00829; Wed, 18 Jun 1997 11:53:00 -0600
+Date: Wed, 18 Jun 1997 11:53:00 -0600
+Message-Id: <199706181753.LAA00829@lhotse.atd.ucar.edu>
+To: jacques.testud@cetp.ipsl.fr, roger@cisk.atmos.ucla.edu,
+        peter@stout.atd.ucar.EDU, alain.joly@meteo.fr,
+        genevieve.jaubert@meteo.fr, wlee@stout.atd.ucar.EDU,
+        dcarlson@stout.atd.ucar.EDU, karyn@ncar.ucar.edu,
+        bb@stout.atd.ucar.EDU
+Subject: FASTEX Electra In Situ Data
+Cc: raf_staff, krista
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 2987
+Status: RO
+
+All --
+
+Processing of the FASTEX Electra in situ data is complete, and the
+final low-rate data files (in netCDF format) have been released and
+archived to the NCAR Mass Store System (MSS).  Please note that this
+release and archival pertains only to the Electra in situ data.
+Questions regarding the availability of ELDORA data collected on the
+Electra during FASTEX should be addressed to Wen-Chau Lee (303-497-8814
+or wenchau@ncar.ucar.edu), the ELDORA project manager.
+
+Preparation of the FASTEX Electra data documentation notebooks has
+also been completed, and within the next few days, these notebooks
+and certain supplemental materials will be sent out.  Distribution
+of these notebooks and, in some cases, associated materials, will
+be as follows:
+
+Dr. Jacques Testud (Video tape copies to be included)
+Dr. Roger Wakimoto (Video tape copies to be included)
+Dr. Peter Hildebrand (Video tape copies to be included)
+FASTEX Central Data Archive (G. Jaubert)
+RAF Project Office
+
+Descriptions of where the low-rate data files are located on the NCAR
+MSS are included in the data documentation notebooks.  These notebooks
+also include (among other items):  a data quality report, video tape
+logs, project slides, relevant RAF bulletins, netCDF instructions, a
+netCDF format example.  Users obtaining copies of these notebooks are
+encouraged to look them over closely, as these notebooks provide a lot
+of important supplemental information which will aid in the interpretation
+and use of the Electra in situ data.
+
+Users who wish to obtain copies of the low-rate Electra netCDF files
+should direct all such requests to Ron Ruth, the RAF Data Manager (303-
+497-1084 or ruth@ncar.ucar.edu).  It should be noted that high-rate
+in situ Electra data will only be generated and distributed upon
+request.  Should you wish to obtain such high-rate data, please direct
+your request to Ron Ruth.
+
+Should you have any questions or comments about the quality of the
+in situ data, or should you discover any discrepancies in the data set
+at any time during your perusal of the data, please contact me (Krista
+Laursen) directly at 303-497-1031 or krista@ncar.ucar.edu.
+
+It has been my pleasure to work with all of you during the course of
+the FASTEX project.  I sincerely hope that the support provided to
+FASTEX by the NCAR Research Aviation Facility has been satisfactory.
+Should you have any questions or comments, please do not hesitate to
+contact me.
+
+Best regards,
+
+Krista
+
+*************************************************************
+Krista Laursen            Project Manager/Associate Scientist
+
+Address: NCAR/RAF                 Phone: (303)497-1031
+         P.O. Box 3000            Fax:   (303)497-1092
+         Boulder, CO 80307-3000   Email: krista@ncar.ucar.edu
+
+"Two roads diverged in a wood, and I--I took the one less
+traveled by, and that has made all the difference."
+         From "The Road Not Taken" by Robert Frost
+************************************************************* 
+
+From krista@raf.atd.ucar.EDU Wed Jun 18 12:56 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA01399; Wed, 18 Jun 1997 12:56:31 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA00836; Wed, 18 Jun 1997 12:55:07 -0600
+Date: Wed, 18 Jun 1997 12:55:07 -0600
+Message-Id: <199706181855.MAA00836@lhotse.atd.ucar.edu>
+To: ron
+Subject: Addendum RE FASTEX final files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 707
+Status: RO
+
+Ron,
+
+Just wanted to pass along one other piece of info regarding the
+netCDF files for FASTEX that have been archived....
+
+Before archiving them, I noticed that the permissions on some
+of the production files had changed to rw-rw-r- (i.e., both
+Nimbus and other users could read and write to the files).  I'm
+not sure why this changed for some of them, but I suspect that
+it had something to do with the fact that I had to use ncmerge
+on several of them to get the right data merged in.  At any
+rate, I changed all of the permissions to rw for nimbus only
+before sending them up to the MSS.
+
+I've also created a backup "tar" tape of all of the files, just
+in case there are any unforeseen problems.
+
+Krista
+
+From ron Wed Jun 25 14:11:57 1997
+Subject: fastex netcdf data (fwd)
+To: krista (Krista Laursen)
+Date: Wed, 25 Jun 1997 14:11:57 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1142      
+Status: RO
+
+Krista,
+
+Here is the original email that came while I was on vacation.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+> From bosart@cruise.atmos.Ucla.EDU Wed Jun 18 15:33 MDT 1997
+> Date: Wed, 18 Jun 1997 14:33:09 -0700
+> From: bosart@cruise.atmos.Ucla.EDU (Brian Bosart)
+> Message-Id: <199706182133.OAA24499@cruise.atmos.sun>
+> To: ruth@ncar.ucar.edu
+> Subject: fastex netcdf data
+> Cc: roger@cruise.atmos.Ucla.EDU
+> X-Sun-Charset: US-ASCII
+> Content-Type: text
+> Content-Length: 357
+> 
+> Mr. Ruth,
+> 
+>    We've been informed that the Electra flight level data is now
+> available in processed form.  We would like to obtain the low rate
+> cdf data.  We would also like to know what the differences between low
+> rate and high rate data are exactly.
+> 
+> Thanks for your help.  Please let us know when the data is ready
+> for "pickup".
+> 
+> 
+> Regards,
+> Brian Bosart
+> 
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Jun 26 10:14:07 1997
+Subject: FASTEX project files
+To: krista (Krista Laursen)
+Date: Thu, 26 Jun 1997 10:14:07 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 360       
+Status: RO
+
+Krista,
+
+Should I archive the files "891o3fix_1t47.nimbus" and "891o3fix_6.nimbus" 
+that are in the Project 891 directory?  If so, should they be write protected
+and should the `nimbus' login own them?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Wed Jun 25 14:12 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA27060; Wed, 25 Jun 1997 14:12:23 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01665; Wed, 25 Jun 1997 14:12:19 -0600
+Date: Wed, 25 Jun 1997 14:12:19 -0600
+Message-Id: <199706252012.OAA01665@lhotse.atd.ucar.edu>
+To: ron
+Subject: Email address
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 268
+Status: RO
+
+Ron,
+
+Genevieve Jaubert's email address is:
+
+genevieve.jaubert@meteo.fr
+
+When you email her RE the data request from OSU, you may also
+wish to inquire if she would like us to send an 8 mm tape 
+containing copies of all of the final netCDF data files.
+
+Thanks!
+
+Krista
+
+From krista@raf.atd.ucar.EDU Wed Jun 25 14:16 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA27079; Wed, 25 Jun 1997 14:16:03 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01667; Wed, 25 Jun 1997 14:15:58 -0600
+Date: Wed, 25 Jun 1997 14:15:58 -0600
+Message-Id: <199706252015.OAA01667@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: fastex netcdf data (fwd)
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1306
+Status: RO
+
+Oh yeah, a request from UCLA....this makes sense now!  Brian
+B. is Roger's student.
+
+Krista
+
+From krista@raf.atd.ucar.EDU Thu Jun 26 10:15 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA03369; Thu, 26 Jun 1997 10:15:37 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA01741; Thu, 26 Jun 1997 10:15:33 -0600
+Date: Thu, 26 Jun 1997 10:15:33 -0600
+Message-Id: <199706261615.KAA01741@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: FASTEX project files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 600
+Status: RO
+
+No, don't worry about archiving those.  They are setup files
+I used to correct the TEO3 cal. coefficients.  I've made the
+necessary changes to the Flight_X files to do the processing
+correctly in the future.
+
+Krista
+
+From ron Thu Jun 26 10:42:32 1997
+Subject: DPXC for FASTEX RF07
+To: krista@raf.atd.ucar.EDU (Krista Laursen), dick (Dick Friesen)
+Date: Thu, 26 Jun 1997 10:42:32 -0600 (MDT)
+In-Reply-To: <199706261615.KAA01741@lhotse.atd.ucar.edu> from "Krista Laursen" at Jun 26, 97 10:15:33 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 908       
+Status: RO
+
+Krista and Dick,
+
+Your comments in README.processing about RF07 and the filtered DPTC --> DPXC
+worry me a bit.  DPTC = DPXC (uncorrected) was used as the NIMBUS processing
+reference for EDPC, and EDPC was subsequently used as a dependency for
+calculating MR, RHODT, RHUM, THETAE and THETAV.  Since the netCDF file is
+supposed to be self-documenting, there is now a discrepancy that can only
+be explained by a second, external, reference file.  I think it would have
+been better to create a new, once-only variable name (e.g., DPTCF with
+an appropriate VarDB long_name) and add it to this data set.  It would be
+much less confusing for future users of the data when the extra reference
+file does not accompany it.
+
+Is it too late to make this change?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From rilling@stout.atd.ucar.edu Thu Jun 26 11:06 MDT 1997
+Return-Path: <rilling@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA04144; Thu, 26 Jun 1997 11:06:45 -0600
+Received: from malt.atd.ucar.edu.atd.ucar.EDU by atd.atd.ucar.EDU (8.7.6/ NCAR Mail Server 04/10/90)
+	id LAA00949; Thu, 26 Jun 1997 11:06:43 -0600 (MDT)
+Received: by malt.atd.ucar.edu (8.7.6/ NCAR Mail Client 04/19/90)
+	id LAA00537; Thu, 26 Jun 1997 11:06:41 -0600 (MDT)
+From: rilling@stout.atd.ucar.edu (Bob Rilling)
+Message-Id: <199706261706.LAA00537@malt.atd.ucar.edu>
+Subject: Re: netCDF Data Copy Request
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Date: Thu, 26 Jun 1997 11:06:40 -0600 (MDT)
+Cc: rilling@stout.atd.ucar.edu (Bob Rilling)
+In-Reply-To: <199706251704.LAA23818@raf.atd.ucar.EDU> from "Ron Ruth" at Jun 25, 97 11:04:08 am
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 438
+Status: RO
+
+Ron,
+
+The FASTEX request for Bosart at UCLA: does this represent the
+quality-checked aircraft flight-level data?  I'm particularly
+interested in whether this is the "best available" info on aircraft
+position.
+
+Thanks.
+
+-- 
+Bob Rilling	Voice: 303-497-8842	rilling@ucar.edu
+		Fax:   303-497-2044	http://www.atd.ucar.edu/homes/rilling
+
+Atmospheric Technology Division		http://www.atd.ucar.edu
+NCAR 
+P.O.Box 3000
+Boulder, Co. 80307-3000	    
+
+From ron Thu Jun 26 11:25:46 1997
+Subject: Re: netCDF Data Copy Request
+To: rilling@stout.atd.ucar.edu (Bob Rilling)
+Date: Thu, 26 Jun 1997 11:25:46 -0600 (MDT)
+In-Reply-To: <199706261706.LAA00537@malt.atd.ucar.edu> from "Bob Rilling" at Jun 26, 97 11:06:40 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 504       
+Status: RO
+
+Bob,
+
+The answer is "yes."  It is RAF's final production low-rate data set
+for FASTEX.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Jun 26 12:23:47 1997
+Subject: FASTEX flight-level data from the NCAR Electra
+To: genevieve.jaubert@meteo.fr
+Date: Thu, 26 Jun 1997 12:23:47 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2382      
+Status: RO
+
+Genevieve,
+
+RAF has finished its low-rate, production processing for the Electra, in-situ,
+flight-level data for the FASTEX project.  These have been archived as netCDF
+files here at NCAR on the SCD Mass Store System.  A log of this information
+follows my message.  (Information regarding RAF can be found on the World
+Wide Web at the URL http://raf.atd.ucar.edu.  Information on RAF's data 
+can be found at the URL http://raf.atd.ucar.edu/Bulletins/bulletin9.html.
+
+Would you like a copy of all these data sent to you on an 8mm (ExaByte) tape
+in tar format?  (Would you like to get it in some other way?)
+
+Also I received a request for these data.  Does you group plan to distribute
+all the FASTEX data from one central location?  Should I pass all data
+requests to you, or should I take care of the Electra data requests I get?
+
+In short, I do not know what policies are in place regarding the distribution
+of FASTEX data.
+
+Thanks for a prompt reply!
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                    PRODUCTION MASS STORE BITFILE LOG
+
+     Project no.:  1997-891    Project name:  FASTEX
+        Aircraft:  N308D       Scientist(s):  Dr. Jacques Testud, et al.
+       Data type:  LRT        Programmer(s):  Chris Webster
+  Processor used:  NIMBUS    Project Mgr(s):  Krista Laursen, Dick Friesen
+   Output format:  netCDF  Production Proc.:  Krista Laursen
+
+          MSS path name: /RAF/1997/891/LRT/fltno.cdf
+
+-------------------------------------------------------------------------------
+                                          netCDF     
+          Date        Start     End      File Size   
+ fltno  mm/dd/yyyy    Time      Time      (bytes)    
+-------------------------------------------------------------------------------
+ RF01   01/10/1997  01:54:10  08:00:07    29380848
+ RF02   01/12/1997  12:47:00  19:41:51    33300672
+ RF03   01/22/1997  08:50:19  15:44:00    33207152
+ RF04   01/25/1997  23:29:44  05:30:05    28758452
+ RF05   02/02/1997  19:19:20  02:19:56    32749648
+ RF06   02/04/1997  05:26:57  13:06:52    36913216
+ RF07   02/05/1997  18:16:19  01:38:34    35497056
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From genevieve.jaubert@meteo.fr Fri Jun 27 00:55 MDT 1997
+Return-Path: <genevieve.jaubert@meteo.fr>
+Received: from ncar.UCAR.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id AAA08429; Fri, 27 Jun 1997 00:55:06 -0600
+Received: from cti825.cnrm.meteo.fr by ncar.ucar.EDU (NCAR 12/5/96/ NCAR Central Post Office 03/11/93)
+	id AAA04655; Fri, 27 Jun 1997 00:55:04 -0600 (MDT)
+Received: from recyf1.cnrm.meteo.fr by cti825.cnrm.meteo.fr with SMTP id AA19359
+  (5.65c8/IDA-1.4.4 for <ron@raf.atd.ucar.EDU>); Fri, 27 Jun 1997 08:48:32 +0200
+Received: by recyf1.cnrm.meteo.fr id AA00767
+  (5.65c8/IDA-1.4.4); Fri, 27 Jun 1997 08:54:42 +0200
+From: Genevieve JAUBERT <Genevieve.JAUBERT@meteo.fr>
+Message-Id: <199706270654.AA00767@recyf1.cnrm.meteo.fr>
+Subject: Re: FASTEX flight-level data from the NCAR Electra
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Date: Fri, 27 Jun 1997 8:54:42 METDST
+Cc: Genevieve.JAUBERT@meteo.fr
+In-Reply-To: <199706261823.MAA01815@music.atd.ucar.edu>; from "Ron Ruth" at Jun 26, 97 12:23 (noon)
+X-Mailer: Elm [revision: 212.2]
+Content-Type: text
+Content-Length: 1659
+Status: RO
+
+Ron,
+
+  Thanks for the information concerning the Electra, in-situ, flight-level 
+data for the FASTEX project.
+
+  I will update the Electra WEB pages with these informations.
+
+  A copy of all these data on an 8mm tape is fine for me.
+
+  Both the NCAR/RAF and the FASTEX Central Archive distribute these data.
+
+  The FASTEX Central Archive send the data to anyone who is registrated
+as a FASTEX Archive user, and accept to apply the Data policy.
+Each set of data have a specific data use.
+  For the FASTEX specific instruments (aircraft, ship) the following
+data use is applied:
+----------------
+According to the FASTEX data policy, the use of these data is unrestricted for
+research and educational purposes.
+
+Proper acknowledgements should be given in publications that utilize this data
+to specific scientists and institutions that made the collection of data
+possible.
+
+Where appropriate, all authors considering publication of FASTEX related
+research results should offer co-authorship to investigators who had a primary
+role in the collection of data utilized in the study.
+--------------------
+  So, PI's, data providers and fundings have to be mentionned for each
+sending of the data.
+
+  It is possible to add something to the general data use, for each instrument.
+Let me know if you want this for the Electra data.
+
+
+        Genevieve JAUBERT                Tel: (33) 561 07 93 23
+           Meteo-France                  Fax: (33) 561 07 96 26
+CNRM/Groupe Meteorologique de Moyenne Echelle
+        42, av. Coriolis
+      31057 TOULOUSE Cedex             Email:Genevieve.Jaubert@meteo.fr
+             FRANCE      
+                                   
+
+From ron Fri Jun 27 11:30:13 1997
+Subject: Re: FASTEX flight-level data from the NCAR Electra (fwd)
+To: krista (Krista Laursen), dick (Dick Friesen)
+Date: Fri, 27 Jun 1997 11:30:13 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3101      
+Status: RO
+
+Dick & Krista,
+
+Following is the reply from Genevieve regarding my query to her yesterday.
+We both will be distributing the Electra data.  She brought up the point of us
+advising users to acknowledge data and funding sources and offer co-authorship
+to participants.  I'm not sure how to add that to data we send out.   RAF or
+RDP could include a cover letter or a small "README" file to include with the
+data.  What do you suggest, and who should write this message?  I have not
+reviewed (nor know where to find) the entire FASTEX data policy.  I didn't
+see any reference to policy statements on the Meteo-France FASTEX home page.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+> From genevieve.jaubert@meteo.fr Fri Jun 27 00:55 MDT 1997
+> From: Genevieve JAUBERT <Genevieve.JAUBERT@meteo.fr>
+> Message-Id: <199706270654.AA00767@recyf1.cnrm.meteo.fr>
+> Subject: Re: FASTEX flight-level data from the NCAR Electra
+> To: ron@raf.atd.ucar.edu (Ron Ruth)
+> Date: Fri, 27 Jun 1997 8:54:42 METDST
+> Cc: Genevieve.JAUBERT@meteo.fr
+> In-Reply-To: <199706261823.MAA01815@music.atd.ucar.edu>; from "Ron Ruth" at Jun 26, 97 12:23 (noon)
+> X-Mailer: Elm [revision: 212.2]
+> Content-Type: text
+> Content-Length: 1659
+> 
+> Ron,
+> 
+>   Thanks for the information concerning the Electra, in-situ, flight-level 
+> data for the FASTEX project.
+> 
+>   I will update the Electra WEB pages with these informations.
+> 
+>   A copy of all these data on an 8mm tape is fine for me.
+> 
+>   Both the NCAR/RAF and the FASTEX Central Archive distribute these data.
+> 
+>   The FASTEX Central Archive send the data to anyone who is registrated
+> as a FASTEX Archive user, and accept to apply the Data policy.
+> Each set of data have a specific data use.
+>   For the FASTEX specific instruments (aircraft, ship) the following
+> data use is applied:
+> ----------------
+> According to the FASTEX data policy, the use of these data is unrestricted for
+> research and educational purposes.
+> 
+> Proper acknowledgements should be given in publications that utilize this data
+> to specific scientists and institutions that made the collection of data
+> possible.
+> 
+> Where appropriate, all authors considering publication of FASTEX related
+> research results should offer co-authorship to investigators who had a primary
+> role in the collection of data utilized in the study.
+> --------------------
+>   So, PI's, data providers and fundings have to be mentionned for each
+> sending of the data.
+> 
+>   It is possible to add something to the general data use, for each instrument.
+> Let me know if you want this for the Electra data.
+> 
+> 
+>         Genevieve JAUBERT                Tel: (33) 561 07 93 23
+>            Meteo-France                  Fax: (33) 561 07 96 26
+> CNRM/Groupe Meteorologique de Moyenne Echelle
+>         42, av. Coriolis
+>       31057 TOULOUSE Cedex             Email:Genevieve.Jaubert@meteo.fr
+>              FRANCE      
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Fri Jun 27 13:52 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA16601; Fri, 27 Jun 1997 13:52:48 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA01823; Fri, 27 Jun 1997 13:52:44 -0600
+Date: Fri, 27 Jun 1997 13:52:44 -0600
+Message-Id: <199706271952.NAA01823@lhotse.atd.ucar.edu>
+To: dick, ron@raf.atd.ucar.EDU
+Subject: Re: FASTEX flight-level data from the NCAR Electra (fwd)
+Cc: herzegh, krista
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 3882
+Status: RO
+
+I guess my own feeling on this is that a short cover letter
+could simply be sent out with the data containing the pertinent
+information.  As for who should write it, it seems to me that
+you, as the RAF data manager, could be responsible for this.
+
+Paul and Dick -- any other thoughts?
+
+Krista
+
+> From ron@raf.atd.ucar.EDU Fri Jun 27 11:30 MDT 1997
+> From: ron@raf.atd.ucar.EDU (Ron Ruth)
+> Subject: Re: FASTEX flight-level data from the NCAR Electra (fwd)
+> To: krista (Krista Laursen), dick (Dick Friesen)
+> Date: Fri, 27 Jun 1997 11:30:14 -0600 (MDT)
+> X-Mailer: ELM [version 2.4 PL23]
+> MIME-Version: 1.0
+> Content-Transfer-Encoding: 7bit
+> 
+> Dick & Krista,
+> 
+> Following is the reply from Genevieve regarding my query to her yesterday.
+> We both will be distributing the Electra data.  She brought up the point of us
+> advising users to acknowledge data and funding sources and offer co-authorship
+> to participants.  I'm not sure how to add that to data we send out.   RAF or
+> RDP could include a cover letter or a small "README" file to include with the
+> data.  What do you suggest, and who should write this message?  I have not
+> reviewed (nor know where to find) the entire FASTEX data policy.  I didn't
+> see any reference to policy statements on the Meteo-France FASTEX home page.
+> -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+> > From genevieve.jaubert@meteo.fr Fri Jun 27 00:55 MDT 1997
+> > From: Genevieve JAUBERT <Genevieve.JAUBERT@meteo.fr>
+> > Message-Id: <199706270654.AA00767@recyf1.cnrm.meteo.fr>
+> > Subject: Re: FASTEX flight-level data from the NCAR Electra
+> > To: ron@raf.atd.ucar.edu (Ron Ruth)
+> > Date: Fri, 27 Jun 1997 8:54:42 METDST
+> > Cc: Genevieve.JAUBERT@meteo.fr
+> > In-Reply-To: <199706261823.MAA01815@music.atd.ucar.edu>; from "Ron Ruth" at Jun 26, 97 12:23 (noon)
+> > X-Mailer: Elm [revision: 212.2]
+> > Content-Type: text
+> > Content-Length: 1659
+> > 
+> > Ron,
+> > 
+> >   Thanks for the information concerning the Electra, in-situ, flight-level 
+> > data for the FASTEX project.
+> > 
+> >   I will update the Electra WEB pages with these informations.
+> > 
+> >   A copy of all these data on an 8mm tape is fine for me.
+> > 
+> >   Both the NCAR/RAF and the FASTEX Central Archive distribute these data.
+> > 
+> >   The FASTEX Central Archive send the data to anyone who is registrated
+> > as a FASTEX Archive user, and accept to apply the Data policy.
+> > Each set of data have a specific data use.
+> >   For the FASTEX specific instruments (aircraft, ship) the following
+> > data use is applied:
+> > ----------------
+> > According to the FASTEX data policy, the use of these data is unrestricted for
+> > research and educational purposes.
+> > 
+> > Proper acknowledgements should be given in publications that utilize this data
+> > to specific scientists and institutions that made the collection of data
+> > possible.
+> > 
+> > Where appropriate, all authors considering publication of FASTEX related
+> > research results should offer co-authorship to investigators who had a primary
+> > role in the collection of data utilized in the study.
+> > --------------------
+> >   So, PI's, data providers and fundings have to be mentionned for each
+> > sending of the data.
+> > 
+> >   It is possible to add something to the general data use, for each instrument.
+> > Let me know if you want this for the Electra data.
+> > 
+> > 
+> >         Genevieve JAUBERT                Tel: (33) 561 07 93 23
+> >            Meteo-France                  Fax: (33) 561 07 96 26
+> > CNRM/Groupe Meteorologique de Moyenne Echelle
+> >         42, av. Coriolis
+> >       31057 TOULOUSE Cedex             Email:Genevieve.Jaubert@meteo.fr
+> >              FRANCE      
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+> 
+
+From ron Fri Jun 27 14:14:17 1997
+Subject: Re: FASTEX flight-level data from the NCAR Electra (fwd)
+To: krista@raf.atd.ucar.EDU (Krista Laursen)
+Date: Fri, 27 Jun 1997 14:14:17 -0600 (MDT)
+In-Reply-To: <199706271952.NAA01823@lhotse.atd.ucar.edu> from "Krista Laursen" at Jun 27, 97 01:52:44 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 676       
+Status: RO
+
+Krista,
+
+I will write this letter, but I need the following information from you,
+as FASTEX project manager, to comply with Genevieve's enumeration of the
+FASTEX Data Policy:
+ - Names, addresses (USPS and email) and phone numbers of institutions that
+    made collection of RAF's data possible (i.e., funding agencies like NSF,
+    others??);
+ - Names, addresses (USPS and email) and phone numbers of investigators who
+    had a primary role in the collection of the Electra data (i.e., all
+    Electra PIs).
+
+Thanks.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From krista@raf.atd.ucar.EDU Fri Jun 27 14:22 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA18156; Fri, 27 Jun 1997 14:22:21 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01830; Fri, 27 Jun 1997 14:22:17 -0600
+Date: Fri, 27 Jun 1997 14:22:17 -0600
+Message-Id: <199706272022.OAA01830@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: DPXC for FASTEX RF07
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1634
+Status: RO
+
+Dick and I just spoke about this (and I guess he already touched
+bases with you, too).  Neither one of us believes that our
+processing approach needs to be re-done, for two main reasons.
+First, I have documented in the QC report that went out to the
+PIs exactly how the dewpoint data were processed for RF07 and
+to alert them to the fact that they want to use DPXC.  Second,
+I, and I believe Dick, believe it would be more confusing to
+add yet another dewpoint variable name to the file for RF07.
+As I said, we have clearly explained to the users what we have
+done, so they shouldn't be confused about which variable to use.
+
+Thanks for your concern, however, on this matter.
+
+Krista
+
+From krista@raf.atd.ucar.EDU Fri Jun 27 14:26 MDT 1997
+From: krista@raf.atd.ucar.EDU (Krista Laursen)
+Return-Path: <krista@raf.atd.ucar.EDU>
+Received: from lhotse.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA18486; Fri, 27 Jun 1997 14:26:06 -0600
+Received: by lhotse.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA01832; Fri, 27 Jun 1997 14:26:01 -0600
+Date: Fri, 27 Jun 1997 14:26:01 -0600
+Message-Id: <199706272026.OAA01832@lhotse.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: FASTEX flight-level data from the NCAR Electra (fwd)
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1287
+Status: RO
+
+> 
+> I will write this letter, but I need the following information from you,
+> as FASTEX project manager, to comply with Genevieve's enumeration of the
+> FASTEX Data Policy:
+>  - Names, addresses (USPS and email) and phone numbers of institutions that
+>     made collection of RAF's data possible (i.e., funding agencies like NSF,
+>     others??);
+
+Roger was funded by NSF via the deployment pool for his hours, but you'll
+have to contact him directly to find out if any additional NSF grant
+numbers applied toward him going into the field for FASTEX.  I outline
+below where you can find his contact info.  The bulk of the hours were
+paid for by the French.  I may have this info in a copy of the FASTEX
+MOA.  If so, I'll put it in your box.  Otherwise, Joanne may be able
+to track down the exact French contract numbers for you.
+
+>  - Names, addresses (USPS and email) and phone numbers of investigators who
+>     had a primary role in the collection of the Electra data (i.e., all
+>     Electra PIs).
+
+The three Electra PIs were Jacques Testud, Roger Wakimoto, and Peter
+Hildebrand.  Names, addresses, etc. can be found in the cover letter
+sent out in the data documentation notebooks to each of them.  You
+can find this info in the RAF copy of the FASTEX notebook in Linda's
+office.
+
+From ron Wed Jul  9 16:30:19 1997
+Subject: Re: FASTEX Data Policy
+To: Genevieve.JAUBERT@meteo.fr (Genevieve JAUBERT)
+Date: Wed, 9 Jul 1997 16:30:19 -0600 (MDT)
+In-Reply-To: <199706270654.AA00767@recyf1.cnrm.meteo.fr> from "Genevieve JAUBERT" at Jun 27, 97 08:54:42 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2212      
+Status: RO
+
+Thou spake thusly:
+> 
+>   The FASTEX Central Archive send the data to anyone who is registrated
+> as a FASTEX Archive user, and accept to apply the Data policy.
+> Each set of data have a specific data use.
+>   For the FASTEX specific instruments (aircraft, ship) the following
+> data use is applied:
+> ----------------
+> According to the FASTEX data policy, the use of these data is unrestricted
+> for research and educational purposes.
+> 
+> Proper acknowledgements should be given in publications that utilize this
+> data to specific scientists and institutions that made the collection of
+> data possible.
+> 
+> Where appropriate, all authors considering publication of FASTEX related
+> research results should offer co-authorship to investigators who had a
+> primary role in the collection of data utilized in the study.
+> --------------------
+>   So, PI's, data providers and fundings have to be mentionned for each
+> sending of the data.
+> 
+>   It is possible to add something to the general data use, for each
+> instrument.  Let me know if you want this for the Electra data.
+> 
+Genevieve,
+
+In your previous email message (See above.), you summarized some points
+from the FASTEX Data Policy.  Would you please send me a complete copy of it
+(preferably in English) or give me a URL (web site address) that would have
+it?
+
+If you were asking me whether we should apply the policy points you listed
+above to the Electra data, I answer "yes" with one exception:  I don't think
+that investigators need to offer co-authorship to primary investigators (PIs),
+especially if the PIs did not participate in their research.  I would hope
+that they would acknowledge and offer appreciation to the PIs for collecting
+the data.
+
+If you were asking me whether to add a further restriction to the Electra
+data, in general, or for special instruments on the aircraft, I answer "no."
+
+Thanks very much.
+
+If you have not already received the 8mm ExaByte tape of the Electra data,
+you should receive it very soon.  We shipped it from Boulder, Colorado
+on 30 June 1997.
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From genevieve.jaubert@meteo.fr Thu Jul 10 02:21 MDT 1997
+Return-Path: <genevieve.jaubert@meteo.fr>
+Received: from ncar.UCAR.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id CAA17806; Thu, 10 Jul 1997 02:21:40 -0600
+Received: from cti825.cnrm.meteo.fr by ncar.ucar.EDU (NCAR 12/5/96/ NCAR Central Post Office 03/11/93)
+	id CAA06683; Thu, 10 Jul 1997 02:21:36 -0600 (MDT)
+Received: from recyf1.cnrm.meteo.fr by cti825.cnrm.meteo.fr with SMTP id AA12267
+  (5.65c8/IDA-1.4.4 for <ron@raf.atd.ucar.EDU>); Thu, 10 Jul 1997 10:14:44 +0200
+Received: by recyf1.cnrm.meteo.fr id AA09370
+  (5.65c8/IDA-1.4.4); Thu, 10 Jul 1997 10:21:16 +0200
+From: Genevieve JAUBERT <Genevieve.JAUBERT@meteo.fr>
+Message-Id: <199707100821.AA09370@recyf1.cnrm.meteo.fr>
+Subject: Re: FASTEX Data Policy
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Date: Thu, 10 Jul 1997 10:21:16 METDST
+Cc: Genevieve.JAUBERT@meteo.fr
+In-Reply-To: <199707092230.QAA01450@music.atd.ucar.edu>; from "Ron Ruth" at Jul 9, 97 4:30 pm
+X-Mailer: Elm [revision: 212.2]
+Content-Type: text
+Content-Length: 1599
+Status: RO
+
+Ron,
+> 
+> In your previous email message (See above.), you summarized some points
+> from the FASTEX Data Policy.  Would you please send me a complete copy of it
+> (preferably in English) or give me a URL (web site address) that would have
+> it?
+> 
+The URL is: http://www.cnrm.meteo.fr:8000/dbfastex/data_policy.html
+It is also on page 116 of the "FASTEX Operations Plan"
+
+> If you were asking me whether we should apply the policy points you listed
+> above to the Electra data, I answer "yes" with one exception:  I don't think
+> that investigators need to offer co-authorship to primary investigators (PIs),
+> especially if the PIs did not participate in their research.  I would hope
+> that they would acknowledge and offer appreciation to the PIs for collecting
+> the data.
+
+  As it strikes me, the words 'where appropriate' answer to this case.
+Or it is a language problemn. It it the case?
+
+> 
+> If you were asking me whether to add a further restriction to the Electra
+> data, in general, or for special instruments on the aircraft, I answer "no."
+> 
+
+ In fact, I was asking you whether to add a further restriction to the Electra
+data.
+
+> 
+> If you have not already received the 8mm ExaByte tape of the Electra data,
+> you should receive it very soon.  We shipped it from Boulder, Colorado
+> on 30 June 1997.
+> 
+ I received yesterday the 8mm ExaByte tape and Tuesday , July  8 the paper 
+documentation. Thank you very much.
+ Is the paper documentation - or some parts of it- available as an
+electonic form ? (postcript file, MSWords file, ASCII file ...)
+
+Genevieve Jaubert Meteo-France/CNRM
+
+From ron Thu Jul 10 11:14:10 1997
+Subject: FASTEX Data Policy
+To: bb@stout.atd.ucar.edu (Brigitte Baeuerle)
+Date: Thu, 10 Jul 1997 11:14:10 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 431       
+Status: RO
+
+Brigitte,
+
+I just received an email reply from Genevieve in which she gave me the
+URL for the FASTEX Data Policy.  It is:
+     http://www.cnrm.meteo.fr:8000/dbfastex/data_policy.html
+
+Just thought you'd like to know in case you didn't have it.  (It is
+surprisingly short.)
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Jul 11 14:49:31 1997
+Subject: Re: fastex netcdf data
+To: bosart@cruise.atmos.Ucla.EDU (Brian Bosart)
+Date: Fri, 11 Jul 1997 14:49:31 -0600 (MDT)
+In-Reply-To: <199706251642.JAA05004@cruise.atmos.sun> from "Brian Bosart" at Jun 25, 97 09:42:18 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 536       
+Status: RO
+
+Brian,
+ 
+As a recipient of data from the FASTEX project, the FASTEX Central Archive
+data manager, Genevieve Jaubert, asked me to have you review the FASTEX
+Data Policy which can be found at the URL:
+     http://www.cnrm.meteo.fr:8000/dbfastex/data_policy.html
+
+(I assume that you have received the tape we sent you.  Have you had a
+chance to read it yet and retrieve the data?)
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Jul 11 15:12:07 1997
+Subject: FASTEX Summary Information
+To: Genevieve.JAUBERT@meteo.fr (Genevieve JAUBERT)
+Date: Fri, 11 Jul 1997 15:12:07 -0600 (MDT)
+In-Reply-To: <199707100821.AA09370@recyf1.cnrm.meteo.fr> from "Genevieve JAUBERT" at Jul 10, 97 10:21:16 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 738       
+Status: RO
+
+Thou spake thusly:
+> 
+>  Is the paper documentation - or some parts of it - available as an
+> electonic form ? (postcript file, MSWords file, ASCII file ...)
+
+Genevieve,
+
+Yes.  If we do not reformat any of the individual files, they will be
+a mixture of WordPerfect, FrameMaker and ASCII.  If you cannot read
+WordPerfect or FrameMaker files, we can reformat them to MSWord or
+ASCII.
+
+I can either make another 8mm ExaByte tape (tar format) with this information
+and send it to you, or I can make the files available via anonymous ftp from
+our computer here.  Which do you prefer?
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Mon Jul 14 17:05:19 1997
+Subject: FASTEX Summary Information (repeat)
+To: Genevieve.JAUBERT@meteo.fr
+Date: Mon, 14 Jul 1997 17:05:20 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1074      
+Status: RO
+
+Thou spake thusly:
+> 
+>  Is the paper documentation - or some parts of it - available as an
+> electonic form ? (postcript file, MSWords file, ASCII file ...)
+
+Genevieve,
+
+Yes.  If we do not reformat any of the individual files, they will be a
+mixture of WordPerfect, FrameMaker, PostScript and ASCII.  If you cannot
+read WordPerfect or FrameMaker files, we can reformat them to MSWord or
+ASCII.
+
+I can either make another 8mm ExaByte tape (tar format) with this information
+and send it to you, or I can make the files available via anonymous ftp from
+our computer here.  Which do you prefer?
+
+(If you already replied to this message, I apologize.  Last Friday I had a
+problem with my email, so I did not receive any messages.  Please reply
+again.  Thanks.)
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bosart@cruise.atmos.Ucla.EDU Mon Jul 14 18:20 MDT 1997
+Return-Path: <bosart@cruise.atmos.Ucla.EDU>
+Received: from cisk by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id SAA26534; Mon, 14 Jul 1997 18:20:51 -0600
+Received: from cruise.atmos.sun by cisk (SMI-8.6/SMI-SVR4)
+	id RAA07649; Mon, 14 Jul 1997 17:20:50 -0700
+Received: by cruise.atmos.sun (SMI-8.6/SMI-SVR4)
+	id RAA19724; Mon, 14 Jul 1997 17:20:48 -0700
+Date: Mon, 14 Jul 1997 17:20:48 -0700
+From: bosart@cruise.atmos.Ucla.EDU (Brian Bosart)
+Message-Id: <199707150020.RAA19724@cruise.atmos.sun>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: fastex netcdf data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 820
+Status: RO
+
+
+> Brian,
+>  
+> As a recipient of data from the FASTEX project, the FASTEX Central Archive
+> data manager, Genevieve Jaubert, asked me to have you review the FASTEX
+> Data Policy which can be found at the URL:
+>      http://www.cnrm.meteo.fr:8000/dbfastex/data_policy.html
+> 
+> (I assume that you have received the tape we sent you.  Have you had a
+> chance to read it yet and retrieve the data?)
+> 
+> -- 
+> Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+> 
+
+Yes, I recieved the tape and was able to read and display the data.
+Thank you.  I just got back from vacation a couple of days ago so I
+actually just extracted the data last thursday.  I will read the policy on
+your web page.
+
+Thanks again,
+Brian Bosart
+
+From genevieve.jaubert@meteo.fr Wed Jul 16 02:22 MDT 1997
+Return-Path: <genevieve.jaubert@meteo.fr>
+Received: from ncar.UCAR.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id CAA08506; Wed, 16 Jul 1997 02:22:46 -0600
+Received: from cti825.cnrm.meteo.fr by ncar.ucar.EDU (NCAR 12/5/96/ NCAR Central Post Office 03/11/93)
+	id CAA20214; Wed, 16 Jul 1997 02:22:44 -0600 (MDT)
+Received: from recyf1.cnrm.meteo.fr by cti825.cnrm.meteo.fr with SMTP id AA07127
+  (5.65c8/IDA-1.4.4 for <ron@raf.atd.ucar.EDU>); Wed, 16 Jul 1997 10:15:38 +0200
+Received: by recyf1.cnrm.meteo.fr id AA17326
+  (5.65c8/IDA-1.4.4); Wed, 16 Jul 1997 10:22:21 +0200
+From: Genevieve JAUBERT <Genevieve.JAUBERT@meteo.fr>
+Message-Id: <199707160822.AA17326@recyf1.cnrm.meteo.fr>
+Subject: Re: FASTEX Summary Information 
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Date: Wed, 16 Jul 1997 10:22:21 METDST
+Cc: Genevieve.JAUBERT@meteo.fr
+In-Reply-To: <199707142305.RAA02620@music.atd.ucar.edu>; from "Ron Ruth" at Jul 14, 97 5:05 pm
+X-Mailer: Elm [revision: 212.2]
+Content-Type: text
+Content-Length: 142
+Status: RO
+
+Ron,
+
+  If you can reformat the files to MSWord, it is perfect. I can get the files
+via anonymous ftp. 
+
+Genevieve Jaubert Meteo-France/CNRM
+
+
+From ron Wed Jul 30 15:56:29 1997
+Subject: Re: FASTEX Summary Information
+To: Genevieve.JAUBERT@meteo.fr (Genevieve JAUBERT)
+Date: Wed, 30 Jul 1997 15:56:29 -0600 (MDT)
+In-Reply-To: <199707160822.AA17326@recyf1.cnrm.meteo.fr> from "Genevieve JAUBERT" at Jul 16, 97 10:22:21 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 6107      
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron,
+> 
+>   If you can reformat the files to MSWord, it is perfect. I can get the
+> files via anonymous ftp. 
+> 
+Genevieve,
+
+   I now have all the files ready for you to get via our anonymous ftp site.
+In addition to all the individual files, I made one large "tar" file of all
+the files in the directory in case you want to get them with one ftp command.
+
+    method:  anonymous ftp (please use email address as password)
+   machine:  raf.atd.ucar.edu
+      path:  pub/fastex
+     files:  README
+             fastex.tar
+             (see below for full listing)
+
+   We were able to reformat all but one of the WordPerfect files to MSWord.
+The "Research Flight Reports" file has a lot of tables that did not transfer
+well.  As a result, I will put two versions of that file on our ftp site
+for you, one as WordPerfect 6.1 and the other as an "in-progress" MSWord 7.0
+file.  You may accept it as is or try to complete the reformatting job.  (When
+converted to an ASCII file, it makes every table entry a separate line, which
+I thought was unacceptable.)
+   A README file (which I will add at the end of this message) lists all the
+files along with a brief description of them.  The first part of the README
+file lists the components of the Project Summary binder in the order they
+appear.  The second part is a standard UNIX long file list.
+
+Notes:
+------
+  1.  The ASCII files are saved in DOS format.
+  2.  The PostScript files are level 2.
+  3.  The *.doc files are in MicroSoft Word Version 7.0 format
+  4.  the *.wp6 file is in WordPerfect Version 6.1 format
+______________________________________________________________________________
+README:
+
+   Component parts of 1997-891 FASTEX Project Summary Documentation Binder
+          (Listed in the order in which they appear in the binder)
+   prepared by Ronald L. Ruth                                 30 July 1997
+_____________________________________________________________________________
+
+File             Description                                  Format
+---------------  -------------------------------------------  ---------------
+README           This file (information)                      ASCII (DOS)
+cover_le.doc     FASTEX Cover Letter                          MSWord 7.0
+data_tap.doc     FASTEX Raw Data Tape Log                     MSWord 7.0
+pro_bf_l.asc     FASTEX Production netCDF Bitfile Log         ASCII (DOS)
+pms_bf_l.asc     FASTEX Stripped PMS-2D Data MSS Bitfile Log  ASCII (DOS)
+raw_bf_l.asc     FASTEX Raw ADS Data MSS Bitfile Log          ASCII (DOS)
+rsch_flt.doc     FASTEX Research Flight Reports               MSWord 7.0
+rsch_flt.wp6     FASTEX Research Flight Reports               WordPerfect 6.1
+data_qua.doc     FASTEX Data Quality Summary (w/o figures)    MSWord 7.0
+dqsum_1a.ps      FASTEX Data Quality Summary (Figure 1a)      PostScript
+dqsum_1b.ps      FASTEX Data Quality Summary (Figure 1b)      PostScript
+dqsum_2.ps       FASTEX Data Quality Summary (Figure 2)       PostScript
+dqsum_3.ps       FASTEX Data Quality Summary (Figure 3)       PostScript
+dqsum_4.ps       FASTEX Data Quality Summary (Figure 4)       PostScript
+iru_summ.doc     FASTEX IRU Performance Summary               MSWord 7.0
+instrume.doc     FASTEX Aircraft Research Instrumentation     MSWord 7.0
+out_vars.asc     FASTEX Production Output Variable List       ASCII (DOS)
+netCDF_h.asc     FASTEX netCDF Header (RF01)                  ASCII (DOS)
+video_ta.doc     FASTEX Video Tape Log                        MSWord 7.0
+video_fm.doc     FASTEX Video Titling Format                  MSWord 7.0
+netCDF_i.asc     netCDF Information                           ASCII (DOS)
+(web URL*)       RAF Bulletin 9                               html
+(not available)  RAF Bulletin 22                              paper
+(not available)  RAF Bulletin 24                              paper
+---------------  -------------------------------------------  ---------------
+fastex.tar       tar file of all the above files              tar
+fastex.tar.dir   directory list of "fastex.tar"               ASCII (DOS)
+-----------------------------------------------------------------------------
+* URL:  http://raf.atd.ucar.edu/Bulletins/bulletin9.html
+_____________________________________________________________________________
+
+                        UNIX file information
+
+-r--r--r--   1 ron      computin    4339 Jul 30 14:19 README
+-r--r--r--   1 ron      computin   13476 Jul 30 12:21 cover_le.doc
+-r--r--r--   1 ron      computin   21504 Jul 30 12:21 data_qua.doc
+-r--r--r--   1 ron      computin   21504 Jul 30 12:21 data_tap.doc
+-r--r--r--   1 ron      computin   63455 May 21 11:01 dqsum_1a.ps
+-r--r--r--   1 ron      computin   33886 May 21 11:42 dqsum_1b.ps
+-r--r--r--   1 ron      computin  193921 May 21 10:26 dqsum_2.ps
+-r--r--r--   1 ron      computin   67775 May 21 11:57 dqsum_3.ps
+-r--r--r--   1 ron      computin   42845 May 21 13:44 dqsum_4.ps
+-r--r--r--   1 ron      computin   13312 Jul 30 12:21 instrume.doc
+-r--r--r--   1 ron      computin   12288 Jul 30 12:21 iru_summ.doc
+-r--r--r--   1 ron      computin   43829 Jul 16 10:21 netCDF_h.asc
+-r--r--r--   1 ron      computin    2421 Jul 16 10:21 netCDF_i.asc
+-r--r--r--   1 ron      computin    7968 Jul 30 12:09 out_vars.asc
+-r--r--r--   1 ron      computin    1327 Jul 16 10:21 pms_bf_l.asc
+-r--r--r--   1 ron      computin    1133 Jul 16 10:21 pro_bf_l.asc
+-r--r--r--   1 ron      computin    2351 Jul 16 10:21 raw_bf_l.asc
+-r--r--r--   1 ron      computin   99840 Jul 30 10:03 rsch_flt.doc
+-r--r--r--   1 ron      computin  172369 Jul 30 12:21 rsch_flt.wp6
+-r--r--r--   1 ron      computin    6144 Jul 30 12:21 video_fm.doc
+-r--r--r--   1 ron      computin   12800 Jul 30 12:21 video_ta.doc
+-r--r--r--   1 ron      computin  854016 Jul 30 14:34 fastex.tar
+-r--r--r--   1 ron      computin    1294 Jul 30 14:34 fastex.tar.dir
+_____________________________________________________________________________
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From genevieve.jaubert@meteo.fr Mon Sep  1 08:40 MDT 1997
+Return-Path: <genevieve.jaubert@meteo.fr>
+Received: from ncar.UCAR.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA25406; Mon, 1 Sep 1997 08:40:45 -0600
+Received: from cti825.cnrm.meteo.fr by ncar.ucar.EDU (NCAR 12/5/96/ NCAR Central Post Office 03/11/93)
+	id IAA10050; Mon, 1 Sep 1997 08:34:26 -0600 (MDT)
+Received: from recyf1.cnrm.meteo.fr by cti825.cnrm.meteo.fr.cnrm.meteo.fr with SMTP id AA29436
+  (5.65c8/IDA-1.4.4 for <ron@raf.atd.ucar.EDU>); Mon, 1 Sep 1997 16:26:10 +0200
+Received: by recyf1.cnrm.meteo.fr id AA21542
+  (5.65c8/IDA-1.4.4); Mon, 1 Sep 1997 16:34:02 +0200
+Date: Mon, 1 Sep 1997 16:34:02 +0200
+From: Genevieve JAUBERT <Genevieve.JAUBERT@meteo.fr>
+Message-Id: <199709011434.AA21542@recyf1.cnrm.meteo.fr>
+To: ron@raf.atd.ucar.edu
+Subject: Re: FASTEX Summary Information
+Cc: genevieve.jaubert@meteo.fr
+Mime-Version: 1.0
+Content-Type: multipart/mixed;boundary=59e2_1cfb-3f54_ff6-abd_31df
+Content-Length: 18696
+Status: RO
+
+
+--59e2_1cfb-3f54_ff6-abd_31df
+Content-Type: text/plain; charset=ISO-8859-1
+Content-Transfer-Encoding: 7bit
+Content-MD5: PBnAVok27+G4OmvZ2qBsrw==
+
+Ron,
+
+Thanks for the FASTEX Electra documentation. I plan to send it with any of
+the ELECTRA in-situ data request. So, I have modified the letter to make
+the introduction of this documentation, each of its items been a chapter of the
+documentation. The new file (in MS-Word 6.0) is joint to this email. Could
+you said to me if you accept it, or if you propose some modifications?
+
+A README file will also be sent with the data. In this README file, the PI's,
+the data providers and the data policy will be mentionned.
+
+There was a little mistake in your documentation package: the file named 
+data_tap.doc is the copy of the data_qua.doca file. Could you send me the true 
+data_tap.doc file ?
+
+And what about the reflectivity radar composite maps? Are them processed?
+
+
+Genevieve Jaubert Meteo-France/CNRM
+--59e2_1cfb-3f54_ff6-abd_31df
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: base64
+Content-MD5: 755INjlFv1DFODSVRJUskw==
+Content-Description: intro.doc
+X-Content-Name: intro.doc
+
+3KVlAC3ACQQAAAAAZQAAAAAAAAAAAAAAAAMAACkUAACZMgAAAAAAAAAAAAAAAAAAAAAAACAR
+AAAAAAAABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAADWAQAAADAAANYBAADWMQAA
+AAAAANYxAAAAAAAA1jEAAAAAAADWMQAAAAAAANYxAAAUAAAA6jEAAAAAAADqMQAAAAAAAOox
+AAAAAAAA6jEAAAAAAADqMQAAEAAAAPoxAAAQAAAACjIAAEYAAAAAAAAAAAAAAFAyAAA9AAAA
+AAAAAAAAAACNMgAAAAAAAI0yAAAAAAAAjTIAAAAAAACNMgAAAAAAAI0yAAAAAAAAjTIAAAAA
+AACNMgAAAAAAAI0yAAAAAAAAjTIAAAAAAACNMgAAAAAAAI0yAAAAAAAAjTIAAAAAAACNMgAA
+AAAAAI0yAAAAAAAAjTIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAsADQACAAsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAATmF0aW9uYWwgQ2VudGVyIGZvciBBdG1vc3BoZXJpYyBSZXNlYXJjaA1B
+dG1vc3BoZXJpYyBUZWNobm9sb2d5IERpdmlzaW9uDVJFU0VBUkNIIEFWSUFUSU9OIEZBQ0lM
+SVRZICAgUC5PLiBCb3ggMzAwMCAgIEJvdWxkZXIsIENvbG9yYWRvIDgwMzA3LTMwMDANVGVs
+ZXBob25lOiAgKDMwMykgNDk3LTEwMzAgICBGYWNzaW1pbGU6ICAoMzAzKSA0OTctMTA5Mg0N
+UGF1bCBIZXJ6ZWdoLCBBY3RpbmcgTWFuYWdlciAJCUtyaXN0YSBMYXVyc2VuLCBQcm9qZWN0
+IE1hbmFnZXIvQXNzb2MuIFNjaWVudGlzdA1SZXNlYXJjaCBBdmlhdGlvbiBGYWNpbGl0eSAJ
+CVJlc2VhcmNoIEF2aWF0aW9uIEZhY2lsaXR5DQ0xNiBKdW5lIDE5OTcNDQ0NDVRoaXMgaXMg
+dGhlIGZpbmFsIGRvY3VtZW50YXRpb24gZm9yIHRoZSBpbiBzaXR1IG1lYXN1cmVtZW50cyBv
+YnRhaW5lZCBmcm9tIHRoZSBFbGVjdHJhIGR1cmluZyBGQVNURVggZnJvbSA2IEphbnVhcnkg
+LSA5IEZlYnJ1YXJ5IDE5OTcuICBUaGlzIHBhY2thZ2UgY29udGFpbnMgYWxsIG9mIHRoZSBk
+YXRhIHByb2R1Y3RzIGFuZCBpbmZvcm1hdGlvbiB0byBhY2NvbXBhbnkgdGhlIHByb2Nlc3Nl
+ZCBkYXRhLiAgIEl0IHNob3VsZCBiZSBub3RlZCB0aGF0IHByb2Nlc3NpbmcgYW5kIGRpc3Ry
+aWJ1dGlvbiBvZiB0aGUgRUxET1JBIGRhdGEgY29sbGVjdGVkIG9uIGJvYXJkIHRoZSBFbGVj
+dHJhIGlzIHRoZSByZXNwb25zaWJpbGl0eSBvZiB0aGUgUmVtb3RlIFNlbnNpbmcgRmFjaWxp
+dHkgKFJTRikgd2l0aGluIEFURC4gIENvbnNlcXVlbnRseSwgcXVlc3Rpb25zIHJlZ2FyZGlu
+ZyB0aGUgYWNxdWlzaXRpb24gYW5kIGludGVycHJldGF0aW9uIG9mIEVMRE9SQSBkYXRhIGNv
+bGxlY3RlZCBkdXJpbmcgRkFTVEVYIHNob3VsZCBiZSBkaXJlY3RlZCB0byBXZW4tQ2hhdSBM
+ZWUsIHRoZSBGQVNURVggRUxET1JBIFByb2plY3QgTWFuYWdlciAoMzAzLTQ5Ny04ODE0IG9y
+IHdlbmNoYXVAbmNhci51Y2FyLmVkdSkuDQ1Cb3RoIHJhdyBhbmQgcHJvY2Vzc2VkIEVsZWN0
+cmEgZGF0YSB0YXBlcyBhbmQgZmlsZXMgaGF2ZSBiZWVuIGJhY2tlZCB1cCBvbiB0aGUgTkNB
+UiBNYXNzIFN0b3JhZ2UgU3lzdGVtIChNU1MpDQ1TZXZlcmFsIGl0ZW1zIGFyZSBlbmNsb3Nl
+ZCBpbiB0aGlzIGRvY3VtZW50YXRpb25yIGFuZCBzaG91bGQgYmUgY29uc2lkZXJlZCBwYXJ0
+IG9mIHRoZSBSQUYgRkFTVEVYIGRhdGEgcGFja2FnZS4gIFRoZXNlIGl0ZW1zIGFyZSBpbXBv
+cnRhbnQgdG8geW91ciBhbmFseXNpcyBvZiB0aGUgZmxpZ2h0IGRhdGEuICBUaGV5IGFyZToN
+DTEuCU91dHB1dCBUYXBlIExvZzoNDSAgICAgYS4gICAgICAgQWlyY3JhZnQgRGF0YSBUYXBl
+IExvZw1iLgkJTUFTUyBTVE9SRSBCSVRGSUxFIExPRyBmb3IgdGhlIGxvdy1yYXRlIChMUlQp
+IHByb2R1Y3Rpb24gZGF0YSwgd2l0aCB0aGUgTVNTIHBhdGggbmFtZSBhdCB0aGUgTkNBUiBT
+Y2llbnRpZmljIENvbXB1dGluZyBEaXZpc2lvbi4NYy4JCU1BU1MgU1RPUkUgQklURklMRSBM
+T0cgZm9yIHRoZSBQTVMtMkQgcHJvZHVjdGlvbiBkYXRhIGZpbGVzLCB3aXRoIHRoZSBNU1Mg
+cGF0aCBuYW1lLg1kLgkJTUFTUyBTVE9SRSBCSVRGSUxFIExPRyBmb3IgdGhlIHJhdyBBRFMg
+ZGF0YSB0YXBlcywgd2l0aCB0aGUgTVNTIHBhdGggbmFtZS4NDSAgICAgICAgICAgICAyLiAu
+CVJlc2VhcmNoIEZsaWdodCBSZXBvcnRzOiAgQSByZXBvcnQgZm9yIGVhY2ggcHJvamVjdCBy
+ZXNlYXJjaCBmbGlnaHQsIGVhY2ggY29udGFpbmluZyBhIGJyaWVmIG1pc3Npb24gc3VtbWFy
+eSBhbmQgYSBsaXN0IG9mIG9ic2VydmVkIGluc3RydW1lbnQgcHJvYmxlbXMuDQ0gICAgICAg
+ICAgICAgMy4gCURhdGEgUXVhbGl0eSBSZXBvcnQ6ICBBIHJldmlldyBvZiB0aGUgZ2VuZXJh
+bCBkYXRhIHNldCBxdWFsaXR5IGFuZCBsaW1pdGF0aW9ucyBhbmQgYSBmbGlnaHQtYnktZmxp
+Z2h0IGxpc3Rpbmcgb2Ygc3BlY2lmaWMgaW5zdHJ1bWVudGF0aW9uIHByb2JsZW1zLg0NICAg
+ICAgICAgICAgIDQuIAlJUlUgU3VtbWFyaWVzOiAgVHdvIGRvY3VtZW50cyAob25lIGZvciBl
+YWNoIG9mIHRoZSB0d28gSVJVcykgbGlzdGluZyB0aGUgZmluYWwgYWlyY3JhZnQgcG9zaXRp
+b24gZXJyb3JzIGZvciBlYWNoIGZsaWdodC4NDSAgICAgICAgICAgICA1LiAJUmVzZWFyY2gg
+SW5zdHJ1bWVudGF0aW9uOiAgQSBsaXN0aW5nIG9mIHRoZSBhaXJjcmFmdCBkYXRhIHN5c3Rl
+bSBhbmQgaW5zdHJ1bWVudGF0aW9uIGNvbXBvbmVudHMgYW5kIGNvbmZpZ3VyYXRpb24uDQ0g
+ICAgICAgICAgICANDCANICAgICAgICAgICAgIDYuIAlMaXN0IG9mIFZhcmlhYmxlczogIEEg
+Y29tcGxldGUgbGlzdCBvZiB2YXJpYWJsZXMgb3V0cHV0IGluIHRoZSBwcm9jZXNzZWQgbG93
+LXJhdGUgZGF0YSBmaWxlcy4NDSAgICAgICAgICAgICA3LiAJT3V0cHV0IFRhcGUgRm9ybWF0
+OiAgQSBsaXN0aW5nIG9mIGFuIGV4YW1wbGUgb2YgYSBsb3ctcmF0ZSBuZXRDREYgZGF0YSBm
+aWxlIGhlYWRlci4gIFRoaXMgaGVhZGVyIGV4YW1wbGUgKG91dHB1dCB1c2luZyBuY2R1bXAg
+LWgpIGRlc2NyaWJlcyB0aGUgZm9ybWF0IGluIHdoaWNoIHRoZSBkYXRhIGFyZSB3cml0dGVu
+IHRvIHRoZSBsb3ctcmF0ZSBmaWxlcy4NDSA4LgkJVmlkZW8gVGFwZSBMb2c6ICBBIGNvbXBs
+ZXRlIGxpc3Rpbmcgb2YgdGhlIHN0YXJ0IGFuZCBzdG9wIHRpbWVzIGZvciBlYWNoIHZpZGVv
+IHRhcGUgcmVjb3JkZWQgZHVyaW5nIHRoZSBwcm9qZWN0LiANDSAgICAgICAgICAgIDkuIAlu
+ZXRDREYgSW5zdHJ1Y3Rpb25zOiAgQmFja2dyb3VuZCBpbmZvcm1hdGlvbiBvbiB0aGUgbmV0
+Q0RGIGRhdGEgZm9ybWF0ICh0aGUgZm9ybWF0IGluIHdoaWNoIHRoZSBsb3ctcmF0ZSBGQVNU
+RVggZGF0YSBoYXZlIGJlZW4gcHJvZHVjZWQpIGFuZCBvbiBob3cgdG8gb2J0YWluIG5ldENE
+RiBzb2Z0d2FyZS4NDSAgICAgICAgICAgIFJBRiBCdWxsZXRpbnMNDSAgICAgICAgICAgICBB
+dmFpbGFibGUgYXQgVVRSTDogaHR0cDovL3JhZi5hdGQudWNhci5lZHUvQnVsbGV0aW5zL2J1
+bGxldGluOS5odG1sOg0NIGEuCSAgQnVsbGV0aW4gTm8uIDk6ICBSQUYgZG9jdW1lbnRhdGlv
+biB0aGF0IGRlc2NyaWJlcyB0aGUgc3RhbmRhcmQgYWlyY3JhZnQgZGF0YSBvdXRwdXQgcHJv
+ZHVjdHMgcHJvdmlkZWQgYnkgdGhlIFJBRiB0byBwcmluY2lwYWwgaW52ZXN0aWdhdG9ycyAo
+UElzKS4NDVBhcGVyIENvcGllcyBvZiB0aGUgZm9sbG93aW5nIFJBRiBkb2N1bWVudHMgYXJl
+IGF2YWlsYWJsZSBhdCBSQUYgOg0NYi4JCUJ1bGxldGluIE5vLiAyMjogIFJBRiBkb2N1bWVu
+dGF0aW9uIHRoYXQgZGVzY3JpYmVzIHRoZSBhaXJib3JuZSBodW1pZGl0eSBtZWFzdXJlbWVu
+dHMgbWFkZSBvbiB0aGUgTkNBUi9OU0YgcmVzZWFyY2ggYWlyY3JhZnQuDQ1jLgkJQnVsbGV0
+aW4gTm8uIDIzOiAgUkFGIGRvY3VtZW50YXRpb24gdGhhdCBkZXNjcmliZXMgdGhlIGFpciBt
+b3Rpb24gc2Vuc2luZyBtZWFzdXJlbWVudHMgbWFkZSBvbiB0aGUgTkNBUi9OU0YgcmVzZWFy
+Y2ggYWlyY3JhZnQuDQ1kLgkJQnVsbGV0aW4gTm8uIDI0OiAgUkFGIGRvY3VtZW50YXRpb24g
+dGhhdCBkZXNjcmliZXMgdGhlIGNsb3VkIHBoeXNpY3MgaW5zdHJ1bWVudGF0aW9uIGZsb3du
+IG9uIHRoZSBOQ0FSL05TRiByZXNlYXJjaCBhaXJjcmFmdC4NDUl0IHNob3VsZCBiZSBub3Rl
+ZCB0aGF0IHNvbWUgb2YgdGhlIGluZm9ybWF0aW9uIGNvbnRhaW5lZCBpbiBCdWxsZXRpbnMg
+MjIsIDIzLCBhbmQgMjQgaXMgbm93IG91dCBvZiBkYXRlLiAgSG93ZXZlciwgdGhlc2UgYnVs
+bGV0aW5zIHN0aWxsIHByb3ZpZGUgdXNlZnVsIGJhY2tncm91bmQgaW5mb3JtYXRpb24gb24g
+dGhlIGh1bWlkaXR5LCBhaXIgbW90aW9uLCBhbmQgbWljcm9waHlzaWNhbCBpbnN0cnVtZW50
+cyBzdXBwb3J0ZWQgYnkgdGhlIFJBRiBhbmQgb24gdGhlIG9wZXJhdGluZyBwcmluY2lwbGVz
+IG9mIHRoZSB2YXJpb3VzIHNlbnNvcnMuDQ0NDQ1BcyB5b3UgcHJvY2VlZCB3aXRoIHRoZSBh
+bmFseXNpcyBvZiB0aGUgZGF0YSwgeW91IG1heSBoYXZlIHF1ZXN0aW9ucywgZW5jb3VudGVy
+IHByb2JsZW1zLCBvciB1bmNvdmVyIGRpc2NyZXBhbmNpZXMgb3Igb3RoZXIgYXNwZWN0cyBv
+ZiB0aGUgZGF0YSBzZXQgdGhhdCBtYXkgYmUgb2YgaW50ZXJlc3QgdG8gdGhlIFJBRiBhbmQg
+dG8gb3RoZXIgdXNlcnMuICBXZSBhc2sgdGhhdCB5b3UgYnJpbmcgdGhlc2UgZGF0YSBpc3N1
+ZXMgdG8gdGhlIGF0dGVudGlvbiBvZiBLcmlzdGEgTGF1cnNlbiwgdGhlIEZBU1RFWCBFbGVj
+dHJhIFByb2plY3QgTWFuYWdlci4gIFdlIGFsc28gc29saWNpdCB5b3VyIG1vcmUgZ2VuZXJh
+bCBjb21tZW50cyBvbiB0aGUgcXVhbGl0eSwgdXNlZnVsbmVzcyBhbmQvb3IgbmV3IGFwcGxp
+Y2F0aW9ucyBvZiB0aGUgZGF0YS4NDQ0NDQ0NDQ0NDSQAjgKQAACRAACXAJkKnGgBnXIBpIMu
+pcdBpn0EpwUHqH4EqUICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+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
+--59e2_1cfb-3f54_ff6-abd_31df--
+
+From ron Tue Sep  2 10:09:02 1997
+Subject: FASTEX data
+To: bb@stout.atd.ucar.edu (Brigitte Baeuerle)
+Date: Tue, 2 Sep 1997 10:09:02 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 333       
+Status: RO
+
+Brigitte,
+
+To your knowledge, has any FASTEX PI requested restricted access to any
+aircraft data?  RAF received a request for some high-rate data that we
+have yet to process.
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bb@stout.atd.ucar.edu Tue Sep  2 10:39 MDT 1997
+Return-Path: <bb@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA01786; Tue, 2 Sep 1997 10:39:48 -0600
+Received: from cascade.atd.ucar.edu by atd.atd.ucar.EDU (8.7.6/ NCAR Mail Server 04/10/90)
+	id KAA25458; Tue, 2 Sep 1997 10:39:47 -0600 (MDT)
+Message-Id: <199709021639.KAA25458@atd.atd.ucar.EDU>
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Subject: Re: FASTEX data 
+In-reply-to: Your message of "Tue, 02 Sep 1997 10:09:02 MDT."
+             <199709021609.KAA02768@music.atd.ucar.edu> 
+Date: Tue, 02 Sep 1997 10:39:46 -0600
+From: Brigitte Baeuerle <bb@stout.atd.ucar.edu>
+Content-Type: text
+Content-Length: 361
+Status: RO
+
+I believe all FASTEX PIs agreed to freely share their
+data.
+bb
+*********************************************************
+Brigitte Baeuerle		bb@stout.atd.ucar.edu
+Projects Manager		http://www.atd.ucar.edu	
+NCAR/ATD			
+P.O. Box 3000			(303) 497 2061 (voice) 
+Boulder, CO 80307		(303) 497 8770 (fax) 
+USA
+*********************************************************
+
+
+From ron Fri Sep  5 15:12:59 1997
+Subject: Re: FASTEX Summary Information
+To: Genevieve.JAUBERT@meteo.fr (Genevieve JAUBERT)
+Date: Fri, 5 Sep 1997 15:12:59 -0600 (MDT)
+In-Reply-To: <199709011434.AA21542@recyf1.cnrm.meteo.fr> from "Genevieve JAUBERT" at Sep 1, 97 04:34:02 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1339      
+Status: RO
+
+Dear Genevieve,
+
+I accept your modifications to make each item of our FASTEX Summary its own
+chapter.  In the file you appended to my email message, I call your attention
+to one sentence that has an extra character added to the word "documentation:"
+ "Several items are enclosed in this documentationr and should be considered
+  part of the RAF FASTEX data package."          -
+
+I apologize that our "data_tap.doc" file was not correct.  If you are
+willing to accept an ASCII file instead of a MSWord 7.0 version of it,
+you may retrieve the file "data_tap.asc" from our ftp site.  Our word
+processor had great difficulty translating the file "data_tap.wp6" from
+WordPerfect6 format to MSWord 7.0.  The ASCII file lacks the fancy table
+format of the original but retains all its information.  You may retrieve
+the original WordPerfect6 file, too, if you wish.
+
+    method:  anonymous ftp (please use email address as password)
+   machine:  raf.atd.ucar.edu
+      path:  pub/fastex
+     files:  data_tap.asc
+             data_tap.wp6
+
+Regarding the reflectivity radar composite maps, you will have to contact
+Bob Rilling <email:  rilling@ucar.edu>.  I handle only the aircraft data.
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+

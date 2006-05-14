@@ -1,0 +1,55 @@
+# QSUB -eo
+# QSUB -s /bin/csh
+# q-class (premium-prem, regular-reg, economy-econ)
+# QSUB -q reg
+# QSUB -lt 99
+
+set timestamp
+set echo
+ 
+newacct 41113009
+cd $TMPDIR
+ja jacct
+
+#
+#  Archive raw ADS data tapes to SCD Mass Store System
+#    for project:  1994-818 Boreas (Lenschow, et al.)
+#
+#set TYPE = "-mMT -e99 -E=yes"
+#set TYPE = -mEX
+set TYPE = -mQD
+set YEAR = 1994
+set PROJ = 818
+#set STAGE = -R13000
+#set STAGE = "-B13000 -R13000"
+#set STAGE = -R6500
+#set STAGE = "-B6500 -R6500"
+#set STAGE = "-B13000 -R6500"
+#set STAGE = "-B19500 -R6500"
+#set STAGE = "-B26000 -R6500"
+#
+#
+#  Third set, sixth try  (Use Cray instead of MIGS)
+set STAGE = "-N1"
+set TAPELIST = ( R0858 R0862 )
+set FLIGHTS =  ( FF09  RF19  )
+#
+#  Job submitted on Wed Sep 28 11:10:37 MDT 1994
+# Sequence number = CK3213 -- OK
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+
+  msimport -n -b50000 -j -K -P41113009 -fBI -wRAFDMG -t4095 -uRAF \
+      -vCTRAFDMG -d1600 $TYPE -MU $STAGE $TAPE /RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+
+  @ num ++
+end
+#
+# done.
+ja -cst jacct
+exit

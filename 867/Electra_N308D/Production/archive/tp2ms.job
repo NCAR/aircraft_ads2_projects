@@ -1,0 +1,145 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1999-867  AMTS (Gardner)
+#    rev. 990317  RLR  (adapt to new MIGS "msimp" verb)
+#    rev. 990503  RLR  (add noglob, "start" code)
+#
+#  Note:  For the tape images to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+goto start
+#
+#  1st set, 1st segment, 1st try (using raf's "dmg" login)
+#set SKIPS   = ^B*0
+##set RECS    = B*100000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1350 \
+#R1352 \
+#R1354 \
+#R1355 \
+#R1356 \
+#R1357 \
+#R1358 \
+#R1359 \
+#R1360 \
+#R1361 \
+#R1362 \
+#)
+#set FLIGHTS = ( \
+#FF01 \
+#FF02 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#)
+#
+start:
+#
+#  1st set, 1st segment, 2nd try (using raf's "dmg" login)
+#set SKIPS   = ^B*0
+##set RECS    = B*100000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1350 \
+#)
+#set FLIGHTS = ( \
+#FF01 \
+#)
+#
+#  Get started:
+set noglob
+date
+if ($#TAPES != $#FLIGHTS) then
+  echo "TAPES and FLIGHTS don't match.  Quitting."
+  exit 1
+endif
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st segment, 1st try (using raf's "dmg" login)
+#  Jobs submitted on Wed Jul 14 14:06:49 MDT 1999
+# Sequence number = MI0853 -- -- Failed @
+# Sequence number = MI0860 -- FF02/R1352 -- OK @ 14 Jul 99 15:30:28
+# Sequence number = MI0867 -- RF01/R1354 -- OK @ 14 Jul 99 15:53:55
+# Sequence number = MI0874 -- RF02/R1355 -- OK @ 14 Jul 99 16:24:13
+# Sequence number = MI0894 -- RF03/R1356 -- OK @ 14 Jul 99 16:35:01
+# Sequence number = MI0906 -- RF04/R1357 -- OK @ 14 Jul 99 17:01:50
+# Sequence number = MI0921 -- RF05/R1358 -- OK @ 14 Jul 99 17:31:12
+# Sequence number = MI0932 -- RF06/R1359 -- OK @ 14 Jul 99 17:49:52
+# Sequence number = MI0945 -- RF07/R1360 -- OK @ 14 Jul 99 18:14:38
+# Sequence number = MI0956 -- RF08/R1361 -- OK @ 14 Jul 99 18:33:06
+# Sequence number = MI0971 -- RF09/R1362 -- OK @ 14 Jul 99 18:45:34
+#
+#  1st set, 1st segment, 2nd try (using raf's "dmg" login)
+#  Jobs submitted on Mon Jul 19 16:53:35 MDT 1999
+# Sequence number = MI0333 -- FF01/R1350 -- OK @ 19 Jul 99 16:59:45
+#
+#      set,     segment,     try (using raf's "dmg" login)
+#  Jobs submitted on 
+#

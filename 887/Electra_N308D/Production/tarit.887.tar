@@ -1,0 +1,87 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System).
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#        having a "Production" subdirectory;
+#   2.  Project's name (and only its name) is in the file
+#        $LOCAL/proj/ProjectName;
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory.
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+cd $PROJDIR
+#
+set FY = `grep FY Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+# echo \
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+LowRateVars \
+PMSspecs \
+ProjectName \
+VarDB \
+adscmd \
+bulletin.9 \
+calib_attr \
+config \
+header \
+landmarks \
+plot_attr \
+regions \
+Production/887rf01.hdr \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_13B \
+Production/Flight_5 \
+Production/Mail.887 \
+Production/MSCP_out.887 \
+Production/README \
+Production/arch.887.data \
+Production/arch.887.support \
+Production/ncfixflt \
+Production/ncfixflt.c \
+Production/notes.preproduction \
+Production/notes.production \
+Production/production.log \
+Production/proj.info \
+Production/taplog.887 \
+Production/tarit.887.tar \
+Production/tarit.nimbus.tar \
+Production/tp2ms.summary \
+Production/varlist.887 \
+Production/archive/tapes.887 \
+Production/archive/tp2ms.job1
+#
+#  At this point one needs a list of files.  As a starting point, one can use
+#   the `vi' command:   !!ls ..
+#   to get a list of files in the project's directory and edit out the
+#   unneeded ones.  For subdirectories, one can repeat this, e.g.,
+#                       !!ls 
+#                       !!ls archive
+#  Other subdirectories may also have files that need to be archived.
+#  Don't forget to add the trailing backslash (\) to each file name (except
+#  the last one), so the above `tar' command gets the entire list of files.
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

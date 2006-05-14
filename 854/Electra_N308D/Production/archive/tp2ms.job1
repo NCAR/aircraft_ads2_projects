@@ -1,0 +1,113 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 1994-854 ELDORA Test Flights (Hildebrand)
+#
+goto next
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 854
+set STAGE = "nfile=1"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#
+#  First set, first try
+#set TAPELIST = ( R0665  R0666  R0667  R0668  R0669  R0670  R0671  R0672  R0673)
+#set FLIGHTS =  ( RF01   RF02   RF03   RF04   RF05   RF06   RF07   RF08   RF09 )
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+#  Stage raw ADS data tapes for 1995-854 ELDORA Test Flights (Hildebrand)
+next:
+#
+date
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1995
+set PROJ = 854
+set STAGE = "nfile=1"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#
+#  Second set, first try
+#set TAPELIST = ( R0886  R0887  R0888  R0889  R0890  R0912  R0898 )
+#set FLIGHTS =  ( TF01   TF02   TF03   TF04   TF05   TF06   TF07  )
+#
+#  Second set, second try
+#set TAPELIST = ( R0886  R0912  )
+#set FLIGHTS =  ( TF01   TF06   )
+#set STAGES = ( "nrecs=1902" "nfile=1" )
+#
+#  Third set, first try
+set TAPELIST = ( R0960  )
+set FLIGHTS =  ( TF08   )
+set STAGES = ( "nfile=1" )
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  set STAGE = $STAGES[$num]
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  First set, first try
+#  Jobs submitted on Thu May 11 16:23:58 MDT 1995
+# Sequence number = MI8579 -- /RAF/1994/854/RF01/R0665 -- OK
+# Sequence number = MI8586 -- /RAF/1994/854/RF02/R0666 -- OK
+# Sequence number = MI8593 -- /RAF/1994/854/RF03/R0667 -- OK
+# Sequence number = MI8600 -- /RAF/1994/854/RF04/R0668 -- OK
+# Sequence number = MI8607 -- /RAF/1994/854/RF05/R0669 -- OK
+# Sequence number = MI8614 -- /RAF/1994/854/RF06/R0670 -- OK
+# Sequence number = MI8621 -- /RAF/1994/854/RF07/R0671 -- OK
+# Sequence number = MI8628 -- /RAF/1994/854/RF08/R0672 -- OK
+# Sequence number = MI8635 -- /RAF/1994/854/RF09/R0673 -- OK
+#
+#  Second set, first try
+#  Jobs submitted on Thu May 11 16:24:16 MDT 1995
+# Sequence number = MI8643 -- /RAF/1995/854/TF01/R0886 -- Failed (no EOF)
+# Sequence number = MI8650 -- /RAF/1995/854/TF02/R0887 -- OK
+# Sequence number = MI8657 -- /RAF/1995/854/TF03/R0888 -- OK
+# Sequence number = MI8668 -- /RAF/1995/854/TF04/R0889 -- OK
+# Sequence number = MI8682 -- /RAF/1995/854/TF05/R0890 -- OK
+# Sequence number = MI8700 -- /RAF/1995/854/TF06/R0912 -- ? (no log file)
+# Sequence number = MI8707 -- /RAF/1995/854/TF07/R0898 -- OK
+#
+#  Second set, first try
+#  Jobs submitted on Fri May 12 15:29:02 MDT 1995
+# Sequence number = MI0279 -- /RAF/1995/854/TF01/R0886 -- OK
+# Sequence number = MI0286 -- /RAF/1995/854/TF06/R0912 -- OK
+#
+#  Third set, first try (submitted using 5-887 VORTEX script)
+#  Job submitted on Wed Jun 28 16:45:07 MDT 1995
+# Sequence number = MI5996 -- TF08/R0960 -- OK @28 Jun 1995 17:46:13
+#

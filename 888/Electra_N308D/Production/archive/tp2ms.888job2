@@ -1,0 +1,40 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-888 ALOHA-94  (Gardner)
+#   Second try (problems with first submission)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 888
+#set STAGE = nfile=1
+set STAGE = nrec=6500
+#set STAGE = skpr=6500 nrec=6500
+#set STAGE = skpr=13000 nrec=6500
+#set STAGE = skpr=19500 nrec=6500
+#set STAGE = skpr=26000 nrec=6500
+# 
+#  Note:  resubmit R0747 ("drive lost wits on first import job"  Suzy)
+set TAPELIST = ( R0747 )
+set FLIGHTS = ( RF07A )
+#
+#  Jobs submitted @  3:22 p.m. on 15 December 1993
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1686  --  OK
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit

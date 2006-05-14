@@ -1,0 +1,124 @@
+High-Rate FSSP Reprocessing using NIMBUS skeleton program.
+
+Program file:  /home/local/proj/870/Production/fsspskel/skel
+Output file from skeleton to be merged into main HRT processed file.
+
+This log file prepared by Ronald L. Ruth.
+----------------------------------------------------------------
+
+RF09 processed before Mon Feb  6 10:38:36 MST 1995
+output file name:  /home/local/staticdata/n870rf09h.cdf
+Time interval(s) completed : 17:04:57-19:40:43
+Processing took 10.0 minutes.
+
+RF09 reprocessed before Tue Feb  7 15:12:00 MST 1995
+output file name:  /home/local/staticdata/n870rf09h.cdf
+TimeInterval = 17:04:57-19:40:43
+
+
+RF11 processed before Fri Feb 17 11:43:18 MST 1995
+output file name:  /home/local/data/production/n870rf11h.cdf
+Time interval(s) completed : 16:24:41-21:07:15
+Processing took 8.4 minutes.
+
+
+RF26 processed before Wed Feb  8 15:22:39 MST 1995
+output file name:  /home/local/staticdata/n870rf26h.cdf
+Time interval(s) completed : 12:48:21-19:46:39
+Processing took 20.3 minutes.
+
+File merge occurred Wed Feb  8 15:36:10 MST 1995
+file: /home/local/staticdata/n870rf26h.cdf merged into
+      /home/local/staticdata/870rf26h.cdf
+finished before Wed Feb  8 15:48:07 MST 1995
+Merged file didn't seem to work.  I plotted data after ncmerge, and
+it looked unchanged, so I'm running it again.
+
+mistral/nimbus % ncmerge 870rf26h.cdf    n870rf26h.cdf
+[2] 1568
+mistral/nimbus % All variables being merged.
+Variable CFSSP_IBL exists in primary file, it will be overwritten.
+Variable CONCF_IBL exists in primary file, it will be overwritten.
+Variable DBARF_IBL exists in primary file, it will be overwritten.
+Variable DISPF_IBL exists in primary file, it will be overwritten.
+Variable FACT_IBL exists in primary file, it will be overwritten.
+Variable FBMFR_IBL exists in primary file, it will be overwritten.
+Variable FSTB_IBL exists in primary file, it will be overwritten.
+Variable PLWCF_IBL exists in primary file, it will be overwritten.
+mistral/nimbus % date
+Thu Feb  9 13:37:23 MST 1995
+It finished before:  Thu Feb  9 13:52:39 MST 1995
+
+
+RF27 processed before Fri Feb 17 17:11:37 MST 1995
+output file name:  /home/local/data/production/n870rf27h.cdf
+Time interval(s) completed : 13:00:50-16:26:00
+Processing took 5.8 minutes.
+
+mistral/nimbus % ncmerge 870rf27h.cdf    n870rf27h.cdf
+All variables being merged.
+Variable CFSSP_IBL exists in primary file, it will be overwritten.
+Variable CONCF_IBL exists in primary file, it will be overwritten.
+Variable DBARF_IBL exists in primary file, it will be overwritten.
+Variable DISPF_IBL exists in primary file, it will be overwritten.
+Variable FACT_IBL exists in primary file, it will be overwritten.
+Variable FBMFR_IBL exists in primary file, it will be overwritten.
+Variable FSTB_IBL exists in primary file, it will be overwritten.
+Variable PLWCF_IBL exists in primary file, it will be overwritten.
+Starting to move data....
+
+
+RF28 processed before Fri Feb 17 13:16:49 MST 1995
+output file name:  /home/local/data/production/n870rf28h.cdf
+Time interval(s) completed : 18:43:16-21:59:34
+Processing took 2.7 minutes.
+mistral/nimbus % ncmerge 870rf28h.cdf n870rf28h.cdf
+All variables being merged.
+Variable CFSSP_IBL exists in primary file, it will be overwritten.
+Variable CONCF_IBL exists in primary file, it will be overwritten.
+Variable DBARF_IBL exists in primary file, it will be overwritten.
+Variable DISPF_IBL exists in primary file, it will be overwritten.
+Variable FACT_IBL exists in primary file, it will be overwritten.
+Variable FBMFR_IBL exists in primary file, it will be overwritten.
+Variable FSTB_IBL exists in primary file, it will be overwritten.
+Variable PLWCF_IBL exists in primary file, it will be overwritten.
+Starting to move data....
+mistral/nimbus % date
+Fri Feb 17 13:22:48 MST 1995
+
+
+RF33 processed before Mon Feb 21 14:30 MST 1995
+output file name:  /home/local/data/production/n870rf33h.cdf
+Time interval(s) completed : 13:10:09-16:15:03
+Processing took 5.1 minutes.
+mistral/nimbus % ncmerge 870rf33h.cdf    n870rf33h.cdf ; date
+All variables being merged.
+Variable CFSSP_IBL exists in primary file, it will be overwritten.
+Variable CONCF_IBL exists in primary file, it will be overwritten.
+Variable DBARF_IBL exists in primary file, it will be overwritten.
+Variable DISPF_IBL exists in primary file, it will be overwritten.
+Variable FACT_IBL exists in primary file, it will be overwritten.
+Variable FBMFR_IBL exists in primary file, it will be overwritten.
+Variable FSTB_IBL exists in primary file, it will be overwritten.
+Variable PLWCF_IBL exists in primary file, it will be overwritten.
+Tue Feb 21 14:30:30 MST 1995
+mistral/nimbus %
+
+
+RF34 processed before Tue Feb 21 15:50:12 MST 1995
+output file name:  /home/local/data/production/n870rf34h.cdf
+Time interval(s) completed : 17:06:37-20:31:39
+Processing took 2.5 minutes.
+mistral/nimbus % ncmerge 870rf34h.cdf    n870rf34h.cdf ; date
+All variables being merged.
+Variable CFSSP_IBL exists in primary file, it will be overwritten.
+Variable CONCF_IBL exists in primary file, it will be overwritten.
+Variable DBARF_IBL exists in primary file, it will be overwritten.
+Variable DISPF_IBL exists in primary file, it will be overwritten.
+Variable FACT_IBL exists in primary file, it will be overwritten.
+Variable FBMFR_IBL exists in primary file, it will be overwritten.
+Variable FSTB_IBL exists in primary file, it will be overwritten.
+Variable PLWCF_IBL exists in primary file, it will be overwritten.
+Starting to move data....
+Tue Feb 21 15:55:59 MST 1995
+mistral/nimbus %

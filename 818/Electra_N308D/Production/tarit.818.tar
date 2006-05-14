@@ -1,0 +1,80 @@
+#! /bin/csh -f
+#
+#  Save pertinent files for 4-818 BOREAS
+#
+cd /home/local/proj/818
+tar chlvf /home/local/proj/818/Production/818.tar \
+Defaults \
+DependTable \
+LowRateVars \
+ProjectName \
+VarDB \
+adscmd \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+depend.pre2.1.2 \
+flat_panel_parms \
+flat_panel_parms% \
+header \
+landmarks \
+ophir3.names \
+plot_attr \
+plotspex \
+plotspexFE \
+plotspexbjh \
+plotspexchem \
+plotspexdont \
+plotspexkurt \
+plotspexmanvrchk \
+plotspexoncley \
+plotspexshane \
+plotspexwac \
+Production/818RF06.hdr \
+Production/818RF06H.hdr \
+Production/FlightGroups \
+Production/Flight_0 \
+Production/Flight_1 \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_12 \
+Production/Flight_13 \
+Production/Flight_14 \
+Production/Flight_15 \
+Production/Flight_16 \
+Production/Flight_17 \
+Production/Flight_18 \
+Production/Flight_19 \
+Production/Flight_2 \
+Production/Flight_20 \
+Production/Flight_21 \
+Production/Flight_22 \
+Production/Flight_23 \
+Production/Flight_24 \
+Production/Flight_25 \
+Production/Flight_3 \
+Production/Flight_5 \
+Production/Flight_6 \
+Production/Flight_7 \
+Production/Flight_8 \
+Production/Flight_9 \
+Production/MSCP_out.818 \
+Production/Production.log \
+Production/arch.818 \
+Production/proj.info \
+Production/taplog.818 \
+Production/tarit.818.tar \
+Production/tarit.nimbus.tar \
+Production/tp2ms.summary \
+Production/archive/log.tp2ms.job4 \
+Production/archive/log.tp2ms.job6 \
+Production/archive/tapes.818 \
+Production/archive/tp2ms.job1 \
+Production/archive/tp2ms.job2 \
+Production/archive/tp2ms.job3 \
+Production/archive/tp2ms.job4 \
+Production/archive/tp2ms.job5 \
+Production/archive/tp2ms.job6
+#
+exit

@@ -1,0 +1,44 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2000-804 Low-Turbulence Inlet Test (Huebert)
+#  Note:  These are all preliminary files that have not been put
+#            through normal production processing.  They have been
+#            archived to the /LRT subdirectory only to make them
+#            easier to retrieve.  If production processing is ever
+#            done for this project, these bitfiles will be replaced.
+#
+date
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+#
+set YEAR = 2000
+set PROJ = 804
+set SDIR = $DATA_DIR
+#
+set TURBRT = LRT
+#
+#nrnet msput $SDIR/804rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/804rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/804rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/804rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/804rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/804rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/804rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  MSS Path:  /RAF/2000/804/
+#  Job(s) submitted on Fri Aug  4 15:26:37 MDT 2000
+# Sequence number = LN4510 -- LRT/RF01.cdf -- OK @ 4 Aug 2000 15:27:02
+# Sequence number = LN4518 -- LRT/RF02.cdf -- OK @ 4 Aug 2000 15:27:06
+# Sequence number = LN4526 -- LRT/RF03.cdf -- OK @ 4 Aug 2000 15:27:03
+# Sequence number = LN4535 -- LRT/RF04.cdf -- OK @ 4 Aug 2000 15:27:04
+# Sequence number = LN4544 -- LRT/RF05.cdf -- OK @ 4 Aug 2000 15:30:51
+# Sequence number = LN4554 -- LRT/RF06.cdf -- OK @ 4 Aug 2000 15:30:52
+# Sequence number = LN4564 -- LRT/RF07.cdf -- OK @ 4 Aug 2000 15:30:53
+#

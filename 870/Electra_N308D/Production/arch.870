@@ -1,0 +1,135 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 4-870 WISP (Roy Rasmussen, et al.)
+#   Note:  Modification will place these files in the following MSS directory:
+#              /RAF/1994/870/NEW/
+#          This will allow archival before juggling all the extant MSS
+#           bitfiles to their ultimately proper directories.   RLR
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Fri Jan 15 14:40:34 MST 1999
+#
+date
+#
+set YEAR = 1994
+#set PROJ = 870
+set PROJ = 870/NEW
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/870rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf17.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf18.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf19.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf20.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf21.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf22.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf23.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf24.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf25.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf26.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF26.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf27.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf28.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF28.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf29.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF29.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf30.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF30.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf31.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF31.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf32.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF32.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf33.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF33.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf34.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF34.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf35.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF35.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf36.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF36.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf37.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF37.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf38.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF38.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf39.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF39.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf40.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF40.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf41.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF41.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf42.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF42.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf43.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF43.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf44.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF44.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf45.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF45.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo #
+echo #
+echo set TURBRT = HRT
+echo #
+echo nrnet msput $SDIR/870rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf11h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf15h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf26h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF26.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf27h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf28h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF28.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf33h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF33.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/870rf34h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF34.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Wed Jan 20 17:12:28 MST 1999
+# Sequence number = MI6986 -- NEW/LRT/RF01.cdf -- OK @ 20 Jan 1999 17:12:54
+# Sequence number = MI6993 -- NEW/LRT/RF02.cdf -- OK @ 20 Jan 1999 17:13:05
+# Sequence number = MI7000 -- NEW/LRT/RF03.cdf -- OK @ 20 Jan 1999 17:12:56
+# Sequence number = MI7007 -- NEW/LRT/RF04.cdf -- OK @ 20 Jan 1999 17:13:47
+# Sequence number = MI7014 -- NEW/LRT/RF05.cdf -- OK @ 20 Jan 1999 17:17:03
+# Sequence number = MI7021 -- NEW/LRT/RF06.cdf -- OK @ 20 Jan 1999 17:17:42
+# Sequence number = MI7028 -- NEW/LRT/RF07.cdf -- OK @ 20 Jan 1999 17:25:06
+# Sequence number = MI7035 -- NEW/LRT/RF08.cdf -- OK @ 20 Jan 1999 17:25:33
+# Sequence number = MI7042 -- NEW/LRT/RF09.cdf -- OK @ 20 Jan 1999 17:21:48
+# Sequence number = MI7049 -- NEW/LRT/RF10.cdf -- OK @ 20 Jan 1999 17:25:04
+# Sequence number = MI7056 -- NEW/LRT/RF11.cdf -- OK @ 20 Jan 1999 17:26:19
+# Sequence number = MI7064 -- NEW/LRT/RF12.cdf -- OK @ 20 Jan 1999 17:21:04
+# Sequence number = MI7076 -- NEW/LRT/RF13.cdf -- OK @ 20 Jan 1999 17:30:08
+# Sequence number = MI7089 -- NEW/LRT/RF14.cdf -- OK @ 20 Jan 1999 17:29:16
+# Sequence number = MI7099 -- NEW/LRT/RF15.cdf -- OK @ 20 Jan 1999 17:29:18
+# Sequence number = MI7106 -- NEW/LRT/RF16.cdf -- OK @ 20 Jan 1999 17:33:14
+# Sequence number = MI7120 -- NEW/LRT/RF17.cdf -- OK @ 20 Jan 1999 17:29:06
+# Sequence number = MI7133 -- NEW/LRT/RF18.cdf -- OK @ 20 Jan 1999 17:33:49
+# Sequence number = MI7144 -- NEW/LRT/RF19.cdf -- OK @ 20 Jan 1999 17:33:06
+# Sequence number = MI7151 -- NEW/LRT/RF20.cdf -- OK @ 20 Jan 1999 17:39:02
+# Sequence number = MI7166 -- NEW/LRT/RF21.cdf -- OK @ 20 Jan 1999 17:37:29
+# Sequence number = MI7189 -- NEW/LRT/RF22.cdf -- OK @ 20 Jan 1999 17:38:18
+# Sequence number = MI7200 -- NEW/LRT/RF23.cdf -- OK @ 20 Jan 1999 17:37:36
+# Sequence number = MI7207 -- NEW/LRT/RF24.cdf -- OK @ 20 Jan 1999 17:41:10
+# Sequence number = MI7214 -- NEW/LRT/RF25.cdf -- OK @ 20 Jan 1999 17:42:24
+# Sequence number = MI7221 -- NEW/LRT/RF26.cdf -- OK @ 20 Jan 1999 17:43:39
+# Sequence number = MI7228 -- NEW/LRT/RF27.cdf -- OK @ 20 Jan 1999 17:46:36
+# Sequence number = MI7235 -- NEW/LRT/RF28.cdf -- OK @ 20 Jan 1999 17:46:27
+# Sequence number = MI7242 -- NEW/LRT/RF29.cdf -- OK @ 20 Jan 1999 17:13:20
+# Sequence number = MI7249 -- NEW/LRT/RF30.cdf -- OK @ 20 Jan 1999 17:47:08
+# Sequence number = MI7256 -- NEW/LRT/RF31.cdf -- OK @ 20 Jan 1999 17:13:18
+# Sequence number = MI7264 -- NEW/LRT/RF32.cdf -- OK @ 20 Jan 1999 17:50:51
+# Sequence number = MI7271 -- NEW/LRT/RF33.cdf -- OK @ 20 Jan 1999 17:50:33
+# Sequence number = MI7292 -- NEW/LRT/RF34.cdf -- OK @ 20 Jan 1999 17:50:42
+# Sequence number = MI7300 -- NEW/LRT/RF35.cdf -- OK @ 20 Jan 1999 17:53:43
+# Sequence number = MI7317 -- NEW/LRT/RF36.cdf -- OK @ 20 Jan 1999 17:53:39
+# Sequence number = MI7328 -- NEW/LRT/RF37.cdf -- OK @ 20 Jan 1999 17:18:24
+# Sequence number = MI7335 -- NEW/LRT/RF38.cdf -- OK @ 20 Jan 1999 17:13:54
+# Sequence number = MI7342 -- NEW/LRT/RF39.cdf -- OK @ 20 Jan 1999 17:21:51
+# Sequence number = MI7349 -- NEW/LRT/RF40.cdf -- OK @ 20 Jan 1999 17:25:34
+# Sequence number = MI7356 -- NEW/LRT/RF41.cdf -- OK @ 20 Jan 1999 17:26:25
+# Sequence number = MI7364 -- NEW/LRT/RF42.cdf -- OK @ 20 Jan 1999 17:30:13
+# Sequence number = MI7384 -- NEW/LRT/RF43.cdf -- OK @ 20 Jan 1999 17:33:32
+# Sequence number = MI7392 -- NEW/LRT/RF44.cdf -- OK @ 20 Jan 1999 17:30:45
+# Sequence number = MI7399 -- NEW/LRT/RF45.cdf -- OK @ 20 Jan 1999 17:34:14
+# Sequence number = MI7406 -- NEW/HRT/RF09.cdf -- OK @ 20 Jan 1999 17:22:55
+# Sequence number = MI7413 -- NEW/HRT/RF11.cdf -- OK @ 20 Jan 1999 17:24:27
+# Sequence number = MI7420 -- NEW/HRT/RF15.cdf -- OK @ 20 Jan 1999 17:36:42
+# Sequence number = MI7428 -- NEW/HRT/RF26.cdf -- OK @ 20 Jan 1999 17:55:16
+# Sequence number = MI7445 -- NEW/HRT/RF27.cdf -- OK @ 20 Jan 1999 17:59:29
+# Sequence number = MI7457 -- NEW/HRT/RF28.cdf -- OK @ 20 Jan 1999 18:07:17
+# Sequence number = MI7478 -- NEW/HRT/RF33.cdf -- OK @ 20 Jan 1999 18:06:54
+# Sequence number = MI7485 -- NEW/HRT/RF34.cdf -- OK @ 20 Jan 1999 17:44:33
+#

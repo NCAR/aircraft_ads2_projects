@@ -1,0 +1,47 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1998-807 Leonids (Chester S. Gardner)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Thu Jan 28 15:49:05 MST 1999
+#
+date
+#
+set YEAR = 1998
+set PROJ = 807
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/807rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+echo nrnet msput $SDIR/807rf03a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf03b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf07a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/807rf07b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Thu Jan 28 15:49:52 MST 1999
+# Sequence number = MI7521 -- LRT/RF01.cdf -- OK @ 28 Jan 1999 15:51:39
+# Sequence number = MI7526 -- LRT/RF02.cdf -- OK @ 28 Jan 1999 15:51:42
+# Sequence number = MI7533 -- LRT/RF04.cdf -- OK @ 28 Jan 1999 15:51:41
+# Sequence number = MI7541 -- LRT/RF05.cdf -- OK @ 28 Jan 1999 15:51:43
+# Sequence number = MI7549 -- LRT/RF06.cdf -- OK @ 28 Jan 1999 15:55:44
+# Sequence number = MI7557 -- LRT/RF08.cdf -- OK @ 28 Jan 1999 15:55:47
+# Sequence number = MI7564 -- LRT/RF09.cdf -- OK @ 28 Jan 1999 15:55:45
+# Sequence number = MI7571 -- LRT/RF10.cdf -- OK @ 28 Jan 1999 15:55:48
+# Sequence number = MI7578 -- LRT/RF11.cdf -- OK @ 28 Jan 1999 15:59:43
+# Sequence number = MI7585 -- LRT/RF03A.cdf -- OK @ 28 Jan 1999 15:59:44
+# Sequence number = MI7597 -- LRT/RF03B.cdf -- OK @ 28 Jan 1999 15:59:45
+# Sequence number = MI7605 -- LRT/RF07A.cdf -- OK @ 28 Jan 1999 15:59:42
+# Sequence number = MI7613 -- LRT/RF07B.cdf -- OK @ 28 Jan 1999 16:03:41
+#

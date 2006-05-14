@@ -1,0 +1,112 @@
+1994-870 WISP-94 Reprocessing notes
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RLR  14 January 1999
+   WISP-94 data were reprocessed at the end of December 1998 to fix some
+PMS-1D data.  The FSSP-100 data have minor modifications.  The PMS-260X data
+were scrambled, because the Defaults file reported an incorrect number of
+cells.  The cell size data are now saved in the netCDF header as end-points
+rather than mid-points.
+   The current version of NIMBUS (2.5.5) now uses some different variable
+names (e.g., XUIC instead of UIC), and some new standard variables were
+added.  When the data were reprocessed, the new variable descriptions
+were missing.  (I have since updated the VarDB file to include them.)
+   I wrote and ran a script which used an extant C program (ncfixattr--changes
+one ASCII attribute in a specified netCDF file) to change all the affected
+attributes in each production netCDF file.
+
+Archive plan
+------------
+ - Create new "tarit.870" file to create the master support file archive
+ - Create new "arch.870" script file to archive all the re_production data
+    to the SCD Mass Store System (MSS) and edit the script so it puts the
+    files in the temporary directory
+     /RAF/1994/870/NEW/
+    (Run the script to archive the files.)
+ - Create a script that will move the MSS bitfiles uniquely associated with
+    the first production run to the directory:
+     /RAF/1994/870/1ST_PRODUCTION/
+    to make room for the newly-updated versions.
+ - Move the MSS bitfiles in the /RAF/1994/870/NEW directory to the standard
+    production path
+ - Move local project files uniquely associated with the first production
+    run to the directory:
+     /home/local/proj/870/Production/1st_production/
+    Within the new subdirectory, file names will not change.
+ - Create new "arch.support" file to archive all the project support files.
+    (Run the script to archive the files.)
+
+Inform users about the new data files.  (Provide explanations of all the
+changes as well as where the original data are stored in case they want
+to compare old versus new.)
+ - Changes:
+  - netCDF file changes:
+   - added global attributes:  Version, Categories
+   - deleted global attribute:  Defaults
+   - added variable attribute:  Category
+   - deleted variable attribute:  SampledRate (for derived variables only)
+   - added PMS-1D attributes:  SerialNumber, FirstBin, LastBin, CellSizes,
+       nDiodes, Magnification, ResponseTime, ArmDistance, CellSizeUnits,
+       DepthOfField, BeamDiameter, Density, PLWfactor, DBZfactor
+   - attribute name change:  MissingValue --> missing_value
+   - Deleted the global attribute Defaults (which contained variable
+      attributes) and created new attributes associated with each affected
+      variable; format below is Variable:Attribute(s)
+       ACINS:PITCH_BIAS_1, HEADING_BIAS_1, PITCH_BIAS_2, HEADING_BIAS_2
+       CON2P1:P1_EAW, P2_EAW
+       CONCN:DIV
+       OAT:MAXCNT, THERM_BIAS, THERM_RZ, THERM_COEFF, DFLT_GAIN, DFLT_OFFSET, A1, A2
+       PLWCC:TWIRE_PMS, TWIRE_TASFAC
+       RHOLA:XC_1, THRSH_1, CX_1
+       RHOLA1:XC_2, THRSH_2, CX_2
+       XRADCF:RAD_PITCH_MAX, RAD_PITCH_MIN, RAD_ROLL_MAX, RAD_ROLL_MIN, SWDIFF, SWDIRF
+   - renamed variables: EVTCKP->EVENT_CKP, EVENT_CTL->EVTCTL,
+       EVENT_FWD->EVTFWD, EVENT_OBL->EVTOBL, EVENT_OBR->EVTOBR, LATC->XLATC,
+       LONC->XLONC, UIC->XUIC, UXC->XUXC, VEWC->XVEWC, VIC->XVIC, VNSC->XVNSC,
+       VYC->XVYC, WDC->XWDC, WIC->XWIC, WSC->XWSC
+   - added variables:  ALT, DAY, MONTH, YEAR, DBZ6_WDL, DBZF_IBL, IAS, ONE,
+       PALTF, PFLWC_IBR, SOLAZ, SOLDE, SOLEL, SOLZE, TASHC, XRADCF, XSWTC, ZERO
+  - NIMBUS processor changes:
+   - Added TASHC (Humidity-Corrected True Airspeed)
+   - Fixed bug when computing GPS-Corrected variables
+   - Added single-point despike routine
+   - Changed 260X depth-of-field algorithm
+   - Added reflectivity for FSSP & 260X (DBZ6 & DBZF)
+   - Modified PCASP code to include Flow Rate into Sample Volume calculation
+   - Upgraded from netCDF version 2.3.2 to version 2.4.2
+   - Added Indicated Airspeed (IAS) as a standard variable
+   - Changed to new and better high-rate filters, especially for 1 sps
+      variables going up to 25 sps  (cleans up the GPS-corrected high-rate
+      winds)
+   - Changed EDPC (vapor pressure) calculation to use the Goff-Gratch
+      Formulation (with Buck's enhancement factor) instead of the
+      approximation method of Paul R. Lowe
+   - Fixed a wrong sign in the computation of the vertical component of the
+      Coriolis acceleration used for WI and WP3
+   - Added a full, 1-second shift to get the GPS data into the correct data
+      record (i.e., it used to be out of phase by about 1.3 seconds)
+   - Added dynamic lagging of GPS variables to center the data on the second.
+   - Added new netCDF attribute "Category" to each variable along with a
+      global attribute "Categories" listing all categories
+   - Added solar angle variables (SOLZE, SOLAZ, SOLDE, SOLEL - zenith,
+      azimuth, declination, and elevation)
+   - Added radiometer attitude-correction variables (XRADCF & XSWTC)
+   - Changed PMS-1D cell sizes to be end-points rather than mid-points
+   - For 260X processing, MAG is now calculated, and Concentrations now will
+      have a 1-to-1 correspondence with raw Accumulations (one-cell offset
+      was eliminated)
+
+Data observations (RF11 18:00-18:30):
+ - FBMFR:  HRT re_production has min limit of 0.2 and max limit of 1.0;
+    previously could go to zero and exceed 13.
+ - Need to check 260X, FSSP and PCAS concentrations (ncpp, too?)
+  - CONC6_WDL:  new processing has about 2x higher values
+  - CONCF_IBL:  new processing has about 20% higher values
+? - CONCF_IBL:  new processing HRT has about 4% higher values than LRT
+  - CONCP_IBR:  no change
+? - DBAR6_WDL:  new processing LRT has about 2x higher values than HRT
+? - DBARF_IBL:  old and new processing LRT has about 20% higher values than HRT
+  - DBARP_IBR:  old processing has about 25% higher values
+  - DISP6_WDL:  old processing has about 25% higher values (LRT)
+  - DISP6_WDL:  old processing has about 50% higher values (LRT)
+? - DISP6_WDL:  new processing LRT has about 4.5x higher values than HRT
+? - DIPSF_IBL:  old and new processing LRT has about 1.5x higher values than HRT

@@ -1,0 +1,34 @@
+#! /bin/csh -f
+#
+#  archive special ASCII output files for Sam Smith from, UK Met Svc.
+#     1999-803 Mesoscale Alpine Programme (MAP) (Joachim Kuettner)
+#
+#  File created by Ron Ruth Mon Apr 24 11:54:52 MDT 2000
+#
+date
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 803
+#
+set SDIR = ~ftp/pub/tmp/MAP
+set TURBRT = LRT/SMITH
+#
+echo nrnet msput $SDIR/803rf20.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/803rf23.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/803rf24.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/803rf26.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF26.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/803rf29.asc l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF29.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  Job(s) submitted on Mon Apr 24 12:16:11 MDT 2000
+# Sequence number = LN0042 -- LRT/SMITH/RF20.asc -- OK @ 24 Apr 2000 12:16:35
+# Sequence number = LN0051 -- LRT/SMITH/RF23.asc -- OK @ 24 Apr 2000 12:16:26
+# Sequence number = LN0060 -- LRT/SMITH/RF24.asc -- OK @ 24 Apr 2000 12:16:33
+# Sequence number = LN0070 -- LRT/SMITH/RF26.asc -- OK @ 24 Apr 2000 12:19:19
+# Sequence number = LN0080 -- LRT/SMITH/RF29.asc -- OK @ 24 Apr 2000 12:20:25
+#

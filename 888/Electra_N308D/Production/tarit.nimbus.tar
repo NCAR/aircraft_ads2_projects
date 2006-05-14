@@ -1,0 +1,8 @@
+#! /bin/csh -f
+#
+#  Execute this script when in the directory `/home/local.'
+#   You'll have to do it with the command:
+#      /home/local/proj/888/Production/tarit.nimbus.tar
+#
+tar chlvf /home/local/proj/888/Production/nimbus.tar nimbus
+exit

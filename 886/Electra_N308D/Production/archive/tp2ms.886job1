@@ -1,0 +1,46 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 3-886 ANLC (Gardner).
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1993
+set PROJ = 886
+# set STAGE = nfile=1
+set STAGE = nrec=6500
+#set STAGE = skpr=6500 nrec=6500
+#set STAGE = skpr=13000 nrec=6500
+#set STAGE = skpr=19500 nrec=6500
+#set STAGE = skpr=26000 nrec=6500
+# 
+set TAPELIST = ( R0484 R0485 R0486 R0488 R0489 R0490 R0491 R0492 R0595 )
+set FLIGHTS =  ( FF01  RF01  RF02  RF03  RF04  RF05  RF06  RF07  RF08  )
+#
+#  Jobs submitted @ 3:51 p.m. on 25 August 1993
+#  Sequence numbers are (in order of submission):
+#  Sequence number = CK5230  =  OK
+#  Sequence number = CK5241  =  OK
+#  Sequence number = CK5253  =  OK
+#  Sequence number = CK5266  =  OK
+#  Sequence number = CK5277  =  OK
+#  Sequence number = CK5290  =  OK
+#  Sequence number = CK5301  =  OK
+#  Sequence number = CK5311  =  OK
+#  Sequence number = CK5328  =  OK
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+ 
+# done.
+exit

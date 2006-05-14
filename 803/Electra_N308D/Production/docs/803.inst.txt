@@ -1,0 +1,135 @@
+
+	Aircraft Research Instrumentation
+	  NCAR Electra - Project #9-803
+	Mesoscale Alpine Project
+					 Kuettner et al
+
+RAF-Supplied Instrumentation:
+
+I.  Airborne Data System.
+     A. Acquisition.  Electra ADS2 (Motorola 69040 based). 
+   NCAR Distributed Sampling Modules (2 units), located
+   at the RAF systems operator station. SunSPARC 5, PowerVideo
+   Board, 16" High Resolution Color Monitor, Exabyte Model
+   EXB-8505 Tape Drives (2 units), Sun EXP-2 Disk Drive,
+   Diamond Trackball, HP3630 PaintJet Printer, APC 600
+   Uninterruptable Power Supply. 
+     B. Aft Cabin User Displays(3): Sun SPARCstation IPC,
+   PowerVideo Board, 16" High Resolution Color Monitors
+   (WINDS), ELDORA 2 channel 15" High Resolution Color
+   Monitor, HP3630 PaintJet Printer.
+C. Flight Deck Display: Sun BriteLite with 9" Flat Panel 
+   Display and Diamond Trackball.
+
+II. Aircraft Position, Velocity and Attitude
+A. Honeywell Model HG1095-AC03 Laseref SM Inertial
+   Reference System . (Research).
+     B. Trimble TANS III Global Positioning System. (GPS).
+
+III.Static Pressures.
+  	A. Rosemount Model 1501 Digital Pressure Transducer -
+   Fuselage Port (PSFD). 
+B. Ruska Model 7885 Digital Pressure Transducer -
+   Fuselage Port (XPSFD).
+     B. Rosemount Model 1201F1 Pressure Transducer - Right
+   Wing Tip (PSW).
+C. Rosemont Model 1201F1 Pressure Transducer - In-cabin
+   (PCAB).
+
+IV. Dynamic Pressures.
+     A. Rosemount Model 1221F1VL - Radome (QCR). 
+B. Rosemount Model 1221F1VL - Fuselage Pitot (QCF). 
+     C. Rosemount Model 1221F1VL - Wing (QCW). 
+
+V.  Temperatures.
+     A. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Starboard Radome Mount (TTRR). 
+     B. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Port Radome Mount (TTRL). 
+C. Rosemount Type 102E Deiced Sensor -- Rosemount Model
+        510BF Amplifier - Left Fuselage Mount (TTFH).
+D. OPHIR-III Radiometric-Near Field Temperature Sensor -
+   Coatroom Window plate (OAT).
+
+
+Electra RAF MAP
+Page 2
+
+
+VI. Flow Angle Sensors, Radome.
+      A. Attack - Rosemount Model 1221F1VL Differential Pressure
+         Transducer (ADIFR). 
+      B. Sideslip - Rosemount Model 1221F1VL Differential 
+         Pressure Transducer (BDIFR). 
+
+VII. Dew Point and Humidity.
+A. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPT). 
+B. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPB). 
+     C. NCAR Model LA-3 Stub Lyman-alpha Hygrometer - Port     
+   Radome Mount (VLA1).  
+     D. NCAR Model LA-3 Crossflow Lyman-alpha Hygrometer - Port
+   Radome Mount (VLA).  
+
+VIII.Cloud Physics.
+      A. Rosemount Model 871FA Icing Rate Detector - Right
+    Pylon (RICE). 
+      B. PMS Liquid Water Sensor (King Probe) -
+    Left Wing Tip (PLWC).
+      C. PMS Liquid Water Sensor (King Probe) -
+    Right Pylon (PLWC1).
+ D. Particle Measuring Systems Model PCASP - Left Window
+    Size Distribution, 0.12 to 3.12 um.
+ E. Particle Measuring Systems Model FSSP/100 - Right Pylon
+    Size Distribution, 3 - 45 um.
+      F. Particle Measuring Systems Model 260X - Left Pylon
+ 	    Size Distribution, 10 to 640 um.              		
+ G. Particle Measuring Systems Model 2D-C - Right Wing tip
+    Size Distribution, 25 to 800 um.
+ H. Particle Measuring Systems Model 2D-P - Left Wing tip
+    Size Distribution, 100 to 3200 um.
+ I. TSI Model 3760 CN Counter - Right Window (CONCN).
+    Size Distribution, 0.01 to 3 um.
+
+IX  . Geometric Altitude 
+ A. Sperry Model AA200 Radio Altimeter: 0 to 800 m AGL.
+ B. Steward-Warner Model APN-159: 0 to 12,000 m AGL.
+
+X. Photography.
+ A. Sony XC-999 $VH$ Color Camera with JVC Model HR-S4700U
+    VHS Recorder (2 pairs), Horita GPS Video Titler,
+    Forward facing Cockpit Mount; Right side facing.
+
+
+
+
+
+
+Electra RAF MAP
+Page 3
+
+
+XI.   Radiation Fluxes.
+       A. Visible Radiation.  RAF Modified Eppley Model PSP
+          Pyranometers - 2 units: Upward looking (SWT), Downward
+          looking (SWB). Multipurpose Radiometer Housings.
+  B. Ultraviolet Radiation.  RAF Modified Eppley Model TUVR
+     Pyranometers - 2 units: Upward looking (UVT), Downward
+     looking (UVB). Multipurpose Radiometer Housings. 
+       C. Infrared Radiation.  RAF Modified Eppley Model PIR
+          Pyrgeometers - 2 units: Upward looking (IRT), Downward
+          looking (IRB). Multipurpose Radiometer Housings.
+       D. Remote Surface Temperature.  Heiman Model KT19.85 
+     Radiometer - 2 units: Both down looking (RSTB,RSTB1). 
+       E. Remote Sky Temperature.  Heiman Model KT19.85 
+ 	     Radiometer - Up looking (RSTT). 
+
+XII.  Special ATD Facilities
+  A. Scanning Aerosol Backscatter Lidar - Forward cargo hold.
+     Downlooking, only. RAF / (SABL).
+  B. Weather Avoidance Radar Display System  Radome / Forward
+     right  cabin.  RSF / (WARDS).
+  C. NCAR Modified TECO Model 49 Ozone Analyzer.  Forward left
+     cabin.  RAF / (TEO3).
+  D. ELDORA Dopplar Radar - RSF.
+  E. GPS Dropsondes - SSSF.
+

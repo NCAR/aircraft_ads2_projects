@@ -1,0 +1,858 @@
+C-----------------------------------------------------------------------        
+C SEWIC CORRECTION PER R. RUTH'S MEMO                       29MAY1990           
+C STHETAE/SEWIC REPLACE "*10E-" WITH "E-"                   16SEP1988           
+C STAX,SPSXC,STASX OFFSET=CONVERT (CINDE PROJECT REPROCESS) 23AUG1988           
+C TLCL CALCULATION CONSTANT FIXED (CHANGED FROM 3.4 TO 3.5) 06JUN1988           
+C-----------------------------------------------------------------------        
+C SQCXC,SPSXC ADDED                                   02OCT1987                 
+C-----------------------------------------------------------------------        
+C QCDC ADDED TO SQCXC (PCOR8-858 DIFF PROBE)          04SEP1987                 
+C-----------------------------------------------------------------------        
+C SATX - MODS FOR TAKING REC. FACTOR FUNCTION         09MAR1987                 
+C-----------------------------------------------------------------------        
+C  THIS FILE CONTAINS THE FOLLOWING GENERAL DERIVATION CALIBRATION SUBS:        
+C--------------------------------------------------------------------------     
+C SUB NAME| REQUIRED VARIABLES    -NO|CONSTANT| DERIVED VARIABLES               
+C-----------------------------------------------------------------------        
+C SABFIX  |ABFIX;QCXC               2|BIAS    |AKFXL,AKFXR,SSFXT,SSFXB  IX      
+C--------------------------------------------------------------------------     
+C SATKSLP |ABDIF;QCXC;PSXC;QCX      4|BIAS    |AKDF,SSDF                        
+C--------------------------------------------------------------------------     
+C SATRF   |TTRX;QCXC;PSXC           3|RECFR   |ATRF                             
+C--------------------------------------------------------------------------     
+C SATX    |TTX;QCXC;PSXC            3|RECFR   |ATB,ATF,ATKP,ATW                 
+C--------------------------------------------------------------------------     
+C SATXH   |TTXH;QCXC;PSXC2          3|RECFR   |ATBH,ATFH,ATWH                   
+C--------------------------------------------------------------------------     
+C SDIF    |VAR1;VAR2                2|        |DIFFERENCE OF 2 VARS             
+C--------------------------------------------------------------------------     
+C SDPC    |DPX                      1|        |DPC,DPBC,DPTC,GEDPC              
+C--------------------------------------------------------------------------     
+C SGSF    |XVI;YVI                  2|        |GSF                              
+C--------------------------------------------------------------------------     
+C SGUSTO  |THI;TASX;TASG;ATK;SSLP   5|BMLENTH |GUSTO VARS.                      
+C--------------------------------------------------------------------------     
+C SIRTBC  |DDTB;STTB;IRTB           3|XKTB    |IRTC,IRBC                        
+C--------------------------------------------------------------------------     
+C SLWCC   |LWC;TASX                 2|REFJW   |LWCC                             
+C--------------------------------------------------------------------------     
+C SMR     |DPXC;PSXC                2|        |MR                               
+C--------------------------------------------------------------------------     
+C SPALT   |PSXC                     1|ASTG    |PALT                             
+C--------------------------------------------------------------------------     
+C SPLWCC  |PLWC;ATX;PSXC;TASX       4|        |PLWCC                            
+C--------------------------------------------------------------------------     
+C SPSURF  |ATX;MR;PSXC;HGM          4|        |PSURF                            
+C-----------------------------------------------------------------------        
+C SPSXC   |PSX;QCX                  2|        |PSFC,PSWC,PSBC,PSFDC             
+C--------------------------------------------------------------------------     
+C SQCXC   |QCX                      1|        |QCDX,QCFC,QCWC,QCGC,QCBC         
+C--------------------------------------------------------------------------     
+C SRHOTD  |DPXC;ATX;PSXC            3|        |RHOD,RHODT,RHODB,RHODGE          
+C--------------------------------------------------------------------------     
+C SRHUM   |DPXC;ATX;PSXC            3|        |RHUM                             
+C--------------------------------------------------------------------------     
+C SSPHUM  |DPXC;PSXC                2|        |SPHUM                            
+C--------------------------------------------------------------------------     
+C STASX   |TTX;QCXC;PSXC            3|RECFA   |TASB,TASF,TASG,TASW              
+C--------------------------------------------------------------------------     
+C STHETA  |ATX;PSXC                 2|        |THETA                            
+C--------------------------------------------------------------------------     
+C STHETAE |DPC;ATX;PSXC;RM          4|        |THETAE                           
+C--------------------------------------------------------------------------     
+C STHETAV |ATX;MR;PSXC              3|        |THETAV                           
+C--------------------------------------------------------------------------     
+C STVIR   |ATX;MR                   1|        |TVIR                             
+C--------------------------------------------------------------------------     
+      SUBROUTINE SABFIX                                                         
+C**********************************************************  SABFIX             
+C** ATTACK ANGLE / SIDE SLIP (FIXED VANE)  (DEG)                                
+C** REQUIRES --- 1-ABFIX;2-QCXC                                                 
+C                                                                               
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+.USE  FHSSATK                                                                   
+.USE  WHSSATK                                                                   
+      IPFIX = IPSOU(1) - 1                                                      
+      IPQCXC = IPSOU(2) - 1                                                     
+      INDPUT = INDPUT - 1                                                       
+      BIAS = CONS1                                                              
+      DO (IX = 1 , LDO)                                                         
+        FIX = DATA(IPFIX + IX)                                                  
+        QCXC = DATA(IPQCXC + IX)                                                
+        IF(FIX.EQ.99999. .OR. QCXC.EQ.99999.)                                   
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        FIX = HSSATK(FIX,QCXC)                                                  
+        IF(ABS(FIX).GT.20.) FIX = SIGN(20.,FIX)                                 
+C HOLD ATTACK AND SIDESLIP ANGLES TO ZERO BEFORE TAKEOFF                        
+        IF(QCXC.LT. 10.) FIX = 0.                                               
+        IF(BIAS.EQ.99999.) BIAS = 0.                                            
+        ABFIX = FIX + BIAS                                                      
+        DATA(INDPUT+IX) = ABFIX                                                 
+   99  CONTINUE                                                                 
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SATRF                                                          
+C**********************************************************  SATRF              
+C** AMBIENT TEMPERATURE (REVERSE FLOW)(C)                                       
+C** REQUIRES:1-TTRF;2-QCXC;3-PSXC                                               
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+      DATA NCONSN/8HFUNCTION/                                                   
+.USE  FRECFRN                                                                   
+      IPTTRF = IPSOU(1)-1                                                       
+      IPQCXC = IPSOU(2)-1                                                       
+      IPPSXC = IPSOU(3)-1                                                       
+      INDPUT = INDPUT -1                                                        
+      DO (IX=1,LDO)                                                             
+        TTRF = DATA(IPTTRF   +IX)                                               
+        PSXC = DATA(IPPSXC   +IX)                                               
+        QCXC = DATA(IPQCXC +IX)                                                 
+        IF(TTRF.EQ.99999. .OR. QCXC.EQ.99999. .OR. PSXC.EQ.99999.)              
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        XMACH2 = 5.*((QCXC /PSXC+1.)**.28571-1.)                                
+        IF(CONSN .EQ. NCONSN)                                                   
+.USE  WRECFRN                                                                   
+         ATRF= (TTRF + 273.16)/(1.0 + 0.2*RECFRN(QCXC)*XMACH2) - 273.16         
+        ELSE                                                                    
+         IF(CONS1.EQ.99999.)                                                    
+          PRINT 88,NAMVAR,CONS1                                                 
+   88     FORMAT(' WARNING: SATRF- ',A8,' REQUIRES A RECOVERY FACTOR',          
+     1    ' BUT NOT ',F9.2)                                                     
+         END IF                                                                 
+         ATRF= (TTRF + 273.16)/(1.0 + 0.2*CONS1*XMACH2) - 273.16                
+        END IF                                                                  
+        DATA(INDPUT+IX) = ATRF                                                  
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SATX                                                           
+C***********************************************************  SATX              
+C** AMBIENT TEMPERATURE (BOOM,FUSELAGE,FAST RESPONSE,WING) (C)                  
+C** REQUIRES:1-TTX;2-QCXC;3-PSXC                                                
+C** REQUIRES:RECFR                                                              
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      DATA NCONSN/8HFUNCTION/                                                   
+.USE  FRECFKN                                                                   
+      IPTTX =IPSOU(1  )  -1                                                     
+      IPQCXC = IPSOU(2)-1                                                       
+      IPPSXC = IPSOU(3) -1                                                      
+      RECF = CONS1                                                              
+      OFFSET=CONVERT                                                            
+      INDPUT = INDPUT -1                                                        
+      DO (IX=1,LDO)                                                             
+        TTX = DATA(IPTTX   +IX)                                                 
+        QCXC = DATA(IPQCXC +IX)                                                 
+        PSXC = DATA(IPPSXC +IX)                                                 
+        IF(TTX.EQ.99999. .OR. QCXC.EQ.99999. .OR. PSXC.EQ.99999.)               
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        XMACH2 = 5.*((QCXC /PSXC+1.)**.28571-1.)                                
+        IF(CONSN .EQ. NCONSN)                                                   
+.USE  WRECFKN                                                                   
+         ATX = (TTX + 273.16)/(1.0 + 0.2*RECFKN(QCXC)*XMACH2) - 273.16          
+        ELSE                                                                    
+         IF(RECF .EQ.99999.)                                                    
+          PRINT 88,NAMVAR,CONS1                                                 
+   88     FORMAT(' WARNING: SATX - ',A8,' REQUIRES A RECOVERY FACTOR',          
+     1    ' BUT NOT ',F9.2)                                                     
+         END IF                                                                 
+         ATX = (TTX + 273.16)/(1.0 + 0.2*RECF*XMACH2) - 273.16                  
+        END IF                                                                  
+        DATA(INDPUT+IX) = ATX                                                   
+C       DATA(INDPUT+IX) = ATX+OFFSET                                            
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SATXH                                                          
+C***********************************************************  ATXH              
+C** AMBIENT TEMPERATURE (HEATED-BOOM/WING/FUSELAGE)                             
+C** REQUIRES:1-TTXH;2-QCXC;3-PSXC                                               
+C** REQUIRES:RECFRH                                                             
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      DATA NATBH/8HATBH    /,NATFH/8HATFH    /,NATWH/8HATWH    /                
+.USE  FTFHERR                                                                   
+.USE  WTFHERR                                                                   
+      LOCSVH= LOCSAV(THISOP)-1                                                  
+      IF(NAMVAR.EQ.NATBH) ATXH  = CON( LOCSVH+19)                               
+      IF(NAMVAR.EQ.NATFH) ATXH  = CON( LOCSVH+20)                               
+      IF(NAMVAR.EQ.NATWH) ATXH  = CON( LOCSVH+21)                               
+      IPTTXH =IPSOU(1 )-1                                                       
+      IPQCXC =IPSOU(2 )-1                                                       
+      IPPSXC =IPSOU(3 )-1                                                       
+      RECXH = CONS1                                                             
+      INDPUT = INDPUT-1                                                         
+      DO (IX=1,LDO)                                                             
+        TTXH = DATA(IPTTXH +IX)                                                 
+        PSXC = DATA(IPPSXC +IX)                                                 
+        QCXC = DATA(IPQCXC +IX)                                                 
+        IF(TTXH.EQ.99999. .OR. PSXC.EQ.99999. .OR. QCXC.EQ.99999.)              
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        XMACH2 = 5.*((QCXC /PSXC+1.)**.28571-1.)                                
+        XMACH = SQRT(ABS(XMACH2))                                               
+        IF (NSTAGE.EQ.4 .AND. IX.EQ.1) ATXH = TTXH                              
+        ZEE = 0.2695890238*PSXC*XMACH/(ATXH+273.16)                             
+.USE  ZLOG                                                                      
+        TTXH = TTXH - ZFUN                                                      
+        DATA(IPTTXH+IX) = TTXH                                                  
+C** ATXH                                                                        
+         IF(RECXH.EQ.99999.)                                                    
+          PRINT 88,NAMVAR,CONS1                                                 
+   88     FORMAT(' WARNING: SATXH- ',A8,' REQUIRES A RECOVERY FACTOR',          
+     1    ' BUT NOT ',F9.2)                                                     
+         END IF                                                                 
+        ATXH = (TTXH + 273.16)/(1.0 + 0.2*RECXH*XMACH2) - 273.16                
+        DATA(INDPUT+IX) = ATXH                                                  
+   99   CONTINUE                                                                
+      END DO                                                                    
+      IF(NAMVAR.EQ.NATBH) CON( LOCSVH+19)= ATXH                                 
+      IF(NAMVAR.EQ.NATFH) CON( LOCSVH+20)= ATXH                                 
+      IF(NAMVAR.EQ.NATWH) CON( LOCSVH+21)= ATXH                                 
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SDIF                                                           
+C***********************************************************  SDIF              
+C** DIFFERENCE OF TWO VARIABLES                                                 
+C** REQUIRES:1-VAR1;2-VAR2                                                      
+.REPL                                                                           
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      IPVARA  = IPSOU(1) - 1                                                    
+      IPVARB  = IPSOU(2) - 1                                                    
+      IRVARA  = LRTSOU(1)/LRATE                                                 
+      IRVARB  = LRTSOU(2)/LRATE                                                 
+      INDPUT  = INDPUT - 1                                                      
+      DO (IX=1, LDO)                                                            
+        ISKPVA = (IX-1)*IRVARA+1                                                
+        ISKPVB = (IX-1)*IRVARB+1                                                
+        VARA  = DATA(IPVARA +ISKPVA)                                            
+        VARB  = DATA(IPVARB +ISKPVB)                                            
+        IF(VARA.EQ.99999. .OR. VARB.EQ.99999.)                                  
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        DIFVAR= VARA - VARB                                                     
+        DATA(INDPUT+IX) = DIFVAR                                                
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SDPC                                                           
+C***********************************************************  SDPC              
+C** DEWPOINT TEMPERATURE (THERMOELEC) (C)                                       
+C** REQUIRES:1-DP                                                               
+C  DPCOR EQUATION COMPUTES DIFFERENCE BETWEEN DEW POINT AND FROST POINT         
+C  DERIVED FROM GOFF/GRATCH VAPOR PRESSURE EQUATIONS FOR PLANE SWATER AND       
+C  ICE SURFACES. FINAL CORRECTED DEW POINT (DPC) IS WITH RESPECT TO A PLANE     
+C  SWATER SURFACE.  THE ACCURACY OF CONVERSION (ONE SSIGMA) IS 0.02C OVER       
+C  RANGE OF 0C TO -80 C.                                                        
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      IPDP =IPSOU(1  )  -1                                                      
+      INDPUT = INDPUT -1                                                        
+      DO (IX=1,LDO)                                                             
+        DP = DATA(IPDP   +IX)                                                   
+        IF(DP.EQ.99999. )                                                       
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        DPC = DP                                                                
+        IF (DP.LT.0.) DPC = 0.009109+DP*(1.134055+DP*0.001038)                  
+        DATA(INDPUT+IX) = DPC                                                   
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SGSF                                                           
+C***********************************************************  SGSF              
+C** INS GROUND SPEED (PLATFORM COORDINATES) (M/S)                               
+C** REQUIRES:1-XVI;2-YVI                                                        
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      IPXVI =IPSOU(1  ) -1                                                      
+      IPYVI =IPSOU(2  ) -1                                                      
+      INDPUT = INDPUT -1                                                        
+      DO (IX=1,LDO)                                                             
+        XVI= DATA(IPXVI +IX)                                                    
+        YVI= DATA(IPYVI +IX)                                                    
+        IF(XVI.EQ.99999. .OR. YVI.EQ.99999.)                                    
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        DATA(INDPUT+IX) = SQRT (XVI*XVI + YVI*YVI)                              
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+C                                                                               
+      SUBROUTINE SIRTBC                                                         
+C**********************************************************  SPYRGC             
+C** CORRECTED TOP/BOTTOM PYRGEOMTER IRRADIANCE (WATTS/M2)                       
+C** REQUIRES:1-TBPGDT;2-TBPGST;3-TBPYRG                                         
+C            1-TDT;2-TST;3-IRT / 1-BDT;2-BST;3-IRB                              
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      DATA E0/0.986/, SBC/5.6686E-8/                                            
+      XKTB = CONS1                                                              
+      IPPGDT = IPSOU(1) - 1                                                     
+      IPPGST = IPSOU(2) - 1                                                     
+      IPPYRG= IPSOU(3)-1                                                        
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        PGDT=DATA(IPPGDT+IX)                                                    
+        PGST=DATA(IPPGST+ IX)                                                   
+        PYRG = DATA(IPPYRG+IX)                                                  
+        IF(PGDT.EQ.99999. .OR. PGST.EQ.99999. .OR. PYRG.EQ.99999.)              
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+         IF(XKTB .EQ.99999.)                                                    
+          PRINT 88,NAMVAR,CONS1                                                 
+   88     FORMAT(' WARNING: SPYRGC ',A8,' REQUIRES CONSTANT XK,  ',             
+     1    ' BUT NOT ',F9.2)                                                     
+         END IF                                                                 
+        DSCOR = XKTB*SBC*((PGDT +273.16)**4 - (PGST +273.16)**4)                
+        TCOR = E0*SBC*((PGST +273.16)**4)                                       
+        PYRGC = PYRG - DSCOR + TCOR                                             
+        DATA(INDPUT + IX) = PYRGC                                               
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SLWCC                                                          
+C***********************************************************  SLWCC             
+C** CORRECTED J-W LIQUID WATER CONTENT (G/M3)                                   
+C** REQUIRES:1-LWC;2-TASX                                                       
+C** REQUIRES:REFJW                                                              
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      COMMON/QC/IPQC1,IPQC2,LRTQC1,LRTQC2                                       
+      IPLWC = IPSOU(1) - 1                                                      
+      IPTAS = IPSOU(2) -1                                                       
+      IRQC1 = LRTQC1/LRATE                                                      
+      REFJW = CONS1                                                             
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        XLWC= DATA(IPLWC + IX)                                                  
+        IQC1= (IX-1)*IRQC1                                                      
+        QC1 = DATA(IPQC1+IQC1)                                                  
+        TASX= DATA(IPTAS + IX)                                                  
+        IF(XLWC.EQ.99999. .OR. TASX.EQ.99999.)                                  
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        IF(TASX.EQ.0.0) TASX=0.001                                              
+        XLWCC = XLWC*REFJW*0.44704/TASX                                         
+        IF(QC1 .LT. 10.)  XLWCC = XLWC                                          
+        IF(XLWCC .GT. 10.0 .OR. XLWCC.LT. -10.0) XLWCC = 0.0                    
+        DATA(INDPUT+IX) = XLWCC                                                 
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SMR                                                            
+C************************************************************** SMR             
+C** MIXING RATIO (G/KG)                                                         
+C** REQUIRES:1-DPXC;2-PSXC                                                      
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+.USE  FESUBT                                                                    
+      IPDPC = IPSOU(1) - 1                                                      
+      IPPSXC = IPSOU(2) - 1                                                     
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        DPC = DATA(IPDPC + IX)                                                  
+        PSXC = DATA(IPPSXC + IX)                                                
+        IF(DPC.EQ.99999. .OR. PSXC.EQ.99999. )                                  
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+C       EDPCO= ESUBT(DPC)                                                       
+        CALL SEWIC(DPC,PSXC,EDPC)                                               
+C       IF(NSTAGE.EQ.4) PRINT 39,IX,DPC,PSXC,EDPCO,EDPC                         
+   39   FORMAT(' IX,DPC,PSXC,EDPCO,EDPC ',I4,4F9.3)                             
+        RM = 622.0 * EDPC / (PSXC - EDPC)                                       
+        DATA(INDPUT + IX) = RM                                                  
+   99   CONTINUE                                                                
+       END DO                                                                   
+       RETURN                                                                   
+       END                                                                      
+C                                                                               
+C                                                                               
+C                                                                               
+      SUBROUTINE SPSURF                                                         
+C***********************************************************  SPSURF            
+C** SURFACE PRESSURE (MB)                                                       
+C** REQUIRES:1-ATX;2-RM;3-PSXC;4-HGM                                            
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      IPATX = IPSOU(1) - 1                                                      
+      IPRM = IPSOU(2) - 1                                                       
+      IPPSXC = IPSOU(3) - 1                                                     
+      IPHGM  = IPSOU(4) -1                                                      
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        ATX = DATA(IPATX + IX)                                                  
+        PSXC = DATA(IPPSXC + IX)                                                
+        RM = DATA(IPRM +IX)                                                     
+        HGM= DATA(IPHGM+IX)                                                     
+        IF(ATX.EQ.99999. .OR. PSXC.EQ.99999. .OR. RM.EQ.99999.                  
+     1     .OR. HGM.EQ.99999.)                                                  
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+C       TVIR = (ATX+273.16)/(1.0-.6E-3 *RM)                                     
+C** TVIR HERE SHOULD BE IN DEG K   (JUN 12, 1985)                               
+        TVIR = (ATX+273.16)*((1.+1.6078E-3*RM)/(1.+.001*RM))                    
+        TBARM = TVIR + 0.5 *(HGM*.0098)                                         
+        SURFP = PSXC* EXP((HGM/TBARM)*.0341833194)                              
+        IF( HGM .GT.750) SURFP =1000.                                           
+        DATA(INDPUT+IX) = SURFP                                                 
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SPSXC                                                          
+C***********************************************************  SPSXC             
+C** CORRECTED STATIC PRESSURE (FUSELAGE,FUSELAGE DIGITAL,WING) (MB)             
+C** REQUIRES:1-PSX;2-QCX                                                        
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      DATA NPSWC/8HPSWC    /,NPSFDC/8HPSFDC   /,NPSBC/8HPSBC    /               
+      DATA NPSFC/8HPSFC    /                                                    
+.USE  FPCOR                                                                     
+.USE  WPCOR                                                                     
+      IPPSX =IPSOU(1  ) -1                                                      
+      IPQCX  =IPSOU(2  ) -1                                                     
+      INDPUT = INDPUT -1                                                        
+      DO (IX=1,LDO)                                                             
+       PSX   = DATA(IPPSX   +IX)                                                
+       QCX   = DATA(IPQCX   +IX)                                                
+       IF(PSX.EQ.99999. .OR. QCX.EQ.99999. )                                    
+        DATA(INDPUT+IX) =99999.                                                 
+        GO TO 99                                                                
+       END IF                                                                   
+       IF(NAMVAR.EQ.NPSWC.OR.NAMVAR.EQ.NPSFC) PSXC= PSX + PCORW(QCX)            
+       IF(NAMVAR.EQ.NPSBC) PSXC= PSX + PCORG(QCX)                               
+       IF(NAMVAR.EQ.NPSFDC) PSXC= PSX + PCORD(QCX)                              
+       IF( QCX .LT. 10.)PSXC=PSX                                                
+       IF (PSXC .LT.50.)PSXC = 50.                                              
+       DATA(INDPUT+IX)=PSXC                                                     
+C      DATA(INDPUT+IX)=PSXC+CONVERT                                             
+   99 CONTINUE                                                                  
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+                                                                                
+      SUBROUTINE SQCXC                                                          
+C***********************************************************  SQCXC             
+C** CORRECTED DYNAMIC PRESSURE (FUSELAGE/WING) (MB)                             
+C** REQUIRES:1-QCX                                                              
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      DATA NQCWC/4HQCWC/,NQCFC/4HQCFC/,NQCGC/4HQCGC/,NQCBC/4HQCBC/              
+      DATA NQCDC/4HQCDC/                                                        
+.USE  FPCOR                                                                     
+.USE  WPCOR                                                                     
+      IPQCX =IPSOU(1  ) -1                                                      
+      INDPUT = INDPUT -1                                                        
+      DO (IX=1,LDO)                                                             
+       QCX= DATA(IPQCX +IX)                                                     
+       IF(QCX.EQ.99999.)                                                        
+        DATA(INDPUT+IX) =99999.                                                 
+        GO TO 99                                                                
+       END IF                                                                   
+       IF(NAMVAR.EQ.NQCWC.OR.NAMVAR.EQ.NQCFC) QCXC= QCX- PCORW(QCX)             
+       IF(NAMVAR.EQ.NQCBC) QCXC= QCX - PCORG(QCX)                               
+       IF(NAMVAR.EQ.NQCGC) QCXC= QCX - PCORG(QCX)                               
+C      IF(NAMVAR.EQ.NQCDC) QCXC= QCX - PCOR8(QCX)   
+       IF(QCXC.LT.10. )  QCXC = QCX                                             
+       IF(QCXC.LT.0.001) QCXC = 0.001                                           
+       DATA(INDPUT+IX) = QCXC                                                   
+   99  CONTINUE                                                                 
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SRHOTD                                                         
+C***********************************************************  SRHOTD            
+C** ABSOLUTE HUMIDITY (THERMOELEC) (G/M3)                                       
+C   ALL MOISTURE VARIABLES ARE COMPUTED WITH RESPECT TO A PLANE WATER           
+C   SURFACE.                                                                    
+C** REQUIRES:1-DPC;2-ATX;3-PSXC                                                 
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+.USE  FESUBT                                                                    
+      IPDPC  =IPSOU(1  ) -1                                                     
+      IPATX  =IPSOU(2  ) -1                                                     
+      IPPSXC =IPSOU(3)  -1                                                      
+      INDPUT = INDPUT -1                                                        
+      DO (IX=1,LDO)                                                             
+        DPC = DATA(IPDPC   +IX)                                                 
+        ATX  = DATA(IPATX    +IX)                                               
+        PSXC = DATA(IPPSXC + IX)                                                
+        IF(DPC.EQ.99999. .OR. ATX .EQ.99999. .OR. PSXC.EQ.99999.)               
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+C       EDPCO= ESUBT(DPC)                                                       
+        CALL SEWIC(DPC,PSXC,EDPC)                                               
+C        IF(NSTAGE.EQ.4) PRINT 39,IX,DPC,PSXC,EDPCO,EDPC    
+   39   FORMAT(' IX,DPC,PSXC,EDPCO,EDPC ',I4,4F9.3)                             
+        ATXK = ATX + 273.16                                                     
+        IF(ATXK.EQ.0.0) ATXK = 0.001                                            
+        RHOTD = 216.68*EDPC/ ATXK                                               
+        DATA(INDPUT+IX) = RHOTD                                                 
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SRHUM                                                          
+C**********************************************************  SRHUM              
+C** RELATIVE HUMIDITY  (PERCENT)                                                
+C** REQUIRES:1-DPXC;2-ATX;3-PSXC                                                
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+.USE  FESUBT                                                                    
+      IPDPC = IPSOU(1) - 1                                                      
+      IPATX =  IPSOU(2) - 1                                                     
+      IPPSXC= IPSOU(3) -1                                                       
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        DPC = DATA(IPDPC + IX)                                                  
+        ATX  = DATA(IPATX  + IX)                                                
+        PSXC = DATA(IPPSXC +IX)                                                 
+        IF(DPC.EQ.99999. .OR. ATX.EQ.99999. .OR. PSXC.EQ.99999.)                
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+C       EDPCO= ESUBT(DPC)                                                       
+C       EATXO= ESUBT(ATX)                                                       
+        CALL SEWIC(DPC,PSXC,EDPC)                                               
+        CALL SEWIC(ATX,PSXC,EATX)                                               
+C       IF(NSTAGE.EQ.4) PRINT 39,IX,DPC,PSXC,EDPCO,EDPC                         
+   39   FORMAT(' IX,DPC,PSXC,EDPCO,EDPC ',I4,4F9.3)                             
+C       IF(NSTAGE.EQ.4) PRINT 49,IX,ATX,PSXC,EATXO,EATX                         
+   49   FORMAT(' IX,ATX,PSXC,EATXO,EATX ',I4,4F9.3)                             
+        IF(EATX.EQ.0.0) EATX = 0.0001                                           
+        RHUM = 100. * EDPC/EATX                                                 
+        DATA(INDPUT + IX) = RHUM                                                
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE SSPHUM                                                         
+C**********************************************************  SSPHUM             
+C** SPECIFIC HUMIDITY (THERMOELEC)  (G/KG)                                      
+C** REQUIRES:1-DPXC;2-PSXC                                                      
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+.USE  FESUBT                                                                    
+      IPDPC = IPSOU(1) - 1                                                      
+      IPPSXC=  IPSOU(2) - 1                                                     
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        DPC = DATA(IPDPC + IX)                                                  
+        PSXC = DATA(IPPSXC + IX)                                                
+        IF(DPC.EQ.99999. .OR. PSXC.EQ.99999. )                                  
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+C       EDPCO= ESUBT(DPC)                                                       
+        CALL SEWIC(DPC,PSXC,EDPC)                                               
+C       IF(NSTAGE.EQ.4) PRINT 39,IX,DPC,PSXC,EDPCO,EDPC                         
+   39   FORMAT(' IX,DPC,PSXC,EDPCO,EDPC ',I4,4F9.3)                             
+        SHUM=622.0*EDPC/(PSXC-0.378*EDPC)                                       
+        DATA(INDPUT + IX) = SHUM                                                
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE STASX                                                          
+C***********************************************************  STASX             
+C** AIRCRAFT TRUE AIRSPEED (BOOM/FUSELAGE/GUST PROBE/WING) (M/S)                
+C** REQUIRES:1-TTX;2-QCXC;3-PSXC                                                
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      COMMON/QC/IPQC1,IPQC2,LRTQC1,LRTQC2                                       
+      DATA NCONSN/8HFUNCTION/                                                   
+.USE  FRECFRN                                                                   
+.USE  WRECFRN                                                                   
+      IPTTX =IPSOU(1  ) -1                                                      
+      IPQCXC = IPSOU(2)-1                                                       
+      IPPSXC = IPSOU(3)-1                                                       
+      INDPUT = INDPUT -1                                                        
+      IRQC1 = LRTQC1/LRATE                                                      
+      IRQC2 = LRTQC2/LRATE                                                      
+      OFFSET = CONVERT                                                          
+      IF(NSTAGE.EQ.4 .AND. CONS1.EQ.99999. .AND. CONSN.NE.NCONSN)               
+       PRINT 1449, NAMVAR                                                       
+1449   FORMAT(' STASX: REC. FACT. NOT DEFINED FOR ',A8)                         
+      END IF                                                                    
+      DO  (IX = 1, LDO)                                                         
+        IQC1= (IX-1)*IRQC1                                                      
+        QC1 = DATA(IPQC1+IQC1)                                                  
+        IQC2= (IX-1)*IRQC2                                                      
+        QC2 = DATA(IPQC2+IQC2)                                                  
+        TTX = DATA(IPTTX   +IX)                                                 
+        QCXC = DATA(IPQCXC +IX)                                                 
+        PSXC = DATA(IPPSXC +IX)                                                 
+        IF(TTX.EQ.99999. .OR. QCXC.EQ.99999. .OR. PSXC.EQ.99999.)               
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        IF(QCXC.LE.10. .OR. QCXC.GT.200.)QCXC = 10.0                            
+        IF(PSXC.LE.50. .OR. PSXC.GT.2000.)PSXC=50.0                             
+        IF(TTX .LE.-50. .OR. TTX.GT.50.) TTX = 0.0001                           
+        XMACH2 = 5.*((QCXC /PSXC+1.)**.28571-1.)                                
+        IF(XMACH2.EQ.0.0) XMACH2=0.000001                                       
+        IF(CONSN .EQ. NCONSN)                                                   
+       TAS=SQRT(ABS((TTX+273.16)*(401.86/(1./XMACH2+0.2*RECFRN(QCXC)))))        
+        ELSE                                                                    
+         TAS=SQRT(ABS((TTX+273.16)*(401.86/(1./XMACH2+0.2*CONS1))))             
+        END IF                                                                  
+        IF(QC1.LT.10. .AND. QC2.LT.10.) TAS=0.0                                 
+        DATA(INDPUT+IX) = TAS                                                   
+        IF(OFFSET.NE.1.) DATA(INDPUT+IX) = TAS+OFFSET
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE STHETA                                                         
+C***********************************************************  STHETA            
+C** POTENTIAL TEMPERATURE    (K)                                                
+C** REQUIRES:1-ATX;2-PSXC                                                       
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      IPATX = IPSOU(1) - 1                                                      
+      IPPSXC = IPSOU(2) - 1                                                     
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        ATX = DATA(IPATX + IX)                                                  
+        PSXC = DATA(IPPSXC + IX)                                                
+        IF(ATX.EQ.99999. .OR. PSXC.EQ.99999. )                                  
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        THETA = (ATX + 273.16) * (1000./PSXC) ** 0.28571                        
+        DATA(INDPUT + IX) = THETA                                               
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE STHETAV                                                        
+C***********************************************************  STHETAV           
+C** VIRTUAL POTENTIAL TEMPERATURE (K)                                           
+C** REQUIRES:1-ATX;2-RM;3-PSXC                                                  
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      IPATX = IPSOU(1) - 1                                                      
+      IPRM = IPSOU(2) - 1                                                       
+      IPPSXC = IPSOU(3) - 1                                                     
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        ATX = DATA(IPATX + IX)                                                  
+        PSXC = DATA(IPPSXC + IX)                                                
+        RM = DATA(IPRM +IX)                                                     
+        IF(ATX.EQ.99999. .OR. PSXC.EQ.99999. .OR. RM.EQ.99999.)                 
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+C       TVIR = (ATX+273.16)/(1.0-.6E-3 *RM)-273.16                              
+        TVIR = (ATX+273.16)*((1.+1.6078E-3*RM)/(1.+.001*RM))-273.16             
+        THETAV = (TVIR+273.16)*(1000./PSXC)**0.28571                            
+        DATA(INDPUT+IX) = THETAV                                                
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C                                                                               
+      SUBROUTINE STVIR                                                          
+C*********************************************************** STVIR      ******  
+C** VIRTUAL TEMPERATURE (K)                                                     
+C** REQUIRE:1-ATX;2-MR                                                          
+.REPL                                                                           
+.USE  TBLANK                                                                    
+.USE  BLANK                                                                     
+.USE  IOUNIT                                                                    
+.USE  CALCOM                                                                    
+.USE  TOP                                                                       
+.USE  OP                                                                        
+.USE  ERROR                                                                     
+.NOREP                                                                          
+      IPATX = IPSOU(1) - 1                                                      
+      IPRM = IPSOU(2) - 1                                                       
+      INDPUT = INDPUT - 1                                                       
+      DO (IX = 1 , LDO)                                                         
+        ATX = DATA(IPATX + IX)                                                  
+        RM = DATA(IPRM +IX)                                                     
+        IF(ATX.EQ.99999. .OR. RM.EQ.99999.)                                     
+         DATA(INDPUT+IX) =99999.                                                
+         GO TO 99                                                               
+        END IF                                                                  
+        TVIR = (ATX+273.16)*((1.+1.6078E-3*RM)/(1.+.001*RM))-273.16             
+        DATA(INDPUT+IX) = TVIR                                                  
+   99   CONTINUE                                                                
+      END DO                                                                    
+      RETURN                                                                    
+      END                                                                       
+C***********************************************************************        
+      SUBROUTINE SEWIC(T,P,E)                                                   
+C ** CORRECTION ** CORRECTION **                                                
+C ** MEMO FROM RON RUTH ON 29 MAY 1990                                          
+C    THIS SUBROUTINE IS TO CALCULATE VAPOR PRESSURE ONLY WITH RESPECT           
+C    TO A PLANE WATER SURFACE. SINCE THE WATER-TO-ICE CORRECTION HAS            
+C    ALREADY BEEN MADE.                                                         
+C **                                                                            
+C ** MEMO FROM ERIK M. AND RICHARD F. SEPT.10,1985                              
+C    EW - WATER VAPOR PRESSURE IN MB (GOFF-GRATCH)                              
+C    TK - TEMPERATURE IN DEG K (DPC/TLCL/ATX)                                   
+C    FW - ENHANCEMENT FACTORS                                                   
+C    P - PRESSURE IN MB                                                         
+C    E= EWC - WATER VAPOR PRESSURE FOR 'MOIST' AIR                              
+C                                                                               
+      TK = T + 273.16                                                           
+C  Check added by RLR on 19Mar1992
+      IF (TK.LT.1.0) TK = 1.0
+      EW =10.**(23.832241-5.02808*ALOG10(TK)-1.3816E-7                         
+     1     *(10.**(11.334-.0303998*TK))+8.1328E-3                               
+     2     *(10.**(3.49149-1302.8844/TK))-2949.076/TK)                          
+      FW = 1.0007+(3.46E-6 * P)                                                
+      E  = FW*EW                                                               
+      RETURN                                                                    
+      END                                                                       

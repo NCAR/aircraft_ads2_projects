@@ -1,0 +1,88 @@
+This data directory contains production netCDF format files from the
+1992-816 ASTES/MAGE project which have been converted from the original
+archived GENPRO-II format files via the program "g2n" version 2.6.
+(Conversion done from 22 to 24 October 2003 by Ronald L. Ruth.)
+They have been compressed using the GZIP format.  After transfer to
+your site, you can uncompress them using the utility "gunzip," the
+Windows utility "WinZip" or "Stuffit Expander."
+                                                                                
+gzip/gunzip (freeware) is available at the URL:
+     http://www.gzip.org/
+                                                                                
+WinZip (shareware) can be downloaded from the URL:
+     http://www.winzip.com/
+                                                                                
+Expander (freeware version) is available at the URL:
+     http://www.stuffit.com/win/expander/
+
+Please direct any questions regarding these data files to me.
+
+Following is a brief summary of the data files in this directory.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                    PRODUCTION MASS STORE BITFILE LOG
+
+     Project no.:  1992-816               Project name:  ASTEX/MAGE
+        Aircraft:  N308D                  Scientist(s):  Albrecht, Huebert
+       Data type:  HRT                   Programmer(s):  Ron Ruth
+  Processor used:  GENPRO               Project Mgr(s):  Allen Schanot
+  Output formats:  GENPRO-II/netCDF   Production Proc.:  Ron Ruth
+
+ HEADER FILE INFORMATION:
+ Logical record size:    640 bits     Physical record size:   6400 bits
+ No. of logical records per physical record:  10
+ No. of physical records:  78
+
+ DATA FILE INFORMATION:
+ Logical record size:  76608 bits     Physical record size:  76608 bits
+ No. of logical records per physical record:  1
+ No. of seconds per logical record (GENPRO cycle time):  1
+
+  MSS path name:  /RAF/1992/816/HRT/fltno  /RAF/1992/816/HRT/fltno.cdf
+     MSS format:  COS-blocked              Transparent
+
+---------------------------------------------------------------------------------------
+                        Start      End              Unzipped
+ fltno   Start Date   Time UTC   Time UTC      File Sizes (Mbytes)        Gzipped
+         mm/dd/yyyy  (Sh:Sm:Ss) (Eh:Em:Es)    GENPRO-II      netCDF      file name
+---------------------------------------------------------------------------------------
+ RF01A   06/04/1992   09:26:31   13:21:53    135.684096   137.479704   816rf01ah.nc.gz
+ RF01B   06/04/1992   13:21:54   16:31:09    109.113344   110.551260   816rf01bh.nc.gz
+ RF02A   06/05/1992   11:20:30   15:15:52    135.684096   137.479704   816rf02ah.nc.gz
+ RF02B   06/05/1992   15:15:53   17:10:10     65.921024    66.776724   816rf02bh.nc.gz
+ RF03A   06/08/1992   10:25:54   14:21:16    135.684096   137.479704   816rf03ah.nc.gz
+ RF03B   06/08/1992   14:21:17   17:05:52     94.900224    96.147900   816rf03bh.nc.gz
+ RF04A   06/10/1992   04:50:26   08:45:48    135.684096   137.479704   816rf04ah.nc.gz
+ RF04B   06/10/1992   08:45:49   11:35:50     98.033664    99.320532   816rf04bh.nc.gz
+ RF05A   06/12/1992   16:15:50   20:11:12    135.684096   137.479704   816rf05ah.nc.gz
+ RF05B   06/12/1992   20:11:13   22:17:10     72.642560    73.589124   816rf05bh.nc.gz
+ RF06A   06/13/1992   03:54:38   07:50:00    135.684096   137.479704   816rf06ah.nc.gz
+ RF06B   06/13/1992   07:50:01   10:47:38    102.412288   103.758324   816rf06bh.nc.gz
+ RF07A   06/13/1992   15:53:29   19:48:51    135.684096   137.479704   816rf07ah.nc.gz
+ RF07B   06/13/1992   19:48:52   22:37:05     96.997376    98.269476   816rf07bh.nc.gz
+ RF08A   06/15/1992   10:54:28   14:49:50    135.684096   137.479704   816rf08ah.nc.gz
+ RF08B   06/15/1992   14:49:51   17:10:08     80.900096    81.958644   816rf08bh.nc.gz
+ RF09A   06/16/1992   11:54:39   15:50:01    135.684096   137.479704   816rf09ah.nc.gz
+ RF09B   06/16/1992   15:50:02   18:27:31     90.812416    92.002068   816rf09bh.nc.gz
+ RF10A   06/17/1992   08:10:00   12:05:22    135.684096   137.479704   816rf10ah.nc.gz
+ RF10B   06/17/1992   12:05:23   14:32:14     84.684800    85.793052   816rf10bh.nc.gz
+ RF11A   06/18/1992   21:48:21   01:43:43    135.684096   137.479704   816rf11ah.nc.gz
+ RF11B   06/19/1992   01:43:44   03:52:41     74.371072    75.340884   816rf11bh.nc.gz
+ RF12A   06/19/1992   09:54:38   13:50:00    135.684096   137.479704   816rf12ah.nc.gz
+ RF12B   06/19/1992   13:50:01   16:48:36    102.969344   104.322780   816rf12bh.nc.gz
+ RF13A   06/19/1992   21:47:51   01:43:13    135.684096   137.479704   816rf13ah.nc.gz
+ RF13B   06/20/1992   01:43:14   04:29:51     96.071680    97.335204   816rf13bh.nc.gz
+ RF14A   06/20/1992   09:48:44   13:44:06    135.684096   137.479704   816rf14ah.nc.gz
+ RF14B   06/20/1992   13:44:07   16:22:20     91.234304    92.430276   816rf14bh.nc.gz
+ RF15A   06/22/1992   10:32:25   11:29:59     33.243136    33.658728   816rf15ah.nc.gz
+ RF15B   06/22/1992   11:15:00   16:22:13    177.082368   179.434356   816rf15bh.nc.gz
+ RF16A   06/23/1992   11:18:30   15:13:52    135.684096   137.479704   816rf16ah.nc.gz
+ RF16B   06/23/1992   15:13:53   17:24:59     75.608064    76.596312   816rf16bh.nc.gz
+ RF17    06/27/1992   10:54:08   15:22:16    154.562560   156.612816   816rf17h.nc.gz
+---------------------------------------------------------------------------------------
+GENPRO Scaling errors:   RF09:  GALT     5
+                        RF15B:  GALT     2
+                         RF17:  XCON260L 1
+--------------------------------------------------------------------------------------
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Ronald L. Ruth, RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                      Fax: (303)497-1092

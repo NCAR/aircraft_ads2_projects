@@ -1,0 +1,63 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 5-887 VORTEX (Roger Wakimoto, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 4 on Wed Jan 10 17:07:13 MST 1996
+#
+date
+#
+set YEAR = 1995
+set PROJ = 887
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+exit
+#
+nrnet msput $SDIR/887rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+nrnet msput $SDIR/887rf07a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07A.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf07b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07B.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf09a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09A.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf09b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09B.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf13a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13A.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/887rf13b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13B.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Thu Jan 11 11:42:21 MST 1996
+# Sequence number = MI2413 -- LRT/RF01.cdf -- OK @ 11 Jan 1996 11:43:26
+# Sequence number = MI2420 -- LRT/RF02.cdf -- OK @ 11 Jan 1996 11:44:02
+# Sequence number = MI2427 -- LRT/RF03.cdf -- OK @ 11 Jan 1996 11:44:14
+# Sequence number = MI2434 -- LRT/RF04.cdf -- OK @ 11 Jan 1996 11:43:31
+# Sequence number = MI2441 -- LRT/RF05.cdf -- OK @ 11 Jan 1996 11:44:35
+# Sequence number = MI2448 -- LRT/RF06.cdf -- OK @ 11 Jan 1996 11:47:38
+# Sequence number = MI2455 -- LRT/RF08.cdf -- OK @ 11 Jan 1996 11:48:04
+# Sequence number = MI2462 -- LRT/RF10.cdf -- OK @ 11 Jan 1996 11:48:20
+# Sequence number = MI2469 -- LRT/RF11.cdf -- OK @ 11 Jan 1996 11:44:55
+# Sequence number = MI2476 -- LRT/RF12.cdf -- OK @ 11 Jan 1996 11:45:01
+# Sequence number = MI2483 -- LRT/RF14.cdf -- OK @ 11 Jan 1996 11:48:42
+# Sequence number = MI2490 -- LRT/RF15.cdf -- OK @ 11 Jan 1996 11:49:04
+# Sequence number = MI2497 -- LRT/RF07A.cdf -- OK @ 11 Jan 1996 11:48:54
+# Sequence number = MI2504 -- LRT/RF07B.cdf -- OK @ 11 Jan 1996 11:52:09
+# Sequence number = MI2511 -- LRT/RF09A.cdf -- OK @ 11 Jan 1996 11:52:21
+# Sequence number = MI2518 -- LRT/RF09B.cdf -- OK @ 11 Jan 1996 11:44:26
+# Sequence number = MI2525 -- LRT/RF13A.cdf -- OK @ 11 Jan 1996 11:49:09
+# Sequence number = MI2532 -- LRT/RF13B.cdf -- OK @ 11 Jan 1996 11:44:50
+#
+#  Rearchive RF09B after fixing flight number in netCDF header.
+nrnet msput $SDIR/887rf09b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09B.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Thu Jan 11 16:51:06 MST 1996
+# Sequence number = MI2651 -- LRT/RF09B.cdf -- OK @ 11 Jan 1996 16:51:30
+#

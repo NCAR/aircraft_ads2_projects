@@ -1,0 +1,286 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 1995-887 VORTEX
+#
+date
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (check file names before submitting nrnet jobs)   12 Jan 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set DDIR = $PROD_DATA
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PDIR = $LOCAL/proj/$PROJ
+set PRDIR = $PDIR/Production
+cd $PDIR
+#
+set YEAR = `grep FY Production/proj.info | sed -e "s/FY=//"`
+#set PROJNAME = `cat ProjectName`
+#
+#
+#  Current archive (nrnet) commands go here
+#
+exit
+#
+#  Archiving activity that has been completed
+#  ------------------------------------------
+#
+#  Files in the project's home directory to the project's main directory
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $PDIR/$FILE) then
+#    echo \
+    nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files in the project's home directory to the project's LRT directory
+#
+set TURBRT = LRT
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $PDIR/$FILE) then
+#    echo \
+    nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files in the local Production directory to the project's main directory
+#
+set FILES = ( \
+MSCP_out.887 \
+Mail.887 \
+tp2ms.summary \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $PRDIR/$FILE) then
+#    echo \
+    nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PRDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files in the local Production directory to the project's LRT directory
+#
+set TURBRT = LRT
+#
+set FILES = ( \
+887.tar \
+887.tar.dir \
+README \
+nimbus.tar \
+nimbus.tar.dir \
+taplog.887 \
+varlist.887 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $PRDIR/$FILE) then
+#    echo \
+    nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PRDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#
+#  Files in the project's home directory to the project's main directory
+#   (to be renamed)
+#
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+if ($#FILES != $#OFILES) then
+  echo "File rename section:  number of source files does not match number"
+  echo "  of destination files ($#FILES != $#OFILES).  Files are:"
+  echo "  $FILES"
+  exit 1
+endif
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $PDIR/$FILE) then
+#    echo \
+    nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files in the project's home directory to the project's LRT directory
+#   (to be renamed)
+#
+set TURBRT = LRT
+#
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+if ($#FILES != $#OFILES) then
+  echo "File rename section:  number of source files does not match number"
+  echo "  of destination files ($#FILES != $#OFILES).  Files are:"
+  echo "  $FILES"
+  exit 1
+endif
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $PDIR/$FILE) then
+#    echo \
+    nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files in the local Production directory to the project's main directory
+#   (to be renamed)
+#
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+if ($#FILES != $#OFILES) then
+  echo "File rename section:  number of source files does not match number"
+  echo "  of destination files ($#FILES != $#OFILES).  Files are:"
+  echo "  $FILES"
+  exit 1
+endif
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $PRDIR/$FILE) then
+#    echo \
+    nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PRDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files in the local Production directory to the project's LRT directory
+#   (to be renamed)
+#
+set TURBRT = LRT
+#
+set FILES = ( \
+887rf01.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+)
+#
+#  Get started:
+if ($#FILES != $#OFILES) then
+  echo "File rename section:  number of source files does not match number"
+  echo "  of destination files ($#FILES != $#OFILES).  Files are:"
+  echo "  $FILES"
+  exit 1
+endif
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $PRDIR/$FILE) then
+#    echo \
+    nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $PRDIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  Archive to MSS directory:  /RAF/1995/887/
+#
+#  Job(s) submitted on Fri Jan 12 16:51:18 MST 1996
+# Sequence number = MI0582 -- MSCP_out.887 -- OK @ 12 Jan 1996 16:51:47
+# Sequence number = MI0589 -- Mail.887 -- OK @ 12 Jan 1996 16:51:53
+# Sequence number = MI0596 -- tp2ms.summary -- OK @ 12 Jan 1996 16:53:35
+# Sequence number = MI0603 -- LRT/887.tar -- OK @ 12 Jan 1996 16:52:43
+# Sequence number = MI0610 -- LRT/887.tar.dir -- OK @ 12 Jan 1996 16:52:06
+# Sequence number = MI0617 -- LRT/README -- OK @ 12 Jan 1996 16:52:12
+# Sequence number = MI0624 -- LRT/nimbus.tar -- OK @ 12 Jan 1996 16:52:20
+# Sequence number = MI0631 -- LRT/nimbus.tar.dir -- OK @ 12 Jan 1996 16:56:16
+# Sequence number = MI0638 -- LRT/taplog.887 -- OK @ 12 Jan 1996 16:52:25
+# Sequence number = MI0645 -- LRT/varlist.887 -- OK @ 12 Jan 1996 16:52:33
+# Sequence number = MI0652 -- LRT/RF01.hdr -- OK @ 12 Jan 1996 16:56:34
+#
+#  Job(s) submitted on 
+#
+#   Helpful vi map commands:
+#     :map g eea 
+#     :map v AOK @ 
+#

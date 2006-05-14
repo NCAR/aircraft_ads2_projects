@@ -1,0 +1,2054 @@
+From paul Thu Apr 22 08:09:04 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9304221409.AA00543@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA00543; Thu, 22 Apr 93 08:09:04 MDT
+Subject: Re: GENPRO weekly report
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 22 Apr 93 8:09:03 MDT
+In-Reply-To: <9304201732.AA02402@chinook.atd.ucar.EDU>; from "Ron Ruth" at Apr 20, 93 11:32 am
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+HI Ron;Thanks for your weekly report,I like it.It is very informative.
+As far as CEPEX is concerned it will be identical to TOGA COARE,we need to change the name and project number only.I will send you an updated tape list
+for your file.But before you do anything else lets crank through T-C first.
+Regards Paul
+
+
+From paul Fri May 14 12:29:33 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9305141829.AA15732@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA15732; Fri, 14 May 93 12:29:33 MDT
+Subject: hdrdump for CEPEX
+To: ron (Ron Ruth)
+Date: Fri, 14 May 93 12:29:32 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Hi Ron;The hdrdump is on chinook fom flt 9.Filename cepex.
+By the way while I am gone,(next two weeks)contact Vince with questions.
+Regards Paul
+
+
+From ron Fri May 14 12:34:31 1993
+Subject: Re: hdrdump for CEPEX
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Fri, 14 May 93 12:34:31 MDT
+In-Reply-To: <9305141829.AA15732@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at May 14, 93 12:29 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+Thanks.  I already copied the file into my CEPEX directory, so you don't have
+to keep it.
+
+I'll let Vince field questions while you're on vacation.
+
+-- 
+Ron
+
+From paul Fri May 14 13:39:00 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9305141938.AA16896@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA16896; Fri, 14 May 93 13:38:59 MDT
+Subject: Re: CEPEX format
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Fri, 14 May 93 13:38:59 MDT
+Cc: vince (Vince Glover)
+In-Reply-To: <9305141841.AA15813@chinook.atd.ucar.EDU>; from "Ron Ruth" at May 14, 93 12:41 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+Ron,my recollection is that we used the same format all through CEPEX.
+Paul.
+
+> Paul,
+> 
+> There are differences in the header between TOGA-COARE and CEPEX.  I expect
+> them to be minor, but I'm glad you dumped that header for me.  Were these
+> changes made before the project and never changed, or could there be changes
+> within the project that I should be aware of (i.e., should we dump more
+> headers)?  I'm not worried about calibration changes, only ones concerning
+> instruments and rates that would show up in where data are located in a record.
+> 
+> -- 
+> Ron
+> 
+
+
+From ron Fri May 14 12:41:30 1993
+Subject: CEPEX format
+To: paul (Paul Spyers-Duran)
+Date: Fri, 14 May 93 12:41:30 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+There are differences in the header between TOGA-COARE and CEPEX.  I expect
+them to be minor, but I'm glad you dumped that header for me.  Were these
+changes made before the project and never changed, or could there be changes
+within the project that I should be aware of (i.e., should we dump more
+headers)?  I'm not worried about calibration changes, only ones concerning
+instruments and rates that would show up in where data are located in a record.
+
+-- 
+Ron
+
+From ron Tue May 18 11:51:02 1993
+Subject: CEPEX processing
+To: paul (Paul Spyers-Duran)
+Date: Tue, 18 May 93 11:51:02 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+Thanks for your memo regarding final processing for CEPEX.  I will set up the
+processing to be essentially identical with TOGA-COARE.  For the non-extant
+UV Hygrometer I'll insert the GENPRO "bogus value" of 99999. in all the
+appropriate places.  I will not output any wet-bulb temperature data (XWB...),
+and no total water calculations will be done (only raw voltages output).
+I will ignore Hagan's data.  I assume that no event markers were used.
+I will use the same reference state-variable sensors.
+
+Here are some questions for you:
+
+1)  What wire temperature should I use for PLWC?  It was 165C at the end of
+     TOGA-COARE.
+2)  What constants should I use for the two Lyman-Alpha probes?  At the end of
+     TOGA-COARE they were:
+      CX1   CX2      CX3     CX4         XC
+     (0.23, 0.2826,  0.1392, -0.007965), 0.25  <-- VLA
+     (5.8,  0.2280, -0.0349,  0.000037), 0.25  <-- VLA1
+3)  Is the PMS-D probe configuration on the aircraft the same as it was for
+     TOGA-COARE's RF31 and RF32?
+4)  What Lat/Lon coordinates should I use as a reference?
+
+-- 
+Ron
+
+From ron Tue May 18 15:35:50 1993
+Subject: CEPEX request
+To: paul (Paul Spyers-Duran)
+Date: Tue, 18 May 93 15:35:50 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+Is there a particular flight and time (15-30 minutes) you'd like me to use as a
+test for CEPEX?
+
+-- 
+Ron
+
+From ron Tue May 18 16:20:41 1993
+Subject: CEPEX changes
+To: paul (Paul Spyers-Duran)
+Date: Tue, 18 May 93 16:20:41 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I have a header dump from RF09 which shows that the FSSP is sampled at a rate
+of 1/second instead of 10/second as was done for TOGA-COARE.  Was this change
+made before the project began or sometime into the project?  In either case I
+need to adjust the GENPRO processor to handle this new rate.
+
+So much for "identical;" it's now "similar."
+
+-- 
+Ron
+
+From paul Wed Jun  2 14:05:21 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022005.AA15672@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA15672; Wed, 2 Jun 93 14:05:20 MDT
+Subject: Re: CEPEX request
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 14:05:20 MDT
+In-Reply-To: <9305182135.AA13389@chinook.atd.ucar.EDU>; from "Ron Ruth" at May 18, 93 3:35 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Hi Ron;81903 would be a good flight to start out with.Paul
+
+
+From paul Wed Jun  2 14:02:26 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022002.AA15627@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA15627; Wed, 2 Jun 93 14:02:26 MDT
+Subject: Re: CEPEX changes
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 14:02:26 MDT
+Cc: Vince
+In-Reply-To: <9305182220.AA16217@chinook.atd.ucar.EDU>; from "Ron Ruth" at May 18, 93 4:20 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+Ron;WE didn't fly an FSSP on CEPEX.We have the same configuration as 817RF32.
+Paul
+
+> Paul,
+> 
+> I have a header dump from RF09 which shows that the FSSP is sampled at a rate
+> of 1/second instead of 10/second as was done for TOGA-COARE.  Was this change
+> made before the project began or sometime into the project?  In either case I
+> need to adjust the GENPRO processor to handle this new rate.
+> 
+> So much for "identical;" it's now "similar."
+> 
+> -- 
+> Ron
+> 
+
+
+From ron Wed Jun  2 14:58:44 1993
+Subject: Re: CEPEX changes
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 14:58:44 MDT
+In-Reply-To: <9306022002.AA15627@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 2:02 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> > 
+> Ron;WE didn't fly an FSSP on CEPEX.We have the same configuration as 817RF32.
+> Paul
+> 
+> > Paul,
+> > 
+> > I have a header dump from RF09 which shows that the FSSP is sampled at a rate
+> > of 1/second instead of 10/second as was done for TOGA-COARE.  Was this change
+> > made before the project began or sometime into the project?  In either case I
+> > need to adjust the GENPRO processor to handle this new rate.
+> > 
+> > So much for "identical;" it's now "similar."
+> > 
+> > -- 
+> > Ron
+> > 
+Paul,
+
+The ADS header shows a FSSP to be sampled at 1/second.  Since it was not
+mounted, I presume you want me to remove FSSP processing from GENPRO.
+
+To your knowledge, were any other changes made either before or during
+the project that would affect the header (sensors added, deleted, moved,
+etc.)?  I'd rather not have any more surprises.
+
+-- 
+Ron
+
+From ron Wed Jun  2 14:59:46 1993
+Subject: Re: CEPEX request
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 14:59:46 MDT
+In-Reply-To: <9306022005.AA15672@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 2:05 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> Hi Ron;81903 would be a good flight to start out with.Paul
+> 
+Paul,
+
+Any time period you prefer (preferably 1/2 hour or less) or should I pick
+something mid-flight?
+
+-- 
+Ron
+
+From paul Wed Jun  2 15:11:52 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022111.AA18001@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA18001; Wed, 2 Jun 93 15:11:51 MDT
+Subject: Re: CEPEX processing
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 15:11:51 MDT
+In-Reply-To: <9305181751.AA10734@chinook.atd.ucar.EDU>; from "Ron Ruth" at May 18, 93 11:51 am
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+ Ron;Use for No.1 as in T-C, 165C
+No.2 Same as in T-C.
+No.3 Same as in T-C
+No.4 For Flts.1,2,6 use coordinates N21 18.3',W158 04.3'
+     for Flts.3,4,5,7,8,9  coord.   N01 59.3',W157 21.3'
+Regards Paul
+> 
+> Paul,
+> 
+> Thanks for your memo regarding final processing for CEPEX.  I will set up the
+> processing to be essentially identical with TOGA-COARE.  For the non-extant
+> UV Hygrometer I'll insert the GENPRO "bogus value" of 99999. in all the
+> appropriate places.  I will not output any wet-bulb temperature data (XWB...),
+> and no total water calculations will be done (only raw voltages output).
+> I will ignore Hagan's data.  I assume that no event markers were used.
+> I will use the same reference state-variable sensors.
+> 
+> Here are some questions for you:
+> 
+> 1)  What wire temperature should I use for PLWC?  It was 165C at the end of
+>      TOGA-COARE.
+> 2)  What constants should I use for the two Lyman-Alpha probes?  At the end of
+>      TOGA-COARE they were:
+>       CX1   CX2      CX3     CX4         XC
+>      (0.23, 0.2826,  0.1392, -0.007965), 0.25  <-- VLA
+>      (5.8,  0.2280, -0.0349,  0.000037), 0.25  <-- VLA1
+> 3)  Is the PMS-D probe configuration on the aircraft the same as it was for
+>      TOGA-COARE's RF31 and RF32?
+> 4)  What Lat/Lon coordinates should I use as a reference?
+> 
+> -- 
+> Ron
+> 
+
+
+From ron Wed Jun  2 15:20:56 1993
+Subject: Re: CEPEX processing
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 15:20:56 MDT
+In-Reply-To: <9306022111.AA18001@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 3:11 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+>  Ron;Use for No.1 as in T-C, 165C
+> No.2 Same as in T-C.
+> No.3 Same as in T-C
+> No.4 For Flts.1,2,6 use coordinates N21 18.3',W158 04.3'
+>      for Flts.3,4,5,7,8,9  coord.   N01 59.3',W157 21.3'
+> Regards Paul
+> > 
+> > Paul,
+> > 
+> > Thanks for your memo regarding final processing for CEPEX.  I will set up the
+> > processing to be essentially identical with TOGA-COARE.  For the non-extant
+> > UV Hygrometer I'll insert the GENPRO "bogus value" of 99999. in all the
+> > appropriate places.  I will not output any wet-bulb temperature data (XWB...),
+> > and no total water calculations will be done (only raw voltages output).
+> > I will ignore Hagan's data.  I assume that no event markers were used.
+> > I will use the same reference state-variable sensors.
+> > 
+> > Here are some questions for you:
+> > 
+> > 1)  What wire temperature should I use for PLWC?  It was 165C at the end of
+> >      TOGA-COARE.
+> > 2)  What constants should I use for the two Lyman-Alpha probes?  At the end of
+> >      TOGA-COARE they were:
+> >       CX1   CX2      CX3     CX4         XC
+> >      (0.23, 0.2826,  0.1392, -0.007965), 0.25  <-- VLA
+> >      (5.8,  0.2280, -0.0349,  0.000037), 0.25  <-- VLA1
+> > 3)  Is the PMS-D probe configuration on the aircraft the same as it was for
+> >      TOGA-COARE's RF31 and RF32?
+> > 4)  What Lat/Lon coordinates should I use as a reference?
+> > 
+
+Thanks for the latest info.  I'll adjust the GENPRO processor to accomodate
+them.
+
+-- 
+Ron
+
+From paul Wed Jun  2 15:24:19 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022124.AA18461@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA18461; Wed, 2 Jun 93 15:24:18 MDT
+Subject: Re: CEPEX request
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 15:24:18 MDT
+In-Reply-To: <9306022059.AA17510@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 2, 93 2:59 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Hi;How about 20:00;00-20:30;00 UTC. Paul
+
+From ron Wed Jun  2 15:26:30 1993
+Subject: Re: CEPEX request
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 15:26:30 MDT
+In-Reply-To: <9306022124.AA18461@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 3:24 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> 
+> Hi;How about 20:00;00-20:30;00 UTC. Paul
+> 
+
+3-819 RF03 20:00;00-20:30:00 is fine.
+
+-- 
+Ron
+
+From ron Wed Jun  2 15:47:17 1993
+Subject: Re: CEPEX changes
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 15:47:17 MDT
+Cc: dick (Dick Friesen)
+In-Reply-To: <9306022002.AA15627@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 2:02 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> > 
+> Ron;WE didn't fly an FSSP on CEPEX.We have the same configuration as 817RF32.
+> Paul
+> 
+Paul,
+
+I've been thinking about this FSSP thing.  As you may know, I was supposed to
+keep the CEPEX GENPRO output data format the same as for TOGA-COARE.  That way
+anyone accessing the two data sets won't have to change their setup to get
+data from either project.  (Is this really a requirement?)  The lack of an FSSP
+on the project and the header change which made its rate=1 instead of =10 poses
+a dilemma for me.
+
+There is space in TOGA-COARE for 260X, PCAS and FSSP data.  The missing probe
+has zero data put into its output space.  Regarding the FSSP, if I keep the
+same rate as TOGA-COARE, garbage data will be put into the FSSP processing.
+There is a possiblity it could cause GENPRO to crash.  (We could take that
+chance.)
+
+If I adapt the processor to the data rate in the CEPEX header, the output
+format will change, but GENPRO won't be reading garbage.
+
+The only way I see around this dilemma, if it exists, is to write a dummy FSSP
+processing subroutine that would output zeros in all the right places.
+
+Any suggestions?
+
+__
+
+Ron
+__
+cc:  Dick Friesen
+
+From paul Wed Jun  2 15:30:26 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022130.AA18796@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA18796; Wed, 2 Jun 93 15:30:26 MDT
+Subject: Re: CEPEX changes
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 15:30:25 MDT
+In-Reply-To: <9306022058.AA17454@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 2, 93 2:58 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+As far as I know,we shouldn't have any surprises.Paul
+
+
+From paul Wed Jun  2 16:21:55 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022221.AA21106@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA21106; Wed, 2 Jun 93 16:21:54 MDT
+Subject: Re: CEPEX changes
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 16:21:53 MDT
+Cc: dick (Dick Friesen), Friesen
+In-Reply-To: <9306022147.AA19444@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 2, 93 3:47 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+Ron;How about turning off the FSSP altogather,since we never flew it on CEPEX.
+Paul
+
+> > 
+> > > 
+> > Ron;WE didn't fly an FSSP on CEPEX.We have the same configuration as 817RF32.
+> > Paul
+> > 
+> Paul,
+> 
+> I've been thinking about this FSSP thing.  As you may know, I was supposed to
+> keep the CEPEX GENPRO output data format the same as for TOGA-COARE.  That way
+> anyone accessing the two data sets won't have to change their setup to get
+> data from either project.  (Is this really a requirement?)  The lack of an FSSP
+> on the project and the header change which made its rate=1 instead of =10 poses
+> a dilemma for me.
+> 
+> There is space in TOGA-COARE for 260X, PCAS and FSSP data.  The missing probe
+> has zero data put into its output space.  Regarding the FSSP, if I keep the
+> same rate as TOGA-COARE, garbage data will be put into the FSSP processing.
+> There is a possiblity it could cause GENPRO to crash.  (We could take that
+> chance.)
+> 
+> If I adapt the processor to the data rate in the CEPEX header, the output
+> format will change, but GENPRO won't be reading garbage.
+> 
+> The only way I see around this dilemma, if it exists, is to write a dummy FSSP
+> processing subroutine that would output zeros in all the right places.
+> 
+> Any suggestions?
+> 
+> __
+> 
+> Ron
+> __
+> cc:  Dick Friesen
+> 
+
+
+From ron Wed Jun  2 16:24:51 1993
+Subject: Re:  No FSSP
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 16:24:51 MDT
+In-Reply-To: <9306022221.AA21106@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 4:21 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I certainly could delete the FSSP altogether.  The only question about doing
+that is whether to remain compatible with the TOGA-COARE output data format.
+
+Is there no requirement that they both be the same?
+
+-- 
+Ron
+
+From paul Wed Jun  2 16:25:51 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022225.AA21324@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA21324; Wed, 2 Jun 93 16:25:50 MDT
+Subject: Re: CEPEX changes
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 16:25:49 MDT
+In-Reply-To: <9306022147.AA19444@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 2, 93 3:47 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Ron;Tried to copy D.F. mail returned.My message to you was just to turn off
+FSSP altogher,since we didn't fly it.Paul 
+
+From paul Wed Jun  2 16:29:06 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306022229.AA21403@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA21403; Wed, 2 Jun 93 16:29:05 MDT
+Subject: Re:  No FSSP
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 2 Jun 93 16:29:05 MDT
+In-Reply-To: <9306022224.AA21251@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 2, 93 4:24 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Ron,I don't think there is an overridding reason to be exactly like T-C.
+Go ahead and ZOOT that FSSP.Paul
+
+
+From ron Wed Jun  2 16:30:53 1993
+Subject: Re: CEPEX changes
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 16:30:54 MDT
+In-Reply-To: <9306022225.AA21324@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 4:25 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> 
+> Ron;Tried to copy D.F. mail returned.My message to you was just to turn off
+> FSSP altogher,since we didn't fly it.Paul 
+> 
+
+To turn off the FSSP is to imply that its data disappear from the output.
+That, in turn, changes the format.  I'll ask Dick about it.
+
+-- 
+Ron
+
+From ron Wed Jun  2 16:31:38 1993
+Subject: Re:  No FSSP
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Wed, 2 Jun 93 16:31:38 MDT
+In-Reply-To: <9306022229.AA21403@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 2, 93 4:29 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> 
+> Ron,I don't think there is an overridding reason to be exactly like T-C.
+> Go ahead and ZOOT that FSSP.Paul
+> 
+Paul,
+
+I looks like we should start using the phone!
+
+-- 
+Ron
+
+From dick@snake.atd.ucar.EDU Thu Jun  3 10:26:28 1993
+Received: from snake.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA11248; Thu, 3 Jun 93 10:26:23 MDT
+Message-Id: <9306031626.AA01764@snake>
+Received: by snake (4.1/ NCAR Mail Client 04/19/90)
+	id AA01764; Thu, 3 Jun 93 10:26:21 MDT
+Subject: Re: CEPEX changes
+To: ron@snake.atd.ucar.EDU (Ron Ruth)
+Date: Thu, 3 Jun 93 10:26:20 MDT
+Cc: paul@snake.atd.ucar.EDU (Paul Spyers-Duran)
+In-Reply-To: <9306022147.AA19444@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 2, 93 3:47 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Ron:
+     I talked to PSD.  We agreed that it is ok and probably the best thing
+to do to remove the FSSP from the CPEX data processing all together.  The
+projects are entirely different from a PI involvement so there is really no
+need to keep the formats the same.  When we said make no changes that was
+with the idea that it would save effort.  However, Paul neglected to mention
+in the beginning that the FSSP was not being used on the project and he
+apparently was unaware that the rate had been changed to 1 from 10.
+
+dick
+
+From ron Mon Jun  7 15:41:42 1993
+Subject: CEPEX processing
+To: paul (Paul Spyers-Duran)
+Date: Mon, 7 Jun 93 15:41:42 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I have a plot file for your perusal; it is:  /home/local/migs/ron/pltRF09.819
+             There is a companion log file:  /home/local/migs/ron/logRF09.819
+
+
+Since there was no FSSP, how do you want me to correct LWC.  For TOGA-COARE
+I used CONCF as a reference to zero out the probe when in clear air.  I could
+use the old "non-zeroed" code.  The variable name (with FSSP as reference)
+is LWCCZ; the other one is LWCC.  The alternative is not to correct it at all.
+
+-- 
+Ron
+
+From ron Mon Jun  7 16:15:02 1993
+Subject: CEPEX processing (more)
+To: paul (Paul Spyers-Duran)
+Date: Mon, 7 Jun 93 16:15:02 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+More on my review of RF09:
+
+I noticed that neither of Friehe's temperature probes were registering
+anything.  Were these removed from CEPEX?
+
+None of the liquid water contents agree (LWCCZ, PLWCC, XRLWCC, PLWC6).
+  1)  I've already explained LWCCZ.
+  2)  XRLWC looks like it isn't sensing anything.
+  3)  PLWC6 looks much too high.  I'm wondering whether we are using the
+       correct cell sizes (for TOGA-COARE, too).
+
+Static pressures differ by over 3 mbar.
+
+-- 
+Ron
+
+From ron Tue Jun  8 12:06:42 1993
+Subject: TTCF(1&2) on CEPEX
+To: paul (Paul Spyers-Duran)
+Date: Tue, 8 Jun 93 12:06:42 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I found the problem.  The CEPEX header uses TTCF1 and TTCF2, but the rest of
+GENPRO uses XTTCF1 and XTTCF2.  I had not changed them in GENPRO's input stage.
+The next time I run a job they should be OK.
+
+As we discussed earlier, PCORs for both sensors are being applied correctly.
+
+Will you be giving me a new calibration for PSW?
+
+When do you want to check maneuvers?  When were they?
+
+Please let me know when you want me to make another run (also if you want
+a different flight/time).
+
+-- 
+Ron
+
+From paul Tue Jun  8 13:22:42 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306081922.AA05203@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA05203; Tue, 8 Jun 93 13:22:41 MDT
+Subject: Re: TTCF(1&2) on CEPEX
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Tue, 8 Jun 93 13:22:41 MDT
+In-Reply-To: <9306081806.AA03894@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 8, 93 12:06 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Hi Ron;Please process RF07 for CEPEX,233000-240000 UTC.Allen & I try to figure
+out what to do with cal for PSW.Paul
+
+
+From paul Tue Jun  8 13:32:09 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306081932.AA05331@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA05331; Tue, 8 Jun 93 13:32:08 MDT
+Subject: Re: CEPEX processing
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Tue, 8 Jun 93 13:32:08 MDT
+In-Reply-To: <9306072141.AA10972@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 7, 93 3:41 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+HI Ron;USE for PSW 516.5777, -551.7637, 0.0091
+As far as LWC is concerned I will leave it up to you,,since I don't know
+how hard is to implement the old code.?Call me with questions.Paul
+
+
+From ron Tue Jun  8 16:40:54 1993
+Subject: Re: CEPEX processing
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Tue, 8 Jun 93 16:40:54 MDT
+In-Reply-To: <9306081932.AA05331@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 8, 93 1:32 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> 
+> HI Ron;USE for PSW 516.5777, -551.7637, 0.0091
+> As far as LWC is concerned I will leave it up to you,,since I don't know
+> how hard is to implement the old code.?Call me with questions.Paul
+> 
+> 
+Paul,
+
+No problem to implement old LWCC code.  I'm sure, for the PSW calibration,
+that you want coefficients of 516.5777,
+
+  Rest of mail messages from this date until 10:20 a.m. 10 June 1993 lost due
+    to system failure.
+
+
+
+From ron Thu Jun 10 12:04:18 1993
+Subject: CEPEX mail
+To: paul (Paul Spyers-Duran)
+Date: Thu, 10 Jun 93 12:04:18 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+When the system crashed about 10:20 this morning, my CEPEX mail file got
+clobbered.  Are you saving mail messages that we've been sending to each
+other?  If so, how about bouncing to me all messages from 8 June to the
+present.
+
+To bounce a message, run 'elm' and use the cursor to select a message, type
+'b'.  It will ask to whom you want to bounce the message (ron) after which it
+will ask if you really want to bounce the message (y).  I think you'll have to
+do this for each message.
+
+Thanks a bunch.
+
+-- 
+Ron
+
+From ron Thu Jun 10 13:43:57 1993
+Subject: 3-819 RF07 ready
+To: paul (Paul Spyers-Duran)
+Date: Thu, 10 Jun 93 13:43:57 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+Another run of RF07 is ready for your review.  The files are:
+    /home/local/migs/ron/pltRF07.819  <-- use idt
+    /home/local/migs/ron/logRF07.819  <-- use vi (stats near end of file)
+
+-- 
+Ron
+
+From paul Thu Jun 10 14:16:59 1993
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04084; Thu, 10 Jun 93 14:16:59 MDT
+From: ron (Ron Ruth)
+Message-Id: <9306091809.AA00628@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA00628; Wed, 9 Jun 93 12:09:42 MDT
+Subject: 3-819 RF07
+To: paul (Paul Spyers-Duran)
+Date: Wed, 9 Jun 93 12:09:42 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Sender: paul
+Status: OR
+
+Paul,
+
+CEPEX RF07 plot and log files are ready for your review.  They are:
+               /home/local/migs/ron/pltRF07.819
+               /home/local/migs/ron/logRF07.819
+
+For the maneuvers it looks like you had some impatient pilots.
+
+-- 
+Ron
+
+
+From paul Thu Jun 10 14:17:23 1993
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04096; Thu, 10 Jun 93 14:17:22 MDT
+From: ron (Ron Ruth)
+Message-Id: <9306101639.AA01437@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01437; Thu, 10 Jun 93 10:39:38 MDT
+Subject: Re: 3-819 RF07 comments
+To: paul (Paul Spyers-Duran)
+Date: Thu, 10 Jun 93 10:39:36 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Sender: paul
+Status: OR
+
+Paul,
+
+Following are my comments about yours:
+
+> HI RON;Thanks for IDT on flt07.I have looked it over.Here are some comments:
+> LWCC has - offset and neg spikes,can you doctor it up?
+
+  I added a bias of 9.95 g/m3 to the instrument's calibration
+
+
+> XRLWCC negative offset, can you   "    "    "    "  "?
+ 
+  The CALIB function calculates power dissipated by the probe.  This is
+   supposed to take care of any zero offset.  Would a change in wire
+   temperature help?
+
+
+> CONCA can you take a look at it,not getting counts,maybe instrument not 
+> working?
+
+  If you look at the statistical summary, there are a small number of counts
+   in the time period I ran for you.  During TOGA-COARE there were a few
+   time periods when that happened, too.  I think we should look at other
+   data.  I'm doing things the same way for both projects.
+
+
+
+> Allen promised more Ophir cal coef's tomorrow.
+
+   I haven't seen them yet.  
+
+
+> He thinks that a common one
+> for T-C might work.If this is the case,we might use for CEPEX too.
+> I have my doubts that such thing exist.Paul
+
+  From what I've seen one set of coefficients don't even work during a whole
+   flight.  There are many occasions when the temperature measurements diverge
+   significantly enough to make the Ophir data suspect.
+
+-- 
+Ron
+
+
+From paul Thu Jun 10 14:18:08 1993
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04156; Thu, 10 Jun 93 14:18:07 MDT
+From: ron (Ron Ruth)
+Message-Id: <9306101703.AA02813@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA02813; Thu, 10 Jun 93 11:03:33 MDT
+Subject: 3-819 RF07 - another try
+To: paul (Paul Spyers-Duran)
+Date: Thu, 10 Jun 93 11:03:32 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Sender: paul
+Status: OR
+
+Paul,
+
+I'm setting up a job having the changes we talked about yesterday (including
+the use of CONC6 in place of CONCF in the calculation of LWCCZ).  I'll let you
+know when the plot file comes back from the Cray so you can look at it.
+
+I'm keeping LWCC, too, (with the calibration offset) so you can compare the
+two results.
+
+-- 
+Ron
+
+
+From paul Thu Jun 10 14:18:24 1993
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04175; Thu, 10 Jun 93 14:18:23 MDT
+From: ron (Ron Ruth)
+Message-Id: <9306101804.AA01690@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01690; Thu, 10 Jun 93 12:04:18 MDT
+Subject: CEPEX mail
+To: paul (Paul Spyers-Duran)
+Date: Thu, 10 Jun 93 12:04:18 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Sender: paul
+Status: OR
+
+Paul,
+
+When the system crashed about 10:20 this morning, my CEPEX mail file got
+clobbered.  Are you saving mail messages that we've been sending to each
+other?  If so, how about bouncing to me all messages from 8 June to the
+present.
+
+To bounce a message, run 'elm' and use the cursor to select a message, type
+'b'.  It will ask to whom you want to bounce the message (ron) after which it
+will ask if you really want to bounce the message (y).  I think you'll have to
+do this for each message.
+
+Thanks a bunch.
+
+-- 
+Ron
+
+
+From paul Thu Jun 10 14:19:01 1993
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04283; Thu, 10 Jun 93 14:19:00 MDT
+From: ron (Ron Ruth)
+Message-Id: <9306101948.AA03591@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA03591; Thu, 10 Jun 93 13:48:16 MDT
+Subject: LWCC(Z)
+To: paul (Paul Spyers-Duran)
+Date: Thu, 10 Jun 93 13:48:16 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Sender: paul
+Status: OR
+
+Paul,
+
+I think you'll probably agree that LWCCZ looks better than LWCC.  So long as
+the 260X was working on CEPEX, LWCCZ should produce better values than LWCC.
+I'd rather choose one than have both output.  What do you think?
+
+-- 
+Ron
+
+
+From paul Thu Jun 10 14:12:49 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306102012.AA04008@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04008; Thu, 10 Jun 93 14:12:48 MDT
+Subject: Re: LWCC(Z)
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 10 Jun 93 14:12:48 MDT
+In-Reply-To: <9306101948.AA03591@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 10, 93 1:48 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Hi Ron;Yes, I agree.Paul
+
+From paul Thu Jun 10 14:21:16 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306102021.AA04385@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04385; Thu, 10 Jun 93 14:21:16 MDT
+Subject: Re: CEPEX mail
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 10 Jun 93 14:21:16 MDT
+In-Reply-To: <9306101804.AA01690@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 10, 93 12:04 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Ron;bounced back all the messages I had.Paul
+
+
+From ron Thu Jun 10 13:48:16 1993
+Subject: LWCC(Z)
+To: paul (Paul Spyers-Duran)
+Date: Thu, 10 Jun 93 13:48:16 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I think you'll probably agree that LWCCZ looks better than LWCC.  So long as
+the 260X was working on CEPEX, LWCCZ should produce better values than LWCC.
+I'd rather choose one than have both output.  What do you think?
+
+-- 
+Ron
+
+From ron Fri Jun 11 14:58:48 1993
+Subject: 3-819 RF03
+To: paul (Paul Spyers-Duran)
+Date: Fri, 11 Jun 93 14:58:48 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I have a 1/2-hour segment of RF03 (20:00:00-20:30:00) for your perusal.  The
+files are:  /home/local/migs/ron/pltRF03.819
+            /home/local/migs/ron/logRF03.819
+
+It looks pretty good to me.  Let me know what you think.
+
+-- 
+Ron
+
+From paul Mon Jun 14 14:00:09 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306142000.AA02233@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA02233; Mon, 14 Jun 93 14:00:08 MDT
+Subject: RF03.819
+To: ron (Ron Ruth)
+Date: Mon, 14 Jun 93 14:00:08 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Hi Ron;RF03 looks fine.Could you please check the cal. factors on HGM.Paul
+
+
+From ron Mon Jun 14 14:35:54 1993
+Subject: Re: RF03.819
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Mon, 14 Jun 93 14:35:54 MDT
+In-Reply-To: <9306142000.AA02233@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jun 14, 93 2:00 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> 
+> Hi Ron;RF03 looks fine.Could you please check the cal. factors on HGM.Paul
+> 
+> 
+The calibration is an old two-step version we've been using for a long time.
+It is supposed to be better than either a linear or parabolic fit that we used
+to use.  It has not been modified for any recent project.
+/
+/ "old" two-step calibration for HGM  (from 9-220 FIFE-II)
+   LETVAR=2,[111.760,-101.600, -0.4000, 146.304,-15.240],'23SEP83',%FOR,HGM
+             \______________/  \_____/  \_____________/
+                    |             |            |
+ Equation below ----+         Threshold        +---- Equation above
+ the threshold                                      the threshold
+
+-- 
+Ron
+
+From ron Wed Jun 16 14:29:04 1993
+Subject: CEPEX job
+To: paul (Paul Spyers-Duran)
+Date: Wed, 16 Jun 93 14:29:04 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I submitted 3-819 RF03 to the Cray about half an hour ago at the head of my
+queue of jobs.  If all goes well, it will run overnight so you'll have film
+in the noon mail.
+
+-- 
+Ron
+
+From tags@sunlight.ucar.edu Thu Jun 17 08:32:57 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA04236; Thu, 17 Jun 93 08:32:55 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA14009; Thu, 17 Jun 93 08:32:54 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA16633; Thu, 17 Jun 93 08:30:48 MDT
+Date: Thu, 17 Jun 93 08:30:48 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306171430.AA16633@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK5028 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29587
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF03"
+	SEQN="CK5028"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/17 06:33:14
+
+Translator chain messages:
+
+
+Job 29587 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 7039 clock seconds
+          Used 810840 CPU milliseconds
+          Produced 2155 frames
+          Charged 0.209286 GAUs
+
+From paul Thu Jun 17 11:00:54 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306171700.AA09372@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA09372; Thu, 17 Jun 93 11:00:53 MDT
+Subject: Re: 3-819 RF03
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 17 Jun 93 11:00:53 MDT
+In-Reply-To: <9306171619.AA07760@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 17, 93 10:19 am
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+HI Ron;Thanks for following-up.I am having P-C problems here,so if there is 
+no answer through E-mail;please give me a call.Paul
+
+
+From ron Thu Jun 17 10:19:18 1993
+Subject: 3-819 RF03
+To: paul (Paul Spyers-Duran)
+Date: Thu, 17 Jun 93 10:19:18 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+CEPEX flight RF03 completed processing at about 6:30 this morning.  TAGS
+finished doing the film processing at about 8:30.  I'm not sure when the film
+will be ready, but it may or may not make it to you at noon.  If you do not
+receive it, I'll try to find it and see whether you can get delivery later
+this afternoon.
+
+I looked through the log file and found that the whole-flight plot is missing
+IRS True Heading (THI).  I changed the processor to include it for subsequent
+runs.  It was trying to plot THF which doesn't exist.
+
+HGM values are about half of HGME's looking at the statistics.  (There may
+be things happening that mask the truth.)
+
+Also XRLWCC will be consistently off scale with the fixed-scale plot being
+used for TOGA-COARE.  For subsequent runs I could make it floating (with the
+same range) if you want.
+
+-- 
+Ron
+
+From ron Thu Jun 17 17:00:06 1993
+Subject: CEPEX production runs
+To: paul (Paul Spyers-Duran)
+Date: Thu, 17 Jun 93 17:00:06 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+------------------------------
+NQS 61.2 BATCH REQUEST SUMMARY                
+------------------------------                  
+IDENTIFIER    NAME    USER     QUEUE                 JID  PRTY REQMEM REQTIM ST
+------------- ------- -------- --------------------- ---- ---- ------ ------ ---
+43789.shavano CK3142  ruth     rg_Ms_Tl@shavano   819.RF01  31   2560   3000 Qcr
+43790.shavano CK3292  ruth     rg_Ms_Tl@shavano   819.RF02  31   2560   3000 Qcr
+43791.shavano CK3412  ruth     rg_Ms_Tl@shavano   819.RF04  31   2560   3000 Qcr
+43793.shavano CK3527  ruth     rg_Ms_Tl@shavano   819.RF05  31   2560   3000 Qcr
+43795.shavano CK3674  ruth     rg_Ms_Tl@shavano   819.RF06  31   2560   3000 Qcr
+43799.shavano CK3802  ruth     rg_Ms_Tl@shavano   819.RF07  31   2560   3000 Qcr
+43800.shavano CK3927  ruth     rg_Ms_Tl@shavano   819.RF08  31   2560   3000 Qcr
+43802.shavano CK4075  ruth     rg_Ms_Tl@shavano   819.RF09  31   2560   3000 Qcr
+-- 
+Ron
+
+From ron Thu Jun 17 17:20:29 1993
+Subject: Cray queue
+To: allen (Allen Schanot), paul (Paul Spyers-Duran)
+Date: Thu, 17 Jun 93 17:20:29 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Allen & Paul,
+ 
+Here's what's in the Cray queue as of now:
+
+------------------------------
+NQS 61.2 BATCH REQUEST SUMMARY                
+------------------------------                  
+IDENTIFIER    NAME    USER     QUEUE               JID    PRTY REQMEM REQTIM ST
+------------- ------- -------- ----------------  -------- ---- ------ ------ ---
+42347.shavano CK6471  ruth     rg_Ms_Tl@shavano  817.RF04   31   2560   3000 Qcr
+42348.shavano CK6588  ruth     rg_Ms_Tl@shavano  817.RF05   31   2560   3000 Qcr
+42350.shavano CK6709  ruth     rg_Ms_Tl@shavano  817.RF06   31   2560   3000 Qcr
+43608.shavano CK9691  ruth     rg_Ms_Tl@shavano  817.RF07   31   2560   3000 Qcr
+43611.shavano CK9812  ruth     rg_Ms_Tl@shavano  817.RF08   31   2560   3000 Qcr
+43612.shavano CK9922  ruth     rg_Ms_Tl@shavano  817.RF10   31   2560   3000 Qcr
+43614.shavano CK0077  ruth     rg_Ms_Tl@shavano  817.RF11   31   2560   3000 Qcr
+43616.shavano CK0190  ruth     rg_Ms_Tl@shavano  817.RF12   31   2560   3000 Qcr
+43617.shavano CK0309  ruth     rg_Ms_Tl@shavano  817.RF13   31   2560   3000 Qcr
+43620.shavano CK0437  ruth     rg_Ms_Tl@shavano  817.RF16   31   2560   3000 Qcr
+43622.shavano CK0557  ruth     rg_Ms_Tl@shavano  817.RF17   31   2560   3000 Qcr
+43623.shavano CK0764  ruth     rg_Ms_Tl@shavano  817.RF18   31   2560   3000 Qcr
+43628.shavano CK0881  ruth     rg_Ms_Tl@shavano  817.RF21   31   2560   3000 Qcr
+43629.shavano CK0997  ruth     rg_Ms_Tl@shavano  817.RF22   31   2560   3000 Qcr
+43632.shavano CK1108  ruth     rg_Ms_Tl@shavano  817.RF23   31   2560   3000 Qcr
+43633.shavano CK1224  ruth     rg_Ms_Tl@shavano  817.RF24   31   2560   3000 Qcr
+43635.shavano CK1339  ruth     rg_Ms_Tl@shavano  817.RF26   31   2560   3000 Qcr
+43789.shavano CK3142  ruth     rg_Ms_Tl@shavano  819.RF01   31   2560   3000 Qcr
+43790.shavano CK3292  ruth     rg_Ms_Tl@shavano  819.RF02   31   2560   3000 Qcr
+43791.shavano CK3412  ruth     rg_Ms_Tl@shavano  819.RF04   31   2560   3000 Qcr
+43793.shavano CK3527  ruth     rg_Ms_Tl@shavano  819.RF05   31   2560   3000 Qcr
+43795.shavano CK3674  ruth     rg_Ms_Tl@shavano  819.RF06   31   2560   3000 Qcr
+43799.shavano CK3802  ruth     rg_Ms_Tl@shavano  819.RF07   31   2560   3000 Qcr
+43800.shavano CK3927  ruth     rg_Ms_Tl@shavano  819.RF08   31   2560   3000 Qcr
+43802.shavano CK4075  ruth     rg_Ms_Tl@shavano  819.RF09   31   2560   3000 Qcr
+43819.shavano CK6299  ruth     rg_Ms_Tl@shavano  817.RF19   31   2560   3000 Qcr
+43821.shavano CK6416  ruth     rg_Ms_Tl@shavano  817.RF25   31   2560   3000 Qcr
+42355.shavano CK6879  ruth     ec_Ms_Tl@shavano  817.RF09   31   2560   3000 Qcr
+42356.shavano CK7044  ruth     ec_Ms_Tl@shavano  817.RF14   31   2560   3000 Qcr
+42359.shavano CK7158  ruth     ec_Ms_Tl@shavano  817.RF15   31   2560   3000 Qcr
+42365.shavano CK7271  ruth     ec_Ms_Tl@shavano  817.RF27   31   2560   3000 Qcr
+42367.shavano CK7390  ruth     ec_Ms_Tl@shavano  817.RF28   31   2560   3000 Qcr
+42368.shavano CK7524  ruth     ec_Ms_Tl@shavano  817.RF29   31   2560   3000 Qcr
+42369.shavano CK7632  ruth     ec_Ms_Tl@shavano  817.RF30   31   2560   3000 Qcr
+42370.shavano CK7739  ruth     ec_Ms_Tl@shavano  817.RF31   31   2560   3000 Qcr
+42371.shavano CK7850  ruth     ec_Ms_Tl@shavano  817.RF32   31   2560   3000 Qcr
+
+-- 
+Ron
+
+From tags@sunlight.ucar.edu Fri Jun 18 12:17:28 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA08606; Fri, 18 Jun 93 12:17:27 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA03748; Fri, 18 Jun 93 12:17:25 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA25359; Fri, 18 Jun 93 12:15:20 MDT
+Date: Fri, 18 Jun 93 12:15:20 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306181815.AA25359@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK3292 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29765
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF02"
+	SEQN="CK3292"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/18 10:47:34
+
+Translator chain messages:
+
+
+Job 29765 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 5254 clock seconds
+          Used 667140 CPU milliseconds
+          Produced 1713 frames
+          Charged 0.165572 GAUs
+
+From tags@sunlight.ucar.edu Fri Jun 18 14:46:54 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA12471; Fri, 18 Jun 93 14:46:53 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA20387; Fri, 18 Jun 93 14:46:51 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA26083; Fri, 18 Jun 93 14:44:44 MDT
+Date: Fri, 18 Jun 93 14:44:44 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306182044.AA26083@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK3142 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29755
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF01"
+	SEQN="CK3142"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/18 12:15:21
+
+Translator chain messages:
+forkoff: /u1/tagsV1R2/bin/ctrans [25407] received signal 13
+forkoff: /u1/tagsV1R2/bin/dsep [25406] received signal 13
+
+Translator chain exited with error
+Trailer program exited with error
+
+
+Job 29755 statistics:
+          Hardware Failed
+          Completed 0 of 1 copies
+          Ran 4235 clock seconds
+          Used 482830 CPU milliseconds
+          Produced 1457 frames
+          Charged 0.015632 GAUs
+Translation started 93/06/18 14:12:37
+
+Translator chain messages:
+
+
+Job 29755 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 1912 clock seconds
+          Used 773640 CPU milliseconds
+          Produced 466 frames
+          Charged 0.174551 GAUs
+
+From tags@sunlight.ucar.edu Fri Jun 18 21:46:45 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01099; Fri, 18 Jun 93 21:46:44 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA07430; Fri, 18 Jun 93 21:46:43 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA29318; Fri, 18 Jun 93 21:44:37 MDT
+Date: Fri, 18 Jun 93 21:44:37 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306190344.AA29318@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK3674 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29845
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF06"
+	SEQN="CK3674"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/18 19:50:01
+
+Translator chain messages:
+forkoff: /u1/tagsV1R2/bin/ctrans [28098] received signal 13
+forkoff: /u1/tagsV1R2/bin/dsep [28097] exited with code 11
+
+Translator chain exited with error
+Trailer program exited with error
+
+
+Job 29845 statistics:
+          Held
+          Completed 0 of 1 copies
+          Ran 3596 clock seconds
+          Used 417630 CPU milliseconds
+          Produced 1165 frames
+          Charged 0.112879 GAUs
+Translation started 93/06/18 21:13:21
+
+Translator chain messages:
+
+
+Job 29845 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 1863 clock seconds
+          Used 628660 CPU milliseconds
+          Produced 536 frames
+          Charged 0.154834 GAUs
+
+From paul Mon Jun 21 08:22:19 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306211422.AA01507@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01507; Mon, 21 Jun 93 08:22:18 MDT
+Subject: 817/819 prjts.
+To: ron (Ron Ruth)
+Date: Mon, 21 Jun 93 8:22:18 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Hi Ron;when you have a chance please check-up on queue.We received on Friday
+ 817-02;03;04;06;07,and one flight (RF02) for WISPIT.
+Talk to you later.Paul
+
+
+From ron Mon Jun 21 09:52:56 1993
+Subject: 3-817 & 3-819 job runs
+To: allen (Allen Schanot), paul (Paul Spyers-Duran)
+Date: Mon, 21 Jun 93 9:52:56 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Allen & Paul,
+
+I'm pleased to inform you that all the jobs I submitted to the Cray for both
+of these projects have completed.  I'll be checking them during the day today
+to see that all have been successful.  The volume of film produced by these
+runs has swamped the film-room staff, so you will see few if any rolls in
+today's noon mail with more of them filtering in throughout the week.  I hope
+that meets with your schedule, too, since you have to review it all.
+
+I got a call today from Andy Robertson (who manages the film room) stating that
+microfilm is only processed (film developed and put on reels) between 8:00 a.m.
+and midnight, Monday through Friday.  The weekend staffing levels are not
+high enough to do 24hr/7-day processing.  He wanted to know whether we were
+anticipating any more high-volume film-producing jobs.  How many copies of the
+film do we need for the PIs?  It is possible to do it using TAGS?  Do we still
+have our blanket order for film copying?
+
+-- 
+Ron
+
+From tags@sunlight.ucar.edu Fri Jun 18 23:14:28 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01179; Fri, 18 Jun 93 23:14:27 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA12710; Fri, 18 Jun 93 23:14:25 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA29762; Fri, 18 Jun 93 23:12:20 MDT
+Date: Fri, 18 Jun 93 23:12:20 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306190512.AA29762@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK3527 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29841
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF05"
+	SEQN="CK3527"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/18 21:44:41
+
+Translator chain messages:
+
+
+Job 29841 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 5246 clock seconds
+          Used 693190 CPU milliseconds
+          Produced 1764 frames
+          Charged 0.170081 GAUs
+
+From tags@sunlight.ucar.edu Sat Jun 19 00:41:32 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01247; Sat, 19 Jun 93 00:41:31 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA17787; Sat, 19 Jun 93 00:41:30 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA00434; Sat, 19 Jun 93 00:39:24 MDT
+Date: Sat, 19 Jun 93 00:39:24 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306190639.AA00434@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK4075 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29849
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF09"
+	SEQN="CK4075"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/18 23:12:23
+
+Translator chain messages:
+
+
+Job 29849 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 5209 clock seconds
+          Used 665240 CPU milliseconds
+          Produced 1733 frames
+          Charged 0.16724 GAUs
+
+From tags@sunlight.ucar.edu Sat Jun 19 02:44:17 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA01315; Sat, 19 Jun 93 02:44:16 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA28450; Sat, 19 Jun 93 02:44:14 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA00730; Sat, 19 Jun 93 02:42:09 MDT
+Date: Sat, 19 Jun 93 02:42:09 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306190842.AA00730@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK3412 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29842
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF04"
+	SEQN="CK3412"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/19 00:39:28
+
+Translator chain messages:
+
+
+Job 29842 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 7346 clock seconds
+          Used 874070 CPU milliseconds
+          Produced 2321 frames
+          Charged 0.224614 GAUs
+
+From tags@sunlight.ucar.edu Sat Jun 19 06:43:46 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA05858; Sat, 19 Jun 93 06:43:45 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA02930; Sat, 19 Jun 93 06:43:43 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA01561; Sat, 19 Jun 93 06:41:37 MDT
+Date: Sat, 19 Jun 93 06:41:37 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306191241.AA01561@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK3802 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29847
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF07"
+	SEQN="CK3802"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/19 02:42:11
+
+Translator chain messages:
+forkoff: /u1/tagsV1R2/bin/ctrans [779] received signal 13
+forkoff: /u1/tagsV1R2/bin/dsep [778] exited with code 11
+
+Translator chain exited with error
+
+
+Job 29847 statistics:
+          Hardware Failed
+          Completed 0 of 1 copies
+          Ran 4201 clock seconds
+          Used 496490 CPU milliseconds
+          Produced 1380 frames
+          Charged 0.0161493 GAUs
+Translation started 93/06/19 05:35:19
+
+Translator chain messages:
+
+
+Job 29847 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 3967 clock seconds
+          Used 974250 CPU milliseconds
+          Produced 1151 frames
+          Charged 0.233356 GAUs
+
+From tags@sunlight.ucar.edu Sat Jun 19 08:56:01 1993
+Received: from ncar.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA06687; Sat, 19 Jun 93 08:56:00 MDT
+Received: from sunlight.ucar.edu by ncar.ucar.EDU (5.65/ NCAR Central Post Office 03/11/93)
+	id AA09554; Sat, 19 Jun 93 08:55:58 MDT
+Received: by sunlight.ucar.edu.noname (4.1/SMI-4.1)
+	id AA01876; Sat, 19 Jun 93 08:53:52 MDT
+Date: Sat, 19 Jun 93 08:53:52 MDT
+From: tags@sunlight.ucar.edu (Text and Graphics System)
+Message-Id: <9306191453.AA01876@sunlight.ucar.edu.noname>
+To: 6017@ncar.ucar.edu
+Subject: TAGS Job CK3927 COMPLETED SUCCESSFULLY
+Status: OR
+
+JID: 29850
+Input Parameters:
+	MLCD="JFCOJEFF"
+	NAME="RUTH"
+	REQ="NCGM"
+	TITL="plot_1993_819_RF08"
+	SEQN="CK3927"
+	SCI="6017"
+	PROJ="41113308"
+	MACR="VIEWERBW"
+
+
+
+Translation started 93/06/19 06:41:39
+
+Translator chain messages:
+
+
+Job 29850 statistics:
+          Succeeded
+          Completed 1 of 1 copies
+          Ran 7922 clock seconds
+          Used 1022800 CPU milliseconds
+          Produced 2577 frames
+          Charged 0.248776 GAUs
+
+From ron Mon Jun 21 14:50:02 1993
+Subject: 3-819 production runs
+To: paul (Paul Spyers-Duran)
+Date: Mon, 21 Jun 93 14:50:02 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+It looks like all of the CEPEX runs ran successfully to completion.  If the
+microfilm looks OK, I guess we're done.
+
+-- 
+Ron
+
+From ron Wed Jun 23 12:16:42 1993
+Subject: 3-819 Film Sequence Numbers
+To: paul (Paul Spyers-Duran)
+Date: Wed, 23 Jun 93 12:16:42 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+Following is a table of flight/sequence numbers for the film.  It also has
+GAU usage in case you're interested.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+3-819 GENPRO Production log  RLR  930604
+  A * in column one indicates the final production run
+ 
+        Date       Sequence  Proc.   Film      Film
+Flight  Processed  Number    GAUs    Frames    GAUs      Comments
+------------------------------------------------------------------------------
+*RF01    18JUN93   CK3142   0.35100   1457   0.015632    Film in 2 sections
+                                       466   0.174551
+*RF02    18JUN93   CK3292   0.28341   1713   0.165572
+*RF03    17JUN93   CK5028   0.41248   2155   0.209286
+*RF04    18JUN93   CK3412   0.43373   2321   0.224614
+*RF05    18JUN93   CK3527   0.31816   1764   0.170081
+*RF06    18JUN93   CK3674   0.29597   1165   0.112879    Film in 2 sections
+                                       536   0.154834
+*RF07    18JUN93   CK3802   0.46433   1380   0.0161493   Film in 2 sections
+                                      1151   0.233356
+*RF08    18JUN93   CK3927   0.47660   2577   0.248776
+*RF09    18JUN93   CK4075   0.30451   1733   0.16724
+
+Scaling errors:
+RF05:  QCRC=1
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From paul Thu Jun 24 14:08:29 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9306242008.AA07153@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA07153; Thu, 24 Jun 93 14:08:29 MDT
+Subject: Re: Data Copy for TOGA-COARE and CEPEX
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Thu, 24 Jun 93 14:08:28 MDT
+Cc: Allen
+In-Reply-To: <9306232156.AA01651@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jun 23, 93 3:56 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Ron;as a follow-up to todays coversation here are the requests to have
+data copied to Exabyte tapes.
+TOGA-COARE:
+Dr.Gary M. Barnes      32 flts of GENPRO proc. data
+Dept. of Meteorology
+University of Hawaii
+2525 Correa Road
+Honolulu, HI  96822
+
+Dr. Carl A. Friehe     32 flts of GENPRO proc. data
+Dept. of Mechanical Engineering
+University of California @ Irvine
+Irvine, CA  92717
+
+Dr. David Rogers     32 flts of GENPRO proc. data
+UCSD-SIO, Code 0230
+Scripps Institute of Oceanography
+8605 La Jolla Shores Drive
+La Jolla, CA  92093-0230
+
+Professor David J. Raymond    32 flts of GENPRO + 32 flts RAW data
+Physics Department and Langmuir Laboratory
+New Mexico Institute of Mining and Technology
+Socorro, NM  87801        (these tapes will be shared with A.Blyth)
+
+Richard Chinman               32 flts of GENPRO + 32 flts RAW data
+UCAR - TCIPO
+P. O. Box 3000
+Boulder, CO  80307-3000
+
+
+
+CEPEX project
+
+Dr. David Rogers     9 flts of GENPRO proc.data
+
+
+Dr. Veerabhadran Ramanathan   9 flts of GENPRO proc.data
+UCSD-Mail Code 0221
+9550 Gilman Drive
+La Jolla, CA  92093
+
+
+
+------------------------E O M--------------------
+
+
+From ron Thu Jun 24 12:24:36 1993
+Subject: MSS Bitfile Log -- 819
+To: paul (Paul Spyers-Duran)
+Date: Thu, 24 Jun 93 12:24:36 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+                    PRODUCTION MASS STORE BITFILE LOG
+
+ Project no.:  819       Project name:  CEPEX 
+                                        (Central Equatorial Pacific Experiment)
+ Aircraft:     N308D   Project Leader:  Paul Spyers-Duran
+ Data type:    HRT       Scientist(s):  Rogers, Denise Hagan
+                        Programmer(s):  Ron Ruth
+
+ HEADER FILE INFORMATION:
+ Logical record size:    640 bits      Physical record size:   6400 bits
+ No. of physical records:  75
+
+ DATA FILE INFORMATION:
+ Logical record size: 56512 bits      Physical record size:  56512 bits
+ No. of Logical records per physical record:  1
+ No. of seconds per logical record (GENPRO cycle time):  1
+
+
+ MSS path name: /RAF/1993/819/HRT/fltno
+
+-----------------------------------------------------------------------
+           Date      Start      Stop      File Size
+ fltno   mm/dd/yy    Time       Time      (Mbytes)
+-----------------------------------------------------------------------
+ RF01    03/17/93   20:15:00   25:29:13   133.652480
+ RF02    03/19/93   20:13:23   24:31:02   109.600768
+ RF03    03/20/93   18:00:49   24:09:08   156.651520
+ RF04    03/21/93   17:36:24   24:06:07   165.748736
+ RF05    03/22/93   18:44:45   23:19:10   116.731904
+ RF06    03/25/93   20:01:06   24:30:09   114.450432
+ RF07    03/26/93   17:06:49   24:11:30   180.617216
+ RF08    03/28/93   19:00:14   26:19:03   186.626048
+ RF09    03/29/93   18:51:53   23:27:08   117.084160
+-----------------------------------------------------------------------
+
+From ron Mon Jul 26 11:19:51 1993
+Subject: Raw CEPEX MSS path
+To: paul (Paul Spyers-Duran)
+Date: Mon, 26 Jul 93 11:19:51 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+The Mass Store path name for the raw ADS CEPEX data is:
+
+    /RAF/1993/819/fltno/Rxxxx
+
+>From the list below, Rxxxx refers to the first column.  fltno corresponds to
+one of the entries following the end time (but use all caps).  For example,
+there are 3 MSS bitfiles corresponding to RF05:
+    /RAF/1993/819/RF05A/R0586
+    /RAF/1993/819/RF05B/R0586
+    /RAF/1993/819/RF05C/R0586
+
+R0582   031793  rf01   201500 252913  rf01a rf01b
+R0583   031993  rf02   201323 243102  rf02a rf02b
+R0584   032093  rf03   180049 240908  rf03a rf03b
+R0585   032193  rf04   173624 240607  rf04a rf04b
+R0586   032293  rf05   184445 231910  rf05a rf05b rf05c
+R0587   032593  rf06   200106 243009  rf06a rf06b
+R0588   032693  rf07   170649 241130  rf07a rf07b rf07c
+R0589   032893  rf08   190014 261903  rf08a rf08b rf08c
+R0590   032993  rf09   185153 232708  rf09a rf09b
+
+-- 
+Ron
+
+From ron Mon Jul 26 15:19:29 1993
+Subject: Re: Raw CEPEX MSS path
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Mon, 26 Jul 93 15:19:29 MDT
+In-Reply-To: <9307262027.AA03779@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Jul 26, 93 2:27 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+Please give me name, phone, affiliation, address of new the requestor so I can
+make out another form.  I'll have the CEPEX output ExaByte sent to you as was
+done for the others.
+
+-- 
+Ron
+
+From ron Thu Aug 19 16:59:53 1993
+Subject: CEPEX GPS corrections
+To: paul (Paul Spyers-Duran)
+Date: Thu, 19 Aug 93 16:59:53 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I did a brief check of about 5 seconds each on CEPEX RF03 and RF07, and in both
+cases it looked like the GPS corrections were working.  I'm not sure that is
+the case for the whole flight, though.  If the plane ever goes beyond 60
+degrees latitude or 100 degrees longitude from Hawaii (30., -125.), the GPS
+corrections will stop working.  (The extremes would be lat: +90, -30;
+lon: -225, -25.)  You can probably use the whole-flight microfilm plots to
+determine that.  
+
+-- 
+Ron
+
+From ron Fri Aug 20 14:15:15 1993
+Subject: Re: CEPEX GPS corrections
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Fri, 20 Aug 93 14:15:15 MDT
+In-Reply-To: <9308202008.AA00733@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Aug 20, 93 2:08 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I can make a brief check by looking at the log files for those flights (RF04
+and RF08).  There is a "number of rejects" value that accumulates the number of
+seconds that the GPS was ignored during the flight.  I suspect that all is OK.
+
+-- 
+Ron
+
+From ron Fri Aug 20 15:59:27 1993
+Subject: CEPEX RF04 & RF08 OK
+To: paul (Paul Spyers-Duran)
+Date: Fri, 20 Aug 93 15:59:27 MDT
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I just checked the log files from RF04 and RF08.  Both had a low number of
+"rejects."  That tells me that the code was not rejecting much of the GPS data.
+
+-- 
+Ron
+
+From ron Fri Aug 20 16:52:47 1993
+Subject: Re: CEPEX RF04 & RF08 OK
+To: paul@chinook.atd.ucar.edu (Paul Spyers-Duran)
+Date: Fri, 20 Aug 93 16:52:47 MDT
+In-Reply-To: <9308202246.AA02197@chinook.atd.ucar.EDU>; from "Paul Spyers-Duran" at Aug 20, 93 4:46 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+Paul,
+
+I would say so.  The only way to know for sure is to read all the data and look
+at it.  I know that, unlike TOGA-COARE, the rejects were low.  If there is one
+critical flight, I could bring the GENPRO file down to chinook, convert it to
+a DAP file (using Xanadu) and plot some differences.
+
+-- 
+Ron
+
+From paul Fri Aug 20 14:08:18 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9308202008.AA00733@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA00733; Fri, 20 Aug 93 14:08:18 MDT
+Subject: Re: CEPEX GPS corrections
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Fri, 20 Aug 93 14:08:17 MDT
+In-Reply-To: <9308192259.AA13885@chinook.atd.ucar.EDU>; from "Ron Ruth" at Aug 19, 93 4:59 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Ron;thanks for looking into it.The region we flew in CEPEX was directly south
+of HI ~to -4deg S and east to longitude of 145deg.I think we should be in good
+shape,don't you think?Do you want to check flts 4 and 8 if it is not too much
+of a bother.Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From paul Fri Aug 20 16:46:41 1993
+From: paul (Paul Spyers-Duran)
+Message-Id: <9308202246.AA02197@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA02197; Fri, 20 Aug 93 16:46:41 MDT
+Subject: Re: CEPEX RF04 & RF08 OK
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Fri, 20 Aug 93 16:46:40 MDT
+In-Reply-To: <9308202159.AA01732@chinook.atd.ucar.EDU>; from "Ron Ruth" at Aug 20, 93 3:59 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+
+Ron;that's good news.Can we assume,all is well?Paul
+
+                     _____________________________
+                    /                             \
+                    | Paul Spyers-Duran           |
+                    | NCAR/RAF                    |
+                    | Box 3000                    |
+                    | Boulder, Co. 80307          |
+                    | (303) 497-1036   1092 (fax) |
+                    | paul@chinook.atd.ucar.edu   |
+                    \_____________________________/
+
+
+
+
+From allen@chinook.atd.ucar.EDU Tue Sep  7 08:52:23 1993
+Received: from twosox.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA10393; Tue, 7 Sep 93 08:52:22 MDT
+Message-Id: <9309071452.AA01220@twosox>
+Received: by twosox (4.1/ NCAR Mail Client 04/19/90)
+	id AA01220; Tue, 7 Sep 93 08:52:21 MDT
+Subject: Re: Reference Q for TOGA-COARE and CEPEX
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 7 Sep 93 8:52:20 MDT
+In-Reply-To: <9309031804.AA21507@chinook.atd.ucar.EDU>; from "Ron Ruth" at Sep 3, 93 12:04 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: OR
+
+> 
+> While working on the GPS corrections and "wet-wind" calculations for
+> TOGA-COARE, I reviewed the GENPRO PDUD file to see which true airspeed was
+> used for the primary processing (the one I should "correct" to do the "wet
+> winds."  I thought it would be based upon QCRC but discovered it to be QCFC.
+> I then referred to the hand-written copy of Allen's data processing information
+> (handed out at the 1 April 1993 meeting) which said to use QCRC.
+> 
+> I thought perhaps we had changed the reference at some time during setup
+> because of a problem, so I looked through all the email messages pertaining to
+> TOGA-COARE but found only one memo mentioning an airspeed reference.  It was
+> from Allen, and it said to use QCFC in the Lyman-alpha calculations, since QCRC
+> iced up on occasion.  It didn't say to use it for all calculations.
+> 
+> I also looked at the template PDUD file I used (from ASTEX), and QCR was
+> definitely the reference there.  It would have been consciously changed for
+> TOGA-COARE (and CEPEX).
+> 
+> Now I'm wondering:  Have I used the wrong Q for TOGA-COARE and CEPEX, and,
+> if so, is a rerun in order?  If we rerun, would it make sense to put the
+> wet wind calculations into GENPRO or should they only appear in the X_____
+> variables done during the GPS corrections?
+> 
+> -- 
+> Ron
+> 
+
+This is not something that just slipped by.  I selected QCFC as the reference
+based on missing QCRC data due to radome icing.  Unfortunately, the iced 
+radome data were still lost due to some sort of buried test statement in the
+GENPRO code.  We have used QCFC & QCRC interchangeably for many years.  If I
+was not comfortable with this application - it wouldn't have been used in the
+TC processing.  Detailed spectral analysis, which now seems neccessary, may
+prove this to be an incorrect assumption and lead to reprocessing - but I 
+doubt it.  I'll get back to you - take no new action at this time.
+
+ajs
+

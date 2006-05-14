@@ -1,0 +1,249 @@
+#! /bin/csh -f
+#
+#  Archive raw stripped PMS-2D data files for 1999-803 MAP (Kuettner)
+#    rev. 991221  RLR  (modify ads2ms.job)
+#
+#  Note:  For the files to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#
+set SDIR = /home/data/map
+set DDIR = /home/data
+set TURBRT = PMS2D
+#
+#  1st wave, 1st try
+#set FILES   = ( \
+#803rf01.2D \
+#803rf02.2D \
+#803rf03.2D \
+#803rf04.2D \
+#803rf05.2D \
+#)
+#set FLIGHTS = ( \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#)
+#
+#  2nd wave, 1st try
+#set FILES   = ( \
+#803rf06.2D \
+#803rf07.2D \
+#803rf08.2D \
+#803rf09.2D \
+#803rf10.2D \
+#)
+#set FLIGHTS = ( \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#)
+#
+#  3rd wave, 1st try
+#set FILES   = ( \
+#803rf11.2D \
+#803rf12.2D \
+#803rf15.2D \
+#)
+#set FLIGHTS = ( \
+#RF11 \
+#RF12 \
+#RF15 \
+#)
+#
+#  4th wave, 1st try
+#set FILES   = ( \
+#803rf16.2D \
+#803rf17.2D \
+#803rf18.2D \
+#803rf19.2D \
+#803rf20.2D \
+#)
+#set FLIGHTS = ( \
+#RF16 \
+#RF17 \
+#RF18 \
+#RF19 \
+#RF20 \
+#)
+#
+#  5th wave, 1st try
+#set FILES   = ( \
+#803rf21.2D \
+#803rf22.2D \
+#803rf23.2D \
+#803rf24.2D \
+#803rf25.2D \
+#)
+#set FLIGHTS = ( \
+#RF21 \
+#RF22 \
+#RF23 \
+#RF24 \
+#RF25 \
+#)
+#
+#  6th wave, 1st try
+#set FILES   = ( \
+#803rf26.2D \
+#803rf27.2D \
+#803rf28.2D \
+#803rf29.2D \
+#)
+#set FLIGHTS = ( \
+#RF26 \
+#RF27 \
+#RF28 \
+#RF29 \
+#)
+#
+#  Mop up #1 (files split into segments no larger than about 1GB)
+#set FILES   = ( \
+#803rf15a.2d \
+#803rf15b.2d \
+#803rf18a.2d \
+#803rf18b.2d \
+#)
+#set FLIGHTS = ( \
+#RF15A \
+#RF15B \
+#RF18A \
+#RF18B \
+#)
+#
+#  Mop up #2 (if these files ever show up)
+#803rf05.2d \
+#803rf13.2d \
+#803rf14.2d \
+#
+#
+#  Get started:
+date
+#
+#  Make sure I have the same number of files and flights
+if ($#FILES != $#FLIGHTS) then
+  echo "TAPES and FLIGHTS don't match.  Quitting."
+  exit 1
+endif
+set todo = $#FLIGHTS
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+#
+#  Copy file to /home/data, if needed
+  unset noglob
+  if ((! -e $DDIR/$FILE) && (! -e $DDIR/$FILE.gz)) then
+    if (-e $SDIR/$FILE) then
+      cp $SDIR/$FILE $DDIR/.
+    else if (-e $SDIR/$FILE.gz) then
+      cp $SDIR/$FILE.gz $DDIR/.
+    endif
+  endif
+#  Make sure file is unzipped
+  if (-e $DDIR/$FILE.gz) gunzip $DDIR/$FILE.gz
+  set noglob
+#
+  if (-r $DDIR/$FILE) then
+    echo \
+    nrnet msput $DDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FLIGHT \
+     rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+  else
+    echo " Cannot access file $DDIR/$FILE"
+    exit 1
+  endif
+  @ num ++
+end
+#
+unset noglob
+echo " After successful archive, remove the following files from ${DDIR}: "
+echo "   $FILES "
+echo "  "
+#
+# done.
+exit
+#
+#  1st wave, 1st try
+#  Jobs submitted on Wed Dec 22 15:45:39 MST 1999
+# Sequence number = LN0237 -- PMS2D/RF01 -- OK @ 22 Dec 1999 16:00:56
+# Sequence number = LN0260 -- PMS2D/RF02 -- OK @ 22 Dec 1999 15:58:38
+# Sequence number = LN0359 -- PMS2D/RF03 -- OK @ 22 Dec 1999 16:34:21
+# Sequence number = LN0383 -- PMS2D/RF04 -- OK @ 22 Dec 1999 16:16:04
+# Sequence number = LN0407 -- PMS2D/RF05 -- OK @ 22 Dec 1999 16:21:39
+#
+#  2nd wave, 1st try
+#  Jobs submitted on Wed Dec 22 16:40:41 MST 1999
+# Sequence number = LN0799 -- PMS2D/RF06 -- OK @ 22 Dec 1999 16:41:23
+# Sequence number = LN0823 -- PMS2D/RF07 -- OK @ 22 Dec 1999 17:15:23
+# Sequence number = LN0846 -- PMS2D/RF08 -- OK @ 22 Dec 1999 16:54:01
+# Sequence number = LN0869 -- PMS2D/RF09 -- OK @ 22 Dec 1999 16:54:11
+# Sequence number = LN0892 -- PMS2D/RF10 -- OK @ 22 Dec 1999 17:26:30
+#
+#  3rd wave, 1st try
+#  Jobs submitted on Mon Dec 27 10:38:12 MST 1999
+# Sequence number = LN5028 -- PMS2D/RF11 -- OK @ 27 Dec 1999 10:44:56
+# Sequence number = LN5057 -- PMS2D/RF12 -- OK @ 27 Dec 1999 11:16:46
+# Sequence number = LN5081 -- PMS2D/RF15 -- OK* @ 27 Dec 1999 12:01:04
+#
+#  4th wave, 1st try
+#  Jobs submitted on Mon Dec 27 12:51:29 MST 1999
+# Sequence number = LN5541 -- PMS2D/RF16 -- OK @ 27 Dec 1999 12:51:50
+# Sequence number = LN5565 -- PMS2D/RF17 -- OK @ 27 Dec 1999 12:53:58
+# Sequence number = LN5591 -- PMS2D/RF18 -- OK* @ 27 Dec 1999 13:44:18
+# Sequence number = LN5600 -- PMS2D/RF19 -- OK @ 27 Dec 1999 13:14:19
+# Sequence number = LN5637 -- PMS2D/RF20 -- OK @ 27 Dec 1999 13:18:45
+#
+#  5th wave, 1st try
+#  Jobs submitted on Mon Dec 27 13:42:46 MST 1999
+# Sequence number = LN5945 -- PMS2D/RF21 -- OK @ 27 Dec 1999 14:06:55
+# Sequence number = LN5969 -- PMS2D/RF22 -- OK @ 27 Dec 1999 14:03:55
+# Sequence number = LN5992 -- PMS2D/RF23 -- OK @ 27 Dec 1999 13:55:21
+# Sequence number = LN6015 -- PMS2D/RF24 -- OK @ 27 Dec 1999 14:24:49
+# Sequence number = LN6038 -- PMS2D/RF25 -- OK @ 27 Dec 1999 14:07:26
+#
+#  6th wave, 1st try
+#  Jobs submitted on Mon Dec 27 14:12:41 MST 1999
+# Sequence number = LN6965 -- PMS2D/RF26 -- OK @ 27 Dec 1999 14:13:11
+# Sequence number = LN6988 -- PMS2D/RF27 -- OK @ 27 Dec 1999 14:31:04
+# Sequence number = LN6997 -- PMS2D/RF28 -- OK @ 27 Dec 1999 14:20:17
+# Sequence number = LN7020 -- PMS2D/RF29 -- OK @ 27 Dec 1999 14:20:21
+#
+#  * These files successfully transferred to the SCD Mass Store System
+#     even though they exceed the desired maximum size of 1GB.
+#     The bitfile for RF15 is probably too large to retrieve via MIGS.
+#
+#  Mop up #1 (files split into segments no larger than about 1GB)
+#  Jobs submitted on Thu Dec 30 12:49:31 MST 1999
+# Sequence number = LN5817 -- PMS2D/RF15A -- OK @ 30 Dec 1999 13:51:55
+# Sequence number = LN5825 -- PMS2D/RF15B -- OK @ 30 Dec 1999 13:32:49
+# Sequence number = LN5833 -- PMS2D/RF18A -- OK @ 30 Dec 1999 13:50:00
+# Sequence number = LN5843 -- PMS2D/RF18B -- OK @ 30 Dec 1999 13:18:04
+#
+#      wave,     try
+#  Jobs submitted on 
+#

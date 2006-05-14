@@ -1,0 +1,102 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1998-807 Leonids (Gardner)
+#    rev. 980105  RLR
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set SKIPS   = ( "skpr=0" )
+#set SKIPS   = ( "skpr=16000" )
+#set SKIPS   = ( "skpr=32000" )
+#
+set RECS    = ( "nfile=1" )
+#set RECS    = ( "nrec=16000" )
+#
+#  1st set, 1st try
+set TAPES   = ( \
+R1185 \
+R1186 \
+R1187 \
+R1188 \
+R1225 \
+R1226 \
+R1227 \
+R1228 \
+R1229 \
+R1230 \
+R1231 \
+)
+set FLIGHTS = ( \
+RF01 \
+RF02 \
+RF03 \
+RF04 \
+RF05 \
+RF06 \
+RF07 \
+RF08 \
+RF09 \
+RF10 \
+RF11 \
+)
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF proj=41113009 mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   skpf=0 $SKIP $REC \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+#
+#  Special message
+echo "  Don't forget to try out the new DCS version of import/export."
+#
+exit
+#
+#  1st set, 1st try
+#  Jobs submitted on Fri Dec  4 11:40:52 MST 1998
+# Sequence number = MI2195 -- RF01/R1185 -- OK @ 4 Dec 1998 12:06:15.273
+# Sequence number = MI2202 -- RF02/R1186 -- OK @ 4 Dec 1998 11:56:24.179
+# Sequence number = MI2209 -- RF03/R1187 -- OK @ 4 Dec 1998 12:41:48.884
+# Sequence number = MI2216 -- RF04/R1188 -- OK @ 4 Dec 1998 13:05:26.388
+# Sequence number = MI2223 -- RF05/R1225 -- OK @ 4 Dec 1998 14:49:16.239
+# Sequence number = MI2237 -- RF06/R1226 -- OK @ 4 Dec 1998 14:13:22.929
+# Sequence number = MI2244 -- RF07/R1227 -- OK @ 4 Dec 1998 15:36:29.602
+# Sequence number = MI2251 -- RF08/R1228 -- OK @ 4 Dec 1998 15:11:49.487
+# Sequence number = MI2258 -- RF09/R1229 -- OK @ 4 Dec 1998 13:16:15.712
+# Sequence number = MI2267 -- RF10/R1230 -- OK @ 4 Dec 1998 13:30:27.267
+# Sequence number = MI2282 -- RF11/R1231 -- OK @ 4 Dec 1998 13:51:52.906
+#

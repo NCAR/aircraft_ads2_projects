@@ -1,0 +1,340 @@
+                              Data Quality Report
+                                      for
+                 Electra N308D - Project No. 1995-887 - VORTEX
+                 Principal Investigator(s):  Wakimoto, et al.
+
+                                       by
+                                 Ronald L. Ruth
+
+
+This report has been written to outline basic instrumentation problems
+affecting the data set.  It is organized into two sections.  The first
+section lists recurring problems, general limitations, and systematic biases
+in the standard RAF measurements.  The second section lists isolated problems
+on a flight-by-flight basis.
+
+This summary is not intended to point out every bit of questionable data,
+but the information given here should help investigators make best use of
+the data set.
+
+
+Section I:  General Discussion
+------------------------------
+ 
+ 1.  The wind data for this project were derived from measurements taken
+     with the radome wind gust package.  As is the case with all wind
+     gust systems, the ambient wind calculations can be adversely
+     affected by either sharp changes in the aircraft's flight attitude
+     or excessive drift in the on-board inertial reference system (IRS).
+     Turns and, more importantly, climbing turns are particularly
+     disruptive to this type of measurement technique.  Wind data
+     reported for these conditions should be used with caution.
+
+     The summary of IRS performance, indicated that the wind measurement
+     system was performing within standard RAF specifications.  No in-flight
+     maneuvers were conducted during this project.
+
+     As an additional enhancement to this data set, a second set of wind
+     calculations are included which incorporates both a humidity-corrected
+     true airspeed and a correction using position and velocity updates
+     provided by the GPS.  For the first 4 flights (RF01-RF04), the humidity-
+     corrected true airspeed also was used in the standard wind calculations,
+     because the GPS was inoperative.  (See item 2.)
+
+
+ 2.  A Trimble Global Positioning System (GPS) was used during the project
+     as a more accurate long-term position reference than the IRS.  The
+     reliability of this system depends upon regional coverage by the number
+     of navigational satellites arrayed above the research area.  (Coverage
+     over the local research area was excellent during the project.)  The
+     GPS failed to work properly on the first four research flights due to
+     interference from the ELDORA radar.  Slightly changing the ELDORA's
+     transmit frequencies corrected the problem, and the GPS worked reliably
+     from RF05 through the end of the project.  The GPS status outputs (GMODE
+     and GSTAT) are useful indicators of proper GPS operation.
+
+          GMODE value        Meaning
+            3 or 19      3-satellite operation
+            4 or 20      4-satellite operation
+
+          GSTAT value        Meaning
+             0 - 63      Doing position fixes
+          2048 - 2111    No useable satellites
+          2304 - 2367    Only 1 useable satellite
+          2560 - 2623    Only 2 useable satellites
+          2816 - 2869    Only 3 useable satellites
+          
+ 
+ 3.  RAF flies redundant sensors to assure data quality.   Performance
+     characteristics differ from sensor to sensor with certain units being
+     more susceptible to various thermal and dynamic effects than others.
+     Good comparisons were typically obtained between the two standard
+     temperatures (ATB, ATRF), the two standard static pressure measurements
+     (PSFDC, PSWC) and two of the standard dynamic pressures (QCWC, QCRC).
+     The second dew pointer (DPB) and the fuselage dynamic pressure
+     sensor (QCF) operated erratically during the entire project, so their
+     measurements could be trusted.  To avoid confusion, their outputs have
+     been omitted from the production data set.
+
+          Mean Differences between redundant sensors (entire flight)
+ 
+             ATRF-ATX   PSWC-PSXC   QCWC-QCXC   TASW-TASX   TASHC-TASX
+     Fltno       C         mbar        mbar        M/s         M/s
+     -----   --------   ---------   ---------   ---------   ----------
+     RF01     -0.16       -0.79        0.69        0.60        0.27
+     RF02     -0.47       -0.47        0.33        0.29        0.16
+     RF03     -0.57       -0.90        0.59        0.56        0.23
+     RF04     -0.45       -0.58        0.67        0.62        0.14
+     RF05     -0.59       -1.07        0.94        0.84        0.26
+     RF06     -0.69       -1.16        0.94        0.82        0.40
+     RF07A    -0.65       -1.12        0.66        0.61        0.31
+     RF07B    -0.74       -0.86        0.58        0.54        0.26
+     RF08     -0.73       -1.09        0.90        0.81        0.40
+     RF09A    -0.64       -1.24        0.93        0.83        0.40
+     RF09B    -0.68       -1.19        1.04        0.92        0.45
+     RF10     -0.68       -1.12        0.51        0.49        0.39
+     RF11     -0.55       -0.84        1.10        1.00        0.14
+     RF12     -0.68       -1.14        0.80        0.74        0.31
+     RF13A    -0.70       -1.13        0.60        0.58        0.35
+     RF13B    -0.70       -0.85         --          --         0.19
+     RF14     -0.58       -0.73        0.53        0.50        0.21
+     RF15     -0.81       -1.28        0.73        0.67        0.52
+     -----------------------------------------------------------------
+     All      -0.61       -0.97        0.73        0.67        0.30
+     -----------------------------------------------------------------
+ 
+
+ 4.  Temperature measurements were made using the standard, unheated
+     Rosemount (ATB) and NCAR reverse-flow (ATRF) temperature sensors.
+     These standard temperature sensors performed reasonably well,
+     encountering the usual problems with sensor wetting during infrequent
+     cloud passes.  A comparison of the data sets yielded a good correlation
+     in instrument signatures.  Due to its reliability and fast response, the
+     Rosemount temperature (ATB) was selected as the reference value used in
+     calculating the derived variables.
+
+ 
+ 5.  Humidity measurements were made using two collocated thermoelectric dew
+     point sensors and a Lyman-alpha fast-response hygrometer.  As mentioned
+     above, one of the thermoelectric dew point sensors (DPB) performed
+     erratically during the project.  Numerous attempts to adjust its
+     operation failed to get it working properly.
+ 
+     The Lyman-alpha hygrometer is susceptible to in-flight drift in the
+     instrument's bias voltage.  Due to this problem, RAF uses a special
+     data-processing technique to remove the bias drift by referencing the
+     long-term humidity values to the most stable thermoelectric dew point
+     sensor.  For projects requiring routine cloud penetrations, the rapid
+     changes in humidity or wetting of the sensor windows can trigger a reset
+     of the coupling technique at inopportune times, resulting in occasional
+     large spikes in the derived Lyman-alpha data (RHOLA, MRLA).  Short (2-3
+     second) intervals around these spikes should be considered as bad data,
+     but the remaining data should be valid.  Since this project was flown
+     in mostly clear air, very few of these spikes were seen.  (Information
+     on this technique and literature referencing high-rate humidity
+     measurements are available in RAF Bulletin No. 22.)
+ 
+
+ 6.  A set of upward and downward facing radiometers was used to measure
+     shortwave, ultraviolet and infrared irradiance.  It should be noted that
+     all units are hard mounted and that none of the data have been corrected
+     for changes in the aircraft's flight attitude.  Care should be used in
+     identifying the aircraft's attitude to determine a relative sun angle.
+
+
+ 7.  The measurement of the surface temperature was made using a Heimann KT19
+     (XKT19) radiometric sensor.  The measurement is typically influenced by
+     the radiative "blackness" of the surface and overhead sky conditions and
+     the contribution of water vapor in the sample volume, which is moisture-
+     content and altitude dependent.  Correcting for these somewhat complex
+     interactions is left to the judgement and skill of the investigator,
+     since it must be handled on a case-by-case basis.  Overall, the
+     sensor performed extremely well.  The Heimann loses some accuracy at
+     temperatures below 0C.  For this project the Heimann (XKT19) pegged
+     at 48.14C.
+ 
+
+ 8.  Three types of altimeters were used during the project.  The Collins
+     altimeter (HGM) is only functional from 0 to 780 M AGL (above ground
+     level).  At altitudes greater than 780 M the instrument is pegged full
+     scale.  For some unknown reason, this altimeter had frequent noise spikes
+     when pegged.  The Stewart Warner altimeter (HGME), which measures from
+     150 M to 21,000 M AGL had only occasional noise spikes and appeared to
+     work reliably throughout the project.
+ 
+     The GPS also provides an altitude readout (GALT).  For accurate
+     measurements, the GPS requires coverage by at least four satellites.
+     If satellite coverage degrades such that the fourth satellite is lost,
+     GALT defaults back to PALT values.  This can result in periodic jumps in
+     the value of GALT.  In addition, the GALT signal has been "detuned"
+     by the military and exhibits a slow oscillation of +/-100 M.  The GPS
+     status data (GMODE and GSTAT) are useful for determining which signal
+     GALT is following.  (See item 2.)
+
+
+ 9.  Even though no calibration maneuvers occurred during this project, the
+     flight tracks had many opportunities for comparing horizontal wind during
+     reverse-headings.  Excellent agreement was obtained for every flight.
+ 
+
+10.  Data recording typically begins well in advance of the actual aircraft
+     takeoff time.  Virtually all measurements made on the Electra require
+     some sort of airspeed correction, or the systems are simply not active
+     while the aircraft remains on the ground.  None of the data collected
+     while the aircraft is on the ground should be considered valid.
+
+
+11.  The reference sensors, used for all the derived calculations (except
+     where noted in Section II), were:
+      ATX  = ATB   - Ambient Temperature, Radome
+      DPXC = DPTC  - Dew Point Temperature, T-Electric Top
+      PSXC = PSFDC - Corrected Static Pressure, Fuselage Digital
+      QCX  = QCR   - Raw Dynamic Pressure, Radome
+      QCXC = QCRC  - Corrected Dynamic Pressure, Radome
+      TASX = TASR  - Aircraft True Airspeed, Radome
+
+ 
+
+Section II:  Flight-by-Flight Summary
+-------------------------------------
+ 
+Note:  All times listed below are Coordinated Universal Time.
+
+RF01:   The GPS was not working properly during this flight.  Therefore, do
+         not trust values of the following variables:  GALT, GLAT, GLON, GVEW,
+         GVNS, GVZI, XLATC, XLONC, XUIC, XUXC, XVEWC, XVIC, XVNSC, XVYC, XWDC,
+         XWIC and XWSC.  The GPS variables GMODE and GSTAT properly reflected
+         its operational status.
+        HGM had occasional noise when pegged at full scale.
+        HGME data no good before 18:46.
+        HGME had noise spikes @ 20:09, 20:37, 20:42, and 22:13.
+        Lyman-alpha (VLA/MRLA/RHOLA) was erratic 18:44-20:20 and 24:45-end.
+        UVT was erratic from beginning-21:43, 21:51-21:58 and 22:21-end.
+        Used reverse heading (24:00-24:25) to compare horizontal winds.
+
+RF02:   The GPS was not working properly during this flight.  Therefore, do
+         not trust values of the following variables:  GALT, GLAT, GLON, GVEW,
+         GVNS, GVZI, XLATC, XLONC, XUIC, XUXC, XVEWC, XVIC, XVNSC, XVYC, XWDC,
+         XWIC and XWSC.  The GPS variables GMODE and GSTAT properly reflected
+         its operational status.
+        HGM had occasional noise when pegged at full scale.
+        HGME data no good before 19:36.
+        HGME had noise spikes @ 19:39, 19:41 and 19:50. 
+        Lyman-alpha (VLA/MRLA/RHOLA) was noisy 19:36-19:39, 20:04
+         and 20:07-20:11.
+        UVT not working.  (Values from bottom greatly exceed values from top.)
+        Transient occurred on many variables @ 19:38.
+        Used reverse heading (20:53-21:03) to compare horizontal winds.
+
+RF03:   The GPS was not working properly during this flight.  Therefore, do
+         not trust values of the following variables:  GALT, GLAT, GLON, GVEW,
+         GVNS, GVZI, XLATC, XLONC, XUIC, XUXC, XVEWC, XVIC, XVNSC, XVYC, XWDC,
+         XWIC and XWSC.  The GPS variables GMODE and GSTAT properly reflected
+         its operational status.
+        HGM had occasional noise when pegged at full scale.
+        HGME data no good before 19:32.
+        HGME had noise spike @ 22:17.
+        UVT working on a portion of this flight.  Decision is based on the
+         observation that UVT values exceed UVB values, so use these data
+         with caution.
+        UVB had EMI/RFI 22:33-22:37.
+        Used reverse heading (23:30-23:47 and 23:45-24:00) to compare
+         horizontal winds.
+
+RF04:   The GPS was not working properly during this flight.  Therefore, do
+         not trust values of the following variables:  GALT, GLAT, GLON, GVEW,
+         GVNS, GVZI, XLATC, XLONC, XUIC, XUXC, XVEWC, XVIC, XVNSC, XVYC, XWDC,
+         XWIC and XWSC.  The GPS variables GMODE and GSTAT properly reflected
+         its operational status.
+        HGME data no good before 20:05.
+        UVT working on a portion of this flight.  Decision is based on the
+         observation that UVT values exceed UVB values, so use these data
+         with caution.
+        No reverse-heading maneuvers on this flight, hence could not check
+         horizontal winds.
+
+RF05:   GPS now working reliably.
+        DPT overshoots @ 22:03, 22:54, 22:57, 23:39, 24:04, 24:26, 24:45-01:02
+         when compared with the Lyman-alpha.
+        HGM very noisy at full scale 20:31-21:09 and 24:14-25:12.
+        HGME data no good before 20:30.
+        HGME had noise spike @ 21:41.
+        Used a box maneuver (23:30-24:00) to compare horizontal winds.
+
+RF06:   HGM very noisy at full scale 22:15-22:24, 22:32-22:35 and 24:28-25:10.
+        HGME data no good before 19:35.
+        HGME had noise spikes @ 20:07, 21:35 and 22:45.
+        Lyman-alpha (VLA/MRLA/RHOLA) was erratic 23:31-24:04.
+
+RF07A:  HGM very noisy at full scale 19:13-20:03.
+        HGME data no good before 19:12.
+        HGME had noise spikes @ 19:20, 19:33, 19:44 and 19:51.
+        Lyman-alpha (VLA/MRLA/RHOLA) drifted;  MRLA diverged away from MR
+         after 19:12 and didn't track very well after that until about 19:50.
+        UVB had large shift to lower (more credible) values at 20:01.
+
+RF07B:  HGM noisy at full scale @ 25:25, 25:47-25:52 and 26:03.
+        HGME had noise spikes @ 22:04 and 26:34.
+        Lyman-alpha (VLA/MRLA/RHOLA) drifted;  MR and MRLA don't track
+         very well after 23:56.
+
+RF08:   HGM noisy at full scale 20:12-20:20, 20:41-20:47, 25:36-26:26
+         and @ 22:05.
+        HGME data no good before 20:07.
+        HGME had noise spike @ 26:00.
+
+RF09A:  HGM noisy at full scale 19:27-19:32, 19:48, 20:03-20:08
+         and 22:47-22:56.
+        HGME data no good before 19:19.
+        HGME had noise spikes @ 20:44 and 21:03.
+
+RF09B:  HGM noisy at full scale 24:00-24:03 and 24:10-24:14.
+        Note:  The flight number for this segment is zero (0) on the
+                ADS data tape header.
+
+RF10:   HGM noisy at full scale 19:32-20:29.
+        HGME data no good before 19:27.
+        HGME had noise spikes @ 20:06, 20:43, 22:36, 23:59 and 26:28.
+        Lyman-alpha (VLA/MRLA/RHOLA) not well calibrated on this flight
+         before 21:00; drifts off again 21:40-23:06 and 26:00-end.
+
+RF11:   HGM very noisy at full scale 19:09-20:17, 20:31-21:30, 22:10-22:43
+         and 22:59-24:21; occasionally noisy at full scale 24:24-25:04.
+        HGME data no good before 19:07.
+        HGME had noise spikes @ 19:25, 20:14, 23:42 and 25:03.
+
+RF12:   DPT had slow oscillation 19:30-20:06.
+        HGM very noisy at full scale 19:06-20:02, 24:03-24:14, 24:36-24:57,
+         24:57-24:59, 25:05-25:12; occasionally noisy at full scale
+         20:02-20:13, 24:14-24:36, 24:57-24:57, 24:59-25:05 and 25:12-25:51.
+        HGME data no good before 19:04.
+        HGME had noise spike @ 25:59.
+
+RF13A:  HGM very noisy at full scale 20:24-21:54, 25:52-25:58; occasionally
+         noisy at full scale 26:03-26:05.
+        HGM had noise spikes @ 22:19, 22:26, 22:44?, 22:58, 23:13?, 23:42,
+         23:54, 24:00 and 24:06.
+        HGME data no good before 20:22.
+        HGME had noise spikes @ 20:39, 21:09 and 22:59.
+
+RF13B:  HGM occasionally noisy at full scale 26:03-26:45.
+        QCR/QCRC/TASR no good from 26:05-26:08, 26:11-end.  (For this
+         segment QCW/QCWC/TASW were used as reference sensors instead
+         of QCR/QCRC/TASR.)
+        HGME had noise spike @ 26:02.
+
+RF14:   TTB/ATB, TTRF/ATRF, IRT/IRTC, IRB/IRBC and VLA/MRLA/RHOLA had strange
+         transients @ 20:09, 20:19, 20:24, 23:57, 25:15, 25:23, 25:28, 25:35,
+         25:42, 25:55 and 25:56.
+        HGM very noisy at full scale 23:15-23:22 23:47-23:50, 25:57;
+         occasionally noisy at full scale 19:19-19:22, 19:33-19:35, 20:12,
+         20:21, 22:03-22:05, 22:07 and 23:56-25:03.
+        HGM had noise spikes @ 22:19, 22:26, 22:44?, 22:58, 23:13?, 23:42,
+         23:54, 24:00 and 24:06.
+        HGME data no good before 19:17.
+        HGME had noise spikes @ 24:15, 24:58 and 25:55.
+
+RF15:   HGM very noisy at full scale 19:06-19:16.
+        HGME data no good before 19:05.
+        HGME had noise spikes @ 20:29, 22:02, 23:23 and 24:20.
+

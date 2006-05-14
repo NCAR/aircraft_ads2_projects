@@ -1,0 +1,1049 @@
+
+
+                                    WISP 94
+                         Electra N308D - Project #4-870
+                              Data Quality Report
+                                       by
+                                 Allen Schanot
+
+
+     This summary has been written to outline basic instrumentation
+problems affecting the data set and is not intended to point out every
+bit of questionable data.  It is hoped that this information will
+facilitate use of the data as the research concentrates on specific
+flights and times.
+
+     The following report is organized into three sections.  The first
+section lists recurring problems, general limitations, and
+systematic biases in the standard RAF measurements.  The second
+section lists isolated problems occurring on a flight-by-flight basis.
+The third section provides information on the special RAF supplied
+experimental instrumentation.
+
+     Special pieces of both RAF- and User-supplied equipment were
+used during the project and have been identified in the Research
+Instrumentation list included in this document.  These data require
+special handling, and it will be necessary to obtain access to the
+on-board operator notes for this information to be of use during the
+analysis phase.  No attempt has been made to evaluate the performance
+of that equipment in this summary.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Section I:  General Discussion
+
+     1.  The wind data for this project were derived from
+measurements taken with the radome wind gust package.  As is the
+case with all wind gust systems, the ambient wind calculations
+can be adversely affected by either sharp changes in the
+aircraft's flight attitude of excessive drift in the on-board
+inertial reference system (IRS).  Turns, or more importantly,
+climbing turns are particularly disruptive to this type of
+measurement technique.  Wind data reported for these conditions
+should be used with caution.
+
+     Special sets of in-flight calibration maneuvers were conducted
+on flights TF01 and RF45 to aid in the performance analysis of the
+wind gust measurements.  The calibration data identified a
+systematic bias in the sideslip parameter.  This offset, which
+resulted in roughly a 10 - 15 degree error in calculated wind
+direction, has been removed from the final netCDF data set.  All
+of the remaining information, including the summary of IRS
+performance, indicated that the wind measurement system was
+performing within standard RAF specifications.  The time
+intervals for each set of maneuvers have been documented in both
+the flight-by-flight data quality review and on the individual
+Research Flight Forms prepared for each flight.  
+
+     As an additional enhancement to this data set, a second pass
+correction was applied to the wind data using position updates
+provided by the GPS positioning system.  Both the GPS-corrected
+and uncorrected values are included in the final netCDF data set.
+
+
+     2.  A Trimble Global Positioning System (GPS) was used as a
+more accurate position reference during the program.  The
+reliability of this system depends upon regional coverage by the
+number of navigational satellites arrayed above the research
+area.  Coverage over the local research area was generally good
+during the program.  Generally, position (GLAT, GLON) and ground
+speed (GSPD, GVEW, GVNS) were readily available, but occasional
+dropouts did occur.  Such dropouts are easy to recognize and will
+therefore not be specifically identified in the flight-by-flight
+summary.
+
+
+     3.  RAF flies redundant sensors to assure data quality.  
+Performance characteristics differ from sensor to sensor with
+certain units being more susceptible to various thermal and
+dynamic effects than others.  Good comparisons were typically
+obtained between the three standard temperatures (ATB, ATFH,
+ATRF), three dynamic pressures (QCWC, QCRC, QCFC), two liquid
+water sensors (PLWCC, XRLWCC), and the two dew pointers
+(DPT, DPB).  Exceptions are noted in the flight-by-flight summary. 
+Intermittent problems arose with the radome deicing system during
+the project.  To provide the best continuity in the data set,
+QCFC was selected as the reference dynamic pressure for most
+of the flights. The differences observed in the static pressures
+(PSFDC, PSWC) were somewhat excessive for this type of project
+with the Model 1201 pressure transducer (PSWC) exhibiting even
+more temperature sensitivity than normal.  The reference pressure
+used in all of the derived parameters (PSFDC) was obtained with a
+Model 1501 unit which was unaffected by these problems.  
+
+
+     4.  Temperature measurements were made using the standard
+heated (ATFH) and unheated (ATB) Rosemount and NCAR reverse-flow
+(ATRF) temperature sensors along with one experimental
+temperature sensor (OPHIR - OAT).  All of these standard
+temperature sensors performed reasonably well, encountering the
+usual problems with sensor wetting during cloud passes.  Both ATB
+and ATRF also experienced a certain amount of radio frequency
+interference (RFI) during FM broadcasts by the on-board mission
+scientist.  ATFH remained unaffected by this problem.  A
+comparison of the data sets yielded an good correlation in
+instrument signatures and only small differences in absolute
+value (+-0.2 oC) throughout the program.  A comparison of pre- and
+post-program calibrations indicated that all units maintained
+stable and independent calibrations.  Due to its reliability
+under the icing conditions encountered on many of the flights and
+the regular occurrence of RFI on the other sensors,  the heated
+Rosemount temperature (ATFH) was selected as the reference value
+used in calculating the derived parameters.  
+
+     The experimental OPHIR-III temperature sensor functioned
+adequately during the program but experienced numerous periods of 
+unexplained drift.  This is a near-field, radiometric instrument
+designed to avoid the complications related to sensor wetting or
+icing that occurs during cloud passes.  These data have been
+specially processed using flight-by-flight, clear-air calibration
+adjustments derived from comparisons with the reference
+temperature sensor.  However, the accuracy of these measurements
+at any particular moment are clearly in question.  A careful
+analysis of each cloud pass is recommended prior to use of these
+data.  Additional baseline adjustments may be required for
+specific cloud passes.  These data should not be used for any
+clear air applications.  
+
+
+     5.  Humidity measurements were made using two collocated
+thermoelectric dew-point sensors, a Lyman-alpha fast-response
+hygrometer, and the RAF Cryogenic Hygrometer.   Generally
+speaking, all of the humidity sensors performed well when they
+were available.  A series of hardware failures, however,
+prevented the use of the Cryogenic hygrometer for a number of the
+early flights.  
+
+     The bottom EG&G dew pointer (DPB, DPBC) was much less
+responsive during periods of large dew-point depression than the 
+two-stage G.E. unit used in the top location.  A number of cases
+occurred where DPB was essentially pegged out around -40 C when
+the actual dew point was significantly lower.  Much of the fine-
+scale humidity signature was also lost in DPB at the low dew
+points.  Due to these factors, the top dew pointer (DPT,DPTC) was
+selected as the reference sensor in calculating the derived
+humidity parameters for most flights.  Near the end of the
+program, the DPT showed a tendency to overshoot during sudden
+changes.  For those flights, DPB was substituted into the
+derived-variable calculations.
+
+     Lyman-alpha hygrometers are susceptible to in-flight drift
+in the instrument's bias voltage.  Due to this problem, RAF uses
+a special data-processing technique to remove the bias drift by
+referencing the long-term humidity values to one of the more-
+stable thermoelectric dew point sensors.  This technique can
+result in occasional large spikes in the derived Lyman-alpha data
+(RHOLA) which often affect the auto-scaling features in the
+plotting routines and wash out the plots.  Short (2-3 sec)
+intervals around these spikes should be considered as bad
+data, but the remaining data points, as recorded on magnetic
+tape, will be valid.  For programs requiring routine cloud
+penetrations, the rapid changes in humidity or wetting of the
+sensor windows can trigger a reset of the coupling technique at
+an inopportune time.  For the WISP 94 data processing, a broad
+limit was therefore placed on the reference comparison.  During
+the WISP 94 flight operations the Lyman-alpha hygrometer also
+suffered periods of either severe in cloud sensor icing or
+excessive drift during intervals of rapid altitude changes which
+could not be compensated for by the special processing algorithm. 
+
+     The RAF Cryogenic Hygrometer functioned well during the
+program once the initial hardware problems were corrected.  The
+unit is designed to only function a dew points below -15 C. 
+There will often be short intervals where the unit attempts to
+"lock on" to the dew point signal as this threshold is passed. 
+At very low dew points (< -45 C), however, the cryogenic unit
+maintains a much faster response time than the standard dew point
+sensors and should be considered to be the most accurate of the
+humidity measurements under those conditions.  Due to the varied
+nature of the WISP 94 flight operations the unit was not turned
+on for all flights.  Many of the relatively low altitude up-slope
+cloud missions will not contain any Cryogenic data (DPCRC,
+RHOCR).
+
+
+     6.  A set of upward- and downward-facing radiometers were
+used to measure shortwave and infrared irradiance.  It should be
+noted that all units are hard-mounted, and that none of the data
+have been corrected for changes in the aircraft's flight
+attitude.  Care should be used in identifying the aircraft
+attitude to determine a relative sun angle.  
+
+
+     7.  The measurement of the surface temperature (RSTB) was
+made using a Barnes PRT-5 sensor.  The measurements are typically
+influenced by fluctuations in the reference cavity temperature
+(TCAVB) and the contribution of water vapor in the sample volume
+which is moisture-content and altitude dependent.  Overall, the
+sensor performed extremely well.  However, the dynamic range of
+the sensors is somewhat limited, and a specific operating range
+had to be designated.  By targeting the instrument's range to the
+expected surface temperatures (-20C to 30C), the unit's best
+resolution was obtained.  However, due to the highly variable
+nature of the surface conditions encountered and the flight
+profiles through high altitude cold clouds, the unit's minimum
+limit was exceeded on a number of occasions. 
+
+
+     8.  Three types of alternate altimeter were used during the
+program.  The Collins altimeter (HGM) is only functional from 0 -
+780 m AGL.  At altitudes greater than 780 m the instrument is
+pegged full scale.  The Stewart Warner altimeter (HGME), on the
+other hand, is functional from 150 m to 21,000 m AGL.  At
+altitudes less than 150 m the instrument's performance becomes
+intermittent due to excessive signal refections off the surface. 
+Care must be taken with HGME since the output will vary randomly
+but look fairly realistic in this altitude region.  Differences
+between HGME and the calculated pressure altitude (PALT) can be
+attributed to either surface terrain features or the typical
+differences between the surface pressure and the reference value
+of 1013 mbar.  The default surface pressure and the NACA Standard
+Atmospheric lapse-rate were used in the calculation of PALT in
+order to provide an accurate comparison with similar computations
+used for measurements taken by the other aircraft.  
+
+     The GPS positioning system also provides an altitude readout
+(GALT).  This output requires coverage by at least four
+satellites for accurate measurements.  Due to the uncertainty in
+satellite coverage, GALT defaults back to PALT values when the
+fourth satellite is lost.  This results in periodic jumps in the
+value of GALT.  In addition, the GALT signal has been "detuned"
+by the military and exhibits an oscillation of +-100 m.  Due to
+these problems, RAF has decided not to include GALT in the final
+data set.
+
+
+     9.  Three hot-wire liquid water sensors were used on the
+Electra during the WISP 94 program.  The PMS King Probe (PLWCC)
+worked extremely well during the program but experienced element
+damage on several flights with subsequent replacement.  The RAF
+Experimental King Probe (XRLWCC) is a modified version of the PMS
+unit and is operated at a lower temperature.  This system also
+worked well and avoided the element damage associated with PLWCC. 
+A J-W system was also installed on the aircraft (LWCC).  The
+sensing head was badly damaged early in the project during an
+icing event and was not replaced due to a lack of spares.  None
+of the J-W data appear in the final data set.  A comparison of
+the other two units yielded a good correlation in instrument
+signatures and only small differences in absolute value throughout
+the program.  Special note should be made of the fact that
+both these instruments are calibrated for a specific range of
+aircraft speeds.  When the speed of the aircraft falls outside
+that envelope, a shift in the zero baseline value will occur. 
+This is typically limited to takeoff and landing intervals, but
+there may be other situations where this occurs.  Considering
+the better continuity in the RAF system's measurements (no
+element replacements), XRLWCC should be used as the best source
+of liquid water data.  
+
+     Due to the nature of this sampling technique, it should be
+clear that water contained in ice particles will not be observed. 
+This fact should be taken into account when comparing data from
+these sensors with the calculated liquid water content obtained
+from the optical particle probes.
+
+
+    10.  The RAF was responsible for the ozone and carbon
+monoxide air chemistry measurements conducted on the Electra
+during the program (TEO3C; CO).  Generally speaking, the two
+units worked fairly well.  No problems were noted with the TECO
+ozone analyzer, but there was little variation in ozone levels in
+the project area during the field program.  The TECO carbon
+monoxide analyzer typically exhibits a significant amount of
+drift in its baseline zero and requires special data handling to
+convert the data into engineering units.  During the WISP94
+project, the unit also experienced intermittent intervals of
+excessive noise and unexplained baseline jumps.  It was
+decided that the data would only be output in a basic voltage
+format.  A qualitative analysis is still possible.  Those Users
+interested in actual concentrations should contact RAF for more
+information.
+
+
+    11.  The measurement of small CN size aerosol particle
+concentrations can be influenced by two effects.  Droplet
+shattering during cloud penetrations can increase indicated CN  
+concentrations by several orders of magnitude.  For this
+application the CN inlet was altered to a reverse flow
+configuration.  This inlet format seems to have reduced this
+problem significantly.  However, care should be used when
+examining the quantitative values of CONCN during the cloud
+passes.  The instrument uses Butanol to activate CN particles so
+that they can be included in the measurement process.  Indicated
+CN particle concentrations can decrease during intervals where
+the Butanol level falls below the critical level.  This is
+typically not a flight-to-flight concern as a fresh Butanol
+supply will usually last for up to 50 hours of operation. 
+However, scattered intervals of questionable data were noted
+during the QA review and have been identified in flight summaries
+of Section II.
+
+
+   12.  Generally speaking, the five PMS particle probes (FSSP,
+2D-C, 2D-P, PCASP, 260X) worked relatively well.  Due to the
+instrumentation requirements for WISP 94, the Electra could only
+be set up to handle four PMS probes at one time.  Some specific
+details on each of the probes are summarized below:
+
+          PCASP -  Aerosol concentrations measured with the PCASP
+          probe are highly dependent upon the sample flow rate of
+          the instrument.  Recent modifications to the probe/ADS
+          interface now allow RAF to monitor fluctuations in this
+          flow rate directly (PFLW).  During the WISP94 project
+          the PCASP probe exhibited an unusual tendency to
+          produce a great deal of noise that was altitude
+          dependent.  The noise appears to be limited to the 
+          smallest two or three size bins and increases with 
+          increasing altitude.  This noise shows up as exceed-
+          ingly high PCASP concentrations (CONCP).  Generally
+          speaking, the size range of the CN counter is much
+          broader than, but is inclusive of, the sampling range
+          of the PCASP probe.  Therefore, intervals where CONCP 
+          exceed the value of the CN concentrations (CONCN) will 
+          be the result of this noise problem and not a true
+          measure of the aerosol concentration.  RAF feels that
+          the individual bin data should be examined for useful
+          data at the higher bin sizes.  This problem remained
+          unresolved over the term of the field program.
+
+          FSSP -  The FSSP cloud droplet probe functioned
+          extremely well throughout the entire project.  Like
+          all 1-D optical probes, however, the FSSP has no way to
+          distinguish between ice and water.  Therefore,
+          the liquid water content calculated from this probe
+          (PLWCF) should be used with caution in mixed-phase
+          clouds.
+
+          260X - The 260X precipitation probe has a tendency to
+          be noisy in the first few bins when it is installed on
+          the Electra.  There was little evidence of this problem
+          during the WISP94 program.  Generally speaking,
+          concentrations from the 260X and 2D-C probes were very
+          well correlated.  However, sporadic spiking did occur
+          during many of the cloud passes.  Care should therefore
+          be used when interpreting these data.  Like the FSSP
+          probe, the 260X has no way to distinguish between ice
+          and water.  Therefore, the liquid water content
+          calculated from this probe (PLWC6) should be used with
+          caution in this application.
+
+          2D-C/2D-P - Both of the two-dimensional imaging probes
+          performed quite well throughout the program.  Due
+          to the special nature of the 2D data set, only the
+          digital computations of droplet concentrations have
+          been included in the general data set.  The actual
+          image data have been archived separately and will only
+          be provided to Users on request.  Access to the images
+          will require the use of specialized software routines
+          that will necessitate direct assistance from the RAF
+          staff.  Although we thought the probe was functioning
+          well, it turned out that the 2D-C probe on the right
+          wing tip was producing images that were being "squared
+          off" by either a stuck byte or a swapped wire during
+          flights RF01 - RF11.  General sizes and concentrations
+          appear to be unaffected so only the "habit" shapes are
+          in question.  The 2D-P probe was unaffected by this
+          problem.
+
+          2D-Greyscale - This is a modified version of the PMS
+          2D-C probe, and the unit was installed on the Electra at
+          the start of the program.  The unit worked perfectly on
+          the ground, but experienced rapid degradation during 
+          flight until the response was lost completely.  Due to
+          the limited number of PMS mounting locations on the
+          Electra, the unit was removed in favor of a standard
+          2D-C unit.
+
+
+   13.    The RAF Counterflow Virtual Impactor (CVI) was used to
+impact and evaporate cloud droplets and ice particles during
+flights RF01 - RF28 of WISP94.  Using this technique, condensed
+water content and information about the residual nuclei of the
+condensed phase particles was obtained.  Residual nuclei were
+collected on filters for ice nuclei measurement, ion
+chromatography, and electron microscopy.  The condensed water
+content data should be very useful, since the CVI measures water
+from supercooled and ice clouds as well as warm clouds.  However,
+the CVI is one of the specialty instruments that require flight-
+by-flight operator knowledge to interpret the data.  Please
+contact Cynthia Twohy at RAF for more information on using these
+data.
+
+
+   14.  Incidents of aircraft icing can be easily detected by
+examining the output of the Rosemount Icing Detector (RICE). 
+Although may of the instruments on the aircraft are deiced, 
+moderate icing of the instruments will significantly alter the
+performance characteristics of all of the available instruments. 
+Moderate icing levels were encountered on several flights.  Care
+should be used when examining data from these intervals.
+
+
+   15.  Data recording typically begins well in advance of the
+actual aircraft takeoff time.  Virtually all measurements made on
+the Electra require some sort of airspeed correction, or the
+systems are simply not active while the aircraft remains on the
+ground.  On many of the flights, a brief stop was made at the Ft.
+Collins/Loveland airport to drop off aerosol samples.  Typically
+the data recording was allowed to continue during these stops. 
+None of the data collected while the aircraft is on the ground 
+should be considered as valid.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Section II:  Flight-by Flight Summary
+
+     The nature of the research supported for this program
+resulted in numerous, short ferry flights to place the aircraft
+into position for the primary storm missions.  Although data
+were, in fact, collected during most of these flights, no attempt
+has been made to determine flight-by-flight problems on those
+data files.  A summary of flight operations for WISP94 has been
+included in this document to aid the User in locating the
+research flights.
+
+RF02 Excessive drift in Lyman-alpha signal (VLA,RHOLA) due to
+     severe temperature changes from 2305 - 2350 CUT.
+
+     Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Excessive oscillation in Cryogenic Hygrometer (DPCRC,RHOCR)
+     for the entire flight.  Hardware problem.
+
+     Excessive drift in Ophir-III temperature signal (OAT) from
+     2305 - 2340 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+
+RF04 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 2000 - 2100 CUT.
+
+     Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Excessive oscillation in Cryogenic Hygrometer (DPCRC, RHOCR)
+     resulted in questionable data for the entire flight. 
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+
+RF06 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1910 - 1945 CUT.
+
+     Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Excessive oscillation in Cryogenic Hygrometer (DPCRC, RHOCR)
+     resulted in questionable data for the entire flight. 
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+
+RF08 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 2105 - 2158 CUT.
+
+     Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Excessive oscillation in Cryogenic Hygrometer (DPCRC, RHOCR)
+     resulted in questionable data for the entire flight. 
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Ophir-III temperature sensor failed to lock on on start-up.
+     Data bad for the entire flight.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 2110 - 2222 CUT.
+
+
+RF09 Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Conditions beyond the operational range of the Cryogenic
+     Hygrometer (DPCRC, RHOCR).  Instrument not turned on during
+     this flight.
+
+     Intermittent baseline shifts in carbon monoxide data (CO)
+     during the flight Radical zero adjustments required.
+
+     Severe wetting or icing of the Lyman-alpha sensing head.
+     Data unusable from 1737-1742, 1829-1848, and 1918-1928 CUT.
+
+
+RF11 Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Conditions beyond the operational range of the Cryogenic
+     Hygrometer (DPCRC, RHOCR).  Instrument not turned on during
+     this flight.
+
+     Intermittent baseline shifts in carbon monoxide data (CO)
+     during the flight Radical zero adjustments required.
+
+     Severe wetting or icing of the Lyman-alpha sensing head.
+     Data questionable during selected interval throughout the  
+     flight.
+
+     Significant wetting of radome temperature sensor (TTB, ATB)
+     from 1838 - 1957 CUT.
+
+     PMS 2D-P probe iced up during flight.  No data from 1927 -
+     1929 and 1955 - 1957 CUT.
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Aircraft on the ground in Ft. Collins from 2017 - 2031 CUT.
+
+
+RF13 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1845 - 1945 CUT.
+
+     Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Excessive drift in Ophir-III temperature signal (OAT) during
+     the flight.     
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Cryogenic Hygrometer oscillating prior to initial lock-on.
+
+     Aircraft on the ground in Ft. Collins from 2122 - 2137 CUT.
+
+
+RF15 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 0150 - 0215 CUT.
+
+     Bottom field mill (FMB) set up on too sensitive a channel.
+     Data bad for the entire flight.
+
+     Excessive oscillation in Cryogenic Hygrometer (DPCRC, RHOCR)
+     for the entire flight.  
+
+     Radome dynamic pressure questionable from 0225 - 0235 CUT.
+     Likely radome icing.
+     
+     Remote surface temperature (RSTB) beyond operational range.
+     Sensor pegged at minimum limit from 0202 - 0212 CUT.
+
+
+RF16 Cryogenic Hygrometer oscillating prior to initial lock-on.
+     Subsequent periods of oscillation and warmer dew points.
+
+     Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 2007 - 2100 CUT.
+
+     Ophir-III temperature sensor failed to lock on on start-up.
+     Data bad from 2007 - 2045 CUT. 
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Significant wetting of radome and heated fuselage
+     temperature sensors (ATB, ATFH) from 2103 - 2115 CUT.
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Radome dynamic pressure questionable from 2059 - 2120 CUT.
+     Likely radome icing.
+
+     Excessive noise in carbon monoxide signal (CO) from 2049 -
+     2130 CUT.
+
+
+RF18 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 2114 - 2200 CUT.
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Excessive noise in carbon monoxide signal (CO) throughout
+     the flight.
+
+     Aircraft on the ground in Ft. Collins from 2017 - 2031 CUT.
+
+
+RF20 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 0000 - 0048 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Radar altimeter (HGME) inoperative during the entire flight.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) beyond operational range.
+     Data unusable from 0235 - 0308 CUT.
+
+     Aircraft on the ground in Ft. Collins from 0240 - 0256 CUT.
+
+
+RF22 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1937-1950 and 2137-2206 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Probable leak in CN Counter sample intact.  CN concentration
+     data (CONCN) bad for entire flight.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) near operational limit.
+     Data unusable or of poor quality from 1955-2058 and 2137-
+     2206 CUT.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 2058 - 2110 CUT.
+
+     Uncharacteristic response in Reverse Flow temperature
+     sensor (TTRF, ATRF).  Data questionable from 2105 - 2108 CUT.
+
+     Aircraft on the ground in Ft. Collins from 2145 - 2154 CUT.
+
+
+RF23 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1935 - 2111 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Probable leak in CN Counter sample intact.  CN concentration
+     data (CONCN) bad for entire flight.
+
+     Excessive drift in Ophir-III temperature signal (OAT) during
+     the flight.     
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) beyond operational range.
+     Data unusable from 1926-1933 and 2100-2111 CUT.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 2005 - 2055 CUT.
+
+     Top dew point sensor beyond operational range (DPT, DPTC)
+     from 2005 - 2055 CUT.
+
+
+RF25 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 2010 - 2100 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Probable leak in CN Counter sample intact.  CN concentration
+     data (CONCN) bad for entire flight.
+
+     Excessive drift in Ophir-III temperature signal (OAT) during
+     the flight.     
+
+     Excessive noise in carbon monoxide signal (CO) throughout
+     the flight.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 2005 - 2037 CUT.
+
+     Top dew point sensor (DPT, DPTC) over-shooting ambient
+     conditions from 2215 - 2300 CUT.
+
+     Aircraft on the ground in Ft. Collins from 2324 - 2336 CUT.
+
+
+RF26 Significant icing encountered during the flight.  Most 
+     sensors were affected in some fashion.
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) near operational limit.
+     Data unusable or of poor quality for entire flight.      
+
+     Radome dynamic pressure (QCR, QCRC) obstructed due to radome
+     icing.  Data bad from 1317 - 1319 CUT.
+
+     Fuselage dynamic pressure exhibiting undefined offset for
+     most of the flight.  QCRC was used as the reference pressure
+     in all derived calculations.
+
+     Radome temperature sensor (TTB, ATB) iced up.  Data bad from
+     1600 - 1808 CUT.
+
+     Lyman-alpha hygrometer signal affected by ice or water in 
+     sample volume.  Data questionable from 1340-1530, 1655-1715
+     and 1723-1903 CUT.
+
+     Radiometric surface temperature (RSTB) beyond operational 
+     range from 1650 - 1700 CUT.
+
+     Uncharacteristic response from the top dew pointer
+     (DPT, DPTC) due to possible sensor icing.  Data questionable
+     from 1750 - 1825 CUT.
+
+     Aircraft on the ground in Ft. Collins from 1913 - 1930 CUT.
+
+
+RF27 Significant icing encountered during the flight.  Most 
+     sensors were affected in some fashion.
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) near operational limit.
+     Possible mirror contamination.  Data unusable or of poor
+     quality for entire flight.      
+
+     Fuselage dynamic pressure exhibiting undefined offset for
+     most of the flight.  QCRC was used as the reference pressure
+     in all derived calculations.
+
+     Radome temperature sensor (TTB, ATB) iced up.  Data bad from
+     1423 - 1626 CUT.
+
+     Lyman-alpha hygrometer signal affected by ice or water in 
+     sample volume.  Data questionable for extended periods
+     throughout the flight.
+
+     Ice blocking optics of PMS 2D-C probe.  Runaway sampling.
+     Probe turned off at intervals until clear.  Data bad from
+     1405 - 1517 CUT.
+
+     NCAR King Probe liquid water (XRLWCC) performing oddly.
+     Ice likely affecting measurement.  Data questionable from
+     1520 - 1626 CUT.
+
+
+RF28 Conditions beyond the operational range of the Cryogenic
+     Hygrometer (DPCRC, RHOCR).  Instrument not turned on during
+     this flight.
+
+     Fuselage dynamic pressure exhibiting undefined offset from
+     1940 - 1948 CUT.  QCRC was used as the reference pressure
+     in all derived calculations.
+
+     Lyman-alpha hygrometer signal affected by ice or water in 
+     sample volume.  Data questionable for extended periods
+     throughout the flight.
+
+
+RF29 Conditions beyond the operational range of the Cryogenic
+     Hygrometer (DPCRC, RHOCR).  Instrument not turned on during
+     this flight.
+
+     Lyman-alpha hygrometer signal affected by ice or water in 
+     sample volume.  Data questionable for extended periods
+     throughout the flight.
+
+     CN Counter was not turned on during this flight due to
+     operator error.  Cn Concentrations (CONCN) not available.
+
+     Standard King Probe liquid water (PLWCC) performing oddly.
+     Possible element damage.  Data questionable for the entire
+     flight.
+
+     Radome temperature sensor (TTB, ATB) iced up.  Data bad from
+     2243 - 2253 CUT.
+
+     Zero function not available on carbon monoxide analyzer for
+     this flight.
+
+
+RF30 Conditions beyond the operational range of the Cryogenic
+     Hygrometer (DPCRC, RHOCR).  Instrument not turned on during
+     this flight.
+
+     Standard King Probe liquid water (PLWCC) exhibiting periods
+     of excessive drift. Data questionable for intervals where
+     baseline differs significantly from alternate XRLWCC values.
+
+     Fuselage dynamic pressure exhibiting undefined offset for
+     periods during the flight.  QCRC was used as the reference
+     pressure in all derived calculations.
+
+     Radome dynamic pressure (QCR, QCRC) obstructed due to radome
+     icing.  All derived parameters using airspeed are bad from
+     1932 - 1933 CUT.
+
+     Radiometric surface temperature (RSTB) beyond operational 
+     range from 1846 - 1930 CUT.
+
+     Aircraft on the ground at Ft Collins from 2002 - 2013 CUT.
+
+
+RF32 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 2120-2150 and 0027-0047 CUT.
+
+     Excessive drift in Ophir-III temperature signal (OAT) during
+     the flight.     
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 2110 - 2140 CUT.
+
+
+RF33 GPS signal intermittent during the flight.  All GPS position
+     data bad from 1350-1405 and 1520-1540 CUT.
+
+
+RF34 GPS signal intermittent throughout the flight.  All GPS
+     position data are questionable.
+
+     Conditions beyond the operational range of the Cryogenic
+     Hygrometer (DPCRC, RHOCR).  Instrument not turned on during
+     this flight.
+
+     Fuselage dynamic pressure exhibiting undefined offset from
+     1956 - 2008 CUT. QCRC was used as the reference pressure in
+     all derived calculations.
+
+     Ophir-III temperature sensor failed to lock on on start-up.
+     Data bad from 1710 - 1901 CUT.
+
+     Lyman-alpha hygrometer signal affected by water in 
+     sample volume.  Data questionable from 1915-1918, 1934-
+     1935, and 1942-1948 CUT.
+
+     Standard King Probe liquid water (PLWCC) exhibiting periods
+     of excessive drift. Data questionable for intervals where
+     baseline differs significantly from alternate XRLWCC values.
+
+     Aircraft on the ground in Ft. Collins from 2008 - 2022 CUT.
+
+
+RF35 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1904 - 1945 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 1910 - 1941 CUT.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) near operational limit.
+     Data unusable or of poor quality from 2005 - 2015 CUT.
+
+
+RF37 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1557 - 1708 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 1545 - 1620 CUT.
+
+     Radiometric surface temperature (RSTB) beyond operational 
+     range from 1720-1728 and 1737-1750 CUT.
+
+
+RF38 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1505 - 1543 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) near operational limit.
+     Data unusable or of poor quality from 1600 - 1638 CUT.
+
+     Excessive drift in Ophir-III temperature signal (OAT) during
+     the flight.     
+
+
+RF39 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1644-1720 and 1740-1750 CUT.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 1640-1705 and 1725-1735 CUT.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) near operational limit.
+     Data unusable or of poor quality from 1630-1639 and   
+     1743-1750 CUT.
+
+     Fuselage dynamic pressure exhibiting undefined offset from
+     1706 - 1753 CUT. QCRC was used as the reference pressure in
+     all derived calculations.
+
+
+RF41 Conditions beyond the operational range of the Cryogenic
+     Hygrometer (DPCRC, RHOCR).  Instrument not turned on during
+     this flight.
+
+     Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1530 - 1555 CUT.
+
+     Lyman-alpha hygrometer signal affected by water in 
+     sample volume.  Data questionable for intermittent intervals
+     throughout the flight. 
+
+     Radome temperature sensor (TTB, ATB) iced up.  Data bad from
+     1545 - 1637 CUT.
+
+     Top dew point sensor (DPT, DPTC) regularly over shooting
+     ambient conditions throughout the flight. DPBC was used as
+     the reference pressure in all derived calculations.
+
+     Aircraft on the ground in Ft. Collins from 1815 - 1830 CUT.
+
+
+RF42 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1611-1649 and 1712-1725 CUT.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 1609 - 1645 CUT.
+
+     Fuselage dynamic pressure exhibiting undefined offset from
+     1706-1708 and 1710-1718 CUT. QCRC was used as the reference
+     pressure in all derived calculations.
+
+
+RF44 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1707-1828 and 1955-2025 CUT.
+
+     Bottom dew point sensor beyond operational range (DPB, DPBC)
+     from 1708 - 1748 CUT.
+
+     Fuselage dynamic pressure exhibiting undefined offset from
+     1751-1818 and 1822-2025 CUT. QCRC was used as the reference
+     pressure in all derived calculations.
+
+     Cryogenic Hygrometer (DPCRC, RHOCR) near operational limit.
+     Data unusable or of poor quality from 1651-1703 and   
+     2015-2044 CUT.
+
+     Excessive noise in smallest bin sizes of the PCASP aerosol
+     probe (CONCP).  Avoid use of data from bins 1 - 3.
+
+     Aircraft on the ground in Ft. Collins from 2025 - 2044 CUT.
+
+
+RF45 Excessive drift in Lyman-alpha signal (VLA, RHOLA) due to
+     severe temperature changes from 1800 - 1830 CUT.
+
+     Lyman-alpha hygrometer signal affected by ice or water in 
+     sample volume.  Data questionable for extended periods
+     throughout the flight.
+
+     Radome dynamic pressure (QCR, QCRC) obstructed due to radome
+     icing.  All derived parameters using airspeed are bad from
+     2021 - 2038 CUT.
+
+     Top dew point sensor (DPT, DPTC) regularly over shooting
+     ambient conditions throughout the flight. DPBC was used as
+     the reference pressure in all derived calculations.
+
+     In flight calibration maneuvers conducted from 2052 -
+     2106 CUT.  All derived variables using airspeed as an input
+     will be affected.
+
+     Uncharacteristic response from PMS 2D-P probe noted from
+     1113-1114 and 1120-1128 CUT.  Spikes in concentration from
+     unknown causes.
+
+     Aircraft on the ground in Ft. Collins from 1721 - 1752 CUT.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Section III:  WISP-94 ELECTRA FLIGHT OPERATIONS SUMMARY
+
+
+  Date    Flight    Start     Stop    Flt Hrs       Comments
+===============================================================
+01/27/94   TF01     2225      2359      1.2         Test
+01/31/94   TF02     2238      0012      1.3         Test
+02/01/94   RF01     2205      2236      0.5         Pre-stage
+02/01/94   RF02     230016    000614    1.5         Research
+02/03/94   RF03     1844      1916      0.5         Pre-stage
+02/03/94   RF04     194858    225712    3.6         Research
+02/04/94   RF05     1800      1836      0.6         Pre-stage
+02/04/94   RF06     190412    212538    2.7         Research
+02/06/94   RF07     1955      2035      0.7         Pre-stage
+02/06/94   RF08     210046    233251    2.6         Research
+02/06/94   FF01                         0.3         Ferry
+02/07/94   RF09     170445    194131    2.7         Research
+02/07/94   RF10     2024      2108      0.6         Pre-stage
+02/08/94   RF11     162429    210803    4.3         Research
+02/09/94   FF02                         0.5         Ferry
+02/10/94   RF12     1730      1806      0.6         Pre-stage
+02/10/94   RF13     183451    215109    3.2         Research
+02/11/94   RF14     205435    220925    1.2         Research
+02/12/94   RF15     014600    025200    1.3         Research
+02/14/94   FF03                         0.6         Ferry
+02/18/94   RF16     195726    212952    1.6         Research
+02/23/94   RF17     1953      2030      0.6         Pre-stage
+02/23/94   RF18     205139    004729    3.8         Research
+02/25/94   FF03                         0.6         Ferry
+02/25/94   FF04                         0.6         Ferry
+02/26/94   RF19     2241      2316      0.6         Pre-stage
+02/26/94   RF20     234717    030831    3.4         Research
+03/01/94   RF21     1808      1851      0.7         Pre-stage
+03/01/94   RF22     192334    220644    2.7         Research
+03/02/94   RF23     191404    211158    2.0         Research
+03/04/94   RF24     1850      1927      0.6         Pre-stage
+03/04/94   RF25     195306    234544    3.8         Research
+03/05/94   FF06                         0.5         Ferry
+03/06/94   RF26     124809    194727    7.1         Research
+03/07/94   RF27     130038    162648    3.6         Research
+03/07/94   RF28     184304    220022    3.3         Research
+03/07/94   RF29     224323    232853    1.0         Research
+03/08/94   RF30     152015    203445    5.5         Research
+03/10/94   FF07                         0.4         Ferry
+03/11/94   RF31     2002      2033      0.5         Pre-stage
+03/11/94   RF32     210257    004723    3.8         Research
+03/11/94   FF08                         0.3         Ferry
+03/12/94   RF33     130957    161551    3.1         Research
+03/12/94   RF34     170625    203227    3.6         Research
+03/13/94   RF35     184239    201529    1.4         Research
+03/16/94   RF36     1430      1504      0.6         Pre-stage
+03/16/94   RF37     153417    183507    3.1         Research
+03/17/94   RF38     144104    163842    1.9         Research
+03/18/94   RF39     161810    175300    1.5         Research
+03/19/94   RF40     1410      1443      0.5         Pre-stage
+03/19/94   RF41     151243    184209    3.6         Research
+03/21/94   RF42     155448    172510    1.6         Research
+03/22/94   RF43     1556      1627      0.5         Pre-stage
+03/22/94   RF44     165156    204446    3.6         Research
+03/24/94   FF08                         0.5         Ferry
+03/25/94   RF45     172149    215039    4.4         Research
+                                      =====
+                              Total:  107.6

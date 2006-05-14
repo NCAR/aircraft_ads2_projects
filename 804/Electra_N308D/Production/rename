@@ -1,0 +1,24 @@
+#! /bin/csh -f
+#
+#  Move preliminary netCDF files on the MSS from the "LRT" directory
+#   to the "LRT/PRELIMINARY" directory
+#
+date
+#
+nrnet msmv % r flnm=/RAF/2000/804/LRT/RF01.cdf newf=/RAF/2000/804/LRT/PRELIMINARY/RF01.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/2000/804/LRT/RF02.cdf newf=/RAF/2000/804/LRT/PRELIMINARY/RF02.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/2000/804/LRT/RF03.cdf newf=/RAF/2000/804/LRT/PRELIMINARY/RF03.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/2000/804/LRT/RF04.cdf newf=/RAF/2000/804/LRT/PRELIMINARY/RF04.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/2000/804/LRT/RF05.cdf newf=/RAF/2000/804/LRT/PRELIMINARY/RF05.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/2000/804/LRT/RF06.cdf newf=/RAF/2000/804/LRT/PRELIMINARY/RF06.cdf wpwd=RAFDMG
+nrnet msmv % r flnm=/RAF/2000/804/LRT/RF07.cdf newf=/RAF/2000/804/LRT/PRELIMINARY/RF07.cdf wpwd=RAFDMG
+#
+# Jobs submitted on Mon Sep 11 15:39:32 MDT 2000
+# Sequence number = LN1961 -- LRT/RF01.cdf -- OK @ 11 Sep 2000 15:39:34
+# Sequence number = LN1969 -- LRT/RF02.cdf -- OK @ 11 Sep 2000 15:39:35
+# Sequence number = LN1977 -- LRT/RF03.cdf -- OK @ 11 Sep 2000 15:39:35
+# Sequence number = LN1985 -- LRT/RF04.cdf -- OK @ 11 Sep 2000 15:39:36
+# Sequence number = LN1993 -- LRT/RF05.cdf -- OK @ 11 Sep 2000 15:39:36
+# Sequence number = LN2001 -- LRT/RF06.cdf -- OK @ 11 Sep 2000 15:39:37
+# Sequence number = LN2009 -- LRT/RF07.cdf -- OK @ 11 Sep 2000 15:39:37
+#

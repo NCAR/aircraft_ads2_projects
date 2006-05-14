@@ -1,0 +1,91 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-888 ALOHA-94  (Gardner)
+#   Third try (Continue copying files that are too large for one bitfile)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 888
+#set STAGE = nfile=1
+#set STAGE = nrec=6500
+set STAGE = skpr=6500 nrec=6500
+#set STAGE = skpr=13000 nrec=6500
+#set STAGE = skpr=19500 nrec=6500
+#set STAGE = skpr=26000 nrec=6500
+#
+#  msmv jobs submitted @  3:29 p.m. on 15 December 1993
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1706  --  Rejected (missing parameter)
+# Sequence number = CK1711  --  Rejected (missing parameter)
+# Sequence number = CK1718  --  Rejected (missing parameter)
+# Sequence number = CK1725  --  Rejected (missing parameter)
+# Sequence number = CK1732  --  Rejected (missing parameter)
+# Sequence number = CK1739  --  Rejected (missing parameter)
+#
+#  msmv jobs submitted @  3:35 p.m. on 15 December 1993
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1808  --  Rejected (bad parameter)
+# Sequence number = CK1813  --  Rejected (bad parameter)
+# Sequence number = CK1820  --  Rejected (bad parameter)
+# Sequence number = CK1827  --  Rejected (bad parameter)
+# Sequence number = CK1834  --  Rejected (bad parameter)
+# Sequence number = CK1841  --  Rejected (bad parameter)
+#
+#  msimport jobs submitted @  3:29 p.m. on 15 December 1993
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1746  --  OK
+# Sequence number = CK1753  --  OK
+# Sequence number = CK1760  --  OK
+# Sequence number = CK1767  --  OK
+# Sequence number = CK1774  --  OK
+# Sequence number = CK1781  --  OK
+# Sequence number = CK1795  --  
+#
+#  msmv jobs submitted @ 10:41 a.m. on 16 December 1993  (all but RF19)
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK2130  -- OK
+# Sequence number = CK2135  -- OK
+# Sequence number = CK2142  -- OK
+# Sequence number = CK2149  -- OK
+# Sequence number = CK2156  -- OK
+# Sequence number = CK2163  -- OK
+#
+#  msmv job submitted @ 11:25 a.m. on 16 December 1993  (RF19)
+# Sequence number = CK4401  --  Rejected (no `nimbus' account)
+#
+#  msmv job submitted @ 12:42 p.m. on 16 December 1993  (RF19)
+# Sequence number = CK2271  --  OK
+#   
+# 
+set TAPELIST = ( R0740 R0743 R0751 R0753 R0755 R0758 R0760 )
+set FLIGHTS =  ( FF02B RF03B RF10B RF12B RF14B RF17B RF19B )
+#
+#  Get started:
+#  Rename files which will have more than one segment.
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/FF02/R0740 npdn=/RAF/$YEAR/$PROJ/FF02A/R0740 W=RAFDMG
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/RF03/R0743 npdn=/RAF/$YEAR/$PROJ/RF03A/R0743 W=RAFDMG
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/RF10/R0751 npdn=/RAF/$YEAR/$PROJ/RF10A/R0751 W=RAFDMG
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/RF12/R0753 npdn=/RAF/$YEAR/$PROJ/RF12A/R0753 W=RAFDMG
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/RF14/R0755 npdn=/RAF/$YEAR/$PROJ/RF14A/R0755 W=RAFDMG
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/RF17/R0758 npdn=/RAF/$YEAR/$PROJ/RF17A/R0758 W=RAFDMG
+nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/RF19/R0760 npdn=/RAF/$YEAR/$PROJ/RF19A/R0760 W=RAFDMG
+# 
+#       DON'T DO THE REST AGAIN!
+exit
+#
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit

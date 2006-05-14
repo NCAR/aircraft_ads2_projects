@@ -1,0 +1,61 @@
+This file serves two purposes:  1) to give instructions for using the
+skeleton program, and 2) to explain the purpose of this skeleton program
+and to document its results.
+
+Purpose of Skeleton
+-------------------
+The PMS-1D FSSP probe on the 4-870 WISP project had a problem with some of
+the housekeeping data.  Specifically STROBES and ACTIVITY did not seem to
+be in phase with the 10sps accumulations.  This resulted in some rather odd
+sample-to-sample calculations of derived variables, e.g.,  concentration,
+liquid water content.
+
+After consulting with Darrel Baumgardner about the problem, RAF decided
+that the best solution would be to average the housekeeping data for one
+second at a time and use the mean values for each of the 10 sps, derived
+calculations.
+
+The final NIMBUS HRT production data sets were read by this skeleton, and
+a new subset of the derived variables were output to a new netCDF file.
+This file was then merged back into the original production data file.
+The resulting netCDF file then has corrected values of the affected
+FSSP variables.
+
+
+Skeleton results
+----------------
+Original, unmodified, netCDF production output bitfiles were moved to
+the MSS directory:  `/RAF/1994/870/OLDHRT.'
+
+The corrected data sets (from merging the output from this skeleton program
+into the original data set) have been saved in the MSS directory:
+`/RAF/1994/870/HRT.'
+
+
+Skeleton Instructions
+---------------------
+1)	All editing should be done in amlib.c, unless you are doing something
+	special.  There are 4 steps to complete which are labeled throughout
+	amlib.c (they are not in order).
+
+	If you need "one time" code to execute, the function Initialize() in
+	init.c is a good choice, this will be before the header has been read
+	from the input file.  If you need one time code executed after the
+	header has been read from the input file, you can put it at the bottom
+	of ReadInputFile() in netcdf.c
+
+	When editing these files, keep in mind that I wrote this code with
+	tabstops set to 4 not 8.  Typing the command ":set tabstop=4" after
+	entering vi will work.  You may also edit the file '.exrc' in this
+	directory and put the command "set tabstop=4" into it.
+
+2)	type 'make'
+
+3)	To run it type, 'skel'
+
+4)	After you have debugged it, you may edit the Makefile, and change the
+	'-g' option to '-O' for faster performance.  After editing Makefile,
+	type:
+
+	make clean
+	make

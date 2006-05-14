@@ -1,0 +1,25 @@
+#
+# This file contains flight equivelances.  That is "x == y"
+# says that flight x should use the [nimbus] setup that was
+# saved from flight y.
+#
+#
+1 == 1
+2 == 1
+3 == 1
+4 == 1
+5 == 5
+6 == 5
+#  Use Flight_7 setup file to process data from the 'a' leg of RF07, the
+#  leg between Okinawa and Guam
+#  Change the name of setup file Flight_7a to Flight_7 to process this leg
+#  and then change it back to Flight_7a after so that it does not load
+#  when you are trying to process the 'b' leg of the flight
+#7 == 7
+#  Use Flight_5 setup file to process data from the 'b' leg of RF07, the
+#  leg between Guam and Majuro, Marshall Islands
+7 == 5
+8 == 5
+9 == 5
+10 == 1
+11 == 5

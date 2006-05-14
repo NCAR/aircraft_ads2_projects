@@ -1,0 +1,25 @@
+Special 2-816 ASTEX file for processing fast ozone and Ophir III data
+First constant is for fast ozone; second two are for Ophir III.
+
+Fltno  Ozone offset  Ophir III A1 constant  Ophir III A2 constant
+----- -------------  ---------------------  ---------------------
+ RF01       6.05       -4.6177E-05            7.7393E-06
+ RF02       9.96       -4.4952E-05            4.1739E-06
+ RF03      10.15       -4.5043E-05            4.4418E-06
+ 04RF      10.44       -6.7977E-04            1.2337E-03
+ RF04      10.44       -4.5000E-05            4.3000E-06
+ RF05       9.92       -4.4848E-05            4.1617E-06
+ RF06      10.26       -4.4402E-05            4.5367E-06
+ RF07      10.68       -4.5124E-05            5.8819E-06
+ RF08      11.39       -4.5676E-05            7.2929E-06
+ RF09      11.63       -4.5392E-05            6.5120E-06   <-- average of previous and following
+ RF10      11.91       -4.5107E-05            5.7311E-06
+ RF11      13.11       -4.5430E-05            4.9834E-06
+ RF12      13.13       -4.4596E-05            4.1115E-06
+ RF13      12.70       -4.4969E-05            6.1096E-06
+ RF14      12.19       -4.5002E-05            7.0852E-06
+ RF15A     12.29       -4.4261E-05            5.0626E-06   <-- ozone constant before 11:17:15 Z
+ RF15B     18.12       -4.4261E-05            5.0626E-06   <-- ozone constant after  11:17:30 Z
+ RF16      12.30       -4.2127E-05            3.0000E-06
+ RF17      12.25       -4.5093E-05            9.5020E-06
+

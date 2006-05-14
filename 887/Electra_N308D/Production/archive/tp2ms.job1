@@ -1,0 +1,185 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1995-887 VORTEX (Wakimoto, et al.)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1995
+set PROJ = 887
+#set STAGE = "nfile=1"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#set STAGE = "nrec=15000"
+#set STAGE = "skpr=15000 nrec=15000"
+#set STAGE = "skpr=30000 nrec=15000"
+#
+#  First set, first try (Dick Friesen's group)
+#set TAPELIST = ( R0954 R0956 \
+#                 R0957 R0958 R0959 R0961 R0962 R0963 R0964 R0965 R0966 )
+#set FLIGHTS =  ( RF07A RF07B \
+#                 RF08  RF09A RF09B RF10  RF11  RF12  RF13  RF14  RF15  )
+#set STAGE = "nfile=1"
+#
+#  First set, second try (Dick Friesen's group)
+#set TAPELIST = ( R0954       R0957       R0958       \
+#                 R0962       R0964       R0966 )
+#set FLIGHTS =  ( RF07A       RF08        RF09A       \
+#                 RF11        RF13        RF15  )
+#set STAGES =   ( "nrec=2135" "nrec=3447" "nrec=2019" \
+#                 "nrec=3241" "nrec=3410" "nrec=2838" )
+#
+#  First set, third try (Dick Friesen's group)
+#set TAPELIST = ( R0954       R0957       R0964       )
+#set FLIGHTS =  ( RF07A       RF08        RF13        )
+#set STAGES =   ( "nrec=2135" "nrec=3447" "nrec=3410" )
+#
+#  First set, fourth try (Dick Friesen's group)
+#set TAPELIST = ( R0957       )
+#set FLIGHTS =  ( RF08        )
+#set STAGES =   ( "nrec=3447" )
+#
+#  Second set, first try (Intercomparison with C-130)
+#set TAPELIST = ( R0968       )
+#set FLIGHTS =  ( TF04        )
+#set STAGES =   ( "nrec=1589" )
+#
+#  Third set, first try (Bruce Morley's group)
+#set TAPELIST = ( R0946       R0947       R0948     R0949     R0950       \
+#                 R0951       R0952       R0953       )
+#set FLIGHTS =  ( RF01        RF02        TF02      TF03      RF03        \
+#                 RF04        RF05        RF06        )
+#set STAGES =   ( "nrec=3249" "nrec=2994" "nfile=1" "nfile=1" "nrec=2804" \
+#                 "nrec=967"  "nrec=2553" "nrec=3083" )
+#
+#  Third set, second try (Bruce Morley's group)
+#set TAPELIST = ( R0947       R0948     )
+#set FLIGHTS =  ( RF02        TF02      )
+#set STAGES =   ( "nrec=2994" "nfile=1" )
+#
+#  Third set, third try (Bruce Morley's group)
+#set TAPELIST = ( R0948     )
+#set FLIGHTS =  ( TF02      )
+#set STAGES =   ( "nfile=1" )
+#
+#  Third set, fourth try (Bruce Morley's group)
+set TAPELIST = ( R0948     )
+set FLIGHTS =  ( TF02      )
+set STAGES =   ( "nrec=786" )
+#
+# ----
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  set STAGE = $STAGES[$num]
+#  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  Archive one raw ADS data tape for 1995-854 Eldora Test (Hildebrand)
+#
+#set YEAR = 1995
+#set PROJ = 854
+#
+#  First set, first try
+#set TAPELIST = ( R0960 )
+#set FLIGHTS =  ( TF08 )
+#set STAGE = "nrec=1151"
+# 
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+#  First set, first try (Dick Friesen's group)
+#  Jobs submitted on Fri Jun 16 17:17:44 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI1378 -- RF07A/R0954 -- Failed (no EOF?)
+# Sequence number = MI1385 -- RF07B/R0956 -- OK @ 21 Jun 1995 12:15:18
+# Sequence number = MI1392 -- RF08/R0957 -- Failed (job dropped?)
+# Sequence number = MI1399 -- RF09A/R0958 -- Failed (no EOF?)
+# Sequence number = MI1406 -- RF09B/R0959 -- OK @ 23 Jun 1995 16:30:59
+# Sequence number = MI1413 -- RF10/R0961 -- OK @ 17 Jun 1995 04:31:24
+# Sequence number = MI1420 -- RF11/R0962 -- Failed (job dropped?)
+# Sequence number = MI1427 -- RF12/R0963 -- OK @ 19 Jun 1995 18:40:50
+# Sequence number = MI1434 -- RF13/R0964 -- Failed (job dropped)
+# Sequence number = MI1441 -- RF14/R0965 -- OK @ 20 Jun 1995 18:52:40
+# Sequence number = MI1448 -- RF15/R0966 -- Failed (job dropped)
+#
+#  First set, second try (Dick Friesen's group)
+#  Jobs submitted on Fri Jun 23 17:02:39 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI2849 -- RF07A/R0954 -- Failed (job dropped)
+# Sequence number = MI2856 -- RF08/R0957 -- Failed (job dropped)
+# Sequence number = MI2863 -- RF09A/R0958 -- OK @ 26 Jun 1995 17:04:35
+# Sequence number = MI2870 -- RF11/R0962 -- OK @ 28 Jun 1995 15:40:56
+# Sequence number = MI2877 -- RF13/R0964 -- Failed (job dropped)
+# Sequence number = MI2884 -- RF15/R0966 -- OK @ 27 Jun 1995 16:55:03
+#
+#  First set, third try (Dick Friesen's group)
+#  Jobs submitted on Wed Jun 28 16:45:07 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI5974 -- RF07A/R0954 -- OK @ 28 Jun 1995 17:25:19
+# Sequence number = MI5982 -- RF08/R0957 -- Failed (job dropped)
+# Sequence number = MI5989 -- RF13/R0964 -- OK @ 28 Jun 1995 18:42:22
+#
+#  Archive one raw ADS data tape for 1995-854 Eldora Test (Hildebrand)
+#  Job submitted on Wed Jun 28 16:45:07 MDT 1995
+# Sequence number = MI5996 -- TF08/R0960 -- OK @ 28 Jun 1995 17:46:13
+#
+#  First set, fourth try (Dick Friesen's group)
+#  Job submitted on Thu Jun 29 15:37:59 MDT 1995
+# Sequence number = MI2627 -- RF08/R0957 -- OK @ 29 Jun 1995 16:59:21
+#
+#  Second set, first try (Intercomparison with C-130)
+#  Job submitted on Thu Jun 29 15:43:27 MDT 1995
+# Sequence number = MI2671 -- TF04/R0968 -- OK @ 29 Jun 1995 17:23:32
+#
+#  Third set, first try (Bruce Morley's group)
+#  Jobs submitted on Thu Jun 29 15:47:43 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI2715 -- RF01/R0946 -- OK @ 30 Jun 1995 14:26:51
+# Sequence number = MI2722 -- RF02/R0947 -- Failed (job dropped)
+# Sequence number = MI2729 -- TF02/R0948 -- Failed (job dropped)
+# Sequence number = MI2736 -- TF03/R0949 -- OK @ 2 Jul 1995 01:04:51
+# Sequence number = MI2743 -- RF03/R0950 -- OK @ 2 Jul 1995 01:04:58
+# Sequence number = MI2750 -- RF04/R0951 -- OK @ 2 Jul 1995 01:04:59
+# Sequence number = MI2757 -- RF05/R0952 -- OK @ 2 Jul 1995 01:04:57
+# Sequence number = MI2764 -- RF06/R0953 -- OK @ 2 Jul 1995 01:05:07
+#
+#  Third set, second try (Bruce Morley's group)
+#  Jobs submitted on Wed Jul  5 11:01:48 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI0392 -- RF02/R0947 -- OK @ 5 Jul 1995 16:10:33
+# Sequence number = MI0399 -- TF02/R0948 -- Failed (FATAL ERROR 62)
+#
+#  Third set, third try (Bruce Morley's group)
+#  Job submitted on Thu Jul 13 15:49:33 MDT 1995
+# Sequence number = MI0266 -- TF02/R0948 -- OK @ 13 Jul 1995 16:07:48
+#
+# ----
+#

@@ -1,0 +1,44 @@
+#! /bin/csh -f
+#
+#  archive Ron Smith's special NIMBUS netCDF output files for
+#     1999-803 Mesoscale Alpine Programme (MAP) (Joachim Kuettner)
+#
+#  File created by Ron Ruth (adapted from arch.803)  Tue May  9 11:42:45 MDT 2000
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 803
+#
+#  HRT Data Segments
+set SDIR = ~ftp/pub/projects/tmp/MAP
+set TURBRT = HRT/SMITH
+#nrnet msput $SDIR/803rf08L1h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf08L2h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf08L3h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08C.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf08L4h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08D.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf20L1h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf24L1h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/803rf24L2h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#   MSS path = /RAF/1999/803/HRT/SMITH/
+#  Job(s) submitted on Tue May  9 15:05:39 MDT 2000
+# Sequence number = LN6017 -- HRT/SMITH/RF08A.cdf -- OK @ 9 May 2000 15:09:31
+# Sequence number = LN6025 -- HRT/SMITH/RF08B.cdf -- OK @ 9 May 2000 15:09:48
+# Sequence number = LN6033 -- HRT/SMITH/RF08C.cdf -- OK @ 9 May 2000 15:10:03
+# Sequence number = LN6043 -- HRT/SMITH/RF08D.cdf -- OK @ 9 May 2000 15:10:01
+# Sequence number = LN6053 -- HRT/SMITH/RF20A.cdf -- OK @ 9 May 2000 15:10:10
+# Sequence number = LN6064 -- HRT/SMITH/RF24A.cdf -- OK @ 9 May 2000 15:16:52
+# Sequence number = LN6073 -- HRT/SMITH/RF24B.cdf -- OK @ 9 May 2000 15:17:53
+#
+#  Job(s) submitted on 
+#

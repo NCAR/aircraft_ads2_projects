@@ -1,0 +1,40 @@
+#! /bin/csh -f
+#
+#   Save present version of the NIMBUS processor for archiving
+#
+#  Written by Ronald L. Ruth                                        16 Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#
+#  Note:  Copy and run this script from a project's "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#        having a "Production" subdirectory;
+#   2.  Project's name (and only its name) is in the file
+#        $LOCAL/proj/ProjectName;
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory;
+#   4.  The NIMBUS software is in the `nimbus' subdirectory of $LOCAL.
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+cd $PROJDIR
+set FY = `grep FY Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/nimbus.tar"
+#
+#  Make the archive
+cd $LOCAL
+# echo \
+tar chlvf $OFILE nimbus
+#
+#  Get tar directory list for archiving
+set dfile = $PROJDIR/Production/nimbus.tar.dir
+echo " Directory list for file nimbus.tar" >! $dfile
+echo "  NIMBUS processor for project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

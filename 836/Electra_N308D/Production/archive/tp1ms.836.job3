@@ -1,0 +1,48 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 1-836 Kuwait Data Archive(KuDA)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1991
+set PROJ = 836
+#set STAGE = nfile=1
+set STAGE = nrec=6063
+#set STAGE = skpr=6500 nrec=6500
+#set STAGE = skpr=13000 nrec=6500
+#set STAGE = skpr=19500 nrec=6500
+#set STAGE = skpr=26000 nrec=6500
+#
+#  The following tapes supposedly have no EOF and are special cases:
+#  Special cases:  RF04  R0605 = 15463 records
+#  Special cases:  RF05  R0606 =  8695
+#  Special cases:  RF06  R0609 =  7507 or 5353
+#  Use nrecs=* if first stage-in fails
+# 
+set TAPELIST = ( R0024 R0128 R0129 R0130 R0216 R0249 R0248 R0135 R0219 \
+                 R0224 R0228 R0358 )
+#
+set FLIGHTS =  ( RF01D RF02A RF02B RF03A RF03B RF03C RF03D RF04A RF06  \
+                 RF09A RF11A RF15B )
+#
+#  Jobs submitted on 
+#  Sequence numbers are (in order of submission):
+#
+#  Get started:
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+#  set STAGE = STAGES[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit
+
