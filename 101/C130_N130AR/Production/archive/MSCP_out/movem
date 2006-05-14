@@ -1,0 +1,14 @@
+#! /bin/csh -f
+#
+#  Rename MSS bitfiles originally put in the /RAF/2000/828/ directory.
+#  They belong in the /RAF/1998/101/ directory.
+#
+date
+#msmv -wpwd RAFDMG /RAF/1998/101/FF03/R1270 /RAF/1998/101/FF03A/R1270
+#msmv -wpwd RAFDMG /RAF/2000/828/FF03C/R1270 /RAF/1998/101/FF03C/R1270
+#
+#  Job(s) submitted on Mon Jun 30 18:10:42 MDT 2003
+#  Rename completed on Mon Jun 30 18:10:46 MDT 2003
+#
+date
+exit

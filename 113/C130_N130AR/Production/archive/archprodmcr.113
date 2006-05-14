@@ -1,0 +1,336 @@
+#! /bin/csh -f
+#
+#  Archive processed MCR data files for 2003-113 IDEAS-III
+#  to the SCD Mass Store System under the /ATD/DATA path
+#   (Done one file at a time to keep from overloading the network)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2003                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Notes:  This script runs only in a project's "Production/archive"
+#           subdirectory under the "dmg" login.
+#          Files required by this script are:
+#           ../proj.info
+#           ../taplog.*[1]
+#          It is required that only one flight's data files can be
+#           archived during each wave.
+#
+#
+#  File adapted from file $PROJ_DIR/111/Production/archive/archprodmcr.111
+#   by Ron Ruth  14 March 2003
+#  Script enhanced by RLR (using taplog file data)                  18 Mar 2003
+#  Script repaired by RLR (fix destination file name composition)    4 Apr 2003
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#
+#
+#     * * * * * * * * * * * * * *
+#   *                             *
+#  *  Executable code starts here  *
+#   *                             *
+#     * * * * * * * * * * * * * *
+#
+# Initialize stuff
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = $DATA_DIR/mcr/IDEAS3
+#
+#  Get project number
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+#
+#  Set logfile name
+set logfile = mcr_arch_log.$PROJ
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set file with flight information (default location:  Production directory)
+set taplog = (`ls ../taplog*`)
+set result = $status
+if ($result != 0) then
+  echo "  Cannot find taplog file in Production subdirectory"
+  echo "   Quitting."
+  exit 1
+endif
+set taplog = $taplog[1]
+#
+#--------------------------------------------
+#
+#  Assign data type
+set TYPE = "MCR"
+#
+#  Assign extent
+set EXTENT = "M01.bi"
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "vivaldi"
+endif
+#
+#
+# Get started
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get MSS project directory name
+set MSS_PDN = `grep 'MSS Project Directory Name:' $LOCAL/proj/$PROJ/Production/proj.info | awk '{print $5}'`
+#
+#  Assign aircraft (only two supported at this time)
+if ( ($PROJ > 99) && ($PROJ < 200) ) then
+  set PLTFRM = "C130_N130AR"
+else if ( ($PROJ > 299) && ($PROJ < 400) ) then
+  set PLTFRM = "NRL_P3"
+else
+  echo "  Cannot determine aircraft platform (PLTFRM)"
+  echo "   Quitting."
+  exit 1
+endif
+#
+#
+#  W A R N I N G:   The flight number for each wave is obtained from the
+#                   first source file.  Therefore, each wave MUST have
+#                   files from only one flight.
+#
+#  1st wave
+#set wave = "1st"
+#set FILES = ( \
+#113rf07.195411-195514 \
+#113rf07.195528-195708 \
+#113rf07.200536-201233 \
+#113rf07.201251-201352 \
+#113rf07.203157-203259 \
+#113rf07.203415-203523 \
+#113rf07.203855-204045 \
+#113rf07.205021-205135 \
+#113rf07.205148-205258 \
+#113rf07.205722-205848 \
+#113rf07.210335-210535 \
+#113rf07.210814-210913 \
+#113rf07.210928-211526 \
+#113rf07.212047-212242 \
+#113rf07.215118-215255 \
+#113rf07.215404-215627 \
+#113rf07.215716-215844 \
+#113rf07.215929-220115 \
+#113rf07.220257-220443 \
+#113rf07.220539-220643 \
+#113rf07.220742-220850 \
+#113rf07.221745-221854 \
+#)
+#
+#  2nd wave
+#set wave = "2nd"
+#set FILES = ( \
+#113rf08.194506-194648 \
+#113rf08.194710-195139 \
+#113rf08.195311-200048 \
+#113rf08.202120-203708 \
+#113rf08.204314-204543 \
+#113rf08.204613-204709 \
+#113rf08.211104-211228 \
+#)
+#
+#  3rd wave
+#set wave = "3rd"
+#set FILES = ( \
+#113rf09.194753-195120 \
+#113rf09.195450-195600 \
+#113rf09.201009-201133 \
+#113rf09.201607-201856 \
+#113rf09.202008-202311 \
+#113rf09.202423-202539 \
+#113rf09.202741-202921 \
+#113rf09.205654-205825 \
+#113rf09.211133-211338 \
+#113rf09.212032-212332 \
+#113rf09.212900-213911 \
+#113rf09.214109-214333 \
+#113rf09.215622-215838 \
+#113rf09.220152-220321 \
+#113rf09.220549-220833 \
+#113rf09.221029-221451 \
+#)
+#
+#  4th wave
+#set wave = "4th"
+#set FILES = ( \
+#113rf10.151854-152044 \
+#113rf10.152737-152834 \
+#113rf10.153545-155011 \
+#113rf10.155153-160101 \
+#113rf10.160321-161916 \
+#113rf10.162325-162701 \
+#113rf10.163012-163243 \
+#113rf10.163317-165105 \
+#113rf10.165453-170452 \
+#113rf10.170757-171605 \
+#113rf10.171627-171833 \
+#113rf10.172201-173709 \
+#113rf10.174143-174819 \
+#113rf10.175129-175506 \
+#113rf10.182222-182554 \
+#)
+#
+#  5th wave
+set wave = "5th"
+set FILES = ( \
+113rf11.205324-205527 \
+113rf11.210534-210656 \
+)
+#
+#   th wave
+#set wave = " th"
+#set FILES = ( \
+#!!ls /jnet/data/mcr/project/fltno  <-- specify correct path before using
+#)
+#
+#
+# Do the work;
+#
+#  Is this a test run?
+#set test = "no"
+set test = "yes"
+#
+if ($test == "no") then
+#
+#  Set up and/or test log file
+  if (! -e $logfile) then
+    echo "Log file for archiving Production MCR data to the SCD Mass Store System" >! $logfile
+    if ($status != 0) then
+      echo "  Cannot create log file $logfile."
+      echo "  Quitting."
+      exit 1
+    else
+      echo " Created by the script ${0} on `date`" >> $logfile
+      echo "" >> $logfile
+    endif
+  else if (! -w $logfile) then
+    echo "  Cannot update log file $logfile."
+    echo "  Quitting."
+    exit 1
+  else
+    echo "" >> $logfile
+    echo " Appended by the script ${0} on `date`" >> $logfile
+    echo "" >> $logfile
+    if ($status != 0) then
+      echo "  Cannot update log file $logfile."
+      echo "  Quitting."
+      exit 1
+    endif
+  endif
+endif
+#
+#  Get flight number from the first source file's name
+set fltno = `echo $FILES[1] | sed -e "s/^...//" | awk -F\. '{print $1}'`
+#
+#  Compose source file's path name
+set SDIR = $SDIR/$fltno
+#
+#  Compose destination MSS path name
+set FLTNO = `echo $fltno | tr '[a-z]' '[A-Z]'`
+set FDATE = `grep $FLTNO $taplog | awk '{print $2}' | awk -F/ '{print $3$1$2}'`
+set YEAR = `echo $FDATE | sed -e 's/....$//'`
+set MSS_DIR = "/ATD/DATA/$YEAR/$MSS_PDN/$PLTFRM/$TYPE"
+#
+set sdate = `date`
+if ($test == "no") then
+  echo "------- $wave wave" >> $logfile
+  echo " $#FILES files to be archived to the MSS directory:  $MSS_DIR/" >> $logfile
+  echo " Job submssion began on $sdate" >> $logfile
+endif
+#
+echo "# $#FILES files to be archived to the MSS directory:  $MSS_DIR/"
+echo "#  Job submssion began on $sdate"
+#
+#
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $SDIR/$FILE) then
+#  Compose destination bitfile name
+    set FLTTM = `echo $FILE | awk -F\. '{print $2}' | sed -e "s/-/_/"`
+    set DFILE = "$FLTNO.$FDATE.$FLTTM.M01.bi"
+#
+    if ($test == "no") then
+      rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $SDIR/$FILE mss:$MSS_DIR/$DFILE
+      set result = $status
+      if ($result == 0) then
+        echo " rsh $msrcpMachine msrcp -> mss:../$DFILE completed successfully on `date`" >> $logfile
+      else
+        echo " rsh $msrcpMachine msrcp -> mss:../$DFILE FAILED (error=$result) on `date`" >> $logfile
+      endif
+    else
+      echo  \
+      rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $SDIR/$FILE mss:$MSS_DIR/$DFILE
+    endif
+  else
+    echo " Cannot access file $SDIR/$FILE" >> $logfile
+  endif
+  @ num ++
+end
+#
+set cdate = `date`
+if ($test == "no") then
+  echo " Job completed on $cdate" >> $logfile
+  echo "#  Job completed on $cdate"
+else
+  echo "#  Test job completed on $cdate"
+endif
+#
+exit
+#
+#
+#  MSS path for bitfiles listed below:  /ATD/DATA/...
+#   (See logfile "mcr_arch_log.113" for archive status.)
+#
+#  1st wave
+# 22 files to be archived to the MSS directory:  /ATD/DATA/2003/IDEAS-3/C130_N130AR/MCR/
+#  Job submssion began on Fri Oct 17 10:46:34 MDT 2003
+#  Job completed on Fri Oct 17 10:50:42 MDT 2003
+#
+#  2nd wave
+# 7 files to be archived to the MSS directory:  /ATD/DATA/2003/IDEAS-3/C130_N130AR/MCR/
+#  Job submssion began on Fri Oct 17 11:18:08 MDT 2003
+#  Job completed on Fri Oct 17 11:18:43 MDT 2003
+#
+#  3rd wave
+# 16 files to be archived to the MSS directory:  /ATD/DATA/2003/IDEAS-3/C130_N130AR/MCR/
+#  Job submssion began on Fri Oct 17 11:19:29 MDT 2003
+# 16 files to be archived to the MSS directory:  /ATD/DATA/2003/IDEAS-3/C130_N130AR/MCR/
+#  Job submssion began on Fri Oct 17 11:19:29 MDT 2003
+#  Job completed on Fri Oct 17 11:22:25 MDT 2003
+#
+#  4th wave
+# 15 files to be archived to the MSS directory:  /ATD/DATA/2003/IDEAS-3/C130_N130AR/MCR/
+#  Job submssion began on Fri Oct 17 11:27:40 MDT 2003
+#  Job completed on Fri Oct 17 11:44:02 MDT 2003
+#
+#  5th wave
+#  Job(s) submitted on 
+#
+#   th wave
+#  Job(s) submitted on 
+#  

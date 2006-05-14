@@ -1,0 +1,3 @@
+mv /jnet/productiondata/125rf01.nc /jnet/productiondata/temp.nc
+ncReorder /jnet/productiondata/temp.nc /jnet/productiondata/125rf01.nc
+rm /jnet/productiondata/temp.nc

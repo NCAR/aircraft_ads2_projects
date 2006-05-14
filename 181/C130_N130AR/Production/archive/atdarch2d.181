@@ -1,0 +1,168 @@
+#! /bin/csh -f
+#
+#  Archive stripped raw PMS-2D data files for 2001-181 DYCOMS-II
+#
+#  File adapted from file /home/local/proj/181/Production/arch2d.181
+#    by Ron Ruth  28 November 2001
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep CY ../proj.info | sed -e "s/CY=//"`
+set PLATFORM = "C130_N130AR"
+set PROJECT = "DYCOMS-II"
+set TYPE = "PMS2D"
+#
+# Designations for 2001-181 DYCOMS-II
+#set RPWD = ""
+set RPWD = "rpwd=DYCONLY"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#181ff02.2d \
+#181rf02.2d \
+#181rf03.2d \
+#181rf04.2d \
+#181rf05.2d \
+#181rf06a.2d \
+#181rf06b.2d \
+#181rf07a.2d \
+#181rf07b.2d \
+#181rf08a.2d \
+#181rf08b.2d \
+#181rf08c.2d \
+#181rf09a.2d \
+#181rf09b.2d \
+#181rf10a.2d \
+#181rf10b.2d \
+#181rf10c.2d \
+#181tf01.2d \
+#181tf02.2d \
+#)
+#set DFILES = ( \
+#FF02 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06A \
+#RF06B \
+#RF07A \
+#RF07B \
+#RF08A \
+#RF08B \
+#RF08C \
+#RF09A \
+#RF09B \
+#RF10A \
+#RF10B \
+#RF10C \
+#TF01 \
+#TF02 \
+#)
+#set EXTS = ( \
+#20010730.170836.RP2.bi  \
+#20010711.062438.RP2.bi  \
+#20010713.061821.RP2.bi  \
+#20010717.062236.RP2.bi  \
+#20010718.061845.RP2.bi  \
+#20010720.053941.RP2.bi  \
+#20010720.055450.RP2.bi  \
+#20010724.055320.RP2.bi  \
+#20010724.061950.RP2.bi  \
+#20010725.194520.RP2.bi  \
+#20010725.195143.RP2.bi  \
+#20010725.195458.RP2.bi  \
+#20010727.181556.RP2.bi  \
+#20010727.191147.RP2.bi  \
+#20010728.194817.RP2.bi  \
+#20010728.220323.RP2.bi  \
+#20010728.220734.RP2.bi  \
+#20010626.153708.RP2.bi  \
+#20010629.164518.RP2.bi  \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  set EXT   = $EXTS[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r \
+      flnm=/ATD/DATA/$YEAR/$PROJECT/$PLATFORM/$TYPE/$DFILE.$EXT \
+      rtpd=32767 name=RAF proj=41113009 wpwd=RAFDMG $RPWD
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles:  /ATD/DATA/2001/DYCOMS-II/C130_N130AR/PMS2D/
+#
+#  1st wave
+#  Job(s) submitted on Wed Nov 28 14:05:18 MST 2001
+# Sequence number = LN8043 -- FF02.20010730.170836.RP2.bi -- OK @ 28 Nov 2001 14:08:22
+# Sequence number = LN8051 -- RF02.20010711.062438.RP2.bi -- OK @ 28 Nov 2001 14:13:54
+# Sequence number = LN8059 -- RF03.20010713.061821.RP2.bi -- OK @ 28 Nov 2001 14:08:51
+# Sequence number = LN8067 -- RF04.20010717.062236.RP2.bi -- OK @ 28 Nov 2001 14:09:00
+# Sequence number = LN8075 -- RF05.20010718.061845.RP2.bi -- OK @ 28 Nov 2001 14:11:57
+# Sequence number = LN8083 -- RF06A.20010720.053941.RP2.bi -- OK @ 28 Nov 2001 14:11:43
+# Sequence number = LN8091 -- RF06B.20010720.055450.RP2.bi -- OK @ 28 Nov 2001 14:15:44
+# Sequence number = LN8099 -- RF07A.20010724.055320.RP2.bi -- OK @ 28 Nov 2001 14:11:44
+# Sequence number = LN8108 -- RF07B.20010724.061950.RP2.bi -- OK @ 28 Nov 2001 14:15:35
+# Sequence number = LN8116 -- RF08A.20010725.194520.RP2.bi -- OK @ 28 Nov 2001 14:13:25
+# Sequence number = LN8124 -- RF08B.20010725.195143.RP2.bi -- OK @ 28 Nov 2001 14:19:17
+# Sequence number = LN8132 -- RF08C.20010725.195458.RP2.bi -- OK @ 28 Nov 2001 14:14:14
+# Sequence number = LN8140 -- RF09A.20010727.181556.RP2.bi -- OK @ 28 Nov 2001 14:09:06
+# Sequence number = LN8148 -- RF09B.20010727.191147.RP2.bi -- OK @ 28 Nov 2001 14:09:05
+# Sequence number = LN8156 -- RF10A.20010728.194817.RP2.bi -- OK @ 28 Nov 2001 14:09:12
+# Sequence number = LN8164 -- RF10B.20010728.220323.RP2.bi -- OK @ 28 Nov 2001 14:11:10
+# Sequence number = LN8172 -- RF10C.20010728.220734.RP2.bi -- OK @ 28 Nov 2001 14:09:21
+# Sequence number = LN8180 -- TF01.20010626.153708.RP2.bi -- OK @ 28 Nov 2001 14:09:23
+# Sequence number = LN8188 -- TF02.20010629.164518.RP2.bi -- OK @ 28 Nov 2001 14:09:27
+#
+#  2nd wave
+#  Job(s) submitted on 
+#
+#

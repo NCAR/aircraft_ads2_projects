@@ -1,0 +1,32 @@
+Real-time web site duties for this project's flight
+  Ron Ruth
+
+Before:
+ create flight directory in web directory (/net/www/docs/raf/Projects/IDEAS)
+  e.g., rf07
+
+During:
+ get upper-air charts (300, 500, 750 mbar)
+ get regional soundings
+ get hourly surface charts
+ get CIRA loops
+
+After:
+ archive raw ADS, 2d, CPI and MCR files to the SCD Mass Store System
+  edit and run scripts as "dmg" login in project's archive subdirectory
+ update "tapes.113" file in project's archive subdirectory
+ unpack CIRA loops using "goes_proc" script (in ~rafwww/bin directory)
+ post netCDF and raw PMS-2D files to ftp site (gzipped)
+ harvest chat log and filter out sensitive info (e.g., phone # and email)
+ run "ncplot" to produce whole-flight plots of
+  temperature/dew point vs. time (TD.png)
+  altitude vs. time (ALT.png)
+  XY (XY.png)
+  XYZ (XYZ.png)
+  (on-station XY, XYZ plots)
+ post soundings, surface and upper-air charts, CIRA loops, chat log and
+  whole-flight plots to web site
+ update "data_access.html" file
+ update "flights.html" file
+ update "FltMatrix.html" file
+ deal with mission summaries and project photos, when they appear

@@ -1,0 +1,27 @@
+As of 16 April 2003, the IDEAS-2 project archive is not complete.
+
+1)  Dave Rogers intends to produce production data for the RDMA which will
+     be merged into the production netCDF files.
+2)  Dave also is planning to update the QA report regarding the aerosol
+     sampling and configurations.
+The latter will obviously require changes to the web site.
+
+Based on the file "data_file_notes" a few bitfiles should be removed from
+the archive.  (There is no timetable for this at present.)
+
+So, the following scripts will need to be modified so the updated
+files can be rearchived at the appropriate times:
+  archprodnc.112
+  tarit.doc (after web site changes)
+  archive.support (after all changes)
+    112.documents.tar
+    112.documents.tar.dir
+    112.tar
+    112.tar.dir
+    Mail.112
+    taplog.112 (file size chages?)
+    112rf01.hdr (header changes?)
+
+(There may be more work to do.  If so, document it here, too.)
+
+Ronald L. Ruth, RAF Data Manager

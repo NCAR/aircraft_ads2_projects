@@ -1,0 +1,106 @@
+#! /bin/csh -f
+#
+#  archive ultra-high-rate NIMBUS netCDF output files for 2001-181 DYCOMS-II (The Dynamics and Chemistry of Marine Stratocumulus, Phase II: Entrainment Studies) (B. Stevens, et al.)
+#
+#  File created by Ron Ruth on 9 October 2001 using "arch.181" as a template
+#
+date
+#
+#  Since these files also were copied to the /ATD/DATA path via the script
+#  "atdarch.181," there is no reason to keep two copies on the SCD Mass Store
+#  System.
+goto purge
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2001
+set PROJ = 181
+set SDIR = $PROD_DATA
+set RPWD = DYCONLY
+#
+#
+set TURBRT = UHRT
+#
+#  Large files
+#echo nrnet msput $SDIR/181rf01uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf02uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf03uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf04uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf05uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf06uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf07uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf08uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf09uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf10uhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#
+#  Smaller files
+#echo nrnet msput $SDIR/181rf01auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf02auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf03auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf04auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf05auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf06auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf07auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf08auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf09auhrt.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG rpwd=$RPWD
+#
+exit
+#
+#  Large files
+#  Job(s) submitted on Tue Oct  9 15:10:41 MDT 2001
+# Sequence number = LN7089 -- UHRT/RF01.cdf -- OK @ 9 Oct 2001 15:51:15
+# Sequence number = LN7097 -- UHRT/RF02.cdf -- OK @ 9 Oct 2001 15:48:17
+# Sequence number = LN7105 -- UHRT/RF03.cdf -- OK @ 9 Oct 2001 15:57:43
+# Sequence number = LN7113 -- UHRT/RF04.cdf -- OK @ 9 Oct 2001 15:56:11
+# Sequence number = LN7123 -- UHRT/RF05.cdf -- OK @ 9 Oct 2001 16:27:49
+# Sequence number = LN7133 -- UHRT/RF06.cdf -- OK @ 9 Oct 2001 16:48:56
+# Sequence number = LN7143 -- UHRT/RF07.cdf -- OK @ 9 Oct 2001 16:51:23
+# Sequence number = LN7153 -- UHRT/RF08.cdf -- OK @ 9 Oct 2001 17:10:00
+# Sequence number = LN7161 -- UHRT/RF09.cdf -- OK @ 9 Oct 2001 16:57:50
+# Sequence number = LN7169 -- UHRT/RF10.cdf -- OK @ 9 Oct 2001 16:53:46
+#
+#  Smaller files
+#  Job(s) submitted on Fri Jan 18 17:08:01 MST 2002
+# Sequence number = LN4819 -- UHRT/RF01A.cdf -- OK @ 18 Jan 2002 18:01:00
+# Sequence number = LN4827 -- UHRT/RF02A.cdf -- OK @ 18 Jan 2002 17:41:16
+# Sequence number = LN4835 -- UHRT/RF03A.cdf -- OK @ 18 Jan 2002 18:01:46
+# Sequence number = LN4843 -- UHRT/RF04A.cdf -- OK @ 18 Jan 2002 18:27:40
+# Sequence number = LN4852 -- UHRT/RF05A.cdf -- OK @ 18 Jan 2002 18:17:49
+# Sequence number = LN4860 -- UHRT/RF06A.cdf -- OK @ 18 Jan 2002 18:18:14
+# Sequence number = LN4868 -- UHRT/RF07A.cdf -- OK @ 18 Jan 2002 18:20:51
+# Sequence number = LN4876 -- UHRT/RF08A.cdf -- OK @ 18 Jan 2002 18:27:57
+# Sequence number = LN4884 -- UHRT/RF09A.cdf -- OK @ 18 Jan 2002 18:18:57
+#
+purge:
+#
+#  Remove duplicate file copies
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF01.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF01A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF02.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF02A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF03.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF03A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF04.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF04A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF05.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF05A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF06.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF06A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF07.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF07A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF08.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF08A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF09.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF09A.cdf
+#msrm -wpwd RAFDMG /RAF/2001/181/UHRT/RF10.cdf
+#date
+#
+#mahler/ron % arch_uhrt.181
+#Mon Mar 24 15:45:35 MST 2003
+#Mon Mar 24 15:46:16 MST 2003
+#mahler/ron %
+#

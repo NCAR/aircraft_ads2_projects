@@ -1,0 +1,2161 @@
+From ron Fri Dec  9 13:47:55 1994
+Subject: Re: PSURF
+To: dick@chinook.atd.ucar.edu (Dick Friesen)
+Date: Fri, 9 Dec 1994 13:47:55 -0700 (MST)
+In-Reply-To: <199412062135.OAA22726@chinook.atd.ucar.EDU> from "Dick Friesen" at Dec 6, 94 02:35:37 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3081      
+Status: RO
+
+> Ron:
+>  Would you look at the code and see if psurf is  being calculated
+>  correctly?
+Dick,
+
+In short, no.
+
+(I just reread this email after discovering it buried among my other older
+messages.  Sorry for the delay.)
+
+I just compared the PSURF calculation in NIMBUS to that in GENPRO.
+The NIMBUS version is different; the calculation for TVIR (used in
+its derivation) is done differently.  The code Chris is using appears
+in a comment line above the way GENPRO is doing the calculation.
+Apparently he picked up the "old" way instead.  I'll give him the
+correction.
+
+Here is the NIMBUS calculation:
+        tbarm = (atx + 273.16) / (1.0 - 0.6e-3 * mr) + 0.5 * (hgm * 0.0098);
+        psurf = psxc * exp((double)((hgm/tbarm) * 0.0341833194));
+        if (hgm > 750.0)
+                psurf = 1000.0;
+
+Here is the GENPRO calculation:
+C       TVIR = (ATX+273.16)/(1.0-.6E-3 *RM)
+C** TVIR HERE SHOULD BE IN DEG K   (JUN 12, 1985)
+        TVIR = (ATX+273.16)*((1.+1.6078E-3*RM)/(1.+.001*RM))
+        TBARM = TVIR + 0.5 *(HGM*.0098)
+        SURFP = PSXC* EXP((HGM/TBARM)*.0341833194)
+        IF( HGM .GT.750) SURFP =1000.
+
+> Does it use radar altimeter? (This is not a big deal, if you are too busy
+> it can wait until I return).
+
+The default is to use HGM.  Within NIMBUS, one can substitute the radar
+altimeter if so desired.  In both cases, the calculation is only done
+at altitudes below 750 meters.  We can change that, of course, but if
+HGM is used, I suppose after it pegs, PSURF would do strange things.
+
+-- 
+Ron
+
+From dick Fri Dec  9 18:00:44 1994
+From: dick (Dick Friesen)
+Message-Id: <199412100100.SAA01632@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id SAA01632; Fri, 9 Dec 1994 18:00:44 -0700
+Subject: Re: PSURF
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Fri, 9 Dec 1994 18:00:43 -0700 (MST)
+In-Reply-To: <199412092047.NAA16766@chinook.atd.ucar.EDU> from "Ron Ruth" at Dec 9, 94 01:47:55 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 245       
+Status: RO
+
+Ron:
+     Thanks for the update. See if you can get the psurf fixed. I don't
+need it here but it obviously is not working.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From dick@chinook.atd.ucar.EDU Mon Jan 23 08:44:05 1995
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id IAA15037; Mon, 23 Jan 1995 08:44:05 -0700
+Message-Id: <199501231544.IAA04082@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA04082; Mon, 23 Jan 1995 08:44:03 -0700
+Subject: telford tapes
+To: ron (Ron Ruth)
+Date: Mon, 23 Jan 1995 08:44:02 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 244       
+Status: RO
+
+Ron:
+    If I give you the telford project tapes for staging in to MS, how soon will
+I get them back? There are 10 tapes.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From dick@chinook.atd.ucar.EDU Tue Jan 31 16:02:50 1995
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id QAA18164; Tue, 31 Jan 1995 16:02:49 -0700
+Message-Id: <199501312302.QAA12247@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA12247; Tue, 31 Jan 1995 16:02:48 -0700
+Subject: Telford tapes
+To: ron (Ron Ruth)
+Date: Tue, 31 Jan 1995 16:02:47 -0700 (MST)
+Cc: dick (Dick Friesen)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 640       
+Status: RO
+
+Ron:
+     I have copied the 10 Telford research flight tapes. In the copy process
+I added the correct date and project number (#127) to the header. I will give
+you these copies for staging onto the mass store. I have made copies for 
+Jeffco so there is no hurry.
+     Here is the record information that I obtained during copying:
+       flt	tape	records
+	R1	R0874	 9548
+	R2	R0875   19292
+	R3	R0876	22456
+	R4	R0877	 8018
+	R5	R0878	18531
+	R6	R0879	18544
+	R7	R0880	36394
+	R8	R0882	24827
+	R9	R0883	25708
+	R10	R0884	23911
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Mon Jan 23 09:51:05 1995
+Subject: Re: telford tapes
+To: dick@chinook.atd.ucar.EDU
+Date: Mon, 23 Jan 1995 09:51:05 -0700 (MST)
+In-Reply-To: <199501231544.IAA04082@mistral.atd.ucar.edu> from "dick@chinook.atd.ucar.EDU" at Jan 23, 95 08:44:02 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1762      
+Status: RO
+
+> 
+> Ron:
+>     If I give you the telford project tapes for staging in to MS, how soon will
+> I get them back? There are 10 tapes.
+> 
+Dick,
+
+In short:  I don't really know.  Kathy Fryberger claims that, by putting
+only one drive on each of two controllers, conflicts will go away and
+throughput will be improved.  I'm not sure how busy the drives are these
+days; the last job I staged completed within 3 hours.  It was the only
+one I had left to do after Kathy made the change.
+
+The second determining factor is how much data are on each tape.  I'll
+be reading 15000 records at a time, and each one must be archived with a
+separate job.  (For BASE, I had to archive most of the flights in three
+parts.  If the data lengths are similar, you should count on that, too.)
+
+I submit archive jobs in "waves"--all flights at once.  I archive the
+first part of each tape and await the results of each (hoping they are all
+successful, if not, resubmitting the jobs).  If there are more data records
+on a tape, I submit a second wave for each (which skips the earlier data),
+wait for results, then do a third, if necessary.  A typical job would take
+about 3 hours to complete under a light to moderate SCD workload.  Under
+ideal conditions, with about 30 jobs, I would guess it would take about 6
+working days to complete the archiving.  Realistically, with failures
+and/or very busy SCD conditions and/or my ability to give these my primary
+attention, it is hard to predict except to say "longer."
+
+Needless to say, it helps me greatly to know how much data are on each tape.
+I can then better plan the job list.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dick@chinook.atd.ucar.EDU Thu Feb  2 13:13:34 1995
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA07254; Thu, 2 Feb 1995 13:13:33 -0700
+Message-Id: <199502022013.NAA02611@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA02611; Thu, 2 Feb 1995 13:13:32 -0700
+Subject: 127, flt 10
+To: ron (Ron Ruth)
+Date: Thu, 2 Feb 1995 13:13:31 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 207       
+Status: RO
+
+Ron:
+     The time segments for flight 10 are: 14:02:31-14:13:34, 14:13:40-
+20:13:20.
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From dick@chinook.atd.ucar.EDU Tue Feb  7 11:36:54 1995
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA10390; Tue, 7 Feb 1995 11:36:54 -0700
+Message-Id: <199502071836.LAA21384@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA21384; Tue, 7 Feb 1995 11:36:50 -0700
+Subject: Telford request
+To: ron (Ron Ruth)
+Date: Tue, 7 Feb 1995 11:36:49 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 368       
+Status: RO
+
+Ron:
+    I would like to put in a request to RDP to copy the raw C-130 ADS tapes (images of what
+you are putting on the Mass Store) to exabyte and send to Jim Telford at DRI, Reno, Nev.
+There are 10 flights and the project number is 127.
+
+thanks,
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Tue Feb  7 12:29:11 1995
+Subject: Re: Telford request
+To: dick@chinook.atd.ucar.EDU
+Date: Tue, 7 Feb 1995 12:29:11 -0700 (MST)
+In-Reply-To: <199502071836.LAA21384@mistral.atd.ucar.edu> from "dick@chinook.atd.ucar.EDU" at Feb 7, 95 11:36:49 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 743       
+Status: RO
+
+Dick,
+
+As soon as the archiving is complete, I'll have RDP copy the ADS tape
+images for Dr. Telford.  Here are pertinent details I gleaned from Barb's
+data base.  Please make any corrections.
+
+Dr. James W. Telford
+Airborne Measurements Lab
+Desert Research Institute
+P.O. Box 60220
+Reno, NV  89506-0220
+Phone:  (702)677-3201     Fax:  (702)677-3157
+E-Mail:  telford@clouds.sage.unr.edu
+Title:  Research Professor
+
+We normally ship these UPS, and they require a street address instead of a
+P.O. box.  The only street address I have for DRI is 5625 Fox Avenue.  Would
+it be OK to use it?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dick@chinook.atd.ucar.EDU Tue Feb  7 13:34:07 1995
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA11926; Tue, 7 Feb 1995 13:34:07 -0700
+Message-Id: <199502072034.NAA22689@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA22689; Tue, 7 Feb 1995 13:34:05 -0700
+Subject: Re: Telford request
+To: ron@chinook.atd.ucar.EDU
+Date: Tue, 7 Feb 1995 13:34:04 -0700 (MST)
+In-Reply-To: <199502071929.MAA22203@mistral.atd.ucar.edu> from "ron@chinook.atd.ucar.EDU" at Feb 7, 95 12:29:11 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 352       
+Status: RO
+
+Ron:
+     All of the correspondence with Telford has been to the P.O.Box. I do not have an 
+address. Have Barb call out to DRI and confirm the street address where Telford's office
+is.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From ron Tue Feb  7 14:13:54 1995
+Subject: Dr. Telford
+To: barbara (Barbara Knowles)
+Date: Tue, 7 Feb 1995 14:13:54 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 220       
+Status: RO
+
+Barb,
+
+Would you please contact Dr. Jim Telford at Nevada's Desert Research
+Institute and verify the street address where I can ship him some
+ExaByte tapes via UPS?  His phone number is (702)677-3201.
+
+Thanks.
+
+-- 
+Ron
+
+From barbara Wed Feb  8 09:35:14 1995
+From: barbara (Barbara Knowles)
+Message-Id: <199502081635.JAA19604@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id JAA19604; Wed, 8 Feb 1995 09:35:13 -0700
+Subject: Re: Dr. Telford
+To: ron@chinook.atd.ucar.EDU
+Date: Wed, 8 Feb 1995 09:35:13 -0700 (MST)
+In-Reply-To: <199502072113.OAA23386@mistral.atd.ucar.edu> from "ron@chinook.atd.ucar.EDU" at Feb 7, 95 02:13:54 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 146       
+Status: RO
+
+Ron,
+
+I left a voice mail for telford yesterday.  I haven't heard from him 
+yet.  If he doesn't get back to me today, I will email him.
+
+barbara
+
+
+From barbara Wed Feb  8 11:04:38 1995
+From: barbara (Barbara Knowles)
+Message-Id: <199502081804.LAA21535@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA21535; Wed, 8 Feb 1995 11:04:33 -0700
+Subject: Re: Dr. Telford
+To: ron@chinook.atd.ucar.EDU
+Date: Wed, 8 Feb 1995 11:04:33 -0700 (MST)
+In-Reply-To: <199502072113.OAA23386@mistral.atd.ucar.edu> from "ron@chinook.atd.ucar.EDU" at Feb 7, 95 02:13:54 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 72        
+Status: RO
+
+Ron,
+
+Message 2!
+
+56 Fox Avenue
+Reno 89506
+
+Hope that's good.
+
+barbara
+
+
+From barbara Wed Feb  8 13:07:03 1995
+From: barbara (Barbara Knowles)
+Message-Id: <199502082006.NAA24670@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA24670; Wed, 8 Feb 1995 13:06:59 -0700
+Subject: Re: Dr. Telford
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Wed, 8 Feb 1995 13:06:58 -0700 (MST)
+In-Reply-To: <199502081949.MAA24451@chinook.atd.ucar.EDU> from "Ron Ruth" at Feb 8, 95 12:49:01 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 159       
+Status: RO
+
+Jim called and said 56 Fox
+
+
+However,  his request for this panel says 5625
+
+
+I'd use the 5625.  Maybe the phone cut out the last part of his words?
+
+barbara
+
+
+From ron Wed Feb  8 12:49:01 1995
+Subject: Re: Dr. Telford
+To: barbara@chinook.atd.ucar.edu (Barbara Knowles)
+Date: Wed, 8 Feb 1995 12:49:01 -0700 (MST)
+In-Reply-To: <199502081804.LAA21535@chinook.atd.ucar.EDU> from "Barbara Knowles" at Feb 8, 95 11:04:33 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 189       
+Status: RO
+
+> 
+> Ron,
+> 
+> Message 2!
+> 
+> 56 Fox Avenue
+> Reno 89506
+> 
+> Hope that's good.
+> 
+Barb,
+
+I had a street address of 5625 Fox Avenue.  If you are sure of yours,
+I'll change mine.
+
+-- 
+Ron
+
+From ron Wed Feb  8 13:45:06 1995
+Subject: Re: Dr. Telford
+To: barbara@chinook.atd.ucar.edu (Barbara Knowles)
+Date: Wed, 8 Feb 1995 13:45:06 -0700 (MST)
+In-Reply-To: <199502082006.NAA24670@chinook.atd.ucar.EDU> from "Barbara Knowles" at Feb 8, 95 01:06:58 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 54        
+Status: RO
+
+Barb,
+
+I'll use 5625.  Thanks for the work!
+
+-- 
+Ron
+
+From dick@chinook.atd.ucar.EDU Wed Feb 22 10:26 MST 1995
+From: dick@chinook.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@chinook.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA09007; Wed, 22 Feb 1995 10:26:16 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA21128; Wed, 22 Feb 1995 10:26:15 -0700
+Message-Id: <199502221726.KAA21128@mistral.atd.ucar.edu>
+Subject: Re: Telford RF05 (R0878) :(
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Wed, 22 Feb 1995 10:26:14 -0700 (MST)
+In-Reply-To: <199502221641.JAA07931@chinook.atd.ucar.EDU> from "Ron Ruth" at Feb 22, 95 09:41:40 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 176
+Status: RO
+
+Ron:
+    I have made a second copy with 18530 records.
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Wed Feb 22 09:41:40 1995
+Subject: Telford RF05 (R0878) :(
+To: dick (Dick Friesen)
+Date: Wed, 22 Feb 1995 09:41:40 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 454       
+Status: RO
+
+Dick,
+
+The job to archive the remaining data from tape R0878 (RF05) failed again
+last night.  From the returned job log file, it looks like the tape has
+failed; it did not read any records or file marks.
+
+How about making another copy and checking it out for number of records,
+and, if we can, adding *two* EOFs at the end.
+
+I will ask that all the Telford tapes at ML be returned.  It may be well
+for us to analyze R0878 here upon its return.
+
+-- 
+Ron
+
+From dick@chinook.atd.ucar.EDU Tue Feb 28 12:40 MST 1995
+From: dick@chinook.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@chinook.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA05118; Tue, 28 Feb 1995 12:40:36 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA27197; Tue, 28 Feb 1995 12:40:35 -0700
+Message-Id: <199502281940.MAA27197@mistral.atd.ucar.edu>
+Subject: Re: Telford data packet
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 28 Feb 1995 12:40:34 -0700 (MST)
+In-Reply-To: <199502281933.MAA00526@music.atd.ucar.edu> from "Ron Ruth" at Feb 28, 95 12:33:15 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 421
+Status: RO
+
+Ron:
+     I threw this together in a hurry and it is kind of crude. The cover memo
+is on WP but it is not very good, especially for a general explanation. The
+header dump comes from a raw ADSII header dump. The other sections are in
+files on the system.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From rilling@stout.atd.ucar.edu Tue Feb 28 12:48 MST 1995
+Return-Path: <rilling@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA05187; Tue, 28 Feb 1995 12:48:45 -0700
+Received: from malt.atd.ucar.EDU by atd.atd.ucar.EDU (8.6.10/ NCAR Mail Server 04/10/90)
+	id MAA06038; Tue, 28 Feb 1995 12:48:42 -0700
+Received: by malt (4.1/ NCAR Mail Client 04/19/90)
+	id AA23029; Tue, 28 Feb 95 12:48:42 MST
+From: rilling@stout.atd.ucar.edu (Bob Rilling)
+Message-Id: <9502281948.AA23029@malt>
+Subject: Re: Telford tapes
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Tue, 28 Feb 1995 12:48:41 -0700 (MST)
+Cc: rilling@stout.atd.ucar.edu (Bob Rilling),
+        hurst@stout.atd.ucar.edu (Jean Hurst)
+In-Reply-To: <199502281931.MAA00518@music.atd.ucar.edu> from "Ron Ruth" at Feb 28, 95 12:31:27 pm
+X-Mailer: ELM [version 2.4 PL22]
+Content-Type: text
+Content-Length: 676
+Status: RO
+
+Ron,
+
+> Have you yet received all the Telford tapes Sue and I sent you last week?
+
+We have all the tapes, including the replacement for R0878.  Jean has
+finished copying about half of them, and will likely finish up the
+others today or tomorrow.
+
+> 
+> Along with the tape copies, there is an information packet I want include
+> with the shipment.  Do you want me to mail it to you or bring it with me
+> on Thursday?
+
+Your choice.  If there's no urgency on shipping of the data, it can
+wait until Thursday.
+
+-- 
+Bob Rilling				rilling@ncar.ucar.edu
+
+Atmospheric Technology Division
+NCAR 					Voice: 303-497-8842
+P.O.Box 3000				Fax:   303-497-2044
+Boulder, Co. 80307-3000	    
+
+From ron Tue Feb 28 12:31:27 1995
+Subject: Telford tapes
+To: rilling@stout (Bob Rilling)
+Date: Tue, 28 Feb 1995 12:31:27 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 400       
+Status: RO
+
+Bob,
+
+Have you yet received all the Telford tapes Sue and I sent you last week?
+
+Along with the tape copies, there is an information packet I want include
+with the shipment.  Do you want me to mail it to you or bring it with me
+on Thursday?
+ 
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Tue Feb 28 12:50:10 1995
+Subject: Re: Telford tapes
+To: rilling@stout.atd.ucar.edu (Bob Rilling)
+Date: Tue, 28 Feb 1995 12:50:10 -0700 (MST)
+In-Reply-To: <9502281948.AA23029@malt> from "Bob Rilling" at Feb 28, 95 12:48:41 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 269       
+Status: RO
+
+Bob,
+
+I think it can wait until Thursday.  I just want to be sure that the tapes
+don't get shipped without it.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Feb 24 10:28:23 1995
+Subject: ADS data copies for Telford
+To: dick (Dick Friesen)
+Date: Fri, 24 Feb 1995 10:28:23 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 404       
+Status: RO
+
+Dick,
+
+Because of Jean Hurst's wrist injury, Bob Rilling would like to use the ATD
+ExaByte stacker to copy the ADS tapes for Telford rather than exporting the
+Mass Store copies.  If you can give them back to me (sans R0878), I will
+send them to him.  He thought he could get started on Monday.
+
+I'll ask Sue Jensen to return the ML copy of R0878 directly to Bob Rilling,
+if that's OK with you.
+
+-- 
+Ron
+
+From ron Tue Feb 28 12:33:15 1995
+Subject: Telford data packet
+To: dick (Dick Friesen)
+Date: Tue, 28 Feb 1995 12:33:15 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 192       
+Status: RO
+
+Dick,
+
+The information you assembled for Jim Telford is just the kind of thing
+I want to include in our revised Bulletin 9.  Have you saved a copy of
+it in electronic form anywhere?
+
+-- 
+Ron
+
+From ron Tue Feb 28 12:43:34 1995
+Subject: Re: Telford data packet
+To: dick@chinook.atd.ucar.EDU (Dick Friesen)
+Date: Tue, 28 Feb 1995 12:43:34 -0700 (MST)
+In-Reply-To: <199502281940.MAA27197@mistral.atd.ucar.edu> from "Dick Friesen" at Feb 28, 95 12:40:34 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 308       
+Status: RO
+
+Dick,
+
+I assume that I would clean up anything going into the bulletin.  I just
+wanted to make sure that this information was conveniently available.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From julie@raf.atd.ucar.EDU Fri May 12 10:29 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA12488; Fri, 12 May 1995 10:29:35 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA01753; Fri, 12 May 1995 10:29:32 -0600
+Date: Fri, 12 May 1995 10:29:32 -0600
+Message-Id: <199505121629.KAA01753@giselle.atd.ucar.edu>
+To: ron
+Subject: telford aimr files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 280
+Status: RO
+
+Ron, there are 8 files from the Telford project on /home/local/data.
+My naming convention was slightly different than for the BASE files:
+
+aimr127-f1-1 = ferry flight 1, tape 1
+aimr127-r2-1 = research flight 2, tape 1
+
+These should be the last files. Thanks for your help.
+
+Julie
+
+From julie@raf.atd.ucar.EDU Fri May 12 11:06 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA12890; Fri, 12 May 1995 11:06:28 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01763; Fri, 12 May 1995 11:06:25 -0600
+Date: Fri, 12 May 1995 11:06:25 -0600
+Message-Id: <199505121706.LAA01763@giselle.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: telford aimr files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 646
+Status: RO
+
+
+> 
+> Julie,
+> 
+> So the files in /home/data are the only Telford files to archive, i.e.,
+> you won't be giving me any more?
+
+That's right.
+
+> 
+> P. S.  Mike is giving me a simple line of code that I can use to back
+>        up each KuDA disk partition to an ExaByte tape.  I assume that
+>        one is available for that machine.  Otherwise, we'll have to
+>        come up with another solution.  Can Gary help?  He's more of
+>        a system admin guru than I.
+> 
+
+I have a box of backup tapes for that machine if you want them, or
+we could use a new exabyte. Gary is at FL today, but I can ask him
+to do it next week if you'd rather.
+
+Julie
+
+From ron Fri May 12 10:37:00 1995
+Subject: Re: telford aimr files
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Fri, 12 May 1995 10:37:00 -0600 (MDT)
+In-Reply-To: <199505121629.KAA01753@giselle.atd.ucar.edu> from "Julie Haggerty" at May 12, 95 10:29:32 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 583       
+Status: RO
+
+Julie,
+
+So the files in /home/data are the only Telford files to archive, i.e.,
+you won't be giving me any more?
+
+P. S.  Mike is giving me a simple line of code that I can use to back
+       up each KuDA disk partition to an ExaByte tape.  I assume that
+       one is available for that machine.  Otherwise, we'll have to
+       come up with another solution.  Can Gary help?  He's more of
+       a system admin guru than I.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri May 12 16:18:02 1995
+Subject: Telford's AIMR data
+To: julie (Julie Haggerty)
+Date: Fri, 12 May 1995 16:18:02 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1424      
+Status: RO
+
+Julie,
+ 
+I have archived to the MSS all of Telford's aimr* files in the
+`/home/data' directory.
+ 
+/home/data directory list:
+-------------------------
+-rw-rw-r--   1 julie    science  63464448 Nov 21 13:42 /home/data/aimr127-f1-1
+-rw-rw-r--   1 julie    science  50138112 Feb  3 15:56 /home/data/aimr127-r10-1
+-rw-rw-r--   1 julie    science  36502528 Nov 21 12:52 /home/data/aimr127-r2-1
+-rw-rw-r--   1 julie    science  26081280 Nov 21 13:01 /home/data/aimr127-r2-2
+-rw-rw-r--   1 julie    science  29790208 Nov 21 13:10 /home/data/aimr127-r2-3
+-rw-rw-r--   1 julie    science  28892160 Nov 23 06:58 /home/data/aimr127-r3-1
+-rw-rw-r--   1 julie    science  32340992 Nov 22 15:14 /home/data/aimr127-r3-2
+-rw-rw-r--   1 julie    science  39971840 Dec  9 16:38 /home/data/aimr127-r8-1
+ 
+MSS:/RAF/1995/127/AIMR/TAPE as of 05/12/95 16:12:54:
+---------------------------------------------------
+05/12/95 -W-S  63464448 FF01
+05/12/95 -W-S  36502528 RF02A
+05/12/95 -WD-  26081280 RF02B
+05/12/95 -WD-  29790208 RF02C
+05/12/95 -WD-  28892160 RF03A
+05/12/95 -W-S  32340992 RF03B
+05/12/95 -W-S  39971840 RF08
+05/12/95 -W-S  50138112 RF10
+  Legend:  - -> no read password (anyone can read the bitfile)
+           W -> write protected (cannot change/delete file without password)
+           D -> file on disk farm (not in off-line cartridge library)
+           S -> file on Storage Tek Silo (not in off-line cartridge library)
+-- 
+Ron
+
+From dick@raf.atd.ucar.EDU Thu Jul  6 13:19 MDT 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA14779; Thu, 6 Jul 1995 13:19:18 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA10102; Thu, 6 Jul 1995 13:19:17 -0600
+Message-Id: <199507061919.NAA10102@mistral.atd.ucar.edu>
+Subject: names, units
+To: ron (Ron Ruth)
+Date: Thu, 6 Jul 1995 13:19:16 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 275
+Status: RO
+
+Ron:
+    I ran nimbus on 127RF01 and I got back a list of variables, all X,
+that didn't have descriptions or units. How do we go about getting these
+in?
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Thu Jul  6 13:52:49 1995
+Subject: Re: names, units
+To: dick@raf.atd.ucar.EDU (Dick Friesen)
+Date: Thu, 6 Jul 1995 13:52:50 -0600 (MDT)
+In-Reply-To: <199507061919.NAA10102@mistral.atd.ucar.edu> from "Dick Friesen" at Jul 6, 95 01:19:16 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 944       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron:
+>     I ran nimbus on 127RF01 and I got back a list of variables, all X,
+> that didn't have descriptions or units. How do we go about getting these
+> in?
+> 
+Dick,
+
+There are two ways.
+
+1)  In each project directory is the file VarDB.  One can use `vared VarDB' to
+     add these missing variables.  (`vared' is a window application that Chris
+     wrote for this purpose.)  This would be the way to add variables that are
+     related only to this project.
+
+2)  Give me the list:  variable name, units and extended description.  I will
+     add them to the master VarDB file.  After this is done, Chris can export
+     the file to your project directory.  This would be the way to add
+     variables that will be needed for multiple projects (e.g., XLATC).
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dick@raf.atd.ucar.EDU Thu Jul 13 10:05 MDT 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA05392; Thu, 13 Jul 1995 10:05:16 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA28821; Thu, 13 Jul 1995 10:05:14 -0600
+Message-Id: <199507131605.KAA28821@mistral.atd.ucar.edu>
+Subject: titles
+To: ron (Ron Ruth)
+Date: Thu, 13 Jul 1995 10:05:13 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 367
+Status: RO
+
+Ron:
+    As I recall you said that i should edit the VarDB in the proj/127 file
+for Telford if i want titles for some of the X variables. So, my question is
+how do I edit this file. when I try to use vi in the normal mode I get "line
+too long".
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Thu Jul 13 10:49:50 1995
+Subject: Re: titles
+To: dick@raf.atd.ucar.EDU (Dick Friesen)
+Date: Thu, 13 Jul 1995 10:49:50 -0600 (MDT)
+In-Reply-To: <199507131605.KAA28821@mistral.atd.ucar.edu> from "Dick Friesen" at Jul 13, 95 10:05:13 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2291      
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron:
+>     As I recall you said that i should edit the VarDB in the proj/127 file
+> for Telford if i want titles for some of the X variables. So, my question is
+> how do I edit this file. when I try to use vi in the normal mode I get "line
+> too long".
+> 
+Dick,
+
+   I know I didn't elaborate, but the topic is mentioned as section C)8) in
+my brief procedures.  As I look at that document, I should have made mention
+of this task before I instructed all the setup files to be created.  It should
+follow step C)5).  (Perhaps I should have provided more information there for
+running the program.)
+   Chris wrote `vared,' a special X-Windows program for that task, since the
+VarDB file is a binary data file.  Once you have your DISPLAY environment
+variable set and you are in the project directory containing the VarDB file:
+                    vared VarDB &
+will bring up a window with extant variables on the right side.  If you select
+a variable name without the X (e.g., "LATC") with a double click, you can edit
+the values in the the dialog boxes on the left side of the window, then click
+on the "Accept" button.  The new variable will be added to the list.  (You
+will now be able to see it in the list on the right side.)  You can add a
+totally new variable by just entering all the data for it in the dialog boxes
+and clicking the "Accept" button.  Be careful that no hidden characters exist
+in the "Name", "Title" and "Units" boxes.  For your application (production
+processing), you don't have to worry about filling in any of the other boxes
+(including "Category").
+   When you have added all the variables you want (using the "Accept" button
+after each one), click on the "File" and "Save" buttons in the upper left to
+keep all your changes, then exit the program.
+   I don't know how you delete a variable if you "Accept" a totally bogus name
+other than exiting the program without "Save"ing it and starting over.  You
+could do a "Save" after each correct entry to update the file; then if you
+accept a mistake, you can just exit and restart the program, and all your
+previous work will be saved.
+
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dick@raf.atd.ucar.EDU Mon Sep 25 11:02 MDT 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA01201; Mon, 25 Sep 1995 11:02:54 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA16651; Mon, 25 Sep 1995 11:02:51 -0600
+Message-Id: <199509251702.LAA16651@mistral.atd.ucar.edu>
+Subject: telford tape
+To: ron (Ron Ruth)
+Date: Mon, 25 Sep 1995 11:02:51 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 462
+Status: RO
+
+Ron:
+    I processed telford flight 10 from a tape image brought down from the
+Mesa and it was more than 2 hours short of the actual flight time, 6.2 hours.
+The flight tape number is R0884. I loaded it in at Jeffco and processed the
+whole flight. So it appears that either something was truncated in the xfer
+or in the original copy to MS.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Mon Sep 25 14:34:42 1995
+Subject: Re: telford tape
+To: dick@raf.atd.ucar.EDU (Dick Friesen)
+Date: Mon, 25 Sep 1995 14:34:42 -0600 (MDT)
+In-Reply-To: <199509251702.LAA16651@mistral.atd.ucar.edu> from "Dick Friesen" at Sep 25, 95 11:02:51 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 900       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron:
+>     I processed telford flight 10 from a tape image brought down from the
+> Mesa and it was more than 2 hours short of the actual flight time, 6.2 hours.
+> The flight tape number is R0884. I loaded it in at Jeffco and processed the
+> whole flight. So it appears that either something was truncated in the xfer
+> or in the original copy to MS.
+> 
+Dick,
+
+I looked at the log file for the B section of the staging, and the import
+job had a UNIT CHECK in record 23911.  The summary information at the end
+showed that two files had been read, so I assumed that all was OK.  It
+would be good to restage that tape, so if you still have it, I can put it
+in the queue.  At the moment I have 10 import jobs ahead of you.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Wed Sep  6 11:34:01 1995
+Subject: Variable names
+To: dick (Dick Friesen)
+Date: Wed, 6 Sep 1995 11:34:01 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 533       
+Status: RO
+
+Dick,
+
+I just found that you have both XKT and XKT1 in your data set, and neither of
+them are present in the Master VarDB file.  Hence, when you copy it over,
+these will now be undefined.  I hope there are no more.
+
+According to the data file I looked at:
+
+XKT:units = "C"
+XKT: long_name = "Heimann Radiometer"
+
+XKT1:units = "C"
+XKT1:long_name = "Heimann Radiometer"
+
+The long_name doesn't define whether it is looking up or down.  Should that
+be added?  If you want, I can add these to the master list before you copy it.
+
+-- 
+Ron
+
+From dick Wed Sep  6 14:45 MDT 1995
+From: dick (Dick Friesen)
+Return-Path: <dick>
+Message-Id: <199509062045.OAA20785@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA20785; Wed, 6 Sep 1995 14:45:34 -0600
+Subject: Re: Variable names
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Wed, 6 Sep 1995 14:45:33 -0600 (MDT)
+In-Reply-To: <199509061734.LAA23631@mistral.atd.ucar.edu> from "Ron Ruth" at Sep 6, 95 11:34:01 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 227
+Status: RO
+
+Ron:
+    Actually both of the Heinmann's were looking down.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From ron Thu Sep  7 10:37:48 1995
+Subject: Re: Variable names
+To: dick@mistral.atd.ucar.edu (Dick Friesen)
+Date: Thu, 7 Sep 1995 10:37:48 -0600 (MDT)
+In-Reply-To: <199509062045.OAA20785@raf.atd.ucar.EDU> from "Dick Friesen" at Sep 6, 95 02:45:33 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 273       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron:
+>     Actually both of the Heinmann's were looking down.
+> 
+Dick,
+
+Do you want me to add these to the master variable list?  If so, what should
+I use as descriptions?
+
+Possibility:
+
+XKT  Radiometric Surface Temperature (Heimann)  (C)
+
+-- 
+Ron
+
+From dick@raf.atd.ucar.EDU Thu Sep  7 11:10 MDT 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA28017; Thu, 7 Sep 1995 11:10:06 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA27968; Thu, 7 Sep 1995 11:10:03 -0600
+Message-Id: <199509071710.LAA27968@mistral.atd.ucar.edu>
+Subject: Re: Variable names
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Thu, 7 Sep 1995 11:10:03 -0600 (MDT)
+In-Reply-To: <199509071637.KAA27635@mistral.atd.ucar.edu> from "Ron Ruth" at Sep 7, 95 10:37:48 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 233
+Status: RO
+
+Ron:
+     Yes please add them. Do we use the smae title for both?
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From ron Thu Sep  7 13:41:39 1995
+Subject: Re: Variable names
+To: dick@raf.atd.ucar.EDU (Dick Friesen)
+Date: Thu, 7 Sep 1995 13:41:39 -0600 (MDT)
+In-Reply-To: <199509071710.LAA27968@mistral.atd.ucar.edu> from "Dick Friesen" at Sep 7, 95 11:10:03 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 434       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron:
+>      Yes please add them. Do we use the same title for both?
+> 
+Dick,
+
+I guess we should somehow identify that they are separate.  Was there any
+difference between them (like bandwidth or beamwidth)?  It would be nice
+to uniquely identify them.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dick Thu Sep  7 16:33 MDT 1995
+From: dick (Dick Friesen)
+Return-Path: <dick>
+Message-Id: <199509072233.QAA02937@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA02937; Thu, 7 Sep 1995 16:33:07 -0600
+Subject: Re: Variable names
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Thu, 7 Sep 1995 16:33:07 -0600 (MDT)
+In-Reply-To: <199509071941.NAA28786@mistral.atd.ucar.edu> from "Ron Ruth" at Sep 7, 95 01:41:39 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 363
+Status: RO
+
+Ron:
+    There was no difference, other than one was in front of the other. I think
+that we flew the two because we thought one might be noisy. I do not know if
+this is a permanent configuration.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From dick@raf.atd.ucar.EDU Mon Oct 23 17:01 MDT 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id RAA08669; Mon, 23 Oct 1995 17:01:38 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id RAA06174; Mon, 23 Oct 1995 17:01:37 -0600
+Message-Id: <199510232301.RAA06174@mistral.atd.ucar.edu>
+Subject: Re: Dates for 127 fixed
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Mon, 23 Oct 1995 17:01:36 -0600 (MDT)
+In-Reply-To: <199510232225.QAA06038@mistral.atd.ucar.edu> from "Ron Ruth" at Oct 23, 95 04:25:53 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 471
+Status: RO
+
+Ron:
+    Thanks for taking care of the tape correction. We should put the source
+somewhere with general utilities, it will probably come in handy again.
+ we probably need a program that lets us edit all aspects of the header such
+as project number, times, dates, cals, etc. Mayabe this is too ambitious.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From ron Mon Oct 23 09:43:20 1995
+Subject: Fixing dates for 127
+To: dick (Dick Friesen)
+Date: Mon, 23 Oct 1995 09:43:20 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 557       
+Status: RO
+
+Dick,
+
+Chris' program has been used both for BASE and SCMS to fix dates.  The present
+executable is located in `/home/local/162.'  The source code can be found in
+the directory `/home/local/dev/nimbus/src/wrk.'
+
+He told me that to run it, you just enter the netCDF file name on the command
+line:
+   ncfixhdr 127RF01.cdf
+
+It then asks for a new flight date to which you answer using the example
+format given on the query line (i.e., using a 4-digit year).
+
+The program then rewrites the file with the correct date.  He also said it was
+not speedy.
+
+-- 
+Ron
+
+From ron Mon Oct 23 16:25:53 1995
+Subject: Dates for 127 fixed
+To: dick (Dick Friesen)
+Date: Mon, 23 Oct 1995 16:25:53 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 415       
+Status: RO
+
+Dick,
+
+I have fixed all the dates for Telford's flights.  I also created a
+`taplog.127' file and put it in the `/home/local/proj/127/Production'
+directory.
+
+I am now working on the script that creates the netCDF data archive script.
+Since I wrote it, Chris and I decided to change the netCDF output file naming
+convention to use lower-case letters instead of upper-case.  The script needs
+to follow suit.
+
+-- 
+Ron
+
+From ron Mon Oct 23 17:08:44 1995
+Subject: Re: Dates for 127 fixed
+To: dick@raf.atd.ucar.EDU (Dick Friesen)
+Date: Mon, 23 Oct 1995 17:08:44 -0600 (MDT)
+In-Reply-To: <199510232301.RAA06174@mistral.atd.ucar.edu> from "Dick Friesen" at Oct 23, 95 05:01:36 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1103      
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron:
+>     Thanks for taking care of the tape correction. We should put the source
+> somewhere with general utilities, it will probably come in handy again.
+
+Dick,
+
+I agree.  The source code is actually in that kind of directory.  The
+executable, however, was just put in project 162's for some reason.
+
+>  we probably need a program that lets us edit all aspects of the header such
+> as project number, times, dates, cals, etc. Mayabe this is too ambitious.
+
+I agree also--with some exceptions; things like the time period and calibration
+coefficients come right from the data, so I'm not sure I want to mess with
+those.  It would be better to rerun in those cases.  (We could edit the base
+time if the clock were set wrongly.)  Other netCDF header entries, like our
+phone number should be alterable if they need changing.  (In fact, that kind
+of information belongs in a reference file that NIMBUS reads when it runs.)
+
+-- 
+Ron      :   RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dick@raf.atd.ucar.EDU Fri Oct 27 08:48 MDT 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA06437; Fri, 27 Oct 1995 08:48:14 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA22405; Fri, 27 Oct 1995 08:48:13 -0600
+Message-Id: <199510271448.IAA22405@mistral.atd.ucar.edu>
+Subject: 127 co-PI
+To: ron (Ron Ruth)
+Date: Fri, 27 Oct 1995 08:48:13 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 211
+Status: RO
+
+Ron:
+    JIm Hudson, a co-PI on the Telford project, would also like a copy of the
+data.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From dick@raf.atd.ucar.EDU Fri Oct 27 08:51 MDT 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA06533; Fri, 27 Oct 1995 08:51:32 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA22413; Fri, 27 Oct 1995 08:51:30 -0600
+Message-Id: <199510271451.IAA22413@mistral.atd.ucar.edu>
+Subject: Hudson
+To: ron (Ron Ruth)
+Date: Fri, 27 Oct 1995 08:51:30 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 249
+Status: RO
+
+Ron:
+    I forgot to mention that Jim Hudson is at DRI in Reno. I am sure that his
+address is in one of the secretary's files.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Tue Oct 24 17:26:19 1995
+Subject: Project 127 archive
+To: dick (Dick Friesen)
+Date: Tue, 24 Oct 1995 17:26:19 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 642       
+Status: RO
+
+Dick,
+
+In the `.../127/Production' directory is a file called `mcr.'  Apparently it
+was an email message which you saved in this directory.  Does it belong here,
+and should it be owned by `nimbus' and have world read permission? If so,
+please execute the commands below, and I'll take care of it from there.  If
+not, I will not archive this file.
+
+(These commands give permissions for group write and world read.)
+     chmod g+w mcr
+     chmod a+r mcr
+
+Is your file `project_data.notes' finished and ready to archive?  I'm now
+preparing everything for the Mass Store.
+
+Thanks.
+
+P.S.  I archived the LRT netCDF files this afternoon.
+
+-- 
+Ron
+
+From ron Thu Oct 26 13:41:23 1995
+Subject: 127 Telford data shipped
+To: dick (Dick Friesen)
+Date: Thu, 26 Oct 1995 13:41:23 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 532       
+Status: RO
+
+Dick,
+
+RDP (Jean Hurst) has copied the netCDF files from the Mass Store onto a tar
+file and wrote it to a high-density ExaByte tape.  The tape is now on its way
+to Jim Telford.  (It includes a tape label and a cassette insert describing
+the tape's contents.)
+
+If Jim has never dealt with netCDF files before, we should send (or email)
+him netCDF information (which we normally include in the Project Summary
+binder).  I have two files in `~ron/nimbus,' one of which would probably
+suffice (`netCDF.txt' or `netCDF.txt2').
+
+-- 
+Ron
+
+From ron Fri Oct 27 10:45:24 1995
+Subject: Re: 127 co-PI
+To: dick@raf.atd.ucar.EDU (Dick Friesen)
+Date: Fri, 27 Oct 1995 10:45:24 -0600 (MDT)
+In-Reply-To: <199510271448.IAA22405@mistral.atd.ucar.edu> from "Dick Friesen" at Oct 27, 95 08:48:13 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 483       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron:
+>     JIm Hudson, a co-PI on the Telford project, would also like a copy of the
+> data.
+> 
+Dick,
+
+I just sent RDP a request to make another tape identical to what we sent to
+Jim Telford (high-density ExaByte with one tar file of all the netCDF files).
+I'll have Jean send it to the same address.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From dick@raf.atd.ucar.EDU Fri Nov  3 09:53 MST 1995
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA16293; Fri, 3 Nov 1995 09:53:06 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA22290; Fri, 3 Nov 1995 09:53:04 -0700
+Message-Id: <199511031653.JAA22290@mistral.atd.ucar.edu>
+Subject: Telford, 127
+To: ron (Ron Ruth)
+Date: Fri, 3 Nov 1995 09:53:04 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 1214
+Status: RO
+
+Ron:
+   I am sending you a list of the things that need to be included in the 
+Telford project notebook. I will meet with you and Mary Ann before I leave
+to go over the list.
+   Item number 4 is in the jproj/127/Production directory under project_data.
+notes.
+   I dont know how to get it to Mary Ann because I don't think she is on email
+yet. So please get it to her even if you have to print it out and have her
+re-type it.
+
+              Outline for Telford Project Documentation Notebook
+
+( Notebook from Swiss Oxidant Study, 3-321, used as an example)
+
+
+1. Cover letter - Use example format from Boreas or SOS.
+
+2. Tape log  -  Ron Ruth
+
+3. Flight reports
+
+4. Data Quality report - file in 127 production directory - project_data.notes
+
+5. RAF Bulletins - #23, #24, #25, appendix "D" from bulletin #9 (Ron Ruth)
+
+6. RAF instrumentation list 
+
+7. AIMR, MCR, CN counter write-ups
+
+8. List of parameters - includes abbreviations, titles, units (Ron Ruth)
+
+9. Tape format - ncduump of header on production flight
+
+10. Maneuver summary
+
+11. netcdf instructions (Ron Ruth)
+
+12. project slides
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+X1047  X1092 (fax) 
+email: dick@chinook.atd.ucar.edu   
+
+
+
+From ron Fri Nov  3 15:10:40 1995
+Subject: Tape log, part 1
+To: omeara (Mary Ann O'Meara)
+Date: Fri, 3 Nov 1995 15:10:41 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1776      
+Status: RO
+
+Mary Ann,
+
+Here is one of two tape logs I'll be sending you.  This one is for the source
+(ADS) data.  (The next line is just the message separator I use.  There's
+another one at the bottom.)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+5-127 Marine Stratus Cloud Top (Telford) Raw ADS Tape Summary       RLR  950201
+                                                                    rev. 951103
+ 
+       MSS path name: /RAF/1995/127/fltno/tape#
+ 
+                Date        Start     End       #    File Size
+tape#  fltno  mm/dd/yyyy    Time      Time     Recs   (Mbytes)   Comments
+-----  -----  ----------  --------  --------  -----  ----------  --------------
+R0874  RF01   11/18/1994  17:46:27  20:24:43   9548  203.159412  
+R0875  RF02   11/21/1994  12:57:30  17:39:41  19292  427.694940  (2 MSS files)
+R0876  RF03   11/22/1994  12:44:10  13:21:06
+                          13:22:37  13:36:49
+                          13:36:55  18:13:09  22456  498.270228  (2 MSS files)
+R0877  RF04   11/23/1994  13:53:10  16:06:50   8018  170.462412
+R0878  RF05   11/28/1994  13:36:22  13:41:55
+                          13:43:12  18:46:14  18531  318.729048  (2 MSS files)
+R0879  RF06   11/30/1994  13:44:35  18:32:37  18544  403.490004  (2 MSS files)
+R0880  RF07   12/08/1994  14:03:18  00:00:20  36394  777.621804  (3 MSS files)
+R0882  RF08   12/09/1994  15:37:44  15:47:14
+                          15:52:04  22:35:11  24827  527.959440  (2 MSS files)
+R0883  RF09   12/10/1994  13:44:12  20:02:06  25708  569.135652  (2 MSS files)
+R0884  RF10   12/14/1994  14:02:31  14:13:34
+                          14:13:40  20:13:20  23911  520.573488  (2 MSS files)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Fri Nov  3 15:14:00 1995
+Subject: Tape log, part 2
+To: omeara (Mary Ann O'Meara)
+Date: Fri, 3 Nov 1995 15:14:00 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1726      
+Status: RO
+
+Mary Ann,
+
+Here is the second part of the tape log.  This describes the output data.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                    PRODUCTION MASS STORE BITFILE LOG
+
+     Project no.:  1995-127    Project name:  Marine Stratus Cloud Tops
+        Aircraft:  N130AR      Scientist(s):  Dr. James W. Telford
+       Data type:  LRT        Programmer(s):  Chris Webster
+  Processor used:  NIMBUS    Project Mgr(s):  Dick Friesen
+   Output format:  netCDF  Production Proc.:  Dick Friesen
+
+          MSS path name:  /RAF/1995/127/LRT/fltno.cdf
+
+-------------------------------------------------------------------------------
+                                          netCDF     ADS
+          Date        Start     End      File Size   Source
+ fltno  mm/dd/yyyy    Time      Time      (bytes)    Tape
+-------------------------------------------------------------------------------
+ RF01   11/18/1994  17:46:27  20:24:43     7405316   R0874
+ RF02   11/21/1994  12:57:30  16:26:23
+                    16:28:22  17:39:41    13083328   R0875
+ RF03   11/22/1994  13:33:00  18:13:09    13080280   R0876
+ RF04   11/23/1994  13:53:40  16:06:50     6236660   R0877
+ RF05   11/28/1994  13:43:12  18:46:14    14145652   R0878
+ RF06   11/30/1994  13:44:35  18:32:37    13447252   R0879
+ RF07   12/08/1994  14:03:18  00:00:20    27834292   R0880
+ RF08   12/09/1994  15:52:04  22:35:11    18805608   R0882
+ RF09   12/10/1994  13:44:12  20:02:06    17631444   R0883
+ RF10   12/14/1994  14:13:41  20:13:20    16781724   R0884
+-------------------------------------------------------------------------------
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Fri Nov  3 15:23:13 1995
+Subject: 127 Data Quality Report
+To: omeara (Mary Ann O'Meara)
+Date: Fri, 3 Nov 1995 15:23:13 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 8106      
+Status: RO
+
+Mary Ann,
+
+I think Dick is finished with this and ready to give it to you.  It is his
+data quality report.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                    Project #127, Marine Stratus Cloud Tops
+                    Principal Investigator Jim Telford, DRI
+                     NCAR/RAF C-130, 11/16/94 - 12/15/94
+
+
+                                  Overview
+                                  --------
+    The NCAR C-130 flew 10 flights in support of the Marine Stratus Cloud Tops 
+project.  The project was flown from the San Jose Jet Center located at the 
+San Jose International Airport.  This was selected over the preferred base of
+operations, Monterey, because of a curfew limitation at the airport.
+    User instrumentation installed was the Hallet Cloud Camera and VCR record-
+ing (DRI), and Jim Hudson's CN counters.  Other cloud physics probes were a
+2D-C and 2D-P, FSSP-100, PCASP, and a PMS liquid water probe.  The RAF CN 
+counter was on and the Hudson and RAF probes shared a 1/4" 90 degree inlet
+on top of the fuselage in front of the wing.  The AIMR was operated on some
+of the flights, but it had to be shut down when the aircraft descended to low
+levels due to overheating.
+
+
+                    Multi-Channel Cloud Radiometer (MCR)
+                    ------------------------------------
+    The multichannel cloud radiometer (MCR) was deployed with four of the
+seven channels operational.  Channels 4 and 5 (corresponding to wavelengths
+of 1.14 and 1.63 um, respectively) were rendered dysfunctional by a leak in
+the liquid nitrogen dewar housing the channel filters and were disconnected
+prior to the deployment of the C-130.  Data were obtained from channel 7
+(10.76 um) throughout the project, but due to frequent saturation of this
+channel's signal, these data are considered to be of limited utility.
+Channels 1-3 (0.754, 0.761, and 0.763 um, respectively) and channel 6
+(2.16 um) were fully operational throughout the project.
+    It should be noted, however, that the MCR was not calibrated prior to or
+following the project due to the unavailability of the necessary equipment.
+Thus, only the raw voltage data for each of the four channels discussed above
+are available.  These raw voltage data will be processed and made available
+only on an "as requested" basis for user-specified flights and time periods.
+
+
+               Airborne Imaging Microwave Radiometer (AIMR)
+               --------------------------------------------
+    The AIMR was operated on an experimental basis during selected flights
+of this project.  Data are available from research flights 1, 2, 3, 8 and 10.
+Because of an overheating problem due to poor ventilation of the hardware,
+the AIMR could not be operated at low altitudes in this climate.  Thus, the
+available data are from the ferry portions of the research flights when the
+aircraft was at high altitude.
+    Microwave radiometric images are useful for measuring properties of
+clouds, such as liquid water path and precipitation rates, as well as sea
+surface properties such as roughness, which can be related to surface wind
+speed.  RAF does not presently implement algorithms for deriving such
+quantities.  Raw brightness temperature images from the AIMR's 4 channels are
+available for conversion to these quantities using appropriate algorithms.
+    Examples of AIMR brightness-temperature images are included in figures
+A-D.  Polarized components at each frequency are available, but averages of
+the components are shown in these images for simplicity.  In each image, the
+flight track is along the vertical axis of the page going from bottom to top.
+The sensor is scanning perpendicular to the flight track.  The width of the
+images is approximately 20 km; the length is 40 km; and the pixel size is
+300 meters at 37 GHz and 100meters at 90 GHz.
+
+
+                            General Instrumentation
+                            -----------------------
+    The following comments apply to all flights.
+    The ambient temperature from the Rosemount temperature sensor (ATRR) can
+be seen to have large RFI noise spikes from the aircraft radios.  ATRL was
+used as the primary temperature sensor.
+    The radar altimeter, HGM, was not working properly, and the signal appears
+to only be valid for about 300 meters above the surface.  It should be 
+disregarded at other times.
+    The Lyman-Alpha hygrometer shows the effects of wetting on passes through
+cloud.  The readings of VLA, MRLA, RHOLA should not be considered reliable in
+cloud.  The Lyman-alpha source tube begins to degrade during flight #9, and the
+signal becomes noisy on flights 9 and 10.
+    The liquid water measurement from the PMS hot-wire probe compares fairly
+well to the liquid water calculated from the FSSP probe.  However, there is
+an offset in the baseline due to an airspeed dependency.  The upper limit of
+the hot-wire probe rolls off at drop sizes larger than about 50 um, so it will
+tend to show a slightly higher water content than the FSSP after the baseline
+is adjusted.
+    Counts and concentrations from the NCAR CN counter have been "despiked"
+due to noise in the counter.  The despike process looks at point-to-point
+differences and removes a single point if the difference is out of tolerance.
+The removed point is then filled in by linear interpolation.  The tolerance
+for the CN counter was set at 2500 counts.  There is still some noise at the
+beginning of the flight during the warm-up period.  Some spikes and
+irregularities in the data may be due to Jim Hudson working on his system
+during the flight and occassionally removing the inlet tube.
+    The two downlooking Heimann radiometers are in good agreement when the
+target temperature is less than zero degrees Centigrade but differ at warmer
+target temperatures.  At a target temperature of about 15C, the the readings
+differ by 1.5 degrees.  This discrepancy did not show up in the pre- or post-
+project calibrations.  In cloud the the instrument is very close to the 
+ambient temperature and may be a better indicator than the Rosemount probes
+which tend to wet.
+
+
+                Flight-Specific Instrumentation Problems
+                ----------------------------------------
+Flight 1.: 11/18/94, 2.6 hours.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           FSSP probe counts look too low.  Probe needs calibration and
+             adjustment.
+           Air motion maneuvers performed on this flight.
+
+Flight 2.: 11/21/94, 4.8 hours.
+           DPT used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           FSSP probe counts look too low.  Probe needs calibration and
+             adjustment.
+
+Flight 3.: 11/22/94, 4.6 hours.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           FSSP calibrated and aligned.  Data look good.
+
+Flight 4.: 11/23/94, 2.1 hours.
+           Clear air flight.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 5.: 11/28/94, 5.0 hours.
+           FSSP alignment checked before flight:  OK.
+           DPT used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 6.: 11/30/94, 4.7 hours.
+           Air motion maneuvers performed on this flight.
+           DPT used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 7.: 12/08/94, 10.0 hours.
+           FSSP alignment checked before flight:  OK.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           First flight with Hudson CN working.
+           MCR dewars out of coolant after 5 hours:  turned off.
+           Second tape on forward video not turned on.
+           Long in-cloud runs.  DPs getting wet.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Mon Nov  6 10:55:44 1995
+Subject: Parameter list for 5-127 Telford
+To: omeara (Mary Ann O'Meara)
+Date: Mon, 6 Nov 1995 10:55:44 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 6219      
+Status: RO
+
+Mary Ann,
+
+Following is item 9 from Dick's documentation list.  There are <tab>
+ separators between name, units and description which may help you line
+ up the columns once you import this file to your word processor.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+	Variable list for Project 1995-127 Marine Stratus Cloud Tops (Telford)
+
+Name	Units	Description
+----	-----	------------------------------------------------
+base_time	none	Seconds since Jan 1, 1970.
+time_offset	none	Seconds since base_time.
+ADIFR	mbar	Vertical Differential Pressure, Radome
+BDIFR	mbar	Horizontal Differential Pressure, Radome
+CNTS	cnts	TSI CN Counter Output
+DPB	C	Dew/Frost Point Temperature, Fuselage Bottom
+DPT	C	Dew/Frost Point Temperature, Fuselage Top
+DTB	C	Pyrgeometer Dome Temperature, Bottom
+DTT	C	Pyrgeometer Dome Temperature, Top
+FCN	slpm	Raw CN Counter Sample Flow Rate
+IRB	W/M2	Raw Infrared Irradiance, Bottom
+IRT	W/M2	Raw Infrared Irradiance, Top
+PCN	mbar	CN Counter Inlet Pressure
+PLWC	W	Raw PMS-King Liquid Water Content Output
+PSF	mbar	Raw Static Pressure, Fuselage
+QCF	mbar	Raw Dynamic Pressure, Fuselage
+QCR	mbar	Raw Dynamic Pressure, Radome
+STB	C	Pyrgeometer Sink Temperature, Bottom
+STT	C	Pyrgeometer Sink Temperature, Top
+SWB	W/M2	Shortwave Irradiance, Bottom
+SWT	W/M2	Shortwave Irradiance, Top
+TEMP1	C	CN Counter Inlet Temperature
+TTRL	C	Total Temperature, Radome Left
+TTRR	C	Total Temperature, Radome Right
+TTWH	C	Total Temperature, Deiced Wing
+UVB	W/M2	Ultraviolet Irradiance, Bottom
+UVT	W/M2	Ultraviolet Irradiance, Top
+VLA	Vdc	Raw Lyman-alpha Hygrometer Output
+XKT	C	Radiometric Surface Temperature (Heimann #2)
+XKT1	C	Radiometric Surface Temperature (Heimann #1)
+ACINS	M/s2	Aircraft Vertical Acceleration
+AFSSP_OBL	cnts	FSSP-100 Raw Accumulation (per cell)
+APCAS_IBL	cnts	PCAS Particle Spacing
+FACT_OBL	none	FSSP-100 Activity Fraction
+FANV_OBL	Vdc	FSSP-100 Annulus Baseline Voltage
+FREF_OBL	none	FSSP-100 Laser Reference Voltage
+FRNG_OBL	none	FSSP-100 Size Range Category
+FRST_OBL	cnts	FSSP-100 Fast Resets
+FSIG_OBL	Vdc	FSSP-100 Signal Voltage
+FSTB_OBL	cnts	FSSP-100 Strobes
+FSTT_OBL	cnts	FSSP-100 Signal Transit Time
+FTMP_OBL	none	FSSP-100 Housekeeping Data
+GALT	M	GPS Altitude
+GLAT	deg	GPS Latitude
+GLON	deg	GPS Longitude
+GMODE	none	GPS Mode
+GSF	M/s	Inertial Ground Speed
+GSTAT	none	GPS Status
+GVEW	M/s	GPS Ground Speed Vector, East Component
+GVNS	M/s	GPS Ground Speed Vector, North Component
+GVZI	M/s	GPS-Computed Aircraft Vertical Velocity
+HGM	M	Geometric (Radio) Altitude
+HOUR	hours	Raw Tape Time Component
+LAT	deg	Inertial Latitude
+LON	deg	Inertial Longitude
+MINUTE	minutes	Raw Tape Time Component
+PACT_IBL	cnts	PCAS Raw Activity
+PBRS_IBL	none	PCAS Beam Diffraction Ratio
+PITCH	deg	Aircraft Pitch Angle
+PREF_IBL	Vdc	PCAS Laser Reference Voltage
+PSFD	mbar	Raw Static Pressure, Fuselage Digital
+PSTT_IBL	cnts	PCAS Signal Transit Time
+PTMP_IBL	Vdc	PCAS Detector Temperature
+ROLL	deg	Aircraft Roll Angle
+SECOND	seconds	Raw Tape Time Component
+THDG	deg	Aircraft True Heading Angle
+VEW	M/s	Inertial Ground Speed Vector, East Component
+VNS	M/s	Inertial Ground Speed Vector, North Component
+VSPD	M/s	IRS-Computed Aircraft Vertical Velocity
+AKRD	deg	Attack Angle, Radome Diff. Pressure
+ATRL	C	Ambient Temperature, Radome Left
+ATRR	C	Ambient Temperature, Radome Right
+ATWH	C	Ambient Temperature, Deiced Wing
+ATX	C	Ambient Temperature, Reference
+CFSSP_OBL	N/cm3	FSSP-100 Corrected Concentration (per cell)
+CONCF_OBL	N/cm3	FSSP-100 Concentration (all cells)
+CONCN	N/cm3	Condensation Nuclei (CN) Concentration
+CONCP_IBL	N/cm3	PCASP Concentration (all cells)
+CPCAS_IBL	N/cm3	PCAS Corrected Concentration (all cells)
+DBARF_OBL	uM	FSSP-100 Mean Particle Diameter
+DBARP_IBL	uM	PCASP Mean Particle Diameter
+DISPF_OBL	none	FSSP-100 Dispersion (sigma/dbarx)
+DISPP_IBL	none	PCAS Dispersion (sigma/dbarx)
+DPBC	C	Dew Point Temperature, T-Electric Bottom
+DPTC	C	Dew Point Temperature, T-Electric Top
+DPXC	C	Dew Point Temperature, Reference
+EDPC	mbar	Ambient Water Vapor Pressure, Reference
+FBMFR_OBL	none	FSSP-100 Beam Fraction
+FCNC	vlpm	Corrected CN Counter Sample Flow Rate
+IRBC	W/M2	Corrected Infrared Irradiance, Bottom
+IRTC	W/M2	Corrected Infrared Irradiance, Top
+MR	g/kg	Mixing Ratio, T-Electric
+MRLA	g/kg	Mixing Ratio, Lyman-alpha
+PALT	M	NACA Pressure Altitude
+PLWCC	g/M3	Corrected PMS-King Liquid Water Content
+PLWCF_OBL	g/M3	FSSP-100 Water/Ice Content
+PSFC	mbar	Corrected Static Pressure, Fuselage
+PSFDC	mbar	Corrected Static Pressure, Fuselage Digital
+PSX	mbar	Raw Static Pressure, Reference
+PSXC	mbar	Corrected Static Pressure, Reference
+QCFC	mbar	Corrected Dynamic Pressure, Fuselage
+QCRC	mbar	Corrected Dynamic Pressure, Radome
+QCX	mbar	Raw Dynamic Pressure, Reference
+QCXC	mbar	Corrected Dynamic Pressure, Reference
+RHODT	g/M3	Absolute Humidity, T-Electric Top
+RHOLA	g/M3	Absolute Humidity, Lyman-alpha
+RHUM	%	Relative Humidity
+SSRD	deg	Sideslip Angle, Radome Diff. Pressure
+TASF	M/s	Aircraft True Airspeed, Fuselage
+TASHC	M/s	Aircraft True Airspeed, Humidity Corrected
+TASR	M/s	Aircraft True Airspeed, Radome
+TASX	M/s	Aircraft True Airspeed, Reference
+THETA	K	Potential Temperature
+THETAE	K	Equivalent Potential Temperature
+THETAV	K	Virtual Potential Temperature
+TTX	C	Total Temperature, Reference
+UI	M/s	Wind Vector, East Component
+UX	M/s	Wind Vector, Longitudinal Component
+VI	M/s	Wind Vector, North Component
+VY	M/s	Wind Vector, Lateral Component
+WD	deg	Horizontal Wind Direction
+WI	M/s	Wind Vector, Vertical Gust Component
+WP3	M/s	Damped Aircraft Vertical Velocity
+WS	M/s	Horizontal Wind Speed
+XLATC	deg	GPS-Corrected Inertial Latitude
+XLONC	deg	GPS-Corrected Inertial Longitude
+XUIC	M/s	GPS-Corrected Wind Vector, East Component
+XUXC	M/s	GPS-Corrected Wind Vector, Longitudinal Component
+XVEWC	M/s	GPS-Corrected Inertial Ground Speed Vector, East Component
+XVIC	M/s	GPS-Corrected Wind Vector, North Component
+XVNSC	M/s	GPS-Corrected Inertial Ground Speed Vector, North Component
+XVYC	M/s	GPS-Corrected Wind Vector, Lateral Component
+XWDC	deg	GPS-Corrected Horizontal Wind Direction
+XWIC	M/s	GPS-Corrected Wind Vector, Vertical Gust Component
+XWSC	M/s	GPS-Corrected Horizontal Wind Speed
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Mon Nov  6 15:22:17 1995
+Subject: netCDF instructions
+To: omeara (Mary Ann O'Meara)
+Date: Mon, 6 Nov 1995 15:22:18 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 645       
+Status: RO
+
+Mary Ann,
+
+I have a version of item #11 on Dick Friesen's list for the 127 Project
+Summary binder (netCDF information).  It is a file in WordPerfect 6.0 or 6.1
+format on your PC's G: drive.  (I created it from our UNIX version of WP.)
+I'm not familiar with how the G: disk drive is mounted to a PC.  For a UNIX
+workstation it is /home/local/pcnfs/wp/ron/b9/netCDF.wp6.  For you, it
+probably is G:/wp/ron/b9/netCDF.wp6
+
+I am presently working on item #5 (Appendix D from Bulletin 9).  I hope to
+have it ready sometime tomorrow.  It will also be in WP6 format and be
+located in the same subdirectory.  I'll let you know when it's ready.
+
+-- 
+Ron
+
+From ron Tue Nov  7 09:07:05 1995
+Subject: 127 Tape Format (item #9)
+To: omeara (Mary Ann O'Meara)
+Date: Tue, 7 Nov 1995 09:07:05 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 315       
+Status: RO
+
+Mary Ann,
+
+I have the `ncdump' of a production flight header which Dick
+wanted included in the summary.  It is in a file on our system
+(/home/local/proj/127/Production/127rf01.hdr).  If you need
+a printed copy, let me know.  I think it would be better to
+print a copy than send the file to you via email.
+
+-- 
+Ron
+
+From dick Mon Nov 13 16:46 MST 1995
+From: dick (Dick Friesen)
+Return-Path: <dick>
+Message-Id: <199511132346.QAA20938@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA20938; Mon, 13 Nov 1995 16:46:21 -0700
+Subject: Re: 127 QC report
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Mon, 13 Nov 1995 16:46:20 -0700 (MST)
+In-Reply-To: <199511132255.PAA11940@mistral.atd.ucar.edu> from "Ron Ruth" at Nov 13, 95 03:55:57 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 331
+Status: RO
+
+Ron:
+    I am know that I reviewed all flights and I think I made entries for 
+all flights. If you can not find this info go ahead without and I will amend 
+later.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From ron Mon Nov 13 15:55:56 1995
+Subject: 127 QC report
+To: dick (Dick Friesen)
+Date: Mon, 13 Nov 1995 15:55:56 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 294       
+Status: RO
+
+Dick,
+
+As I was perusing the Summary Notebook for Telford, I noticed that the per
+flight entries stopped with RF07.  Did we somehow truncate the file, or
+did you not get to review flights 8-10?
+
+The rest is coming along nicely.  We should be finished with it in the next
+couple days.
+
+-- 
+Ron
+
+From ron Fri May 16 15:51:34 1997
+Subject: Re: mass store file list
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Fri, 16 May 1997 15:51:34 -0600 (MDT)
+In-Reply-To: <199705162111.PAA06505@mistral.atd.ucar.edu> from "Julie Haggerty" at May 16, 97 03:11:54 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1394      
+Status: RO
+
+Thou spake thusly:
+> 
+> Hi Ron,
+> 
+> Can you tell me how to get a listing of AIMR files for project #127?
+> I'm having trouble find one that I want, that I think should be there,
+> so it would help if I could see what's really there.
+> 
+Julie,
+
+On the RAF computer system is the following directory:
+    /home/local/proj/archives/msfiles
+
+In this directory are files of the form `msls.XXX,' where XXX is a project
+number (e.g., msls.127).  Each file was generated by submitting a MIGS
+request to list all the files in a project's MSS home directory.  In the
+case of project 127, that would have been "/RAF/1995/127."
+
+For this project here are the AIMR bitfiles:
+MSS path = /RAF/1995/127/
+                 size    bitfile name
+05/12/95 -W--  63464448 AIMR/TAPE/FF01
+05/12/95 -W--  36502528 AIMR/TAPE/RF02A
+05/12/95 -W--  26081280 AIMR/TAPE/RF02B
+05/12/95 -W--  29790208 AIMR/TAPE/RF02C
+09/19/95 -W--  28892160 AIMR/TAPE/RF03A
+05/12/95 -W--  32340992 AIMR/TAPE/RF03B
+07/14/95 -W--  39971840 AIMR/TAPE/RF08
+07/14/95 -W--  50138112 AIMR/TAPE/RF10
+
+As of now I have archived AIMR data only for BASE (4-120) and Marine Stratus
+Cloud Tops (5-127).  I discovered that by doing the following in the above-
+named directory:
+    grep AIMR msls.*
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+

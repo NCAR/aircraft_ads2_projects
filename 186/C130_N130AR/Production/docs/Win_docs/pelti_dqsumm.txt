@@ -1,0 +1,164 @@
+Data Quality Summary
+
+Passing Efficiency of the Low-Turbulence Inlet (PELTI)
+Project No. 2000-186
+B. Huebert, et al.
+
+Prepared by:  Krista Laursen (NCAR/RAF)
+27 September 2000
+
+
+This document is intended to provide an overview of problems, limitations, and features to be found in the PELTI C-130 data set.  Two sections are included in this summary.  The first contains an outline of general problems and limitations common to all of the project flights.  The second section details specific flight-by-flight problems and comments.
+
+Every attempt has been made to be as thorough and complete as possible during the quality checking of the PELTI C-130 data set.  However, given the significant number of variables in the processed data files, it is possible that some problems within the data set were not detected.  Users of these data are encouraged to notify the RAF should they discover additional problems and/or limitations within the data set.  Information regarding such problems should be brought to the attention of either Krista Laursen, the PELTI C-130 project manager (303-497-1031 or krista@ucar.edu) or Ron Ruth, the RAF data manager (303-497-1084 or ruth@ucar.edu).
+
+
+General Data Set Quality and Limitations
+
+1. In general, measurements of ambient temperature made on the C-130 using the two radome-mounted sensors (ATRL, Ambient Temperature Radome Left; ATRR, Ambient Temperature Radome Right) were in good agreement with each other and with temperature measurements obtained from the heated, wing-mounted sensor (ATWH, Ambient Temperature, Deiced Wing).  Following a thorough review of the ambient temperature data collected on the C-130 during PELTI, it was decided that the reference ambient temperature variable, ATX, should be set as follows:
+
+TF01, TF02, FF01, and RF01:  ATX = ATRL
+RF02-RF09 and FF02:  ATX = ATRR
+
+Users are advised to use ATX in any calculations requiring ambient temperature data.
+
+2. Measurements of dewpoint temperature obtained from the two General Eastern hygrometers on the C-130 (DPBC, Dewpoint Temperature, Bottom Corrected; DPTC, Dewpoint Temperature, Top Corrected) were typically in good agreement throughout the PELTI research flights.  The exception to this occurred when the aircraft was flying at higher altitudes in regions of colder temperatures.  In such instances, DPBC frequently displayed significant oscillatory behavior and was, in some cases, also offset from DPTC.  Because of this behavior in the DPBC data, the decision was made to set DPXC, the reference corrected dewpoint temperature variable, to DPTC for all of the PELTI flights.  Users requiring dewpoint temperature data for calculations are advised to use the variable DPXC.
+
+3. Related to 2 above, it should be noted that the mixing ratio values derived from the General Eastern hygrometer data (RAF variable MR) show periodic "overshooting" and offsetting from the mixing ratio values derived from the Lyman-Alpha hygrometer deployed on the aircraft.  This problem was particularly pronounced during the flights flown in the tropical environment (i.e., around Miami and in the vicinity of St. Croix and Puerto Rico) and is attributable to periodic saturation of the General Eastern sensor.  While in St. Croix, the spacing of the sensor head of the Lyman-Alpha hygrometer was adjusted (lowered) and more accurate sensor calibration coefficients were introduced into the processing of this instrument's data.  This yielded Lyman-Alpha mixing ratio data (RAF variable MRLA) of very good quality for the project.  Consequently, users are advised to use MRLA in any studies and calculations requiring mixing ratio data.  Similarly, it is advisable to use RHOLA (Lyman-Alpha absolute humidity), rather than RHODT (General Eastern hygrometer-derived absolute humidity), in calculations requiring absolute humidity data.
+
+4.  In view of the tropical environment in which the majority of the PELTI flights were conducted, the decision was made to use the humidity-corrected true airspeed (RAF variable TASHC) in the processing of the C-130 wind and 1D PMS probe data.  In dry atmospheric conditions (e.g., for the test flights in Colorado), TASHC only differs from the reference true airspeed data (TASX, set to the radome true airspeed, TASR) by a few hundredths of a millibar.  However, during the flights conducted in the vicinity of Florida, St. Croix, and Puerto Rico, TASHC differed from TASX in some cases by a few tenths of a millibar.  Because of the latter differences, it was deemed important to use TASHC in the processing of all of the PELTI flights.  Users are, therefore, advised to use TASHC in all calculations requiring true airspeed data, especially for studies being conducted on those research flights flown in the tropics.
+
+5. The Department of Defense (DOD) recently ceased degrading the quality of the Global Positioning System (GPS) altitude data available to civilians.  The RAF has, consequently, noticed that the quality of the GPS altitude data (RAF variable GALT) collected on the C-130 has improved.  Thus, GALT data have been included in all of the final netCDF data files for the PELTI project.  According to Trimble (the manufacturer of the TANS III GPS unit deployed on the C-130), an accuracy of 24 meters (RMS) in the vertical (altitude) data from the GPS can be expected.  IRS altitude (ALT), pressure altitude (PALT, in meters, and PALTF, in feet) and geometric height (HGM232) data are also available for the PELTI flights.  In general, the GALT data are in very good agreement with the HGM232 data.  Users should be aware that, at low altitudes, ALT and PALT often yield unusable (negative) values.  Thus, it is recommended that HGM232 data be used for measurements of height at low altitudes.
+
+6. Aircraft position data obtained from the Trimble GPS on the C-130 (RAF variables GLAT and GLON) are considered to be of higher accuracy than position data obtained from the aircraft's IRS (RAF variables LAT and LON).  An accuracy of 16 meters (RMS) in the horizontal can be expected in the GPS position data.  Furthermore, the GPS system performed very well throughout the PELTI deployment.  Therefore, users are advised to use GLAT and GLON in all analyses requiring aircraft position data.
+
+7. Modelling studies were conducted for some of the PELTI flights to derive values needed to correct the downwelling shortwave radiometer data (SWT) for the effects of aircraft attitude.  A simple radiative transfer model was used to determine shortwave direct and diffuse radiation fractions, both of which are used in the correction algorithm used in routine processing by the RAF.  Direct and diffuse fractions were derived for two different cases:  for the flights conducted at higher latitudes and less humid and polluted conditions (i.e., the Colorado test flights and the ferry flights to and from Miami), and for the flights conducted at lower latitudes in the tropics and in a more humid and polluted environment (i.e., the research flights in the vicinity of Miami and from St. Croix).  The appropriate fraction values were then used in the generation of attitude-corrected downwelling shortwave radiometer data (RAF variable SWTC) for each flight.
+
+8. Steep banked turns (such as those executed during spiral ascents and descents with roll angles greater than 25 degrees) compromise the quality of the C-130 wind data (RAF variables UI, VI, WI, etc.) due to the adverse effects of the prolonged turns on the aircraft's IRS unit.  Users are therefore advised to use the processed wind data corresponding to such turn segments with caution.
+
+9. It is recommended that investigators use the GPS-corrected wind variables (UIC, VIC, WIC, WDC, and WSC) in any studies and/or calculations requiring wind speed and/or direction measurements.  These variables are, generally, considered to provide the most reliable wind vector measurements.
+
+10. In regard to the data collected from the FSSP-300 flown inside the C-130 cabin, it should be noted that calibration of the flowmeter used to measure the flow rate through the cabin FSSP-300 yielded poor calibration coefficients through RF03.  Thus, the internal probe flow rate data (RAF variable LFSSPF) and the cabin FSSP-300 data (RAF FSSP-300 variables ending with the suffix "_WDR") should be viewed as highly questionable for TF01, TF02, FF01, and RF01-RF03.  In regard to the three FSSP-300s flown on the C-130 (one in the cabin, as mentioned above, and one each on the left and right wing pods), users are advised that for several of the research flights, the FSSP-300 flown on the left wing pod and the FSSP-300 flown in the cabin were swapped between flights.  The FSSP-300 flown on the right wing pod (RAF FSSP-300 variables with the suffix "_RPO") was the same for all PELTI flights and was Tony Clarke's Droplet Measurement Technologies (DMT)-modified probe.  Information regarding which FSSP-300 was flown on the left wing pod (RAF FSSP-300 variables ending with the suffix "_LPO") and which was flown in the C-130 cabin is given below in the section of this document outlining flight-by-flight data problems and comments.
+
+11. A review and comparison of the data collected from the three FSSP-300s flown on the C-130 has, as of this writing, yielded inconsistent results.  In some cases, the FSSP-300 flown at the cabin mount location (RAF variables ending with the suffix "_WDR," hereafter referred to as WDR FSSP-300 data) yielded concentration spectra data that are in good agreement with concentration spectra data obtained from the FSSP-300 flown on the left pod of the aircraft (RAF variables ending with the suffix "_LPO," hereafter referred to as LPO FSSP-300 data) within the size range of approximately 2 to 4 (m.  In other instances, WDR FSSP-300 concentrations are slightly higher than LPO FSSP-300 concentrations.  Several cases have also been found in which the WDR FSSP-300 appeared to under count particles at sizes less than 4 (m; i.e., concentrations from the WDR FSSP-300 are lower than concentrations from the LPO FSSP-300 at sizes less than 4 (m.  (This latter problem was first noticed in the field.)  In almost all cases, concentrations obtained from the three FSSP-300s differ at particle sizes less than 1 (m.  In this size range, concentrations from Tony Clarke's DMT-modified (serial) FSSP-300 (RAF variables ending with the suffix "_RPO," hereafter referred to as RPO FSSP-300 data) are lower than concentration values obtained from the LPO FSSP-300.  The latter are, in turn, lower than concentration values obtained from the WDR FSSP-300.  (See the next paragraph for more discussion of the RPO FSSP-300 size distributions below 1 (m.)
+
+In regard to data obtained from the RPO FSSP-300, two specific items should be noted.  First, users should be aware that there is a persistent problem with dips in the size distributions from the probe at 1 (m.  This is known by DMT to be attributable to an electronic gain change.  Second, the RAF notes that in the PELTI data set, the RPO FSSP-300 routinely shows higher concentrations than both the LPO and WDR FSSP-300s at particle sizes greater than approximately 10 (m.  The RAF presently believes these latter high RPO concentrations to be artifacts.  However, further examination is required to ascertain more definitively if the RPO concentration values at larger particle sizes are, in fact, in error.  It should be noted, however, that there is periodically good agreement between the RPO and WDR FSSP-300 concentration data at particle sizes between approximately 3 and 5-6 (m.
+
+It should be noted that during RF09 and FF02, the RAF FSSP-300 probe was flown out on the right wing tip of the C-130.  The data from this probe are contained in the RAF variables ending with the suffix "_WDR" for these last two flights.  This mount change was made prior to the last two project flights in order to examine how data from all three of the FSSP-300 probes compared with the three probes mounted on the wings of the aircraft.  While the C-130 typically flew through quite clean air during both RF09 and FF02 (i.e., few particles were measured), it was nevertheless possible to determine from the few regions of aerosol encountered that the LPO and WDR (the latter being the right wingtip) FSSP-300 concentration spectra show good agreement.  However, the RPO FSSP-300 typically yielded higher concentration values throughout the FSSP-300 size spectrum than did both the WDR and LPO FSSP-300s.
+
+As the above discussion illustrates, several questions remain to be answered regarding the observed discrepancies between the data from the three FSSP-300s.  The RAF is continuing to investigate this matter and will provide further information to users of the PELTI data set as such information becomes available.  Due to present concerns regarding the integrity of the WDR (cabin) and RPO FSSP-300 data, it is the opinion of the RAF that the LPO FSSP-300 data should be viewed as the most reliable FSSP-300 data for the PELTI flights.  Thus, users requiring FSSP-300 data for their analyses are advised to use LPO FSSP-300 data.
+
+12. In addition to the three FSSP-300s flown on the C-130 during PELTI, a PCASP and two FSSP-100s were also flown.  The first FSSP-100 was flown on the left wing pod of the aircraft, and the corresponding data are found in RAF variables ending with the suffix "_LPC."  The second FSSP-100, a DMT-modified (serial) probe, was flown on the right wing pod of the aircraft.  Data from the latter probe are found in RAF variables ending with the suffix "_RPC."
+ 
+In general, the PCASP performed well throughout the project.  Size spectra from this probe typically show reasonable overlap with the lower size ranges of the LPO FSSP-300 size spectra.
+
+Concentrations obtained from the left wing pod FSSP-100 (hereafter referred to as LPC FSSP-100 data) are typically higher than concentrations obtained from the right wing pod FSSP-100 (hereafter referred to as RPC FSSP-100 data) over all particle size ranges applicable for the probes.  The LPC FSSP-100 concentration spectra show good overlap with the LPO FSSP-300 concentration spectra at smaller particle sizes of 2-3 (m and at the larger particle sizes of approximately 15-20 (m.  The RPC FSSP-100 concentration spectra routinely display very good overlap (agreement) with the LPO FSSP-300 concentration spectra within the size range of 4-15 (m.  However, the RPC FSSP-100 concentration spectra typically display poor overlap with the LPO FSSP-300 concentration spectra at smaller particle sizes of 2-3 (m.  Further study by the RAF is needed to better understand and explain the differences between the spectra obtained from the two FSSP-100s flown on the C-130 during PELTI.
+
+13. Very few cloud penetrations were executed during the PELTI flights.  From the few cloud penetrations that were performed, it was possible for the RAF to determine that liquid water content (LWC) data obtained from the three King probes flown on the aircraft (RAF variables PLWCC, PLWCC1, and PLWCC2) were in good agreement.  Mixed results were obtained from a comparison of the LWC values derived from the two FSSP-100s (PLWCF_LPC and PLWCF_RPC in the netCDF data files) both with each other and with the King probe LWC values.  While in a few instances PLWCF_LPC and PLWCF_RPC values agree fairly well with each other, in other cases PLWCF_RPC values are significantly higher than PLWCF_LPC values.  Furthermore, both the PLWCF_RPC and PLWCF_LPC values alternate between being either lower or higher than the King probe LWC values.  Further study by the RAF is needed to determine why differences exist between the two different FSSP-100 LWC data sets and between the FSSP-100 and King probe LWC values.
+
+14. Detailed information regarding the performance of the low-turbulence inlet (LTI) can be obtained from the summary document "Passing Efficiency of a Low Turbulence Inlet (PELTI):  Executive Summary and Report Summary of Final Report to NSF" prepared by Barry Huebert, et al.  A link to this document is provided via the RAF PELTI data documentation Web site, and interested users are invited to go to this link and download the summary document for review.  The performances of, and some results obtained from, several other instruments deployed along with the LTI (i.e., aerodynamic particle sizers, nephelometers, filter systems, etc.) are also discussed in the summary document by B. Huebert, et al.
+
+  
+Flight-By-Flight Summary and Discussion
+
+** Note:  In the discussion below, the following notation is used to delineate which FSSP-300 was flown in the two wing pod mount locations [left pod outboard and window right (cabin)] for each flight:
+
+	LPO:  Left pod outboard
+	WDR:  Window right (cabin)
+
+Users should note that Tony Clarke's DMT-Modified (serial) FSSP-300 was flown in the right pod outboard mount (RAF FSSP-300 variables with the suffix "_RPO") for almost all of the PELTI flights.  (The Clarke FSSP-300 probe was inoperable for flights RF02 and RF03 and thus was not on the aircraft for those two flights.)
+
+
+TF01 (6/29/00)
+
+(	LPO = RAF FSSP-300 (S/N 305); WDR = NASA FSSP-300 (S/N 304).
+(	DPB and DPBC data questionable this flight; both flagged as "bad" in netCDF file header.
+(	LFSSPF data highly questionable this flight and flagged as "bad" in netCDF file header; correspondingly, cabin FSSP-300 data (RAF variables with suffix "_WDR") highly questionable this flight.
+(	PLWC and PLWC2 King probe sensors not working this flight; no PLWC, PLWCC, PLWC2, and PLWCC2 data not included in output file.
+
+
+TF02 (6/30/00)
+
+(	LPO = RAF FSSP-300 (S/N 305); WDR = NASA FSSP-300 (S/N 304).
+(	LFSSPF data highly questionable this flight and flagged as "bad" in netCDF file header; correspondingly, cabin FSSP-300 data (RAF variables with suffix "_WDR") highly questionable this flight.
+(	PLWC2 King probe sensor not working this flight; no PLWC2 and PLWCC2 data in output file.
+
+
+FF01 (7/5/00)
+
+(	LPO = RAF FSSP-300 (S/N 305); WDR = NASA FSSP-300 (S/N 304)
+(	LFSSPF data highly questionable this flight and flagged as "bad" in netCDF file header; correspondingly, cabin FSSP-300 data (RAF variables with suffix "_WDR") highly questionable this flight.
+(	DPB and DPBC data bad this flight and flagged as such in netCDF file header.
+(	PLWC and PLWC2 King probe sensors not working this flight; no PLWC, PLWCC, PLWC2, and PLWCC2 data in output file.
+
+
+RF01 (7/6/00)
+
+(	LPO = RAF FSSP-300 (S/N 305); WDR = NASA FSSP-300 (S/N 304)
+(	LFSSPF data highly questionable this flight and flagged as "bad" in netCDF file header; correspondingly, cabin FSSP-300 data (RAF variables with suffix "_WDR") highly questionable this flight.
+(	C-130 IRS inoperative this flight; consequently, LAT, LATC, LON, and LONC data and all wind vector data (UI, UX, UIC, UXC, VI, VY, VIC, VYC, WI, WIC, WD, WDC, WS, WSC) bad this flight.  Aircraft position data should be obtained from the GPS latitude and longitude variables GLAT and GLON, respectively.
+(	PLWC2 King probe sensor not working this flight; no PLWC2 and PLWCC2 data in output file.
+
+
+RF02 (7/9/00)
+
+(	LPO = RAF FSSP-300 (S/N 305); WDR = NASA FSSP-300 (S/N 304)
+(	LFSSPF data highly questionable this flight and flagged as "bad" in netCDF file header; consequently, cabin FSSP-300 data (RAF variables with suffix "_WDR") highly questionable this flight.
+(	Clarke FSSP-300 probe inoperative and off aircraft; consequently, Clark FSSP-300 data (RAF variables with suffix "_RPO") no good this flight.
+(	PLWC and PLWC2 King probe sensors not working this flight; no PLWC, PLWCC, PLWC2, and PLWCC2 data in output file.
+
+
+RF03 (7/11/00)
+
+( 	LPO = NASA FSSP-300 (S/N 304); WDR = RAF FSSP-300 (S/N 305)
+**	Important note:  The section of the data system header pertaining to FSSP-300 probe settings was incorrectly changed on the aircraft prior to RF03.  This problem was addressed in processing of the flight data.  However, users are advised that the FSSP-300 data labelled with the "_WDR" suffix in the RF03 netCDF file are actually left pod outboard FSSP-300 data and that data labelled with the "_LPO" suffix in the RF03 netCDF file are actually cabin  FSSP-300 data.  The LPO and WDR probe designations listed above are correct and represent which probe was physically mounted at each location.
+(	LFSSPF data highly questionable this flight and flagged as "bad" in the netCDF file header; consequently, cabin FSSP-300 data (RAF variables labelled with suffix "_LPO" for this flight only) highly questionable this flight.
+(	Clarke FSSP-300 probe inoperative and off aircraft; consequently, Clark FSSP-300 data (RAF variables with suffix "_RPO") no good this flight.
+(	PLWC King probe sensor not working this flight; no PLWC and PLWCC data in output file.
+
+
+RF04 (7/15/00)
+
+(	LPO = RAF FSSP-300 (S/N 305); WDR = NASA FSSP-300 (S/N 304)
+
+
+RF05 (7/16/00)
+
+(	LPO = NASA FSSP-300 (S/N 304); WDR = RAF FSSP-300 (S/N 305)
+
+
+RF06 (7/16/00)
+
+(	LPO = NASA FSSP-300 (S/N 304); WDR = RAF FSSP-300 (S/N 305)
+
+
+RF07 (7/19/00)
+
+(	LPO = RAF FSSP-300 (S/N 305); WDR = NASA FSSP-300 (S/N 304)
+
+
+RF08 (7/21/00)
+
+(	LPO = NASA FSSP-300 (S/N 304); WDR = RAF FSSP-300 (S/N 305)
+(	PLWC King probe sensor not working this flight; no PLWC and PLWCC data in output file.
+
+
+RF09 (7/22/00)
+
+(	LPO = NASA FSSP-300 (S/N 304); WDR = RAF FSSP-300 (S/N 305)
+**	Important note:  The RAF FSSP-300 probe was actually flown out on the right wing tip of the C-130 for this flight and for FF02.  Thus, while the RAF FSSP-300 data in the output file are still labelled with the suffix "_WDR," they actually correspond to right wing tip FSSP-300 data. 
+(	PLWC King probe sensor not working this flight; no PLWC and PLWCC data in output file.
+
+
+FF02 (7/23/00)
+
+(	LPO = NASA FSSP-300 (S/N 304); WDR = RAF FSSP-300 (S/N 305)
+**	Important note:  As with RF09, the RAF FSSP-300 probe was actually flown out on the right wing tip of the C-130 for this flight.  Thus, the RAF FSSP-300 data labelled with the suffix "_WDR" actually correspond to right wing tip FSSP-300 data.
+(	PLWC King probe sensor not working this flight; no PLWC and PLWCC data in output file.
+
+1
+
+
+9
+
+

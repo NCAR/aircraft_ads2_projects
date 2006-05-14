@@ -1,0 +1,82 @@
+#! /bin/csh -f
+#
+#   Archive the NIMBUS support files for 1994-120 BASE (Curry, et al.)
+#      RLR  6 June 1995
+#
+set LDIR = "/home/local/proj/120/Production"
+set YEAR = "1994"
+set PROJ = "120"
+#
+date
+#
+set  file="README"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="120.tar"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="120.tar.dir"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="tarit.120.tar"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="Mail.120"
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="MSCP_out.120"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="tp2ms.summary"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+set TURBRT = "LRT"
+#
+#set  file="120RF04.hdr"
+#set  file="RF04.hdr"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ofile rtpd=4095 w=RAFDMG
+#
+#set  file="taplog.120"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="nimbus.tar"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="nimbus.tar.dir"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="tarit.nimbus.tar"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Fri Jun  9 11:20:41 MDT 1995
+# Sequence number = MI0798 -- 120.tar -- OK @ 11:20:16
+# Sequence number = MI0805 -- 120.tar.dir -- OK @ 11:20:22
+# Sequence number = MI0812 -- tarit.120.tar -- OK @ 11:20:28
+# Sequence number = MI0819 -- Mail.120 -- OK @ 11:20:33
+# Sequence number = MI0826 -- MSCP_out.120 -- OK @ 11:20:50
+# Sequence number = MI0833 -- tp2ms.summary -- OK @ 11:20:57
+# Sequence number = MI0840 -- LRT/RF04.hdr -- OK @ 11:20:59
+# Sequence number = MI0847 -- LRT/taplog.120 -- OK @ 11:21:03
+# Sequence number = MI0854 -- LRT/nimbus.tar -- OK @ 11:21:06
+# Sequence number = MI0861 -- LRT/nimbus.tar.dir -- OK @ 11:24:55
+# Sequence number = MI0868 -- LRT/tarit.nimbus.tar -- OK @ 11:24:59
+#
+#  Job(s) submitted on 
+#
+#
+#   Templates
+#set  file=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file=""
+#set ofile=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$ofile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file=""
+#set ofile=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ofile rtpd=4095 w=RAFDMG
+#

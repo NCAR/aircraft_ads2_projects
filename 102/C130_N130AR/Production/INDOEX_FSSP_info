@@ -1,0 +1,173 @@
+mistral/ron % ncdh 102rf01.cdf | grep DepthOfField
+                AFSSP_LPI:DepthOfField = 1.8f ;
+mistral/ron % ^rf01^rf02
+ncdh 102rf02.cdf | grep DepthOfField
+                AFSSP_LPI:DepthOfField = 1.8f ;
+mistral/ron % ^rf02^rf03
+ncdh 102rf03.cdf | grep DepthOfField
+                AFSSP_LPI:DepthOfField = 1.8f ;
+mistral/ron % ^rf03^rf04
+ncdh 102rf04.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.554f ;
+mistral/ron % ^4^5
+ncdh 102rf05.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.55f ;
+mistral/ron % ^5^6
+ncdh 102rf06.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.55f ;
+mistral/ron % ^6^7
+ncdh 102rf07.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.55f ;
+mistral/ron % ^7^8
+ncdh 102rf08.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.55f ;
+mistral/ron % ^8^9
+ncdh 102rf09.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.55f ;
+mistral/ron % ^09^10
+ncdh 102rf10.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.55f ;
+mistral/ron % ^10^11
+ncdh 102rf11.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.55f ;
+mistral/ron % ^11^12
+ncdh 102rf12.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+mistral/ron % ^12^13
+ncdh 102rf13.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+mistral/ron % ^13^14
+ncdh 102rf14.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+mistral/ron % ^14^15a
+ncdh 102rf15a.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+mistral/ron % ^a^b
+ncdh 102rf15b.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+mistral/ron % ^15b^16
+ncdh 102rf16.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+mistral/ron % ^6^7
+ncdh 102rf17.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+mistral/ron % ^7^8
+mistral/ron % ncdh 102rf18.cdf | grep DepthOfField
+                AFSSP_RPC:DepthOfField = 1.f ;
+-----------------------------------------------------------------------
+ncdh 102rf01.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_LPI:SerialNumber = "FSSP109" ;
+                AMASP_NA:SerialNumber = "MASP_DEF" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^01^02
+ncdh 102rf02.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_LPI:SerialNumber = "FSSP109" ;
+                AMASP_NA:SerialNumber = "MASP_DEF" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^rf02^rf03
+ncdh 102rf03.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_LPI:SerialNumber = "FSSP109" ;
+                AMASP_NA:SerialNumber = "MASP_DEF" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^3^4
+ncdh 102rf04.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^4^5
+ncdh 102rf05.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^5^6
+ncdh 102rf06.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^6^7
+ncdh 102rf07.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^7^8
+ncdh 102rf08.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^8^9
+ncdh 102rf09.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^09^10
+ncdh 102rf10.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^rf10^rf11
+ncdh 102rf11.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^11^12
+ncdh 102rf12.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^12^13
+ncdh 102rf13.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^3^4
+ncdh 102rf14.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^4^5a
+ncdh 102rf15a.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^a^b
+ncdh 102rf15b.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^15b^16
+ncdh 102rf16.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^6^7
+ncdh 102rf17.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;
+mistral/ron % ^7^8
+ncdh 102rf18.cdf | grep SerialNumber
+                A260X_OBL:SerialNumber = "260X06" ;
+                AF300_RPO:SerialNumber = "FSSP305" ;
+                AFSSP_RPC:SerialNumber = "FSSP122" ;
+                APCAS_IBL:SerialNumber = "PCANASA" ;

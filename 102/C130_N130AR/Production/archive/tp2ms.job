@@ -1,0 +1,777 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1999-102 INDOEX (Clarke, et al.)
+#    rev. 990312  RLR  (adapt to new MIGS "msimp" verb)
+#
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+goto start
+#
+#  1st set, 1st segment, 1st try
+#set SKIPS   = ^B*0
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1318 \
+#)
+#set FLIGHTS = ( \
+#RF01AA \
+#)
+#  2nd set, 1st segment, 1st try
+#set SKIPS   = ^B*0
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1319 \
+#R1320 \
+#R1321 \
+#R1322 \
+#R1323 \
+#R1324 \
+#R1325 \
+#R1326 \
+#R1328 \
+#)
+#set FLIGHTS = ( \
+#RF01BA \
+#RF02A \
+#RF03A \
+#RF04A \
+#RF05A \
+#RF06AA \
+#RF06BA \
+#RF07A \
+#RF08A \
+#)
+#
+#  1st set, 1st segment, 2nd try
+#set SKIPS   = ^B*0
+#set RECS    = ( F*1 F*1 F*1 F*1 )
+#set TAPES   = ( \
+#R1318 \
+#R1324 \
+#R1325 \
+#R1328 \
+#)
+#set FLIGHTS = ( \
+#RF01A \
+#RF06A \
+#RF06B \
+#RF08A \
+#)
+#
+#  1st set, 2nd segment, 1st try (submitted via "meeker")
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1319 \
+#)
+#set FLIGHTS = ( \
+#RF01BB \
+#)
+#
+#  1st set, 2nd segment, 1st try (submitted via "meeker")
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1320 \
+#)
+#set FLIGHTS = ( \
+#RF02B \
+#)
+#
+#  1st set, 2nd segment, 1st try (submitted via "meeker")
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1321 \
+#)
+#set FLIGHTS = ( \
+#RF03B \
+#)
+#
+#  1st set, 1st segment, 3rd try (using raf's "dmg" login)
+#set SKIPS   = ^B*0
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1324 \
+#)
+#set FLIGHTS = ( \
+#RF06AA \
+#)
+#
+#  1st set, 2nd segment, 1st try (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1322 \
+#R1323 \
+#R1326 \
+#)
+#set FLIGHTS = ( \
+#RF04B \
+#RF05B \
+#RF07B \
+#)
+#
+#  1st set, 2nd segment, 2nd try (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1326 \
+#)
+#set FLIGHTS = ( \
+#RF07B \
+#)
+#
+#  1st set, 2nd segment, 3rd try (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1324 \
+#)
+#set FLIGHTS = ( \
+#RF06AB \
+#)
+#
+#  1st set, 3rd segment, 1st try (using raf's "dmg" login)
+#set SKIPS   = ^B*200000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1320 \
+#R1321 \
+#R1322 \
+#R1323 \
+#)
+#set FLIGHTS = ( \
+#RF02C \
+#RF03C \
+#RF04C \
+#RF05C \
+#)
+#
+#  1st set, 2nd segment, 4th and 5th tries (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = B*31510
+#set TAPES   = ( \
+#R1324 \
+#)
+#set FLIGHTS = ( \
+#RF06AB \
+#)
+#
+#  2nd set, 1st segment, 1st try (using raf's "dmg" login)
+#set SKIPS   = ^B*0
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1327 \
+#R1329 \
+#R1330 \
+#R1331 \
+#R1332 \
+#R1333 \
+#R1334 \
+#R1335 \
+#R1336 \
+#R1337 \
+#R1338 \
+#R1340 \
+#R1341 \
+#R1342 \
+#R1343 \
+#R1344 \
+#)
+#set FLIGHTS = ( \
+#RF08A \
+#RF09AA \
+#RF09BA \
+#RF10A \
+#RF11A \
+#RF12A \
+#RF13A \
+#RF14A \
+#RF15AA \
+#RF15BA \
+#RF16AA \
+#RF16BA \
+#RF17A \
+#RF18AA \
+#RF18BA \
+#RF18CA \
+#)
+#
+#  2nd set, 2nd segment, 1st try (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1327 \
+#R1329 \
+#R1331 \
+#R1332 \
+#R1333 \
+#R1334 \
+#R1335 \
+#R1336 \
+#R1340 \
+#R1341 \
+#R1342 \
+#R1343 \
+#)
+#set FLIGHTS = ( \
+#RF08B \
+#RF09AB \
+#RF10B \
+#RF11B \
+#RF12B \
+#RF13B \
+#RF14B \
+#RF15AB \
+#RF16BB \
+#RF17B \
+#RF18AB \
+#RF18BB \
+#)
+#
+#  2nd set, 1st segment, 2nd try (using raf's "dmg" login)
+#set SKIPS   = ^B*0
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1338 \
+#)
+#set FLIGHTS = ( \
+#RF16AA \
+#)
+#
+#  2nd set, 2nd segment, 2nd try (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1343 \
+#)
+#set FLIGHTS = ( \
+#RF18BB \
+#)
+#
+#  2nd set, 3rd segment, 1st try (using raf's "dmg" login)
+#set SKIPS   = ^B*200000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1327 \
+#R1331 \
+#R1332 \
+#R1333 \
+#R1334 \
+#R1335 \
+#)
+#set FLIGHTS = ( \
+#RF08C \
+#RF10C \
+#RF11C \
+#RF12C \
+#RF13C \
+#RF14C \
+#)
+#
+#  2nd set, 2nd segment, 2nd try (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1341 \
+#)
+#set FLIGHTS = ( \
+#RF17B \
+#)
+#
+#  2nd set, 3rd segment, 1st try (using raf's "dmg" login)
+#set SKIPS   = ^B*200000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1341 \
+#)
+#set FLIGHTS = ( \
+#RF17C \
+#)
+#
+#  2nd set, 2nd segment, 3rd try (using raf's "dmg" login)
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1343 \
+#)
+#set FLIGHTS = ( \
+#RF18BB \
+#)
+#
+#  2nd set, 2nd/3rd segment, 2nd try (using raf's "dmg" login)
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1339 \
+#R1343 \
+#)
+#set FLIGHTS = ( \
+#RF16B \
+#RF18C \
+#)
+#
+#  3rd set, 1st segment, 1st try (using raf's "dmg" login)
+#     These all failed because I specified a block size of 50,000 bytes
+#        while Erich's software only accepted a maximum of 32,768 bytes.
+#
+#  3rd set, 1st segment, 2nd try (using raf's "dmg" login and "server=mss4")
+#set SKIPS   = ^B*0
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1310 \
+#R1311 \
+#R1312 \
+#R1313 \
+#R1314 \
+#R1315 \
+#R1316 \
+#R1317 \
+#R1345 \
+#R1346 \
+#R1347 \
+#R1348 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF01A  \
+#FF02A  \
+#FF03A  \
+#FF04A  \
+#FF05AA \
+#FF05BA \
+#FF06AA \
+#FF06BA \
+#FF07A  \
+#FF08A  \
+#FF09A  \
+#FF10A  \
+#FF11A  \
+#)
+#
+#  3rd set, 2nd segment, 1st try (using raf's "dmg" login and "server=mss4")
+#set SKIPS   = ^B*100000
+#set RECS    = B*100000
+#set TAPES   = ( \
+#R1310 \
+#R1311 \
+#R1312 \
+#R1313 \
+#R1314 \
+#R1345 \
+#R1346 \
+#R1347 \
+#R1348 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF01B  \
+#FF02B  \
+#FF03B  \
+#FF04B  \
+#FF05AB \
+#FF07B  \
+#FF08B  \
+#FF09B  \
+#FF10B  \
+#FF11B  \
+#)
+#
+#  3rd set, 3rd segment, 1st try (using raf's "dmg" login and "server=mss4")
+#set SKIPS   = ^B*200000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1311 \
+#R1345 \
+#R1346 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF02C \
+#FF07C \
+#FF08C \
+#FF11C \
+#)
+#
+#  3rd set, 3rd segment, 2nd try (using raf's "dmg" login and "server=mss4")
+#  3rd set, 3rd segment, 3rd try (using raf's "dmg" login and "server=mss4")
+#set SKIPS   = ^B*200000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1345 \
+#R1346 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF07C \
+#FF08C \
+#FF11C \
+#)
+#
+#  Mop-up stuff (using raf's "dmg" login and "server=mss4")
+#set SKIPS   = (^B*100000 ^B*200000 ^B*300000 )
+#set RECS    = ( B*100000  B*100000  F*1 )
+#set TAPES   = ( \
+#R1312 \
+#R1349 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF03B \
+#FF11C \
+#FF11D \
+#)
+#
+#  Fix-up stuff, 1st try
+#set SKIPS   = (^B*100000 ^B*160000 ^B*220000 ^B*280000)
+#set RECS    = ( B*60000   B*60000   B*60000   F*1 )
+#set TAPES   = ( \
+#R1349 \
+#R1349 \
+#R1349 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF11B \
+#FF11C \
+#FF11D \
+#FF11E \
+#)
+#
+start:
+#
+#  Fix-up stuff, 2nd try
+#set SKIPS   = (^B*100000 ^B*220000 ^B*280000)
+#set RECS    = ( B*60000   B*60000   F*1 )
+#set TAPES   = ( \
+#R1349 \
+#R1349 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF11B \
+#FF11D \
+#FF11E \
+#)
+#
+#  Fix-up stuff, 3rd try
+set SKIPS   = ( ^B*220000 ^B*280000 )
+set RECS    = ( B*60000   F*1 )
+set TAPES   = ( \
+R1349 \
+R1349 \
+)
+set FLIGHTS = ( \
+FF11D \
+FF11E \
+)
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+#   server=mss4 \
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#   MSS path for all archived bitfiles:  /RAF/1999/102/
+#
+#  1st set, 1st segment, 1st try
+#  Job submitted on Fri Mar 12 15:55:14 MST 1999
+# Sequence number = MI9699  Rejected (syntax)
+#  Job submitted on Fri Mar 12 15:57:48 MST 1999
+# Sequence number = MI9725  Failure (syntax)
+#  Job submitted on Fri Mar 12 17:14:02 MST 1999
+# Sequence number = MI0334  Failure (syntax)
+#  Job submitted on Fri Mar 12 17:15:54 MST 1999
+# Sequence number = MI0402  Failure (syntax)
+#  Job submitted on Fri Mar 12 17:19:00 MST 1999
+# Sequence number = MI0467  Rejected (syntax)
+#  Job submitted on Fri Mar 12 17:21:40 MST 1999
+# Sequence number = MI0493  Rejected (syntax)
+#  Job submitted on Fri Mar 12 17:22:28 MST 1999
+# Sequence number = MI0581 -- RF01AA/R1318 -- Failed @ Mar 12 17:42:28 MST 1999
+#
+#  1st set, 1st segment, 2nd try
+#  Job(s) submitted on Fri Mar 12 17:27:31 MST 1999
+# Sequence number = MI0796 -- RF01BA/R1319 -- OK @ Mar 12 21:07:31 MST 1999
+# Sequence number = MI0803 -- RF02A/R1320 -- OK @ Mar 12 19:27:33 MST 1999
+# Sequence number = MI0810 -- RF03A/R1321 -- OK @ Mar 12 22:54:55 MST 1999
+# Sequence number = MI0817 -- RF04A/R1322 -- OK @ Mar 14 19:55:14 MST 1999
+# Sequence number = MI0824 -- RF05A/R1323 -- OK @ Mar 14 23:02:05 MST 1999
+# Sequence number = MI0831 -- RF06AA/R1324 -- Failed @ Mar 15 03:52:12 MST 1999
+# Sequence number = MI0838 -- RF06BA/R1325 -- Failed @ Mar 15 02:20:55 MST 1999
+# Sequence number = MI0845 -- RF07A/R1326 -- OK @ Mar 15 01:00:20 MST 1999
+# Sequence number = MI0852 -- RF08A/R1328 -- Failed @ Mar 15 03:54:01 MST 1999
+#
+#  1st set, 1st segment, 2nd try
+#  Job(s) submitted on Mon Mar 15 12:35:13 MST 1999
+# Sequence number = MI7989 -- RF01A/R1318 -- OK @ Mar 16 00:28:27 MST 1999
+# Sequence number = MI7996 -- RF06A/R1324 -- Failed @ Mar 16 02:21:05 MST 1999
+# Sequence number = MI8003 -- RF06B/R1325 -- OK @ Mar 15 22:16:08 MST 1999
+# Sequence number = MI8010 -- RF08A/R1328 -- Failed @ Mar 16 02:22:45 MST 1999
+#
+#  1st set, 2nd segment, 1st try (submitted via "meeker")
+#  Job submitted on Mon Mar 15 16:04:33 MST 1999
+# Request: XXIE000922 -- RF01BB/R1319 -- OK @ Mar 16 07:23:48 MST 1999
+#  Job submitted on Mon Mar 15 16:08:31 MST 1999
+# Request: XXIE000923 -- RF02B/R1320 -- OK @ Mar 16 10:00:44 MST 1999
+#
+#  1st set, 1st segment, 3rd try (using raf's "dmg" login)
+#  Job submitted on Wed Mar 17 10:35:11 MST 1999 ??
+# Sequence number = MI8522 -- RF06AA/R1324 -- OK @ 18 Mar 99 15:14:51
+#
+#  1st set, 2nd segment, 1st try (using raf's "dmg" login)
+#  Job(s) submitted on Wed Mar 17 10:36:09 MST 1999
+# Sequence number = MI8714 -- RF04B/R1322 -- OK @ 18 Mar 99 17:49:25
+# Sequence number = MI8721 -- RF05B/R1323 -- OK @ 18 Mar 99 20:32:35
+# Sequence number = MI6457 -- RF07B/R1326 -- Failed @ 18 Mar 99 22:14:48
+#
+#  1st set, 2nd segment, 2nd try (using raf's "dmg" login)
+#  Job submitted on Fri Mar 19 16:03:03 MST 1999
+# Sequence number = MI5737-- RF07B/R1326 -- OK @ 21 Mar 99 04:04:33
+#
+#  1st set, 2nd segment, 3rd try (using raf's "dmg" login)
+#  Job submitted on Fri Mar 19 16:16:01 MST 1999
+# Sequence number = MI5815 -- RF06AB/R1324 -- Failed @ 21 Mar 99 05:31:55
+#
+#  1st set, 3rd segment, 1st try (using raf's "dmg" login)
+#  Job(s) submitted on Fri Mar 19 16:17:35 MST 1999
+# Sequence number = MI5849 -- RF02C/R1320 -- OK @ 21 Mar 99 08:27:54
+# Sequence number = MI5856 -- RF03C/R1321 -- OK @ 21 Mar 99 11:12:22
+# Sequence number = MI5863 -- RF04C/R1322 -- OK @ 21 Mar 99 16:56:19
+# Sequence number = MI5870 -- RF05C/R1323 -- OK @ 21 Mar 99 14:05:25
+#
+#  1st set, 2nd segment, 4th try (using raf's "dmg" login)
+#  Job(s) submitted on Mon Mar 22 17:52:21 MST 1999
+# Sequence number = MI9192 -- RF06AB/R1324 -- Failed @ 22 Mar 99 20:47:58
+#
+#  1st set, 2nd segment, 5th try (using raf's "dmg" login)
+#  Job(s) submitted on ?
+# Sequence number = MI0276 -- RF06AB/R1324 -- OK @ 24 Mar 99 15:34:05
+#
+#  2nd set, 1st segment, 1st try (using raf's "dmg" login)
+#  Job(s) submitted on Wed Apr 28 09:49:14 MDT 1999
+# Sequence number = MI1322 -- RF08A/R1327 -- OK @ 04/28/99 AT 11:33:39.987
+# Sequence number = MI1329 -- RF09AA/R1329 -- OK @ 04/28/99 AT 15:22:15.110
+# Sequence number = MI1336 -- RF09BA/R1330 -- OK @ 04/28/99 AT 16:23:34.320
+# Sequence number = MI1343 -- RF10A/R1331 -- OK @ 04/28/99 AT 13:17:26.060
+# Sequence number = MI1350 -- RF11A/R1332 -- OK @ 04/28/99 AT 18:00:07.308
+# Sequence number = MI1357 -- RF12A/R1333 -- OK @ 04/28/99 AT 19:39:45.601
+# Sequence number = MI1364 -- RF13A/R1334 -- OK @ 04/28/99 AT 22:41:16.537
+# Sequence number = MI1371 -- RF14A/R1335 -- OK @ 04/29/99 AT 03:08:12.836
+# Sequence number = MI1378 -- RF15AA/R1336 -- OK @ 04/28/99 AT 21:12:18.594
+# Sequence number = MI1385 -- RF15BA/R1337 -- OK @ 04/29/99 AT 01:28:49.180
+# Sequence number = MI1392 -- RF16AA/R1338 -- Failed @ 04/29/99 AT 00:35:59.236
+# Sequence number = MI1399 -- RF16BA/R1340 -- OK @ 04/29/99 AT 00:29:14.817
+# Sequence number = MI1406 -- RF17A/R1341 -- OK @ 04/29/99 AT 07:27:00.182
+# Sequence number = MI1413 -- RF18AA/R1342 -- OK @ 04/29/99 AT 09:07:29.204
+# Sequence number = MI1420 -- RF18BA/R1343 -- OK @ 04/29/99 AT 04:40:39.342
+# Sequence number = MI1427 -- RF18CA/R1344 -- OK @ 04/29/99 AT 05:58:43.110
+#
+#  2nd set, 2nd segment, 1st try (using raf's "dmg" login)
+#  Job(s) submitted on Thu Apr 29 10:41:50 MDT 1999
+# Sequence number = MI3611 -- RF08B/R1327 -- OK @ 04/30/99 AT 00:41:04.735
+# Sequence number = MI3618 -- RF09AB/R1329 -- OK @ 04/29/99 AT 14:15:44.576
+# Sequence number = MI3625 -- RF10B/R1331 -- OK @ 04/30/99 AT 07:41:44.911
+# Sequence number = MI3632 -- RF11B/R1332 -- OK @ 04/29/99 AT 19:28:03.739
+# Sequence number = MI3639 -- RF12B/R1333 -- OK @ 04/29/99 AT 16:52:45.595
+# Sequence number = MI3646 -- RF13B/R1334 -- OK @ 04/30/99 AT 05:06:53.741
+# Sequence number = MI3653 -- RF14B/R1335 -- OK @ 04/29/99 AT 22:07:11.369
+# Sequence number = MI3660 -- RF15AB/R1336 -- OK @ 04/30/99 AT 02:35:31.949
+# Sequence number = MI3667 -- RF16BB/R1340 -- OK @ 04/30/99 AT 14:47:30.545
+# Sequence number = MI3674 -- RF17B/R1341 -- Failed @ 04/30/99 AT 12:40:14.255
+# Sequence number = MI3681 -- RF18AB/R1342 -- OK @ 04/30/99 AT 09:32:41.048
+# Sequence number = MI3689 -- RF18BB/R1343 -- Failed @ 04/30/99 AT 08:10:22.379
+#
+#  2nd set, 1st segment, 2nd try (using raf's "dmg" login)
+#  Job(s) submitted on Fri Apr 30 12:07:07 MDT 1999
+# Sequence number = MI8218 -- RF16AA/R1338 -- OK @ 04/30/99 AT 15:54:33.988
+#
+#  2nd set, 2nd segment, 2nd try (using raf's "dmg" login)
+#  Job(s) submitted on Fri Apr 30 12:09:01 MDT 1999
+# Sequence number = MI8241 -- RF18BB/R1343 -- Failed @ 04/30/99 AT 16:33:08.274
+#
+#  2nd set, 3rd segment, 1st try (using raf's "dmg" login)
+#  Job(s) submitted on Fri Apr 30 17:22:44 MDT 1999
+# Sequence number = MI1015 -- RF08C/R1327 -- OK @ 05/01/99 AT 05:06:21.954
+# Sequence number = MI1022 -- RF10C/R1331 -- OK @ 04/30/99 AT 19:56:33.734
+# Sequence number = MI1029 -- RF11C/R1332 -- OK @ 04/30/99 AT 22:37:29.293
+# Sequence number = MI1036 -- RF12C/R1333 -- OK @ 05/01/99 AT 07:52:34.312
+# Sequence number = MI1043 -- RF13C/R1334 -- OK @ 05/01/99 AT 01:28:30.945
+# Sequence number = MI1050 -- RF14C/R1335 -- OK @ 05/01/99 AT 09:56:07.640
+#
+#  2nd set, 2nd segment, 2nd try (using raf's "dmg" login)
+#  Jobs submitted on Fri Apr 30 17:26:50 MDT 1999
+# Sequence number = MI1078 -- RF17B/R1341 -- OK @ 05/01/99 AT 12:28:44.601
+#
+#  2nd set, 3rd segment, 1st try (using raf's "dmg" login)
+#  Jobs submitted on Mon May  3 15:25:09 MDT 1999
+# Sequence number = MI7265 -- RF17C/R1341 -- OK @  05/03/99 AT 18:17:24.498
+#
+#  2nd set, 2nd segment, 3rd try (using raf's "dmg" login)
+#  Jobs submitted on Mon May  3 15:27:30 MDT 1999
+# Sequence number = MI7329 -- RF18BB/R1343 -- Failed @ 05/03/99 AT 19:17:34.323
+#
+#  2nd set, 2nd/3rd segment, 2nd try (using raf's "dmg" login)
+#  Jobs submitted on Thu May  6 14:48:56 MDT 1999
+# Sequence number = MI6848 -- RF16B/R1339 -- OK @ 05/06/99 AT 14:50:25.347
+# Sequence number = MI6855 -- RF18C/R1343 -- OK @ 05/06/99 AT 15:39:48.821 
+#
+#  3rd set, 1st segment, 1st try (using raf's "dmg" login and "server=mss4")
+#  Jobs submitted on Wed Jun 16 14:45:38 MDT 1999
+# Sequence number = MI0976 -- FF01A/R1310 -- Failed @ 16 Jun 1999 14:45:46
+# Sequence number = MI0983 -- FF02A/R1311 -- Failed @ 16 Jun 1999 14:45:46
+# Sequence number = MI0990 -- FF03A/R1312 -- Failed @ 16 Jun 1999 14:45:47
+# Sequence number = MI0997 -- FF04A/R1313 -- Failed @ 16 Jun 1999 14:45:47
+# Sequence number = MI1004 -- FF05AA/R1314 -- Failed @ 16 Jun 1999 14:45:48
+# Sequence number = MI1011 -- FF05BA/R1315 -- Failed @ 16 Jun 1999 14:45:49
+# Sequence number = MI1018 -- FF06AA/R1316 -- Failed @ 16 Jun 1999 14:45:49
+# Sequence number = MI1025 -- FF06BA/R1317 -- Failed @ 16 Jun 1999 14:45:50
+# Sequence number = MI1032 -- FF07A/R1345 -- Failed @ 16 Jun 1999 14:45:50
+# Sequence number = MI1039 -- FF08A/R1346 -- Failed @ 16 Jun 1999 14:49:49
+# Sequence number = MI1046 -- FF09A/R1347 -- Failed @ 16 Jun 1999 14:45:50
+# Sequence number = MI1053 -- FF10A/R1348 -- Failed @ 16 Jun 1999 14:45:51
+# Sequence number = MI1060 -- FF11A/R1349 -- Failed @ 16 Jun 1999 14:45:51
+#  Above tries failed, because new software cannot handle block sizes
+#    larger than 32k bytes.
+#
+#  3rd set, 1st segment, 2nd try (using raf's "dmg" login and "server=mss4")
+#  Jobs submitted on Thu Jun 17 11:49:13 MDT 1999
+# Sequence number = MI3257 -- FF01A/R1310 -- OK @ 18 Jun 1999 02:36:57
+# Sequence number = MI3264 -- FF02A/R1311 -- OK @ 17 Jun 1999 23:44:19
+# Sequence number = MI3271 -- FF03A/R1312 -- OK @ 17 Jun 1999 22:16:32
+# Sequence number = MI3278 -- FF04A/R1313 -- OK @ 18 Jun 1999 01:08:06
+# Sequence number = MI3285 -- FF05AA/R1314 -- OK @ 18 Jun 1999 05:16:11
+# Sequence number = MI3292 -- FF05BA/R1315 -- OK @ 18 Jun 1999 07:25:35
+# Sequence number = MI3299 -- FF06AA/R1316 -- OK @ 18 Jun 1999 06:30:43
+# Sequence number = MI3306 -- FF06BA/R1317 -- OK @ 18 Jun 1999 03:54:50
+# Sequence number = MI3313 -- FF07A/R1345 -- OK @ 18 Jun 1999 15:03:31
+# Sequence number = MI3320 -- FF08A/R1346 -- OK @ 18 Jun 1999 13:33:49
+# Sequence number = MI3327 -- FF09A/R1347 -- OK @ 18 Jun 1999 10:48:56
+# Sequence number = MI3334 -- FF10A/R1348 -- OK @ 18 Jun 1999 09:09:38
+# Sequence number = MI3341 -- FF11A/R1349 -- OK @ 18 Jun 1999 12:12:50
+#
+#  3rd set, 2nd segment, 1st try (using raf's "dmg" login and "server=mss4")
+#  Jobs submitted on Fri Jun 18 15:44:00 MDT 1999
+# Sequence number = MI8545 -- FF01B/R1310 -- OK @ 18 Jun 1999 20:40:31
+# Sequence number = MI8552 -- FF02B/R1311 -- OK @ 18 Jun 1999 20:27:28
+# Sequence number = MI8559 -- FF03B/R1312 -- Failed @ 18 Jun 1999 20:43:45
+# Sequence number = MI8566 -- FF04B/R1313 -- OK @ 19 Jun 1999 03:18:49
+# Sequence number = MI8573 -- FF05AB/R1314 -- OK @ 19 Jun 1999 01:16:02
+# Sequence number = MI8580 -- FF07B/R1345 -- OK @ 18 Jun 1999 22:25:50
+# Sequence number = MI8587 -- FF08B/R1346 -- OK @ 18 Jun 1999 23:59:37
+# Sequence number = MI8594 -- FF09B/R1347 -- OK @ 19 Jun 1999 03:47:39
+# Sequence number = MI8601 -- FF10B/R1348 -- OK @ 19 Jun 1999 05:09:16
+# Sequence number = MI8608 -- FF11B/R1349 -- OK @ 19 Jun 1999 02:57:05
+#
+#  3rd set, 3rd segment, 1st try (using raf's "dmg" login and "server=mss4")
+#  Jobs submitted on Tue Jul  6 17:14:50 MDT 1999
+# Sequence number = MI7674 -- FF02C/R1311 -- OK @ 6 Jul 1999 17:32:40
+# Sequence number = MI7684 -- FF07C/R1345 -- Failed @ 7 Jul 1999 03:39:21
+# Sequence number = MI7692 -- FF08C/R1346 -- Failed @ 7 Jul 1999 03:36:13
+# Sequence number = MI7699 -- FF11C/R1349 -- Failed @ 7 Jul 1999 03:44:35
+#   (Failure due to resource not not being available)
+#
+#  3rd set, 3rd segment, 2nd try (using raf's "dmg" login and "server=mss4")
+#  Jobs submitted on Wed Jul  7 17:42:11 MDT 1999
+# Sequence number = MI8445 -- FF07C -- Job lost
+# Sequence number = MI8452 -- FF08C -- Job lost
+# Sequence number = MI8459 -- FF11C -- Job lost
+#
+#  3rd set, 3rd segment, 3rd try (using raf's "dmg" login and "server=mss4")
+#  Jobs submitted on Tue Jul 13 11:20:58 MDT 1999
+# Sequence number = MI1461 -- FF07C/R1345 -- OK @ 13 Jul 1999 23:25:21
+# Sequence number = MI1468 -- FF08C/R1346 -- OK @ 14 Jul 1999 00:44:12
+# Sequence number = MI1475 -- FF11C/R1349 -- OK @ 14 Jul 1999 03:05:45
+#
+#  Mop-up stuff (using raf's "dmg" login and "server=mss4")
+#  Jobs submitted on Wed Jul 14 10:47:54 MDT 1999
+# Sequence number = MI7531 -- FF03B/R1312 -- OK @ 14 Jul 1999 12:15:55
+# Sequence number = MI7539 -- FF11C/R1349 -- OK @ 14 Jul 1999 14:24:50
+# Sequence number = MI7546 -- FF11D/R1349 -- OK @ 14 Jul 1999 15:37:28
+#
+#  Fix-up stuff, 1st try (using raf's "dmg" login)
+#  Jobs submitted on Fri Dec 17 16:45:48 MST 1999
+# Sequence number = LN2864 -- FF11B/R1349 -- Failed* @ 17 Dec 99 17:05:45
+# Sequence number = LN2871 -- FF11C/R1349 -- OK @ 17 Dec 99 20:55:42
+# Sequence number = LN2878 -- FF11D/R1349 -- Failed** @ 17 Dec 99 22:46:41
+# Sequence number = LN2885 -- FF11E/R1349 -- Failed** @ 18 Dec 99 00:31:39
+#   * Failed due to FATAL UNIT CHECK ENCOUNTERED. RCODE=        15
+#  ** Failed due to IBM482I  'ONCODE'=0310  'FIXEDOVERFLOW' CONDITION RAISED
+#                      AT OFFSET +000740 IN PROCEDURE WITH ENTRY SKP_RECORDS
+#
+#  Fix-up stuff, 2nd try
+#  Jobs submitted on Tue Dec 21 11:19:31 MST 1999
+# Sequence number = LN3298 -- FF11B/R1349 -- OK @ 21 Dec 99 13:20:07
+# Sequence number = LN3308 -- FF11D/R1349 -- Failed** @ 21 Dec 99 15:31:39
+# Sequence number = LN3316 -- FF11E/R1349 -- Failed** @ 21 Dec 99 17:19:27
+#  ** Failed due to IBM482I  'ONCODE'=0310  'FIXEDOVERFLOW' CONDITION RAISED
+#                      AT OFFSET +000740 IN PROCEDURE WITH ENTRY SKP_RECORDS
+#
+#  Fix-up stuff, 3rd try
+#  Jobs submitted on Tue Jan 11 11:04:26 MST 2000
+# Sequence number = LN7810 -- FF11D/R1349 -- OK @ 11 Jan 2000 15:10:24
+# Sequence number = LN7818 -- FF11E/R1349 -- OK @ 11 Jan 2000 19:21:14
+#
+#      set,     segment,     try
+#  Jobs submitted on 
+#

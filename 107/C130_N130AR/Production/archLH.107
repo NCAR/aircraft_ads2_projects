@@ -1,0 +1,76 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2000-107 Sea Salinity (Dinardo)
+#
+#  File created by Ron Ruth (adapted from arch.107) on Wed Dec  6 16:07:22 MST 2000
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2000
+set PROJ = 107
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT/LH
+#
+#  1st wave  (Source files, LH data only)
+#nrnet msput $SDIR/107rf01LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf02LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf03LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf04LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf05LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf06LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf07LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  2nd wave
+#nrnet msput $SDIR/107ff02LH.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  3rd wave  (Gandrud's original ASCII files)
+#nrnet msput $SDIR/107rf01LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf02LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf03LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf04LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf05LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf06LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf07LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107ff02LHRev9.TXT l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.asc rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  4th wave  (Merged data after original move)
+#
+exit
+#
+#  1st wave
+#  Job(s) submitted on Wed Dec  6 16:19:28 MST 2000
+# Sequence number = LN8328 -- LRT/LH/RF01.cdf -- OK @ 6 Dec 2000 16:19:34
+# Sequence number = LN8336 -- LRT/LH/RF02.cdf -- OK @ 6 Dec 2000 16:19:34
+# Sequence number = LN8344 -- LRT/LH/RF03.cdf -- OK @ 6 Dec 2000 16:19:36
+# Sequence number = LN8354 -- LRT/LH/RF04.cdf -- OK @ 6 Dec 2000 16:19:36
+# Sequence number = LN8362 -- LRT/LH/RF05.cdf -- OK @ 6 Dec 2000 16:23:39
+# Sequence number = LN8372 -- LRT/LH/RF06.cdf -- OK @ 6 Dec 2000 16:23:39
+# Sequence number = LN8382 -- LRT/LH/RF07.cdf -- OK @ 6 Dec 2000 16:23:39
+#
+#  2nd wave
+#  Job(s) submitted on Wed Dec  6 17:35:02 MST 2000
+# Sequence number = LN0205 -- LRT/LH/FF02.cdf -- OK @ 6 Dec 2000 17:35:08
+#
+#  3rd wave  (Gandrud's original ASCII files)
+#  Job(s) submitted on Wed Dec  6 17:47:09 MST 2000
+# Sequence number = LN0963 -- LRT/LH/RF01.asc -- OK @ 6 Dec 2000 17:47:27
+# Sequence number = LN0971 -- LRT/LH/RF02.asc -- OK @ 6 Dec 2000 17:47:27
+# Sequence number = LN0979 -- LRT/LH/RF03.asc -- OK @ 6 Dec 2000 17:47:27
+# Sequence number = LN0989 -- LRT/LH/RF04.asc -- OK @ 6 Dec 2000 17:47:27
+# Sequence number = LN0999 -- LRT/LH/RF05.asc -- OK @ 6 Dec 2000 17:51:19
+# Sequence number = LN1007 -- LRT/LH/RF06.asc -- OK @ 6 Dec 2000 17:51:19
+# Sequence number = LN1018 -- LRT/LH/RF07.asc -- OK @ 6 Dec 2000 17:53:20
+# Sequence number = LN1027 -- LRT/LH/FF02.asc -- OK @ 6 Dec 2000 17:53:20
+#
+#  4th wave  (Merged data after original move)
+#  Job(s) submitted on 
+#

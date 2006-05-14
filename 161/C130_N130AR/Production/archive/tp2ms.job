@@ -1,0 +1,255 @@
+#! /bin/csh -f
+#
+#goto rename
+#
+#  Archive raw ADS data tapes for 2001-161 EPIC2001
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Revised by RLR  (adapt to new MIGS "msimp" verb)                17 Mar 1999
+#  Revised by RLR  (add noglob, "start" code)                       3 May 1999
+#  Revised by RLR  (# TAPES and # FLIGHTS must match)              14 Jul 1999
+#  Revised by RLR  (add vi commands to ease flt and tape # lists)  30 Nov 1999
+#  Revised by RLR  (# SKIPS and # RECS must match, too,
+#                                               if greater than 1)  02 Dec 1999
+#  Revised by RLR (change the way $PROJ is determined)              20 Mar 2000
+#
+#  Using 'vi' to edit lines extracted from a "tapes.ppp" file:
+#   first extract only tape and flight numbers
+#      :'a,'bs/\(............\)\(.*\)/\1
+#   copy the list to second section
+#      'c:'a,'bco.
+#   produce the tape number list
+#      :'a,'bs/.......$/ \\
+#   produce the flight number list
+#      :'c,'ds/\(.......\)\(.*\)/\2 \\
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+#  -----------------------------
+#
+#  1st set, 1st segment, 1st try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1589 \
+#R1590 \
+#R1591 \
+#R1592 \
+#R1593 \
+#R1594 \
+#R1595 \
+#R1596 \
+#R1597 \
+#R1598 \
+#R1599 \
+#R1600 \
+#R1601 \
+#R1602 \
+#R1603 \
+#R1604 \
+#R1605 \
+#R1606 \
+#R1607 \
+#R1608 \
+#R1609 \
+#R1610 \
+#R1611 \
+#)
+#set FLIGHTS = ( \
+#FF01  \
+#RF01  \
+#RF02  \
+#RF03  \
+#RF04  \
+#TF04  \
+#RF05  \
+#RF06  \
+#RF07  \
+#RF08  \
+#RF09  \
+#RF10  \
+#RF11  \
+#RF12  \
+#RF13  \
+#RF14  \
+#RF15A \
+#RF15B \
+#RF16  \
+#RF17  \
+#RF18  \
+#RF19  \
+#FF02  \
+#)
+#
+#  1st set, 1st segment, 2nd try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1599 \
+#)
+#set FLIGHTS = ( \
+#RF09 \
+#)
+#
+#  1st set, 1st segment, 2nd try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1604 \
+#R1605 \
+#)
+#set FLIGHTS = ( \
+#RF14A \
+#RF15AA \
+#)
+#
+#      set,     segment,     try
+#set SKIPS   = ^B*0
+#set RECS    = B*100000
+#set TAPES   = ( \
+#Rx \
+#)
+#set FLIGHTS = ( \
+#RFx \
+#)
+#
+#  -----------------------------
+#
+#  Get started:
+date
+#
+#  Make sure I have the same number of tapes, flights and command arguments
+if ($#TAPES != $#FLIGHTS) then
+  echo "TAPES and FLIGHTS don't match.  Quitting."
+  exit 1
+endif
+if ($#SKIPS > 1) then
+  if ($#SKIPS != $#FLIGHTS) then
+    echo "SKIPS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+if ($#RECS > 1) then
+  if ($#RECS != $#FLIGHTS) then
+    echo "RECS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+#
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/161/
+#
+#  1st set, 1st segment, 1st try
+#  Job(s) submitted on Thu Oct 18 13:51:31 MDT 2001
+# Sequence number = LN5604 -- FF01/R1589 -- OK @ 18 Oct 2001 14:31:47
+# Sequence number = LN5612 -- RF01/R1590 -- OK @ 18 Oct 2001 15:28:24
+# Sequence number = LN5620 -- RF02/R1591 -- OK @ 18 Oct 2001 17:00:02
+# Sequence number = LN5628 -- RF03/R1592 -- OK @ 18 Oct 2001 18:16:34
+# Sequence number = LN5636 -- RF04/R1593 -- OK @ 19 Oct 2001 09:43:59
+# Sequence number = LN5644 -- TF04/R1594 -- OK @ 19 Oct 2001 10:01:30
+# Sequence number = LN5652 -- RF05/R1595 -- OK @ 18 Oct 2001 19:13:40
+# Sequence number = LN5661 -- RF06/R1596 -- OK @ 18 Oct 2001 20:11:34
+# Sequence number = LN5669 -- RF07/R1597 -- OK @ 18 Oct 2001 21:06:02
+# Sequence number = LN5677 -- RF08/R1598 -- OK @ 18 Oct 2001 22:14:04
+# Sequence number = LN5685 -- RF09/R1599 -- Failed* @ 18 Oct 2001 23:45:32
+# Sequence number = LN5693 -- RF10/R1600 -- OK @ 18 Oct 2001 23:45:17
+# Sequence number = LN5704 -- RF11/R1601 -- OK @ 19 Oct 2001 02:19:29
+# Sequence number = LN5712 -- RF12/R1602 -- OK @ 19 Oct 2001 03:05:15
+# Sequence number = LN5720 -- RF13/R1603 -- OK @ 19 Oct 2001 03:51:46
+# Sequence number = LN5728 -- RF14/R1604 -- Failed** @ 19 Oct 2001 04:42:27
+# Sequence number = LN5736 -- RF15A/R1605 -- OK*** @ 19 Oct 2001 04:15:05
+# Sequence number = LN5751 -- RF15B/R1606 -- OK @ 19 Oct 2001 10:28:16
+# Sequence number = LN5772 -- RF16/R1607 -- OK @ 19 Oct 2001 05:21:53
+# Sequence number = LN5784 -- RF17/R1608 -- OK @ 19 Oct 2001 08:13:34
+# Sequence number = LN5792 -- RF18/R1609 -- OK @ 19 Oct 2001 07:21:36
+# Sequence number = LN5806 -- RF19/R1610 -- OK @ 19 Oct 2001 06:11:37
+# Sequence number = LN5814 -- FF02/R1611 -- OK @ 19 Oct 2001 08:48:16
+#
+#    * DATA CHECK ENCOUNTERED. RCODE=20 IN FILE 0 AND IN RECORD 1
+#   ** DATA CHECK ENCOUNTERED. RCODE=20 IN FILE 0 AND IN RECORD 19913
+#  *** UNIT CHECK ENCOUNTERED. RCODE=15 IN FILE 0 AND IN RECORD 15101
+#
+#  1st set, 1st segment, 2nd try
+#  Job(s) submitted on Fri Oct 19 11:46:13 MDT 2001
+# Sequence number = LN9116 -- RF09/R1599 -- OK @ 19 Oct 2001 12:21:00
+#
+#  1st set, 1st segment, 2nd try
+#  Job(s) submitted on Fri Oct 19 13:48:56 MDT 2001
+# Sequence number = LN3428 -- RF14A/R1604 -- OK @ 19 Oct 2001 14:37:38
+# Sequence number = LN3436 -- RF15AA/R1605 -- OK*** @ 19 Oct 2001 15:03:54
+#
+#  Second try successful on tape that staged with errors the first time
+#rename:
+#date
+#   Remove corrupted version first
+#echo nrnet msrm % r flnm=/RAF/2001/161/RF14/R1604 wpwd=RAFDMG
+#   Remove version which didn't change between first and second tries
+#echo nrnet msrm % r flnm=/RAF/2001/161/RF15AA/R1605  wpwd=RAFDMG
+#  Job(s) submitted on Fri Oct 19 15:18:03 MDT 2001
+# Sequence number = LN6157 -- RF14/R1604 -- OK @ 19 Oct 2001 15:18:06
+# Sequence number = LN6165 -- RF15AA/R1605 -- OK @ 19 Oct 2001 15:18:07
+#
+#   Rename the new version
+#echo nrnet msmv % r flnm=/RAF/2001/161/RF14A/R1604 newf=/RAF/2001/161/RF14/R1604 wpwd=RAFDMG
+#  Job(s) submitted on Fri Oct 19 15:19:55 MDT 2001
+# Sequence number = LN6269 -- RF14A/R1604 -- OK @ 19 Oct 2001 15:20:01
+#
+#      set,     segment,     try
+#  Job(s) submitted on 
+#

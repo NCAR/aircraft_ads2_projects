@@ -1,0 +1,41 @@
+#! /bin/csh -f
+#
+#  Remove and rename MSS bitfiles (one tape image/one disk image)
+#   (Run twice and verify each)
+#
+date
+#
+#  Remove tape image file mistakenly archived as a disk file
+#nrnet msrm % r flnm=/RAF/2000/186/ADS/TF02 wpwd=RAFDMG
+#
+#  Correctly rename the disk image file 
+#nrnet msmv % r flnm=/RAF/2000/186/ADS/TF02A newf=/RAF/2000/186/ADS/TF02 wpwd=RAFDMG
+#
+#  Remove garbage disk file that was archived by mistake
+#nrnet msrm % r flnm=/RAF/2000/186/ADS/RF04A wpwd=RAFDMG
+#
+#
+#   Remove:  TF02
+#  Job(s) submitted on Fri Aug  4 17:02:45 MDT 2000
+# Sequence number = LN7092 -- ADS/TF02 -- OK @ 4 Aug 2000 17:02:21
+#
+#   Rename:  TF02A --> TF02
+#  Job(s) submitted on Fri Aug  4 17:04:07 MDT 2000
+# Sequence number = LN7121 -- ADS/TF02A -- OK @ 4 Aug 2000 17:04:08
+#
+#   Remove:  RF04A
+#  Job(s) submitted on Thu Aug 24 12:46:37 MDT 2000
+# Sequence number = LN7628 -- ADS/RF04A -- OK @ 24 Aug 2000 12:46:39
+#
+#  Fix up the flight numbers to agree with other data files
+#nrnet msmv % r flnm=/RAF/2000/186/RF08/R1501 newf=/RAF/2000/186/RF08A/R1501 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/186/RF09/R1502 newf=/RAF/2000/186/RF08B/R1502 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/186/RF10/R1503 newf=/RAF/2000/186/RF09/R1503 wpwd=RAFDMG
+#
+exit
+#
+#  Job(s) submitted on Wed Sep  6 17:02:51 MDT 2000 (when MIGS was down)
+# Sequence number = LN3954 -- RF08A/R1501 -- OK @ 6 Sep 2000 17:45:26
+# Sequence number = LN3962 -- RF08B/R1502 -- OK @ 6 Sep 2000 17:45:27
+# Sequence number = LN3970 -- RF09/R1503 -- OK @ 6 Sep 2000 17:45:27
+#

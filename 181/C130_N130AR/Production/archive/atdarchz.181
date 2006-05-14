@@ -1,0 +1,237 @@
+#! /bin/csh -f
+#
+#  Archive gzipped production netCDF data files for 2001-181 DYCOMS-II
+#    using the new ATD directory path
+#
+#   Must be run from a project's Production/archive subdirectory
+#
+#  File adapted from file /jnet/shared/proj/181/Production/archive/atdarch.181
+#    by Ron Ruth   22 January 2002
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user == "dmg") then
+   set dmg = "yes"
+else
+   set dmg = "no"
+endif
+#
+#  Get setup information for this project
+@ plat = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+@ plat /= 100
+if ($plat == 1) set PLATFORM = C130_N130AR
+if ($plat == 8) set PLATFORM = Electra_N308D
+if (! -e proj.info) then
+  if (! -e ../proj.info) then
+    echo " Cannot find proj.info file for this project"
+    goto quit
+  else
+    set YEAR = `grep CY ../proj.info | sed -e "s/CY=//"`
+    if ($YEAR == "") then
+      echo "  Calendar year not present in proj.info file"
+      goto quit
+    endif
+    if (! -e ../../ProjectName) then
+      echo " Cannot find ProjectName file for this project"
+      goto quit
+    endif
+    set PROJ = `cat ../../ProjectName`
+  endif
+else
+  set YEAR = `grep CY proj.info | sed -e "s/CY=//"`
+  if ($YEAR == "") then
+    echo "  Calendar year not present in proj.info file"
+    goto quit
+  endif
+  if (! -e ../ProjectName) then
+    echo " Cannot find ProjectName file for this project"
+    goto quit
+  endif
+  set PROJ = `cat ../ProjectName`
+endif
+#
+#  replace any <SPACE> characters in ProjectName with <UNDERSCORE>
+chk:
+@ spaces = `echo $PROJ | grep -c ' '`
+if ($spaces > 0) then
+  set PROJ = `echo $PROJ | sed -e "s/ /_/"`
+  goto chk
+endif
+#
+#  set extent for Production NIMBUS netCDF file
+set EXT = PNI.nc.gz
+#
+# Designations for 2001-181 DYCOMS-II
+#set RPWD = ""
+set RPWD = "rpwd=DYCONLY"
+#
+#
+#goto remove
+#
+#
+#  set data type
+#set TYPE = LRT
+#set TYPE = HRT
+#set TYPE = UHRT
+#
+#  set source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+#set SDIR = $DATA_DIR
+#set SDIR = $DATA_DIR/migs/ron
+#
+#  1st wave (HRT files)
+#set TYPE = HRT
+#set SDIR = $PROD_DATA
+#set SFILES = ( \
+#181ff02H.cdf.gz \
+#181rf01H.cdf.gz \
+#181rf02H.cdf.gz \
+#181rf03H.cdf.gz \
+#181rf04H.cdf.gz \
+#181rf05H.cdf.gz \
+#181rf06H.cdf.gz \
+#181rf07H.cdf.gz \
+#181rf08H.cdf.gz \
+#181rf09H.cdf.gz \
+#181rf10H.cdf.gz \
+#)
+#set DFILES = ( \
+#FF02.20010730.170851_223938.PNI.nc.gz \
+#RF01.20010710.060111_151725.PNI.nc.gz \
+#RF02.20010711.062452_155147.PNI.nc.gz \
+#RF03.20010713.061835_154515.PNI.nc.gz \
+#RF04.20010717.062250_153042.PNI.nc.gz \
+#RF05.20010718.061859_154009.PNI.nc.gz \
+#RF06.20010720.053956_151212.PNI.nc.gz \
+#RF07.20010724.055334_154831.PNI.nc.gz \
+#RF08.20010725.194534_051946.PNI.nc.gz \
+#RF09.20010727.181636_034427.PNI.nc.gz \
+#RF10.20010728.194831_000251.PNI.nc.gz \
+#)
+#
+#  2nd wave (UHRT files)
+#set TYPE = UHRT
+#set SDIR = $PROD_DATA
+#set SFILES = ( \
+#181rf01auhrt.cdf.gz \
+#181rf02auhrt.cdf.gz \
+#181rf03auhrt.cdf.gz \
+#181rf04auhrt.cdf.gz \
+#181rf05auhrt.cdf.gz \
+#181rf06auhrt.cdf.gz \
+#181rf07auhrt.cdf.gz \
+#181rf08auhrt.cdf.gz \
+#181rf09auhrt.cdf.gz \
+#)
+#set DFILES = ( \
+#RF01.20010710.080000_134959.PNI.nc.gz \
+#RF02.20010711.082500_142459.PNI.nc.gz \
+#RF03.20010713.080000_132959.PNI.nc.gz \
+#RF04.20010717.081200_135159.PNI.nc.gz \
+#RF05.20010718.075900_130859.PNI.nc.gz \
+#RF06.20010720.072000_135759.PNI.nc.gz \
+#RF07.20010724.083400_142259.PNI.nc.gz \
+#RF08.20010725.215500_035500.PNI.nc.gz \
+#RF09.20010727.200500_022500.PNI.nc.gz \
+#)
+#
+#  3rd wave (HRT RF09 reprocess)
+set TYPE = HRT
+set SDIR = $PROD_DATA
+set SFILES = ( \
+181rf09h.cdf.gz \
+)
+set DFILES = ( \
+RF09.20010727.191201_034427.PNI.nc.gz \
+)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#
+#  Archive the file (if the "dmg" login)
+    if ($dmg == "yes") then
+#      echo \
+      nrnet msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE \
+        rtpd=32767 name=RAF proj=41113009 wpwd=RAFDMG $RPWD
+    else
+      echo msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE \
+        rtpd=32767 name=RAF proj=41113009 wpwd=RAFDMG $RPWD
+    endif
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#  MSS path for bitfiles listed below:  /ATD/DATA/2001/DYCOMS-II/C130_N130AR/
+#
+#  1st wave (HRT files)
+#   MSS Directory:  /ATD/DATA/2001/DYCOMS-II/C130_N130AR/HRT/
+#  Job(s) submitted on Thu Jan 24 15:25:32 MST 2002
+# Sequence number = LN7106 -- FF02.20010730.170851_223938.PNI.nc.gz -- OK @ 24 Jan 2002 15:34:23
+# Sequence number = LN7114 -- RF01.20010710.060111_151725.PNI.nc.gz -- OK @ 24 Jan 2002 15:39:24
+# Sequence number = LN7122 -- RF02.20010711.062452_155147.PNI.nc.gz -- OK @ 24 Jan 2002 15:40:55
+# Sequence number = LN7132 -- RF03.20010713.061835_154515.PNI.nc.gz -- OK @ 24 Jan 2002 15:41:17
+# Sequence number = LN7142 -- RF04.20010717.062250_153042.PNI.nc.gz -- OK @ 24 Jan 2002 15:45:08
+# Sequence number = LN7151 -- RF05.20010718.061859_154009.PNI.nc.gz -- OK @ 24 Jan 2002 15:56:44
+# Sequence number = LN7160 -- RF06.20010720.053956_151212.PNI.nc.gz -- OK @ 24 Jan 2002 15:56:21
+# Sequence number = LN7170 -- RF07.20010724.055334_154831.PNI.nc.gz -- OK @ 24 Jan 2002 15:58:48
+# Sequence number = LN7178 -- RF08.20010725.194534_051946.PNI.nc.gz -- OK @ 24 Jan 2002 15:59:24
+# Sequence number = LN7188 -- RF09.20010727.181636_034427.PNI.nc.gz -- OK @ 24 Jan 2002 16:08:25
+# Sequence number = LN7198 -- RF10.20010728.194831_000251.PNI.nc.gz -- OK @ 24 Jan 2002 16:02:46
+#
+#  2nd wave (UHRT files)
+#   MSS Directory:  /ATD/DATA/2001/DYCOMS-II/C130_N130AR/UHRT/
+#  Job(s) submitted on Thu Jan 24 15:29:44 MST 2002
+# Sequence number = LN7353 -- RF01.20010710.080000_134959.PNI.nc.gz -- OK @ 24 Jan 2002 16:08:45
+# Sequence number = LN7361 -- RF02.20010711.082500_142459.PNI.nc.gz -- OK @ 24 Jan 2002 16:06:59
+# Sequence number = LN7369 -- RF03.20010713.080000_132959.PNI.nc.gz -- OK @ 24 Jan 2002 16:11:33
+# Sequence number = LN7377 -- RF04.20010717.081200_135159.PNI.nc.gz -- OK @ 24 Jan 2002 16:15:04
+# Sequence number = LN7385 -- RF05.20010718.075900_130859.PNI.nc.gz -- OK @ 24 Jan 2002 16:17:18
+# Sequence number = LN7393 -- RF06.20010720.072000_135759.PNI.nc.gz -- OK @ 24 Jan 2002 16:19:36
+# Sequence number = LN7401 -- RF07.20010724.083400_142259.PNI.nc.gz -- OK @ 24 Jan 2002 16:23:25
+# Sequence number = LN7409 -- RF08.20010725.215500_035500.PNI.nc.gz -- OK @ 24 Jan 2002 16:17:00
+# Sequence number = LN7417 -- RF09.20010727.200500_022500.PNI.nc.gz -- OK @ 24 Jan 2002 16:23:33
+#
+#  3rd wave (HRT RF09 reprocess)
+#   MSS Directory:  /ATD/DATA/2001/DYCOMS-II/C130_N130AR/HRT/
+#  Job(s) submitted on Thu Mar 28 16:05:42 MST 2002
+# Sequence number = LN0521 -- RF09.20010727.191201_034427.PNI.nc.gz -- OK @ 28 Mar 2002 16:12:31
+#
+#  4th wave (Remove bad HRT RF09 bitfile)
+#remove:
+#date
+#echo nrnet msrm % r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/HRT/RF09.20010727.181636_034427.PNI.nc.gz wpwd=RAFDMG $RPWD
+#   MSS Directory:  /ATD/DATA/2001/DYCOMS-II/C130_N130AR/HRT/
+#  Job(s) submitted on Thu Mar 28 16:23:54 MST 2002
+# Sequence number = LN1453 -- RF09.20010727.181636_034427.PNI.nc.gz -- OK @ 28 Mar 2002 16:24:15
+#
+#   th wave
+#  Job(s) submitted on 
+#

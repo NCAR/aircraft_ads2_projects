@@ -1,0 +1,17 @@
+This directory contains data for production runs of ACME.
+
+The delay times differ between low and high-rate runs.
+
+Before running a low-rate run, execute these two commands:
+       copy_Flight_to_lowrate 
+To run all the low-rate data:
+       batch_125
+       
+
+
+
+Before running a low-rate run, execute these two scripts:
+       copy_Flight_to_highrate 
+To run all the high-rate data:
+       batch_125_hr
+

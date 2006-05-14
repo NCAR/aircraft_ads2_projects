@@ -1,0 +1,62 @@
+Email messages in Mail.181 should document the situation with RF09.  Dave
+Leon (U Wyoming) made me aware of a time offset between high- and low-rate
+data sets.
+
+The time offset is apparently associated with a large time gap and two ADS
+files.  The first segment, about 45 minutes long, all has on-the-ground data.
+The second, comprising the rest of the flight, starts after takeoff.
+
+RF09 HRT was reprocessed on 28 March 2002 using the same version of NIMBUS
+used in the original HRT processing, so no new nimbus processor code needs
+to be archived to the SCD Mass Store System (MSS).
+
+Now that I have reprocessed RF09, here are the steps needed to update all the
+documentation:
+
++ Check flight data
+   Comment from flight log:  IRS problem after 00:16 UTC -- IRS data omitted
+   from file after this time.  (This was never implemented in either LRT or
+   HRT data set.)
+
++ MSS archive RF09 HRT to both /ATD and /RAF data paths
+  + arch.181
+  + atdarch.181
++ MSS archive RF09 HRT gzipped to /ATD data path
+  + atdarchz.181
+
++ remove bad MSS RF09 HRT bitfiles from /ATD data path
+
+- update web site:
+  + data_summary.html
+  + /net/www/docs/raf/projects/DYCOMS-II/Production/taplog.hrt.181
+  + l_taplog/taplog.hrt.181
+  + FltMatrix.html (not necessary, since it uses LRT times)
+  + docsum.html
+    + annotate problem with RF09 HRT
+  + changes.html
+    + add all html files mentioned above
+
++ compose and send email to all DYCOMS-II participants
+
++ update affected documentation files
+  + tapes.181
+  + msfiles/msls.181
+  + tarit.181 - update then run
+    + logFile_HRT.rf09.old
+    + taplog.hrt.181
+    + rf09h_notes
+  + tarit.docs - run when documents are ready
+    + RF09_memo
+  + archive.support - update then run
+    + 181.documents.tar
+    + 181.documents.tar.dir
+    + 181.tar
+    + 181.tar.dir
+    + Mail.181
+    + taplog.hrt.181 (two places)
+    + tapes.181
+ 
++ All steps completed by 1:40 p.m. on 29 March 2002
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ Ronald L. Ruth, RAF Data Manager
+ 28-29 March 2002

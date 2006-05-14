@@ -1,0 +1,40 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 5-127 Marine Stratus Cloud Tops (Dr. James W. Telford)
+#
+#  File created by '/home/users/ron/nimbus/tools/genar' Revision 4 Tue Oct 24 16:50:29 MDT 1995
+#
+date
+#
+set YEAR = 1995
+set PROJ = 127
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/127rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/127rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Tue Oct 24 16:54:08 MDT 1995
+# Sequence number = MI1929 -- LRT/RF01.cdf -- OK @ 24 Oct 1995 16:55:49
+# Sequence number = MI1936 -- LRT/RF02.cdf -- OK @ 24 Oct 1995 16:57:00
+# Sequence number = MI1943 -- LRT/RF03.cdf -- OK @ 24 Oct 1995 16:57:18
+# Sequence number = MI1950 -- LRT/RF04.cdf -- OK @ 24 Oct 1995 16:59:02
+# Sequence number = MI1957 -- LRT/RF05.cdf -- OK @ 24 Oct 1995 16:57:33
+# Sequence number = MI1964 -- LRT/RF06.cdf -- OK @ 24 Oct 1995 16:57:45
+# Sequence number = MI1971 -- LRT/RF07.cdf -- OK @ 24 Oct 1995 17:08:51
+# Sequence number = MI1978 -- LRT/RF08.cdf -- OK @ 24 Oct 1995 17:01:43
+# Sequence number = MI1985 -- LRT/RF09.cdf -- OK @ 24 Oct 1995 17:02:03
+# Sequence number = MI1992 -- LRT/RF10.cdf -- OK @ 24 Oct 1995 17:03:00
+#

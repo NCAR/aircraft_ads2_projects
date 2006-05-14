@@ -1,0 +1,25 @@
+#! /bin/csh -f
+#
+#   Remove obsolete production data files from the SCD Mass Store System
+#   (Earlier bitfiles have "incorrect" time periods.)
+#
+#  Written by Ron Ruth   16 April 2003
+#  Revision 0
+#
+set WPWD = "-wpwd RAFDMG"
+#
+echo "  Deletion began on `date`"
+msrm $WPWD /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF01.20020405.193502_000801.PNI.nc
+msrm $WPWD /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF02.20020412.183202_235500.PNI.nc
+msrm $WPWD /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF03.20020418.203002_220500.PNI.nc
+msrm $WPWD /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF04.20020425.183102_222800.PNI.nc
+msrm $WPWD /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF05.20020430.182802_223200.PNI.nc
+msrm $WPWD /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF07.20020509.192702_215800.PNI.nc
+msrm $WPWD /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF08.20020514.160202_192300.PNI.nc
+echo "  Deletion completed on `date`"
+#
+exit
+#
+#  Deletion began on Wed Apr 16 10:19:19 MDT 2003
+#  Deletion completed on Wed Apr 16 10:19:29 MDT 2003
+#

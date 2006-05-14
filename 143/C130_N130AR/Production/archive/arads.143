@@ -1,0 +1,510 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS disk data files for 2000-143 TOPSE
+#   Must be run from a project's Production subdirectory
+#
+#  File adapted from file /home/local/proj/102/Production/arch_ads.102
+#    by Ron Ruth  28 January 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+#set SDIR = $DATA_DIR
+set SDIR = $DATA_DIR/topse
+#
+#  1st wave
+#set SFILES = ( \
+#143tf01.ads \
+#143tf02a.ads \
+#143tf03a.ads \
+#)
+#set DFILES = ( \
+#TF01 \
+#TF02 \
+#TF03 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#143tf04.ads \
+#)
+#set DFILES = ( \
+#TF04 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#143rf01.ads \
+#143rf02.ads \
+#143rf03.ads \
+#)
+#set DFILES = ( \
+#RF01 \
+#RF02 \
+#RF03 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#143rf01b.ads \
+#)
+#set DFILES = ( \
+#RF01B \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#143rf04.ads \
+#143rf06.ads \
+#143rf07.ads \
+#)
+#set DFILES = ( \
+#RF04 \
+#RF06 \
+#RF07 \
+#)
+#
+#  7th wave
+#set SFILES = ( \
+#143rf05.ads \
+#)
+#set DFILES = ( \
+#RF05 \
+#)
+#
+#  8th wave
+#set SFILES = ( \
+#143rf08a.ads \
+#143rf08b.ads \
+#143rf08c.ads \
+#143rf08d.ads \
+#143rf08e.ads \
+#143rf08f.ads \
+#143rf08g.ads \
+#)
+#set DFILES = ( \
+#RF08A \
+#RF08B \
+#RF08C \
+#RF08D \
+#RF08E \
+#RF08F \
+#RF08G \
+#)
+#
+#  9th wave  (Disk images)
+#set SFILES = ( \
+#143rf01a.ads \
+#143rf01b.ads \
+#143rf02a.ads \
+#143rf02b.ads \
+#143rf02c.ads \
+#143rf03a.ads \
+#)
+#set DFILES = ( \
+#RF01A \
+#RF01B \
+#RF02A \
+#RF02B \
+#RF02C \
+#RF03 \
+#)
+#
+# 10th wave  (Disk images)
+#set SFILES = ( \
+#143rf04a.ads \
+#143rf05a.ads \
+#143rf06a.ads \
+#143rf07a.ads \
+#143rf08a.ads \
+#143rf08b.ads \
+#)
+#set DFILES = ( \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08A \
+#RF08B \
+#)
+#
+# 11th wave  (Disk images)
+#set SFILES = ( \
+#143rf08c.ads \
+#143rf08d.ads \
+#143rf08e.ads \
+#143rf08f.ads \
+#143rf08g.ads \
+#143rf09a.ads \
+#)
+#set DFILES = ( \
+#RF08C \
+#RF08D \
+#RF08E \
+#RF08F \
+#RF08G \
+#RF09 \
+#)
+#
+# 12th wave  (Disk images)
+#set SFILES = ( \
+#143rf10a.ads \
+#143rf11a.ads \
+#143rf11b.ads \
+#143rf11c.ads \
+#143rf12a.ads \
+#143rf13a.ads \
+#)
+#set DFILES = ( \
+#RF10 \
+#RF11A \
+#RF11B \
+#RF11C \
+#RF12 \
+#RF13 \
+#)
+#
+# 13th wave  (Disk images)
+#set SFILES = ( \
+#143rf14a.ads \
+#143rf15a.ads \
+#143rf16a.ads \
+#143rf17a.ads \
+#143rf18a.ads \
+#143rf18b.ads \
+#)
+#set DFILES = ( \
+#RF14 \
+#RF15 \
+#RF16 \
+#RF17 \
+#RF18A \
+#RF18B \
+#)
+#
+# 14th wave  (Disk images)
+#set SFILES = ( \
+#143rf19a.ads \
+#143rf20a.ads \
+#143rf20b.ads \
+#143rf21a.ads \
+#143rf22a.ads \
+#143tf01a.ads \
+#)
+#set DFILES = ( \
+#RF19 \
+#RF20A \
+#RF20B \
+#RF21 \
+#RF22 \
+#TF01 \
+#)
+#
+# 15th wave  (Disk images)
+#set SFILES = ( \
+#143tf02a.ads \
+#143tf03a.ads \
+#143tf03b.ads \
+#143tf03c.ads \
+#143tf04a.ads \
+#143tf04b.ads \
+#)
+#set DFILES = ( \
+#TF02 \
+#TF03A \
+#TF03B \
+#TF03C \
+#TF04A \
+#TF04B \
+#)
+#
+# 16th wave  (Disk images)
+#set SFILES = ( \
+#143tf04c.ads \
+#143tf04d.ads \
+#143tf04e.ads \
+#143tf04f.ads \
+#143tf05a.ads \
+#143tf06a.ads \
+#)
+#set DFILES = ( \
+#TF04C \
+#TF04D \
+#TF04E \
+#TF04F \
+#TF05 \
+#TF06 \
+#)
+#
+# 17th wave  (Disk images)
+#set SFILES = ( \
+#143rf16x.ads \
+#143rf17a.ads \
+#143rf17b.ads \
+#143rf18a.ads \
+#143rf19a.ads \
+#143rf19b.ads \
+#143rf20a.ads \
+#143rf21a.ads \
+#)
+#set DFILES = ( \
+#RF16X \
+#RF17A \
+#RF17B \
+#RF18 \
+#RF19A \
+#RF19B \
+#RF20 \
+#RF21 \
+#)
+#
+# 18th wave (Deployment #6)
+#set SFILES = ( \
+#143rf22a.ads \
+#143rf23a.ads \
+#143rf24a.ads \
+#143rf25a.ads \
+#143rf26a.ads \
+#)
+#set DFILES = ( \
+#RF22 \
+#RF23 \
+#RF24 \
+#RF25 \
+#RF26 \
+#)
+#
+# 19th wave
+#set SFILES = ( \
+#143rf27a.ads \
+#143rf28a.ads \
+#143rf30a.ads \
+#143rf31a.ads \
+#143rf32a.ads \
+#)
+#set DFILES = ( \
+#RF27 \
+#RF28 \
+#RF30 \
+#RF31 \
+#RF32 \
+#)
+#
+# 20th wave
+#set SFILES = ( \
+#143rf23a1.ads \
+#143rf28a2.ads \
+#143rf30a2.ads \
+#143rf31a2.ads \
+#143rf32a2.ads \
+#)
+#set DFILES = ( \
+#RF23A \
+#RF28 \
+#RF30 \
+#RF31 \
+#RF32 \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TYPE/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2000/143/
+#
+#  1st wave
+#  Job(s) submitted on Fri Jan 28 12:32:15 MST 2000
+# Sequence number = LN2980 -- ADS/TF01 -- OK @ 28 Jan 2000 12:37:04
+# Sequence number = LN2988 -- ADS/TF02 -- OK @ 28 Jan 2000 12:37:39
+# Sequence number = LN2996 -- ADS/TF03 -- OK @ 28 Jan 2000 12:38:29
+#
+#  2nd wave
+#  Job(s) submitted on Fri Feb  4 11:24:41 MST 2000
+# Sequence number = LN8955 -- ADS/TF04 -- OK @ 4 Feb 2000 11:28:37
+#
+#  3rd wave
+#  Job(s) submitted on Thu Feb 10 10:33:55 MST 2000
+# Sequence number = LN6514 -- ADS/RF01 -- OK @ 10 Feb 2000 10:50:48
+# Sequence number = LN6522 -- ADS/RF02 -- OK @ 10 Feb 2000 10:51:54
+# Sequence number = LN6530 -- ADS/RF03 -- OK @ 10 Feb 2000 10:49:58
+#
+#  4th wave
+#  Job(s) submitted on Fri Feb 11 15:50:44 MST 2000
+# Sequence number = LN5625 -- ADS/RF01B -- OK @ 11 Feb 2000 15:51:55
+#
+#  6th wave
+#  Job(s) submitted on Tue Feb 29 10:38:03 MST 2000
+# Sequence number = LN8375 -- ADS/RF04 -- OK @ 29 Feb 2000 10:53:56
+# Sequence number = LN8383 -- ADS/RF06 -- OK @ 29 Feb 2000 10:52:42
+# Sequence number = LN8391 -- ADS/RF07 -- OK @ 29 Feb 2000 10:52:07
+#
+#  7th wave
+#  Job(s) submitted on Wed Mar  1 16:31:04 MST 2000
+# Sequence number = LN3125 -- ADS/RF05 -- OK @ 1 Mar 2000 16:37:21
+#
+#  8th wave
+#  Job(s) submitted on Fri Mar 10 16:28:31 MST 2000
+# Sequence number = LN5282 -- ADS/RF08A -- OK @ 10 Mar 2000 16:31:29
+# Sequence number = LN5290 -- ADS/RF08B -- OK @ 10 Mar 2000 16:28:42
+# Sequence number = LN5298 -- ADS/RF08C -- OK @ 10 Mar 2000 16:28:42
+# Sequence number = LN5308 -- ADS/RF08D -- OK @ 10 Mar 2000 16:28:42
+# Sequence number = LN5318 -- ADS/RF08E -- OK @ 10 Mar 2000 16:39:52
+# Sequence number = LN5328 -- ADS/RF08F -- OK @ 10 Mar 2000 16:32:40
+# Sequence number = LN5338 -- ADS/RF08G -- OK @ 10 Mar 2000 16:39:10
+#
+#  9th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 10:50:15 MDT 2000
+# Sequence number = LN3355 -- ADS/RF01A -- OK @ 19 Apr 2000 10:58:54
+# Sequence number = LN3363 -- ADS/RF01B -- OK @ 19 Apr 2000 10:50:43
+# Sequence number = LN3371 -- ADS/RF02A -- OK @ 19 Apr 2000 10:50:21
+# Sequence number = LN3381 -- ADS/RF02B -- OK @ 19 Apr 2000 10:50:52
+# Sequence number = LN3391 -- ADS/RF02C -- OK @ 19 Apr 2000 11:07:00
+# Sequence number = LN3401 -- ADS/RF03 -- OK @ 19 Apr 2000 11:06:09
+#
+# 10th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 11:16:07 MDT 2000
+# Sequence number = LN3759 -- ADS/RF04 -- OK @ 19 Apr 2000 11:37:12
+# Sequence number = LN3767 -- ADS/RF05 -- OK @ 19 Apr 2000 11:33:33
+# Sequence number = LN3775 -- ADS/RF06 -- OK @ 19 Apr 2000 11:34:14
+# Sequence number = LN3785 -- ADS/RF07 -- OK @ 19 Apr 2000 11:35:08
+# Sequence number = LN3795 -- ADS/RF08A -- OK @ 19 Apr 2000 11:37:25
+# Sequence number = LN3805 -- ADS/RF08B -- OK @ 19 Apr 2000 11:36:14
+#
+# 11th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 11:39:06 MDT 2000
+# Sequence number = LN5243 -- ADS/RF08C -- OK @ 19 Apr 2000 11:39:11
+# Sequence number = LN5251 -- ADS/RF08D -- OK @ 19 Apr 2000 11:39:12
+# Sequence number = LN5259 -- ADS/RF08E -- OK @ 19 Apr 2000 11:41:54
+# Sequence number = LN5269 -- ADS/RF08F -- OK @ 19 Apr 2000 11:41:13
+# Sequence number = LN5280 -- ADS/RF08G -- OK @ 19 Apr 2000 11:47:20
+# Sequence number = LN5288 -- ADS/RF09 -- OK @ 19 Apr 2000 11:48:38
+#
+# 12th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 11:49:56 MDT 2000
+# Sequence number = LN6265 -- ADS/RF10 -- OK @ 19 Apr 2000 12:05:54
+# Sequence number = LN6273 -- ADS/RF11A -- OK @ 19 Apr 2000 11:57:40
+# Sequence number = LN6281 -- ADS/RF11B -- OK @ 19 Apr 2000 11:56:58
+# Sequence number = LN6291 -- ADS/RF11C -- OK @ 19 Apr 2000 12:06:16
+# Sequence number = LN6300 -- ADS/RF12 -- OK @ 19 Apr 2000 12:10:36
+# Sequence number = LN6309 -- ADS/RF13 -- OK @ 19 Apr 2000 12:19:50
+#
+# 13th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 12:12:03 MDT 2000
+# Sequence number = LN7973 -- ADS/RF14 -- OK @ 19 Apr 2000 12:23:44
+# Sequence number = LN7981 -- ADS/RF15 -- OK @ 19 Apr 2000 12:26:50
+# Sequence number = LN7989 -- ADS/RF16 -- OK @ 19 Apr 2000 12:21:50
+# Sequence number = LN7997 -- ADS/RF17 -- OK @ 19 Apr 2000 12:24:32
+# Sequence number = LN8007 -- ADS/RF18A -- OK @ 19 Apr 2000 12:25:01
+# Sequence number = LN8017 -- ADS/RF18B -- OK @ 19 Apr 2000 12:28:41
+#
+# 14th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 12:29:23 MDT 2000
+# Sequence number = LN9549 -- ADS/RF19 -- OK @ 19 Apr 2000 12:41:10
+# Sequence number = LN9557 -- ADS/RF20A -- OK @ 19 Apr 2000 12:31:46
+# Sequence number = LN9565 -- ADS/RF20B -- OK @ 19 Apr 2000 12:39:55
+# Sequence number = LN9575 -- ADS/RF21 -- OK @ 19 Apr 2000 12:43:58
+# Sequence number = LN9583 -- ADS/RF22 -- OK @ 19 Apr 2000 12:45:56
+# Sequence number = LN9593 -- ADS/TF01 -- OK @ 19 Apr 2000 12:45:37
+#
+# 15th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 12:52:02 MDT 2000
+# Sequence number = LN1066 -- ADS/TF02 -- OK @ 19 Apr 2000 12:56:18
+# Sequence number = LN1074 -- ADS/TF03A -- OK @ 19 Apr 2000 12:52:32
+# Sequence number = LN1082 -- ADS/TF03B -- OK @ 19 Apr 2000 12:52:35
+# Sequence number = LN1092 -- ADS/TF03C -- OK @ 19 Apr 2000 12:57:00
+# Sequence number = LN1102 -- ADS/TF04A -- OK @ 19 Apr 2000 12:56:16
+# Sequence number = LN1112 -- ADS/TF04B -- OK @ 19 Apr 2000 12:56:16
+#
+# 16th wave  (Disk images)
+#  Job(s) submitted on Wed Apr 19 12:59:39 MDT 2000
+# Sequence number = LN2055 -- ADS/TF04C -- OK @ 19 Apr 2000 12:59:46
+# Sequence number = LN2063 -- ADS/TF04D -- OK @ 19 Apr 2000 12:59:57
+# Sequence number = LN2071 -- ADS/TF04E -- OK @ 19 Apr 2000 12:59:48
+# Sequence number = LN2081 -- ADS/TF04F -- OK @ 19 Apr 2000 13:02:23
+# Sequence number = LN2089 -- ADS/TF05 -- OK @ 19 Apr 2000 13:05:48
+# Sequence number = LN2099 -- ADS/TF06 -- OK @ 19 Apr 2000 13:05:56
+#
+# 17th wave
+#  Job(s) submitted on Fri Apr 21 15:42:44 MDT 2000
+# Sequence number = LN7831 -- ADS/RF16X -- OK @ 21 Apr 2000 15:49:27
+# Sequence number = LN7839 -- ADS/RF17A -- OK @ 21 Apr 2000 15:44:43
+# Sequence number = LN7847 -- ADS/RF17B -- OK @ 21 Apr 2000 15:53:59
+# Sequence number = LN7857 -- ADS/RF18 -- OK @ 21 Apr 2000 15:52:27
+# Sequence number = LN7867 -- ADS/RF19A -- OK @ 21 Apr 2000 15:49:18
+# Sequence number = LN7876 -- ADS/RF19B -- OK @ 21 Apr 2000 15:59:29
+# Sequence number = LN7887 -- ADS/RF20 -- OK @ 21 Apr 2000 16:04:07
+# Sequence number = LN7895 -- ADS/RF21 -- OK @ 21 Apr 2000 16:04:46
+#
+# 18th wave (Deployment #6)
+#  Job(s) submitted on Wed May  3 10:38:26 MDT 2000
+# Sequence number = LN4625 -- ADS/RF22 -- OK @ 3 May 2000 10:58:19
+# Sequence number = LN4633 -- ADS/RF23 -- OK @ 3 May 2000 10:56:09
+# Sequence number = LN4642 -- ADS/RF24 -- OK @ 3 May 2000 10:56:33
+# Sequence number = LN4652 -- ADS/RF25 -- OK @ 3 May 2000 10:56:46
+# Sequence number = LN4662 -- ADS/RF26 -- OK @ 3 May 2000 11:07:30
+#
+# 19th wave
+#  Job(s) submitted on Fri May 26 12:17:21 MDT 2000
+# Sequence number = LN7359 -- ADS/RF27 -- OK @ 26 May 2000 12:21:29
+# Sequence number = LN7367 -- ADS/RF28 -- OK @ 26 May 2000 12:37:10 (Tape file)
+# Sequence number = LN7375 -- ADS/RF30 -- OK @ 26 May 2000 12:31:40 (Tape file)
+# Sequence number = LN7385 -- ADS/RF31 -- OK @ 26 May 2000 12:35:40 (Tape file)
+# Sequence number = LN7393 -- ADS/RF32 -- OK @ 26 May 2000 12:36:39 (Tape file)
+#
+# 20th wave
+#  Job(s) submitted on Fri May 26 13:56:48 MDT 2000
+# Sequence number = LN9553 -- ADS/RF23A -- OK @ 26 May 2000 14:14:30
+# Sequence number = LN9561 -- ADS/RF28 -- OK @ 26 May 2000 14:17:52
+# Sequence number = LN9569 -- ADS/RF30 -- OK @ 26 May 2000 14:16:01
+# Sequence number = LN9577 -- ADS/RF31 -- OK @ 26 May 2000 14:18:31
+# Sequence number = LN9587 -- ADS/RF32 -- OK @ 26 May 2000 14:23:11
+#
+#   th wave
+#  Job(s) submitted on 
+#

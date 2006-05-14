@@ -1,0 +1,111 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2002-111 IDEAS-1 (Instrument Development and Education in Airborne Science, Phase 1) (Jeff Stith, et al.)
+#   using the new ATD directory path
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 12 on Mon Jan 13 10:49:07 MST 2003
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Rename files to "correct" destination directory
+goto rename
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+#set SFILES = ( \
+#111rf01.nc \
+#111rf02.nc \
+#111rf03.nc \
+#111rf04.nc \
+#111rf05.nc \
+#111rf07.nc \
+#111rf08.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF01.20020405.193502_000801.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF02.20020412.183202_235500.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF03.20020418.203002_220500.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF04.20020425.183102_222800.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF05.20020430.182802_223200.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF07.20020509.192702_215800.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF08.20020514.160202_192300.PNI.nc \
+#)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2002/IDEAS/C130_N130AR/"
+echo "#  (Check year in path, if project occurred in more than one.)"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  7 job(s) submitted on Mon Jan 13 10:53:10 MST 2003
+#  Files archived to MSS directory:  /ATD/DATA/2002/IDEAS/C130_N130AR/
+#   LRT/RF01.20020405.193502_000801.PNI.nc -- OK -- Mon Jan 13 11:03:55 MST 2003
+#   LRT/RF02.20020412.183202_235500.PNI.nc -- OK -- Mon Jan 13 11:10:04 MST 2003
+#   LRT/RF03.20020418.203002_220500.PNI.nc -- OK -- Mon Jan 13 11:12:38 MST 2003
+#   LRT/RF04.20020425.183102_222800.PNI.nc -- OK -- Mon Jan 13 11:16:56 MST 2003
+#   LRT/RF05.20020430.182802_223200.PNI.nc -- OK -- Mon Jan 13 11:26:13 MST 2003
+#   LRT/RF07.20020509.192702_215800.PNI.nc -- OK -- Mon Jan 13 11:32:47 MST 2003
+#   LRT/RF08.20020514.160202_192300.PNI.nc -- OK -- Mon Jan 13 11:37:34 MST 2003
+#   Completed on Mon Jan 13 11:37:34 MST 2003
+#
+rename:
+#  Second job to rename above files.
+#  The MSS directory should have been /ATD/DATA/2002/IDEAS-1/C130_N130AR/
+#
+#echo "#   Job submitted on `date`"
+#msmv -wpwd RAFDMG /ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF01.20020405.193502_000801.PNI.nc /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF01.20020405.193502_000801.PNI.nc
+#msmv -wpwd RAFDMG /ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF02.20020412.183202_235500.PNI.nc /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF02.20020412.183202_235500.PNI.nc
+#msmv -wpwd RAFDMG /ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF03.20020418.203002_220500.PNI.nc /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF03.20020418.203002_220500.PNI.nc
+#msmv -wpwd RAFDMG /ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF04.20020425.183102_222800.PNI.nc /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF04.20020425.183102_222800.PNI.nc
+#msmv -wpwd RAFDMG /ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF05.20020430.182802_223200.PNI.nc /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF05.20020430.182802_223200.PNI.nc
+#msmv -wpwd RAFDMG /ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF07.20020509.192702_215800.PNI.nc /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF07.20020509.192702_215800.PNI.nc
+#msmv -wpwd RAFDMG /ATD/DATA/2002/IDEAS/C130_N130AR/LRT/RF08.20020514.160202_192300.PNI.nc /ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF08.20020514.160202_192300.PNI.nc
+#echo "#   Completed on `date`"
+#
+#   Job submitted on Wed Jan 22 15:44:53 MST 2003
+#   Completed on Wed Jan 22 15:45:05 MST 2003
+#
+#

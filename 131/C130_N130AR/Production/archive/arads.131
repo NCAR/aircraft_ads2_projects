@@ -1,0 +1,211 @@
+#! /bin/csh -f
+#
+#  Archive stripped raw ADS data files for 2001-131 ACE-Asia
+#
+#  File adapted from file /home/local/proj/102/Production/arch_ads.102
+#    by Ron Ruth  28 January 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+#set SDIR = $DATA_DIR
+set SDIR = $DATA_DIR/migs/ron
+#
+#  1st wave
+#set SFILES = ( \
+#131ff01a.ads \
+#131ff02a.ads \
+#131ff02b.ads \
+#131ff03a.ads \
+#131ff04a.ads \
+#131rf01a.ads \
+#131rf02a.ads \
+#131rf03a.ads \
+#131rf04a.ads \
+#131rf05a.ads \
+#131rf06a.ads \
+#131rf07a.ads \
+#131rf08a.ads \
+#131rf09a.ads \
+#131rf10a.ads \
+#131rf11a.ads \
+#131rf12a.ads \
+#131tf04.ads \
+#)
+#set DFILES = ( \
+#FF01 \
+#FF02A \
+#FF02B \
+#FF03 \
+#FF04 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#TF04 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#131bench_19apr.ads \
+#131ramp_14apr.ads \
+#)
+#set DFILES = ( \
+#bench_20010419 \
+#ramp_20010414 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#131ff05a.ads \
+#131ff05b.ads \
+#131ff06a.ads \
+#131ff07a.ads \
+#131rf16.ads \
+#131rf18.ads \
+#131rf19.ads \
+#)
+#set DFILES = ( \
+#FF05A \
+#FF05B \
+#FF06 \
+#FF07 \
+#RF16 \
+#RF18 \
+#RF19 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#131rf13a.ads \
+#131rf14a.ads \
+#131rf15a.ads \
+#131rf15b.ads \
+#131rf15c.ads \
+#131rf15d.ads \
+#131rf17a.ads \
+#)
+#set DFILES = ( \
+#RF13 \
+#RF14 \
+#RF15A \
+#RF15B \
+#RF15C \
+#RF15D \
+#RF17 \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TYPE/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/131/
+#
+#  1st wave
+#  Job(s) submitted on Fri Apr 27 12:01:00 MDT 2001
+# Sequence number = LN4520 -- ADS/FF01 -- OK @ 27 Apr 2001 12:13:59
+# Sequence number = LN4528 -- ADS/FF02A -- OK @ 27 Apr 2001 12:32:37
+# Sequence number = LN4536 -- ADS/FF02B -- OK @ 27 Apr 2001 12:31:31
+# Sequence number = LN4545 -- ADS/FF03 -- OK @ 27 Apr 2001 12:28:24
+# Sequence number = LN4555 -- ADS/FF04 -- OK @ 27 Apr 2001 12:39:50
+# Sequence number = LN4567 -- ADS/RF01 -- OK @ 27 Apr 2001 12:55:43
+# Sequence number = LN4575 -- ADS/RF02 -- OK @ 27 Apr 2001 13:03:33
+# Sequence number = LN4585 -- ADS/RF03 -- OK @ 27 Apr 2001 13:10:39
+# Sequence number = LN4593 -- ADS/RF04 -- OK @ 27 Apr 2001 13:27:11
+# Sequence number = LN4601 -- ADS/RF05 -- OK @ 27 Apr 2001 12:48:26
+# Sequence number = LN4609 -- ADS/RF06 -- OK @ 27 Apr 2001 13:28:42
+# Sequence number = LN4617 -- ADS/RF07 -- OK @ 27 Apr 2001 13:40:46
+# Sequence number = LN4625 -- ADS/RF08 -- OK @ 27 Apr 2001 13:16:15
+# Sequence number = LN4633 -- ADS/RF09 -- OK @ 27 Apr 2001 13:47:09
+# Sequence number = LN4641 -- ADS/RF10 -- OK @ 27 Apr 2001 13:43:13
+# Sequence number = LN4649 -- ADS/RF11 -- OK @ 27 Apr 2001 14:03:01
+# Sequence number = LN4657 -- ADS/RF12 -- OK @ 27 Apr 2001 14:02:16
+# Sequence number = LN4665 -- ADS/TF04 -- OK @ 27 Apr 2001 13:40:49
+#
+#  2nd wave
+#  Job(s) submitted on Fri Apr 27 14:41:15 MDT 2001
+# Sequence number = LN8182 -- ADS/bench_20010419 -- OK @ 27 Apr 2001 14:41:00
+# Sequence number = LN8190 -- ADS/ramp_20010414 -- OK @ 27 Apr 2001 14:47:00
+#
+#  3rd wave
+#  Job(s) submitted on Wed May 30 11:00:35 MDT 2001
+# Sequence number = LN5076 -- ADS/FF05A -- OK @ 30 May 2001 11:01:09
+# Sequence number = LN5084 -- ADS/FF05B -- OK @ 30 May 2001 11:28:52
+# Sequence number = LN5092 -- ADS/FF06 -- OK @ 30 May 2001 11:26:43
+# Sequence number = LN5101 -- ADS/FF07 -- OK @ 30 May 2001 11:30:39
+# Sequence number = LN5112 -- ADS/RF16 -- OK @ 30 May 2001 11:31:24
+# Sequence number = LN5120 -- ADS/RF18 -- OK @ 30 May 2001 11:45:08
+# Sequence number = LN5130 -- ADS/RF19 -- OK @ 30 May 2001 11:47:03
+#
+#  4th wave
+#  Job(s) submitted on Fri Jun 15 17:25:36 MDT 2001
+# Sequence number = LN9578 -- ADS/RF13 -- OK @ 15 Jun 2001 17:56:15
+# Sequence number = LN9586 -- ADS/RF14 -- OK @ 15 Jun 2001 17:54:29
+# Sequence number = LN9594 -- ADS/RF15A -- OK @ 15 Jun 2001 17:26:16
+# Sequence number = LN9602 -- ADS/RF15B -- OK @ 15 Jun 2001 17:25:52
+# Sequence number = LN9614 -- ADS/RF15C -- OK @ 15 Jun 2001 17:30:26
+# Sequence number = LN9625 -- ADS/RF15D -- OK @ 15 Jun 2001 17:59:21
+# Sequence number = LN9635 -- ADS/RF17 -- OK @ 15 Jun 2001 18:00:51
+#
+#   th wave
+#  Job(s) submitted on 
+#

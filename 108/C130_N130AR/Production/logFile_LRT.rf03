@@ -1,0 +1,31 @@
+Soil Moisture/Sea Salinity - 108, Flight rf03
+Version - 3.1.5
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+ALTX has no dependencies, turning off.
+PSURF is depending on non-existent variable HGM, turning off.
+Loading setup file: /jnet/solaris/proj/108/Production/Flight_rf01
+Processed on: Sep 16 16:06 UTC 2002
+Flight Date: 07/01/2002
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Advancing past odd-ball time stamp:
+  previous time = 12:37:25
+       odd time = 11:59:27
+Advancing past odd-ball time stamp:
+  previous time = 12:37:25
+       odd time = 11:59:28
+    advanced to = 12:37:48
+Time break of 22 seconds ending @ 12:37:48, filling in with MISSING_VALUE.
+Time interval(s) completed : 12:14:52-15:03:13
+Processing took 0.4 minutes.

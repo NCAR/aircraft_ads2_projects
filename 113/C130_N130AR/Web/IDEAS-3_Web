@@ -1,0 +1,159 @@
+email administrator and moderator password:  ideas34ron
+
+Previous IDEAS "Field Phase" web sites:
+     http://raf.atd.ucar.edu/ATD_only/Projects/IDEAS-Opns/
+     http://raf.atd.ucar.edu/ATD_only/Projects/IDEAS2/
+     
+    Table of links at the top:
+      Data access - link to real-time and post-flight data
+      Current mission status - hand-edited file updated when needed
+         includes a hand-edited archive of previous status messages
+
+    Project Description     -  brief wrietup
+    Participants            -  Table with Investigator names and affiliations,
+                                instrument(s) and plans for study
+    IDEAS2 Email List Information  -  Link to moderated email list
+    Aircraft Configuration  -  Table (clickable diagrams)
+    Current Weather         -  Table with clickable dynamic information
+      Maps        \
+      Soundings    \  courtesy of
+      Satellite    /  Dave Rogers
+      Web Cams    /
+    Weather Forecasts
+      Courtesy of CSU, NCAR, RAP, NOAA, NWS courtesy of Dave Rogers
+    Photo Gallery
+      Unedited photos from RAF's digital camera
+      Ported into a gallery courtesy of Dave Rogers
+    Flight Summaries
+      info posted after each test/research flight
+      GOES images retrieved about an hour after end of flight
+      Scientist reports sent to me and posted manually
+
+New PostNuke site:
+    Features similar to previous Field-Phase sites
+      email list link
+
+    This time:
+      more "do-it-yourself" updates
+        Participant list
+        Current Status
+        Preliminary Data links ??
+        Photo Gallery ??
+        Flight Summaries
+          Scientist reports posted by scientist ??
+          I'll still post GOES imagery
+
+    Issues:
+      spin-up time for new users
+        calendar
+        adding new postings, e.g., whole-flight plots
+        fora and discussion topics
+      someone wants to post a netCDF file for download
+      narrow info links on left side
+      customization (it looks like IDEAS3, not PostNuke)
+
+-------
+
+PostNuke modules:  A  AddStory           Add a story
+                   A  Admin              Administration
+                   A  Admin_Messages     Banner messages
+                   U  Autolinks          Automatically add links to text
+                   I  AvantGo            News for your PDA
+                   I  Banners            Banners
+                   A  Blocks             Side block
+                   U  Censor             Site Censorship Control
+                   A  Comments           Comment on articles
+                   A  ContentExpress     Menus/Pages Management Module
+                   U  Credits            Display Module credits, license, help and contact information
+                   N  Downloads          Files to download
+                   A  Ephemerids         Daily events
+                   A  ew_filemanager     File Manager for PN
+                   A  FAQ                Frequently Asked Questions
+                   A  Groups             Set up administrative groups
+                   U  Kalender           
+                   A  Languages          Multi-language functions
+                   A  legal              Generic Privacy Statement and Terms of Use
+                   U  LostPassword       Retrive lost password of a user
+                   U  mac_jIRC           jIRC Chat Module
+                   A  MailUsers          Mail your users
+                   N  Members_List       Information on users of this site
+                   U  Multisites         
+                   A  News               News items
+                   U  NewUser            New User for postnuke
+                   U  ns-your_account    
+                   U  Past_Nuke          Old Post-Nuke admin compatibility
+                   A  Permissions        Configure permissions
+                   U  phpBB2             
+                   A  phpBB_14           
+                   A  pnCGIIRC           Wrapper for the CGI::IRC cgi webchat
+                   U  pnCGIIRC2          Wrapper for the CGI::IRC cgi webchat
+                   I  Polls              Polls and surveys
+                   A  PostCalendar       PostNuke Calendar Module
+                   A  PostWrap           Incorporate external sites or apps
+                   I  Quotes             Quotes and sayings
+                   A  Ratings            Ratings utility
+                   I  Recommend_Us       Recommend us to a friend
+                   A  Referers           Referers
+                   I  Reviews            Reviews
+                   A  Search             Search this site
+                   A  Sections           Sections
+                   A  Settings           Settings
+                   N  Stats              Site statistics
+                   A  Submit_News        Contribute a story
+                   U  Template           Template for new modules
+                   A  Topics             Article topics
+                   A  Top_List           Top 10 listings
+                   A  User               User Administration
+                   U  wb3                
+                   A  Web_Links          Links to other sites
+                   A  Wiki               Wiki encoding
+                   N  xmlrpc             XML-RPC utility module
+                   N  Your_Account       User options
+    A = Active
+    I = Inactive
+    N = New version installed
+    U = Uninitialized
+
+
+
+PostNuke settings:
+Start page:  Autolinks       U --  automatically add links to text
+             AvantGo         I --  news for your PDA
+             Blocks          A --  Side blocks
+             Censor          U --  Site Censorship Control
+             Credits         U --  Display Module credits, license, help and contact information
+             Downloads       N -- Files to download
+             FAQ             A -- Frequently Asked Questions
+             legal           A -- Generic Privacy Statement and Terms of Use
+             Members_List    N -- Information on users of this site
+             Messages        A -- Private messages to users of this site
+             Modules         ? -- (This list)
+             News            A -- News items
+             Permissions     A -- Configure permissions
+             Quotes          I -- Quotes and sayings
+             Ratings         A -- Ratings utility
+             Recommend_Us    I -- Recommend us to a friend
+             Reviews         I -- Reviews
+             Search          A -- Search this site
+             Sections        A -- Sections
+             Stats           N -- Site statistics
+             Submit_News     A -- Contribute a story
+             Template        U -- Template for new modules
+             Topics          A -- Article topics
+             Top_list        A -- Top 10 listings
+             Web_Links       A -- Links to other sites
+             Wiki            A -- Wiki encoding
+             xmlrpc          N -- XML-RPC utility module
+             mac_jIRC        U -- jIRC Chat Module
+             ContentExpress  A -- Menus/Pages Management Module
+             Kalender        U -- 
+             Your_Account    N -- User options
+             PostCalendar    A -- PostNuke Calendar Module
+             phpBB2          U -- 
+             ns-your_account U -- 
+             ew_filemanager  A -- File Manager for PN
+             phpBB_14        A -- phpBB-style Bulletin Board
+             pnCGIIRC        U -- Wrapper for the CGI::IRC cgi webchat
+             PostWrap        A -- Incorporate external sites or apps
+             wb3             U -- 
+             pnCgIIRC2       U -- Wrapper for the CGI::IRC cgi webchat

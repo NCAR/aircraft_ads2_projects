@@ -1,0 +1,57 @@
+2003-113 IDEAS-3 RF11 (19 September 2003)
+
+Start date/time for each original file (determined via nimbus):
+rlr113rf11a.nc  :FlightDate = "09/19/2003" ; :TimeInterval = "19:42:50-21:56:51" ; Probable end time = 20:08:18
+rlr113rf11b.nc  :FlightDate = "00/00/2000" ; :TimeInterval = "20:11:13-20:52:00" ;
+rlr113rf11c.nc  :FlightDate = "09/19/2003" ; :TimeInterval = "20:11:13-20:40:00" ; Probable end time = 20:14:27
+rlr113rf11d.nc  :FlightDate = "09/19/2003" ; :TimeInterval = "20:16:13-20:52:00" ; Probable end time = 20:19:24
+rlr113rf11e.nc  :FlightDate = "09/19/2003" ; :TimeInterval = "20:20:10-20:52:00" ; Probable end time = 20:40:58
+rlr113rf11f.nc  :FlightDate = "00/00/2000" ; :TimeInterval = "20:51:12-21:27:00" ;
+rlr113rf11g.nc  :FlightDate = "00/00/2000" ; :TimeInterval = "20:51:12-21:25:00" ;
+rlr113rf11h.nc  :FlightDate = "00/00/2000" ; :TimeInterval = "20:51:12-21:20:00" ;
+rlr113rf11i.nc  :FlightDate = "09/19/2003" ; :TimeInterval = "20:51:12-21:25:00" ;
+rlr113rf11j.nc  :FlightDate = "09/19/2003" ; :TimeInterval = "20:51:12-21:18:00" ; Probable end time = 20:56:09
+rlr113rf11k.nc  :FlightDate = "00/00/2000" ; :TimeInterval = "21:00:02-21:42:00" ;
+rlr113rf11l.nc  :FlightDate = "09/19/2003" ; :TimeInterval = "21:00:02-21:43:00" ; Probable end time = 21:56:51
+
+Original file names/sizes on /jnet/data
+-rw-rw-r--    1 ads      raf      24819616 Sep 19 16:13 113rf11a.ads  keep (ground only)
+-rw-rw-r--    1 ads      raf         23980 Sep 19 16:13 113rf11b.ads  kill
+-rw-rw-r--    1 ads      raf       3296746 Sep 19 16:14 113rf11c.ads  keep (ground only)
+-rw-rw-r--    1 ads      raf       3248380 Sep 19 16:14 113rf11d.ads  keep (ground only)
+-rw-rw-r--    1 ads      raf      20273212 Sep 19 16:14 113rf11e.ads  keep
+-rw-rw-r--    1 ads      raf         23980 Sep 19 16:15 113rf11f.ads  kill
+-rw-rw-r--    1 ads      raf         23980 Sep 19 16:15 113rf11g.ads  kill
+-rw-rw-r--    1 ads      raf         23980 Sep 19 16:15 113rf11h.ads  kill
+-rw-rw-r--    1 ads      raf        185200 Sep 19 16:16 113rf11i.ads  kill
+-rw-rw-r--    1 ads      raf       4957312 Sep 19 16:17 113rf11j.ads  keep
+-rw-rw-r--    1 ads      raf         23980 Sep 19 16:17 113rf11k.ads  kill
+-rw-rw-r--    1 ads      raf      55193464 Sep 19 16:18 113rf11l.ads  keep
+
+Original bitfile names:
+ 113rf11a.ads --> RAF/2003/113/ADS/RF11A
+ 113rf11c.ads --> RAF/2003/113/ADS/RF11B
+ 113rf11d.ads --> RAF/2003/113/ADS/RF11C
+ 113rf11e.ads --> RAF/2003/113/ADS/RF11D
+ 113rf11i.ads --> RAF/2003/113/ADS/RF11E
+ 113rf11j.ads --> RAF/2003/113/ADS/RF11F
+ 113rf11l.ads --> RAF/2003/113/ADS/RF11G
+
+Original Name:     New Name:         MSS Bitfile Name (after rename):
+  113rf11a.ads --> 113rf11ga.ads --> /RAF/2003/113/ADS/GROUND/RF11A
+  113rf11b.ads --> /dev/null
+  113rf11c.ads --> 113rf11gb.ads --> /RAF/2003/113/ADS/GROUND/RF11B
+  113rf11d.ads --> 113rf11gc.ads --> /RAF/2003/113/ADS/GROUND/RF11C
+  113rf11e.ads --> 113rf11a.ads --> /RAF/2003/113/ADS/RF11A
+  113rf11f.ads --> /dev/null
+  113rf11g.ads --> /dev/null
+  113rf11h.ads --> /dev/null
+  113rf11i.ads --> /dev/null
+  113rf11j.ads --> 113rf11b.ads --> /RAF/2003/113/ADS/RF11B
+  113rf11k.ads --> /dev/null
+  113rf11l.ads --> 113rf11c.ads --> /RAF/2003/113/ADS/RF11C
+
+Files renamed on /jnet/data:  22 September 2003 between 16:33 and 16:35 MDT
+
+Ronald L. Ruth
+Mon Sep 22 16:39:13 MDT 2003

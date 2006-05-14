@@ -1,0 +1,328 @@
+#! /bin/csh -f
+#
+#  Archive raw PCI data files for 2002-111 IDEAS
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file /$LOCAL/proj/111/Production/archmcr.111
+#   by Ron Ruth   6 May 2002
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Set initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set TYPE = RAW_PCI
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+# Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd readonly"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = "/jnet/win_jef2/cpi"
+#
+#  1st wave
+#set SFILES = ( \
+#IDEAS_rf01/04051043.roi \
+#IDEAS_rf01/04051129.roi \
+#IDEAS_rf01/04051233.roi \
+#IDEAS_rf01/04051238.roi \
+#IDEAS_rf01/04051408.roi \
+#IDEAS_rf01/04051417.roi \
+#IDEAS_rf01/04051453.roi \
+#)
+#set DFILES = ( \
+#RF01.04051043.roi \
+#RF01.04051129.roi \
+#RF01.04051233.roi \
+#RF01.04051238.roi \
+#RF01.04051408.roi \
+#RF01.04051417.roi \
+#RF01.04051453.roi \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#IDEAS_rf02/04120953.roi \
+#IDEAS_rf02/04121107.roi \
+#IDEAS_rf02/04121112.roi \
+#IDEAS_rf02/04121934.obj \
+#IDEAS_rf02/04121934.roi \
+#IDEAS_rf02/04122056.obj \
+#IDEAS_rf02/04122056.roi \
+#)
+#set DFILES = ( \
+#RF02.04120953.roi \
+#RF02.04121107.roi \
+#RF02.04121112.roi \
+#RF02.04121934.obj \
+#RF02.04121934.roi \
+#RF02.04122056.obj \
+#RF02.04122056.roi \
+#)
+#
+#  2nd wave (cont'd)
+#set SFILES = ( \
+#IDEAS_rf02/04122111.roi \
+#IDEAS_rf02/04122120.roi \
+#IDEAS_rf02/04122131.roi \
+#IDEAS_rf02/04122137.roi \
+#IDEAS_rf02/04122349.roi \
+#)
+#set DFILES = ( \
+#RF02.04122111.roi \
+#RF02.04122120.roi \
+#RF02.04122131.roi \
+#RF02.04122137.roi \
+#RF02.04122349.roi \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#IDEAS_rf03/04181717.roi \
+#IDEAS_rf03/04181927.roi \
+#IDEAS_rf03/04181930.roi \
+#IDEAS_rf03/04182030.roi \
+#IDEAS_rf03/04182101.roi \
+#IDEAS_rf03/04182124.roi \
+#IDEAS_rf03/04182129.roi \
+#)
+#set DFILES = ( \
+#RF03.04181717.roi \
+#RF03.04181927.roi \
+#RF03.04181930.roi \
+#RF03.04182030.roi \
+#RF03.04182101.roi \
+#RF03.04182124.roi \
+#RF03.04182129.roi \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#IDEAS_rf04/04251235.roi \
+#IDEAS_rf04/04251242.roi \
+#IDEAS_rf04/04251358.roi \
+#IDEAS_rf04/04251406.roi \
+#IDEAS_rf04/04251429.roi \
+#IDEAS_rf04/04251436.roi \
+#IDEAS_rf04/04251445.roi \
+#IDEAS_rf04/04251451.roi \
+#IDEAS_rf04/04251456.roi \
+#IDEAS_rf04/04251459.roi \
+#IDEAS_rf04/04251500.roi \
+#IDEAS_rf04/04251501.roi \
+#IDEAS_rf04/04251505.roi \
+#IDEAS_rf04/04251507.roi \
+#IDEAS_rf04/04251508.roi \
+#IDEAS_rf04/04251509.roi \
+#IDEAS_rf04/04251510.roi \
+#IDEAS_rf04/04251515.roi \
+#IDEAS_rf04/04251517.roi \
+#IDEAS_rf04/04251519.roi \
+#IDEAS_rf04/04251535.roi \
+#IDEAS_rf04/04251814.roi \
+#IDEAS_rf04/04251815.roi \
+#)
+#set DFILES = ( \
+#RF04.04251235.roi \
+#RF04.04251242.roi \
+#RF04.04251358.roi \
+#RF04.04251406.roi \
+#RF04.04251429.roi \
+#RF04.04251436.roi \
+#RF04.04251445.roi \
+#RF04.04251451.roi \
+#RF04.04251456.roi \
+#RF04.04251459.roi \
+#RF04.04251500.roi \
+#RF04.04251501.roi \
+#RF04.04251505.roi \
+#RF04.04251507.roi \
+#RF04.04251508.roi \
+#RF04.04251509.roi \
+#RF04.04251510.roi \
+#RF04.04251515.roi \
+#RF04.04251517.roi \
+#RF04.04251519.roi \
+#RF04.04251535.roi \
+#RF04.04251814.roi \
+#RF04.04251815.roi \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#IDEAS_rf05/04301145.roi \
+#IDEAS_rf05/04301150.roi \
+#IDEAS_rf05/04301153.roi \
+#IDEAS_rf05/04301156.roi \
+#IDEAS_rf05/04301207.roi \
+#IDEAS_rf05/04301247.roi \
+#IDEAS_rf05/04301601.roi \
+#)
+#set DFILES = ( \
+#RF05.04301145.roi \
+#RF05.04301150.roi \
+#RF05.04301153.roi \
+#RF05.04301156.roi \
+#RF05.04301207.roi \
+#RF05.04301247.roi \
+#RF05.04301601.roi \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#IDEAS_tf1/04031435.roi \
+#IDEAS_tf1/04031505.roi \
+#IDEAS_tf1/04031530.roi \
+#IDEAS_tf1/04031531.roi \
+#IDEAS_tf1/04031557.roi \
+#)
+#set DFILES = ( \
+#TF01.04031435.roi \
+#TF01.04031505.roi \
+#TF01.04031530.roi \
+#TF01.04031531.roi \
+#TF01.04031557.roi \
+#)
+#
+#   th wave
+#set SFILES = ( \
+# \
+#)
+#set DFILES = ( \
+# \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+     echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+echo "#  Completed on `date`"
+exit
+#
+#  MSS path for all bitfiles listed below:  /RAF/2002/111/
+#
+#  1st wave
+#  Job(s) submitted on Mon May  6 11:14:27 MDT 2002
+#  msrcp job for RAW_PCI/RF01.04051043.roi -- OK -- Mon May  6 11:15:10 MDT 2002
+#  msrcp job for RAW_PCI/RF01.04051129.roi -- OK -- Mon May  6 11:16:55 MDT 2002#  msrcp job for RAW_PCI/RF01.04051233.roi -- OK -- Mon May  6 11:19:00 MDT 2002
+#  msrcp job for RAW_PCI/RF01.04051238.roi -- OK -- Mon May  6 11:30:21 MDT 2002
+#  msrcp job for RAW_PCI/RF01.04051408.roi -- OK -- Mon May  6 11:37:29 MDT 2002
+#  msrcp job for RAW_PCI/RF01.04051417.roi -- OK -- Mon May  6 11:45:39 MDT 2002#  msrcp job for RAW_PCI/RF01.04051453.roi -- OK -- Mon May  6 11:47:52 MDT 2002
+#
+#  2nd wave
+#  Job(s) submitted on Mon May  6 13:37:50 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04120953.roi -- OK -- Mon May  6 13:38:18 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04121107.roi -- OK -- Mon May  6 13:38:33 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04121112.roi -- OK -- Mon May  6 13:38:44 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04121934.obj -- OK -- Mon May  6 13:44:01 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04121934.roi -- OK -- Mon May  6 13:49:15 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04122056.obj -- OK -- Mon May  6 13:52:02 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04122056.roi -- OK -- Mon May  6 13:56:41 MDT 2002
+#
+#  2nd wave (cont'd)
+#  Job(s) submitted on Mon May  6 14:25:14 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04122111.roi -- OK -- Mon May  6 14:32:20 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04122120.roi -- OK -- Mon May  6 14:37:57 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04122131.roi -- OK -- Mon May  6 14:41:31 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04122137.roi -- OK -- Mon May  6 14:45:23 MDT 2002
+#  msrcp job for RAW_PCI/RF02.04122349.roi -- OK -- Mon May  6 14:45:36 MDT 2002
+#   Completed on Mon May  6 14:45:36 MDT 2002
+#
+#  3rd wave
+#  Job(s) submitted on Mon May  6 14:48:02 MDT 2002
+#  msrcp job for RAW_PCI/RF03.04181717.roi -- OK -- Mon May  6 14:49:02 MDT 2002
+#  msrcp job for RAW_PCI/RF03.04181927.roi -- OK -- Mon May  6 14:49:09 MDT 2002
+#  msrcp job for RAW_PCI/RF03.04181930.roi -- OK -- Mon May  6 14:49:18 MDT 2002
+#  msrcp job for RAW_PCI/RF03.04182030.roi -- OK -- Mon May  6 14:52:27 MDT 2002
+#  msrcp job for RAW_PCI/RF03.04182101.roi -- OK -- Mon May  6 14:55:13 MDT 2002
+#  msrcp job for RAW_PCI/RF03.04182124.roi -- OK -- Mon May  6 14:58:23 MDT 2002
+#  msrcp job for RAW_PCI/RF03.04182129.roi -- OK -- Mon May  6 14:59:04 MDT 2002
+#  Completed on Mon May  6 14:59:04 MDT 2002
+#
+#  4th wave
+#  23 Job(s) submitted on Mon May  6 15:00:00 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251235.roi -- OK -- Mon May  6 15:00:11 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251242.roi -- OK -- Mon May  6 15:03:32 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251358.roi -- OK -- Mon May  6 15:07:04 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251406.roi -- OK -- Mon May  6 15:10:16 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251429.roi -- OK -- Mon May  6 15:13:44 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251436.roi -- OK -- Mon May  6 15:16:44 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251445.roi -- OK -- Mon May  6 15:23:55 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251451.roi -- OK -- Mon May  6 15:29:31 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251456.roi -- OK -- Mon May  6 15:33:18 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251459.roi -- OK -- Mon May  6 15:38:31 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251500.roi -- OK -- Mon May  6 15:45:42 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251501.roi -- OK -- Mon May  6 15:49:38 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251505.roi -- OK -- Mon May  6 15:55:31 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251507.roi -- OK -- Mon May  6 15:58:24 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251508.roi -- OK -- Mon May  6 16:03:31 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251509.roi -- OK -- Mon May  6 16:06:59 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251510.roi -- OK -- Mon May  6 16:09:48 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251515.roi -- OK -- Mon May  6 16:13:59 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251517.roi -- OK -- Mon May  6 16:17:14 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251519.roi -- OK -- Mon May  6 16:20:45 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251535.roi -- OK -- Mon May  6 16:23:24 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251814.roi -- OK -- Mon May  6 16:23:31 MDT 2002
+#  msrcp job for RAW_PCI/RF04.04251815.roi -- OK -- Mon May  6 16:23:42 MDT 2002
+#  Completed on Mon May  6 16:23:42 MDT 2002
+#
+#  5th wave
+#  7 Job(s) submitted on Mon May  6 16:27:14 MDT 2002
+#  msrcp job for RAW_PCI/RF05.04301145.roi -- OK -- Mon May  6 16:27:24 MDT 2002
+#  msrcp job for RAW_PCI/RF05.04301150.roi -- OK -- Mon May  6 16:27:34 MDT 2002
+#  msrcp job for RAW_PCI/RF05.04301153.roi -- OK -- Mon May  6 16:28:08 MDT 2002
+#  msrcp job for RAW_PCI/RF05.04301156.roi -- OK -- Mon May  6 16:28:16 MDT 2002
+#  msrcp job for RAW_PCI/RF05.04301207.roi -- OK -- Mon May  6 16:28:30 MDT 2002
+#  msrcp job for RAW_PCI/RF05.04301247.roi -- OK -- Mon May  6 16:29:55 MDT 2002
+#  msrcp job for RAW_PCI/RF05.04301601.roi -- OK -- Mon May  6 16:30:11 MDT 2002
+#  Completed on Mon May  6 16:30:11 MDT 2002
+#
+#  6th wave
+#  5 Job(s) submitted on Mon May  6 16:32:16 MDT 2002
+#  msrcp job for RAW_PCI/TF01.04031435.roi -- OK -- Mon May  6 16:32:26 MDT 2002
+#  msrcp job for RAW_PCI/TF01.04031505.roi -- OK -- Mon May  6 16:32:36 MDT 2002
+#  msrcp job for RAW_PCI/TF01.04031530.roi -- OK -- Mon May  6 16:35:17 MDT 2002
+#  msrcp job for RAW_PCI/TF01.04031531.roi -- OK -- Mon May  6 16:37:49 MDT 2002
+#  msrcp job for RAW_PCI/TF01.04031557.roi -- OK -- Mon May  6 16:41:52 MDT 2002
+#  Completed on Mon May  6 16:41:52 MDT 2002
+#
+#   th wave
+#

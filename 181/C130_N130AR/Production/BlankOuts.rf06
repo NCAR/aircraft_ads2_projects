@@ -1,0 +1,28 @@
+#-------------------------------
+#  DYCOMS-II RF06 BlankOuts File
+#-------------------------------
+#  BlankOuts file for setting measurements to the "missing_value" of -32767.
+#  Entries to "zap" a measurement for a give time interval should be of the
+#  form:
+#    Variable SH:SM:SS EH:EM:ES
+#
+#    where,
+#      Variable -- variable name
+#      SH:SM:SS -- colon-separated start time for data zap
+#      EH:EM:ES -- colon-separated end time for data zap
+#
+#  Separate fields with white space.
+#  Add separate lines if multiple times pertain to the same variable.
+#
+DPT    07:25:38 07:44:47
+DPTC   07:25:38 07:44:47
+DPT    08:16:01 09:36:25
+DPTC   08:16:01 09:36:25
+DPT    10:05:08 10:09:00
+DPTC   10:05:08 10:09:00
+DPT    10:40:52 10:44:32
+DPTC   10:40:52 10:44:32
+DPT    10:53:15 10:57:32
+DPTC   10:53:15 10:57:32
+DPT    11:21:21 11:45:49
+DPTC   11:21:21 11:45:49

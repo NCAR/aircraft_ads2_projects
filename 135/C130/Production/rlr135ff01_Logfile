@@ -1,0 +1,107 @@
+Revision: 3016
+Last Changed Date: 2005-10-04 09:42:16 -0600 (Tue, 04 Oct 2005)
+URL: http://orion/svn/raf/nimbus
+
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_ff02L
+LoadSetup: can't find DBZ1DC_LWO1.
+LoadSetup: can't find DBZ1DP_LWI1.
+LoadSetup: can't find DBZ2DC_LWO2.
+LoadSetup: can't find DBZ2DP_LWI2.
+LoadSetup: can't find DISP1DC_LWO1.
+LoadSetup: can't find DISP1DP_LWI1.
+LoadSetup: can't find DISP2DC_LWO2.
+LoadSetup: can't find DISP2DP_LWI2.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Preliminary run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+NCAR C-130 pcor's installed.
+PCORS:  AIRS-II and later pcors().
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+Non-sequential time, moving up start time.
+Advancing past odd-ball time stamp:
+  previous time = 14:19:43
+       odd time = 14:00:59
+Advancing past odd-ball time stamp:
+  previous time = 14:19:43
+       odd time = 14:01:00
+Advancing past odd-ball time stamp:
+  previous time = 14:19:43
+       odd time = 14:01:01
+    advanced to = 14:20:12
+Time break of 28 seconds ending @ 14:20:12, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 14:48:14
+       odd time = 14:20:55
+Advancing past odd-ball time stamp:
+  previous time = 14:48:14
+       odd time = 14:20:56
+    advanced to = 14:50:29
+Time break of 134 seconds ending @ 14:50:29, filling in with MISSING_VALUE.
+Blanking VLA1 from 14:00:53 to 20:02:32.
+ The following variables depend upon this variable:
+ 
+
+Blanking XCINB from 14:00:53 to 20:02:32.
+Blanking XCINCB from 14:00:53 to 20:02:32.
+Blanking XCINCF from 14:00:53 to 20:02:32.
+Blanking XCINF from 14:00:53 to 20:02:32.
+Blanking DPLA1 from 14:00:53 to 20:02:32.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA1 from 14:00:53 to 20:02:32.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA1 from 14:00:53 to 20:02:32.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHOLA1 from 14:00:53 to 20:02:32.
+ The following variables depend upon this variable:
+ 
+
+Time interval(s) completed : 
+14:00:53-20:02:32
+
+ACINS: 5 spikes removed with slope exceeding 4.000000
+LAT: 1 spikes removed with slope exceeding 0.200000
+PSFRD: 2 spikes removed with slope exceeding 20.000000
+THDG: 4 spikes removed with slope exceeding 1.500000
+IRS Error report: Latitude had 207 values of 0 (zero).
+IRS Error report: Longitude had 208 values of 0 (zero).
+IRS Error report: Ground Speed had 410 values of 0 (zero).
+IRS Error report: Track Angle had 1036 values of 0 (zero).
+IRS Error report: True Heading had 1038 values of 0 (zero).
+IRS Error report: Pitch had 2073 values of 0 (zero).
+IRS Error report: Roll had 2064 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 2068 values of 0 (zero).
+IRS Error report: Vertical Speed had 1034 values of 0 (zero).
+IRS Error report: NS Velocity had 410 values of 0 (zero).
+IRS Error report: EW Velocity had 410 values of 0 (zero).
+Processing took 0.4 minutes.

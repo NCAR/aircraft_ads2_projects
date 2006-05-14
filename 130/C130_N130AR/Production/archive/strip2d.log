@@ -1,0 +1,415 @@
+Procedure:
+   set file = 130rfxx.2d
+   source ~/.dnl2d
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+file .dnl2d follows:
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#! /bin/csh -f
+date ; /home/local/bin/dnl2d /dev/rmt/0m $file ; date ; echo 
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+R1029  RF01:
+mistral/nimbus % dnl2d /dev/rmt/0m 130rf01.2d
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 2795
+
+R1030  RF02.1
+mistral/nimbus % date ; dnl2d /dev/rmt/0m 130rf02a.2d ; date
+Thu Mar 14 15:05:42 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 3607
+Thu Mar 14 15:16:54 MST 1996
+
+R1031  RF02.2
+mistral/nimbus % date ; dnl2d /dev/rmt/0m 130rf02b.2d ; date ; echo ^G^G^G^G^G^G
+Thu Mar 14 15:21:27 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 872
+Thu Mar 14 15:25:39 MST 1996
+
+R1032  RF03
+mistral/nimbus % date ; dnl2d /dev/rmt/0m 130rf03.2d ; date ; echo ^G^G^G^G^G^G
+Thu Mar 14 15:37:43 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 11650
+Thu Mar 14 16:03:17 MST 1996
+
+R1033  RF04.1
+mistral/nimbus % set file = 130rf04a.2d
+mistral/nimbus % date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Thu Mar 14 16:12:45 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 301
+Thu Mar 14 16:19:12 MST 1996
+
+R1034  RF04.2
+mistral/nimbus % set file = 130rf04b.2d
+mistral/nimbus % !46
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Thu Mar 14 16:22:16 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 16
+Thu Mar 14 16:28:07 MST 1996
+
+R1035  RF05
+mistral/nimbus % set file = 130rf05.2d
+mistral/nimbus % !46
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Thu Mar 14 16:46:51 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 2
+Thu Mar 14 17:00:33 MST 1996
+
+R1036  RF06.1
+mistral/nimbus % set file = 130rf06a.2d
+mistral/nimbus % !53
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 09:02:01 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 12155
+
+R1037  RF06.2
+mistral/nimbus % set file = 130rf06bt.2d
+mistral/nimbus % !53
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 09:38:34 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 18073
+Fri Mar 15 10:02:30 MST 1996
+mistral/nimbus % dd if=130rf06bt.2d of=130rf06b.2d bs=28812 count=13883
+13883+0 records in
+13883+0 records out
+mistral/nimbus % dd if=130rf06bt.2d of=130rf06c.2d bs=28812 iseek=13883
+4190+0 records in
+4190+0 records out
+
+R1038  RF07
+mistral/nimbus % set file = 130rf07.2d
+mistral/nimbus % !53
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 10:44:01 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 1033
+Fri Mar 15 10:57:14 MST 1996
+
+R1039  RF08
+mistral/nimbus % set file = 130rf08.2d
+mistral/nimbus % !53
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 11:01:27 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 868
+mistral/nimbus % 
+
+R1040  RF09
+mistral/nimbus % set file = 130rf09.2d
+mistral/nimbus % !53
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 11:21:26 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 40
+Fri Mar 15 11:34:29 MST 1996
+
+R1041  RF10
+mistral/nimbus % set file = 130rf10.2d
+mistral/nimbus % !53
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 11:36:38 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 2895
+Fri Mar 15 11:45:57 MST 1996
+
+R1042  RF11
+mistral/nimbus % set file = 130rf11.2d
+mistral/nimbus % !53
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 12:00:15 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 79
+Fri Mar 15 12:13:20 MST 1996
+
+R1043  RF12
+mistral/nimbus % set file = 130rf12.2d
+mistral/nimbus % !91
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 12:15:50 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 555
+Fri Mar 15 12:29:45 MST 1996
+
+R1044  RF13
+mistral/nimbus % set file = 130rf13.2d
+mistral/nimbus % !91
+date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Fri Mar 15 13:57:20 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 15618
+Fri Mar 15 14:25:23 MST 1996
+mistral/nimbus % dd if=130rf13.2d of=130rf13a.2d bs=28812 count=13883
+13883+0 records in
+13883+0 records out
+dd if=130rf13.2d of=130rf13b.2d bs=28812 iseek=13883
+1735+0 records in
+1735+0 records out
+Fri Mar 15 15:20:00 MST 1996
+
+R1045  RF14
+Mon Mar 18 14:00    MST 1996
+amistral/ron % set file = 130rf14.2d
+mistral/ron % dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G^G^G
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 754
+Mon Mar 18 14:10:11 MST 1996
+
+R1046  RF15
+mistral/ron % cd data
+/home/data ~ 
+mistral/ron % set file = 130rf15.2d
+mistral/ron % date ; dnl2d /dev/rmt/0m $file ; date ; echo 
+Mon Mar 18 14:29:17 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 655
+Mon Mar 18 14:43:25 MST 1996
+
+R1047  RF16
+mistral/ron % date ; dnl2d /dev/rmt/0m $file ; date
+Mon Mar 18 15:17:55 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 2622
+Mon Mar 18 15:34:03 MST 1996
+
+R1048  RF17
+mistral/ron % set file = 130rf17.2d
+mistral/ron % !77
+date ; dnl2d /dev/rmt/0m $file ; date ; echo
+Mon Mar 18 15:46:05 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 30611
+Mon Mar 18 16:29:55 MST 1996
+dd if=130rf17.2d of=130rf17a.2d bs=28812 count=13883 &
+13883+0 records in
+13883+0 records out
+Tue Mar 19 12:44:25 MST 1996
+/bin/dd if=130rf17.2d of=130rf17b.2d bs=28812 iseek=13883 count=13883 &
+13883+0 records in
+13883+0 records out
+Tue Mar 19 12:52:38 MST 1996
+/bin/dd if=130rf17.2d of=130rf17c.2d bs=28812 iseek=27766 &
+ 2845+0 records in
+2845+0 records out
+Tue Mar 19 12:54:47 MST 1996
+
+R1049  RF18
+hdrdump /dev/rmt/0m
+set file = 130rf18.2d
+mistral/ron % set file = 130rf18.2d
+mistral/ron % date ; dnl2d /dev/rmt/0m $file ; date ; echo 
+Wed Mar 20 09:30:54 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 204
+Wed Mar 20 09:53:13 MST 1996
+
+R1050  RF19
+mistral/ron % set file = 130rf19.2d
+mistral/ron % !!
+hdrdump /dev/rmt/0m
+mistral/ron % date ; dnl2d /dev/rmt/0m $file ; date ; echo ^G^G^G^G^G^G
+Wed Mar 20 09:58:16 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 1685
+Wed Mar 20 10:22:10 MST 1996
+
+R1051  RF20
+mistral/ron % set file = 130rf20.2d
+mistral/ron % !84
+hdrdump /dev/rmt/0m
+mistral/ron % !85
+source ~/.dnl2d
+Wed Mar 20 11:46:23 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 6796
+Wed Mar 20 12:16:52 MST 1996
+
+R1052  RF21
+mistral/ron % set file = 130rf21.2d
+mistral/ron % !84
+hdrdump /dev/rmt/0m
+mistral/ron % !85
+source ~/.dnl2d
+Wed Mar 20 12:27:29 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 40
+Wed Mar 20 12:50:12 MST 1996
+
+R1053  RF22.1
+mistral/ron % set file = 130rf22a.2d
+mistral/ron % !84
+hdrdump /dev/rmt/0m
+mistral/ron % !85
+source ~/.dnl2d
+Wed Mar 20 13:53:23 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 9
+Wed Mar 20 14:03:57 MST 1996
+
+R1054  RF22.2
+mistral/ron % set file = 130rf22b.2d
+mistral/ron % !84 ; !85
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Wed Mar 20 14:09:17 MST 1996
+# of records of len 28812 = 12
+Wed Mar 20 14:21:51 MST 1996
+
+R1055  RF23
+mistral/ron % set file = 130rf23.2d
+mistral/ron % !100
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Wed Mar 20 15:41:57 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 3524
+Wed Mar 20 16:07:28 MST 1996
+
+R1056  RF24
+mistral/ron % set file = 130rf24.2d
+mistral/ron % !100
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Wed Mar 20 14:58:06 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 20
+Wed Mar 20 15:22:07 MST 1996
+
+R1057  RF25
+mistral/ron % set file = 130rf25.2d
+mistral/ron % !100
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Wed Mar 20 16:29:43 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 207
+Wed Mar 20 16:51:55 MST 1996
+
+R1058  RF26
+mistral/ron % set file = 130rf26.2d
+mistral/ron % hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 09:29:39 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 5558
+Thu Mar 21 10:09:45 MST 1996
+
+R1059  RF27.1
+mistral/ron % set file = 130rf27a.2d
+mistral/ron % !84
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 10:16:40 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 119
+Thu Mar 21 10:23:48 MST 1996
+
+R1060  RF27.2
+mistral/ron % set file = 130rf27b.2d
+Thu Mar 21 10:32:51 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 833
+Thu Mar 21 10:45:43 MST 1996
+
+R1061  RF28
+mistral/ron % set file = 130rf28.2d
+mistral/ron % !95
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 11:00:59 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 1361
+Thu Mar 21 11:19:04 MST 1996
+
+R1062  RF29
+mistral/ron % set file = 130rf29.2d
+mistral/ron % !98
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 11:26:06 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 2910
+Thu Mar 21 11:50:43 MST 1996
+
+R1063  RF30
+amistral/ron % set file = 130rf30.2d
+mistral/ron % !98
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 12:07:37 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 20
+Thu Mar 21 12:25:29 MST 1996
+
+R1064  RF31.1
+mistral/ron % set file = 130rf31a.2d
+mistral/ron % !98
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 12:40:11 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 5438
+Thu Mar 21 12:55:16 MST 1996
+
+R1065  RF31.2
+mistral/ron % set file = 130rf31b.2d
+mistral/ron % !98
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 13:26:04 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 987
+Thu Mar 21 13:40:39 MST 1996
+
+R1066  RF32
+mistral/ron % set file = 130rf32.2d
+mistral/ron % !98
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 13:49:27 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 24
+Thu Mar 21 14:11:18 MST 1996
+
+R1067  RF33
+mistral/ron % set file = 130rf33.2d
+You have new mail.
+mistral/ron % !98
+hdrdump /dev/rmt/0m ; source ~/.dnl2d
+Thu Mar 21 15:03:57 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+# of records of len 28812 = 351
+Thu Mar 21 15:29:31 MST 1996
+

@@ -1,0 +1,43 @@
+PELTI - 186, Flight tf01
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /usr/local/proj/186/Production/Flight_tf01
+LSRTF has no description or units.
+LSUCKF has no description or units.
+LTOTF has no description or units.
+Processed on: Oct 03 20:57 UTC 2000
+Flight Date: 06/29/2000
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 46 seconds ending @ 14:53:04, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 14:53:05
+       odd time = 14:53:02
+Advancing past odd-ball time stamp:
+  previous time = 14:53:05
+       odd time = 14:53:03
+Advancing past odd-ball time stamp:
+  previous time = 14:53:05
+       odd time = 14:53:04
+Advancing past duplicate time stamp:
+  previous time = 14:53:05
+       odd time = 14:53:05
+    advanced to = 14:53:06
+Time interval(s) completed : 14:45:36-17:26:54
+ACINS: 1 spikes removed with slope exceeding 4.000000
+PSFRD: 1 spikes removed with slope exceeding 20.000000
+Processing took 22.9 minutes.

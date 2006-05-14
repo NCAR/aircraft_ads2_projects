@@ -1,0 +1,351 @@
+2a3,103
+> OBJECT NAME:	amlib.c
+> 
+> FULL NAME:	
+> 
+> ENTRY POINTS:	SetComputeFunctions()
+> 				slatc()
+> 				slonc()
+> 				svewc()
+> 				svnsc()
+> 
+> STATIC FNS:		none
+> 
+> DESCRIPTION:	Skeleton to test/fix GPS-correction code
+> 
+> INPUT:			GPS raw measurements, IRS raw measurements
+> 
+> OUTPUT:			"Corrected" position and ground speed measurements
+> 
+> REFERENCES:		none
+> 
+> REFERENCED BY:	compute.c
+> 
+> COPYRIGHT:		University Corporation for Atmospheric Research, 2001
+> -------------------------------------------------------------------------
+> */
+> 
+> #include "define.h"
+> #include <math.h>
+> 
+> 
+> /* STEP 4: To appease the compiler, place all AMLIB function names here.
+>  * By convention, AMLIB functions start with the letter 's'.  These should
+>  * be the same names you used in steps 2 & 3.
+>  */
+> void slatc(), slonc(), svewc(), svnsc();
+> 
+> 
+> /* STEP 1: List variables to pass through unaltered by default.  HOUR,
+>  * MINUTE & SECOND are mandatory.  NULL must be last.
+>  */
+> char *passThrough[] = 
+>   {
+>   "HOUR",
+>   "MINUTE",
+>   "SECOND",
+>   "LAT",
+>   "LON",
+>   "VEW",
+>   "VNS",
+>   "ROLL",
+>   "GLAT",
+>   "GLON",
+>   "GVEW",
+>   "GVNS",
+>   "GSTAT",
+>   "GMODE",
+>   "LATC",
+>   "LONC",
+>   "VEWC",
+>   "VNSC",
+>   NULL
+>   };
+> 
+> 
+> /* STEP 2: New variables get added here.  Also add existing variables that
+>  * you would like to enter additional processing for.  Remove the examples
+>  * given below, leaving the "NULL, NULL" line in.  Make sure to leave off
+>  * the parentheses from the function names.
+>  *
+>  * Attributes: (Units, Rate, Vector Len, & Title) only need to be defined
+>  * for variables that do NOT exist in the input file.
+>  */
+> DERVAR  derivftns[] =
+>   {
+> /*			Out  Vector			*/
+> /*  Name	Units Rate Length  Function Title	*/
+> /* ------------------------------------------------------------------------ */
+> 	"LATCX", "deg",	1,	1,	   slatc,	"Reworked Corrected Latitude",
+> 	"LONCX", "deg",	1,	1,	   slonc,	"Reworked Corrected Longitude",
+> 	"VEWCX", "M/s",	1,	1,	   svewc,	"Reworked Corrected GS East Comp.",
+> 	"VNSCX", "M/s",	1,	1,	   svnsc,	"Reworked Corrected GS North Comp.",
+> 	NULL,	NULL,	0,	0,	   NULL
+>   };
+> 
+> /* STEP 3: Create AMLIB functions here.  Use these examples as templates.
+>  * First example is one of modifying an existing variable (ADIFR).  The
+>  * second example is of a new variable, using 2 existing inputs.  The third
+>  * example is more complex, using high-rate data.  You want one function
+>  * for each variable output, do NOT have one function outputting several
+>  * variables.  However you may use the same function for multiple variables.
+>  * Each of these functions will be called once per second of data, so if
+>  * you are dealing with high-rate data or vector data, make sure you handle
+>  * all the samples for a given second.
+>  */
+> 
+> static long mindex[3] = {0, 0, 0};
+> 
+> /* #######   NIMBUS gpsc.c file merged in here */
+> 
+> /*
+> -------------------------------------------------------------------------
+27,28c128,129
+< #include "nimbus.h"
+< #include "amlib.h"
+---
+> /* #include "nimbus.h" */
+> /* #include "amlib.h"  */
+33d133
+< 		TAUP	= 100.0,
+34a135,136
+> /* #######                     Stuff with which I want to play               *
+> 		TAUP	= 100.0,
+35a138,141
+>  */
+> 		TAUP	= 600.0,
+> 		ROLL_MAX = 24.0;
+> /* #######  ---------------------------------------------------------------  */
+36a143,149
+> /* #######  NIMBUS stuff not automatically handled by this skeleton program  */
+> #define LOW_RATE_FEEDBACK 0
+> #define nFeedBackTypes 2
+> #define ProcessingRate 25
+> #define DEG_RAD 0.01745329252
+> /*  #######  --------------------------------------------------------------  */
+> 
+44a158,161
+> /* #######   Skeleton program needs the following line(s)             */
+> static NR_TYPE latcx, loncx, vewcx, vnscx;
+> static int    FeedBack = 0;
+> /* #######   Skeleton program needs the preceding line(s)             */
+47a165
+> /* #######   Skeleton program avoiding the following line(s)
+48a167,169
+> /* #######   Skeleton program avoiding the preceding line(s)          */
+> /* #######   Skeleton program needs the following line(s)             */
+> VARTBL  *varp;      /* Information about current variable   */
+49a171,175
+> 
+>     static bool first_time = TRUE;
+>     static int  inVarID[14];
+> /* #######   Skeleton program needs the preceding line(s)             */
+> 
+51a178,179
+>   NR_TYPE	hr, min, sec;
+>   int		ihr, imin, isec, seconds;
+55a184,187
+> /* #######   Skeleton program needs the following line(s)             */
+>   NR_TYPE	fgstat, fgmode;
+> /* #######   Skeleton program needs the preceding line(s)             */
+> 
+73a206,260
+> /* #######   Skeleton program needs the following line(s)             */
+> 
+> /* ########   Define diagnostic flag  */
+>   bool diag = TRUE;
+> /* ########                           */
+> 
+>     if (first_time)
+>         {
+>         /* Obtain IDs of input variables.
+>          */
+>         inVarID[ 0] = ncvarid(InputFile, "LAT");
+>         inVarID[ 1] = ncvarid(InputFile, "LON");
+> 		inVarID[ 2] = ncvarid(InputFile, "VEW");
+> 		inVarID[ 3] = ncvarid(InputFile, "VNS");
+> 		inVarID[ 4] = ncvarid(InputFile, "ROLL");
+> 		inVarID[ 5] = ncvarid(InputFile, "GLAT");
+> 		inVarID[ 6] = ncvarid(InputFile, "GLON");
+> 		inVarID[ 7] = ncvarid(InputFile, "GVEW");
+> 		inVarID[ 8] = ncvarid(InputFile, "GVNS");
+> 		inVarID[ 9] = ncvarid(InputFile, "GSTAT");
+> 		inVarID[10] = ncvarid(InputFile, "GMODE");
+> 		inVarID[11] = ncvarid(InputFile, "HOUR");
+> 		inVarID[12] = ncvarid(InputFile, "MINUTE");
+> 		inVarID[13] = ncvarid(InputFile, "SECOND");
+> 
+>         first_time = FALSE;
+>         }
+> 
+>   /* Get current values of inputs.
+>    */
+>   mindex[0] = CurrentInputRecordNumber;
+>   ncvarget1(InputFile, inVarID[ 0], mindex, (void *)&alat);
+>   ncvarget1(InputFile, inVarID[ 1], mindex, (void *)&alon);
+>   ncvarget1(InputFile, inVarID[ 2], mindex, (void *)&vew);
+>   ncvarget1(InputFile, inVarID[ 3], mindex, (void *)&vns);
+>   ncvarget1(InputFile, inVarID[ 4], mindex, (void *)&roll);
+>   ncvarget1(InputFile, inVarID[ 5], mindex, (void *)&glat);
+>   ncvarget1(InputFile, inVarID[ 6], mindex, (void *)&glon);
+>   ncvarget1(InputFile, inVarID[ 7], mindex, (void *)&gvew);
+>   ncvarget1(InputFile, inVarID[ 8], mindex, (void *)&gvns);
+>   ncvarget1(InputFile, inVarID[ 9], mindex, (void *)&fgstat);
+>   ncvarget1(InputFile, inVarID[10], mindex, (void *)&fgmode);
+>   ncvarget1(InputFile, inVarID[11], mindex, (void *)&hr);
+>   ncvarget1(InputFile, inVarID[12], mindex, (void *)&min);
+>   ncvarget1(InputFile, inVarID[13], mindex, (void *)&sec);
+> 
+>   gstat = (long)fgstat;
+>   gmode = (long)fgmode;
+> 
+>   ihr = (int)hr;
+>   imin = (int)min;
+>   isec = (int)sec;
+> /* #######   Skeleton program needs the preceding line(s)             */
+> 
+> /* #######   Skeleton program avoiding the following line(s)
+84a272
+>    #######   Skeleton program avoiding the preceding line(s)          */
+89a278,281
+> 
+> /* #######   Skeleton program avoiding the following line(s)
+>   (Use values within the function instead of those in the Defaults file.)
+> 
+117a310
+>    #######   Skeleton program avoiding the preceding line(s)          */
+146a340,356
+> 
+> /*    Diagnostic prints begin  */
+>     if (diag)
+>     {
+>       printf ("Disabled:  no IRS.\n");
+>     }
+> /*    Diagnostic prints end    */
+> 
+> /* #######   Skeleton program needs the following line(s)             */
+>     latcx = latc[FeedBack];
+>     loncx = lonc[FeedBack];
+>     vewcx = vewc[FeedBack];
+>     vnscx = vnsc[FeedBack];
+>     mindex[0] = CurrentOutputRecordNumber;
+>     ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&latcx);
+> /* #######   Skeleton program needs the preceding line(s)             */
+> /* #######   Skeleton program avoiding the following line(s)
+147a358
+>    #######   Skeleton program avoiding the preceding line(s)          */
+150d360
+< 
+173c383,390
+< /*      printf("XLATC: GPS disabled.\n"); */
+---
+> 
+> /*    Diagnostic print begins  */
+>     if (diag)
+>     {
+>       printf("Disabled due to GPS or Roll.\n");
+>     }
+> /*    Diagnostic print ends    */
+> 
+181c398,405
+< /*        printf("GPS is flat.\n"); */
+---
+> 
+> /*    Diagnostic print begins  */
+>     if (diag)
+>     {
+>         printf("Disabled:  GPS is flat.\n");
+>     }
+> /*    Diagnostic print ends    */
+> 
+210c434
+<           printf("GPS determinate is zero, reseting countr.\n");
+---
+>           printf("GPS determinant is zero, resetting countr.\n");
+322a547,578
+> /* #######   Skeleton program needs the following line(s)             */
+>   latcx = latc[FeedBack];
+>   loncx = lonc[FeedBack];
+>   vewcx = vewc[FeedBack];
+>   vnscx = vnsc[FeedBack];
+> 
+> /*    Diagnostic prints begin  */
+>   if (diag)
+>   {
+>     printf (" %02d:%02d:%02d", ihr, imin, isec);
+>     printf (" LAT = %f", alat);
+>     printf (" LON = %f", alon);
+>     printf (" VEW = %f", vew);
+>     printf (" VNS = %f", vns);
+>     printf (" ROLL = %f\n", roll);
+>     printf ("         GLAT = %f", glat);
+>     printf (" GLON = %f", glon);
+>     printf (" GVEW = %f", gvew);
+>     printf (" GVNS = %f", gvns);
+>     printf (" GSTAT = %d", gstat);
+>     printf (" GMODE = %d\n", gmode);
+>     printf ("         LATCX = %f", latcx);
+>     printf (" LONCX = %f", loncx);
+>     printf (" VEWCX = %f", vewcx);
+>     printf (" VNSCX = %f \n", vnscx);
+>   }
+> /*    Diagnostic prints end    */
+> 
+>   mindex[0] = CurrentOutputRecordNumber;
+>   ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&latcx);
+> /* #######   Skeleton program needs the preceding line(s)             */
+> /* #######   Skeleton program avoiding the following line(s)
+323a580
+>    #######   Skeleton program avoiding the preceding line(s)          */
+327a585
+> /* #######   Skeleton program avoiding the following line(s)
+331a590,598
+>    #######   Skeleton program avoiding the preceding line(s)          */
+> /* #######   Skeleton program needs the following line(s)             */
+> void slonc(varp)
+> VARTBL  *varp;      /* Information about current variable   */
+> {
+>   mindex[0] = CurrentOutputRecordNumber;
+>   ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&loncx);
+> }
+> /* #######   Skeleton program needs the preceding line(s)             */
+333a601
+> /* #######   Skeleton program avoiding the following line(s)
+337a606,614
+>    #######   Skeleton program avoiding the preceding line(s)          */
+> /* #######   Skeleton program needs the following line(s)             */
+> void svewc(varp)
+> VARTBL  *varp;      /* Information about current variable   */
+> {
+>   mindex[0] = CurrentOutputRecordNumber;
+>   ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&vewcx);
+> }
+> /* #######   Skeleton program needs the preceding line(s)             */
+339a617
+> /* #######   Skeleton program avoiding the following line(s)
+343a622,630
+>    #######   Skeleton program avoiding the preceding line(s)          */
+> /* #######   Skeleton program needs the following line(s)             */
+> void svnsc(varp)
+> VARTBL  *varp;      /* Information about current variable   */
+> {
+>   mindex[0] = CurrentOutputRecordNumber;
+>   ncvarput1(OutputFile, varp->outVarID, mindex, (void *)&vnscx);
+> }
+> /* #######   Skeleton program needs the preceding line(s)             */
+344a632
+> 
+558a847,859
+> 
+> /* -------------------------------------------------------------------- */
+> /* Leave this function alone.
+>  */
+> void SetComputeFunctions()
+> {
+>   int	i, indx;
+> 
+>   for (i = 0; derivftns[i].Compute; ++i)
+>     if ((indx = SearchTable(Variable,nVariables,derivftns[i].Name)) != ERR)
+>       Variable[indx]->Compute = derivftns[i].Compute;
+> 
+> }	/* END SETCOMPUTEFUNCTIONS */

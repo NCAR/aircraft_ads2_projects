@@ -1,0 +1,128 @@
+#! /bin/csh -f
+#
+#  Archive raw CVI ASCII data files for project:
+#    2002-111 IDEAS (Instrument Development and Education in Airborne Science, Phase 1) (Jeff Stith, et al.)
+#   using the new ATD directory path
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2005                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  File created by Ron Ruth and adapted from the file "archprodnc.111"
+#     on 9 September 2005
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+endif
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+#   Source directory
+set SDIR = "/net/ftp/pub/archive/RAF-projects/IDEAS/CVI"
+#
+#   File list
+set SFILES = ( \
+All_data.tar.dir \
+All_data.tar.gz \
+)
+#
+##   Source directory
+#set SDIR = "/net/ftp/pub/archive/RAF-projects/IDEAS/cvi"
+##
+##   File list
+#set SFILES = ( \
+#rf1/02040519.01l \
+#rf1/02040519.01q \
+#rf1/02040519.25l \
+#rf1/02040519.25q \
+#rf1/02040520.25q \
+#rf1/02040521.25q \
+#rf1/02040522.25q \
+#rf1/02040523.25q \
+#rf2/02041218.13l \
+#rf2/02041218.13q \
+#rf2/02041219.53l \
+#rf2/02041219.53q \
+#rf3/02041820.23l \
+#rf3/02041820.23q \
+#rf4/02042518.11l \
+#rf4/02042518.11q \
+#rf5/02043018.25l \
+#rf5/02043018.25q \
+#)
+#
+#   Destination MSS directory
+set DDIR = "mss:/ATD/STOR/2002/IDEAS-1/C130_N130AR/CVI"
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  $DDIR"
+#
+foreach SFILE ($SFILES)
+  if (-r $SDIR/$SFILE) then
+    echo \
+    ssh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DDIR/$SFILE
+    if ($status == 0) then
+      echo "#   $SFILE -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+  endif
+end
+#
+#foreach SFILE ($SFILES)
+#  set DFILE = `echo $SFILE | sed "s/\(..\)\(.\).\(......\)\(..\).\(..\)\(.*\)/\10\2.20\3.\4\500.\6.asc/"`
+#  set DFILE = `echo $DFILE | sed "s/rf/RF/"`
+#  if (-r $SDIR/$SFILE) then
+#    echo \
+#    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DDIR/$DFILE
+#    if ($status == 0) then
+#      set d2 = $DFILE:h
+#      set d1 = $d2:t
+#      set d2 = $DFILE:t
+#      echo "#   $d1/$d2 -- OK -- `date`"
+#    else
+#      echo "  msrcp job FAILED.  See email message for details."
+#    endif
+#  else
+#    echo " Cannot access file $SDIR/$SFILE"
+#  endif
+#end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  2 job(s) submitted on Fri Sep  9 14:04:57 MDT 2005
+#  Files archived to MSS directory:  mss:/ATD/STOR/2002/IDEAS-1/C130_N130AR/CVI
+#   All_data.tar.dir -- OK -- Fri Sep  9 14:05:03 MDT 2005
+#   All_data.tar.gz -- OK -- Fri Sep  9 14:05:13 MDT 2005
+#   Completed on Fri Sep  9 14:05:13 MDT 2005
+#
+#  Redone to include data-file format-description files
+#  2 job(s) submitted on Fri Oct  7 16:42:19 MDT 2005
+#  Files archived to MSS directory:  mss:/ATD/STOR/2002/IDEAS-1/C130_N130AR/CVI
+#   All_data.tar.dir -- OK -- Fri Oct  7 16:42:29 MDT 2005
+#   All_data.tar.gz -- OK -- Fri Oct  7 16:42:41 MDT 2005
+#   Completed on Fri Oct  7 16:42:41 MDT 2005

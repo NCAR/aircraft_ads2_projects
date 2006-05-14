@@ -1,0 +1,28 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 5-162 SCMS (Small Cumulus Microphysics Study) (Charlie Knight, et al.)
+#
+#  File created by 'genar' Revision 5a on Thu May 21 17:45:45 MDT 1998
+#
+date
+#
+set YEAR = 1995
+set PROJ = 162
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = HRT
+#
+echo nrnet msput $SDIR/162rf13h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/NEW/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf14h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/NEW/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf15h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/NEW/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf16h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/NEW/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Thu May 21 17:47:44 MDT 1998
+# Sequence number = MI1197 -- NEW/HRT/RF13.cdf -- OK @ 21 May 1998 18:11:50
+# Sequence number = MI1204 -- NEW/HRT/RF14.cdf -- OK @ 21 May 1998 18:12:39
+# Sequence number = MI1211 -- NEW/HRT/RF15.cdf -- OK @ 21 May 1998 18:18:41
+# Sequence number = MI1221 -- NEW/HRT/RF16.cdf -- OK @ 21 May 1998 18:26:11
+#

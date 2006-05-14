@@ -1,0 +1,550 @@
+Project #2001-181 DYCOMS-II
+Dynamics and Chemistry of Marine Stratocumulus-II
+
+Bjorn Stevens
+NSF/NCAR EC-130Q Hercules (N130AR)
+
+Data Quality Report
+
+Prepared by:  Krista Laursen (NCAR/RAF)
+
+11 October 2001
+
+
+This document is intended to provide an overview of problems, limitations, and features to be 
+found in the DYCOMS-II C-130 data set.  Two sections are included in this summary.  The first 
+contains an outline of general problems and limitations common to all of the project flights.  The 
+second section details specific flight-by-flight problems and comments.
+
+Every attempt has been made to be as thorough and complete as possible during the quality 
+checking of the DYCOMS-II C-130 data set.  However, given the significant number of 
+variables in the processed data files, it is possible that some problems within the data set were 
+not detected.  Users of these data are encouraged to notify the RAF should they discover 
+additional problems and/or limitations within the data set.  Information regarding such problems 
+should be brought to the attention of Krista Laursen (303-497-1031 or krista@ucar.edu) or Dick 
+Friesen (303-497-1047 or rbf@ucar.edu), the DYCOMS-II C-130 project managers, or Ron Ruth 
+(303-497-1084 or ruth@ucar.edu), the RAF data manager.
+
+
+Section I:  General Data Set Quality and Limitations
+
+1.	In general, measurements of ambient temperature made on the C-130 using the two 
+radome-mounted sensors (ATRL, Ambient Temperature Radome Left; ATRR, Ambient 
+Temperature Radome Right) were in agreement with each other within a range of approximately 
+0.1 oC throughout the DYCOMS-II project.  Ambient temperature data obtained from the heated, 
+wing-mounted sensor (ATWH, Ambient Temperature, Deiced Wing) were, however, typically 
+offset from the ATRL and ATRR data by a few tenths of a oC during each of the project flights.  
+Based on a careful review of the ATRL, ATRR, and ATWH data and a comparison with 
+dewpoint temperature data during in-cloud segments, it was determined that ATRL yielded the 
+most reliable ambient temperature data.  Consequently, the reference ambient temperature 
+variable, ATX, was set to ATRL for each of the DYCOMS-II test, ferry, and research flights.  
+Users are advised to use ATX in any calculations requiring ambient temperature data.
+
+2.	Measurements of dewpoint temperature obtained from the two General Eastern 
+hygrometers on the C-130 (DPBC, Dewpoint Temperature, Bottom Corrected; DPTC, Dewpoint 
+Temperature, Top Corrected) were typically in good agreement (within 0.1-0.2 oC of each other) 
+for each of the DYCOMS-II flights.  Based on a comparison of DPBC and DPTC data with 
+ambient temperature data during in-cloud passes, the decision was made to set the reference 
+corrected dewpoint temperature variable, DPXC, to DPBC for the majority of the DYCOMS-II 
+flights.  The exception to this was RF03, in which case DPXC was set to DPTC due to problems 
+encountered with the DPBC sensor during the first quarter of the flight.
+
+It should be noted that, during those periods in which the aircraft was flying at higher altitudes in 
+regions of colder temperatures, DPBC (and hence DPXC for all flights but RF03) frequently 
+displayed significant oscillatory behavior.  However, since most of the critical DYCOMS-II data 
+were collected at lower altitudes at which such oscillatory behavior did not occur, it is the 
+opinion of the RAF that DPBC still yields the most consistently reliable dewpoint temperature 
+data.  Consequently, users are advised to use DPXC in any calculations requiring dewpoint 
+temperature data.  In those cases for which dewpoint temperature data are needed for higher 
+altitude/cold temperature flight path segments, it is perhaps advisable for investigators to use 
+DPTC data.
+
+3.	Mixing ratio data were obtained from three sensors during DYCOMS-II:  the General 
+Eastern hygrometer (MR), the “stubby” Lyman-Alpha (MRLA), and the cross-flow Lyman-
+Alpha (MRLA1).  In general, agreement between the three mixing ratio variables was quite good 
+throughout the project.  However, users of the data set will notice that the variable MR 
+periodically displays “overshooting” and offsetting from MRLA and MRLA1.  This behavior is 
+attributable to periodic (and short-term) saturation of the General Eastern hygrometer.  Figure 1 
+shows an example of this behavior in MR during RF07.
+
+In similar fashion to the MR data, “overshooting” and offsetting also appear at times in the 
+MRLA data.  As with the General Eastern sensor, this problem is attributable to temporary 
+saturation of the “stubby” Lyman-Alpha sensor.  Figure 1 also shows an example of the effect of 
+temporary saturation on collected MRLA data.  The cross-flow Lyman-Alpha sensor performed 
+extremely well throughout the DYCOMS-II project.  Consequently, the RAF recommends that 
+MRLA1 data be used in any analyses requiring mixing ratio data.  Similarly, it is advisable to 
+use RHOLA1 (cross-flow Lyman-Alpha absolute humidity) rather than RHODT (General 
+Eastern hygrometer-derived absolute humidity) or RHOLA (“stubby” Lyman-Alpha absolute 
+humidity) in calculations requiring absolute humidity data.
+
+4.	Due to the marine environment in which the majority of the DYCOMS-II flights were 
+conducted, the decision was made to use the humidity-corrected true airspeed variable (TASHC) 
+in the processing of the C-130 data.  In dry atmospheric conditions (e.g., for the test flights in 
+Colorado and for the ferry flights to and from NAS North Island), TASHC differs from the 
+reference true airspeed (TASX, set to the radome true airspeed, TASR) by a few hundredths of a 
+meter per second (m/s).  However, during the test and research flights conducted from North 
+Island, TASHC differed from TASX in some cases by a few tenths of a m/s.  In view of the latter 
+differences, it was deemed important to use TASHC in the processing of all of the DYCOMS-II 
+flight data.  Users are, therefore, advised to use TASHC in all calculations requiring true airspeed 
+data, especially for those studies being conducted on those flights flown from North Island.
+
+5.	Aircraft altitude data are available from the following three sources recorded on the 
+aircraft data system during the project:  GPS altitude (GALT), pressure altitude (PALT, in 
+meters, and PALTF, in feet), and a RAF-derived reference altitude (ALTX).  Outputs of all three 
+variables have been included in each of the processed flight data files.  According to Trimble 
+(the manufacturer of the TANS III GPS unit deployed on the C-130), an accuracy of 24 meters 
+(RMS) in the vertical (altitude) data from the GPS can be expected.  The Inertial Reference 
+System (IRS) altitude data (ALT) are generally considered by the RAF to be of questionable 
+quality.  Consequently, the decision was made to remove the variable ALT from each of the final 
+flight netCDF files.
+
+Geometric height (HGM232) data are also available for each of the DYCOMS-II flights.  It 
+should be noted, however, that interrupt code added to the RAF data acquisition software for the 
+purposes of recording the Drexel APIMS digital data introduced spiking into the HGM232 and 
+PSFDC (static pressure) data recorded on the C-130 data system.  A multi-point despiking 
+algorithm was used during the final processing of the DYCOMS-II data, and this removed the 
+majority of the spikes from the HGM232 and PSFDC data.  Nevertheless, users of the data set 
+will note that some spiking remains in the HGM232 data.  (Most notably at the beginning and 
+end of flights and for a brief number of seconds during some research flights.)  It is the opinion 
+of the RAF, however, that the overall quality of the HGM232 data is very good.
+
+In general, it is recommended that investigators use either ALTX or GALT for measurements of 
+altitude and HGM232 for geometric height data when performing analyses using the DYCOMS-
+II data set.
+
+6.	As was mentioned in 5 above, interrupt code added to the RAF data acquisition software 
+introduced spiking into the PSFDC (Corrected Static Pressure, Fuselage Digital Sensor) data 
+collected during the project.  The multi-point de-spiking algorithm used during the final 
+processing of the data set successfully removed the majority of these spikes from the PSFDC 
+data.  Nevertheless, because some small amount of spiking remained, the decision was made to 
+set the reference corrected static pressure variable, PSXC, to PSFC (Corrected Static Pressure, 
+Fuselage Sensor) for all of the DYCOMS-II flights.  Consequently, PSFC was used in the 
+processing of all collected C-130 data requiring corrected static pressure data as input.  Users 
+requiring corrected static pressure data for calculations are advised to use the variable PSXC.
+
+7.	Aircraft position data obtained from the Trimble GPS on the C-130 (the latitude and 
+longitude variables GLAT and GLON, respectively) are considered to be of higher accuracy than 
+position data obtained from the aircraft’s IRS (the latitude and longitude variables LAT and 
+LON, respectively).  An accuracy of 16 meters (RMS) in the horizontal can be expected in the 
+GPS position data.  Furthermore, the GPS system performed very well throughout the 
+DYCOMS-II deployment.  Therefore, users are advised to use GLAT and GLON in all analyses 
+requiring aircraft position data.
+
+8.	Steep banked turns (such as those executed during spiral ascents and descents with roll 
+angles greater than 25 degrees) compromise the quality of the C-130 wind data (RAF variables 
+UI, VI, WI, etc.) due to the adverse effects of the prolonged turns on the aircraft’s IRS unit.  
+Users are, therefore, advised to use the processed wind data corresponding to such turn segments 
+with caution.
+
+9.	It is recommended that investigators use the GPS-corrected wind variables (UIC, VIC, 
+WIC, WDC, and WSC) in any studies and/or calculations requiring wind speed and/or direction 
+measurements.  These variables are, generally, considered to provide the most reliable wind 
+vector measurements.
+
+10.	During a review of the downwelling and upwelling shortwave and ultraviolet radiometer 
+data collected during the project (RAF variables SWT, SWB, UVT, and UVB, respectively), 
+offsets in each of the four variables were found.  An analysis of the SWT and SWB data 
+collected during the nighttime flight legs was carried out to quantify the offset present in each of 
+the two variables.  These offsets were then removed (i.e., subtracted out) during final processing 
+of the SWT and SWB data.  Re-processing of the UVT and UVB data with the post-DYCOMS-
+II calibration coefficients for these two variables yielded downwelling and upwelling ultraviolet 
+radiometer data with no visible offsets.  Consequently, the post-project calibration coefficients 
+for UVT and UVB were used in the final processing of these two variables.
+
+11.	Modelling studies were conducted for some of the DYCOMS-II flights to derive values 
+needed to correct the downwelling shortwave radiometer data (SWT) for the effects of aircraft 
+attitude.  A simple radiative transfer model was used to determine shortwave direct and diffuse 
+radiation fractions, both of which are used in the correction algorithm used in routine processing 
+by the RAF.  Direct and diffuse fractions were derived for two different cases:  for the nocturnal 
+flights from North Island carried out in the marine environment, and for the daytime flights from 
+North Island carried out in the marine environment.  Direct and diffuse fractions for the flights 
+conducted at higher latitudes and less humid conditions (e.g., the test flights in Colorado) were 
+taken from modelling studies conducted for a previous C-130 project supported by the RAF.  
+The appropriate fraction values were then applied during the processing of the DYCOMS-II C-
+130 data in order to generate attitude-corrected downwelling shortwave radiometer data (RAF 
+variable SWTC) for each flight.
+
+12.	In general, good agreement (i.e., overlap) is found between the concentration spectra for 
+the SPP-200, SPP-300, SPP-100, 260X, and 2D-C probes flown on the C-130 for the project.  
+Specific problems encountered with the SPP-100 probes deployed on the aircraft during 
+DYCOMS-II are outlined in item 13 below.  Also, additional problems experienced with the 
+various PMS probes are detailed as needed in the section “Flight-by-Flight Summary and 
+Discussion” below.
+
+Users should be aware that periodic discrepancies between SPP-200 and SPP-300 concentrations 
+appear in the concentration spectra in the droplet/particle diameter range of 1-3 µm.  In these 
+instances, the recorded SPP-200 concentrations are significantly higher than the recorded SPP-
+300 concentrations.  For droplet/particle diameter sizes of less than 1 µm, agreement between the 
+recorded SPP-200 and SPP-300 concentrations is, typically, quite good.
+
+13.	 Some problems were encountered during DYCOMS-II with the RAF SPP-100s deployed 
+on the C-130.  For TF01-03, FF01, and RF01-02, SPP-100 serial number (S/N) 109 was flown 
+on the aircraft.  It was determined after careful reviews of the S/N 109 probe data that this probe 
+was sizing droplets too large by approximately two bins.  Users of the SPP-100 data collected 
+during the first six flights of the project are, therefore, advised that these data (specifically, the 
+SPP-100 size spectra, derived concentrations, etc.) are slightly questionable.
+
+For the remaining project flights (RF03-10 and FF02), RAF SPP-100 S/N 122 was deployed on 
+the C-130.  While this probe sized droplets correctly (with the exception of RF05; see flight-by-
+flight comments for RF05 below), it nevertheless displayed a significant problem with “falling 
+asleep” (i.e., not responding) for various time periods during several research flights.  (See the 
+section “Flight-by-Flight Summary and Discussion” below for detailed information regarding 
+when this problem occurred.)  In some cases, it was possible to “wake up” the S/N 122 probe by 
+cycling left wing pod power to the probe.  However, these sequences of the probe falling asleep 
+and then being awakened by power cycling introduced periods of missing data followed by large 
+spikes in the collected S/N 122 SPP-100 data.  These episodes of missing data and spikes appear 
+in all of the recorded SPP-100 variables, including the concentration, derived liquid water 
+content, DBZ, and other SPP-100 data values.  Unfortunately, it was not possible to remove this 
+spiking from the S/N 122 SPP-100 data using existing RAF de-spiking algorithms.  
+Consequently, investigators using the SPP-100 data for RF03-10 and FF02 are advised to be 
+vigilant and to scrutinize the SPP-100 data for the presence of such spikes before proceeding 
+with analyses of the data.  To aid users in identifying episodes of spiking in the processed SPP-
+100 data, Figure 2 shows an example of such spikes in S/N 122 SPP-100 data recorded during 
+RF03.
+
+14.	Related to the problems encountered with the S/N 122 SPP-100 probe and the need to 
+cycle power to the left wing pod in order to revive the probe, users are advised that these 
+episodes of power cycling also led to periods of missing/bad data in other left wing pod 
+instrument variables.  Specifically, such periods of missing/bad data appear in the Gerber PVM-
+100 variables (XGLWC, XGSFC, and XGRFF) recorded on the C-130 data system.  Users 
+should consult Section II of this document (“Flight-by-Flight Summary and Discussion”) for 
+information regarding those flights during which power was cycled to the left wing pod and, 
+consequently, missing/bad data and spiking appear in left wing pod instrument variables 
+recorded on the C-130 data system.
+
+The episodes of left wing pod power cycling may have also introduced periods of missing/bad 
+data in the collected data stream from the French Fast FSSP, for which data were recorded on a 
+separate, stand-alone data system.  Users of the Fast FSSP data are, therefore, advised to 
+scrutinize the Fast FSSP data for missing/bad data periods prior to using these data in analyses.
+
+15.	It was decided by the RAF to remove three of the TDL hygrometer variables (MRLHS, 
+Mixing Ratio, TDL Hygrometer Strong Line; MRLHW, Mixing Ratio, TDL Hygrometer Weak 
+Line; ATLH, Total Temperature, TDL Hygrometer) recorded on the C-130 data system from the 
+final netCDF files generated for the project.  This decision was made due to the fact that the 
+quality of the data contained in each of the three variables appeared to be inconsistent and 
+questionable.  The output of a fourth TDL variable recorded on the C-130 data system (PSLH, 
+Raw Static Pressure, TDL Hygrometer) was, instead, left in each of the final project data files 
+after it was determined that the PSLH values tracked other measurements of static pressure made 
+on the aircraft quite well during each of the project flights.
+
+It should be noted that the exclusion of the above three TDL variables from the final netCDF 
+data files does not mean that TDL data will not be available for the project.  During DYCOMS-
+II, TDL hygrometer data were also recorded on a separate, stand-alone data system for the 
+instrument.  Teresa Campos of the RAF will be processing the TDL data recorded on this 
+separate data system and will oversee distribution of these data to the DYCOMS-II investigators 
+and the scientific community.  Questions regarding the quality and availability of the TDL data 
+collected during the project should be directed to Teresa Campos (campos@ucar.edu).
+
+16.	The Ophir III radiometric thermometer deployed on the C-130 for the project did not 
+perform satisfactorily during any of the project flights.  Consequently, the output of all Ophir III 
+variables recorded on the C-130 data system was removed from the final, processed data files, 
+and no Ophir III data are available for this project.
+
+Similarly, the French refractometer mounted on the C-130 for DYCOMS-II did not perform 
+correctly during any of the project flights.  As a result, the output of all of the refractometer 
+variables recorded on the C-130 data system (CABRT, CAVRT, REFRACI, REFRACP, and 
+REFRACT) was turned off during the production of the final project data files, and no 
+refractometer data are available for this project.
+
+17.	Two Heimann radiometers were deployed on the C-130 for DYCOMS-II for the purpose 
+of obtaining surface temperature measurements during the project.  The two corresponding 
+variables recorded on the C-130 data system are RSTB (Radiometric Surface Temperature, 
+Sensor 1) and RSTB1 (Radiometric Surface Temperature, Sensor 2).  During post-project review 
+of the collected data, it was determined by the RAF that, while the two variables track each other 
+well during each flight, RSTB1 yields data of slightly better quality.  The latter decision was 
+reached after RSTB and RSTB1 data were compared with ambient and dewpoint temperature 
+data collected during in-cloud passes; RSTB1 consistently displayed temperature values that 
+were in better agreement with the in-cloud ambient and dewpoint temperature data.  Also, less 
+noise is present in the recorded RSTB1 data than appears in the recorded RSTB data.  
+Consequently, users interested in using surface temperature data in their analyses are advised to 
+use the variable RSTB1 in their studies.
+
+18.	Hermann Gerber has advised the RAF that, because of the dependence on XGLWC in the 
+equations used to calculate the PVM-100 quantity XGRFF (Gerber PVM-100 Effective Droplet 
+Radius) and the CIN quantity CING (Gerber CIN Asymmetry Parameter), both XGRFF and 
+CING have no value when XGLWC < 0.05 g/m3.  Thus, users are advised that, during 
+processing of the DYCOMS-II data set, both XGRFF and CING were assigned no value 
+whenever the condition of XGWLC < 0.05 g/m3 was met.
+
+Hermann has also advised the RAF that, during time segments after sunrise, the Gerber CIN 
+channels CINB and CINCB (Gerber CIN Backscatter and Gerber CIN Cosine of Scattering 
+Angle Times Backscatter, respectively) display substantial offsets.  He believes this problem to 
+be attributable to maladjusted synchronous detector circuits which permit some DC light level to 
+pass through.  Offsets in CINB and CINCB do not appear in data collected during nighttime 
+flight segments.  Prior to final processing, Hermann provided the RAF with offsets for each of 
+the raw CIN and PVM-100 signals recorded on the C-130 data system, and these offsets were 
+removed during processing.  Nevertheless, users of the CIN data are advised to be aware of the 
+possible presence of small, residual offsets in the CINB and CINCB data, per Hermann’s 
+communication with the RAF as outlined above.
+
+19.	Information on the calibration history of the PVM-100 deployed on the C-130 for 
+DYCOMS-II is available in an Adobe Acrobat (PDF) document (called “pvmcut.pdf”) prepared 
+by Hermann Gerber.  Users can click here to download and view a copy of this PDF document. 
+
+20.	The data outputs from several user-supported instruments were recorded on the C-130 
+data system during the project.  In almost all cases, the recorded output variables are included in 
+the final processed netCDF files for the project.  While the RAF has processed and distributed 
+these user variables in the final data files, it should be noted by all investigators that the RAF is 
+not responsible for the quality-checking and data quality analysis for any of the user variables 
+recorded on the C-130 data system.  Investigators with any questions regarding the quality, 
+correct usage, etc. of any of the user-supplied variables recorded on the C-130 must contact the 
+responsible investigator directly.
+
+In order to aid investigators with determining who should be contacted with questions regarding 
+user-supported instrumentation data products, the following table outlines the user-supported 
+instrumentation flown on the C-130 for which data were recorded on the C-130 data system and 
+lists the appropriate contact person and contact information.
+
+Instrument
+Contact Person
+Contact Information
+Drexel APIMS
+Alan Bandy or Don Thornton
+bandyar@drexel.edu; 
+dct@drexel.edu
+LAS-AIR Analog Signals
+Cindy Twohy
+twohy@oce.orst.edu
+Streaker Samplers (Analog 
+Signals)
+Jim Anderson
+janderson@asu.edu
+Princeton Organic Filter 
+Concentrator and Streaker 
+Sampler Analog Signals
+Lynn Russell
+lrussell@princeton.edu
+Wyoming CCN/CN Equipment
+Jeff Snider
+jsnider@uwyo.edu
+Warsaw Univ. UFT-F
+Kris Haman or Szymon 
+Malinowski
+Krzysztof.Haman@fuw.edu.pl; 
+Szymon-P.Malinowski@fuw.edu.pl
+Gerber PVM-100* and CIN
+Hermann Gerber
+hgerber6@home.com
+NCAR/RAF RDMA
+Dave Rogers
+dcrogers@ucar.edu
+LTI**
+Dave Rogers; Bernie LaFleur
+dcrogers@ucar.edu; 
+blafleur@du.edu
+* The PVM-100 deployed on the C-130 for DYCOMS-II is a unit owned by the RAF but specially 
+modified for ultra-high rate sampling by Hermann Gerber for the project.  Questions regarding the 
+processing and data quality of the DYCOMS-II PVM-100 data can be addressed to either Hermann 
+Gerber or the RAF.
+** It is anticipated that the particle concentration enhancement factors derived from the LTI data 
+processing will be archived to both the NCAR Mass Store System (MSS) and to the UCAR/JOSS 
+DYCOMS-II data archive.
+
+
+21.	Related to 20 above, it should be noted that the data streams from several user-supported 
+instruments deployed on the C-130 were recorded on separate (stand-alone) data systems.  The 
+data products recorded on these data systems will not be archived by the RAF but will, instead, 
+be submitted for archival to the UCAR/JOSS DYCOMS-II Data Management Web Site.  
+Users with questions regarding the availability, quality, and usage of data products recorded on 
+stand-alone data systems must contact the investigator responsible for a specific instrument and 
+data set directly.  Further, users wishing to obtain copies of data products recorded on 
+independent data systems must visit the UCAR/JOSS site listed above for information and 
+instructions on downloading available data products.
+
+In order to aid users with determining who should be contacted with questions regarding 
+independently recorded data sets, the following table outlines the user-supported instrumentation 
+flown on the C-130 for which data were recorded on a stand-alone data system and lists the 
+appropriate contact person and contact information.
+
+Instrument
+Contact Person(s)
+Contact Information
+Drexel APIMS*
+Alan Bandy or Don Thornton
+bandyar@drexel.edu; 
+dct@drexel.edu
+CVI and LAS-AIRs
+Cindy Twohy
+twohy@oce.orst.edu
+Streaker Samplers
+Jim Anderson
+janderson@asu.edu
+FTIR Filter Concentrator, XRF 
+Filter Concentrator, and X-Ray 
+Streaker Sampler
+Lynn Russell
+lrussell@princeton.edu
+Wyoming Cloud Radar (WCR)
+Gabor Vali
+vali@uwyo.edu
+Cloud Water Collector
+Derek Straub
+dstraub@ucar.edu
+CNRM Fast FSSP-100
+Jean-Louis Brenguier
+jean-louis.brenguier@meteo.fr
+NCAR/RTF SABL
+Bruce Morley or Eric Loew
+bruce@ucar.edu; 
+ericloew@ucar.edu
+NCAR/RTF GPS Dropsonde 
+System
+Terry Hock or Dean Lauritsen
+hock@ucar.edu; lauritsn@ucar.edu
+NCAR/RAF TDL Hygrometer
+Teresa Campos
+campos@ucar.edu
+LTI**
+Dave Rogers; Bernie LaFleur
+dcrogers@ucar.edu; 
+blafleur@du.edu
+* Two digital signals from the APIMS (XDCNT and XDMASS) were recorded in the primary data 
+(ADS) files on the C-130 data system during DYCOMS-II.  However, the raw APIMS data were also 
+recorded to separate data files on the C-130 data system, and these raw data files have been provided to 
+A. Bandy’s group at Drexel University for processing and analysis.  It is anticipated that A. Bandy’s 
+group will provide final, separate APIMS data files to the UCAR/JOSS archive for DYCOMS-II.
+** It is anticipated that the particle concentration enhancement factors derived from the LTI data 
+processing will be archived to both the NCAR Mass Store System (MSS) and to the UCAR/JOSS 
+DYCOMS-II data archive.
+
+22.	RAF 2D-C probe data recorded during the project have been archived in separate data 
+files to the NCAR Mass Store System (MSS).  Users can obtain copies of these 2D-C data files 
+using the NCAR/RAF DYCOMS-II Data Request Site.  Similarly, the RAF RDMA data 
+recorded on the C-130 during DYCOMS-II were processed into separate ASCII files for each 
+project flight.  These files have, in turn, been archived to the NCAR MSS and can be accessed by 
+users using the above-listed RAF Data Request Site link.
+
+Multichannel cloud radiometer (MCR) data obtained during the project will require separate 
+calibration, processing, and data quality review procedures prior to release.  It is anticipated that 
+the final processed MCR data files will be archived to both the NCAR MSS and to the 
+UCAR/JOSS DYCOMS-II Data Management Web site.  Questions regarding the availability and 
+quality of the MCR data collected during DYCOMS-II should be addressed to Mark Tschudi of 
+the RAF (tschudi@ucar.edu).
+
+
+Section II:  Flight-by-Flight Summary and Discussion
+
+All flight dates listed are GMT flight dates.
+
+TF01 (6/26/01)
+? “Stubby” Lyman-Alpha sensor not working this flight; no VLA, MRLA, and RHOLA 
+data in netCDF output file.
+? Radar altimeter not working this flight; no HGM232, HGM232S, and PSURF 
+(Calculated Surface Pressure; derived using HGM232) data in netCDF output file.
+? Routinely high counts in lower channels (bins 1-4) of SPP-300; SPP-300 data 
+questionable this flight.
+? Sample rate for PVM-100 analog channels (XGLWC and XGSFC) set to 25 samples per 
+second (sps) this flight.
+
+
+TF02 (6/29/01)
+? PLWC King probe sensor not working this flight; no PLWC and PLWCC data in netCDF 
+output file.
+
+
+FF01 (7/5/01)
+? Bad true airspeed data input into 2D-C probe this flight; 2D-C data unusable and not 
+included in netCDF output file.  Also, no separate 2D data file available for this flight.
+
+
+TF03 (7/701)
+? Bad true airspeed data input into 2D-C probe this flight; 2D-C data unusable and not 
+included in netCDF output file.  Also, no separate 2D data file available for this flight.
+
+
+RF01 (7/10/01)
+? Bad true airspeed data input into 2D-C probe this flight; 2D-C data unusable and not 
+included in netCDF output file.  Also, no separate 2D data file available for this flight.
+? PLWC1 King probe sensor not working this flight; no PLWC1 and PLWCC1 data in 
+netCDF output file.
+? XGSFC data from PVM-100 bad this flight; no XGSFC and XGRFF (Gerber PVM-100 
+Effective Radius; derived using XGSFC data) in netCDF output file.
+? 260X probe and SPP-100 not working properly this flight (significant periods of no data 
+for each probe); data for both probes questionable this flight.
+? LTI worked well throughout mission; however, not possible to maintain isokinetic flow 
+at lower altitudes.
+
+
+RF02 (7/11/01)
+? No SPP-100 data (probe unresponsive) until 09:18:00 GMT and from 14:31:00 GMT to 
+end of flight.
+? Sample rate for PVM-100 analog channels (XGLWC and XGSFC) set to 250 sps this 
+flight.
+
+
+RF03 (7/13/01)
+? DPB and DPBC data bad from 06:18:23-08:32:03 GMT.
+? XGLWC (Gerber PVM-100 Liquid Water Content) data bad from 11:00:00-11:54:00 
+GMT; consequently, XGRFF and CING (Gerber CIN Asymmetry Parameter) data bad 
+from 11:00:00-11:54:00 GMT, also.
+? Several instances of SPP-100 “falling asleep” during flight and needing to have left wing 
+pod power cycled in order to revive; consequently, several periods of missing data and 
+spiking are apparent in SPP-100 variables.  Corresponding periods of missing/bad data 
+are also apparent in other left wing pod instrument variables (i.e., Gerber PVM-100 
+variables XGLWC, XGSFC, XGRFF) due to cycling of power to pod.
+? Occasional dropouts and spiking in SPP-300 data until 08:49:10 GMT.
+
+
+RF04 (7/17/01)
+? XGLWC data bad from 11:48:00-15:31:30 GMT; consequently, XGRFF and CING data 
+bad from 11:48:00-15:31:30 GMT, also.
+? Several instances of SPP-100 “falling asleep” during flight and needing to have left wing 
+pod power cycled in order to revive; consequently, several periods of missing data and 
+spiking are apparent in SPP-100 variables.  Corresponding periods of missing/bad data 
+are also apparent in other left wing pod instrument variables (i.e., Gerber PVM-100 
+variables XGLWC, XGSFC, XGRFF) due to cycling of power to pod.
+? Right wing tip PMS probe circuit breaker for 260X and 2D-C probes not set at beginning 
+of flight, reset at 08:33:22 GMT; no 260X and 2D-C data until 08:33:22 GMT.
+
+
+RF05 (7/18/01)
+? SPP-100 operated in wrong range for duration of flight due to a chip problem on probe 
+card; SPP-100 data unusable this flight, so not included in netCDF output file.  No SPP-
+100 data available for this flight.
+
+
+RF06 (7/20/01)
+? Several instances of SPP-100 “falling asleep” during flight and needing to have left wing 
+pod power cycled in order to revive; consequently, several periods of missing data and 
+spiking are apparent in SPP-100 variables.  Corresponding periods of missing/bad data 
+are also apparent in other left wing pod instrument variables (i.e., Gerber PVM-100 
+variables XGLWC, XGSFC, XGRFF) due to cycling of power to pod.  Decision made at 
+08:15:37 GMT to cease cycling power to left wing pod in order to revive SPP-100.  Thus, 
+no SPP-100 data from 08:15:37 GMT to end of flight.
+? Several periods of bad DPT and DPTC data during flight, presumably due to saturation of 
+DPT sensor; DPT and DPTC data bad from 07:25:38-07:44:47, 08:16:01-09:36:25, 
+10:05:08-10:09:00, 10:40:52-10:44:32, 10:53:15-10:57:32, and 11:21:21-11:45:49 GMT.
+
+
+RF07 (7/24/01)
+? No comments.
+
+
+RF08 (7/25/01)
+? Two instances of spiking in SPP-100 data, at 23:20:38 and 05:07:58 GMT; however, 
+majority of SPP-100 data good this flight.
+? GALT and ALTX data bad from 21:19:57-21:22:48 GMT; GALT data bad from 
+00:29:49-00:30:15 GMT. 
+
+
+RF09 (7/27/01)
+? Problems with significant drift in C-130 IRS data outputs starting at approximately 00:16 
+GMT; LAT, LON, UI, UX, VEW, VI, VNS, VY, WD, WI, and WS data bad past this 
+time, and not included in netCDF output file.
+? One instance of spiking in SPP-100 data at 19:27:00 GMT; however, majority of SPP-
+100 data good this flight.
+
+
+RF10 (7/28/01)
+? 260X and 2D-C probes not responding at beginning of flight; right wing tip PMS probe 
+circuit breaker reset at approximately 20:26 GMT, and good 260X and 2D-C probe data 
+obtained for remainder of flight after this time.
+
+
+FF02 (7/30/01)
+? No comments.
+
+
+
+11
+

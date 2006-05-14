@@ -1,0 +1,198 @@
+#! /bin/csh -f
+#
+#  Archive special UHRT NIMBUS netCDF output files for:
+#    2005-135 RICO (Rain In Cumulus over the Ocean) (Bob Rauber, Harry Ochs, et al.)
+#   using the /RAF  directory path
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2005                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $LOCAL/proj/135/Production/archive/archads.135
+#   by Ron Ruth  21 June 2005
+#  Not Revised by RLR
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = UHRT/PVM100
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR/pvm100
+#
+#  1st wave
+#set SFILES = ( \
+#135glwcrf01.nc \
+#135glwcrf02.nc \
+#135glwcrf03.nc \
+#135glwcrf04.nc \
+#135glwcrf05.nc \
+#135glwcrf06.nc \
+#135glwcrf07.nc \
+#135glwcrf08.nc \
+#135glwcrf09.nc \
+#135glwcrf10.nc \
+#135glwcrf11.nc \
+#135glwcrf12.nc \
+#135glwcrf13.nc \
+#135glwcrf14.nc \
+#135glwcrf15.nc \
+#135glwcrf16.nc \
+#135glwcrf17.nc \
+#135glwcrf18.nc \
+#135glwcrf19.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#TF02 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+      echo "#                $TYPE/$DFILE: error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2005/135/
+#
+#  1st wave
+#  19 Job(s) submitted on Tue Jun 21 14:17:58 MDT 2005
+#  msrcp job for UHRT/PVM100/RF01.nc -- OK -- Tue Jun 21 14:19:37 MDT 2005
+#  msrcp job for UHRT/PVM100/RF02.nc -- OK -- Tue Jun 21 14:20:13 MDT 2005
+#  msrcp job for UHRT/PVM100/RF03.nc -- OK -- Tue Jun 21 14:23:04 MDT 2005
+#  msrcp job for UHRT/PVM100/RF04.nc -- OK -- Tue Jun 21 14:25:28 MDT 2005
+#  msrcp job for UHRT/PVM100/RF05.nc -- OK -- Tue Jun 21 14:27:47 MDT 2005
+#  msrcp job for UHRT/PVM100/RF06.nc -- OK -- Tue Jun 21 14:30:16 MDT 2005
+#  msrcp job for UHRT/PVM100/RF07.nc -- OK -- Tue Jun 21 14:32:40 MDT 2005
+#  msrcp job for UHRT/PVM100/RF08.nc -- OK -- Tue Jun 21 14:35:02 MDT 2005
+#  msrcp job for UHRT/PVM100/RF09.nc -- OK -- Tue Jun 21 14:37:15 MDT 2005
+#  msrcp job for UHRT/PVM100/RF10.nc -- OK -- Tue Jun 21 14:39:35 MDT 2005
+#  msrcp job for UHRT/PVM100/RF11.nc -- OK -- Tue Jun 21 14:42:19 MDT 2005
+#  msrcp job for UHRT/PVM100/RF12.nc -- OK -- Tue Jun 21 14:44:40 MDT 2005
+#  msrcp job for UHRT/PVM100/RF13.nc -- OK -- Tue Jun 21 14:47:07 MDT 2005
+#  msrcp job for UHRT/PVM100/RF14.nc -- OK -- Tue Jun 21 14:49:28 MDT 2005
+#  msrcp job for UHRT/PVM100/RF15.nc -- OK -- Tue Jun 21 14:51:35 MDT 2005
+#  msrcp job for UHRT/PVM100/RF16.nc -- OK -- Tue Jun 21 14:53:41 MDT 2005
+#  msrcp job for UHRT/PVM100/RF17.nc -- OK -- Tue Jun 21 14:56:03 MDT 2005
+#  msrcp job for UHRT/PVM100/RF18.nc -- OK -- Tue Jun 21 14:58:20 MDT 2005
+#  msrcp job for UHRT/PVM100/RF19.nc -- OK -- Tue Jun 21 15:00:51 MDT 2005
+#   Completed on Tue Jun 21 15:00:51 MDT 2005
+#
+#  2nd wave
+#  Job(s) submitted on 
+#
+#  3rd wave
+#  Job(s) submitted on 
+#
+#  4th wave
+#  Job(s) submitted on 
+#
+#   th wave
+#  Job(s) submitted on 
+#

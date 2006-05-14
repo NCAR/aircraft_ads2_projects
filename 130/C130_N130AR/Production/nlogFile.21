@@ -1,0 +1,46 @@
+NIMBUS output (to the window in which NIMBUS was running) the following
+lines which didn't make it into the original log file (logFile.21):
+-------------------------------------------------------------------------
+2D-C_LPO has no description or units.
+2D-P_LPI has no description or units.
+EVENT_CKP has no description or units.
+EVENT_CTL has no description or units.
+EVENT_FWD has no description or units.
+EVENT_OBL has no description or units.
+EVENT_OBR has no description or units.
+HGM232S has no description or units.
+-------------------------------------------------------------------------
+
+NIMBUS output to its grey status window the following lines which didn't
+make it into the original log file:
+-------------------------------------------------------------------------
+Warning: H2O2 has no dependencies.
+Warning: MHPEQ has no dependencies.
+O3FC is depending on non-existant variable FUDGE.
+O3FC has no compute function.
+Warning: PERACAL has no dependencies.
+Warning: PERACOR has no dependencies.
+Warning: PERAZRO has no dependencies.
+Warning: PERBCAL has no dependencies.
+Warning: PERBCOR has no dependencies.
+Warning: PERBZRO has no dependencies.
+Warning: ROOH has no dependencies.
+XCO2C is depending on non-existant variable XCO2P.
+XCO2C has no compute function.
+
+-----------------  NIMBUS created lines below  --------------------------
+Loading setup file: /home/local/proj/130/Production/Flight_16
+ACE - 1 - 130, Flight #21
+Request for non-existent default, XO3F1T_CAL.
+Request for non-existent default, CAL_FACTOR.
+Request for non-existent default, CO2_OFFSET.
+Processed on: Jul 29 21:21 UTC 1996
+Flight Date: 12/04/1995
+Despiking enabled.
+Time interval(s) completed : 18:00:00-18:14:59
+CN3760: 83 spikes removed with slope exceeding 40000.000000
+DPB: 1 spikes removed with slope exceeding 1.000000
+O3FS: 5 spikes removed with slope exceeding 0.500000
+PITCH: 6 spikes removed with slope exceeding 0.300000
+ROLL: 61 spikes removed with slope exceeding 0.200000
+Processing took 3.6 minutes.

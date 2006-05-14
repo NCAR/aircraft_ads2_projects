@@ -1,0 +1,127 @@
+#! /bin/csh -f
+#
+#  Rename stripped raw PMS-2D data files from /RAF path to /ATD/DATA path
+#   for project 2001-161 EPIC2001
+#
+#  File adapted from /jnet/linux/proj/112/Production/archive/atdmv2d.112
+#    by Ron Ruth  14 May 2003
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep CY ../proj.info | sed -e "s/CY=//"`
+set PLATFORM = "C130_N130AR"
+set PROJECT = "EPIC2001"
+set TYPE = "PMS2D"
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set source directory
+set SDIR = "/RAF/2001/161/PMS2D"
+#
+#  1st wave
+#set FILES = ( \
+#FF01  \
+#RF01  \
+#RF02  \
+#RF03  \
+#RF04  \
+#RF05  \
+#RF06  \
+#RF07  \
+#RF08  \
+#RF09  \
+#RF10  \
+#RF12  \
+#RF13  \
+#RF14  \
+#RF16  \
+#RF17  \
+#TF01  \
+#TF02A  \
+#TF03  \
+#)
+##  vi command to change taplog* listing to extent
+##:'a,'bs:.......\(..\).\(..\).\(....\)..\(..\).\(..\).\(..\).*:\3\1\2.\4\5\6.RP2.bi
+##
+##  vi command to change tapes* listing to extent
+##:'c,'ds:..............\(..\).\(..\).\(....\)..\(..\).\(..\).\(..\).*:\3\1\2.\4\5\6.RP2.bi
+#set EXTS = ( \
+#20010901.143304.RP2.bi  \
+#20010903.135851.RP2.bi  \
+#20010905.135339.RP2.bi  \
+#20010907.133904.RP2.bi  \
+#20010909.141242.RP2.bi  \
+#20010913.140200.RP2.bi  \
+#20010914.131537.RP2.bi  \
+#20010916.142032.RP2.bi  \
+#20010919.131931.RP2.bi  \
+#20010920.143807.RP2.bi  \
+#20010923.132039.RP2.bi  \
+#20010928.140219.RP2.bi  \
+#20010929.140642.RP2.bi  \
+#20011002.142143.RP2.bi  \
+#20011005.143418.RP2.bi  \
+#20011006.150450.RP2.bi  \
+#20010823.194846.RP2.bi  \
+#20010824.184256.RP2.bi  \
+#20010827.185611.RP2.bi  \
+#)
+#
+#  2nd wave
+#set DFILES = ( \
+#)
+#set EXTS = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#FILES != $#EXTS) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set EXT   = $EXTS[$num]
+  echo \
+  msmv -wpwd RAFDMG $RPWD $SDIR/$FILE \
+   /ATD/DATA/$YEAR/$PROJECT/$PLATFORM/$TYPE/$FILE.$EXT
+  @ num ++
+endif
+end
+date
+#
+exit
+#
+#
+#  New MSS path for all bitfiles:  /ATD/DATA/2001/EPIC2001/C130_N130AR/PMS2D/
+#
+#  1st wave
+#  Job(s) submitted on Thu May 15 10:48:51 MDT 2003
+#  Job(s) completed on Thu May 15 10:49:19 MDT 2003
+#
+#  2nd wave
+#  Job(s) submitted on 
+#

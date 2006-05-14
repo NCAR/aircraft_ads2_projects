@@ -1,0 +1,80 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+Despike \
+Lags \
+LowRateVars \
+PMSspecs \
+ProjectName \
+VarDB \
+header \
+header.1 \
+header.2 \
+header.3 \
+Production/FlightGroups \
+Production/Flight_rf02 \
+Production/Sea_Salinity00 \
+Production/arch.107 \
+Production/archive.support \
+Production/atdarch.107 \
+Production/logFile_LRT.rf01 \
+Production/logFile_LRT.rf02 \
+Production/logFile_LRT.rf03 \
+Production/logFile_LRT.rf04 \
+Production/logFile_LRT.rf05 \
+Production/logFile_LRT.rf06 \
+Production/logFile_LRT.rf07 \
+Production/proj.info \
+Production/taplog.107 \
+Production/tarit.107 \
+Production/tp2ms.summary \
+Production/varlist \
+Production/archive/arads.107 \
+Production/archive/return_tapes_from_opns.mo \
+Production/archive/send_tapes_to_opns.mo \
+Production/archive/tapes.107 \
+Production/archive/tp2ms.job
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

@@ -1,0 +1,95 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 1996-110 Coastally Trapped Waves
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (debug)                                           16 Apr 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PDIR = $LOCAL/proj/$PROJ
+set PRDIR = $PDIR/Production
+cd $PDIR
+#
+set YEAR = `grep FY Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat ProjectName`
+#
+date
+#
+#  Current archive (nrnet) commands go here
+set DIR = $PRDIR
+#
+set FILES = (110.tar 110.tar.dir 110_QA.txt MSCP_out.110 nimbus.tar \
+ nimbus.tar.dir nimbus_defaults.tar nimbus_defaults.tar.dir taplog.110 )
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+set DIR = $PRDIR/archive
+#
+set FILES = ( tapes.110 )
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+#  Job(s) submitted on Fri Sep  6 17:32:59 MDT 1996
+# Sequence number = MI1296 -- 110.tar -- OK @ 6 Sep 1996 17:37:12
+# Sequence number = MI1303 -- 110.tar.dir -- OK @ 6 Sep 1996 17:37:33
+# Sequence number = MI1310 -- 110_QA.txt -- OK @ 6 Sep 1996 17:37:46
+# Sequence number = MI1317 -- MSCP_out.110 -- OK @ 6 Sep 1996 17:37:00
+# Sequence number = MI1324 -- nimbus.tar -- OK @ 6 Sep 1996 17:38:44
+# Sequence number = MI1331 -- nimbus.tar.dir -- OK @ 6 Sep 1996 17:38:11
+# Sequence number = MI1338 -- nimbus_defaults.tar -- OK @ 6 Sep 1996 17:38:26
+# Sequence number = MI1345 -- nimbus_defaults.tar.dir - OK @ 6 Sep 1996 17:38:39
+# Sequence number = MI1352 -- taplog.110 -- OK @ 6 Sep 1996 17:42:21
+# Sequence number = MI1359 -- tapes.110 -- OK @ 6 Sep 1996 17:42:35
+#

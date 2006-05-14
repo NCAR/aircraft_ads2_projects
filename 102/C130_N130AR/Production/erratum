@@ -1,0 +1,20 @@
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.

@@ -1,0 +1,42 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-120 BASE (Curry, et al.)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 120
+#set STAGE = nfile=1
+#set STAGE = nrec=15000
+#set STAGE = "skpr=15000 nrec=15000"
+#set STAGE = "skpr=30000 nrec=15000"
+#
+#  Section 2A.  Clean up first cut at mass production.
+#set STAGE = ( nrec=5979 nrec=5617 )
+#set TAPELIST = ( R0916 R0939 )
+#set FLIGHTS =  ( RF03A RF19A )
+exit
+#
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set STAG = $STAGE[$num]
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  echo nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAG \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+#  Jobs submitted Mon Nov 28 12:35:24 MST 1994
+# Sequence number = CK1115 -- RF03A/R0916 -- OK
+# Sequence number = CK1122 -- RF19A/R0939 -- OK
+# 
+# done.
+exit

@@ -1,0 +1,112 @@
+#! /bin/csh -f
+#
+#  Rename preliminary 5-162 SCMS data set (put in 126 directory by mistake)
+#         Ron Ruth 951108
+#
+#  :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1995
+set PROJ = 126
+set NPROJ = 162
+set TURBRT = LRT/PRELIMINARY
+set READ = (See SCMS project notebook for proper READ password)
+#
+date
+#
+exit
+#
+#  Get started
+set NAMES = ( \
+162rf1.cdf \
+162rf10.cdf \
+162rf11.cdf \
+162rf12a.cdf \
+162rf12b.cdf \
+162rf12c.cdf \
+162rf13a.cdf \
+162rf13b.cdf \
+162rf14.cdf \
+162rf15.cdf \
+162rf16a.cdf \
+162rf16b.cdf \
+162rf16c.cdf \
+162rf17.cdf \
+162rf18a.cdf \
+162rf18b.cdf \
+162rf18c.cdf \
+162rf18d.cdf \
+162rf19.cdf \
+162rf2.cdf \
+162rf20.cdf \
+162rf3.cdf \
+162rf4.cdf \
+162rf5.cdf \
+162rf6.cdf \
+162rf8.cdf \
+162rf9.cdf \
+README.prescms \
+prescms.files \
+rfinoise.ps \
+uvhsat.ps \
+variables.scms \
+)
+#
+set todo = $#NAMES
+set num = 1
+while ($num <= $todo)
+  set NAME = $NAMES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$NAME \
+    npdn=/RAF/$YEAR/$NPROJ/$TURBRT/$NAME w=RAFDMG r=$READ
+  @ num ++
+end
+#
+#
+# Done.
+exit
+#
+#  Note:  All data moved to the MSS directory:  /RAF/1995/162/LRT/PRELIMINARY
+#                      from the MSS directory:  /RAF/1995/126/LRT/PRELIMINARY
+# Job(s) submitted on Wed Nov  8 09:49:26 MST 1995
+# Sequence number = MI8106 -- 162rf1.cdf -- OK @ 8 Nov 1995 09:49:59
+# Sequence number = MI8113 -- 162rf10.cdf -- OK @ 8 Nov 1995 09:50:00
+# Sequence number = MI8120 -- 162rf11.cdf -- OK @ 8 Nov 1995 09:50:10
+# Sequence number = MI8127 -- 162rf12a.cdf -- OK @ 8 Nov 1995 09:50:21
+# Sequence number = MI8134 -- 162rf12b.cdf -- OK @ 8 Nov 1995 09:50:22
+# Sequence number = MI8141 -- 162rf12c.cdf -- OK @ 8 Nov 1995 09:52:46
+# Sequence number = MI8148 -- 162rf13a.cdf -- OK @ 8 Nov 1995 09:50:59
+# Sequence number = MI8155 -- 162rf13b.cdf -- OK @ 8 Nov 1995 09:50:59
+# Sequence number = MI8162 -- 162rf14.cdf -- OK @ 8 Nov 1995 09:51:27
+# Sequence number = MI8169 -- 162rf15.cdf -- OK @ 8 Nov 1995 09:51:24
+# Sequence number = MI8176 -- 162rf16a.cdf -- OK @ 8 Nov 1995 09:55:07
+# Sequence number = MI8183 -- 162rf16b.cdf -- OK @ 8 Nov 1995 09:55:10
+# Sequence number = MI8190 -- 162rf16c.cdf -- OK @ 8 Nov 1995 09:55:18
+# Sequence number = MI8197 -- 162rf17.cdf -- OK @ 8 Nov 1995 09:51:27
+# Sequence number = MI8204 -- 162rf18a.cdf -- OK @ 8 Nov 1995 09:52:03
+# Sequence number = MI8211 -- 162rf18b.cdf -- OK @ 8 Nov 1995 09:55:33
+# Sequence number = MI8218 -- 162rf18c.cdf -- OK @ 8 Nov 1995 09:55:35
+# Sequence number = MI8228 -- 162rf18d.cdf -- OK @ 8 Nov 1995 09:52:23
+# Sequence number = MI8235 -- 162rf19.cdf -- OK @ 8 Nov 1995 09:52:24
+# Sequence number = MI8242 -- 162rf2.cdf -- Failed (Remote error -60)*
+# Sequence number = MI8249 -- 162rf20.cdf -- OK @ 8 Nov 1995 09:55:55
+# Sequence number = MI8256 -- 162rf3.cdf -- OK @ 8 Nov 1995 09:56:00
+# Sequence number = MI8263 -- 162rf4.cdf -- OK @ 8 Nov 1995 09:56:04
+# Sequence number = MI8270 -- 162rf5.cdf -- OK @ 8 Nov 1995 09:56:15
+# Sequence number = MI8277 -- 162rf6.cdf -- OK @ 8 Nov 1995 09:52:28
+# Sequence number = MI8284 -- 162rf8.cdf -- OK @ 8 Nov 1995 09:56:40
+# Sequence number = MI8291 -- 162rf9.cdf -- OK @ 8 Nov 1995 09:56:40
+# Sequence number = MI8298 -- README.prescms -- OK @ 8 Nov 1995 09:52:43
+# Sequence number = MI8305 -- prescms.files -- OK @ 8 Nov 1995 09:52:47
+# Sequence number = MI8312 -- rfinoise.ps -- OK @ 8 Nov 1995 09:52:51
+# Sequence number = MI8319 -- uvhsat.ps -- OK @ 8 Nov 1995 09:52:57
+# Sequence number = MI8326 -- variables.scms -- OK @ 8 Nov 1995 09:56:54
+#
+#  *  Remote error -60
+#     The file name specified in the Remote DSD is not syntactically correct.
+#
+# Job(s) submitted on Wed Nov  8 10:09:10 MST 1995
+# Sequence number = MI8340 -- 162rf2.cdf -- OK @ 8 Nov 1995 23:07:56
+#

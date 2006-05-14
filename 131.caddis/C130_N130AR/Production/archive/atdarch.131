@@ -1,0 +1,300 @@
+#! /bin/csh -f
+#
+   Archive production netCDF data files for YYYY-ppp <Project>
+#    using the new ATD directory path
+#
+#   Must be run from a project's Production subdirectory
+#
+#  File adapted from file /jnet/local/proj/186/Production/atdarch.186
+#    by Ron Ruth   13 October 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user == "dmg") then
+   set dmg = "yes"
+else
+#  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+#  exit
+   set dmg = "no"
+endif
+#
+#  Get setup information for this project
+@ plat = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+@ plat /= 100
+if ($plat == 1) set PLATFORM = N130AR
+if ($plat == 8) set PLATFORM = N308D
+set YEAR = `grep CY proj.info | sed -e "s/CY=//"`
+set PROJ = `cat ../ProjectName`
+#
+#  set extent for Production NIMBUS netCDF file
+set EXT = PNI.nc
+#
+# Set correct turbulence type
+#set TYPE = LRT
+#set TYPE = HRT
+#
+#  set source directory
+#set SDIR = $TEMP
+set SDIR = $PROD_DATA
+#set SDIR = $DATA_DIR
+#
+goto old
+#
+############################################################################
+#  Automatically generate file list (adapted from "gentl")
+#
+#  Following code is untested.
+#  One needs a way to combine the four cases into a single group with
+#   flags, so some code doesn't need to be duplicated 4 times.
+#  It probably belongs down near the nrnet command, since one
+#  can then set the turbulence rate "on the fly" for each file.
+#
+pushd $DIR >& /dev/null
+#
+#  Find the netCDF data files
+ls ${proj}?f??.cdf >& /dev/null
+set result1 = $status
+if ($result1 == 0) set files1 = `ls ${proj}?f??.cdf`
+ls ${proj}?f??[a-gi-z].cdf >& /dev/null
+set result2 = $status
+if ($result2 == 0) set files2 = (`ls ${proj}?f??[a-z].cdf`)
+ls ${proj}?f??h.cdf >& /dev/null
+set result3 = $status
+if ($result3 == 0) set files3 = (`ls ${proj}?f??h.cdf`)
+ls ${proj}?f??[a-z]h.cdf >& /dev/null
+set result4 = $status
+if ($result4 == 0) set files4 = (`ls ${proj}?f??[a-z]h.cdf`)
+#  Check results of search
+if ( $result1 != 0 && $result2 != 0 && $result3 != 0 && $result4 != 0 ) then
+  echo No netCDF files match the standard naming conventions for this project.
+  goto quit
+endif
+popd >& /dev/null
+#
+#  Case #1, LRT without segments
+if ($result1 == 0) then
+  if ($debug == "yes") echo 'Case #1'
+  set files = ($files1)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+set SFILES = ($files)
+set DFILES = ($fltnos)
+#
+#  Case #2, LRT with segments (skip HRT without segments)
+if ($result2 == 0) then
+  if ($debug == "yes") echo 'Case #2'
+  set files = ($files2)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+  @ num = 0
+  foreach file ($files)
+    @ num ++
+#  Test file for HRT
+    set test = `echo $file | grep -c 'h.cdf'`
+    if ($test == 1) then
+      set line = `ncdump -h $DIR/$file | grep -c "OutputRate = $HRT"`
+      if ($line != 0) continue
+    endif
+#####################  code goes here   ###########
+
+#
+#  Case #3, HRT without segments (skip LRT with segment "H")
+if ($result3 == 0) then
+  if ($debug == "yes") echo 'Case #3'
+  set files = ($files3)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\h.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+  @ num = 0
+  foreach file ($files)
+    @ num ++
+#  Test file for HRT
+    set line = `ncdump -h $DIR/$file | grep -c "OutputRate = $HRT"`
+    if ($line == 0) continue
+    endif
+#####################  code goes here   ###########
+
+#
+#  Case #4, HRT with segments
+if ($result4 == 0) then
+  if ($debug == "yes") echo 'Case #4'
+  set files = ($files4)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\h.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+
+#
+############################################################################
+#
+old:
+#
+#  1st wave
+set SFILES = ( \
+rf01.cdf \
+)
+set DFILES = ( \
+RF01 \
+)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#
+# Compose extended bitfile name
+#  get flight date
+    set line = `ncdump -h $SDIR/$SFILE | grep FlightDate`
+    if ($status != 0) then
+      echo Could not find FlightDate in netCDF file $file
+      goto quit
+    endif
+#   Get rid of double quotes
+    set line = `echo $line  | sed -e 's/\"//g'`
+#   Get rid of time zone in date field, if extant
+    set line = `echo $line | sed -e 's/UTC//'`
+#   Test for styles #1 & 2
+    if ($#line == 4) then
+      set incnt1 = `echo $line[3] | wc -c`
+      if ($incnt1 == 11) then
+#   Style #1 (mm/dd/yyyy)
+        set fltdate = `echo $line[3]`
+      else if ($incnt1 == 10) then
+#   Style #2 (" m/dd/yyyy)
+        set fltdate = 0$line[3]
+      else
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else if ($#line == 5) then
+      set incnt1 = `echo $line[3] | wc -c`
+      set incnt2 = `echo $line[4] | wc -c`
+      if ($incnt1 == 3 && $incnt2 == 7) then
+#   Style #3, ( m/ d/yyyy)
+        set fltdate = `echo 0$line[3]0$line[4]`
+#   Style #4 (mm/ d/yyyy)
+      else if ($incnt1 == 4 && $incnt2 == 7) then
+        set fltdate = `echo $line[3]0$line[4]`
+      else
+#   Unknown date style
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else
+#   Unknown date style
+      echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+      goto quit
+    endif
+    set DATE = `echo $fltdate | awk -F/ '{print $3$1$2}'`
+#
+#  Get time interval
+    set tline = `ncdump -h $SDIR/$SFILE | grep TimeInterval`
+    if ($status != 0) then
+      echo Could not find TimeInterval in netCDF file $file
+      goto quit
+    endif
+    shift tline
+    shift tline
+    @ pass = 1
+newtime1:
+    echo $tline | grep , >& /dev/null
+#   Check for multiple time intervals
+    if ($status == 0) then
+      set multtime = "yes"
+    else
+      set multtime = "no"
+    endif
+#  Set time interval
+    set flttime = `echo $tline[1] | sed -e 's/\"//g'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    set flttime = `echo $flttime | sed -e 's/-/\ /'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    if ($multtime == "yes") then
+      set flttime = `echo $flttime | sed -e 's/\,//'`
+      if ($status != 0) then
+        echo Could not decode multiple TimeInterval in netCDF file $file
+        goto quit
+      endif
+    endif
+    set ST = `echo $flttime[1] | awk -F: '{print $1$2$3}'`
+    set ET = `echo $flttime[2] | awk -F: '{print $1$2$3}'`
+#
+#  Archive the file (if the "dmg" login)
+    if ($dmg == "yes") then
+      echo \
+      nrnet msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}_$ET.$EXT \
+        rtpd=32767 name=RAF proj=41113009 w=RAFDMG
+    else
+      echo msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}_$ET.$EXT \
+        rtpd=32767 name=RAF proj=41113009 w=RAFDMG
+    endif
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#  MSS path for all bitfiles listed below:  /ATD/DATA/CYYY/PROJECT/PLATFORM
+#
+#  1st wave
+#  Job(s) submitted on 
+#
+#  2nd wave
+#  Job(s) submitted on 
+#
+#  3rd wave
+#  Job(s) submitted on 
+#
+#   th wave
+#  Job(s) submitted on 
+#
+#  Job(s) submitted on 
+#

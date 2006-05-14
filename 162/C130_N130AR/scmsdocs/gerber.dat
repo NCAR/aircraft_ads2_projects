@@ -1,0 +1,79 @@
+
+
+          PVM DATA REDUCTION FOR SCMS (11/1/95, H.Gerber)
+
+
+1. Introduction
+
+        The PVM-100A produced LWC and PSA (particle surface area)
+measurements during most flights of the C-130 during SCMS. Proper
+offset removal and scaling of the raw voltages of each of these
+channels is required to obtain LWC (g/m^3) and PSA (cm^2/m^3).
+The ratio of LWC/PSA times 30,000 equals the effective droplet
+radius, Re (um). The roll off in the sensitivity of this PVM probe
+starts for droplets about 45 um in diameter. Thus, total LWC, total
+PSA, and total Re must be derived by combining the PVM outputs
+with similar outputs from other probes, e.g., 1-D or 2-D PMS probes.
+
+
+
+2. Scaling and Offsets
+
+        Calibration checks of the PVM showed that the raw voltages
+of the LWC and PSA channels must be multiplied by the following factors:
+        Multiply LWC raw voltages by 1.045.
+        Multiply PSA raw voltages by 0.950.
+
+        Scaling constants convert the voltages to parameters with the
+proper scaling.
+        Multiply LWC voltages by 1.00 to get LWC in g/m^3.
+        Multiply PSA voltages by 2,980 to get PSA in cm^2/m^3.
+
+        Both LWC and PSA channels showed voltage offsets from 0.0 V.
+These offsets must be removed before scaling the voltages.
+        The offset in the LWC channel is nearly constant during each
+flight, thus the same offset can be removed from all LWC voltages on
+that flight. Do not calculate the offset during the intitial rapid
+ascent of the C-130 on each flight; the offset changes during this
+initial period.
+        The offset in the PSA channel is noisy and drifts. For best
+results in using this channel, calculate the offset for each cloud pass.
+Use the average of the offsets observed just before and after each
+cloud penetration.
+
+
+3. 1-Hz Data Availability
+        Usable 1 Hz LWC and PSA data is available for all flights
+except for the following flights or intervals of flights:
+        Flight 3 - PVM not on the C-130
+        Flight 5 - Water condensed on PVM lenses during the intitial
+                   rapid ascent of the C-130. Disregard measurements
+                   from 12:58 to about 13:30.
+        Flight 7 - Data logger problems.
+        Flights 9, 15, 18 - No clouds intercepted.
+        All Flights - Just following the initial rapid ascent of
+                   the C-130 on each flight, the LWC channel usually
+                   shows a dip in its output; disregard this dip.
+
+
+
+4. 1000-Hz Data Availability
+        The LWC channel of the PVM was also recorded at 1000 Hz, and
+the PSA channel at several hundred Hz (check with NCAR for the exact
+PSA rate.) The LWC data is high quality, and is available for all
+flights, except those noted in the preceding Section 3. In addition,
+Flights 1 and 2 have excessive high frequency noise in both LWC and
+PSA channels, making this data unusable.
+
+
+5. 1000-Hz Data Interpretation
+        The use of the 1000-Hz LWC data for analyzing fine-scale
+structures in the clouds requires the understanding of the relationship
+between the finite sampling volume (1.25 cm^3) of the PVM and the
+noise caused by the Poissonian sampling statistics.
+        The PVM has a "effective" sampling volume larger than 1.25 cm^3,
+because of finite electronic time response of the instrument. This
+response is presently being quantified in the laboratory, and the
+results will be made available to those who are interested. Please
+contact Hermann Gerber (gerber@access.digex.net).
+

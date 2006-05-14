@@ -1,0 +1,31 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1998-101 SHEBA (Surface Heat Budget of the Arctic Ocean) (Judy Curry, et al.)
+#
+#  File created by 'Dgenar' Revision 0 on Wed Jan 27 13:48:17 MST 1999
+#
+#  Data processing used Nimbus version 2.5.5
+#
+date
+#
+set YEAR = 1998
+set PROJ = 101
+set SDIR = /home/productiondata
+#
+#
+set TURBRT = HRT/Duynkerke
+#
+echo nrnet msput $SDIR/D101rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/D101rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/D101rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/D101rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Wed Jan 27 13:54:43 MST 1999
+# All bitfiles are in the path:  /RAF/1998/101/
+# Sequence number = MI4884 -- HRT/Duynkerke/RF01.cdf --OK @ 27 Jan 1999 14:23:25
+# Sequence number = MI4889 -- HRT/Duynkerke/RF02.cdf --OK @ 27 Jan 1999 14:47:35
+# Sequence number = MI4896 -- HRT/Duynkerke/RF05.cdf --OK @ 27 Jan 1999 14:36:53
+# Sequence number = MI4904 -- HRT/Duynkerke/RF08.cdf --OK @ 27 Jan 1999 14:35:37
+#

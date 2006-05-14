@@ -1,0 +1,87 @@
+EPIC2001 - 161, Flight rf18
+Version - 3.1.2
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /jnet/linux/proj/161/Production/Flight_rf18
+DT1DP_LWO1 has no description or units.
+DT2DP_LWO2 has no description or units.
+DIFF1 has no description or units.
+Processed on: Apr 17 20:07 UTC 2002
+Flight Date: 10/09/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Blanking A260X_RWO from 14:38:00 to 23:27:13.
+ The following variables depend upon this variable:
+  C260X_RWO CONC6_RWO DBAR6_RWO
+Blanking C260X_RWO from 14:38:00 to 23:27:13.
+ The following variables depend upon this variable:
+  C260X_RWO CONC6_RWO DBAR6_RWO
+Blanking CONC6_RWO from 14:38:00 to 23:27:13.
+ The following variables depend upon this variable:
+  C260X_RWO CONC6_RWO DBAR6_RWO
+Blanking DBAR6_RWO from 14:38:00 to 23:27:13.
+ The following variables depend upon this variable:
+  C260X_RWO CONC6_RWO DBAR6_RWO
+Blanking DPT from 17:13:00 to 17:23:00.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 17:13:00 to 17:23:00.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking ATRL from 17:45:00 to 19:40:00.
+ The following variables depend upon this variable:
+  ATX CONCP_RPO CS200_RPO DBARP_RPO DPLA1 MRLA1 PFLWC_RPO PLWCC RHODT RHOLA1 THETA THETAE
+Blanking QCR from 21:11:00 to 21:56:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 EDPC MR MRLA1 PALT PFLWC_RPO PLWCC PLWCF_LPC PSFDC PSXC QCRC QCX QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WP3 WSC XMACH2
+Blanking QCRC from 21:11:00 to 21:56:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 MRLA1 PFLWC_RPO PLWCC PLWCF_LPC QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WSC XMACH2
+Blanking TASR from 21:11:00 to 21:56:00.
+ The following variables depend upon this variable:
+  C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CS100_LPC CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC PLWCC PLWCF_LPC TASHC TASX UI UIC UX VEWC VI VIC VY WDC WI WIC WSC
+Blanking RSTB from 21:09:00 to 23:27:13.
+  WARNING: RSTB NOT found!  Continuing.
+Blanking QCR from 22:49:00 to 22:59:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 EDPC MR MRLA1 PALT PFLWC_RPO PLWCC PLWCF_LPC PSFDC PSXC QCRC QCX QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WP3 WSC XMACH2
+Blanking QCRC from 22:49:00 to 22:59:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 MRLA1 PFLWC_RPO PLWCC PLWCF_LPC QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WSC XMACH2
+Blanking TASR from 22:49:00 to 22:59:00.
+ The following variables depend upon this variable:
+  C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CS100_LPC CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC PLWCC PLWCF_LPC TASHC TASX UI UIC UX VEWC VI VIC VY WDC WI WIC WSC
+Blanking WSC from 21:11:00 to 21:56:00.
+Blanking WDC from 21:11:00 to 21:56:00.
+Blanking WIC from 21:11:00 to 21:56:00.
+ The following variables depend upon this variable:
+  UIC VIC WDC WSC
+Blanking ADIFR from 22:49:00 to 22:59:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 MRLA1 PFLWC_RPO PLWCC PLWCF_LPC QCRC QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WSC XMACH2
+Blanking BDIFR from 21:11:00 to 21:56:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 MRLA1 PFLWC_RPO PLWCC PLWCF_LPC QCRC QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WSC XMACH2
+Blanking WSC from 22:49:00 to 22:59:00.
+Blanking WDC from 22:49:00 to 22:59:00.
+Blanking WIC from 22:49:00 to 22:59:00.
+ The following variables depend upon this variable:
+  UIC VIC WDC WSC
+Blanking PLWCC from 14:38:00 to 14:39:20.
+Blanking PLWCC from 23:12:00 to 23:27:13.
+Blanking OAT from 19:53:00 to 20:11:00.
+  WARNING: OAT NOT found!  Continuing.
+Time interval(s) completed : 14:38:00-23:27:13
+Processing took 4.0 minutes.

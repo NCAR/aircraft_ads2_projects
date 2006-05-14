@@ -1,0 +1,393 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 1995-162 SCMS
+#   (Customizing this script for each project is rather labor intensive.
+#   It may make more sense to just save everything in the project's
+#   directory rather than filter out stuff that apparently isn't needed.
+#   If one saves everything, this script could be generic and would be
+#   much simpler.  However, it doesn't handle the special needs for bitfiles
+#   to be publically accessed)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PDIR = $LOCAL/proj/$PROJ
+set PRDIR = $PDIR/Production
+cd $PDIR
+#
+set YEAR = `grep FY Production/proj.info | sed -e "s/FY=//"`
+#set PROJNAME = `cat ProjectName`
+#
+date
+#
+#  Current archive (nrnet) commands go here
+#  ----------------------------------------
+#
+exit
+#
+#   Files to be put in the project's MSS home directory with the same name
+#
+set DIR = $PDIR
+#
+#  Original archive
+#set FILES = ( \
+#README.DOCS \
+#README.FIRST \
+#
+#  Archive the first, second and third revisions to this file
+set FILES = ( README.FIRST )
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+set DIR = $PRDIR
+#
+set FILES = ( \
+162.tar.dir \
+162.tar \
+MSCP_out.162 \
+Mail.162 \
+nimbus.tar.dir \
+nimbus.tar \
+nimbus_defaults.tar.dir \
+nimbus_defaults.tar \
+taplog.ads.162 \
+taplog.pms2d.162 \
+tp2ms.summary \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#   Files to be put in the project's MSS DOCS directory with the same name
+#
+set TURBRT = DOCS
+set DIR = $PDIR/scmsdocs
+set FILES = ( \
+162rf02.mrcomp.ps \
+acfltnotes.ps \
+cnspike.ps \
+dataqual.ps \
+dbfltnotes.txt \
+gerber.dat \
+gerberinfo.ps \
+lwcstruct.ps \
+mruvsat.ps \
+rfinoise.ps \
+spdatinfo.ps \
+spnoise.ps \
+tempsat.ps \
+tsismps.ps \
+variables.scms \
+162hrtdump.asc \
+162lrtdump.asc \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+    name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#   Files to be put in the project's MSS DOCS/MRCOMPFILES directory
+#
+set TURBRT = DOCS/MRCOMPFILES
+set DIR = $PDIR/scmsdocs/mrcompfiles
+set FILES = ( \
+162rf01.mrcomp.ps \
+162rf02.mrcomp.ps \
+162rf03.mrcomp.ps \
+162rf04.mrcomp.ps \
+162rf05.mrcomp.ps \
+162rf06.mrcomp.ps \
+162rf07.mrcomp.ps \
+162rf08.mrcomp.ps \
+162rf09.mrcomp.ps \
+162rf10.mrcomp.ps \
+162rf11.mrcomp.ps \
+162rf12.mrcomp.ps \
+162rf13.mrcomp.ps \
+162rf14.mrcomp.ps \
+162rf15.mrcomp.ps \
+162rf16.mrcomp.ps \
+162rf17.mrcomp.ps \
+162rf18.mrcomp.ps \
+162rf19.mrcomp.ps \
+162rf20.mrcomp.ps \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+    name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  LRT files in the local Production directory (different names)
+#
+set TURBRT = LRT
+set DIR = $PRDIR
+set FILES = ( \
+taplog.lrt.162 \
+)
+set OFILES = ( \
+taplog.162 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  HRT files in the local Production directory (same names)
+#
+set TURBRT = HRT
+set DIR = $PRDIR
+set FILES = ( \
+taplog.hrt.162 \
+)
+set OFILES = ( \
+taplog.162 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+exit
+#
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+# -----------------------------------------------------------------------------
+exit
+#
+#  -------------------
+#   T E M P L A T E S
+#  -------------------
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's `Production' directory
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  Set turbulence rate (LRT or HRT) here
+set TURBRT = 
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's `Production' directory
+set FILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+# -----------------------------------------------------------------------------
+#
+#  Job(s) submitted on Wed Apr 17 14:13:11 MDT 1996
+#  Directory:  /RAF/1995/162
+# Sequence number = MI1976 -- README.DOCS -- OK @ 17 Apr 1996 14:14:53
+# Sequence number = MI1983 -- README.FIRST -- OK @ 17 Apr 1996 14:15:06
+# Sequence number = MI1990 -- 162.tar.dir -- OK @ 17 Apr 1996 14:15:20
+# Sequence number = MI1997 -- 162.tar -- OK @ 17 Apr 1996 14:16:29
+# Sequence number = MI2006 -- MSCP_out.162 -- OK @ 17 Apr 1996 14:19:16
+# Sequence number = MI2013 -- Mail.162 -- OK @ 17 Apr 1996 14:15:26
+# Sequence number = MI2020 -- nimbus.tar.dir -- OK @ 17 Apr 1996 14:15:38
+# Sequence number = MI2027 -- nimbus.tar -- OK @ 17 Apr 1996 14:19:36
+# Sequence number = MI2034 - nimbus_defaults.tar.dir - OK @ 17 Apr 1996 14:15:43
+# Sequence number = MI2041 -- nimbus_defaults.tar -- OK @ 17 Apr 1996 14:15:55
+# Sequence number = MI2048 -- taplog.ads.162 -- OK @ 17 Apr 1996 14:19:48
+# Sequence number = MI2055 -- taplog.pms2d.162 -- OK @ 17 Apr 1996 14:19:59
+# Sequence number = MI2062 -- tp2ms.summary -- OK @ 17 Apr 1996 14:16:03
+#  Directory:  /RAF/1995/162/DOCS
+# Sequence number = MI2069 -- 162rf02.mrcomp.ps -- OK @ 17 Apr 1996 14:16:40
+# Sequence number = MI2076 -- acfltnotes.ps -- OK @ 17 Apr 1996 14:55:41
+# Sequence number = MI2083 -- cnspike.ps -- OK @ 17 Apr 1996 14:20:21
+# Sequence number = MI2090 -- dataqual.ps -- OK @ 17 Apr 1996 14:58:45
+# Sequence number = MI2097 -- dbfltnotes.txt -- OK @ 17 Apr 1996 14:20:32
+# Sequence number = MI2104 -- gerber.dat -- OK @ 17 Apr 1996 14:58:51
+# Sequence number = MI2111 -- gerberinfo.ps -- OK @ 17 Apr 1996 14:59:00
+# Sequence number = MI2118 -- lwcstruct.ps -- OK @ 17 Apr 1996 14:16:54
+# Sequence number = MI2125 -- mruvsat.ps -- OK @ 17 Apr 1996 14:59:06
+# Sequence number = MI2132 -- rfinoise.ps -- OK @ 17 Apr 1996 14:20:40
+# Sequence number = MI2139 -- spdatinfo.ps -- OK @ 17 Apr 1996 14:59:12
+# Sequence number = MI2146 -- spnoise.ps -- OK @ 17 Apr 1996 14:17:08
+# Sequence number = MI2153 -- tempsat.ps -- OK @ 17 Apr 1996 14:17:15
+# Sequence number = MI2160 -- tsismps.ps -- OK @ 17 Apr 1996 14:59:17
+# Sequence number = MI2167 -- variables.scms -- OK @ 17 Apr 1996 14:23:28
+# Sequence number = MI2174 -- 162hrtdump.asc -- OK @ 17 Apr 1996 14:17:23
+# Sequence number = MI2181 -- 162lrtdump.asc -- OK @ 17 Apr 1996 14:17:35
+#  Directory:  /RAF/1995/162/DOCS/MRCOMPFILES
+# Sequence number = MI2188 -- 162rf01.mrcomp.ps -- OK @ 17 Apr 1996 14:21:25
+# Sequence number = MI2195 -- 162rf02.mrcomp.ps -- OK @ 17 Apr 1996 14:21:39
+# Sequence number = MI2202 -- 162rf03.mrcomp.ps -- OK @ 17 Apr 1996 14:17:38
+# Sequence number = MI2209 -- 162rf04.mrcomp.ps -- OK @ 17 Apr 1996 14:22:03
+# Sequence number = MI2216 -- 162rf05.mrcomp.ps -- OK @ 17 Apr 1996 14:17:43
+# Sequence number = MI2224 -- 162rf06.mrcomp.ps -- OK @ 17 Apr 1996 14:17:49
+# Sequence number = MI2231 -- 162rf07.mrcomp.ps -- OK @ 17 Apr 1996 14:22:17
+# Sequence number = MI2239 -- 162rf08.mrcomp.ps -- OK @ 17 Apr 1996 14:18:06
+# Sequence number = MI2246 -- 162rf09.mrcomp.ps -- OK @ 17 Apr 1996 14:18:14
+# Sequence number = MI2253 -- 162rf10.mrcomp.ps -- OK @ 17 Apr 1996 14:18:28
+# Sequence number = MI2260 -- 162rf11.mrcomp.ps -- OK @ 17 Apr 1996 14:18:36
+# Sequence number = MI2267 -- 162rf12.mrcomp.ps -- OK @ 17 Apr 1996 14:22:45
+# Sequence number = MI2274 -- 162rf13.mrcomp.ps -- OK @ 17 Apr 1996 14:22:49
+# Sequence number = MI2281 -- 162rf14.mrcomp.ps -- OK @ 17 Apr 1996 14:22:42
+# Sequence number = MI2288 -- 162rf15.mrcomp.ps -- OK @ 17 Apr 1996 14:18:47
+# Sequence number = MI2295 -- 162rf16.mrcomp.ps -- OK @ 17 Apr 1996 14:18:55
+# Sequence number = MI2302 -- 162rf17.mrcomp.ps -- OK @ 17 Apr 1996 14:23:15
+# Sequence number = MI2309 -- 162rf18.mrcomp.ps -- OK @ 17 Apr 1996 14:20:54
+# Sequence number = MI2316 -- 162rf19.mrcomp.ps -- OK @ 17 Apr 1996 14:27:12
+# Sequence number = MI2323 -- 162rf20.mrcomp.ps -- OK @ 17 Apr 1996 14:27:02
+# Directory:  /RAF/1995/162/LRT
+# Sequence number = MI2330 -- taplog.162 -- OK @ 17 Apr 1996 14:19:07
+# Directory:  /RAF/1995/162/HRT
+# Sequence number = MI2337 -- taplog.162 -- OK @ 17 Apr 1996 14:20:59
+#
+# Rearchived (with revision)
+#  Job(s) submitted on Fri May  3 10:13:26 MDT 1996
+# Sequence number = MI4575 -- README.FIRST -- OK @ 3 May 1996 10:14:08
+#    
+# Rearchived (with second revision)
+#  Job(s) submitted on Fri May  3 10:41:06 MDT 1996
+# Sequence number = MI4628 -- README.FIRST -- OK @ 3 May 1996 10:41:52
+#    
+# Rearchived (with third revision)
+#  Job(s) submitted on Fri May  3 12:41:02 MDT 1996
+# Sequence number = MI4728 -- README.FIRST -- OK @ 3 May 1996 12:41:39
+#

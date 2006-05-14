@@ -1,0 +1,225 @@
+#! /bin/csh -f
+#
+#  Rename misnamed raw ADS data tape image bitfiles for 1999-102 INDOEX
+#    Ronald L. Ruth   5 May 1999
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+set DIR = /RAF/1999/102
+#
+date
+#
+#   1st wave
+#
+#set SFILE = RF06B
+#set TAPE = R1325
+#set NFILE = RF06C
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#   2nd wave
+#
+#set SFILE = RF01BA
+#set TAPE = R1319
+#set NFILE = RF01B
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF01BB
+#set TAPE = R1319
+#set NFILE = RF01C
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF06AA
+#set TAPE = R1324
+#set NFILE = RF06A
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF06AB
+#set TAPE = R1324
+#set NFILE = RF06B
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF09AA
+#set TAPE = R1329
+#set NFILE = RF09A
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF09AB
+#set TAPE = R1329
+#set NFILE = RF09B
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF09BA
+#set TAPE = R1330
+#set NFILE = RF09C
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF15AA
+#set TAPE = R1336
+#set NFILE = RF15A
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF15AB
+#set TAPE = R1336
+#set NFILE = RF15B
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF15BA
+#set TAPE = R1337
+#set NFILE = RF15C
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF16AA
+#set TAPE = R1338
+#set NFILE = RF16A
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF16BA
+#set TAPE = R1340
+#set NFILE = RF16CA
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF16BB
+#set TAPE = R1340
+#set NFILE = RF16CB
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF18AA
+#set TAPE = R1342
+#set NFILE = RF18A
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF18AB
+#set TAPE = R1342
+#set NFILE = RF18B
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#   3rd wave
+#
+#set SFILE = RF16CA
+#set TAPE = R1340
+#set NFILE = RF16C
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF16CB
+#set TAPE = R1340
+#set NFILE = RF16D
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#  Remove this one!
+#set SFILE = RF18BA
+#set TAPE = R1340
+##echo \
+#nrnet msrm % r flnm=$DIR/$SFILE/$TAPE wpwd=RAFDMG
+#
+#set SFILE = RF18CA
+#set TAPE = R1344
+#set NFILE = RF18D
+##echo \
+#nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#   4th wave
+#
+#  Remove this one!
+#set SFILE = RF18BA
+#set TAPE = R1343
+##echo \
+#nrnet msrm % r flnm=$DIR/$SFILE/$TAPE wpwd=RAFDMG
+#
+#   5th wave
+#
+set SFILE = FF05AA
+set TAPE = R1314
+set NFILE = FF05A
+#echo \
+nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+set SFILE = FF05AB
+set TAPE = R1314
+set NFILE = FF05B
+#echo \
+nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+set SFILE = FF05BA
+set TAPE = R1315
+set NFILE = FF05C
+#echo \
+nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+set SFILE = FF06AA
+set TAPE = R1316
+set NFILE = FF06A
+#echo \
+nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+set SFILE = FF06BA
+set TAPE = R1317
+set NFILE = FF06B
+#echo \
+nrnet msmv % r flnm=$DIR/$SFILE/$TAPE  newf=$DIR/$NFILE/$TAPE wpwd=RAFDMG
+#
+#
+#  Done.
+exit
+#
+#   1st wave
+#  Job(s) submitted on Wed May  5 12:06:49 MDT 1999
+# Sequence number = MI4998 -- RF06B/R1325 --> RF06C/R1325 -- OK @ 5 May 1999 12:06:52
+#
+#   2nd wave
+#  Job(s) submitted on Wed May  5 12:59:11 MDT 1999
+# Sequence number = MI6079 -- RF01BA/R1319 --> RF01B/R1319 -- OK @ 5 May 1999 12:59:19
+# Sequence number = MI6086 -- RF01BB/R1319 --> RF01C/R1319 -- OK @ 5 May 1999 12:59:19
+# Sequence number = MI6093 -- RF06AA/R1324 --> RF06A/R1324 -- OK @ 5 May 1999 12:59:20
+# Sequence number = MI6100 -- RF06AB/R1324 --> RF06B/R1324 -- OK @ 5 May 1999 12:59:21
+# Sequence number = MI6107 -- RF09AA/R1329 --> RF09A/R1329 -- OK @ 5 May 1999 12:59:23
+# Sequence number = MI6114 -- RF09AB/R1329 --> RF09B/R1329 -- OK @ 5 May 1999 12:59:22
+# Sequence number = MI6121 -- RF09BA/R1330 --> RF09C/R1330 -- OK @ 5 May 1999 12:59:24
+# Sequence number = MI6128 -- RF15AA/R1336 --> RF15A/R1336 -- OK @ 5 May 1999 12:59:24
+# Sequence number = MI6135 -- RF15AB/R1336 --> RF15B/R1336 -- OK @ 5 May 1999 12:59:27
+# Sequence number = MI6142 -- RF15BA/R1337 --> RF15C/R1337 -- OK @ 5 May 1999 12:59:26
+# Sequence number = MI6150 -- RF16AA/R1338 --> RF16A/R1338 -- OK @ 5 May 1999 12:59:25
+# Sequence number = MI6157 -- RF16BA/R1340 --> RF16CA/R1340 -- OK @ 5 May 1999 13:03:25
+# Sequence number = MI6164 -- RF16BB/R1340 --> RF16CB/R1340 -- OK @ 5 May 1999 12:59:27
+# Sequence number = MI6171 -- RF18AA/R1342 --> RF18A/R1342 -- OK @ 5 May 1999 12:59:28
+# Sequence number = MI6178 -- RF18AB/R1342 --> RF18B/R1342 -- OK @ 5 May 1999 12:59:29
+#
+#   3rd wave
+#  Job(s) submitted on Thu May  6 16:01:43 MDT 1999
+# Sequence number = MI8421 -- RF16CA/R1340 --> RF16C/R1340 -- OK @ 6 May 1999 16:01:47
+# Sequence number = MI8428 -- RF16CB/R1340 --> RF16D/R1340 -- OK @ 6 May 1999 16:01:48
+# Sequence number = MI8435 -- RF18BA/R1340 --> delete -- Failed @ 6 May 1999 16:01:49
+# Sequence number = MI8442 -- RF18CA/R1344 --> RF18D/R1344 -- OK @ 6 May 1999 16:01:52
+#
+#   4th wave
+#  Job(s) submitted on Thu May  6 16:48:22 MDT 1999
+# Sequence number = MI9599 -- RF18BA/R1343 --> delete -- OK @ 6 May 1999 16:48:27
+#
+#   5th wave
+#  Job(s) submitted on Tue Jul 20 13:24:51 MDT 1999
+# Sequence number = MI7046 -- FF05AA/R1314 --> FF05A/R1314 -- OK @ 20 Jul 1999 13:24:56
+# Sequence number = MI7053 -- FF05AB/R1314 --> FF05B/R1314 -- OK @ 20 Jul 1999 13:24:58
+# Sequence number = MI7060 -- FF05BA/R1315 --> FF05C/R1315 -- OK @ 20 Jul 1999 13:24:59
+# Sequence number = MI7067 -- FF06AA/R1316 --> FF06A/R1316 -- OK @ 20 Jul 1999 13:24:59
+# Sequence number = MI7074 -- FF06BA/R1317 --> FF06B/R1317 -- OK @ 20 Jul 1999 13:25:00
+#
+#    th wave
+#  Job(s) submitted on 

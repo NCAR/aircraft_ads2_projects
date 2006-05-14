@@ -1,0 +1,474 @@
+#! /bin/csh -f
+#
+#  Archive processed MCR data files for 2002-111 IDEAS-1 (Phase 1)
+#   (Done one file at a time to keep from overloading the network)
+#
+#  Now that these data have been archived to the /ATD/DATA path using
+#  the script "atdarchprodmcr.111," the bitfiles archived by this
+#  script are no longer needed.
+goto purge
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $PROJ_DIR/181/Production/archive/arch_mcr.181
+#   by Ron Ruth  19 April 2002
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  `vi' commands for generating destination file names
+#   (Source lines are marked "e" through "f" and cursor is at point
+#    of insertion for destination lines.  Source files have comment
+#    and the flight subdirectory name at the beginning.  Set mark "g" 
+#    at point of insertion.)
+#     :'e,'fco.
+#     mh
+#     :'g,'hs/^.........
+#     :'g,'hs/^/#
+#     :'g,'hs/r/R
+#     :'g,'hs/f/F/g
+#     :'g,'hs/t/T
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = MCR
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = $DATA_DIR/mcr/IDEAS
+set logfile = mcr_arch_log.$PROJ
+#
+#  1st wave
+#set wave = "1st"
+#set SFILES = ( \
+#rf01/111rf01.000255-000353 \
+#rf01/111rf01.000734-000840 \
+#rf01/111rf01.194958-195529 \
+#rf01/111rf01.201043-201352 \
+#rf01/111rf01.201450-201829 \
+#rf01/111rf01.201834-202838 \
+#rf01/111rf01.203244-203435 \
+#rf01/111rf01.203924-204053 \
+#rf01/111rf01.205206-205411 \
+#rf01/111rf01.210034-210145 \
+#rf01/111rf01.210651-210915 \
+#rf01/111rf01.210934-211045 \
+#rf01/111rf01.211420-211518 \
+#rf01/111rf01.212156-212339 \
+#rf01/111rf01.213342-213450 \
+#rf01/111rf01.214316-214418 \
+#rf01/111rf01.214457-214608 \
+#rf01/111rf01.214717-214842 \
+#rf01/111rf01.215640-215938 \
+#rf01/111rf01.220002-220552 \
+#rf01/111rf01.220635-221625 \
+#rf01/111rf01.222127-222637 \
+#rf01/111rf01.223021-223551 \
+#rf01/111rf01.224118-224628 \
+#rf01/111rf01.225025-225626 \
+#rf01/111rf01.225946-230615 \
+#rf01/111rf01.230900-231425 \
+#rf01/111rf01.232114-232536 \
+#rf01/111rf01.232811-233025 \
+#rf01/111rf01.233336-233525 \
+#rf01/111rf01.234149-235208 \
+#rf01/111rf01.235342-235533 \
+#rf01/111rf01.235555-235658 \
+#rf01/111rf01.235902-000030 \
+#)
+#set DFILES = ( \
+#RF01.000255-000353 \
+#RF01.000734-000840 \
+#RF01.194958-195529 \
+#RF01.201043-201352 \
+#RF01.201450-201829 \
+#RF01.201834-202838 \
+#RF01.203244-203435 \
+#RF01.203924-204053 \
+#RF01.205206-205411 \
+#RF01.210034-210145 \
+#RF01.210651-210915 \
+#RF01.210934-211045 \
+#RF01.211420-211518 \
+#RF01.212156-212339 \
+#RF01.213342-213450 \
+#RF01.214316-214418 \
+#RF01.214457-214608 \
+#RF01.214717-214842 \
+#RF01.215640-215938 \
+#RF01.220002-220552 \
+#RF01.220635-221625 \
+#RF01.222127-222637 \
+#RF01.223021-223551 \
+#RF01.224118-224628 \
+#RF01.225025-225626 \
+#RF01.225946-230615 \
+#RF01.230900-231425 \
+#RF01.232114-232536 \
+#RF01.232811-233025 \
+#RF01.233336-233525 \
+#RF01.234149-235208 \
+#RF01.235342-235533 \
+#RF01.235555-235658 \
+#RF01.235902-000030 \
+#)
+#
+#  2nd wave
+#set wave = "2nd"
+#set SFILES = ( \
+#rf02/111rf02.184926-185042 \
+#rf02/111rf02.185047-185416 \
+#rf02/111rf02.192405-192615 \
+#rf02/111rf02.192653-193345 \
+#rf02/111rf02.193522-194132 \
+#rf02/111rf02.194417-194523 \
+#rf02/111rf02.194536-195043 \
+#rf02/111rf02.195209-195612 \
+#rf02/111rf02.195756-200331 \
+#rf02/111rf02.200509-200559 \
+#rf02/111rf02.200742-201545 \
+#rf02/111rf02.201625-203343 \
+#rf02/111rf02.203359-204108 \
+#rf02/111rf02.204644-204818 \
+#rf02/111rf02.205015-205424 \
+#rf02/111rf02.205607-205957 \
+#rf02/111rf02.210155-210455 \
+#rf02/111rf02.210645-210938 \
+#rf02/111rf02.211250-211702 \
+#rf02/111rf02.211919-212220 \
+#rf02/111rf02.212414-212946 \
+#rf02/111rf02.213905-214729 \
+#rf02/111rf02.214941-215040 \
+#rf02/111rf02.215550-220038 \
+#rf02/111rf02.220655-221135 \
+#rf02/111rf02.221440-222054 \
+#rf02/111rf02.222438-223004 \
+#rf02/111rf02.223313-223910 \
+#rf02/111rf02.224601-225040 \
+#rf02/111rf02.230526-231317 \
+#rf02/111rf02.231400-231531 \
+#rf02/111rf02.233640-234447 \
+#rf02/111rf02.234509-234730 \
+#)
+#set DFILES = ( \
+#RF02.184926-185042 \
+#RF02.185047-185416 \
+#RF02.192405-192615 \
+#RF02.192653-193345 \
+#RF02.193522-194132 \
+#RF02.194417-194523 \
+#RF02.194536-195043 \
+#RF02.195209-195612 \
+#RF02.195756-200331 \
+#RF02.200509-200559 \
+#RF02.200742-201545 \
+#RF02.201625-203343 \
+#RF02.203359-204108 \
+#RF02.204644-204818 \
+#RF02.205015-205424 \
+#RF02.205607-205957 \
+#RF02.210155-210455 \
+#RF02.210645-210938 \
+#RF02.211250-211702 \
+#RF02.211919-212220 \
+#RF02.212414-212946 \
+#RF02.213905-214729 \
+#RF02.214941-215040 \
+#RF02.215550-220038 \
+#RF02.220655-221135 \
+#RF02.221440-222054 \
+#RF02.222438-223004 \
+#RF02.223313-223910 \
+#RF02.224601-225040 \
+#RF02.230526-231317 \
+#RF02.231400-231531 \
+#RF02.233640-234447 \
+#RF02.234509-234730 \
+#)
+#
+#  3rd wave
+set wave = "3rd"
+set SFILES = ( \
+rf03/111rf03.204510-204653 \
+rf03/111rf03.204712-204945 \
+rf03/111rf03.205937-210104 \
+rf03/111rf03.210352-210456 \
+rf03/111rf03.210717-210931 \
+rf03/111rf03.211542-211655 \
+rf03/111rf03.212150-212254 \
+rf03/111rf03.213513-213604 \
+rf03/111rf03.214229-214726 \
+rf03/111rf03.214950-215046 \
+rf03/111rf03.215104-215225 \
+rf03/111rf03.215344-215734 \
+rf03/111rf03.215746-220012 \
+rf03/111rf03.220058-220219 \
+)
+set DFILES = ( \
+RF03.204510-204653 \
+RF03.204712-204945 \
+RF03.205937-210104 \
+RF03.210352-210456 \
+RF03.210717-210931 \
+RF03.211542-211655 \
+RF03.212150-212254 \
+RF03.213513-213604 \
+RF03.214229-214726 \
+RF03.214950-215046 \
+RF03.215104-215225 \
+RF03.215344-215734 \
+RF03.215746-220012 \
+RF03.220058-220219 \
+)
+#
+#  4th wave
+#set wave = "4th"
+#set SFILES = ( \
+#rf04/111rf04.183752-184014 \
+#rf04/111rf04.184020-184133 \
+#rf04/111rf04.184637-185239 \
+#rf04/111rf04.190601-190747 \
+#rf04/111rf04.190839-191926 \
+#rf04/111rf04.191931-192213 \
+#rf04/111rf04.192637-192916 \
+#rf04/111rf04.193453-193756 \
+#rf04/111rf04.193818-194008 \
+#rf04/111rf04.194841-195108 \
+#rf04/111rf04.195116-195240 \
+#rf04/111rf04.200408-200717 \
+#rf04/111rf04.201102-201233 \
+#rf04/111rf04.201259-201521 \
+#rf04/111rf04.202125-202315 \
+#rf04/111rf04.202555-202804 \
+#rf04/111rf04.203226-203445 \
+#rf04/111rf04.203840-204541 \
+#rf04/111rf04.205001-205346 \
+#rf04/111rf04.205651-205757 \
+#rf04/111rf04.205838-212042 \
+#rf04/111rf04.212212-212754 \
+#rf04/111rf04.212936-213349 \
+#rf04/111rf04.213536-213818 \
+#rf04/111rf04.214134-214414 \
+#rf04/111rf04.215023-215158 \
+#rf04/111rf04.215232-215329 \
+#rf04/111rf04.215427-215657 \
+#rf04/111rf04.215741-220008 \
+#rf04/111rf04.220159-220357 \
+#rf04/111rf04.220552-220658 \
+#rf04/111rf04.220706-221019 \
+#rf04/111rf04.221129-221227 \
+#rf04/111rf04.221303-221818 \
+#)
+#set DFILES = ( \
+#RF04.183752-184014 \
+#RF04.184020-184133 \
+#RF04.184637-185239 \
+#RF04.190601-190747 \
+#RF04.190839-191926 \
+#RF04.191931-192213 \
+#RF04.192637-192916 \
+#RF04.193453-193756 \
+#RF04.193818-194008 \
+#RF04.194841-195108 \
+#RF04.195116-195240 \
+#RF04.200408-200717 \
+#RF04.201102-201233 \
+#RF04.201259-201521 \
+#RF04.202125-202315 \
+#RF04.202555-202804 \
+#RF04.203226-203445 \
+#RF04.203840-204541 \
+#RF04.205001-205346 \
+#RF04.205651-205757 \
+#RF04.205838-212042 \
+#RF04.212212-212754 \
+#RF04.212936-213349 \
+#RF04.213536-213818 \
+#RF04.214134-214414 \
+#RF04.215023-215158 \
+#RF04.215232-215329 \
+#RF04.215427-215657 \
+#RF04.215741-220008 \
+#RF04.220159-220357 \
+#RF04.220552-220658 \
+#RF04.220706-221019 \
+#RF04.221129-221227 \
+#RF04.221303-221818 \
+#)
+#
+#  5th wave
+#set wave = "5th"
+#set SFILES = ( \
+#rf05/111rf05.183459-183835 \
+#rf05/111rf05.183909-184049 \
+#rf05/111rf05.184242-184403 \
+#rf05/111rf05.184813-184911 \
+#rf05/111rf05.185319-185623 \
+#rf05/111rf05.185854-190036 \
+#rf05/111rf05.190235-190342 \
+#rf05/111rf05.191352-191528 \
+#rf05/111rf05.192909-193030 \
+#rf05/111rf05.193539-194609 \
+#rf05/111rf05.194904-200713 \
+#rf05/111rf05.200849-201316 \
+#rf05/111rf05.201714-201853 \
+#rf05/111rf05.202619-203304 \
+#rf05/111rf05.203726-205038 \
+#rf05/111rf05.205322-210102 \
+#rf05/111rf05.210422-211052 \
+#rf05/111rf05.211323-211629 \
+#rf05/111rf05.211654-211936 \
+#rf05/111rf05.212056-212152 \
+#rf05/111rf05.212213-212343 \
+#rf05/111rf05.212425-213732 \
+#rf05/111rf05.214142-214809 \
+#rf05/111rf05.215255-215702 \
+#rf05/111rf05.220208-220454 \
+#rf05/111rf05.221116-221403 \
+#rf05/111rf05.221437-222231 \
+#rf05/111rf05.222312-222623 \
+#)
+#set DFILES = ( \
+#RF05.183459-183835 \
+#RF05.183909-184049 \
+#RF05.184242-184403 \
+#RF05.184813-184911 \
+#RF05.185319-185623 \
+#RF05.185854-190036 \
+#RF05.190235-190342 \
+#RF05.191352-191528 \
+#RF05.192909-193030 \
+#RF05.193539-194609 \
+#RF05.194904-200713 \
+#RF05.200849-201316 \
+#RF05.201714-201853 \
+#RF05.202619-203304 \
+#RF05.203726-205038 \
+#RF05.205322-210102 \
+#RF05.210422-211052 \
+#RF05.211323-211629 \
+#RF05.211654-211936 \
+#RF05.212056-212152 \
+#RF05.212213-212343 \
+#RF05.212425-213732 \
+#RF05.214142-214809 \
+#RF05.215255-215702 \
+#RF05.220208-220454 \
+#RF05.221116-221403 \
+#RF05.221437-222231 \
+#RF05.222312-222623 \
+#)
+#
+#
+#  Get started:
+#
+#  Set up and/or test log file
+if (! -e $logfile) then
+  echo "Log file for archiving Production MCR data to the SCD Mass Store System" >! $logfile
+  if ($status != 0) then
+    echo "  Cannot create log file $logfile."
+    echo "  Quitting."
+    exit 1
+  else
+    echo " created by the script ${0} on `date`" >> $logfile
+  endif
+else if (! -w $logfile) then
+  echo "  Cannot update log file $logfile."
+  echo "  Quitting."
+  exit 1
+endif
+echo "" >> $logfile
+if ($status != 0) then
+  echo "  Cannot update log file $logfile."
+  echo "  Quitting."
+  exit 1
+endif
+#
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match." >> $logfile
+  echo " Number of source and destination file names don't match."
+  echo " Quitting."
+  exit 1
+endif
+set sdate = `date`
+echo "------- $wave wave" >> $logfile
+echo " $#DFILES files to be archived to the MSS directory:  /RAF/$YEAR/$PROJ/$TYPE/" >> $logfile
+echo " Job submssion began on $sdate" >> $logfile
+#
+echo "# $#DFILES files to be archived to the MSS directory:  /RAF/$YEAR/$PROJ/$TYPE/"
+echo "#  Job submssion began on $sdate"
+#
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo " rsh $msrcpMachine msrcp -> mss:../$DFILE completed successfully on `date`" >> $logfile
+    else
+      echo " rsh $msrcpMachine msrcp -> mss:../$DFILE FAILED (error=$result) on `date`" >> $logfile
+    endif
+  else
+    echo " Cannot access file $SDIR/$SFILE" >> $logfile
+  endif
+  @ num ++
+end
+#
+set cdate = `date`
+echo " Job completed on $cdate" >> $logfile
+echo " Job completed on $cdate"
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2002/111/MCR/
+#
+#  See logfile "mcr_arch_log.111" for archive status
+#
+#  1st wave
+# 34 files to be archived to the MSS directory:  /RAF/2002/111/MCR/
+#  Job submission began on Wed Jan 15 15:22:56 MST 2003
+#  Job completed on Wed Jan 15 16:06:16 MST 2003
+#
+#  2nd wave
+# 33 files to be archived to the MSS directory:  /RAF/2002/111/MCR/
+#  Job submission began on Wed Jan 15 16:14:19 MST 2003
+#
+#  -------  (Archiving aborted due to potential problem with the data)
+#
+#  3rd wave
+purge:
+#date ; msrm -R -wpwd RAFDMG /RAF/2002/111/MCR ; date
+#mahler/ron % date ; msrm -R -wpwd RAFDMG /RAF/2002/111/MCR ; date
+#Mon Mar 24 17:03:22 MST 2003
+#Mon Mar 24 17:04:02 MST 2003
+#

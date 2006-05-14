@@ -1,0 +1,75 @@
+#! /bin/csh -f
+#
+#  Save pertinent files for 4-120 BASE
+#
+cd /home/local/proj/120
+tar chlvf /home/local/proj/120/Production/120.tar \
+Catagories \
+Defaults \
+DependTable \
+ProjectName \
+VarDB \
+adscmd \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+def.tmp \
+depend.pre2.1.2 \
+despike \
+despike.none \
+despike.tmp \
+despike_10 \
+despike_11 \
+despike_12 \
+despike_13 \
+despike_14 \
+despike_3 \
+despike_6 \
+despike_7 \
+despike_new \
+header \
+header.AFT \
+header.CTL \
+header.FORWARD \
+header.PODLW \
+header.PODRW \
+header.save \
+header.text \
+header.works \
+history_file \
+hvars.text \
+landmarks \
+plot_attr \
+plotspex \
+plotspexbruce \
+regions \
+regions.BASE \
+stats_selns \
+Production/120RF04.hdr \
+Production/FlightGroups \
+Production/Flight_10 \
+Production/Mail.120 \
+Production/MSCP_out.120 \
+Production/arch.120 \
+Production/arch_support.120 \
+Production/proj.info \
+Production/rename \
+Production/taplog.120 \
+Production/tarit.120.tar \
+Production/tarit.nimbus.tar \
+Production/tp2ms.summary \
+Production/archive/tapes.120 \
+Production/archive/tp2ms.120job1 \
+Production/archive/tp2ms.120job2 \
+Production/archive/tp2ms.120job3
+#
+#  Get tar directory list for archiving
+set dfile = /home/local/proj/120/Production/120.tar.dir
+echo " Directory list for file 120.tar:  Support files for 1994-120 BASE" >! $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tf /home/local/proj/120/Production/120.tar >> $dfile
+#
+exit

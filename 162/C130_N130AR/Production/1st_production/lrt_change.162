@@ -1,0 +1,121 @@
+#! /bin/csh -f
+#
+#  Add READ passwords to certain LRT output files for 1995-162 SCMS
+#    (Small Cumulus Microphysics Study) (Charlie Knight, et al.)
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set YEAR = 1995
+set PROJ = 162
+set SDIR = $PROD_DATA
+set rpw = (See SCMS project notebook for proper READ password)
+#
+set FILES = ( \
+FF01A.cdf \
+FF01B.cdf \
+FF04.cdf \
+RF01.cdf \
+RF02.cdf \
+RF03.cdf \
+RF04.cdf \
+RF05.cdf \
+RF06.cdf \
+RF07.cdf \
+RF08.cdf \
+RF09.cdf \
+RF10.cdf \
+RF11.cdf \
+RF12.cdf \
+RF13.cdf \
+RF14.cdf \
+RF15.cdf \
+RF16.cdf \
+RF17.cdf \
+RF18.cdf \
+RF19.cdf \
+RF20.cdf \
+)
+#
+#  1st directory
+set TURBRT = ORIGINAL/LRT
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  echo \
+    nrnet mschg % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE w=RAFDMG newr=$rpw
+  @ num ++
+end
+#
+#  2nd directory
+set TURBRT = LRT/PMS-1D
+#
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  echo \
+    nrnet mschg % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE w=RAFDMG newr=$rpw
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  Job(s) submitted on Tue Mar 19 13:38:43 MST 1996
+# Sequence number = MI6016 -- ORIGINAL/LRT/FF01A.cdf - OK @ 19 Mar 1996 14:23:27
+# Sequence number = MI6023 -- ORIGINAL/LRT/FF01B.cdf - OK @ 19 Mar 1996 14:17:21
+# Sequence number = MI6030 -- ORIGINAL/LRT/FF04.cdf -- OK @ 19 Mar 1996 14:02:28
+# Sequence number = MI6038 -- ORIGINAL/LRT/RF01.cdf -- OK @ 19 Mar 1996 14:02:41
+# Sequence number = MI6049 -- ORIGINAL/LRT/RF02.cdf -- OK @ 19 Mar 1996 14:04:45
+# Sequence number = MI6057 -- ORIGINAL/LRT/RF03.cdf -- OK @ 19 Mar 1996 14:04:56
+# Sequence number = MI6064 -- ORIGINAL/LRT/RF04.cdf -- OK @ 19 Mar 1996 14:04:48
+# Sequence number = MI6071 -- ORIGINAL/LRT/RF05.cdf -- OK @ 19 Mar 1996 14:09:10
+# Sequence number = MI6078 -- ORIGINAL/LRT/RF06.cdf -- OK @ 19 Mar 1996 14:14:45
+# Sequence number = MI6091 -- ORIGINAL/LRT/RF07.cdf -- OK @ 19 Mar 1996 14:19:19
+# Sequence number = MI6098 -- ORIGINAL/LRT/RF08.cdf -- OK @ 19 Mar 1996 14:08:45
+# Sequence number = MI6105 -- ORIGINAL/LRT/RF09.cdf -- OK @ 19 Mar 1996 14:23:41
+# Sequence number = MI6112 -- ORIGINAL/LRT/RF10.cdf -- OK @ 19 Mar 1996 14:25:22
+# Sequence number = MI6125 -- ORIGINAL/LRT/RF11.cdf -- OK @ 19 Mar 1996 14:14:52
+# Sequence number = MI6132 -- ORIGINAL/LRT/RF12.cdf -- OK @ 19 Mar 1996 14:31:14
+# Sequence number = MI6139 -- ORIGINAL/LRT/RF13.cdf -- OK @ 19 Mar 1996 14:29:48
+# Sequence number = MI6146 -- ORIGINAL/LRT/RF14.cdf -- OK @ 19 Mar 1996 14:09:44
+# Sequence number = MI6153 -- ORIGINAL/LRT/RF15.cdf -- OK @ 19 Mar 1996 14:22:59
+# Sequence number = MI6160 -- ORIGINAL/LRT/RF16.cdf -- OK @ 19 Mar 1996 13:43:16
+# Sequence number = MI6167 -- ORIGINAL/LRT/RF17.cdf -- OK @ 19 Mar 1996 14:17:08
+# Sequence number = MI6174 -- ORIGINAL/LRT/RF18.cdf -- OK @ 19 Mar 1996 14:39:15
+# Sequence number = MI6181 -- ORIGINAL/LRT/RF19.cdf -- OK @ 19 Mar 1996 14:07:15
+# Sequence number = MI6188 -- ORIGINAL/LRT/RF20.cdf -- OK @ 19 Mar 1996 14:11:19
+# Sequence number = MI6195 -- PMS-1D/FF01A.cdf - OK @ 19 Mar 1996 14:07:15
+# Sequence number = MI6202 -- PMS-1D/FF01B.cdf - OK @ 19 Mar 1996 14:13:39
+# Sequence number = MI6209 -- PMS-1D/FF04.cdf -- OK @ 19 Mar 1996 14:09:43
+# Sequence number = MI6216 -- PMS-1D/RF01.cdf -- OK @ 19 Mar 1996 14:13:45
+# Sequence number = MI6223 -- PMS-1D/RF02.cdf -- OK @ 19 Mar 1996 14:11:36
+# Sequence number = MI6230 -- PMS-1D/RF03.cdf -- OK @ 19 Mar 1996 14:15:20
+# Sequence number = MI6237 -- PMS-1D/RF04.cdf -- OK @ 19 Mar 1996 14:15:19
+# Sequence number = MI6244 -- PMS-1D/RF05.cdf -- OK @ 19 Mar 1996 14:11:56
+# Sequence number = MI6251 -- PMS-1D/RF06.cdf -- OK @ 19 Mar 1996 14:15:49
+# Sequence number = MI6258 -- PMS-1D/RF07.cdf -- OK @ 19 Mar 1996 13:40:40
+# Sequence number = MI6267 -- PMS-1D/RF08.cdf -- OK @ 19 Mar 1996 14:13:51
+# Sequence number = MI6278 -- PMS-1D/RF09.cdf -- OK @ 19 Mar 1996 14:23:30
+# Sequence number = MI6285 -- PMS-1D/RF10.cdf -- OK @ 19 Mar 1996 14:19:58
+# Sequence number = MI6292 -- PMS-1D/RF11.cdf -- OK @ 19 Mar 1996 14:25:21
+# Sequence number = MI6302 -- PMS-1D/RF12.cdf -- OK @ 19 Mar 1996 14:25:40
+# Sequence number = MI6309 -- PMS-1D/RF13.cdf -- OK @ 19 Mar 1996 14:25:40
+# Sequence number = MI6316 -- PMS-1D/RF14.cdf -- OK @ 19 Mar 1996 14:07:50
+# Sequence number = MI6323 -- PMS-1D/RF15.cdf -- OK @ 19 Mar 1996 13:41:35
+# Sequence number = MI6335 -- PMS-1D/RF16.cdf -- OK @ 19 Mar 1996 14:07:36
+# Sequence number = MI6343 -- PMS-1D/RF17.cdf -- OK @ 19 Mar 1996 14:20:09
+# Sequence number = MI6350 -- PMS-1D/RF18.cdf -- OK @ 19 Mar 1996 14:08:06
+# Sequence number = MI6357 -- PMS-1D/RF19.cdf -- OK @ 19 Mar 1996 14:24:19
+# Sequence number = MI6364 -- PMS-1D/RF20.cdf -- OK @ 19 Mar 1996 14:22:38
+#

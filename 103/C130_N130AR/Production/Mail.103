@@ -1,0 +1,477 @@
+From allen@raf.atd.ucar.EDU Tue Dec  2 10:58 MST 1997
+From: allen@raf.atd.ucar.EDU (Allen Schanot)
+Return-Path: <allen@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA25798; Tue, 2 Dec 1997 10:58:20 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA02156; Tue, 2 Dec 1997 10:58:18 -0700
+Message-Id: <199712021758.KAA02156@mistral.atd.ucar.edu>
+Subject: Solar Corona Header
+To: bruce (Bruce Morley)
+Date: Tue, 2 Dec 1997 10:58:17 -0700 (MST)
+Cc: chris (Chris Webster), ron (Ron Ruth), dick (Dick Friesen)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 482
+Status: RO
+
+Bruce:
+
+	Be aware that we have changed the static pressure sensors on the 
+	C-130.  The Rosemount 1221 unit has be taken out of the plumbing
+	loop for PSF and replaced with the new Ruska digital unit XPSFD.
+	The output from PSF is really PCAB and needs to be renamed in the 
+	Solar Corona header, address & cal Coeffs stay the same.  In the 
+	new NIMBUS upgrade you will be getting, XPSFD will be changed to PSF
+	which will still bring in the corrected calculation PSFC.  
+
+Allen
+
+From dick@raf.atd.ucar.EDU Tue Feb  3 16:55 MST 1998
+From: dick@raf.atd.ucar.EDU (Dick Friesen)
+Return-Path: <dick@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA04143; Tue, 3 Feb 1998 16:55:27 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA07852; Tue, 3 Feb 1998 16:55:26 -0700
+Message-Id: <199802032355.QAA07852@mistral.atd.ucar.edu>
+Subject: IAS
+To: ron (Ron Ruth)
+Date: Tue, 3 Feb 1998 16:55:25 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 506
+Status: RO
+
+Ron:
+   Bruce Morley left me a voice mail saying the CORONA project guys would 
+lkie to have the calculation for geting from TAS to IAS. I think that is 
+what he wanted. Maybe he wanted the calculation for IAS. I don't suppose that
+we calculate IAS from TAS. If this is true just give Bruce the calculation
+for IAS. Probably ought to talk to Bruce.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+Phone 303-497-1047, Fax X1092  
+email: rbf@ucar.edu
+          or
+  dick@chinook.atd.ucar.edu
+
+From ron Wed Feb  4 14:19:13 1998
+Subject: Indicated Airspeed Calculations
+To: bruce (Bruce Morley)
+Date: Wed, 4 Feb 1998 14:19:13 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2028      
+Status: RO
+
+Bruce,
+
+Here are the equations (in C code format) that NIMBUS uses for calculating
+indicated airspeed (IAS) in knots, true airspeed (TAS) in m/s and Mach number
+squared.  As can be seen, a number of separate measurements must be made.
+
+I suppose one can invert these equations (with difficulty) to obtain an
+indicated airspeed.  Given a true airspeed at a specific altitude, one
+has to estimate a static air temperature (perhaps from a model or a recent
+sounding).  At this point, there are two unknowns that must be found:
+total air temperature and dynamic pressure.  The equations are such that one
+affects the other, so a recursive process probably is needed to zero in on
+the final values, after which one can calculate the indicated airspeed from
+the resulting dynamic pressure.
+
+
+Indicated Airspeed (IAS)
+------------------------
+     IAS = 1.94253479 * 760.9166 *
+        sqrt(fabs(pow(((1013.246 + qcxc) / 1013.246), 0.28571) - 1.0));
+
+      where:  sqrt = square root
+              fabs = absolute value
+              pow  = first argument taken to the power of the second argument
+              qcxc = corrected dynamic (pitot) presure (mbar)
+              1.94253479 = conversion factor from m/s to knots
+
+
+True Airspeed (TAS)
+-------------------
+     TAS = sqrt((t + 273.16) * (401.86 / (1.0 / xm2 + 0.2 * r)));
+
+      where:  sqrt = square root
+              t    = total air temperature (recovery temperature, actually) (C)
+              xm2  = Mach number squared
+              r    = temperature sensor's recovery factor
+                      (usually 0.95 to 0.98 for Rosemount temperature probes)
+
+
+Mach Number Squared (xm2)
+-------------------------
+     xm2 = (5.0 * (pow((a+1.0), 0.28571) - 1.0));
+
+      where:  a = qcxc/psxc
+              qcxc = corrected dynamic pressure (mbar)
+              psxc = corrected static (barometric) pressure (mbar)
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From peete@raf.atd.ucar.edu Tue Feb 17 15:24 MST 1998
+Return-Path: <peete@raf.atd.ucar.edu>
+Received: from chinook.atd.ucar.edu by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA07939; Tue, 17 Feb 1998 15:24:03 -0700
+Message-ID: <34EA0D1B.C4ECF6B6@chinook.atd.ucar.edu>
+Date: Tue, 17 Feb 1998 15:20:11 -0700
+From: Jason Peete <peete@raf.atd.ucar.edu>
+X-Mailer: Mozilla 4.03 [en] (Win95; I)
+MIME-Version: 1.0
+To: ragni@raf.atd.ucar.edu
+CC: RAF_STAFF@raf.atd.ucar.edu
+Subject: Re: Panama
+References: <34EA004C.48EA@raf.atd.ucar.edu>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Length: 287
+Status: RO
+
+Further dialing instructions:  Don't forget to dial 9 then 011 then the
+below mentioned phone number to place an international phone call. -
+Jason.
+
+Jim Ragni wrote:
+
+> All,
+>
+>   I have a phone and FAX for Morley.
+>   Phone 507 263-9999  Room 810
+>   FAX  507 269-4559
+>
+>   Jim
+
+From bruce@raf.atd.ucar.EDU Tue Mar  3 09:57 MST 1998
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA17492; Tue, 3 Mar 1998 09:57:20 -0700
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA00865; Tue, 3 Mar 1998 09:57:16 -0700
+Date: Tue, 3 Mar 1998 09:57:16 -0700
+Message-Id: <199803031657.JAA00865@adelie.atd.ucar.edu>
+To: raf_staff
+Subject: Re: eclipse doings
+Cc: bruce, Zhenya_Illana_Gallon@qgate.ucar.edu
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 4350
+Status: RO
+
+Everyone,
+
+Some press from the public affairs office of Howard AFB in Panama.
+Jeff Kuhn from MSU forwarded this to me.
+
+Bruce
+
+>From usafnews@MAIL1.AFNEWS.AF.MIL Mon Mar  2 17:02:23 1998
+>From: USAFnews <usafnews@MAIL1.AFNEWS.AF.MIL>
+>
+>980275.  Airmen in Panama support world's top eclipse research team
+                                   *********************************
+>by Staff Sgt. John B. Dendy IV
+>24th Wing Public Affairs
+>
+>HOWARD AIR FORCE BASE, Panama (AFNS) -- Airmen in Panama supported the
+>world's principal research effort on one of the last total solar
+>eclipses of the 20th century Feb. 26.
+>
+>A C-130 government research aircraft taxied around the airfield at
+>Howard Air Force Base, Panama, Feb. 18 and 19, allowing scientists
+>onboard to calibrate detectors aimed at the corona of the sun to find
+>structures never observed.
+>
+>The ground maneuvers were a prelude to a Feb. 20 research flight with
+>the C-130's instrument suite operating in an unpressurized state at
+>18,000 feet.  A basketball-hoop-sized porthole remains open to the sky
+>so that an onboard telescope can have a moisture-free view of the
+>target, "Old Sol."
+>
+>The eclipse was best viewed where the rain forest frontiers of Panama
+>and Colombia join, so the location and appropriate air and space
+>facilities at Howard made the base home for the research team for a few
+>days, said the mission's principal investigator, Robert MacQueen, of
+>Tennessee's Rhodes College.
+>
+>"It zipped across the Earth at about 1,800 miles per hour," MacQueen
+>said of the shadow that was produced by the eclipse.  "There was a
+>four-hour period where we flew over the Pacific Ocean west of Panama to
+>have the shadow of the moon aligned with us," as the scientists tracked
+>the sun on eclipse day (Feb. 26)."
+>
+>The C-130 helped its crew hunt for spectral lines that provided the most
+>definitive info on coronal magnetic field strengths to the research
+>community.  Parallel with this mission, ground crews and satellites were
+>observing a ground station and a NASA Solar and Heliospheric Observatory
+>satellite.  The data from each could eventually lead to better
+>prediction of the coronal mass ejections that launch solar storms and
+>impact the world's access to satellite communications and power grids.
+>
+>While not the star of the show, the white C-130 operated by the National
+>Center for Atmospheric Research is distinctive among the mostly gray and
+>green counterdrug and airlift mission planes that transit Howard.
+>
+>Since arriving, local airmen did everything from providing security for
+>the aircraft, to air conditioning the vessel -- as they do any transient
+>aircraft.  Cryogenics people provided 30 liters of liquid nitrogen for
+>the researcher's onboard telescope every other day.
+>
+>"We selected Howard as our base due to the reasonable prospects for
+>weather, and an airfield that can support the C-130 operations,"
+>MacQueen said.
+>
+>An advance crew that traveled here in July was impressed with Howard's
+>facilities and the "positive" attitudes of it's people, said the
+>expedition's principal scientist Jeff Kuhn of the National Solar
+>Observatory.  "It's a big collaboration we've been planning for
+>one-and-a-half years.  Eclipses happen somewhere in the world every
+>year...but a total eclipse is pretty rare.  The option to use the
+>airplane surfaced one year ago."
+>
+>The C-130 was the porter for the expedition, and supplied fresh air
+>straight through the roof, said the mission's solar physicist and
+>theoretician, Philip Judge of National Center for Atmospheric Research.
+>MacQueen and Kuhn lead the team that made the proposal for the project
+>three years ago, Judge said.
+>
+>Kuhn and Haosheng Lin of the National Solar Observatory in New Mexico
+>designed the instrument package for the C-130.  Ingrid Mann of Germany's
+>Max Planck Institute for Aeronomy designed an instrument spar that
+>points directly at the sun when extended through the 16-inch-wide
+>doorway in the aircraft's roof.
+>
+>After launching from Howard, the team stationed itself at an altitude of
+>18,000-feet in the unpressurized payload area to monitor the solar
+>eclipse above the Panama-Colombia rain forest before returning to Howard
+>with the data.  (Courtesy of Air Combat Command News Service)
+>
+
+From ron Wed Mar  4 17:00:31 1998
+Subject: 8mm tapes coming
+To: opns@niwot.scd.ucar.EDU
+Date: Wed, 4 Mar 1998 17:00:31 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 365       
+Status: RO
+
+Via tomorrow's (5 March) noon mail pickup at Jeffco I am sending you the
+following 8mm tapes for staging to the SCD Mass Store System.
+ 
+     R1219 - R1222
+ 
+Please let me know when they are ready.
+
+Thanks.
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From opns@niwot.scd.ucar.EDU Thu Mar  5 16:00 MST 1998
+Return-Path: <opns@niwot.scd.ucar.EDU>
+Received: from niwot.scd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA01076; Thu, 5 Mar 1998 16:00:48 -0700
+Received: (from opns@localhost)
+        by niwot.scd.ucar.EDU (NCAR 12/5/96/) id QAA23647
+        for ron@raf.atd.ucar.edu; Thu, 5 Mar 1998 16:00:47 -0700 (MST)
+Date: Thu, 5 Mar 1998 16:00:47 -0700 (MST)
+From: opns@niwot.scd.ucar.EDU (operations)
+Message-Id: <199803052300.QAA23647@niwot.scd.ucar.EDU>
+To: ron@raf.atd.ucar.edu
+Subject: tape arrived
+Content-Type: text
+Content-Length: 39
+Status: RO
+
+The tapes are here.
+
+Julie Harris CPG
+
+From ron Fri Mar  6 14:52:57 1998
+Subject: 8mm tapes
+To: opns@niwot.scd.ucar.EDU
+Date: Fri, 6 Mar 1998 14:52:57 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 313       
+Status: RO
+
+I have finished staging to the MSS the 8mm ExaByte tapes I sent you
+yesterday:
+               R1219 - R1222
+
+Please return them to me at Jeffco.
+ 
+Thanks!
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From mab@niwot.scd.ucar.EDU Mon Mar  9 08:59 MST 1998
+Return-Path: <mab@niwot.scd.ucar.EDU>
+Received: from niwot.scd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA00378; Mon, 9 Mar 1998 08:59:58 -0700
+Received: (from mab@localhost)
+        by niwot.scd.ucar.EDU (NCAR 12/5/96/) id IAA20632;
+        Mon, 9 Mar 1998 08:59:57 -0700 (MST)
+From: mab@niwot.scd.ucar.EDU (Melissa Breedlove)
+Message-Id: <199803091559.IAA20632@niwot.scd.ucar.EDU>
+Subject: Re: 8mm tapes
+To: ron@raf.atd.ucar.edu (Ron Ruth)
+Date: Mon, 9 Mar 1998 08:59:57 -0700 (MST)
+Cc: opns@ncar.ucar.edu
+In-Reply-To: <199803062152.OAA00868@music.atd.ucar.edu> from "Ron Ruth" at Mar 6, 98 02:52:57 pm
+X-Mailer: ELM [version 2.4 PL25]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 436
+Status: RO
+
+Ron,
+
+8mm tapes R1219 - R1222 will go out in todays (3/9/98) Jeffco run.
+
+CPG
+opns@ncar
+x1200
+mb
+
+From ron Mon Jun  1 13:34:39 1998
+Subject: Solar Corona recipients
+To: bruce (Bruce Morley)
+Date: Mon, 1 Jun 1998 13:34:39 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 417       
+Status: RO
+
+Bruce,
+
+Just a reminder:  you plan to email me additional info regarding the
+Solar Corona recipients, like email addresses phone/fax numbers and
+whether anyone needed a low-density Exabyte tape.  I'm assume everyone
+can handle the high-density ones.
+
+Thanks.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Mon Jun  1 14:04 MDT 1998
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA01973; Mon, 1 Jun 1998 14:04:14 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA02245; Mon, 1 Jun 1998 14:04:12 -0600
+Date: Mon, 1 Jun 1998 14:04:12 -0600
+Message-Id: <199806012004.OAA02245@mistral.atd.ucar.edu>
+To: Ron
+Subject: solar corona email addresses
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 154
+Status: RO
+
+Ron,
+
+email addresses for the Solar Corona people:
+
+
+Jeff Kuhn	kuhn@rocky.pa.msu.edu
+
+Ingrid Mann	mann@linmpi.mpg.de
+
+Bob MacQueen	rmac@rhodes.edu
+
+Bruce
+
+From bruce@raf.atd.ucar.EDU Mon Jun  1 14:36 MDT 1998
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA02297; Mon, 1 Jun 1998 14:36:31 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA02301; Mon, 1 Jun 1998 14:36:28 -0600
+Date: Mon, 1 Jun 1998 14:36:28 -0600
+Message-Id: <199806012036.OAA02301@mistral.atd.ucar.edu>
+To: rmac@rhodes.edu, kuhn@rocky.pa.msu.edu, mann@linmpi.mpg.de
+Subject: exabyte tapes
+Cc: bruce, ron
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 299
+Status: RO
+
+Bob, Jeff and Ingrid:
+
+We will be sending you an exabyte tape with the processed aircraft data from
+the flights in Panama.  Our default density is a high density (~5 Gbytes) tape.
+If this presents a problem, please contact me or Ron Ruth (ruth@ucar.edu)
+about obtaining a copy of the data.
+
+Bruce
+
+
+
+From bruce@raf.atd.ucar.EDU Thu Jun  4 10:21 MDT 1998
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA20685; Thu, 4 Jun 1998 10:21:52 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA01151; Thu, 4 Jun 1998 10:21:50 -0600
+Date: Thu, 4 Jun 1998 10:21:50 -0600
+Message-Id: <199806041621.KAA01151@adelie.atd.ucar.edu>
+To: ron
+Subject: Tape Drive
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 393
+Status: RO
+
+
+----- Begin Included Message -----
+
+>From RMAC@rhodes.edu Thu Jun  4 10:07 MDT 1998
+Date: Thu, 04 Jun 1998 11:07:48 -0500 (CDT)
+From: rmac <RMAC@rhodes.edu>
+Subject: Tape Drive
+To: morley@raf.atd.ucar.edu
+X-VMS-To: IN%"morley@raf.atd.ucar.edu"
+X-VMS-Cc: RMAC
+MIME-version: 1.0
+
+Bruce, we can only read the 2.5 GB exabyte drive format. Is that OK?
+					Bob
+
+
+----- End Included Message -----
+
+

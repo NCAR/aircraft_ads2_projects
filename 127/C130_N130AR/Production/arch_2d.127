@@ -1,0 +1,97 @@
+#! /bin/csh -f
+#
+#  Archive stripped PMS-2D data files for 
+#
+#  File adapted from file /jnet/shared/proj/102/Production/arch_2d.102
+#    by Ron Ruth  24 May 2000
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set YEAR = 1995
+set PROJ = 127
+set SDIR = $DATA_DIR/migs/ron
+set TURBRT = PMS2D
+#
+#  1st wave
+set SFILES = ( \
+127rf01.2d \
+127rf02.2d \
+127rf03.2d \
+127rf04.2d \
+127rf05.2d \
+127rf06.2d \
+127rf07.2d \
+127rf08.2d \
+127rf09.2d \
+127rf10.2d \
+)
+set DFILES = ( \
+RF01 \
+RF02 \
+RF03 \
+RF04 \
+RF05 \
+RF06 \
+RF07 \
+RF08 \
+RF09 \
+RF10 \
+)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1995/127/
+#
+#  1st wave
+#  Job(s) submitted on Wed May 24 15:14:46 MDT 2000
+# Sequence number = LN3693 -- PMS2D/RF01 -- OK @ 24 May 2000 15:14:58
+# Sequence number = LN3701 -- PMS2D/RF02 -- OK @ 24 May 2000 15:18:01
+# Sequence number = LN3709 -- PMS2D/RF03 -- OK @ 24 May 2000 15:21:17
+# Sequence number = LN3719 -- PMS2D/RF04 -- OK @ 24 May 2000 15:14:56
+# Sequence number = LN3727 -- PMS2D/RF05 -- OK @ 24 May 2000 15:18:54
+# Sequence number = LN3737 -- PMS2D/RF06 -- OK @ 24 May 2000 15:21:54
+# Sequence number = LN3747 -- PMS2D/RF07 -- OK @ 24 May 2000 15:24:30
+# Sequence number = LN3757 -- PMS2D/RF08 -- OK @ 24 May 2000 15:18:58
+# Sequence number = LN3765 -- PMS2D/RF09 -- OK @ 24 May 2000 15:29:56
+# Sequence number = LN3773 -- PMS2D/RF10 -- OK @ 24 May 2000 15:33:03
+#
+#  Job(s) submitted on 
+#

@@ -1,0 +1,408 @@
+#! /bin/csh -f
+#
+#  Archive stripped raw PMS-2D data files for 2005-135 RICO
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002, 2004                                                   *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $LOCAL/proj/102/Production/arch2d.181
+#   by Ron Ruth  16 October 2001
+#  RAF --> ATD bitfile move section added by Ron Ruth   2 July 2004
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = PMS2D
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+#  set msrcpMachine = "lenny"
+#  set msrcpMachine = "mistral"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  Move raw PMS-2D files from RAF path to ATD/DATA path
+#   (Done before production data are released)
+#goto movem
+#
+#  1st wave
+#set SFILES = ( \
+#135tf01a.2d \
+#)
+#set DFILES = ( \
+#TF01 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#135tf02a.2d \
+#)
+#set DFILES = ( \
+#TF02 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#135tf03a.2d \
+#)
+#set DFILES = ( \
+#TF03 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#135ff02a.2d \
+#135ff02b.2d \
+#135ff05a.2d \
+#135rf01a.2d \
+#135rf02a.2d \
+#135rf03a.2d \
+#135rf04a.2d \
+#135rf05a.2d \
+#135rf06a.2d \
+#135rf07a.2d \
+#135rf08a.2d \
+#135rf09a.2d \
+#135rf10a.2d \
+#135rf11a.2d \
+#135rf12a.2d \
+#135rf13a.2d \
+#135rf14a.2d \
+#135rf15b.2d \
+#135rf16a.2d \
+#135rf16b.2d \
+#135rf17b.2d \
+#135rf18b.2d \
+#135rf19a.2d \
+#)
+#set DFILES = ( \
+#FF02A \
+#FF02B \
+#FF05 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15 \
+#RF16A \
+#RF16B \
+#RF17 \
+#RF18 \
+#RF19 \
+#)
+#
+#  5th wave
+#  missing FF01, FF03, FF04, FF06
+#set SFILES = ( \
+#135ff01a.2d \
+#135ff03a.2d \
+#135ff04b.2d \
+#135ff06b.2d \
+#)
+#set DFILES = ( \
+#FF01 \
+#FF03 \
+#FF04 \
+#FF06 \
+#)
+#
+#  8th wave
+#set SFILES = ( \
+#other/135tf04a.2d \
+#)
+#set DFILES = ( \
+#TF04 \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+      echo "#                $TYPE/$DFILE: error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+movem:
+#  Move raw PMS-2D data from the /RAF path to the /ATD/DATA path
+#
+#  6th wave
+#set SFILES = ( \
+#TF01 \
+#TF02 \
+#TF03 \
+#FF01  \
+#FF02A \
+#FF02B \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#FF03  \
+#)
+## 
+##  vi command to convert a taplog.pms2d.ppp file entry to an output file name
+##  :s: \(.....\)   \(..\).\(..\).\(....\)...\(..\).\(..\).\(..\)\(.*\):\1.\4\2\3.\5\6\7
+#set DFILES = ( \
+#TF01.20041117.173132 \
+#TF02.20041119.192011 \
+#TF03.20041123.192635 \
+#FF01.20041203.140057 \
+#FF02A.20041204.133713 \
+#FF02B.20041204.162600 \
+#RF01.20041207.161004 \
+#RF02.20041208.140904 \
+#RF03.20041209.140104 \
+#RF04.20041210.140104 \
+#RF05.20041213.144804 \
+#RF06.20041216.135504 \
+#RF07.20041217.132834 \
+#RF08.20041219.104053 \
+#RF09.20041220.105704 \
+#FF03.20041221.133301 \
+#)
+#set DPATH = "/ATD/DATA/2004/RICO/C130_N130AR/$TYPE"
+#
+#  7th wave
+#set SFILES = ( \
+#FF04 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15 \
+#RF16A \
+#RF16B \
+#RF17 \
+#RF18 \
+#RF19 \
+#FF05 \
+#FF06 \
+#)
+#set DFILES = ( \
+#FF04.20050103.145207 \
+#RF10.20050105.141858 \
+#RF11.20050107.132934 \
+#RF12.20050111.132722 \
+#RF13.20050112.132110 \
+#RF14.20050114.140157 \
+#RF15.20050116.140617 \
+#RF16A.20050118.101744 \
+#RF16B.20050118.112714 \
+#RF17.20050119.113106 \
+#RF18.20050123.092024 \
+#RF19.20050124.085307 \
+#FF05.20050126.140345 \
+#FF06.20050127.143618 \
+#)
+#set DPATH = "/ATD/DATA/2005/RICO/C130_N130AR/$TYPE"
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+#
+set WPWD = "-wpwd RAFDMG"
+set todo = $#SFILES
+if ($todo != $#DFILES) then
+  echo "  Number of source ($#SFILES) and destination ($#DFILES) files don't match."
+  exit 1
+endif
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  echo \
+  msmv $RPWD $WPWD /RAF/$YEAR/$PROJ/$TYPE/$SFILE $DPATH/$DFILE.RP2.bi
+  set result = $status
+  if ($result == 0) then
+    echo "#  msmv job for $TYPE/$DFILE -- OK -- `date`"
+  else
+    echo "  msmv job FAILED with error $result."
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#  Original MSS path for all bitfiles listed below:  /RAF/2005/135/
+#  When ready, move raw PMS-2D files from /RAF/2005/135/ path
+#                          to /ATD/DATA/200[45]/RICO/C130_N130AR/
+#  (bitfiles moved on 28 April 2005)
+#
+#  1st wave
+#  1 Job(s) submitted on Wed Nov 17 17:12:50 MST 2004
+#  msrcp job for ADS/TF01 -- OK -- Wed Nov 17 17:17:53 MST 2004
+#   Completed on Wed Nov 17 17:17:53 MST 2004
+#
+#  2nd wave
+#  1 Job(s) submitted on Fri Nov 19 17:56:34 MST 2004
+#  msrcp job for PMS2D/TF02 -- OK -- Fri Nov 19 17:56:39 MST 2004
+#   Completed on Fri Nov 19 17:56:39 MST 2004
+#
+#  3rd wave
+#  1 Job(s) submitted on Wed Nov 24 10:19:19 MST 2004
+#  msrcp job for PMS2D/TF03 -- OK -- Wed Nov 24 10:19:34 MST 2004
+#   Completed on Wed Nov 24 10:19:34 MST 2004
+#
+#  4th wave
+#  23 Job(s) submitted on Mon Jan 31 10:36:29 MST 2005
+#  msrcp job for PMS2D/FF02A -- OK -- Mon Jan 31 10:36:35 MST 2005
+#  msrcp job for PMS2D/FF02B -- OK -- Mon Jan 31 10:36:41 MST 2005
+#  msrcp job for PMS2D/FF05 -- OK -- Mon Jan 31 10:37:00 MST 2005
+#  msrcp job for PMS2D/RF01 -- OK -- Mon Jan 31 10:37:14 MST 2005
+#  msrcp job for PMS2D/RF02 -- OK -- Mon Jan 31 10:37:22 MST 2005
+#  msrcp job for PMS2D/RF03 -- OK -- Mon Jan 31 10:37:46 MST 2005
+#  msrcp job for PMS2D/RF04 -- OK -- Mon Jan 31 10:37:53 MST 2005
+#  msrcp job for PMS2D/RF05 -- OK -- Mon Jan 31 10:39:19 MST 2005
+#  msrcp job for PMS2D/RF06 -- OK -- Mon Jan 31 10:39:29 MST 2005
+#  msrcp job for PMS2D/RF07 -- OK -- Mon Jan 31 10:40:02 MST 2005
+#  msrcp job for PMS2D/RF08 -- OK -- Mon Jan 31 10:40:41 MST 2005
+#  msrcp job for PMS2D/RF09 -- OK -- Mon Jan 31 10:40:51 MST 2005
+#  msrcp job for PMS2D/RF10 -- OK -- Mon Jan 31 10:41:04 MST 2005
+#  msrcp job for PMS2D/RF11 -- OK -- Mon Jan 31 10:41:21 MST 2005
+#  msrcp job for PMS2D/RF12 -- OK -- Mon Jan 31 10:41:29 MST 2005
+#  msrcp job for PMS2D/RF13 -- OK -- Mon Jan 31 10:43:42 MST 2005
+#  msrcp job for PMS2D/RF14 -- OK -- Mon Jan 31 10:43:59 MST 2005
+#  msrcp job for PMS2D/RF15 -- OK -- Mon Jan 31 10:44:27 MST 2005
+#  msrcp job for PMS2D/RF16A -- OK -- Mon Jan 31 10:45:40 MST 2005
+#  msrcp job for PMS2D/RF16B -- OK -- Mon Jan 31 10:48:18 MST 2005
+#  msrcp job for PMS2D/RF17 -- OK -- Mon Jan 31 10:49:45 MST 2005
+#  msrcp job for PMS2D/RF18 -- OK -- Mon Jan 31 10:49:51 MST 2005
+#  msrcp job for PMS2D/RF19 -- OK -- Mon Jan 31 10:50:00 MST 2005
+#   Completed on Mon Jan 31 10:50:00 MST 2005
+#
+#  5th wave
+#  4 Job(s) submitted on Thu Apr 28 11:29:50 MDT 2005
+#  msrcp job for PMS2D/FF01 -- OK -- Thu Apr 28 11:30:37 MDT 2005
+#  msrcp job for PMS2D/FF03 -- OK -- Thu Apr 28 11:30:56 MDT 2005
+#  msrcp job for PMS2D/FF04 -- OK -- Thu Apr 28 11:31:22 MDT 2005
+#  msrcp job for PMS2D/FF06 -- OK -- Thu Apr 28 11:33:05 MDT 2005
+#   Completed on Thu Apr 28 11:33:05 MDT 2005
+#
+#  6th wave
+#  16 Job(s) submitted on Thu Apr 28 12:01:58 MDT 2005
+#  msmv job for PMS2D/TF01.20041117.173132 -- OK -- Thu Apr 28 12:02:01 MDT 2005
+#  msmv job for PMS2D/TF02.20041119.192011 -- OK -- Thu Apr 28 12:02:02 MDT 2005
+#  msmv job for PMS2D/TF03.20041123.192635 -- OK -- Thu Apr 28 12:02:04 MDT 2005
+#  msmv job for PMS2D/FF01.20041203.140057 -- OK -- Thu Apr 28 12:02:05 MDT 2005
+#  msmv job for PMS2D/FF02A.20041204.133713 -- OK -- Thu Apr 28 12:02:06 MDT 2005
+#  msmv job for PMS2D/FF02B.20041204.162600 -- OK -- Thu Apr 28 12:02:07 MDT 2005
+#  msmv job for PMS2D/RF01.20041207.161004 -- OK -- Thu Apr 28 12:02:09 MDT 2005
+#  msmv job for PMS2D/RF02.20041208.140904 -- OK -- Thu Apr 28 12:02:10 MDT 2005
+#  msmv job for PMS2D/RF03.20041209.140104 -- OK -- Thu Apr 28 12:02:12 MDT 2005
+#  msmv job for PMS2D/RF04.20041210.140104 -- OK -- Thu Apr 28 12:02:13 MDT 2005
+#  msmv job for PMS2D/RF05.20041213.144804 -- OK -- Thu Apr 28 12:02:14 MDT 2005
+#  msmv job for PMS2D/RF06.20041216.135504 -- OK -- Thu Apr 28 12:02:16 MDT 2005
+#  msmv job for PMS2D/RF07.20041217.132834 -- OK -- Thu Apr 28 12:02:17 MDT 2005
+#  msmv job for PMS2D/RF08.20041219.104053 -- OK -- Thu Apr 28 12:02:19 MDT 2005
+#  msmv job for PMS2D/RF09.20041220.105704 -- OK -- Thu Apr 28 12:02:20 MDT 2005
+#  msmv job for PMS2D/FF03.20041221.133301 -- OK -- Thu Apr 28 12:02:21 MDT 2005
+#   Completed on Thu Apr 28 12:02:21 MDT 2005
+#
+#  7th wave
+#  14 Job(s) submitted on Thu Apr 28 12:05:38 MDT 2005
+#  msmv job for PMS2D/FF04.20050103.145207 -- OK -- Thu Apr 28 12:05:40 MDT 2005
+#  msmv job for PMS2D/RF10.20050105.141858 -- OK -- Thu Apr 28 12:05:41 MDT 2005
+#  msmv job for PMS2D/RF11.20050107.132934 -- OK -- Thu Apr 28 12:05:43 MDT 2005
+#  msmv job for PMS2D/RF12.20050111.132722 -- OK -- Thu Apr 28 12:05:45 MDT 2005
+#  msmv job for PMS2D/RF13.20050112.132110 -- OK -- Thu Apr 28 12:05:46 MDT 2005
+#  msmv job for PMS2D/RF14.20050114.140157 -- OK -- Thu Apr 28 12:05:48 MDT 2005
+#  msmv job for PMS2D/RF15.20050116.140617 -- OK -- Thu Apr 28 12:05:49 MDT 2005
+#  msmv job for PMS2D/RF16A.20050118.101744 -- OK -- Thu Apr 28 12:05:50 MDT 2005
+#  msmv job for PMS2D/RF16B.20050118.112714 -- OK -- Thu Apr 28 12:05:52 MDT 2005
+#  msmv job for PMS2D/RF17.20050119.113106 -- OK -- Thu Apr 28 12:05:54 MDT 2005
+#  msmv job for PMS2D/RF18.20050123.092024 -- OK -- Thu Apr 28 12:05:57 MDT 2005
+#  msmv job for PMS2D/RF19.20050124.085307 -- OK -- Thu Apr 28 12:05:58 MDT 2005
+#  msmv job for PMS2D/FF05.20050126.140345 -- OK -- Thu Apr 28 12:06:03 MDT 2005
+#  msmv job for PMS2D/FF06.20050127.143618 -- OK -- Thu Apr 28 12:06:05 MDT 2005
+#   Completed on Thu Apr 28 12:06:05 MDT 2005
+#
+#  8th wave (straggler that probably has no useful data and will remain in the
+#             /RAF path instead of moving to /ATD/DATA) -- RLR
+#  1 Job(s) submitted on Wed Jun  8 12:16:27 MDT 2005
+#  msrcp job for PMS2D/TF04 -- OK -- Wed Jun  8 12:16:58 MDT 2005
+#   Completed on Wed Jun  8 12:16:58 MDT 2005
+#

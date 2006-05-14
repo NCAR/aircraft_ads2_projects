@@ -1,0 +1,101 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    Project 2003-113 IDEAS-3 (Instrument Development and Education in Airborne Science, Phase 3) (Jeff Stith, et al.)
+#   using the new ATD directory path
+#
+#  File created by '/net/local_lnx/scripts/genar' Revision 12b on Fri Jan 9 17:24:45 MST 2004
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /net/local_lnx/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "mistral"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+set SFILES = ( \
+113rf01.nc \
+113rf02.nc \
+113rf03.nc \
+113rf04.nc \
+113rf05.nc \
+113rf06.nc \
+113rf07.nc \
+113rf08.nc \
+113rf09.nc \
+113rf10.nc \
+113rf11.nc \
+)
+#
+set DFILES = ( \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF01.20030819.210700_225829.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF02.20030822.145700_160200.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF03.20030826.192200_210800.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF04.20030829.191900_221900.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF05.20030904.150700_162300.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF06.20030905.193700_221148.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF07.20030911.194700_221800.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF08.20030915.193400_211200.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF09.20030917.194400_225900.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF10.20030919.150900_183000.PNI.nc \
+mss:/ATD/DATA/2003/IDEAS-3/C130_N130AR/LRT/RF11.20030919.203200_215651.PNI.nc \
+)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2003/IDEAS-3/C130_N130AR/"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  11 job(s) submitted on Fri Jan  9 17:35:35 MST 2004
+#  Files archived to MSS directory:  /ATD/DATA/2003/IDEAS-3/C130_N130AR/
+#   LRT/RF01.20030819.210700_225829.PNI.nc -- OK -- Fri Jan  9 17:48:53 MST 2004
+#   LRT/RF02.20030822.145700_160200.PNI.nc -- OK -- Fri Jan  9 18:02:11 MST 2004
+#   LRT/RF03.20030826.192200_210800.PNI.nc -- OK -- Fri Jan  9 18:08:56 MST 2004
+#   LRT/RF04.20030829.191900_221900.PNI.nc -- OK -- Fri Jan  9 18:15:41 MST 2004
+#   LRT/RF05.20030904.150700_162300.PNI.nc -- OK -- Fri Jan  9 18:16:46 MST 2004
+#   LRT/RF06.20030905.193700_221148.PNI.nc -- OK -- Fri Jan  9 18:20:15 MST 2004
+#   LRT/RF07.20030911.194700_221800.PNI.nc -- OK -- Fri Jan  9 18:21:33 MST 2004
+#   LRT/RF08.20030915.193400_211200.PNI.nc -- OK -- Fri Jan  9 18:22:13 MST 2004
+#   LRT/RF09.20030917.194400_225900.PNI.nc -- OK -- Fri Jan  9 18:23:57 MST 2004
+#   LRT/RF10.20030919.150900_183000.PNI.nc -- OK -- Fri Jan  9 18:25:11 MST 2004
+#   LRT/RF11.20030919.203200_215651.PNI.nc -- OK -- Fri Jan  9 18:25:39 MST 2004
+#   Completed on Fri Jan  9 18:25:39 MST 2004
+#

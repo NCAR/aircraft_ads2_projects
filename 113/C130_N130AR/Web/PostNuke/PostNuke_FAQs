@@ -1,0 +1,22 @@
+PostNuke : Trick For Lost Admin Password and Email 	
+Posted by: HST on Thursday, January 30, 2003 - 08:57 PM
+Manually resetting (clearing) the admin through MySQL pn_user table record editing.
+
+I looked through the forums and ran a search here, and couldn't find documented way of clearing the password through MySQL, so I though I would document here.
+
+Sorry if this seems redundant for most of you...
+
+Well, I installed a postnuke on a machine a few months back for module testing and personal blogging, and basically forgot about. I revisited the site today and noticed that I had been using it for personal blogging on ecommerce. I couldn't remember the password or the email I used for admin access.
+
+Basically if you clear the password record of the admin uid in pn_users, you can just login using the admin name with no password.
+
+How to reset your admin password using phpadmin step by step:
+
+    * Go to the mySQL DB in phpmyadmin and open the nuke_users table.
+    * click 'browse'
+    * pn_uid number should be the admin account - select that id and click 'edit' - make note of the name if it is not 'admin'.
+    * copy the string in the pn_pass field and save it for temporary safe keeping.
+    * Clear the password field.
+    * goto your postnuke install and login using the admin name - leave the password field blank
+    * You should have access to the admin account at this point, immediately reset your password
+

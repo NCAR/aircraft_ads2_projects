@@ -1,0 +1,92 @@
+#  Project:  2005-135 RICO (Rain In Cumulus over the Ocean)
+#  Purpose:  Customized instrument status list
+#  This file's name:  C130_instrument_list.txt
+#  This file's path:  $PROJ_DIR/135/Web/
+#  Used by:  project's "real-time" web site
+#  Script name:  cgi-bin/C130_status.pl
+#  Script author:  Steve Roberts, JOSS
+#  Script modifier:  Ron Ruth, ATD/RAF
+#
+# Notes:  Any line that does not begin with "Inst:" is treated as a comment.
+#         Anything after "Inst:" is treated as a single status component.
+#         There is no limit to the number of components that can be added,
+#          but keep in mind that the longer the list, the less readable the
+#          web page will be.  (The present limit is of 99 entries, at present,
+#          but the script code can be changed.)
+#
+#  Following list from Allen Schanot on 28 October 2004
+#    Updated by Pavel Romashkin and Allen Schanot on 24 November 2004
+#
+Inst: Airborne Data System (ADS)
+Inst: Aft User Display (Clyde)
+Inst: Aft User Display (Grendel)
+Inst: Aft User Display (Agave)
+Inst: Aft User Display (Nuvola)
+Inst: Flight Deck Display (Bonnie)
+Inst: Honeywell HG1095-AC03 (IRS)
+Inst: Garmin GPS16 (GPS) - Research
+Inst: CMIGETS (INS)
+Inst: Differential GPS
+Inst: Rosemount 1501 Static pressure (PSFDC)
+Inst: Ruska 7885 Static pressure (PSFC)
+Inst: Rosemount 1201F1 Cabin pressure (PCAB)
+Inst: Rosemount 1221F1VL Dynamic pressure (QCRC)
+Inst: Rosemount 1221F1VL Dynamic pressure (QCFC)
+Inst: Rosemount 1221F1VL Dynamic pressure (QCFRC)
+Inst: Rosemount temperature (ATRR)
+Inst: Rosemount temperature (ATRL)
+Inst: Rosemount deiced temperature (ATWH)
+Inst: Ophir temperature (OAT)
+Inst: Rosemount 1221F1VL Attack (ADIFR)
+Inst: Rosemount 1221F1VL Sideslip (BDIFR)
+Inst: General Eastern 1011B Dewpoint temperature (DPT)
+Inst: General Eastern 1011B Dewpoint temperature (DPB)
+Inst: SpectraSensors TDL (MRLH)
+Inst: CrossFlow Lyman-alpha (MRLA)
+Inst: Crossflow Lyman-alpha (MRLA1)
+Inst: Eppley PSP Pyranometer top (SWT)
+Inst: Eppley PSP Pyranometer bottom (SWB)
+Inst: Eppley TUVR Ultraviolet top (UVT)
+Inst: Eppley TUVR Ultraviolet bottom (UVB)
+Inst: Eppley PIR Pyrgeometer top (IRTC)
+Inst: Eppley PIR Pyrgeometer bottom (IRBC)
+Inst: Heiman KT19.85 Remote surface temperature (RSTB)
+Inst: Heiman KT19.85 Remote surface temperature (RSTB1)
+Inst: Heiman KT19.85 Remote sky/cloud temperature (RSTT)
+Inst: Rosemount 871FA Icing rate (RICE)
+Inst: PMS/King LWC (PLWCC)
+Inst: PMS/King LWC (PLWCC1)
+# Inst: Nevzorov LWC (NLWCC)
+# Inst: Newzorov TWC (NTWCC)
+Inst: TSI 3760 CN Counter (CONCN)
+Inst: PMS SPP-200
+Inst: PMS SPP-100
+Inst: PMS 2D-C
+Inst: PMS 2D-P
+Inst: PMS 260X
+Inst: Gerber PVM-100 LWP (XGLWC)
+Inst: Radar altimeter (HGM232)
+Inst: VHS Video cameras (forward, down)
+Inst: Digital Video camera (forward)
+Inst: TECO Ozone Analyzer (TEO3C)
+Inst: RAF Fast-Response Ozone Analyzer (O3FSC)
+Inst: Scanning Aerosol Backscatter Lidar (SABL)
+Inst: TD GPS Dropsonde System
+Inst: Radial Differential Mobility Analyzer (RDMA)
+Inst: Wet/Dry Nephelometers
+Inst: RAF Counter-flow Virtual Impactor (CVI)
+Inst: CSIRO/RAF Giant Aerosol Impactor
+Inst: PH Meter
+Inst: CSIRO Wet/Dry Bulb Temperature
+#  User instruments
+Inst: Anderson Filter Pack
+Inst: Bandy SO2
+Inst: Bandy DMS
+Inst: Brenguier Fast FSSP
+Inst: CIRPAS Phased Doppler
+Inst: Gerber Cloud-Integrating Nephelometer
+Inst: U Hawaii Total Air Sampler
+Inst: Heikes In-Situ Peroxides
+Inst: Hudson CCN
+Inst: SPEC 2D-S Dual Particle Imager
+Inst: SPEC Cloud Particle Imager (CPI)

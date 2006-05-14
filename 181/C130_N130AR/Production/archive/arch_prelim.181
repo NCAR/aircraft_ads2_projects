@@ -1,0 +1,40 @@
+# Commands executed on "lenny" logged in as user "dmg."
+#
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181ff01.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/FF01.cdf ; date
+#Thu Aug  9 12:16:30 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181ff02.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/FF02.cdf ; date
+#Thu Aug  9 12:55:19 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf01.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF01.cdf ; date
+#Thu Aug  9 13:09:40 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf02.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF02.cdf ; date
+#Thu Aug  9 13:18:04 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf03.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF03.cdf ; date
+#Thu Aug  9 13:20:14 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf04.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF04.cdf ; date
+#Thu Aug  9 13:22:56 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf05.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF05.cdf ; date
+#Thu Aug  9 13:25:53 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf06.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF06.cdf ; date
+#Thu Aug  9 13:43:33 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf07.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF07.cdf ; date
+#Thu Aug  9 13:56:17 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf08.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF08.cdf ; date
+#Thu Aug  9 14:14:00 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf09.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF09.cdf ; date
+#Thu Aug  9 14:27:41 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181rf10.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/RF10.cdf ; date
+#Thu Aug  9 14:32:36 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181tf01.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/TF01.cdf ; date
+#Thu Aug  9 14:41:12 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181tf02.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/TF02.cdf ; date
+#Thu Aug  9 14:49:53 MDT 2001
+#lenny/dmg % msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG -rpwd DYCONLY 181tf03.cdf mss:/RAF/2001/181/LRT/PRELIMINARY/TF03.cdf ; date
+#Thu Aug  9 14:54:48 MDT 2001
+#
+#  Remove all preliminary data files following Production data release
+#mahler/ron % date; msrm -R -wpwd RAFDMG -rpwd DYCONLY /RAF/2001/181/LRT/PRELIMINARY ; date
+#Mon Jan 28 16:15:13 MST 2002
+#Mon Jan 28 16:15:40 MST 2002
+#msrm -R -wpwd RAFDMG -rpwd DYCONLY /ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY ; date
+#Mon Jan 28 16:16:30 MST 2002
+#

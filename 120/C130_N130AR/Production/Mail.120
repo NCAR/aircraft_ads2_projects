@@ -1,0 +1,2824 @@
+From ron Tue Nov  1 16:30:02 1994
+Subject: BASE
+To: bruce (Bruce Morley)
+Date: Tue, 1 Nov 1994 16:30:02 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 103       
+Status: RO
+
+Bruce,
+
+Any idea when I can archive the raw ADS data from BASE to the SCD Mass Store
+System?
+
+-- 
+Ron
+
+From chris@chinook.atd.ucar.EDU Thu Feb 16 08:58 MST 1995
+From: chris@chinook.atd.ucar.EDU (Chris Webster)
+Return-Path: <chris@chinook.atd.ucar.EDU>
+Received: from cirque.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA26200; Thu, 16 Feb 1995 08:58:09 -0700
+Received: by cirque.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA01666; Thu, 16 Feb 1995 08:58:06 -0700
+Date: Thu, 16 Feb 1995 08:58:06 -0700
+Message-Id: <199502161558.IAA01666@cirque.atd.ucar.edu>
+To: ron
+Subject: 120 processing
+Content-Type: text
+Content-Length: 117
+Status: RO
+
+Ron,
+	I'm going to create a ~nimbus/120 directory for the base processor.
+I'll put all relevant code there.
+
+--Chris
+
+From ron Wed Mar  1 10:54:37 1995
+Subject: BASE
+To: bruce (Bruce Morley)
+Date: Wed, 1 Mar 1995 10:54:37 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 105       
+Status: RO
+
+Bruce,
+
+Any progress to report on this project?  How are things progressing
+toward production?
+
+-- 
+Ron
+
+From ron Wed Mar  1 11:09:12 1995
+Subject: Re: BASE
+To: bruce@chinook.atd.ucar.EDU (Bruce Morley)
+Date: Wed, 1 Mar 1995 11:09:12 -0700 (MST)
+In-Reply-To: <199503011804.LAA01123@adelie.atd.ucar.edu> from "Bruce Morley" at Mar 1, 95 11:04:48 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 783       
+Status: RO
+
+> 
+> Ron,
+> 
+> I have started to process the BASE data.  I have done several flights and
+> the rest should go faster as the data system was working better later in the
+> project.
+> 
+Bruce,
+
+It would help me greatly if you could give the NIMBUS output files the
+following naming convention:
+   120RFxx.cdf  <-- low-rate production data, where `xx' is the flight number
+   120RFxxH.cdf  <-- high-rate production data, where `xx' is the flight number
+
+I'm sure you are already aware that you need to be logged in as `nimbus,'
+and that the output files go in the `/home/local/data/production' directory. 
+
+Thanks for the update.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@chinook.atd.ucar.EDU Wed Mar  1 11:04 MST 1995
+From: bruce@chinook.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@chinook.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA08119; Wed, 1 Mar 1995 11:04:51 -0700
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01123; Wed, 1 Mar 1995 11:04:48 -0700
+Date: Wed, 1 Mar 1995 11:04:48 -0700
+Message-Id: <199503011804.LAA01123@adelie.atd.ucar.edu>
+To: ron@chinook.atd.ucar.EDU
+Subject: Re: BASE
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 173
+Status: RO
+
+Ron,
+
+I have started to process the BASE data.  I have done several flights and
+the rest should go faster as the data system was working better later in the
+project.
+
+Bruce
+
+From ron Wed Apr 12 15:29:51 1995
+Subject: BASE date problems
+To: bruce (Bruce Morley)
+Date: Wed, 12 Apr 1995 15:29:51 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1515      
+Status: RO
+
+Bruce,
+
+FYI
+
+   I renamed the production output files for 4-120 BASE in the
+`/home/productiondata' directory to follow my standard naming convention.
+They are very similar to your names, except that I added `RF' between the
+project number and flight number, and I capitalized the segment letter.
+For example:  12018a.cdf  -->  120RF18A.cdf
+
+   The following flights have no date in the netCDF header:  RF07, RF12
+and RF17.  Its entry looks like this:
+  RF07   :FlightDate = " " ;
+  RF12   :FlightDate = " " ;
+  RF17   :FlightDate = " " ;
+Most of the other flights have an incorrect date:
+  RF04   :FlightDate = "01/00/1994 " ;
+  RF10   :FlightDate = "03/26/1994 " ;
+  RF11   :FlightDate = "03/28/1994 " ;
+  RF13   :FlightDate = "01/00/1993 " ;
+  RF14   :FlightDate = "04/02/1994 " ;
+  RF15   :FlightDate = "04/04/1994 " ;
+  RF16   :FlightDate = "01/00/1994 " ;
+  RF18A  :FlightDate = "04/10/1993 " ;
+I wasn't aware that so many of them need fixing.
+
+   For some reason, RF03A has multiple time segments.  It shows three of
+them, but the last is "-1:00:00-00:00:00."  This usually indicates that
+the end time could not be found before the EOF.  I'm not sure what, if
+anything, is wrong, but it may be prudent to rerun RF03A with a time slice
+of 18:24:54-18:58:58.  I know that a program like `ncplot' won't be able
+to access the data beyond the first time gap which occurred at 18:54:00.
+
+   My data log file (taplog.120) is in the `120/Production' directory in
+case you want to review these summary data.
+
+-- 
+Ron
+
+From ron Fri Apr 14 14:50:48 1995
+Subject: 120 Archive
+To: bruce (Bruce Morley)
+Date: Fri, 14 Apr 1995 14:50:48 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 521       
+Status: RO
+
+Bruce,
+
+I archived to the SCD Mass Store System (MSS) the LRT netCDF data in the
+Production directory for 4-120 BASE.  I know you still need to manipulate
+the date information in the netCDF headers, but this will safeguard the
+data until you want to archive the corrected versions.
+
+A current Mass Store directory list is in the file:
+   /home/local/proj/archives/msfiles/msls.120
+
+The MSS bitfile log (such as it is with incorrect and missing dates)
+is in the file:  /home/local/proj/120/Production/taplog.120
+
+-- 
+Ron
+
+From ron Tue Apr 25 16:20:15 1995
+Subject: Files in ~nimbus directory
+To: bruce (Bruce Morley)
+Date: Tue, 25 Apr 1995 16:20:15 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 801       
+Status: RO
+
+Bruce,
+
+There are a number of files in the `nimbus' home directory that I'd like
+to move.  Can you tell me if any are yours, and, if so, what is their
+purpose?  I assume that the 120 subdirectory (which I should archive) has
+the special version of NIMBUS used to process your project's data.
+ 
+Thanks.
+ 
+Directory:  /home/users/nimbus
+drwxrwxr-x   3 nimbus   proj         512 Feb 16 09:31 120/
+drwxrwxr-x   2 nimbus   proj        3072 Apr 20 16:33 818/
+-rw-rw-r--   1 nimbus   proj         350 Feb 21 10:33 CO_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:39 XNOY_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:36 XNO_zero.pts
+-rw-rw-r--   1 nimbus   proj           0 Feb 14 12:53 XNST_zero.pts
+-rw-rw-r--   1 nimbus   proj         154 Feb 21 10:41 XSO2S_zero.pts
+
+-- 
+Ron
+
+From bruce Fri Apr 28 12:31 MDT 1995
+Date: Fri, 28 Apr 1995 12:31:33 -0600
+From: bruce (Bruce Morley)
+Return-Path: <bruce>
+Message-Id: <199504281831.MAA02163@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA02163; Fri, 28 Apr 1995 12:31:33 -0600
+To: ron@raf.atd.ucar.EDU
+Subject: Re: Files in ~nimbus directory
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1212
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> There are a number of files in the `nimbus' home directory that I'd like
+> to move.  Can you tell me if any are yours, and, if so, what is their
+> purpose?  I assume that the 120 subdirectory (which I should archive) has
+> the special version of NIMBUS used to process your project's data.
+>  
+> Thanks.
+>  
+> Directory:  /home/users/nimbus
+> drwxrwxr-x   3 nimbus   proj         512 Feb 16 09:31 120/
+> drwxrwxr-x   2 nimbus   proj        3072 Apr 20 16:33 818/
+> -rw-rw-r--   1 nimbus   proj         350 Feb 21 10:33 CO_zero.pts
+> -rw-rw-r--   1 nimbus   proj         267 Feb 21 10:39 XNOY_zero.pts
+> -rw-rw-r--   1 nimbus   proj         267 Feb 21 10:36 XNO_zero.pts
+> -rw-rw-r--   1 nimbus   proj           0 Feb 14 12:53 XNST_zero.pts
+> -rw-rw-r--   1 nimbus   proj         154 Feb 21 10:41 XSO2S_zero.pts
+> 
+Ron,
+
+I don't know anything about the *zero.pts files.  I also do not have any
+knowledge about the 818 directory (BOREAS?).  The 120 directory is the
+BASE directory.
+
+Chris has a program to correct the BASE date.  I haven't tried it.  I think
+I have the correct dates with me but have not looked for them yet.  I may need
+your help in testing that program.
+
+Bruce
+
+
+From ron Mon May  8 16:11:17 1995
+Subject: AIMR data archived
+To: julie (Julie Haggerty)
+Date: Mon, 8 May 1995 16:11:17 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1322      
+Status: RO
+
+Julie,
+
+I have archived to the MSS all the aimr*.dat files in the `/home/data'
+directory.  I'm ready for the next batch.
+
+Pretty fast, huh!  :)
+
+/home/data directory list:
+-------------------------
+-rw-rw-r--   1 julie    science  20273664 May  8 09:43 aimr4-1.dat
+-rw-rw-r--   1 julie    science  27416064 May  8 09:52 aimr4-2.dat
+-rw-rw-r--   1 julie    science  63839232 May  8 10:10 aimr4-3.dat
+-rw-rw-r--   1 julie    science  55755264 May  8 10:33 aimr5-1.dat
+-rw-rw-r--   1 julie    science  3684864 May  8 10:41 aimr6-1.dat
+-rw-rw-r--   1 julie    science  63244800 May  8 10:59 aimr6-2.dat
+-rw-rw-r--   1 julie    science  63431168 May  8 11:39 aimr7-1.dat
+-rw-rw-r--   1 julie    science  23958528 May  8 11:47 aimr7-2.dat
+-rw-rw-r--   1 julie    science  2532864 May  8 14:29 aimr9-1.dat
+-rw-rw-r--   1 julie    science  63120384 May  8 14:46 aimr9-2.dat
+
+Mass Store directory list:
+-------------------------
+/RAF/1994/120/AIMR as of 05/08/95 16:00:00
+05/08/95 -WD-  20273664 TAPE/RF04A
+05/08/95 -WD-  27416064 TAPE/RF04B
+05/08/95 -W-S  63839232 TAPE/RF04C
+05/08/95 -W-S  55755264 TAPE/RF05
+05/08/95 -WD-   3684864 TAPE/RF06A
+05/08/95 -W-S  63244800 TAPE/RF06B
+05/08/95 -W-S  63431168 TAPE/RF07A
+05/08/95 -WD-  23958528 TAPE/RF07B
+05/08/95 -WD-   2532864 TAPE/RF09A
+05/08/95 -W-S  63120384 TAPE/RF09B
+
+-- 
+Ron
+
+From julie@raf.atd.ucar.EDU Mon May  8 16:13 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA29785; Mon, 8 May 1995 16:13:28 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA29689; Mon, 8 May 1995 16:13:20 -0600
+Date: Mon, 8 May 1995 16:13:20 -0600
+Message-Id: <199505082213.QAA29689@giselle.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: AIMR data archived
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 145
+Status: RO
+
+Wow, that was fast! Thanks. I'll have some more files ready for
+you shortly (though I can't read tapes as fast as you can move
+files...).
+
+Julie
+
+From ron Tue May  9 12:39:16 1995
+Subject: Re: more aimr data
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Tue, 9 May 1995 12:39:16 -0600 (MDT)
+In-Reply-To: <199505091524.JAA00097@giselle.atd.ucar.edu> from "Julie Haggerty" at May 9, 95 09:24:47 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 509       
+Status: RO
+
+Julie,
+
+I got an email messages this morning saying that both the MSS and MIGS are
+down.  I have not received word that either of them are back up.  Therefore,
+I have prepared an archive job but have not submitted it yet.  I have a
+MSS Advisory Committee Meeting this afternoon, so I hope to submit the job
+then (hoping everything is back to normal).
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From julie@raf.atd.ucar.EDU Tue May  9 09:25 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA02970; Tue, 9 May 1995 09:25:00 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA00097; Tue, 9 May 1995 09:24:47 -0600
+Date: Tue, 9 May 1995 09:24:47 -0600
+Message-Id: <199505091524.JAA00097@giselle.atd.ucar.edu>
+To: ron
+Subject: more aimr data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 139
+Status: RO
+
+Hi, there are some more files in /home/local/data. I'll delete
+them as soon as I hear you've moved them to the mass store.
+
+Thanks.
+
+Julie
+
+From ron Tue May  9 16:29:27 1995
+Subject: Re: more aimr data
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Tue, 9 May 1995 16:29:27 -0600 (MDT)
+In-Reply-To: <199505091524.JAA00097@giselle.atd.ucar.edu> from "Julie Haggerty" at May 9, 95 09:24:47 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1557      
+Status: RO
+
+Julie,
+
+I have archived to the MSS the next batch of aimr*.dat files in the
+`/home/data' directory.  I'm ready for more.
+
+/home/data directory list:
+-------------------------
+-rw-rw-r--   1 julie    science  36278272 Oct 21  1994 aimr10-1.dat
+-rw-rw-r--   1 julie    science  63410176 Oct 21  1994 aimr10-2.dat
+-rw-rw-r--   1 julie    science  63171584 Oct 21  1994 aimr10-3.dat
+-rw-rw-r--   1 julie    science  64599040 Oct 21  1994 aimr10-4.dat
+-rw-rw-r--   1 julie    science  64232448 Oct 21  1994 aimr10-5.dat
+-rw-rw-r--   1 julie    science  64057344 Oct 18  1994 aimr11-1.dat
+-rw-rw-r--   1 julie    science      1024 Oct 18  1994 aimr11-2.dat
+-rw-rw-r--   1 julie    science  29323264 Oct 18  1994 aimr11-3.dat
+-rw-rw-r--   1 julie    science      1024 Oct 18  1994 aimr11-4.dat
+-rw-rw-r--   1 julie    science  35589120 Oct 18  1994 aimr11-5.dat
+-rw-rw-r--   1 julie    science  63656960 Oct 18  1994 aimr12-1.dat
+-rw-rw-r--   1 julie    science  63691776 Oct 18  1994 aimr12-2.dat
+-rw-rw-r--   1 julie    science  39796736 Oct 18  1994 aimr12-3.dat
+-rw-rw-r--   1 julie    science  63388672 Oct 20  1994 aimr13-1.dat
+-rw-rw-r--   1 julie    science  63757312 Oct 20  1994 aimr13-2.dat
+-rw-rw-r--   1 julie    science  64572416 Oct 20  1994 aimr13-3.dat
+-rw-rw-r--   1 julie    science  63642624 Oct 20  1994 aimr13-4.dat
+-rw-rw-r--   1 julie    science  25438208 Oct 20  1994 aimr13-5.dat
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From julie@raf.atd.ucar.EDU Wed May 10 14:42 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA19734; Wed, 10 May 1995 14:42:03 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA00730; Wed, 10 May 1995 14:41:57 -0600
+Date: Wed, 10 May 1995 14:41:57 -0600
+Message-Id: <199505102041.OAA00730@giselle.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: more aimr data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 160
+Status: RO
+
+Ron,
+
+The remaining AIMR files from BASE are on /home/local/data now.
+I would also like to archive the files from Telford. There are
+only a few of them.
+
+Julie
+
+From julie@chinook.atd.ucar.EDU Tue Nov  1 16:00:04 1994
+Received: from giselle.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id QAA10014; Tue, 1 Nov 1994 16:00:03 -0700
+Date: Tue, 1 Nov 94 16:00:19 MST
+Message-Id: <9411012300.AA02828@giselle>
+Received: by giselle (4.1/ NCAR Mail Client 04/19/90)
+	id AA02828; Tue, 1 Nov 94 16:00:19 MST
+To: ron@chinook.atd.ucar.EDU
+Subject: Re: AIMR data archive
+Status: RO
+
+> Julie,
+> 
+> In addition to the problems with the KuDA data on the SCD Mass Store System
+> (MSS), I like to discuss plans for archiving the AIMR data.  When your
+> schedule frees up, let's get together.
+> 
+
+Okay, I'm interested in talking to you and hearing your suggestions for
+both KuDA and AIMR data. My schedule is fairly open tomorrow or early next 
+week.
+
+Julie
+
+From julie@chinook.atd.ucar.EDU Tue Nov  1 16:10:36 1994
+Received: from giselle.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id QAA10162; Tue, 1 Nov 1994 16:10:35 -0700
+Date: Tue, 1 Nov 94 16:10:51 MST
+Message-Id: <9411012310.AA02831@giselle>
+Received: by giselle (4.1/ NCAR Mail Client 04/19/90)
+	id AA02831; Tue, 1 Nov 94 16:10:51 MST
+To: ron@chinook.atd.ucar.EDU
+Subject: Re: AIMR data archive
+Status: RO
+
+> 
+> Julie,
+> 
+> I'm free tomorrow before about 3:00 p.m.  Should I just drop down to your
+> office sometime during the day or do you want something more formal?
+> 
+
+Just drop by whenever you feel like it. I should be around all day.
+
+Julie
+
+From ron Wed May 10 15:19:21 1995
+Subject: Re: more aimr data
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Wed, 10 May 1995 15:19:21 -0600 (MDT)
+In-Reply-To: <199505102041.OAA00730@giselle.atd.ucar.edu> from "Julie Haggerty" at May 10, 95 02:41:57 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 589       
+Status: RO
+
+Thoust spake thusly:
+> 
+> Ron,
+> 
+> The remaining AIMR files from BASE are on /home/local/data now.
+> I would also like to archive the files from Telford. There are
+> only a few of them.
+> 
+Julie,
+
+I have submitted jobs to archive the remaining `aimr*.dat' files in
+the directory /home/local/data.
+
+As for the Telford project, just save the files with an unique naming
+scheme, and I'll archive them in the same manner as for BASE.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu May 11 15:58:40 1995
+Subject: Re: more aimr data
+To: julie (Julie Haggerty)
+Date: Thu, 11 May 1995 15:58:40 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 4116      
+Status: RO
+
+Julie,
+
+I have archived to the MSS the "last" batch of aimr*.dat files in the
+`/home/data' directory.  I'm ready for Telford.
+
+/home/data directory list:
+-------------------------
+-rw-rw-r--   1 julie    science  7111680 Oct 20  1994 aimr14-1.dat
+-rw-rw-r--   1 julie    science  63086592 Oct 20  1994 aimr14-2.dat
+-rw-rw-r--   1 julie    science  65001472 Oct 20  1994 aimr14-3.dat
+-rw-rw-r--   1 julie    science  62178304 Oct 20  1994 aimr14-4.dat
+-rw-rw-r--   1 julie    science  63976448 Oct 20  1994 aimr15-1.dat
+-rw-rw-r--   1 julie    science  63202304 Oct 20  1994 aimr15-2.dat
+-rw-rw-r--   1 julie    science  15928320 Oct 20  1994 aimr15-3.dat
+-rw-rw-r--   1 julie    science  63511552 Oct 20  1994 aimr15-4.dat
+-rw-rw-r--   1 julie    science  63156224 Oct 20  1994 aimr15-5.dat
+-rw-rw-r--   1 julie    science  17786880 Oct 20  1994 aimr15-6.dat
+-rw-rw-rw-   1 julie    science  63824896 Oct 22  1994 aimr16-1.dat
+-rw-rw-rw-   1 julie    science  63426560 Oct 22  1994 aimr16-2.dat
+-rw-rw-rw-   1 julie    science  3928064 Oct 22  1994 aimr16-3.dat
+-rw-rw-rw-   1 julie    science  54004736 Oct 22  1994 aimr16-4.dat
+-rw-rw-rw-   1 julie    science  63960064 Oct 22  1994 aimr16-5.dat
+-rw-rw-rw-   1 julie    science  10620928 Oct 22  1994 aimr16-6.dat
+-rw-rw-r--   1 julie    science  64281600 Oct 24  1994 aimr17-1.dat
+-rw-rw-r--   1 julie    science  63753216 Oct 24  1994 aimr17-2.dat
+-rw-rw-r--   1 julie    science  65376256 Oct 24  1994 aimr17-3.dat
+-rw-rw-r--   1 julie    science  37432320 Oct 24  1994 aimr17-4.dat
+-rw-rw-r--   1 julie    science  64292864 Nov 21 14:38 aimr120-18-1
+-rw-rw-r--   1 julie    science  34763776 Nov 21 14:47 aimr120-18-2
+-rw-rw-r--   1 julie    science  64045056 Nov 22 06:01 aimr120-18-3
+-rw-rw-r--   1 julie    science  63867904 Nov 22 11:42 aimr120-18-4
+-rw-rw-r--   1 julie    science  63779840 Nov 22 15:32 aimr120-19-1
+-rw-rw-r--   1 julie    science  62685184 Nov 22 15:48 aimr120-19-2
+
+MSS:/RAF/1994/120/AIMR/TAPE as of 05/11/95 15:43:38:
+---------------------------------------------------
+05/08/95 -WD-  20273664 RF04A
+05/08/95 -WD-  27416064 RF04B
+05/08/95 -W-S  63839232 RF04C
+05/08/95 -W-S  55755264 RF05
+05/08/95 -WD-   3684864 RF06A
+05/08/95 -W-S  63244800 RF06B
+05/08/95 -W-S  63431168 RF07A
+05/08/95 -WD-  23958528 RF07B
+05/08/95 -WD-   2532864 RF09A
+05/08/95 -W-S  63120384 RF09B
+05/09/95 -W-S  36278272 RF10A
+05/09/95 -W-S  63410176 RF10B
+05/09/95 -W-S  63171584 RF10C
+05/09/95 -W-S  64599040 RF10D
+05/09/95 -W-S  64232448 RF10E
+05/09/95 -W-S  64057344 RF11A
+05/09/95 -WD-      1024 RF11B
+05/09/95 -WD-  29323264 RF11C
+05/09/95 -WD-      1024 RF11D
+05/09/95 -W-S  35589120 RF11E
+05/09/95 -W-S  63656960 RF12A
+05/09/95 -W-S  63691776 RF12B
+05/09/95 -W-S  39796736 RF12C
+05/09/95 -W-S  63388672 RF13A
+05/09/95 -W-S  63757312 RF13B
+05/09/95 -W-S  64572416 RF13C
+05/09/95 -W-S  63642624 RF13D
+05/09/95 -WD-  25438208 RF13E
+05/10/95 -WD-   7111680 RF14A
+05/10/95 -W-S  63086592 RF14B
+05/10/95 -W-S  65001472 RF14C
+05/10/95 -W-S  62178304 RF14D
+05/10/95 -W-S  63976448 RF15A
+05/10/95 -W-S  63202304 RF15B
+05/10/95 -WD-  15928320 RF15C
+05/10/95 -W-S  63511552 RF15D
+05/10/95 -W-S  63156224 RF15E
+05/10/95 -WD-  17786880 RF15F
+05/10/95 -W-S  63824896 RF16A
+05/10/95 -W-S  63426560 RF16B
+05/10/95 -WD-   3928064 RF16C
+05/10/95 -W-S  54004736 RF16D
+05/10/95 -W-S  63960064 RF16E
+05/10/95 -WD-  10620928 RF16F
+05/11/95 -W-S  64281600 RF17A
+05/11/95 -W-S  63753216 RF17B
+05/11/95 -W-S  65376256 RF17C
+05/11/95 -W-S  37432320 RF17D
+05/11/95 -W-S  64292864 RF18A
+05/11/95 -W-S  34763776 RF18B
+05/11/95 -W-S  64045056 RF18C
+05/11/95 -W-S  63867904 RF18D
+05/11/95 -W-S  63779840 RF19A
+05/11/95 -W-S  62685184 RF19B
+  Legend:  - -> no read password (anyone can read the bitfile)
+           W -> write protected (cannot change/delete file without password)
+           D -> file on disk farm (not in off-line cartridge library)
+           S -> file on Storage Tek Silo (not in off-line cartridge library)
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From julie@raf.atd.ucar.EDU Thu May 11 13:00 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA06649; Thu, 11 May 1995 13:00:55 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA01227; Thu, 11 May 1995 13:00:51 -0600
+Date: Thu, 11 May 1995 13:00:51 -0600
+Message-Id: <199505111900.NAA01227@giselle.atd.ucar.edu>
+To: ron
+Subject: more aimr files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 186
+Status: RO
+
+I thought I was finished, but I wasn't. The rest of the BASE
+flights are there now. I'll start with the Telford files once
+you are finished and I can clear some space on /home/data.
+
+jh
+
+From ron Tue Jun  6 10:34:38 1995
+Subject: BASE:  RF03A
+To: bruce (Bruce Morley)
+Date: Tue, 6 Jun 1995 10:34:38 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 440       
+Status: RO
+
+Bruce,
+
+I just noticed that there are 3 time intervals for RF03A including the bogus
+one at the end that normally indicates a lack of EOF on the raw ADS tape.
+I'll discuss with Chris the possibility of splitting up this file into two
+segments while omitting the bad one.  I'd like to avoid redoing the flight
+with specified time intervals.  (We can leave it alone, of course, but
+`ncplot' cannot access the second time interval.)
+
+-- 
+Ron
+
+From bruce@raf.atd.ucar.EDU Thu Jun  8 08:58 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA22506; Thu, 8 Jun 1995 08:58:27 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA00274; Thu, 8 Jun 1995 08:58:25 -0600
+Date: Thu, 8 Jun 1995 08:58:25 -0600
+Message-Id: <199506081458.IAA00274@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: nimbus for 4-120
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 490
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> Am I correct in assuming that the version of the NIMBUS software you used for
+> processing BASE was in the ~nimbus/120/nimbus directory (i.e., it read the
+> raw ADS data and produced the netCDF files located in /home/productiondata)?
+> (I have since moved that entire directory to /home/local/proj/120/Procuction.)
+> 
+> I just want to make sure I don't have to archive a second (normal production)
+> version of the processor.
+> 
+> -- 
+> Ron
+
+Ron,
+
+You are correct.
+
+Bruce
+
+From ron Wed Jun  7 14:42:27 1995
+Subject: nimbus for 4-120
+To: bruce (Bruce Morley)
+Date: Wed, 7 Jun 1995 14:42:27 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 432       
+Status: RO
+
+Bruce,
+
+Am I correct in assuming that the version of the NIMBUS software you used for
+processing BASE was in the ~nimbus/120/nimbus directory (i.e., it read the
+raw ADS data and produced the netCDF files located in /home/productiondata)?
+(I have since moved that entire directory to /home/local/proj/120/Procuction.)
+
+I just want to make sure I don't have to archive a second (normal production)
+version of the processor.
+
+-- 
+Ron
+
+From ron Thu Aug 31 16:28:34 1995
+Subject: Re: BASE flights
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Date: Thu, 31 Aug 1995 16:28:34 -0600 (MDT)
+In-Reply-To: <199508312222.QAA01269@adelie.atd.ucar.edu> from "Bruce Morley" at Aug 31, 95 04:22:38 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 570       
+Status: RO
+
+Thou spake thusly:
+> 
+> Judy and Jim,
+> 
+> The BASE flights are ready for your class.  Jim needs to contact Ron Ruth on
+> the best way to get a tape.  Ron's email address is ron@raf.atd.ucar.edu
+> 
+> Thanks for your patience.
+> 
+> Do you want copies of the down looking video tapes also?
+> 
+Bruce,
+
+It looks like I need to do some archiving.  I presume all the files are
+in the `/home/productiondata directory'.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Sep  1 10:07:45 1995
+Subject: Re: BASE data
+To: pinto@prester.Colorado.EDU (James Pinto)
+Date: Fri, 1 Sep 1995 10:07:45 -0600 (MDT)
+In-Reply-To: <199509011548.JAA07034@prester.Colorado.EDU> from "James Pinto" at Sep 1, 95 09:48:05 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 711       
+Status: RO
+
+Thou spake thusly:
+> 
+> 
+> Hi Ron,
+> 
+> Can you send the updated BASE data tape to me in the same format as
+> before? I believe that was netcdf, high density.
+> 
+> Thanks,
+Jim,
+
+Bruce just finished up the production processing yesterday, and I still have
+to archive the data to our Mass Store.  When that is completed (hopefully
+before the end of today), I will prepare your netCDF tape in the same format
+as last time (high-density ExaByte tape with one large tar file).
+
+I'll let you know when it is on its way to you (I would guess early next
+week).
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Sep  1 16:36:11 1995
+Subject: 120 Production wrap-up
+To: bruce (Bruce Morley)
+Date: Fri, 1 Sep 1995 16:36:11 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1857      
+Status: RO
+
+Bruce,
+
+This email is the first of, perhaps, a few I may be sending you with
+informationand/or requests for information, etc. regarding 120 BASE.
+
+I received an email from Jim Pinto (CU) for a copy of the new data sets.  I am
+now in the process of archiving all the data and support files.  I prepared a
+single `tar' file of all the production netCDF data files (easy to do if they
+are not too large).  I will give it to Jean Hurst to copy onto a high-density
+ExaByte tape.  This will be much faster than going through the Mass Store.
+
+I am now preparing to archive all the data and support files.  
+
+I have some requests for you:
+ 1.)  You mentioned to me, in passing yesterday, that I should archive
+      the program that rewrites the netCDF headers that correct the dates.
+      I did not remember the name of the program or where to find it.
+      Please give me that information again (including a full path name).
+      Also, if there are any support files that it needed, please give me
+      information on those, too.
+ 2.)  I would like to put a README file on the Mass Store that briefly
+      summarizes this project.  Please write one and put it in the
+      `...120/Production' directory.  Then I can easily archive it along
+      with the other files.  To save you a lot of time, I suppose the file
+      could be comprised mainly of your QC report.
+ 3.)  I looked in the 120RF04.cdf header and found two undefined
+      variables:  XKT and XKT1.    It would be a good idea to include
+      descriptions of these both in the README file and in the Project
+      Summary binder that you are preparing.
+
+Finally, some questions:
+ 1.)  What are your plans for the AIMR and the PMS-2D data?
+ 2.)  I understand that Krista cannot do anything with the MCR data.
+      Is this true?
+ 3.)  How are you coming on the Project Summary binder?
+
+-- 
+Ron
+
+From ron Fri Sep  1 16:59:34 1995
+Subject: NIMBUS version
+To: bruce (Bruce Morley)
+Date: Fri, 1 Sep 1995 16:59:34 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 213       
+Status: RO
+
+Bruce,
+
+I just thought of another question.  Which version of NIMBUS was used to
+process your data?  Was it the one in the `...120/Production/nimbus'
+directory?  I need to know what to archive.
+
+Thanks.
+
+-- 
+Ron
+
+From ron Tue Sep  5 11:18:12 1995
+Subject: Re: ncfixhdr
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Date: Tue, 5 Sep 1995 11:18:12 -0600 (MDT)
+In-Reply-To: <199509051531.JAA01477@adelie.atd.ucar.edu> from "Bruce Morley" at Sep 5, 95 09:31:22 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 330       
+Status: RO
+
+Bruce,
+
+Thanks for all the information.  One further question:  When you fixed the
+headers, how did you get the "correct" information to `ncfixhdr' so it
+could do its job?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Tue Sep  5 11:45 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA10669; Tue, 5 Sep 1995 11:45:37 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01515; Tue, 5 Sep 1995 11:45:30 -0600
+Date: Tue, 5 Sep 1995 11:45:30 -0600
+Message-Id: <199509051745.LAA01515@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: ncfixhdr
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 689
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> Thanks for all the information.  One further question:  When you fixed the
+> headers, how did you get the "correct" information to `ncfixhdr' so it
+> could do its job?
+> 
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+Ron,
+
+The way I used the program was to be in the directory where the data file was
+(/home/productiondata) and to be logged in as nimbus.  Enter the following
+command
+
+ncfixhdr FILE_NAME
+
+You are asked for the new date which you enter and the new file is written over 
+the old file.
+
+Let me know if you have any more questions.
+
+Bruce
+
+
+
+From hurst@stout.atd.ucar.edu Wed Sep  6 12:59 MDT 1995
+Return-Path: <hurst@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA19442; Wed, 6 Sep 1995 12:59:46 -0600
+Received: from doppelbock.atd.ucar.edu.atd.ucar.EDU by atd.atd.ucar.EDU (8.6.10/ NCAR Mail Server 04/10/90)
+	id MAA11640; Wed, 6 Sep 1995 12:59:25 -0600
+Received: by doppelbock.atd.ucar.edu (8.6.10/ NCAR Mail Client 04/19/90)
+	id MAA14139; Wed, 6 Sep 1995 12:59:24 -0600
+From: hurst@stout.atd.ucar.edu (Jean Hurst)
+Message-Id: <199509061859.MAA14139@doppelbock.atd.ucar.edu>
+Subject: pinto's tar tape
+To: ron@stout.atd.ucar.edu (Ron Ruth)
+Date: Wed, 6 Sep 1995 12:59:23 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL22]
+Content-Type: text
+Content-Length: 159
+Status: RO
+
+Ron,
+
+I rewrote James Pinto's tar tape and it wrote fine this time, with all
+the files in it.  You can tell him the tape is in the mail, if you'd like.
+
+Jean
+
+
+From bruce@raf.atd.ucar.EDU Thu Aug 31 16:22 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA22381; Thu, 31 Aug 1995 16:22:41 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA01269; Thu, 31 Aug 1995 16:22:38 -0600
+Date: Thu, 31 Aug 1995 16:22:38 -0600
+Message-Id: <199508312222.QAA01269@adelie.atd.ucar.edu>
+To: curryja@colorado.edu, pinto@prester.Colorado.EDU
+Subject: Re: BASE flights
+Cc: ron
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 258
+Status: RO
+
+Judy and Jim,
+
+The BASE flights are ready for your class.  Jim needs to contact Ron Ruth on the
+best way to get a tape.  Ron's email address is ron@raf.atd.ucar.edu
+
+Thanks for your patience.
+
+Do you want copies of the down looking video tapes also?
+
+Bruce
+
+
+From bruce@raf.atd.ucar.EDU Thu Aug 31 16:40 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA22457; Thu, 31 Aug 1995 16:40:22 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA01272; Thu, 31 Aug 1995 16:40:19 -0600
+Date: Thu, 31 Aug 1995 16:40:19 -0600
+Message-Id: <199508312240.QAA01272@adelie.atd.ucar.edu>
+To: ron
+Subject: Re: BASE flights
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 314
+Status: RO
+
+Ron,
+
+You are correct.  All the files are in the /home/production directory.
+
+Another program to archive is /home/local/dev/nimbus/src/wrk/ncfixhdr.  This is
+the program that Chris wrote to correct the date in the processed data.
+
+I will talk to you on Monday.  Tomorrow I will be in Albuquerque.
+
+Thanks,
+
+Bruce
+
+
+From pinto@prester.Colorado.EDU Fri Sep  1 09:50 MDT 1995
+Return-Path: <pinto@prester.Colorado.EDU>
+Received: from prester.Colorado.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA25260; Fri, 1 Sep 1995 09:50:14 -0600
+Received: (from pinto@localhost) by prester.Colorado.EDU (8.6.12/8.6.11/Unixops/Hesiod/(SDM)) id JAA07034 for ron@raf.atd.ucar.EDU; Fri, 1 Sep 1995 09:48:05 -0600
+Date: Fri, 1 Sep 1995 09:48:05 -0600
+From: James Pinto <pinto@prester.Colorado.EDU>
+Message-Id: <199509011548.JAA07034@prester.Colorado.EDU>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: BASE data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 231
+Status: RO
+
+
+Hi Ron,
+
+Can you send the updated BASE data tape to me in the same format as
+before? I believe that was netcdf, high density.
+
+Thanks,
+James Pinto
+
+My campus address is
+
+University of Colorado
+PAOS, Box 311
+Boulder, CO 80309-0311
+
+From ron Wed Sep  6 13:30:55 1995
+Subject: Re: pinto's tar tape
+To: hurst@stout.atd.ucar.edu (Jean Hurst)
+Date: Wed, 6 Sep 1995 13:30:55 -0600 (MDT)
+In-Reply-To: <199509061859.MAA14139@doppelbock.atd.ucar.edu> from "Jean Hurst" at Sep 6, 95 12:59:23 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 378       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron,
+> 
+> I rewrote James Pinto's tar tape and it wrote fine this time, with all
+> the files in it.  You can tell him the tape is in the mail, if you'd like.
+> 
+Jean,
+
+Thanks.  I'll let him know.
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Wed Sep  6 15:28:50 1995
+Subject: Re: BASE data
+To: pinto@prester.Colorado.EDU (James Pinto)
+Date: Wed, 6 Sep 1995 15:28:50 -0600 (MDT)
+In-Reply-To: <199509011548.JAA07034@prester.Colorado.EDU> from "James Pinto" at Sep 1, 95 09:48:05 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1644      
+Status: RO
+
+Jim,
+
+The high-density ExaByte tape with one tar file having all the production
+output netCDF files for the 5-120 BASE project was put in the NCAR mail
+today.  Below is a list of its contents.
+
+If all goes well, you should receive it by Friday.  Please let me know when
+you receive it and if you have any problems.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+tar tvf 120_data.tar
+-rw-r--r-- 130/230  1939328 Aug 16 12:40 1995 120RF03A.cdf
+-rw-r--r-- 130/230  3168080 Aug 21 09:32 1995 120RF03B.cdf
+-rw-r--r-- 130/230 16190864 Aug 18 09:46 1995 120RF03C.cdf
+-rw-rw-r-- 130/230 32046052 Aug 31 15:40 1995 120RF04.cdf
+-rw-rw-r-- 130/230 17747220 Aug 31 15:45 1995 120RF05.cdf
+-rw-rw-r-- 130/230 26238140 Aug 31 15:48 1995 120RF06.cdf
+-rw-rw-r-- 130/230 31218532 Aug 31 15:53 1995 120RF07.cdf
+-rw-rw-r-- 130/230 32837800 Aug 31 15:54 1995 120RF10.cdf
+-rw-rw-r-- 130/230 31671264 Aug 31 15:57 1995 120RF11.cdf
+-rw-rw-r-- 130/230 27543952 Aug 31 15:59 1995 120RF12.cdf
+-rw-rw-r-- 130/230 32525712 Aug 31 16:00 1995 120RF13.cdf
+-rw-rw-r-- 130/230 31753616 Aug 31 16:02 1995 120RF14.cdf
+-rw-rw-r-- 130/230 31042960 Aug 31 16:04 1995 120RF15.cdf
+-rw-rw-r-- 130/230 30283152 Aug 31 16:05 1995 120RF16.cdf
+-rw-rw-r-- 130/230 26751300 Aug 31 16:06 1995 120RF17.cdf
+-rw-rw-r-- 130/230 13946340 Aug 31 16:09 1995 120RF18A.cdf
+-rw-rw-r-- 130/230 18830044 Aug 31 16:11 1995 120RF18B.cdf
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From pinto@monsoon.Colorado.EDU Fri Sep  8 10:59 MDT 1995
+Return-Path: <pinto@monsoon.Colorado.EDU>
+Received: from monsoon.Colorado.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA08073; Fri, 8 Sep 1995 10:59:14 -0600
+Received: (from pinto@localhost) by monsoon.Colorado.EDU (8.6.12/8.6.11/Unixops/Hesiod/(SDM)) id KAA12155 for ron@raf.atd.ucar.EDU; Fri, 8 Sep 1995 10:58:40 -0600
+Date: Fri, 8 Sep 1995 10:58:40 -0600
+From: James Pinto <pinto@monsoon.Colorado.EDU>
+Message-Id: <199509081658.KAA12155@monsoon.Colorado.EDU>
+To: ron@raf.atd.ucar.EDU
+Subject: BASE data
+Content-Type: text
+Content-Length: 55
+Status: RO
+
+
+Ron,
+
+I received the data today. Thanks much. 
+
+James
+
+From ron Fri Sep  8 11:01:17 1995
+Subject: Re: BASE data
+To: pinto@monsoon.Colorado.EDU (James Pinto)
+Date: Fri, 8 Sep 1995 11:01:17 -0600 (MDT)
+In-Reply-To: <199509081658.KAA12155@monsoon.Colorado.EDU> from "James Pinto" at Sep 8, 95 10:58:40 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 209       
+Status: RO
+
+James,
+
+You're welcome.  Hope it meets your needs.
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Tue Sep  5 09:31 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA08479; Tue, 5 Sep 1995 09:31:24 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA01477; Tue, 5 Sep 1995 09:31:22 -0600
+Date: Tue, 5 Sep 1995 09:31:22 -0600
+Message-Id: <199509051531.JAA01477@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: ncfixhdr
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 558
+Status: RO
+
+Ron,
+
+The program to fix the NetCDF file date is ncfixhdr.  It is in the 
+/home/local/dev/nimbus/src/wrk directory.
+
+The version of nimbus that I used to process the BASE data is in the
+/home/local/proj/120/Production/nimbus/src/filter directory.
+
+XKT and XKT1 are both heinmann radiometer surface temperatures.
+
+Julie is working on the AIRM data and will pass it on to the PI's.
+
+Krista tells me that the MCR data can not be used.  There is no calibration
+data for the MCR and there are no plans to do one that will make the BASE
+data recoverable.  
+
+Bruce
+
+From ron Fri Sep 15 14:06:51 1995
+Subject: Re: BASE data (fwd)
+To: darrel (Darrel Baumgardner)
+Date: Fri, 15 Sep 1995 14:06:51 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 811       
+Status: RO
+
+Forwarded message:
+> From pinto@prester.Colorado.EDU Fri Sep 15 12:49 MDT 1995
+> Date: Fri, 15 Sep 1995 12:46:28 -0600
+> From: James Pinto <pinto@prester.Colorado.EDU>
+> Message-Id: <199509151846.MAA09516@prester.Colorado.EDU>
+> To: ron@raf.atd.ucar.EDU
+> Subject: Re: BASE data
+> X-Sun-Charset: US-ASCII
+> Content-Type: text
+> Content-Length: 129
+> 
+> 
+> Hi Ron,
+> 
+> We are interested in obtaining a copy of the PMS 2D data on
+> exabyte tape(s) for each BASE flight.
+> 
+> Thanks a ton,
+> James
+
+Darrel,
+
+James (who works with Judy Curry) already has the NIMBUS production netCDF
+output data for the BASE project.  I have no idea the status of PMS-2D
+processing here.  As a start, we can make copies for him of the raw ADS data
+tapes.  Can you help him from there?
+
+Please keep me informed.  Thanks.
+
+-- 
+Ron
+
+From pinto@prester.Colorado.EDU Fri Sep 15 12:49 MDT 1995
+Return-Path: <pinto@prester.Colorado.EDU>
+Received: from prester.Colorado.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA02991; Fri, 15 Sep 1995 12:49:50 -0600
+Received: (from pinto@localhost) by prester.Colorado.EDU (8.6.12/8.6.11/Unixops/Hesiod/(SDM)) id MAA09516 for ron@raf.atd.ucar.EDU; Fri, 15 Sep 1995 12:46:28 -0600
+Date: Fri, 15 Sep 1995 12:46:28 -0600
+From: James Pinto <pinto@prester.Colorado.EDU>
+Message-Id: <199509151846.MAA09516@prester.Colorado.EDU>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: BASE data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 129
+Status: RO
+
+
+Hi Ron,
+
+We are interested in obtaining a copy of the PMS 2D data on
+exabyte tape(s) for each BASE flight.
+
+Thanks a ton,
+James
+
+From ron Fri Sep 15 14:19:17 1995
+Subject: Re: BASE data
+To: pinto@prester.Colorado.EDU (James Pinto)
+Date: Fri, 15 Sep 1995 14:19:17 -0600 (MDT)
+In-Reply-To: <199509151846.MAA09516@prester.Colorado.EDU> from "James Pinto" at Sep 15, 95 12:46:28 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 650       
+Status: RO
+
+Thou spake thusly:
+> 
+> Hi Ron,
+> 
+> We are interested in obtaining a copy of the PMS 2D data on
+> exabyte tape(s) for each BASE flight.
+> 
+James,
+
+Thanks for the inquiry.  Unlike the NIMBUS data, we have not paid enough
+attention to our PMS-2D processing.  I have asked Dr. Darrel Baumgardner,
+our resident PMS expert, to handle this request.  I certainly can provide
+you with data tapes, but Darrel is better equipped to handle the processing
+or to provide you with software to do the job.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From curryja@colorado.edu Wed Sep 27 11:46 MDT 1995
+From: curryja@colorado.edu
+Return-Path: <curryja@colorado.edu>
+Received: from cloud.Colorado.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA26542; Wed, 27 Sep 1995 11:45:56 -0600
+Received: from [128.138.208.11] (jac-new.colorado.edu) by cloud.Colorado.EDU with SMTP id AA24057
+  (5.65c/IDA-1.4.4 for <ron@raf.atd.ucar.edu>); Wed, 27 Sep 1995 11:43:28 -0600
+X-Sender: curryja@cloud.colorado.edu
+Message-Id: <ac8f4ae563021004a175@[128.138.208.11]>
+Mime-Version: 1.0
+Date: Wed, 27 Sep 1995 11:40:47 -0700
+To: ron@raf.atd.ucar.edu
+Subject: BASE data
+Cc: kosovic@cloud.colorado.edu, pinto@monsoon.colorado.edu
+Content-Type: text/plain; charset="us-ascii"
+Content-Length: 262
+Status: RO
+
+Ron,
+
+We have been going thru the BASE data that you sent it.  We find that there
+is no 20 Hz data on this tape.  We need 20 Hz data for all the wind
+components, temperature and humidity.  Is this available?  Can you send us
+the data?
+
+thanks alot
+
+Judy Curry
+
+
+
+From ron Wed Sep 27 12:33:39 1995
+Subject: BASE data (fwd)
+To: bruce (Bruce Morley)
+Date: Wed, 27 Sep 1995 12:33:39 -0600 (MDT)
+Cc: dick (Dick Friesen)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 953       
+Status: RO
+
+Bruce,
+
+Here is the formal request for high-rate BASE data.
+How should we handle this?
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+> From curryja@colorado.edu Wed Sep 27 11:46 MDT 1995
+> From: curryja@colorado.edu
+> X-Sender: curryja@cloud.colorado.edu
+> Message-Id: <ac8f4ae563021004a175@[128.138.208.11]>
+> Mime-Version: 1.0
+> Date: Wed, 27 Sep 1995 11:40:47 -0700
+> To: ron@raf.atd.ucar.edu
+> Subject: BASE data
+> Cc: kosovic@cloud.colorado.edu, pinto@monsoon.colorado.edu
+> Content-Type: text/plain; charset="us-ascii"
+> Content-Length: 262
+> 
+> Ron,
+> 
+> We have been going thru the BASE data that you sent it.  We find that there
+> is no 20 Hz data on this tape.  We need 20 Hz data for all the wind
+> components, temperature and humidity.  Is this available?  Can you send us
+> the data?
+> 
+> thanks alot
+> 
+> Judy Curry
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From bruce@raf.atd.ucar.EDU Wed Sep 27 13:20 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA27766; Wed, 27 Sep 1995 13:20:11 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA00726; Wed, 27 Sep 1995 13:20:05 -0600
+Date: Wed, 27 Sep 1995 13:20:05 -0600
+Message-Id: <199509271920.NAA00726@adelie.atd.ucar.edu>
+To: curryja@colorado.edu
+Subject: BASE 20hz data
+Cc: ron
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 618
+Status: RO
+
+Judy,
+
+The 20hz data is not routinely processed for all the flights.  The resulting
+NetCDF files would be huge.  Let me know what flight segments you are interested
+in and we will process the data for 20 hz output and get the tapes to you.  For
+example the ferry between Fairbanks and the north coast of Alaska probably
+doesn't contain interesting high rate data so there is no reason to process
+for high rate output.
+
+We have found that this works well as the investigator doesn't end up burried
+under a mountain of data and we only do high rate data processing on data that
+is potentially interesting.
+
+Bruce Morley
+
+From bruce@raf.atd.ucar.EDU Wed Sep 27 14:00 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA28593; Wed, 27 Sep 1995 14:00:31 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA00736; Wed, 27 Sep 1995 14:00:26 -0600
+Date: Wed, 27 Sep 1995 14:00:26 -0600
+Message-Id: <199509272000.OAA00736@adelie.atd.ucar.edu>
+To: curryja@colorado.edu
+Subject: Re: BASE 20hz data
+Cc: ron
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 168
+Status: RO
+
+Judy,
+
+Those time segments look OK.  I will start working on them.  Do you want them
+all at once or in smaller groups?  Is there a priority on certain flights?
+
+Bruce
+
+
+From bruce@raf.atd.ucar.EDU Wed Sep 27 14:01 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA28601; Wed, 27 Sep 1995 14:01:17 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA00738; Wed, 27 Sep 1995 14:01:11 -0600
+Date: Wed, 27 Sep 1995 14:01:11 -0600
+Message-Id: <199509272001.OAA00738@adelie.atd.ucar.edu>
+To: ron
+Subject: Re: BASE 20hz data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1028
+Status: RO
+
+Ron,
+
+Here is Judy's high rate request.
+
+Bruce
+
+----- Begin Included Message -----
+
+>From curryja@colorado.edu Wed Sep 27 13:51 MDT 1995
+From: curryja@colorado.edu
+X-Sender: curryja@cloud.colorado.edu
+Mime-Version: 1.0
+Date: Wed, 27 Sep 1995 13:46:44 -0700
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Subject: Re: BASE 20hz data
+Content-Type: text/plain; charset="us-ascii"
+Content-Length: 600
+
+Bruce, here are the segments we are interested in for 20 Hz.  I am giving
+just 1 or 2 (long) time slots for each flight we are interested in; these
+could be divided further into shorter legs if you prefer (i thought this
+would be easier tho)
+
+thanks
+
+Judy
+
+
+
+flight 4 9/25
+2300-2352
+
+flight 6 9/29
+2304-0003
+
+flight 7 10/1
+2102-0110
+
+flight 10 10/10
+2326-0030
+
+flight 11 10/12
+2007-2140
+2321-0028
+
+flight 12 10/14
+1959-2234
+
+flight 13 10/16
+2127-0010
+
+flight 14 10/17
+1941-1953
+2145-2342
+
+flight 15 10/19
+2100-0004
+
+flight 16 10/21
+2055-2345
+
+flight 17 10/23
+2105-2150
+
+flight 18 10/25
+2034-0001
+
+
+
+
+
+----- End Included Message -----
+
+
+From bruce@raf.atd.ucar.EDU Thu Oct 26 17:16 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id RAA12968; Thu, 26 Oct 1995 17:16:07 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id RAA02257; Thu, 26 Oct 1995 17:16:05 -0600
+Date: Thu, 26 Oct 1995 17:16:05 -0600
+Message-Id: <199510262316.RAA02257@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: obsolete MSS bitfiles
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 504
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> At present there are two obsolete 4-120 BASE netCDF data sets on the SCD
+> Mass Store System (MSS).  The first set apparently came from the "quick-look"
+> data and is in a directory called PRELIM.  The second set has the original
+> production processing that we had to redo and is in a directory called OLDLRT.
+> 
+> So far as I know, we don't want these data sets in the archive, so if it's OK
+> with you, I will delete them.
+> 
+> Thanks.
+> 
+> -- 
+> Ron
+It is OK to delete them.
+
+Bruce
+
+From bruce@raf.atd.ucar.EDU Thu Oct 26 17:17 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id RAA13007; Thu, 26 Oct 1995 17:16:59 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id RAA02259; Thu, 26 Oct 1995 17:16:57 -0600
+Date: Thu, 26 Oct 1995 17:16:57 -0600
+Message-Id: <199510262316.RAA02259@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: another BASE memo
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 654
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> I archived to the MSS the 4 high-rate BASE netCDF files that we sent to
+> Jim Pinto.  (The tar file we made for them was too big to put there.)  Is
+> there a need to keep local versions of these files, or can I purge them
+> from the `/home/productiondata' directory?
+> 
+> I could also ask the same question for the remaining low-rate BASE netCDF
+> files.  These have been archived, too.  Shall I purge them?
+> 
+> If you have any local need for any of these, we can keep them for awhile.
+> I'm just trying to clean things up.
+> 
+> -- 
+> Ron
+As long as they are archived on the Mass Store they can be deleted from the 
+local disk.
+
+Bruce
+
+From ron Thu Oct 26 17:09:40 1995
+Subject: another BASE memo
+To: bruce (Bruce Morley)
+Date: Thu, 26 Oct 1995 17:09:41 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 525       
+Status: RO
+
+Bruce,
+
+I archived to the MSS the 4 high-rate BASE netCDF files that we sent to
+Jim Pinto.  (The tar file we made for them was too big to put there.)  Is
+there a need to keep local versions of these files, or can I purge them
+from the `/home/productiondata' directory?
+
+I could also ask the same question for the remaining low-rate BASE netCDF
+files.  These have been archived, too.  Shall I purge them?
+
+If you have any local need for any of these, we can keep them for awhile.
+I'm just trying to clean things up.
+
+-- 
+Ron
+
+From pinto@prester.Colorado.EDU Mon Oct 30 18:08 MST 1995
+Return-Path: <pinto@prester.Colorado.EDU>
+Received: from prester.Colorado.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id SAA15463; Mon, 30 Oct 1995 18:08:20 -0700
+Received: (from pinto@localhost) by prester.Colorado.EDU (8.6.12/8.6.11/Unixops/Hesiod/(SDM)) id SAA18227 for ron@raf.atd.ucar.edu; Mon, 30 Oct 1995 18:06:11 -0700
+Date: Mon, 30 Oct 1995 18:06:11 -0700
+From: James Pinto <pinto@prester.Colorado.EDU>
+Message-Id: <199510310106.SAA18227@prester.Colorado.EDU>
+To: ron@raf.atd.ucar.edu
+Subject: BASE data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 347
+Status: RO
+
+Hi Ron,
+
+I was wondering if you could tell me the location of the
+BASE data on the Mass Store. I tried to:
+
+msread test /RAF/1994/120/LRT/RF03A and I get the error:
+
+Fatal - msread: Attempt to read a nonexistent MSS file.
+
+Also, is the 2d data for BASE available on the Mass Store?
+If so do you happen to know it location?
+
+Thanks,
+James
+492-0897
+
+From ron Tue Oct 31 10:44:10 1995
+Subject: Re: BASE data
+To: pinto@prester.Colorado.EDU (James Pinto)
+Date: Tue, 31 Oct 1995 10:44:10 -0700 (MST)
+In-Reply-To: <199510310106.SAA18227@prester.Colorado.EDU> from "James Pinto" at Oct 30, 95 06:06:11 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 9406      
+Status: RO
+
+Thou spake thusly:
+> 
+> Hi Ron,
+> 
+> I was wondering if you could tell me the location of the
+> BASE data on the Mass Store. I tried to:
+> 
+> msread test /RAF/1994/120/LRT/RF03A and I get the error:
+> 
+> Fatal - msread: Attempt to read a nonexistent MSS file.
+> 
+> Also, is the 2d data for BASE available on the Mass Store?
+> If so do you happen to know its location?
+> 
+> Thanks,
+> 492-0897
+James,
+
+You almost got there.  The MSS bitfile names end with a ".cdf" extension.
+Their names are of the form /RAF/1994/120/LRT/RFx.cdf, where x is
+the flight number/segment (e.g., RF03A).
+
+The PMS-2D data are in an ADS stripped-binary format without record
+boundaries.  Their names on the MSS are of the form /RAF/1994/120/PMS2D/RFx
+without an extension.
+
+Here is a directory list of the BASE subdirectory /RAF/1994/120 on the MSS:
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+/RAF/1994/120 as of 10/31/95 09:02:30
+06/19/95 -W--  20273664 AIMR/TAPE/RF04A
+06/19/95 -W--  27416064 AIMR/TAPE/RF04B
+06/19/95 -W--  63839232 AIMR/TAPE/RF04C
+06/19/95 -W--  55755264 AIMR/TAPE/RF05
+06/21/95 -W--   3684864 AIMR/TAPE/RF06A
+06/19/95 -W--  63244800 AIMR/TAPE/RF06B
+06/21/95 -W--  63431168 AIMR/TAPE/RF07A
+06/21/95 -W--  23958528 AIMR/TAPE/RF07B
+06/20/95 -W--   2532864 AIMR/TAPE/RF09A
+06/20/95 -W--  63120384 AIMR/TAPE/RF09B
+06/20/95 -W--  36278272 AIMR/TAPE/RF10A
+06/20/95 -W-S  63410176 AIMR/TAPE/RF10B
+06/20/95 -W--  63171584 AIMR/TAPE/RF10C
+06/20/95 -W--  64599040 AIMR/TAPE/RF10D
+06/20/95 -W--  64232448 AIMR/TAPE/RF10E
+06/20/95 -W--  64057344 AIMR/TAPE/RF11A
+06/20/95 -W--      1024 AIMR/TAPE/RF11B
+06/29/95 -W--  29323264 AIMR/TAPE/RF11C
+06/20/95 -W--      1024 AIMR/TAPE/RF11D
+06/20/95 -W--  35589120 AIMR/TAPE/RF11E
+06/20/95 -W--  63656960 AIMR/TAPE/RF12A
+06/20/95 -W--  63691776 AIMR/TAPE/RF12B
+06/20/95 -W--  39796736 AIMR/TAPE/RF12C
+06/29/95 -W--  63388672 AIMR/TAPE/RF13A
+06/20/95 -W--  63757312 AIMR/TAPE/RF13B
+06/20/95 -W-S  64572416 AIMR/TAPE/RF13C
+06/20/95 -W--  63642624 AIMR/TAPE/RF13D
+06/20/95 -W--  25438208 AIMR/TAPE/RF13E
+06/20/95 -W--   7111680 AIMR/TAPE/RF14A
+06/29/95 -W--  63086592 AIMR/TAPE/RF14B
+06/20/95 -W--  65001472 AIMR/TAPE/RF14C
+06/20/95 -W--  62178304 AIMR/TAPE/RF14D
+06/20/95 -W--  63976448 AIMR/TAPE/RF15A
+06/20/95 -W--  63202304 AIMR/TAPE/RF15B
+06/20/95 -W--  15928320 AIMR/TAPE/RF15C
+06/20/95 -W--  63511552 AIMR/TAPE/RF15D
+06/20/95 -W--  63156224 AIMR/TAPE/RF15E
+06/20/95 -W--  17786880 AIMR/TAPE/RF15F
+09/18/95 -W--  63824896 AIMR/TAPE/RF16A
+07/27/95 -W--  63426560 AIMR/TAPE/RF16B
+07/27/95 -W--   3928064 AIMR/TAPE/RF16C
+07/27/95 -W--  54004736 AIMR/TAPE/RF16D
+07/27/95 -W--  63960064 AIMR/TAPE/RF16E
+07/27/95 -W--  10620928 AIMR/TAPE/RF16F
+06/20/95 -W--  64281600 AIMR/TAPE/RF17A
+06/20/95 -W--  63753216 AIMR/TAPE/RF17B
+06/20/95 -W--  65376256 AIMR/TAPE/RF17C
+06/20/95 -W--  37432320 AIMR/TAPE/RF17D
+06/20/95 -W--  64292864 AIMR/TAPE/RF18A
+06/20/95 -W--  34763776 AIMR/TAPE/RF18B
+06/20/95 -W--  64045056 AIMR/TAPE/RF18C
+06/20/95 -W--  63867904 AIMR/TAPE/RF18D
+06/20/95 -W--  63779840 AIMR/TAPE/RF19A
+06/20/95 -W--  62685184 AIMR/TAPE/RF19B
+10/26/95 -WD-       404 HRT/120hr.tar.dir
+10/26/95 -W-S  32985116 HRT/RF07.2102-0110.cdf
+10/26/95 -W--  12374108 HRT/RF11.2007-2140.cdf
+10/26/95 -WD-   8919364 HRT/RF11.2321-0028.cdf
+10/26/95 -W-S  19726812 HRT/RF13.2127-0010.cdf
+10/26/95 -WD-      7902 HRT/flt07hr
+10/26/95 -WD-      3371 HRT/hr_process_log
+10/26/95 -W--    624128 LRT/120.tar
+10/26/95 -W--      3550 LRT/120.tar.dir
+09/05/95 -W--   1939328 LRT/RF03A.cdf
+09/01/95 -W--   3168080 LRT/RF03B.cdf
+09/01/95 -W-S  16190864 LRT/RF03C.cdf
+09/01/95 -W-S  32046052 LRT/RF04.cdf
+09/01/95 -W-S  17747220 LRT/RF05.cdf
+09/01/95 -W-S  26238140 LRT/RF06.cdf
+09/01/95 -W-S  31218532 LRT/RF07.cdf
+09/01/95 -W-S  32837800 LRT/RF10.cdf
+09/01/95 -W-S  31671264 LRT/RF11.cdf
+09/01/95 -W-S  27543952 LRT/RF12.cdf
+09/01/95 -W-S  32525712 LRT/RF13.cdf
+09/01/95 -W-S  31753616 LRT/RF14.cdf
+09/01/95 -W-S  31042960 LRT/RF15.cdf
+09/18/95 -W-S  30283152 LRT/RF16.cdf
+09/01/95 -W-S  26751300 LRT/RF17.cdf
+09/01/95 -W--  13946340 LRT/RF18A.cdf
+09/01/95 -W-S  18830044 LRT/RF18B.cdf
+09/05/95 -W--     53760 LRT/ncfixhdr.tar
+09/05/95 -W--       243 LRT/ncfixhdr.tar.dir
+09/05/95 -W-- 260570305 LRT/netCDF.tar.Z
+09/05/95 -W--       974 LRT/netCDF.tar.dir
+09/05/95 -W--   2253312 LRT/nimbus.tar
+09/05/95 -W--     28591 LRT/nimbus.tar.dir
+09/05/95 -W--      1725 LRT/taplog.120
+10/26/95 -W--      1552 LRT/tarit.120.tar
+09/05/95 -W--       866 LRT/tarit.nimbus.tar
+06/09/95 -W--    237120 MSCP_out.120
+09/05/95 -W--     33893 Mail.120
+10/26/95 -WD-      2493 PMS2D/2d_log
+10/25/95 -W-S 111847445 PMS2D/RF03A
+10/25/95 -W-S  18036312 PMS2D/RF03B
+10/25/95 -WD-   1843968 PMS2D/RF03C
+10/25/95 -W-S  67881072 PMS2D/RF04
+10/25/95 -W-S  25873176 PMS2D/RF05
+10/25/95 -W-S  72692676 PMS2D/RF06
+10/25/95 -W-S 177683604 PMS2D/RF07
+10/25/95 -W-S  97787928 PMS2D/RF10
+10/25/95 -W-S 157889760 PMS2D/RF11
+10/25/95 -W-S  42490140 PMS2D/RF12
+10/25/95 -W-S 196757148 PMS2D/RF13
+10/25/95 -W-S  81278652 PMS2D/RF14
+10/25/95 -W-S  58891728 PMS2D/RF15
+10/25/95 -W-S  18481152 PMS2D/RF16
+10/25/95 -W--  12756156 PMS2D/RF17
+10/25/95 -W-S  24230892 PMS2D/RF18A
+10/25/95 -W-S  16944120 PMS2D/RF18B
+10/26/95 -WD-      1097 PMS2D/base2d.tar.dir
+12/13/94 -W-- 388705920 RF01A/R0914
+12/10/94 -W-- 357285120 RF01B/R0914
+11/28/94 -W-- 388521600 RF02A/R0915
+11/28/94 -W-- 388734720 RF02B/R0915
+12/13/94 -W-- 384616320 RF02C/R0915
+09/06/95 -W-- 154248960 RF03A/R0916
+08/21/95 -W-S  75352320 RF03B/R0917
+08/17/95 -W-S 296448000 RF03C/R0918
+08/16/95 -W-- 316391040 RF04A/R0921
+08/16/95 -W-- 307125120 RF04B/R0921
+08/16/95 -W--  24539520 RF04C/R0921
+08/16/95 -W-S 309601920 RF05A/R0923
+08/16/95 -W--  30168960 RF05B/R0923
+08/17/95 -W-- 327336960 RF06A/R0924
+08/17/95 -W-- 288708480 RF06B/R0924
+09/28/95 -W-S 332668800 RF07A/R0925
+09/28/95 -W-S 333523200 RF07B/R0925
+09/28/95 -W-- 175749120 RF07C/R0925
+11/28/94 -W-- 354612480 RF08A/R0926
+12/08/94 -W-- 339953280 RF08B/R0926
+12/13/94 -W--  98496000 RF08C/R0926
+11/28/94 -W-- 321018240 RF09A/R0928
+12/08/94 -W-- 315630720 RF09B/R0928
+08/25/95 -W-S 334728960 RF10A/R0929
+08/25/95 -W-S 330061440 RF10B/R0929
+08/25/95 -W-- 112149120 RF10C/R0929
+10/18/95 -W-- 336539520 RF11A/R0930
+10/18/95 -W-- 340786560 RF11B/R0930
+08/28/95 -W-S 131648640 RF11C/R0930
+08/28/95 -W-- 327192960 RF12A/R0931
+08/28/95 -W-- 288428160 RF12B/R0931
+10/13/95 -W-- 339432960 RF13A/R0932
+10/13/95 -W-- 330802560 RF13B/R0932
+08/29/95 -W-- 205309440 RF13C/R0932
+08/30/95 -W-- 329646720 RF14A/R0933
+08/30/95 -W-- 326000640 RF14B/R0933
+08/30/95 -W--  90297600 RF14C/R0933
+08/30/95 -W-- 329312640 RF15A/R0934
+08/30/95 -W-- 325267200 RF15B/R0934
+08/30/95 -W--  64494720 RF15C/R0934
+08/30/95 -W-- 323473920 RF16A/R0935
+08/30/95 -W-- 324205440 RF16B/R0935
+08/30/95 -W--  29249280 RF16C/R0935
+08/31/95 -W-- 322882560 RF17A/R0936
+08/31/95 -W-- 242628480 RF17B/R0936
+08/31/95 -W-- 314782080 RF18A/R0937
+08/31/95 -W-- 324533760 RF18B/R0938
+08/31/95 -W--  82106880 RF18C/R0938
+11/28/94 -W-- 130924800 RF19A/R0939
+12/21/94 -W-- 330562560 RF19B/R0940
+01/09/95 -W-- 207607680 RF19C/R0940
+11/23/94 -W--  83783040 TF09/R0870
+06/09/95 -W--      8901 tp2ms.summary
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Here is our MSS bitfile log, a different way I have of logging the NIMBUS
+output data files on the Mass Store
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                    PRODUCTION MASS STORE BITFILE LOG
+
+     Project no.:  1994-120    Project name:  BASE
+        Aircraft:  N130AR      Scientist(s):  Judy Curry, et al.
+       Data type:  LRT        Programmer(s):  Chris Webster
+  Processor used:  NIMBUS    Project Mgr(s):  Bruce Morley
+   Output format:  netCDF  Production Proc.:  Bruce Morley
+
+          MSS path name: /RAF/1994/120/LRT/fltno.cdf
+
+-------------------------------------------------------------------------------
+                                          netCDF
+          Date        Start     End      File Size
+ fltno  mm/dd/yyyy    Time      Time      (bytes)
+-------------------------------------------------------------------------------
+ RF03A  09/21/1994  18:24:54  18:54:00
+                    18:54:12  18:58:58
+                     1:00:00  00:00:00     2327456
+ RF03B  09/21/1994  19:15:43  20:03:03     3237752
+ RF03C  09/21/1994  20:12:12  00:16:08    16543640
+ RF04   09/25/1994  19:35:17  03:35:39    33469748
+ RF05   09/26/1994  18:52:45  23:12:37    18123024
+ RF06   09/29/1994  20:34:44  03:39:32    26749148
+ RF07   10/01/1994  19:00:26  03:32:38    32367972
+ RF10   10/10/1994  18:07:46  02:55:27    33345280
+ RF11   10/12/1994  18:07:15  02:36:10    32160728
+ RF12   10/14/1994  18:01:34  01:29:43    28001704
+ RF13   10/16/1994  18:00:00  02:48:48    33034264
+ RF14   10/17/1994  17:46:37  02:26:14    32461224
+ RF15   10/19/1994  18:06:12  02:30:52    31528344
+ RF16   10/21/1994  18:00:22  02:17:18    31045784
+ RF17   10/23/1994  18:07:30  01:19:46    27322580
+ RF18A  10/25/1994  17:36:37  21:23:46    14375616
+ RF18B  10/25/1994  21:47:12  02:49:33    19122240
+-------------------------------------------------------------------------------
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Feb  8 14:48:33 1996
+Subject: High-rate data for 1994-120 BASE
+To: bruce (Bruce Morley), dick (Dick Friesen)
+Date: Thu, 8 Feb 1996 14:48:34 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 989       
+Status: RO
+
+Bruce and Dick,
+
+I just thought I'd let both of you know about a couple recent inquiries
+regarding the need for additional high-rate (HRT) data for the BASE project.
+Qing Wang (formerly with NCAR but now at Naval PostGraduate School) and Bill
+Anderson & Ilga Paluch (MMM) have asked me for the Mass Store location of HRT
+data and were quite disappointed when I told them that only a limited amount
+existed.  They both intended to contact Judy Curry to see if they could
+collaborate on another request for more HRT data, perhaps the entire project.
+(I noticed that the original designation for this project was LRT.)
+
+Apparently Ms. Wang has a NASA research contract, and she was looking forward
+to using HRT data from BASE for it.  She also intended to discuss her needs
+with Don Lenschow, who is working with her on the contract.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Mon Apr 15 10:27 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA09819; Mon, 15 Apr 1996 10:27:38 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA01829; Mon, 15 Apr 1996 10:27:38 -0600
+Date: Mon, 15 Apr 1996 10:27:38 -0600
+Message-Id: <199604151627.KAA01829@adelie.atd.ucar.edu>
+To: curryja@colorado.edu
+Subject: Re: 20 Hz data
+Cc: ron
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1629
+Status: RO
+
+
+Judy,
+
+Sorry for letting the second tier high rate data fall through the cracks.
+
+We will begin processing it this week and will let you and Jim know when it
+is on the mass store and when the exabye tape will be sent.
+
+ ==============================             \\  |  //
+ =  Bruce Morley                             \\ | //        
+ =  NCAR/RAF                                  \\|//          
+ =  bruce@raf.atd.ucar.edu                  ====*====                  
+ =  (303)497-1018                             //|\\                     
+ =  (303)497-1092  FAX                       // | \\                    
+ ==============================             //  |  \\                   
+ 
+> 
+> 
+> Dear Bruce,
+> 
+> To date, we have only received 20 Hz data for BASE for flights 7, 11, 13.
+> We originally requested additional periods, but said that 7, 11, 13 were
+> most urgent.  We now have a need for the additional time periods.  Here are
+> the periods we still need 20 Hz data for, with the flight 18 data being top
+> priority (as per Jim Pinto's recent email).  We would greatly appreciate it
+> if this data can be put on the NCAR mass store, and an exabyte tape be made
+> (and sent to jim pinto).  Please reply soon to let us know when we can
+> expect the data.  thanks alot
+> 
+> Judy Curry
+> 
+> 
+> here are the flights and periods that we still need 20 Hz data for
+> 
+> flight 4 9/25  2300-2352
+> 
+> flight 5 9/26  2056-2127
+> 
+> flight 6 9/29  2303-0026
+> 
+> flight 14  10/17   2206-2342
+> 
+> flight 15  10/19 2100-0004
+> 
+> flight 16 10/21  2055-2331
+> 
+> flight 17 10/23  2105-2151
+> 
+> flight 18 10/25 2033-0001
+> 
+> 
+
+From bruce@raf.atd.ucar.EDU Mon Apr 15 10:29 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA09956; Mon, 15 Apr 1996 10:29:45 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA01831; Mon, 15 Apr 1996 10:29:45 -0600
+Date: Mon, 15 Apr 1996 10:29:45 -0600
+Message-Id: <199604151629.KAA01831@adelie.atd.ucar.edu>
+To: Ron
+Subject: high rate base data
+Cc: bruce
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 290
+Status: RO
+
+Ron,
+
+I will begin to process the data and will let you know when I have done
+each flight.  Will you then move it to the mass store and let Jim and Judy
+know that it is there.  We will send an exabyte tape to Jim when all the 
+flights are done or we need to more space on the disks.
+
+Bruce
+
+From ron Mon Apr 22 10:16:14 1996
+Subject: Retrieving BASE HRT data
+To: bruce (Bruce Morley)
+Date: Mon, 22 Apr 1996 10:16:14 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 466       
+Status: RO
+
+Bruce,
+
+Here is the command example for retrieving a BASE HRT MSS bitfile:
+
+nrnet msget $MIGS/120rf07.cdf r flnm=/RAF/1994/120/HRT/RF07.2102-0110.cdf
+
+The available HRT files on the MSS are (prefixed by /RAF/1994/120/HRT/):
+  RF07.2102-0110.cdf
+  RF11.2007-2140.cdf
+  RF11.2321-0028.cdf
+  RF13.2127-0010.cdf
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Apr 25 10:51:14 1996
+Subject: BASE HRT runs
+To: bruce (Bruce Morley)
+Date: Thu, 25 Apr 1996 10:51:14 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 472       
+Status: RO
+
+Bruce,
+
+I perused the headers of the four BASE HRT flight segments you have produced.
+For some reason incorrect dates have found their way into those for RF04
+("01/00/1994" should be "09/25/1994") and RF14 ("04/02/1994" should be
+"10/17/1994").  I think Chris has a program to fix these up; will you, or
+should I?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri May 10 11:09:26 1996
+Subject: BASE HRT RF18
+To: bruce (Bruce Morley)
+Date: Fri, 10 May 1996 11:09:26 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1301      
+Status: RO
+
+Bruce,
+
+I am preparing to rename the Mass Store bitfiles for the first BASE HRT data
+set.  It will make retrieval easier out here, since I plan to use our standard
+naming convention.  My only worry about doing this is that anyone who has
+already gotten information about those bitfiles may now be confused because of
+the name changes.  I am willing to handle any query that comes to me about it.
+Should I leave the present names alone?
+
+Concerning the most recent HRT request:
+--------------------------------------
+I had to correct the dates for two flights (RF16 and RF17), because they had
+only a 2-digit year.  Hope everything is OK now.
+
+I think it would be worthwhile to reprocess RF18 as two separate segments.
+The LRT processing was done that way, because two separate ADS tapes were
+written for that flight.  I don't suspect that NIMBUS had a problem combining
+the two segments into one netCDF file, but reprocessing it would allow you to
+easily examine the second segment.  If you have everything set up right, it
+should be easy to redo.  What do you think?
+
+Other than the above I'm ready to archive the files.  Please let me know.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Fri May 10 11:43 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA05007; Fri, 10 May 1996 11:43:16 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA00285; Fri, 10 May 1996 11:43:12 -0600
+Date: Fri, 10 May 1996 11:43:12 -0600
+Message-Id: <199605101743.LAA00285@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: BASE HRT RF18
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1577
+Status: RO
+
+
+Ron,
+
+I will reprocess flight 18 as you suggest.
+
+I do not have a problem with renaming the previous high rate files.  We will
+get questions from anyone who tries using the old procedure and can't find the
+files.
+
+Bruce
+
+> 
+> Bruce,
+> 
+> I am preparing to rename the Mass Store bitfiles for the first BASE HRT data
+> set.  It will make retrieval easier out here, since I plan to use our standard
+> naming convention.  My only worry about doing this is that anyone who has
+> already gotten information about those bitfiles may now be confused because of
+> the name changes.  I am willing to handle any query that comes to me about it.
+> Should I leave the present names alone?
+> 
+> Concerning the most recent HRT request:
+> --------------------------------------
+> I had to correct the dates for two flights (RF16 and RF17), because they had
+> only a 2-digit year.  Hope everything is OK now.
+> 
+> I think it would be worthwhile to reprocess RF18 as two separate segments.
+> The LRT processing was done that way, because two separate ADS tapes were
+> written for that flight.  I don't suspect that NIMBUS had a problem combining
+> the two segments into one netCDF file, but reprocessing it would allow you to
+> easily examine the second segment.  If you have everything set up right, it
+> should be easy to redo.  What do you think?
+> 
+> Other than the above I'm ready to archive the files.  Please let me know.
+> 
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri May 10 11:52:33 1996
+Subject: Re: BASE HRT RF18
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Date: Fri, 10 May 1996 11:52:33 -0600 (MDT)
+In-Reply-To: <199605101743.LAA00285@adelie.atd.ucar.edu> from "Bruce Morley" at May 10, 96 11:43:12 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 514       
+Status: RO
+
+Thou spake thusly:
+> 
+> 
+> Ron,
+> 
+> I will reprocess flight 18 as you suggest.
+> 
+> I do not have a problem with renaming the previous high rate files.  We will
+> get questions from anyone who tries using the old procedure and can't find
+> the files.
+> 
+Bruce,
+
+Looks good to me.
+
+Please let me know when RF18 is again ready, and I'll archive everything.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Mon May 13 11:31:53 1996
+Subject: BASE HRT archive
+To: bruce (Bruce Morley)
+Date: Mon, 13 May 1996 11:31:53 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1599      
+Status: RO
+
+Bruce,
+
+I have archived to the SCD Mass Store System (MSS) these
+1994-120 BASE HRT production netCDF files:
+-------------------------------------------------------------------------------
+
+                    PRODUCTION MASS STORE BITFILE LOG
+
+     Project no.:  1994-120    Project name:  BASE
+        Aircraft:  N130AR      Scientist(s):  Judy Curry, et al.
+       Data type:  HRT        Programmer(s):  Chris Webster
+  Processor used:  NIMBUS    Project Mgr(s):  Bruce Morley
+   Output format:  netCDF  Production Proc.:  Bruce Morley
+
+          MSS path name: /RAF/1994/120/HRT/fltno.cdf
+
+-------------------------------------------------------------------------------
+                                          netCDF
+          Date        Start     End      File Size
+ fltno  mm/dd/yyyy    Time      Time      (bytes)
+-------------------------------------------------------------------------------
+ RF04   09/25/1994  23:00:00  23:51:59     5724356
+ RF05   09/26/1994  20:30:00  21:29:59     6603792
+ RF06   09/29/1994  22:30:00  00:30:00    13201044
+ RF14   10/17/1994  21:00:00  00:00:00    17635456
+ RF15   10/19/1994  20:30:00  00:10:00    21552256
+ RF16   10/21/1994  20:30:00  23:39:59    18613024
+ RF17   10/23/1994  20:30:00  21:59:59     9361288
+ RF18A  10/25/1994  20:00:00  21:22:58     8632116
+ RF18B  10/25/1994  21:47:25  00:10:00    14827480
+-------------------------------------------------------------------------------
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Fri May 10 13:38 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA06035; Fri, 10 May 1996 13:38:14 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA00304; Fri, 10 May 1996 13:38:11 -0600
+Date: Fri, 10 May 1996 13:38:11 -0600
+Message-Id: <199605101938.NAA00304@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: BASE HRT RF18
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 87
+Status: RO
+
+Ron,
+
+Flight 18 (high rate data) is complete in files 120rf18ha and 120rf18hb.
+
+Bruce
+
+
+From bruce@raf.atd.ucar.EDU Fri May 10 14:19 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA06648; Fri, 10 May 1996 14:19:16 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA00315; Fri, 10 May 1996 14:19:14 -0600
+Date: Fri, 10 May 1996 14:19:14 -0600
+Message-Id: <199605102019.OAA00315@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: BASE HRT RF18
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 50
+Status: RO
+
+Ron,
+
+The dates on flight 18 are correct.
+
+Bruce
+
+
+From bruce@raf.atd.ucar.EDU Thu May 16 10:07 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id KAA12465; Thu, 16 May 1996 10:07:12 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id KAA00680; Thu, 16 May 1996 10:07:09 -0600
+Date: Thu, 16 May 1996 10:07:09 -0600
+Message-Id: <199605161607.KAA00680@adelie.atd.ucar.edu>
+To: Ron
+Subject: BASE high rate data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 112
+Status: RO
+
+Ron,
+
+All the BASE high rate data processing is done.  You can archive them to the 
+mass store.
+
+Thanks.
+
+Bruce
+
+From bruce@raf.atd.ucar.EDU Thu May 16 16:18 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA20536; Thu, 16 May 1996 16:17:59 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA00739; Thu, 16 May 1996 16:17:56 -0600
+Date: Thu, 16 May 1996 16:17:56 -0600
+Message-Id: <199605162217.QAA00739@adelie.atd.ucar.edu>
+To: Ron
+Subject: BASE hr data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 155
+Status: RO
+
+Ron,
+
+I need to put the correct date in the high rate NETcdf data files from
+BASE.  Too many things going on.
+
+I will let you know when it is done.
+
+Bruce
+
+From bruce@raf.atd.ucar.EDU Fri May 17 11:40 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA28226; Fri, 17 May 1996 11:40:27 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA00860; Fri, 17 May 1996 11:40:25 -0600
+Date: Fri, 17 May 1996 11:40:25 -0600
+Message-Id: <199605171740.LAA00860@adelie.atd.ucar.edu>
+To: Ron
+Subject: BASE high rate data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 188
+Status: RO
+
+Hi Ron,
+
+Finally.  All the flights are done and the dates are correct.  They
+can be archived.  I will be out of town Mon thru Wed next week.  Let me know
+if there are any problems.
+
+Bruce
+
+From ron Fri May 17 11:42:49 1996
+Subject: Re: BASE high rate data
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Date: Fri, 17 May 1996 11:42:49 -0600 (MDT)
+In-Reply-To: <199605171740.LAA00860@adelie.atd.ucar.edu> from "Bruce Morley" at May 17, 96 11:40:25 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 253       
+Status: RO
+
+Bruce,
+
+Thanks for the update.  I'll archive everything and let you know when all
+is complete.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Fri May 17 12:52 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA29456; Fri, 17 May 1996 12:52:34 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id MAA00865; Fri, 17 May 1996 12:52:31 -0600
+Date: Fri, 17 May 1996 12:52:31 -0600
+Message-Id: <199605171852.MAA00865@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: BASE RF14 HRT
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 603
+Status: RO
+
+
+Ron,
+
+I need to process 14a and am bringing the ads's file down form the mass store.
+
+Someday this project will be done.
+
+Bruce
+
+> 
+> Bruce,
+> 
+> I noticed that the file for RF14 was named with a "B" segment.  I assume
+> that was an innocent mistake and that you only processed one segment from
+> RF14.
+> 
+> If this is in error, please let me know.  Otherwise I'll archive RF14
+> without the B segment letter (RF14 as opposed to RF14B).
+> 
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri May 17 12:31:36 1996
+Subject: BASE RF14 HRT
+To: bruce (Bruce Morley)
+Date: Fri, 17 May 1996 12:31:36 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 447       
+Status: RO
+
+Bruce,
+
+I noticed that the file for RF14 was named with a "B" segment.  I assume
+that was an innocent mistake and that you only processed one segment from
+RF14.
+
+If this is in error, please let me know.  Otherwise I'll archive RF14
+without the B segment letter (RF14 as opposed to RF14B).
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri May 17 13:05:03 1996
+Subject: Re: BASE RF14 HRT
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Date: Fri, 17 May 1996 13:05:03 -0600 (MDT)
+In-Reply-To: <199605171852.MAA00865@adelie.atd.ucar.edu> from "Bruce Morley" at May 17, 96 12:52:31 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 483       
+Status: RO
+
+Thou spake thusly:
+> 
+> 
+> Ron,
+> 
+> I need to process 14a and am bringing the ads's file down form the mass store.
+> 
+> Someday this project will be done.
+> 
+Bruce,
+
+I wasn't aware that something new came in.  I'll rename the Mass Store bitfile,
+since it already is archived.  Is RF14A the last, or do you anticipate more?
+
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Fri May 17 13:08 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA29666; Fri, 17 May 1996 13:08:43 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA00867; Fri, 17 May 1996 13:08:41 -0600
+Date: Fri, 17 May 1996 13:08:41 -0600
+Message-Id: <199605171908.NAA00867@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: BASE RF14 HRT
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 234
+Status: RO
+
+Ron,
+
+No more.  I was looking at one of Judy Curry's early requests and noticed that
+there were two time periods on the flight 14 request.  One was a higher 
+priority than the other which is why it was overlooked for a while.
+
+Bruce
+
+
+From bruce@raf.atd.ucar.EDU Fri May 17 15:11 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA01136; Fri, 17 May 1996 15:11:09 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA00875; Fri, 17 May 1996 15:11:07 -0600
+Date: Fri, 17 May 1996 15:11:07 -0600
+Message-Id: <199605172111.PAA00875@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: BASE RF14 HRT
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 78
+Status: RO
+
+Ron,
+
+It should all be there.  Let me know if anything looks unusual.
+
+Bruce
+
+
+From ron Fri May 17 17:41:58 1996
+Subject: BASE HRT Archived
+To: bruce (Bruce Morley)
+Date: Fri, 17 May 1996 17:41:58 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1483      
+Status: RO
+
+Bruce,
+
+I have archived to the SCD Mass Store System the latest 4-120 BASE HRT
+production data files.  I still must archive the NIMBUS support files
+for these, which I plan to do on Monday.  At least you can tell Dr. Curry
+and others that they are available.
+
+The files/bitfiles are:
+ /home/productiondata/120rf04h.cdf   -->  /RAF/1994/120/HRT/RF04.cdf
+ /home/productiondata/120rf05h.cdf   -->  /RAF/1994/120/HRT/RF05.cdf
+ /home/productiondata/120rf06h.cdf   -->  /RAF/1994/120/HRT/RF06.cdf
+ /home/productiondata/120rf07h.cdf   -->  /RAF/1994/120/HRT/RF07.cdf
+ /home/productiondata/120rf10h.cdf   -->  /RAF/1994/120/HRT/RF10.cdf
+ /home/productiondata/120rf11ah.cdf  -->  /RAF/1994/120/HRT/RF11A.cdf
+ /home/productiondata/120rf11bh.cdf  -->  /RAF/1994/120/HRT/RF11B.cdf
+ /home/productiondata/120rf13h.cdf   -->  /RAF/1994/120/HRT/RF13.cdf
+ /home/productiondata/120rf14ah.cdf  -->  /RAF/1994/120/HRT/RF14A.cdf
+ /home/productiondata/120rf14bh.cdf  -->  /RAF/1994/120/HRT/RF14B.cdf
+ /home/productiondata/120rf15h.cdf   -->  /RAF/1994/120/HRT/RF15.cdf
+ /home/productiondata/120rf16h.cdf   -->  /RAF/1994/120/HRT/RF16.cdf
+ /home/productiondata/120rf17h.cdf   -->  /RAF/1994/120/HRT/RF17.cdf
+ /home/productiondata/120rf18ah.cdf  -->  /RAF/1994/120/HRT/RF18A.cdf
+ /home/productiondata/120rf18bh.cdf  -->  /RAF/1994/120/HRT/RF18B.cdf
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Thu May  9 15:11 MDT 1996
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA26495; Thu, 9 May 1996 15:11:28 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA01656; Thu, 9 May 1996 15:11:25 -0600
+Date: Thu, 9 May 1996 15:11:25 -0600
+Message-Id: <199605092111.PAA01656@adelie.atd.ucar.edu>
+To: curryja@colorado.edu, pinto@prester.Colorado.EDU
+Subject: Re: 20 Hz data
+Cc: ron
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 652
+Status: RO
+
+Judy and Jim,
+
+The 20 Hz data is ready.  Ron Ruth (ron@raf.atd.ucar.EDU) is the person to
+contact on retrieving the data from the MassStore or getting exabyte tapes.
+
+A couple of quick notes.  The time periods that I processed start about 30 
+minutes before your requested times.  This was done to be sure that the 
+'filters' used in the GPS corrected values were stable.  GPS corrected lat and
+long are at 1 second intervals because the GPS data is recorded at 1 Hz.
+
+Flight 17 is a flight that the IRU was not performing well.  (We had a 
+problem with the APU just before take-off.)  Please look at that data
+very carefully befor you use it.
+
+Bruce
+
+
+From julie@raf.atd.ucar.EDU Fri May 24 14:17 MDT 1996
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA12275; Fri, 24 May 1996 14:17:44 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA06758; Fri, 24 May 1996 14:17:41 -0600
+Date: Fri, 24 May 1996 14:17:41 -0600
+Message-Id: <199605242017.OAA06758@giselle.atd.ucar.edu>
+To: ron
+Subject: aimr data on mass store
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 529
+Status: RO
+
+Ron,
+
+I have some new AIMR data I'd like to archive on the mass store with
+my other files. The files are in /home/data/aimr_data
+
+120rf04a.scan   120rf04d.scan   120rf06c.scan   120rf07c.scan
+120rf04b.scan   120rf06a.scan   120rf07a.scan   120rf11b.scan
+120rf04c.scan   120rf06b.scan   120rf07b.scan   120rf12c.scan
+
+I believe the corresponding MassStore names (according to the convention we
+established previously) should be /RAF/1994/120/AIMR/TAPE/RFXXX.
+
+Could you move these for me sometime? There's no rush. Thanks.
+
+Julie
+
+From ron Tue May 28 17:19:33 1996
+Subject: Re: AIMR Data on Mass Store
+To: julie (Julie Haggerty)
+Date: Tue, 28 May 1996 17:19:34 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 4228      
+Status: RO
+
+Julie,
+
+I have archived to the SCD Mass Store System the following AIMR files:
+
+           Source                              Destination              Size
+/home/data/aimr_data/120rf04a.scan --> /RAF/1994/120/AIMR/TAPE/RF04A   20332544
+/home/data/aimr_data/120rf04b.scan --> /RAF/1994/120/AIMR/TAPE/RF04B   27467776
+/home/data/aimr_data/120rf04c.scan --> /RAF/1994/120/AIMR/TAPE/RF04C    7201792
+/home/data/aimr_data/120rf04d.scan --> /RAF/1994/120/AIMR/TAPE/RF04D   64048128
+/home/data/aimr_data/120rf06a.scan --> /RAF/1994/120/AIMR/TAPE/RF06A    3702784
+/home/data/aimr_data/120rf06b.scan --> /RAF/1994/120/AIMR/TAPE/RF06B   63373312
+/home/data/aimr_data/120rf06c.scan --> /RAF/1994/120/AIMR/TAPE/RF06C    7387136
+/home/data/aimr_data/120rf07a.scan --> /RAF/1994/120/AIMR/TAPE/RF07A   63588352
+/home/data/aimr_data/120rf07b.scan --> /RAF/1994/120/AIMR/TAPE/RF07B    7851008
+/home/data/aimr_data/120rf07c.scan --> /RAF/1994/120/AIMR/TAPE/RF07C   24007680
+/home/data/aimr_data/120rf11b.scan --> /RAF/1994/120/AIMR/TAPE/RF11B   63040512
+/home/data/aimr_data/120rf12c.scan --> /RAF/1994/120/AIMR/TAPE/RF12C   65128448
+
+The following MSS bitfiles were replaced (overwritten) by the above:
+05/10/96 -W--  20273664   /RAF/1994/120/AIMR/TAPE/RF04A 
+06/19/95 -W--  27416064   /RAF/1994/120/AIMR/TAPE/RF04B 
+06/19/95 -W--  63839232   /RAF/1994/120/AIMR/TAPE/RF04C 
+06/21/95 -W--   3684864   /RAF/1994/120/AIMR/TAPE/RF06A 
+06/19/95 -W--  63244800   /RAF/1994/120/AIMR/TAPE/RF06B 
+06/21/95 -W--  63431168   /RAF/1994/120/AIMR/TAPE/RF07A 
+06/21/95 -W--  23958528   /RAF/1994/120/AIMR/TAPE/RF07B 
+06/20/95 -W--      1024   /RAF/1994/120/AIMR/TAPE/RF11B 
+06/20/95 -W--  39796736   /RAF/1994/120/AIMR/TAPE/RF12C 
+
+The present listing of /RAF/1994/120/AIMR bitfiles:
+/RAF/1994/120 as of 05/28/96 16:28:17
+05/28/96 -W-S  20332544 AIMR/TAPE/RF04A
+05/28/96 -W-S  27467776 AIMR/TAPE/RF04B
+05/28/96 -WD-   7201792 AIMR/TAPE/RF04C
+05/28/96 -W-S  64048128 AIMR/TAPE/RF04D
+06/19/95 -W--  55755264 AIMR/TAPE/RF05
+05/28/96 -WD-   3702784 AIMR/TAPE/RF06A
+05/28/96 -W-S  63373312 AIMR/TAPE/RF06B
+05/28/96 -WD-   7387136 AIMR/TAPE/RF06C
+05/28/96 -W-S  63588352 AIMR/TAPE/RF07A
+05/28/96 -WD-   7851008 AIMR/TAPE/RF07B
+05/28/96 -W-S  24007680 AIMR/TAPE/RF07C
+06/20/95 -W--   2532864 AIMR/TAPE/RF09A
+06/20/95 -W--  63120384 AIMR/TAPE/RF09B
+06/20/95 -W--  36278272 AIMR/TAPE/RF10A
+06/20/95 -W--  63410176 AIMR/TAPE/RF10B
+06/20/95 -W--  63171584 AIMR/TAPE/RF10C
+06/20/95 -W--  64599040 AIMR/TAPE/RF10D
+06/20/95 -W--  64232448 AIMR/TAPE/RF10E
+03/06/96 -W--  64057344 AIMR/TAPE/RF11A
+05/28/96 -W-S  63040512 AIMR/TAPE/RF11B
+06/29/95 -W--  29323264 AIMR/TAPE/RF11C
+06/20/95 -W--      1024 AIMR/TAPE/RF11D
+06/20/95 -W--  35589120 AIMR/TAPE/RF11E
+06/20/95 -W--  63656960 AIMR/TAPE/RF12A
+06/20/95 -W--  63691776 AIMR/TAPE/RF12B
+05/28/96 -W-S  65128448 AIMR/TAPE/RF12C
+06/29/95 -W--  63388672 AIMR/TAPE/RF13A
+06/20/95 -W--  63757312 AIMR/TAPE/RF13B
+06/20/95 -W--  64572416 AIMR/TAPE/RF13C
+06/20/95 -W--  63642624 AIMR/TAPE/RF13D
+06/20/95 -W--  25438208 AIMR/TAPE/RF13E
+06/20/95 -W--   7111680 AIMR/TAPE/RF14A
+06/29/95 -W--  63086592 AIMR/TAPE/RF14B
+06/20/95 -W--  65001472 AIMR/TAPE/RF14C
+06/20/95 -W--  62178304 AIMR/TAPE/RF14D
+02/16/96 -W--  63976448 AIMR/TAPE/RF15A
+01/03/96 -W--  63202304 AIMR/TAPE/RF15B
+06/20/95 -W--  15928320 AIMR/TAPE/RF15C
+06/20/95 -W--  63511552 AIMR/TAPE/RF15D
+06/20/95 -W--  63156224 AIMR/TAPE/RF15E
+06/20/95 -W--  17786880 AIMR/TAPE/RF15F
+09/18/95 -W--  63824896 AIMR/TAPE/RF16A
+07/27/95 -W--  63426560 AIMR/TAPE/RF16B
+07/27/95 -W--   3928064 AIMR/TAPE/RF16C
+07/27/95 -W--  54004736 AIMR/TAPE/RF16D
+07/27/95 -W--  63960064 AIMR/TAPE/RF16E
+07/27/95 -W--  10620928 AIMR/TAPE/RF16F
+06/20/95 -W--  64281600 AIMR/TAPE/RF17A
+03/13/96 -W--  63753216 AIMR/TAPE/RF17B
+06/20/95 -W--  65376256 AIMR/TAPE/RF17C
+06/20/95 -W--  37432320 AIMR/TAPE/RF17D
+06/20/95 -W--  64292864 AIMR/TAPE/RF18A
+06/20/95 -W--  34763776 AIMR/TAPE/RF18B
+06/20/95 -W--  64045056 AIMR/TAPE/RF18C
+06/20/95 -W--  63867904 AIMR/TAPE/RF18D
+06/20/95 -W--  63779840 AIMR/TAPE/RF19A
+06/20/95 -W--  62685184 AIMR/TAPE/RF19B
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Tue Nov 19 12:24:04 1996
+Subject: 1994-120 BASE
+To: bruce (Bruce Morley)
+Date: Tue, 19 Nov 1996 12:24:04 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 383       
+Status: RO
+
+Bruce,
+
+Have you yet finished up and delivered the Project Documentation Summary
+for the 1994-120 BASE project?  I am preparing another issue of RAF's Data
+Management News, and I need an update on the status of all projects.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Wed Mar 12 11:03:41 1997
+Subject: Re: 1994-120 BASE
+To: bruce (Bruce Morley)
+Date: Wed, 12 Mar 1997 11:03:41 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 383       
+Status: RO
+
+Bruce,
+
+Have you yet finished up and delivered the Project Documentation Summary
+for the 1994-120 BASE project?  I am preparing another issue of RAF's Data
+Management News, and I need an update on the status of all projects.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu Oct 26 16:55:23 1995
+Subject: obsolete MSS bitfiles
+To: bruce (Bruce Morley)
+Date: Thu, 26 Oct 1995 16:55:23 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 441       
+Status: RO
+
+Bruce,
+
+At present there are two obsolete 4-120 BASE netCDF data sets on the SCD
+Mass Store System (MSS).  The first set apparently came from the "quick-look"
+data and is in a directory called PRELIM.  The second set has the original
+production processing that we had to redo and is in a directory called OLDLRT.
+
+So far as I know, we don't want these data sets in the archive, so if it's OK
+with you, I will delete them.
+
+Thanks.
+
+-- 
+Ron
+

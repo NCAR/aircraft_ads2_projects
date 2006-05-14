@@ -1,0 +1,127 @@
+	HRT OUTPUT PARAMETER LIST
+	NCAR C-130 - Project #5-135
+    Rain In Cumulus over the Ocean (RICO)
+   Rauber/Ochs et al
+     
+RAF Reference Parameters
+
+		Reference Altitude (m - MSL) - GGALTC
+Reference Ambient Temperature (C) - ATX
+Reference Total Temperature (C) - TTX
+Reference Ambient Static Pressure (mb) - PSXC
+Reference Dew Point Temperature (C) - DPXC
+Reference Corrected Dynamic Pressure (mb) - QCXC
+Reference Raw Dynamic Pressure (mb) - QCX
+Reference True Air Speed (m/s) - TASX
+Reference Liquid Water Content, left wing (g/M3) - PLWCC
+GPS Corrected Inertial Latitude (deg) - LATC
+GPS Corrected Inertial Longitude (deg) - LONC
+GPS Corrected Horizontal Wind Speed (m/s) - WSC 
+GPS Corrected Horizontal Wind Direction (deg) - WDC
+GPS Corrected Wind Vector, East Component (m/s) - UIC
+GPS Corrected Wind Vector, North Component (m/s) - VIC
+GPS Corrected Wind Vector, Longitudinal Component (m/s) - UXC
+GPS Corrected Wind Vector, Latitudinal Component (m/s) - VYC
+GPS Corrected Wind Vector, Vertical Component (m/s) - WI /fn(WP3)
+GPS Corrected Wind Vector, Vertical Component (m/s) - WIC /fn(VSPD)
+GPS Corrected IRS Ground Speed Vector, East Comp, (m/s) - VEWC
+GPS Corrected IRS Ground Speed Vector, North Comp, (m/s) - VNSC
+
+RAF Standard Parameters
+
+GPS Latitude (deg) - GGLAT 
+GPS Longitude (deg) - GGLON
+	Cabin Pressure (mb) - PCAB				
+Ambient Temperature: Heated, Wing (C) - ATWH
+OPHIR-III Radiometric Ambient Temperature (C) - OAT
+Corrected Dew Point Temperature, Lyman Alpha (C) - DPLA
+Corrected Dew Point Temperature, Lyman Alpha-2 (C) - DPLA1
+
+		GPS Altitude: MSL (m) - GGALT
+Pressure Altitude: MSL (m) - PALT
+Pressure Altitude: MSL (ft) - PALTF
+Radar Altitude: AGL (m) - HGM232
+
+Potential Temperature (K) - THETA	
+Equivalent Potential Temperature (K) - THETAE
+Absolute Humidity, Top (g/m3) - RHODT
+Absolute Humidity, Lyman Alpha (g/m3) - RHOLA
+Absolute Humidity, Lyman Alpha-2 (g/m3) - RHOLA1
+Relative Humidity, Reference (%) - RHUM
+Parameter List - 2 (Cont.)
+
+Relative Humidity, Lyman Alpha (%) - RHLA
+Relative Humidity, Lyman Alpha-2 (%) - RHLA1
+Mixing Ratio, Reference (g/kg) - MR
+Mixing Ratio, Lyman Alpha (g/kg) - MRLA	
+Mixing Ratio, Lyman Alpha-2 (g/kg) - MRLA1
+	
+Radiometric Surface Temperature: Raw (C) - RSTB
+Radiometric Surface Temperature-2: Raw (C) - RSTB1
+Radiometric Sky Temperature (C) - RSTT
+Shortwave Irradiance, Top (W/m2) - SWT
+Shortwave Irradiance, Bottom (W/m2) - SWB
+Infrared Irradiance, Top (W/m2) - IRTC
+Infrared Irradiance, Bottom (W/m2) - IRBC
+Ultraviolet Irradiance, Top (W/m2) - UVT
+Ultraviolet Irradiance, Bottom (W/m2) - UVB
+
+TSI CN Particle Concentration (n/cm3) - CONCN
+TSI 3760 CN Counter Corrected Flow (slpm) - FCNC
+PCASP Aerosol Particle Concentration (n/cm3) - CONCP_RWO
+PCASP Aerosol Particle Size Distribution
+FSSP 100 Cloud Particle Concentration (n/cm3) - CONCF_LPC
+FSSP 100 Cloud Particle Size Distribution
+260X Cloud Droplet Concentration (n/l) - CONC6_RWI
+260X Cloud Droplet Size Distribution
+2D-C Cloud Particle Concentration (n/l) - CONC2C_RWI
+2D-P Cloud Particle Concentration (n/l) - CONC2P_LWO
+PCASP Mean Particle Diameter (um) - DBARP_RWO
+FSSP 100 Mean Particle Diameter (um) - DBARF_LPC
+260X Mean Droplet Diameter (um) - DBAR6_RWI
+FSSP Water/Ice Content (g/m3) - PLWCF_LPC
+Corrected King Probe Liquid Water Content, right wing (g/m3) - PLWCC1
+Gerber PVM-100 Liquid Water Content (g/m3) - XGLWC
+Gerber PVM-100 Effective Droplet Radius (um) - XGREFF
+Gerber PVM-100 Particle Surface Area (cm2/m3) - XGSFC
+Raw Icing Rate Indicator (vdc) - RICE
+
+Aircraft True Heading (deg) - THDG 
+Aircraft Roll Attitude Angle (deg) - ROLL
+Aircraft Pitch Attitude Angle (deg) - PITCH
+Aircraft IRS-Direct Vertical Velocity (m/s) - VSPD
+Aircraft IRS-Derived Vertical Velocity (m/s) - WP3
+GPS Ground Speed Vector, North Comp (m/s) - GGVNS
+GPS Ground Speed Vector, East Comp (m/s) - GGVEW
+
+Aircraft True Airspeed, Fuselage (m/s) - TASF
+Aircraft True Airspeed, Humidity Corrected (m/s) - TASHC
+Corrected Dynamic Pressure, Fuselage (mb) - QCFC
+Raw Dynamic Pressure, Fuselage (mb) - QCF
+Parameter List - 3 (Cont.)
+
+Attack Angle, Radome Diff. Pressure (deg) - AKRD
+Sideslip Angle, Radome Diff. Pressure (deg) - SSRD
+Vertical Differential Pressure, Radome (mb) - ADIFR
+Horizontal Differential Pressure, Radome (mb) - BDIFR
+
+Specialty Parameters
+
+RAF TECO Slow Ozone Concentration (ppb) - TEO3C
+RAF Carbon Monoxide Concentration (ppb) - XCOMR
+RAF Carbon Dioxide Concentration (ppb) - XCO2MR
+RAF Fast Ozone 10^7 Signal Output (Vdc) - XFO3FS7
+RAF Fast Ozone 10^8 Signal Output (Vdc) - XFO3FS8
+Ultra-fine CN Concentration (n/cm3)- XUFCT
+	
+User Variables 
+
+	
+	Total Air Sampler Flow Rate (slpm) - XTASF
+
+	DRI CNN Inlet Flow Rate (Vdc) - XDRIF
+		 
+	Gerber CIN Probe / Signal 1 (Vdc) - XCINF
+Gerber CIN Probe / Signal 2 (Vdc) - XCINB
+Gerber CIN Probe / Signal 3 (Vdc) - XCINCF
+Gerber CIN Probe / Signal 4 (Vdc) - XCINCB

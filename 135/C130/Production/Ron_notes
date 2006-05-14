@@ -1,0 +1,105 @@
+Allen's web document sources for RICO can be found in /jnet/win_jef1/allen
+with 135 in the file name.
+
+Ron
+Wed Apr 13 16:26:30 MDT 2005
+
+-------
+
+Today I moved the RICO chatlogs from directory:
+   /net/www/docs/rdp/projects/RICO/chatlog
+to
+   /jnet/local/proj/135/Web/Chat/chatlog
+
+Now all the chat stuff is in one place.
+
+Ron
+Fri Apr 15 15:09:01 MDT 2005
+
+-------
+
+Yesterday I copied the special ultra-high-rate files with the 1000 sps
+PVM-100 data to the directory:  /net/ftp/pub/archive/RAF-projects/RICO/pvm100
+Directory contents:
+
+-r--r--r--    1 ruth     raf      56903065 Jun 17 12:58 135GLWCRF01.nc.gz
+-r--r--r--    1 ruth     raf      20800776 Jun 17 15:37 135GLWCRF02.nc.gz
+-r--r--r--    1 ruth     raf      80218562 Jun 17 16:22 135GLWCRF03.nc.gz
+-r--r--r--    1 ruth     raf      78995126 Jun 17 16:23 135GLWCRF04.nc.gz
+-r--r--r--    1 ruth     raf      69838651 Jun 17 16:25 135GLWCRF05.nc.gz
+-r--r--r--    1 ruth     raf      76195733 Jun 17 16:27 135GLWCRF06.nc.gz
+-r--r--r--    1 ruth     raf      81425363 Jun 17 16:28 135GLWCRF07.nc.gz
+-r--r--r--    1 ruth     raf      90456722 Jun 17 16:29 135GLWCRF08.nc.gz
+-r--r--r--    1 ruth     raf      73180389 Jun 17 16:31 135GLWCRF09.nc.gz
+-r--r--r--    1 ruth     raf      79073068 Jun 17 16:35 135GLWCRF10.nc.gz
+-r--r--r--    1 ruth     raf      76876903 Jun 17 16:37 135GLWCRF11.nc.gz
+-r--r--r--    1 ruth     raf      76771678 Jun 17 16:38 135GLWCRF12.nc.gz
+-r--r--r--    1 ruth     raf      70993113 Jun 20 11:22 135GLWCRF13.nc.gz
+-r--r--r--    1 ruth     raf      76094093 Jun 20 11:24 135GLWCRF14.nc.gz
+-r--r--r--    1 ruth     raf      73609517 Jun 20 11:26 135GLWCRF15.nc.gz
+-r--r--r--    1 ruth     raf      75253087 Jun 20 11:27 135GLWCRF16.nc.gz
+-r--r--r--    1 ruth     raf      75651989 Jun 20 11:29 135GLWCRF17.nc.gz
+-r--r--r--    1 ruth     raf      77792468 Jun 20 11:31 135GLWCRF18.nc.gz
+-r--r--r--    1 ruth     raf      75033147 Jun 20 11:33 135GLWCRF19.nc.gz
+-r--r--r--    1 ruth     raf          3043 Jun 20 14:40 Header_GLWC.txt
+-r--r--r--    1 ruth     raf          2169 Jun 20 14:40 PVM100_Catalog.txt
+-r--r--r--    1 ruth     raf          2530 Jun 20 16:46 README
+
+The Header_GLWC.txt file is a netCDF header dump from RF01.
+The PVM100_Catalog.txt summarizes each file's date/time file-size information.
+The README file has file-retrieval and gunzip information.
+
+Ron
+Tue Jun 21 12:22:37 MDT 2005
+
+-------
+
+The new Time variable is comprised of all zeros for all the low-rate
+production netCDF files except RF01 (135rf01.nc).  All the high-rate
+files are OK.
+
+I copied the low-rate and high-rate production netCDF files for FF05 
+to /jnet/data and ran "ncfix" to correct the date fields, since the
+ADS header had 01/25/2005 instead of 01/26/2005.  Even though this
+program is ancient and had to run on mead (Solaris), it seemed to
+work just fine.  When replacing the file on the Mass Store, it will
+have an unique name, since its date is different.  It, therefore,
+will not overwrite the extant file.  The only caveat is that, since
+it's still there, Susan's retrieval web site can see it, and it can
+be retrieved just like the other data.  Perhaps I should protect it
+with a read password.  I'll think about that.
+
+Ron
+Thu Jun 23 17:42:51 MDT 2005
+
+-------
+
+For the last couple days Chris W and I have been working to fix up the
+problem files.  We have had our problems with system changes hampering
+our ability to do that as well as filling up all the space on
+/jnet/productiondata.
+
+The tasks:
+ - fix date for both FF05 (LRT, HRT)
+ - fix bogus base_time for RF19 HRT
+ - fix base_time to agree with the TimeInterval start time on all flights.
+ - fix Time variable for the LRT files except for RF01 (They are all zeroes.)
+
+As of this afternoon:
+Have run "ncReorder" on all RICO HRT flights.
+Have run "fix_time" on all RICO LRT flights except RF01 which didn't need it.
+
+Now I plan to move all the originally-archived MSS bitfiles to the /RAF
+directory and archive the fixed ones to the /ATD/DATA directory.
+
+Ron
+Fri Jul  1 16:13:25 MDT 2005
+
+-------
+
+Finished rearchiving both LRT and HRT data sets with the above corrections.
+Also recreated taplog files and updated the web site via the "changes" web
+page.
+
+Ron
+Tue Jul  5 10:39:58 MDT 2005

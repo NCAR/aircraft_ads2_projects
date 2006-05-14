@@ -1,0 +1,153 @@
+
+                    Project #127, Marine Stratus Cloud Tops
+                    Principal Investigator Jim Telford, DRI
+                     NCAR/RAF C-130, 11/16/94 - 12/15/94
+
+
+                                  Overview
+                                  --------
+    The NCAR C-130 flew 10 flights in support of the Marine Stratus Cloud Tops 
+project.  The project was flown from the San Jose Jet Center located at the 
+San Jose International Airport.  This was selected over the preferred base of
+operations, Monterey, because of a curfew limitation at the airport.
+    User instrumentation installed was the Hallet Cloud Camera and VCR record-
+ing (DRI), and Jim Hudson's CN counters.  Other cloud physics probes were a
+2D-C and 2D-P, FSSP-100, PCASP, and a PMS liquid water probe.  The RAF CN 
+counter was on and the Hudson and RAF probes shared a 1/4" 90 degree inlet
+on top of the fuselage in front of the wing.  The AIMR was operated on some
+of the flights, but it had to be shut down when the aircraft descended to low
+levels due to overheating.
+
+
+                    Multi-Channel Cloud Radiometer (MCR)
+                    ------------------------------------
+    The multichannel cloud radiometer (MCR) was deployed with four of the
+seven channels operational.  Channels 4 and 5 (corresponding to wavelengths
+of 1.14 and 1.63 um, respectively) were rendered dysfunctional by a leak in
+the liquid nitrogen dewar housing the channel filters and were disconnected
+prior to the deployment of the C-130.  Data were obtained from channel 7
+(10.76 um) throughout the project, but due to frequent saturation of this
+channel's signal, these data are considered to be of limited utility.
+Channels 1-3 (0.754, 0.761, and 0.763 um, respectively) and channel 6
+(2.16 um) were fully operational throughout the project.
+    It should be noted, however, that the MCR was not calibrated prior to or
+following the project due to the unavailability of the necessary equipment.
+Thus, only the raw voltage data for each of the four channels discussed above
+are available.  These raw voltage data will be processed and made available
+only on an "as requested" basis for user-specified flights and time periods.
+
+
+               Airborne Imaging Microwave Radiometer (AIMR)
+               --------------------------------------------
+    The AIMR was operated on an experimental basis during selected flights
+of this project.  Data are available from research flights 1, 2, 3, 8 and 10.
+Because of an overheating problem due to poor ventilation of the hardware,
+the AIMR could not be operated at low altitudes in this climate.  Thus, the
+available data are from the ferry portions of the research flights when the
+aircraft was at high altitude.
+    Microwave radiometric images are useful for measuring properties of
+clouds, such as liquid water path and precipitation rates, as well as sea
+surface properties such as roughness, which can be related to surface wind
+speed.  RAF does not presently implement algorithms for deriving such
+quantities.  Raw brightness temperature images from the AIMR's 4 channels are
+available for conversion to these quantities using appropriate algorithms.
+    Examples of AIMR brightness-temperature images are included in figures
+A-D.  Polarized components at each frequency are available, but averages of
+the components are shown in these images for simplicity.  In each image, the
+flight track is along the vertical axis of the page going from bottom to top.
+The sensor is scanning perpendicular to the flight track.  The width of the
+images is approximately 20 km; the length is 40 km; and the pixel size is
+300 meters at 37 GHz and 100meters at 90 GHz.
+
+
+                            General Instrumentation
+                            -----------------------
+    The following comments apply to all flights.
+    The ambient temperature from the Rosemount temperature sensor (ATRR) can
+be seen to have large RFI noise spikes from the aircraft radios.  ATRL was
+used as the primary temperature sensor.
+    The radar altimeter, HGM, was not working properly, and the signal appears
+to only be valid for about 300 meters above the surface.  It should be 
+disregarded at other times.
+    The Lyman-Alpha hygrometer shows the effects of wetting on passes through
+cloud.  The readings of VLA, MRLA, RHOLA should not be considered reliable in
+cloud.  The Lyman-alpha source tube begins to degrade during flight #9, and the
+signal becomes noisy on flights 9 and 10.
+    The liquid water measurement from the PMS hot-wire probe compares fairly
+well to the liquid water calculated from the FSSP probe.  However, there is
+an offset in the baseline due to an airspeed dependency.  The upper limit of
+the hot-wire probe rolls off at drop sizes larger than about 50 um, so it will
+tend to show a slightly higher water content than the FSSP after the baseline
+is adjusted.
+    Counts and concentrations from the NCAR CN counter have been "despiked"
+due to noise in the counter.  The despike process looks at point-to-point
+differences and removes a single point if the difference is out of tolerance.
+The removed point is then filled in by linear interpolation.  The tolerance
+for the CN counter was set at 2500 counts.  There is still some noise at the
+beginning of the flight during the warm-up period.  Some spikes and
+irregularities in the data may be due to Jim Hudson working on his system
+during the flight and occassionally removing the inlet tube.
+    The two downlooking Heimann radiometers are in good agreement when the
+target temperature is less than zero degrees Centigrade but differ at warmer
+target temperatures.  At a target temperature of about 15C, the the readings
+differ by 1.5 degrees.  This discrepancy did not show up in the pre- or post-
+project calibrations.  In cloud the the instrument is very close to the 
+ambient temperature and may be a better indicator than the Rosemount probes
+which tend to wet.
+
+
+                Flight-Specific Instrumentation Problems
+                ----------------------------------------
+Flight 1.: 11/18/94, 2.6 hours.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           FSSP probe counts look too low.  Probe needs calibration and
+             adjustment.
+           Air motion maneuvers performed on this flight.
+
+Flight 2.: 11/21/94, 4.8 hours.
+           DPT used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           FSSP probe counts look too low.  Probe needs calibration and
+             adjustment.
+
+Flight 3.: 11/22/94, 4.6 hours.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           FSSP calibrated and aligned.  Data look good.
+
+Flight 4.: 11/23/94, 2.1 hours.
+           Clear air flight.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 5.: 11/28/94, 5.0 hours.
+           FSSP alignment checked before flight:  OK.
+           DPT used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 6.: 11/30/94, 4.7 hours.
+           Air motion maneuvers performed on this flight.
+           DPT used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 7.: 12/08/94, 10.0 hours.
+           FSSP alignment checked before flight:  OK.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+           First flight with Hudson CN working.
+           MCR dewars out of coolant after 5 hours:  turned off.
+           Second tape on forward video not turned on.
+           Long in-cloud runs.  DPs getting wet.
+
+Flight 8.: 12/09/94, 6.7 hours.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 9.: 12/10/94, 6.3 hours.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.
+
+Flight 10.: 12/14/94, 6.0 hours.
+           DPB used for primary dew point reference.
+           ATRR used for primary ambient temperature reference.

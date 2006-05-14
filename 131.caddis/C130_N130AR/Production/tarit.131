@@ -1,0 +1,82 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+#
+#
+#
+#
+#
+#
+#
+#  At this point one needs a list of files immediately under the above "tar
+#   command.  As a starting point, one can use the `vi' command:   !!ls ..
+#   to get a list of files in the project's directory and edit out the
+#   unneeded ones.  
+#  For the Production subdirectory, one can use this command:
+#                       !!ls 
+#  For a subdirectory under Production (e.g., archive), one can repeat this:
+#                       !!ls archive
+#  For a subdirectory off the main project directory, use a command such as:
+#                       !!ls ../<directory>
+#   (Execute these commands starting with the cursor at the first "#" line
+#    below the `tar' command.  The `vi' command `!!ls' replaces the current
+#    line with its output.)
+#  Other subdirectories may also have files that need to be archived.
+#  After you get the list of files, don't forget to add the subdirectory
+#  name (if any) to the beginning of each file name and add a trailing
+#  <space> and backslash (\) to each file name (except the last one), so
+#  the `tar' command gets the entire list of files.
+#
+#  Brief summary for standard project files
+# !!ls ..
+#      (project's directory)
+# !!ls
+#      (Production subdirectory)
+# !!ls archive
+#      (Production/archive subdirectory)
+#   filter out undesired files
+#   prepend appropriate subdirectory to affected file names
+#   Add backslash at end of each line (except last)
+#   Save and exit
+#
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

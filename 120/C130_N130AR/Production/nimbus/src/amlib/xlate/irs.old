@@ -1,0 +1,295 @@
+/*
+-------------------------------------------------------------------------
+OBJECT NAME:	irs.c
+
+FULL NAME:	Convert IRS block data
+
+ENTRY POINTS:	xlilat(), xlilon(), xlipitch(), xliroll(), xlithdg(),
+		xligspd(), xlvacc(), xlivspd(), xlivns(), xlivew(),
+		xllag50(), xllag25(), xllag10(), xllag5(), xlialt()
+
+DESCRIPTION:	
+
+INPUT:		
+
+OUTPUT:		
+
+REFERENCES:	none
+
+REFERENCED BY:	rec_decode.c
+
+COPYRIGHT:	University Corporation for Atmospheric Research, 1992
+-------------------------------------------------------------------------
+*/
+
+#include "nimbus.h"
+#include "amlib.h"
+
+#define FTMTR	0.3048
+#define PIRAD	(1.0 / ((0x01 << 20) / 180.0))
+#define VKTS	(1.0 / ((0x01 << 8) / (6080.2 * FTMTR / 3600.0)))
+#define FTMIN	(1.0 / ((0x01 << 5) / (FTMTR / 60.0)))
+#define MPS2	(1.0 / ((0x01 << 12) / 9.7959))
+
+static float thdglcorr;		/* irs box alignment correction	*/
+static float thdgrcorr;		/* irs box alignment correction	*/
+static float pitchrcorr;	/* irs box alignment correction	*/
+static float pitchlcorr;	/* irs box alignment correction	*/
+
+
+/* -------------------------------------------------------------------- */
+void irsInit()
+{
+	thdglcorr = (GetDefaultsValue("HEADING_BIAS_1"))[0];
+	thdgrcorr = (GetDefaultsValue("HEADING_BIAS_2"))[0];
+	pitchlcorr = (GetDefaultsValue("PITCH_BIAS_1"))[0];
+	pitchrcorr = (GetDefaultsValue("PITCH_BIAS_2"))[0];
+
+}	/* END IRSINIT */
+
+/* -------------------------------------------------------------------- */
+void xlilat(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* (degs) 20 bits, +- 0.5 pirad, label 310	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->present_lat[i] >> 11) * PIRAD;
+
+	varp->DynamicLag = p->lag_5hz_frame;
+
+}	/* END XLILAT */
+
+/* -------------------------------------------------------------------- */
+void xlilon(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* (degs) 20 bits, +- 0.5 pirad, label 311	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->present_lon[i] >> 11) * PIRAD;
+
+	varp->DynamicLag = p->lag_5hz_frame;
+
+}	/* END XLILON */
+
+/* -------------------------------------------------------------------- */
+void xlipitch(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+	register float	correction;
+
+	if (varp->name[5] != '\0')
+		correction = pitchrcorr;
+	else
+		correction = pitchlcorr;
+
+	/* (degs) 20 bits, +- 0.5 pirad, label 324	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->pitch_angle[i] >> 11) * PIRAD + correction;
+
+	varp->DynamicLag = p->lag_50hz_frame;
+
+}	/* END XLIPITCH */
+
+/* -------------------------------------------------------------------- */
+void xliroll(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* (degs) 20 bits, +- 0.5 pirad, label 325	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->roll_angle[i] >> 11) * PIRAD;
+
+	varp->DynamicLag = p->lag_50hz_frame;
+
+}	/* END XLIROLL */
+
+/* -------------------------------------------------------------------- */
+void xlithdg(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+	register float	correction;
+
+	if (varp->name[4] != '\0')
+		correction = thdgrcorr;
+	else
+		correction = thdglcorr;
+
+
+	/* (degs) 20 bits, +- 0.5 pirad, label 314	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		{
+		np[i] = (NR_TYPE)(p->true_heading[i] >> 11) * PIRAD +correction;
+
+		if (np[i] < 0.0)
+			np[i] += 360.0;
+		}
+
+	varp->DynamicLag = p->lag_25hz_frame;
+
+}	/* END XLITHDG */
+
+/* -------------------------------------------------------------------- */
+void xlialt(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* (degs) 20 bits, +- 0.5 pirad, label 361	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->inertial_alt[i] >> 11) * FTMTR * 0.125;
+
+	varp->DynamicLag = p->lag_25hz_frame;
+
+}	/* END XLIALT */
+
+/* -------------------------------------------------------------------- */
+void xlivspd(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* (degs) 20 bits, +- 0.5 pirad, label 365	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->inrt_vert_speed[i] >> 11) * FTMIN;
+
+	varp->DynamicLag = p->lag_25hz_frame;
+
+}	/* END XLIVSPD */
+
+/* -------------------------------------------------------------------- */
+void xlvacc(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* (G) 15 bits, +- 4.0 kts, label 364	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->vertical_accel[i] >> 16) * MPS2 / 2.0;
+
+	varp->DynamicLag = p->lag_50hz_frame;
+
+}	/* END XLVACC */
+
+/* -------------------------------------------------------------------- */
+void xlivew(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* 20 bits, +-4095 kts, label 367	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->velocity_ew[i] >> 11) * VKTS;
+
+	varp->DynamicLag = p->lag_10hz_frame;
+
+}	/* END XLIVEW */
+
+/* -------------------------------------------------------------------- */
+void xlivns(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* 20 bits, +-4095 kts, label 366	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->velocity_ns[i] >> 11) * VKTS;
+
+	varp->DynamicLag = p->lag_10hz_frame;
+
+}	/* END XLIVNS */
+
+/* -------------------------------------------------------------------- */
+void xligspd(varp, p, np)
+RAWTBL		*varp;
+struct Irs_blk	*p;	/* Source	*/
+NR_TYPE		*np;	/* Destination	*/
+{
+	register	i;
+
+	/* 20 bits, 0 to 4095 kts, label 312	*/
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		np[i] = (NR_TYPE)(p->ground_speed[i] >> 11) * VKTS;
+
+	varp->DynamicLag = p->lag_10hz_frame;
+
+}	/* END XLIGSPD */
+
+/* -------------------------------------------------------------------- */
+void xllag50(varp, p, output)
+RAWTBL		*varp;
+struct Irs_blk	*p;
+NR_TYPE		*output;
+{
+	*output = (NR_TYPE)p->lag_50hz_frame;
+
+}	/* END XLLAG50 */
+
+/* -------------------------------------------------------------------- */
+void xllag25(varp, p, output)
+RAWTBL		*varp;
+struct Irs_blk	*p;
+NR_TYPE		*output;
+{
+	*output = (NR_TYPE)p->lag_25hz_frame;
+
+}	/* END XLLAG25 */
+
+/* -------------------------------------------------------------------- */
+void xllag10(varp, p, output)
+RAWTBL		*varp;
+struct Irs_blk	*p;
+NR_TYPE		*output;
+{
+	*output = (NR_TYPE)p->lag_10hz_frame;
+
+}	/* END XLLAG10 */
+
+/* -------------------------------------------------------------------- */
+void xllag5(varp, p, output)
+RAWTBL		*varp;
+struct Irs_blk	*p;
+NR_TYPE		*output;
+{
+	*output = (NR_TYPE)p->lag_5hz_frame;
+
+}	/* END XLLAG5 */
+
+/* END IRS.C */

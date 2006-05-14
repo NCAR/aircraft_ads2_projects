@@ -1,0 +1,664 @@
+Feb 23 07:19:35 -->	daniels (~daniels@vpn21.ucar.edu) has joined #C130Q
+Feb 23 07:40:31 -->	schanot (~c8410021@linus.atd.ucar.edu) has joined #C130Q
+Feb 23 07:40:42 <daniels>	hello
+Feb 23 07:40:50 <daniels>	i've been waiting...
+Feb 23 07:41:19 <schanot>	welcome my friend to the show that never ends!
+Feb 23 07:41:31 <daniels>	i'm so very happy to be here
+Feb 23 07:41:34 <daniels>	ha
+Feb 23 07:41:56 <daniels>	what time do you want to get started?
+Feb 23 07:42:00 <schanot>	OK.  I emailed Baker asking him to set a schedule for today.  nothing back from him yet
+Feb 23 07:42:22 <daniels>	you have to call his cellphone -- he was not in the office over the weekend
+Feb 23 07:42:31 <daniels>	he was willing to do this from home
+Feb 23 07:42:53 <daniels>	i can try to call if you are ready
+Feb 23 07:43:12 <schanot>	I understood that.  I indicated a potential problem on the Hughes end of things
+Feb 23 07:43:28 <daniels>	what do you mean?
+Feb 23 07:44:19 <schanot>	Baker said that it sometimes takes Hughes awhile to coordinate this kind of change in satelite
+Feb 23 07:44:39 <daniels>	so you already talked to him?
+Feb 23 07:44:58 <schanot>	this was from an email he sent to me on Friday
+Feb 23 07:45:09 <daniels>	ok. got it.
+Feb 23 07:45:29 <schanot>	i figured we could hit it hard today while we were all on station
+Feb 23 07:45:30 <daniels>	when i talked to him on the phone he said this procedure should not take long at all
+Feb 23 07:45:57 <daniels>	he said 10-15 minutes for the connection and then a few minutes for offline configuration
+Feb 23 07:46:07 <schanot>	so, the gist is that we need to hook the satelite laptop to a modem line, right?
+Feb 23 07:46:10 <daniels>	i just used 1 hour as the worst case
+Feb 23 07:46:16 <daniels>	that is my understanding
+Feb 23 07:46:33 <daniels>	he said he needs to do some sort of configuration from that laptop
+Feb 23 07:46:39 <schanot>	should we just hook into one of the unused lines Jody set up here?
+Feb 23 07:46:45 <daniels>	yes
+Feb 23 07:47:28 <daniels>	who will be doing it?
+Feb 23 07:47:36 <schanot>	OK.  Let me work on that and lets give Baker awhile to contact me
+Feb 23 07:47:46 <daniels>	ok
+Feb 23 07:47:54 <daniels>	is jorgen around?
+Feb 23 07:48:29 <schanot>	manpower consists of me, Kurt, and The NASA guy.... but I'm the only one in the room at the moment
+Feb 23 07:48:50 <schanot>	yes.  but not in the room at the moment.  what do you need?
+Feb 23 07:48:59 <daniels>	i wanted to tell Jorgen that Ron Ruth's review is due to the Director's office TODAY and I haven't heard back from him on my first draft
+Feb 23 07:49:31 <schanot>	roger that.  he's working on mine too.  when did this pushed so early?
+Feb 23 07:49:59 <daniels>	there was an email sent quite a while ago about this.  I can check to see when...
+Feb 23 07:50:15 <schanot>	didn't this used to be an april-may thing
+Feb 23 07:51:09 <daniels>	not for associate scientists.  they have always been early and due the first round
+Feb 23 07:51:20 <schanot>	Jorgen just came in.  he says it's on his list
+Feb 23 07:51:53 <schanot>	he/we are also prepping for the RICO meeting
+Feb 23 07:52:01 <daniels>	me too
+Feb 23 07:52:16 <daniels>	btw, the email came out 1/29 and stith and albright were copied
+Feb 23 07:52:33 <daniels>	when are you coming back?
+Feb 23 07:55:31 <schanot>	am i still on?
+Feb 23 07:55:37 <daniels>	yes
+Feb 23 07:55:48 <schanot>	two messages dropped on this end
+Feb 23 07:56:12 <daniels>	i just mentioned that the performance appraisal email came out 1/29 and stith and albright were copied
+Feb 23 07:56:13 <schanot>	jorgen is new on this review thing
+Feb 23 07:56:24 <daniels>	then I asked when you are coming back to CO?
+Feb 23 07:56:40 <schanot>	3/3/04
+Feb 23 07:57:03 <daniels>	i didn't know you were there for the duration!
+Feb 23 07:57:30 <schanot>	yes, worked it out with Jorgen.  he took all of AIRS-II in Cleveland
+Feb 23 07:58:00 <schanot>	Carolyn is certainly enjoying herself
+Feb 23 07:58:10 <daniels>	on the beach?
+Feb 23 07:58:21 <schanot>	ofcourse
+Feb 23 07:58:38 <daniels>	happy to hear that!
+Feb 23 07:58:53 <daniels>	what does she think of huatulco vs mazatlan?
+Feb 23 07:59:12 <schanot>	how about i get the satelite system on the line and we meet back here in one hour?
+Feb 23 07:59:38 <daniels>	how about 1.5 -- i've got to get the kids off to school before i leave for work?!?!
+Feb 23 07:59:44 <schanot>	each has its charms.  long term - Maz has more to do
+Feb 23 08:00:11 <daniels>	i have been on this chat since shortly after 7am (waiting for you!)
+Feb 23 08:00:12 <schanot>	that's fine
+Feb 23 08:00:17 <daniels>	see ya
+Feb 23 08:00:39 <--	daniels has quit (Leaving)
+Feb 23 09:23:48 -->	logger (~daniels@dyn84-101.atd.ucar.edu) has joined #C130Q
+Feb 23 09:28:23 -->	satcom (~d1f8cbfb@linus.atd.ucar.edu) has joined #C130Q
+Feb 23 09:28:52 <logger>	hi, is that you john
+Feb 23 09:29:05 ---	logger is now known as daniels
+Feb 23 09:31:02 <satcom>	Hello...yes it is.
+Feb 23 09:31:23 <daniels>	we are expecting the hualtulco folks to respond very shortly
+Feb 23 09:31:36 <daniels>	allen?
+Feb 23 09:31:37 <satcom>	OK...just testing this chat
+Feb 23 09:32:09 <daniels>	ok, great.  
+Feb 23 09:33:22 <daniels>	i am giving them a call now
+Feb 23 09:36:53 <daniels>	they will be on chat in 2 minutes
+Feb 23 09:38:24 <schanot>	I'm back on line
+Feb 23 09:38:30 <daniels>	john, are you there?
+Feb 23 09:38:57 <satcom>	I'm here
+Feb 23 09:39:37 <daniels>	ok, do you think it is worthwhile to try and give the configuration instructions over chat?
+Feb 23 09:39:49 <satcom>	yes...we can try
+Feb 23 09:39:52 <daniels>	allen?
+Feb 23 09:41:56 <schanot>	yes
+Feb 23 09:42:11 <daniels>	john is ready to give the instructions -- are you ready down there?
+Feb 23 09:42:31 <schanot>	we don't have the unit on the modem quite yet
+Feb 23 09:43:02 <satcom>	we do not need the satellite dish deployed at this time
+Feb 23 09:43:34 <daniels>	so just disconnect the laptop and connect it to a phone line?
+Feb 23 09:43:54 <schanot>	i understand that part.  i assume you want the satelite laptop hooked to a phone line
+Feb 23 09:43:58 <satcom>	the laptop and the modems should be on and connected
+Feb 23 09:44:31 <satcom>	yes, please connect a phone line to the laptop
+Feb 23 09:46:18 <schanot>	hooked up and booting up now
+Feb 23 09:47:36 <satcom>	after it is completely booted, right click on the 'WinRoute' icon in the system tray and click on "Stop WinRoute Engine"
+Feb 23 09:48:34 <schanot>	WinRoute crashed on bootup
+Feb 23 09:48:48 <daniels>	larry says that happens every time
+Feb 23 09:48:54 <daniels>	just say ok
+Feb 23 09:49:27 <satcom>	is there an incon in the system tray?
+Feb 23 09:49:52 <schanot>	yes.  it is not running so can't stop it
+Feb 23 09:50:01 <satcom>	ok
+Feb 23 09:50:45 <satcom>	goto "Start/Programs/direcWay/web setup
+Feb 23 09:51:03 <schanot>	got it
+Feb 23 09:51:24 <satcom>	click on it and follow all defaults
+Feb 23 09:51:56 <satcom>	it will attempt to dial out
+Feb 23 09:52:01 <schanot>	asks for zip code.  didn't recognise Mexico before.  what do we do?
+Feb 23 09:52:32 <satcom>	click on enter location manually and input the lat/long for your location
+Feb 23 09:53:37 <satcom>	did you get a screen that said "Welcome to Web Setup"?
+Feb 23 09:53:44 <schanot>	wait one
+Feb 23 09:55:33 <schanot>	verifying connect now
+Feb 23 09:55:50 <satcom>	good
+Feb 23 09:56:20 <schanot>	need to modifgy dial up connect to use 9 for outside line.  wait one
+Feb 23 09:56:50 <satcom>	ok
+Feb 23 09:57:02 <schanot>	can we hookto the net through the firewall?
+Feb 23 09:57:17 <daniels>	allen, one note re: lat/lon Larry Murphy is here and he said he left a note with this info.  He reports that the lat/lon he was entering is quite a bit different that what Jim Lasswell reports
+Feb 23 09:57:33 <satcom>	lets try this first
+Feb 23 09:57:44 <daniels>	no problem.  just wanted to note that
+Feb 23 09:58:31 <schanot>	mike: Jody there to check dialup setup from here?  
+Feb 23 09:59:09 <daniels>	just a sec
+Feb 23 09:59:13 <daniels>	jody not at jeffco
+Feb 23 09:59:24 <daniels>	what do you mean "dial up setup?"
+Feb 23 09:59:45 <schanot>	this unit is not calling up the local podigy server.  set to something else internally.
+Feb 23 09:59:56 <Ron>	I'm here at Jeffco if you need something.
+Feb 23 10:00:06 <schanot>	wait one
+Feb 23 10:00:45 <satcom>	the unit dials an 800 number to connect to the Hughes Registration Server
+Feb 23 10:01:04 <daniels>	prodigy is not necessary, then.
+Feb 23 10:01:09 <satcom>	no
+Feb 23 10:01:12 <schanot>	That will not work from here!
+Feb 23 10:01:33 <satcom>	you cannot dial an 800 number from there?
+Feb 23 10:01:49 <schanot>	is larry there?
+Feb 23 10:01:52 <daniels>	yes
+Feb 23 10:02:19 <schanot>	how did he direct dial out to access U.S.
+Feb 23 10:02:39 <daniels>	larry said you should be able to dial outside -- you need to look at the dialup networking connection on the computer on the left
+Feb 23 10:02:50 <daniels>	on the far left machine if that makes sense
+Feb 23 10:03:03 <schanot>	wait one
+Feb 23 10:04:44 <schanot>	need root account on that machine to check settings
+Feb 23 10:04:58 <satcom>	Mike, the difference in the lat/long could have been the problem all along. With an incorrect lat/long, the system timing never would have been correct
+Feb 23 10:05:28 <schanot>	how accurate does the position need to be?
+Feb 23 10:05:32 <daniels>	larry said he used the coordinates from the GPS in the skycasters system
+Feb 23 10:05:41 <satcom>	within a minute
+Feb 23 10:05:58 <satcom>	should have worked then
+Feb 23 10:06:20 <satcom>	not sure why the other folks had something different
+Feb 23 10:06:36 <daniels>	allen: were they at the airport?
+Feb 23 10:06:59 <daniels>	i am checking into root access on that machine.  just a sec
+Feb 23 10:07:27 <schanot>	we're ttying againe with dial codes
+Feb 23 10:07:41 <daniels>	you don't need root access, then?
+Feb 23 10:07:48 <schanot>	Larry: where is the note on the exact position?
+Feb 23 10:08:05 <daniels>	larry is laughing
+Feb 23 10:08:16 <daniels>	look in the book or on those yellow pieces of paper
+Feb 23 10:08:48 <daniels>	gary or robert from skycasters should also know it
+Feb 23 10:09:11 <schanot>	now i'm laughing
+Feb 23 10:10:09 <satcom>	are you right in hualtulco?
+Feb 23 10:10:10 <daniels>	trying to reach jody re: root access -- do you still need it?!?!?!!
+Feb 23 10:10:31 <schanot>	we can't get directly to U.S. from these phone lines.
+Feb 23 10:10:44 <daniels>	can you use a calling card?
+Feb 23 10:12:21 <daniels>	sent an email to jody
+Feb 23 10:12:35 <schanot>	can you give us the big picture?  why can't we access the web site via the server?
+Feb 23 10:13:19 <daniels>	john: they are wondering if they can access this through a normal internet connection
+Feb 23 10:13:21 <schanot>	we are trying to setup a link via the prodigy accounts that Jody setup.  That's how everything else works
+Feb 23 10:13:37 <satcom>	if you can connect the laptop so that you can get to the web from it, this will work
+Feb 23 10:14:32 <schanot>	will make last try on Prodigy dial up then over to server
+Feb 23 10:15:12 <daniels>	if you connect via the server you will need to configure the network
+Feb 23 10:15:38 <daniels>	there is a dhcp server running so it should be straightforward
+Feb 23 10:17:52 <schanot>	wait one.  it will try to connect via prodigy, but won't finish
+Feb 23 10:19:11 <schanot>	moving over to server
+Feb 23 10:20:27 <daniels>	john, can we configure it for a dhcp network and is the laptop currently set for a static ip?
+Feb 23 10:21:25 <satcom>	it is currently configured for a static ip, configure it for DHCP but we will have to reconfigure later
+Feb 23 10:22:01 <daniels>	allen: right click on "My Network Places icon"
+Feb 23 10:22:03 <schanot>	working on it
+Feb 23 10:22:28 <schanot>	robbie know how to do it
+Feb 23 10:22:48 <daniels>	note the current static settings tso that you can reconfigure back it later
+Feb 23 10:23:03 <schanot>	done that already
+Feb 23 10:23:35 <daniels>	ok, i was very worried that you were the one making the changes 
+Feb 23 10:23:49 <satcom>	:)
+Feb 23 10:23:50 <schanot>	not a chance.  you know me
+Feb 23 10:24:13 <daniels>	need to run "ipconfig /all" from a command prompt after the changes are made
+Feb 23 10:25:09 <schanot>	he's way ahead of you.  we're at web setup now.  
+Feb 23 10:25:42 <daniels>	about time you had some competent folks down there -- THANKS ROBBIE.  OK, John can take it from here.
+Feb 23 10:25:45 <satcom>	it should say that this machine is "connected to the internet"
+Feb 23 10:26:36 <schanot>	downloading keys and data from registration server, etc modem authenticated, continuing
+Feb 23 10:26:44 <satcom>	great!
+Feb 23 10:27:39 <schanot>	at web setup account registration.  at subscriber agreement.  will get back to you in 45 min after we read it....
+Feb 23 10:27:42 <satcom>	let me know when you get to the Registration" screen
+Feb 23 10:27:45 <schanot>	kidding
+Feb 23 10:28:14 <schanot>	we are there
+Feb 23 10:28:36 <satcom>	use my name...John Baker...as contact
+Feb 23 10:28:44 <satcom>	Skycasters as company
+Feb 23 10:29:12 <satcom>	1520 South Arlington Akron, OH 44306 as address
+Feb 23 10:29:15 <schanot>	phone number?
+Feb 23 10:29:39 <satcom>	330-785-2100
+Feb 23 10:29:53 <satcom>	support@skycasters.com
+Feb 23 10:31:12 <schanot>	antenna location?
+Feb 23 10:31:21 <satcom>	use same for now
+Feb 23 10:31:32 <schanot>	OK
+Feb 23 10:31:53 <satcom>	Billing ID: 2698040100226892
+Feb 23 10:32:14 <schanot>	OK
+Feb 23 10:32:14 <satcom>	let me know when you get to the service offerings page
+Feb 23 10:32:39 <schanot>	there now
+Feb 23 10:33:03 <satcom>	please choose "Basic with an IP
+Feb 23 10:33:11 -->	jtanner (~8075410e@linus.atd.ucar.edu) has joined #C130Q
+Feb 23 10:33:20 <schanot>	OK
+Feb 23 10:33:28 <jtanner>	hi.  I'm here.
+Feb 23 10:33:41 <satcom>	continu until you get to the Antenna Pointig page
+Feb 23 10:33:42 <schanot>	hi jody
+Feb 23 10:33:48 <daniels>	jody: they are working through the details of the skycasters config -- network connection is OK
+Feb 23 10:34:00 <schanot>	its still working
+Feb 23 10:34:07 <daniels>	but we may need you to help config the local LAN
+Feb 23 10:34:14 <jtanner>	okay
+Feb 23 10:34:38 <schanot>	error occurred while processing request.  going back one step
+Feb 23 10:35:30 <schanot>	registration error.  adaptor commissioned but cannot proceed due to technical difficulties. try again.
+Feb 23 10:35:42 <schanot>	retry?
+Feb 23 10:35:51 <satcom>	please
+Feb 23 10:36:02 <satcom>	Hughes problem
+Feb 23 10:36:25 <schanot>	that's why we didn't try this weekend
+Feb 23 10:38:38 <schanot>	at registrations email account.  soound familiar?
+Feb 23 10:38:51 <satcom>	just continue
+Feb 23 10:39:18 <schanot>	need creat username & password? or just continue
+Feb 23 10:39:27 <satcom>	just continue
+Feb 23 10:39:32 <schanot>	OK
+Feb 23 10:40:20 <schanot>	account is registered for service. next?
+Feb 23 10:41:15 <satcom>	yes
+Feb 23 10:41:16 <schanot>	going through wizard.  wants us to restart computer. OK?
+Feb 23 10:41:45 <satcom>	hold on please...doesn't normally ask that
+Feb 23 10:42:35 <schanot>	chged directway network settings and wants a restart
+Feb 23 10:44:40 <satcom>	let's do it
+Feb 23 10:44:55 <schanot>	working
+Feb 23 10:45:35 <satcom>	did you reconfigure the local are connection or the direcway connection?
+Feb 23 10:45:41 <satcom>	area
+Feb 23 10:46:42 <schanot>	reconfigured local to make the DHCP connection.  Can return as necessary
+Feb 23 10:47:12 <satcom>	ok...was still trying to figure out why it wanted to restart
+Feb 23 10:48:59 <schanot>	am i back?
+Feb 23 10:49:07 <satcom>	yes
+Feb 23 10:49:40 <--	schanot has quit (CGI:IRC)
+Feb 23 10:49:59 <daniels>	probably just a short term disconnect
+Feb 23 10:50:05 -->	schanot (~c8410021@linus.atd.ucar.edu) has joined #C130Q
+Feb 23 10:50:14 <daniels>	you're back
+Feb 23 10:50:26 <schanot>	yes. network reset
+Feb 23 10:50:45 <schanot>	we did nothing to the directway stuff
+Feb 23 10:50:53 <satcom>	ok
+Feb 23 10:51:03 <satcom>	has it rebooted?
+Feb 23 10:51:12 <schanot>	reboot complete.  what next?
+Feb 23 10:51:39 <satcom>	go through web setup again...should not have to fill in any info this time
+Feb 23 10:52:03 <schanot>	working
+Feb 23 10:52:15 <satcom>	let me know when you get to the antenna pointing page
+Feb 23 10:52:33 <schanot>	antenna location again. same as before?
+Feb 23 10:53:04 <satcom>	it's asking for customer info again?
+Feb 23 10:53:17 <schanot>	not yet
+Feb 23 10:53:37 <satcom>	yes same antenna location info
+Feb 23 10:55:05 <satcom>	do you have the lat/long that the DataStorm software gave you?
+Feb 23 10:55:49 <satcom>	I get Lat 15.8498 Long 96.3167 from MapPoint for hualtulco
+Feb 23 10:57:28 <schanot>	not exact.  will switch to your numbers
+Feb 23 10:57:49 <daniels>	but are those lat/lon for the city and not the beach?
+Feb 23 10:59:05 <satcom>	how far are you from arenal?
+Feb 23 10:59:46 <schanot>	back to settings reset and reboot message.  we are not connected to the dish
+Feb 23 11:00:40 <schanot>	we can run antenna pointing program from "start" if you want
+Feb 23 11:01:19 <schanot>	where or what is arenal
+Feb 23 11:01:26 <satcom>	ok...lets try...a bit concerned about not finishing web setup...
+Feb 23 11:01:52 <satcom>	bajo de Arenal
+Feb 23 11:02:11 <schanot>	never heard of it
+Feb 23 11:02:28 <schanot>	we are within a mile of what is technically Huatulco
+Feb 23 11:03:10 <schanot>	anything further in this mode or do we set the whole thing back up?
+Feb 23 11:03:56 <satcom>	have you opened antenna pointing?
+Feb 23 11:04:22 <schanot>	does the laptop need to be connected to the dish?
+Feb 23 11:04:29 <satcom>	not yet
+Feb 23 11:04:40 <schanot>	proceeding
+Feb 23 11:04:44 <satcom>	need to verify some setting in antenna pointing
+Feb 23 11:05:14 <daniels>	BTW, Larry said he is pretty sure he used lat 15.0947 and lon 96.3475
+Feb 23 11:05:30 <schanot>	ready
+Feb 23 11:05:48 <satcom>	after antenna location, go next
+Feb 23 11:06:07 <schanot>	on satelite parameters
+Feb 23 11:06:31 <satcom>	longitude?
+Feb 23 11:06:51 <schanot>	117 W
+Feb 23 11:07:28 <satcom>	web setup did not complete...need to rerun...on what screen is it asking to restart?
+Feb 23 11:07:56 <schanot>	working
+Feb 23 11:08:36 <satcom>	after web setup, satellite longitude should read 91°
+Feb 23 11:09:18 <schanot>	web setup closes. dialog box pops up.  click next. says it chged setting. reboot
+Feb 23 11:10:01 <satcom>	at what point in the process does this occur?
+Feb 23 11:10:45 <schanot>	after it says registration finished. click continue. then the rest
+Feb 23 11:12:17 <satcom>	lets let it reboot one more time
+Feb 23 11:13:10 <schanot>	hey this is rob
+Feb 23 11:13:20 <schanot>	just to let you know, what is happening is this:
+Feb 23 11:14:11 <schanot>	after running the web setup a couple more times, I get the same situation.  It asks me to setup email addresses, and then comes back with a page saying "your account is registered for service"
+Feb 23 11:14:52 <satcom>	that's normal
+Feb 23 11:15:03 <schanot>	then a click on continue closes the web reg. browser, and a dialog asks me if i want to config dialup service as a backup.
+Feb 23 11:15:14 <schanot>	after selecting no
+Feb 23 11:15:44 <schanot>	it says changing directway network settings, etc etc in a dialog box.
+Feb 23 11:15:51 <satcom>	normal
+Feb 23 11:16:08 <schanot>	then registry updates, access keys updates, network setttings updated.
+Feb 23 11:16:14 <satcom>	normal
+Feb 23 11:16:25 <schanot>	then either click on "restart" or "dont restart"
+Feb 23 11:16:43 <schanot>	i'll restart it now again.
+Feb 23 11:16:55 <satcom>	what happens if you select "don't restart"?
+Feb 23 11:18:23 <schanot>	if I select dont restart, which i tried once, the satellite diagnostics appears 
+Feb 23 11:18:51 <schanot>	its the same one that appears on startup
+Feb 23 11:19:46 <satcom>	do you ever get to a screen that asks for the zip code again?
+Feb 23 11:20:01 <schanot>	no.
+Feb 23 11:20:19 <schanot>	reboot complete
+Feb 23 11:20:28 <satcom>	Is there a folder on the desktop named "SatSoft"?
+Feb 23 11:20:39 <schanot>	yes
+Feb 23 11:21:06 <satcom>	can you open it and see if there is 4.0.3.9 folder?
+Feb 23 11:21:21 <satcom>	or direcway software
+Feb 23 11:21:58 <schanot>	direcway 4.2.1.10 folder
+Feb 23 11:22:55 <satcom>	nothing with 4.0.3.9?
+Feb 23 11:23:29 <schanot>	looking
+Feb 23 11:23:36 <satcom>	did Va. Beach send a CD?
+Feb 23 11:24:03 <schanot>	dak403_p14.exc is closest
+Feb 23 11:24:26 <schanot>	CD in dirve
+Feb 23 11:24:41 <schanot>	checking
+Feb 23 11:24:43 <satcom>	no...that's a patch file
+Feb 23 11:25:10 <schanot>	folder 4.0.3.9 is on the CD
+Feb 23 11:25:16 <satcom>	good
+Feb 23 11:25:30 <satcom>	we need to do the following:
+Feb 23 11:25:42 <satcom>	but first....
+Feb 23 11:26:00 <satcom>	is ther a folder on the CD called MotoSat?
+Feb 23 11:26:12 <schanot>	yes
+Feb 23 11:26:18 <satcom>	ok
+Feb 23 11:26:33 <satcom>	Please uninstall the DataStorm software
+Feb 23 11:26:49 <satcom>	Then uninstall the direcway software
+Feb 23 11:26:59 <satcom>	reboot the laptop
+Feb 23 11:27:18 <satcom>	while rebooting, remove the USB cable from the laptop
+Feb 23 11:27:50 <satcom>	Copy the 4.0.3.9 software from the cd to the desktop
+Feb 23 11:28:12 <satcom>	install the direcway software and plug the USB cable in when prompted
+Feb 23 11:28:31 <satcom>	it should take you through websetup
+Feb 23 11:29:02 <satcom>	after we get through web setup, we can then install the datastorm software
+Feb 23 11:29:06 <schanot>	OK. rebooting
+Feb 23 11:30:32 <satcom>	please accept all defaults for installing the direcway software
+Feb 23 11:31:02 <schanot>	still booting
+Feb 23 11:31:14 <satcom>	somewhere about the third screen it will prompt for the USB cable
+Feb 23 11:34:43 <schanot>	USB connected
+Feb 23 11:35:34 <schanot>	it's doing something with the satelite device...working
+Feb 23 11:36:19 <schanot>	still installing directway
+Feb 23 11:36:40 <schanot>	running web setup
+Feb 23 11:37:40 <schanot>	which lat and lon.  Larry's or other
+Feb 23 11:38:08 <satcom>	try Lat 15.8498 N Long 96.3167 W
+Feb 23 11:38:26 <schanot>	roger
+Feb 23 11:39:41 <schanot>	came up Akron OH and not VB
+Feb 23 11:39:55 <satcom>	that's ok
+Feb 23 11:40:19 <schanot>	on antenna pointing.  beeping
+Feb 23 11:40:31 <satcom>	continue
+Feb 23 11:41:04 <schanot>	looks different than before
+Feb 23 11:41:10 <satcom>	good
+Feb 23 11:42:05 <schanot>	made some settings changed. then closed. time for datastorm?
+Feb 23 11:42:14 <satcom>	not yet
+Feb 23 11:42:24 <satcom>	please open antenna pointing
+Feb 23 11:42:31 <schanot>	OK
+Feb 23 11:42:48 <satcom>	goto satellite parameters
+Feb 23 11:43:09 <satcom>	should now say longitude is 91°
+Feb 23 11:43:20 <schanot>	OK that's what is says
+Feb 23 11:43:36 <satcom>	frequency is 1350?
+Feb 23 11:43:43 <schanot>	yes
+Feb 23 11:44:01 <satcom>	on the first page, what was your location?
+Feb 23 11:44:18 <schanot>	Akron, OH
+Feb 23 11:44:42 <satcom>	go back to first page and check the box to enter the location manually
+Feb 23 11:45:04 <satcom>	then enter the lat/long I gave you earlier
+Feb 23 11:45:12 <schanot>	we did and entered correct lat and lon
+Feb 23 11:46:03 <satcom>	ok...lwe now need to run the dak403_p14.exce file
+Feb 23 11:46:29 <schanot>	exit this first?
+Feb 23 11:46:36 <satcom>	yes, please
+Feb 23 11:46:48 <schanot>	working
+Feb 23 11:47:10 <satcom>	we need to pull the usb cable before you run it
+Feb 23 11:47:14 <schanot>	seems to be proceeding
+Feb 23 11:47:21 <satcom>	or now
+Feb 23 11:47:31 <schanot>	a little late on that update
+Feb 23 11:47:43 <satcom>	sorry...go ahead and pull it
+Feb 23 11:48:08 <schanot>	successful service pack update
+Feb 23 11:48:11 <satcom>	it should want to restart
+Feb 23 11:48:51 <satcom>	while it's rebooting, plug the USB cable back in
+Feb 23 11:49:16 <schanot>	hello am i up
+Feb 23 11:49:21 <satcom>	yes
+Feb 23 11:49:38 <schanot>	rebooting with USB
+Feb 23 11:53:53 <satcom>	after rebooting, please let me know when the blue and white BE icon appears in the system tray
+Feb 23 11:55:36 <satcom>	hello?
+Feb 23 11:56:28 <daniels>	my screen shows they're still connected...
+Feb 23 11:56:38 <satcom>	siesta time?
+Feb 23 11:56:42 <daniels>	perhaps ;-)
+Feb 23 11:56:57 <schanot>	am i back
+Feb 23 11:57:02 <satcom>	yes
+Feb 23 11:57:19 <--	schanot has quit (CGI:IRC)
+Feb 23 11:57:50 -->	schanot (~c8410021@linus.atd.ucar.edu) has joined #C130Q
+Feb 23 11:58:05 <schanot>	ok we're back
+Feb 23 11:58:13 <schanot>	reboot complete
+Feb 23 11:58:20 <satcom>	BE icon?
+Feb 23 11:58:31 <schanot>	yes
+Feb 23 11:59:05 <satcom>	please Right click the BE icon, click 'About' and click on System Info
+Feb 23 11:59:23 <schanot>	OK
+Feb 23 11:59:29 <satcom>	please record the new Adaptor IP Address
+Feb 23 12:00:09 <schanot>	OK
+Feb 23 12:00:51 <satcom>	Please close this window and copy the MotoSat folder from the CD to the desktop
+Feb 23 12:01:03 <schanot>	working
+Feb 23 12:01:14 <schanot>	OK
+Feb 23 12:01:46 <satcom>	open the folder and double click the datastorm exe file
+Feb 23 12:02:05 <satcom>	select 'Single User'
+Feb 23 12:02:07 <schanot>	whick version
+Feb 23 12:02:44 <satcom>	what are the choices?
+Feb 23 12:03:08 <schanot>	168B 180B 182B
+Feb 23 12:03:25 <satcom>	none of the above
+Feb 23 12:03:47 <satcom>	is there a motosat folder in the satsoft folder on the desktop
+Feb 23 12:04:44 <schanot>	no
+Feb 23 12:05:31 <schanot>	file called dssetup in the satsoft folder
+Feb 23 12:05:41 <satcom>	is there any datastorm administrator file on the desktop?
+Feb 23 12:06:00 <schanot>	no
+Feb 23 12:06:02 <satcom>	try the dssetup
+Feb 23 12:06:25 <schanot>	looks right
+Feb 23 12:06:31 <satcom>	good
+Feb 23 12:06:41 <satcom>	be sure to choose single user
+Feb 23 12:06:53 <schanot>	we did. restart computer?
+Feb 23 12:07:18 <satcom>	should ask for a reboot after installation
+Feb 23 12:07:25 <satcom>	good
+Feb 23 12:07:33 <schanot>	rebooting
+Feb 23 12:07:34 <satcom>	yes
+Feb 23 12:08:02 <satcom>	nearing the home stretch
+Feb 23 12:11:11 <satcom>	please make sure that the DataStorm Positioner is on...the box with the purple light
+Feb 23 12:11:12 <schanot>	OK ready
+Feb 23 12:11:40 <satcom>	open the Datastorm software from the desktop
+Feb 23 12:11:50 <schanot>	green light
+Feb 23 12:12:18 <satcom>	clear plastic box under the top shelf
+Feb 23 12:12:23 <schanot>	yes
+Feb 23 12:12:36 <satcom>	did datastorm open?
+Feb 23 12:13:01 <schanot>	datastorm positioner not connected.  serieal port not selected. select now?
+Feb 23 12:13:14 <satcom>	yes...try 4
+Feb 23 12:14:12 <satcom>	is the positioner on?
+Feb 23 12:15:08 <schanot>	working
+Feb 23 12:15:20 <schanot>	wait one
+Feb 23 12:16:10 <schanot>	no on comm4, trying comm3
+Feb 23 12:16:59 <schanot>	positioner is on. purple light visible
+Feb 23 12:17:08 <schanot>	retrying
+Feb 23 12:18:15 <schanot>	repeats datstorm positioner not connected.  trying other ports
+Feb 23 12:19:01 <satcom>	you can check the laptop to see what port is configured with the USB to Serial device
+Feb 23 12:19:18 <schanot>	headed there now
+Feb 23 12:19:31 <schanot>	comm4
+Feb 23 12:20:06 <schanot>	anything on port settings?
+Feb 23 12:20:16 <satcom>	no
+Feb 23 12:20:46 <schanot>	what now?
+Feb 23 12:21:00 <schanot>	checking connections
+Feb 23 12:21:10 <satcom>	good
+Feb 23 12:22:19 <satcom>	pull the usb to serial out and plug it back in
+Feb 23 12:23:46 <schanot>	no light on USB to serial cable/connector.  we set all connectors
+Feb 23 12:24:11 <satcom>	does device manager show it's working?
+Feb 23 12:25:11 <schanot>	yes
+Feb 23 12:25:39 <satcom>	turn off the positioner, turn it on again and open the datastorm software
+Feb 23 12:27:21 <schanot>	done that a few times
+Feb 23 12:28:18 <satcom>	power everything off and reboot
+Feb 23 12:28:33 <satcom>	modems also
+Feb 23 12:28:58 <schanot>	working on it
+Feb 23 12:33:18 <schanot>	no, its the same.
+Feb 23 12:33:56 <satcom>	when you select comm 4 and click ok, you get the same message?
+Feb 23 12:33:59 <schanot>	the USB<->serial port converter seems to be working
+Feb 23 12:34:22 <schanot>	yes, but it appears much faster than com1,3 , which seems to mean that it is the correct port.
+Feb 23 12:35:08 <schanot>	i tried wiggling the connections btw the PC and positioner & changing the USB port
+Feb 23 12:35:13 <satcom>	did you check the serial connector on the back of the positioner?
+Feb 23 12:35:27 <schanot>	ill disconnect it and reconnect it
+Feb 23 12:38:16 <schanot>	should there be a number other than zero for "TX Serial Number"?
+Feb 23 12:40:49 <satcom>	no, all zeros
+Feb 23 12:41:08 <schanot>	ok, well I'm still stuck with not being able to connect.
+Feb 23 12:41:38 <schanot>	I would try to replace the USB converter and serial connection if I had a spare
+Feb 23 12:43:06 <satcom>	lets uninstall the datastorm software
+Feb 23 12:43:23 <schanot>	ok I will. and then?
+Feb 23 12:43:23 <satcom>	and reboot
+Feb 23 12:44:05 <schanot>	ok
+Feb 23 12:44:16 <satcom>	when you are running again, copy over 182B to the desktop from the cd
+Feb 23 12:44:35 <schanot>	ok
+Feb 23 12:44:37 <schanot>	one note
+Feb 23 12:44:59 <schanot>	is that when I installed datastorm last time, the positioner was not on.
+Feb 23 12:45:15 <schanot>	but of course it was on while I have been trying to connect..
+Feb 23 12:45:21 <satcom>	that's ok. I often install it without a positioner
+Feb 23 12:45:34 <schanot>	ok.
+Feb 23 12:46:13 <satcom>	Va. Beach has had this system for some time. It's possible that the positioner and new software are not compatible
+Feb 23 12:47:50 <schanot>	should we install 182B
+Feb 23 12:47:57 <satcom>	yes
+Feb 23 12:48:07 <schanot>	working
+Feb 23 12:48:27 <schanot>	datastorm can't connect with mount
+Feb 23 12:49:07 <satcom>	ok...lets install the dssetup one more time
+Feb 23 12:50:00 <satcom>	you do have the positioner cable connected to the blue box?
+Feb 23 12:51:07 <schanot>	you mean the modem? no other blue box
+Feb 23 12:51:36 <satcom>	no..the cable between the black box and the large blue box
+Feb 23 12:51:43 <schanot>	do you mean the antenna box?  then no
+Feb 23 12:51:59 <satcom>	please connect all the cables
+Feb 23 12:52:25 <schanot>	we told you we weren't connected.  
+Feb 23 12:52:42 <satcom>	missed that
+Feb 23 12:52:53 <schanot>	are we now in a place to hook EVERYTHING back together for the rest?
+Feb 23 12:53:10 <satcom>	yes
+Feb 23 12:53:45 <schanot>	we have to remove the laptop from the network to hook it up .  you understand that right?
+Feb 23 12:53:55 <satcom>	yes
+Feb 23 12:54:25 <schanot>	give us 10 - 15 minutes to move things around and re-connect.
+Feb 23 12:54:42 <satcom>	ok..will grab a bite
+Feb 23 12:55:04 <schanot>	or John Cowan)
+Feb 23 12:55:27 <schanot>	mike- are you still on and is Larry nearby?
+Feb 23 13:12:40 <daniels>	i'm here
+Feb 23 13:13:45 <daniels>	and Larry is nearby
+Feb 23 13:16:44 <satcom>	Allen, are we ready yet?
+Feb 23 13:17:39 <schanot>	one minute.
+Feb 23 13:20:32 <satcom>	lets install the dssetup one more time
+Feb 23 13:20:32 <satcom>	
+Feb 23 13:20:36 <schanot>	we're hooked up. checked status now.
+Feb 23 13:21:03 <satcom>	please install the dssetup software again
+Feb 23 13:23:58 <schanot>	done
+Feb 23 13:24:11 <satcom>	lets open datastorm 
+Feb 23 13:24:15 <schanot>	connected and ready to proceed
+Feb 23 13:24:19 <schanot>	open
+Feb 23 13:24:29 <satcom>	click on refresh
+Feb 23 13:24:36 <schanot>	OK
+Feb 23 13:24:55 <satcom>	please tell me what the log/lat is in the datastorm software
+Feb 23 13:26:50 <schanot>	15.7744N 96.0945W
+Feb 23 13:27:30 <satcom>	this is really different then what mapPoint is giving us
+Feb 23 13:28:08 <satcom>	are you near Puerto Angel?
+Feb 23 13:29:14 <schanot>	several miles east of there
+Feb 23 13:30:05 <satcom>	ok...lets write down the lat/long from the datastorm, shut down the datastorm and open antenna pointing
+Feb 23 13:30:26 <schanot>	and then what
+Feb 23 13:30:48 <satcom>	enter the new lat/long
+Feb 23 13:30:59 <schanot>	this is an out the door and down the hall communications issue now
+Feb 23 13:31:04 <satcom>	be sure to go 'Next' after entering 
+Feb 23 13:31:54 <schanot>	done.  how about a sequence of things to do next?
+Feb 23 13:32:11 <satcom>	open the datastorm software
+Feb 23 13:32:16 <satcom>	click on refresh
+Feb 23 13:32:26 <satcom>	click on find satellite
+Feb 23 13:32:39 <satcom>	...and wait to see if it finds the satellite
+Feb 23 13:32:59 <schanot>	working
+Feb 23 13:34:05 <satcom>	when it finds the satellite it will:
+Feb 23 13:34:15 <satcom>	peak the receive signal
+Feb 23 13:34:34 <satcom>	run an isolation test (and peak)
+Feb 23 13:35:09 <satcom>	and when it passes the isolation test the software will minimize
+Feb 23 13:35:41 <satcom>	at this point we should be able to surf from the laptop
+Feb 23 13:38:32 <schanot>	locked on satelite
+Feb 23 13:38:38 <satcom>	good
+Feb 23 13:38:47 <schanot>	sinal quality 10 / stregth 126
+Feb 23 13:39:04 <schanot>	where can we access the isolation test
+Feb 23 13:39:18 <satcom>	it should do it itself
+Feb 23 13:39:40 <satcom>	thoses figures are not good
+Feb 23 13:40:03 <satcom>	are they getting any better?
+Feb 23 13:43:12 <schanot>	should we rerun the alignment setup ?  only done the auto so far.  any manual adjustments via antenna pointing?
+Feb 23 13:44:49 <schanot>	strength went to 135
+Feb 23 13:45:04 <satcom>	signal quality?
+Feb 23 13:45:44 <schanot>	10
+Feb 23 13:46:06 <satcom>	did it ever say that it aquired the satellite?
+Feb 23 13:47:46 <schanot>	i dont think so, status is 'dish tested', not 'tx on' or anything else
+Feb 23 13:47:51 <schanot>	and surfing doesnt work
+Feb 23 13:48:13 <satcom>	on the data on the left hand side of the screen, are there any N/A's?
+Feb 23 13:49:39 <schanot>	dish azimuth, gps altitude, compass's have N/A
+Feb 23 13:50:40 <satcom>	at this point I think we need to do some dish calibrations
+Feb 23 13:50:55 <schanot>	ok.  How to proceed?
+Feb 23 13:51:03 <satcom>	stow the dish
+Feb 23 13:51:18 <schanot>	ok
+Feb 23 13:51:54 <satcom>	after it stows we need to determine if the dish is level. Do you have any type of level?
+Feb 23 13:52:58 <schanot>	no, but it's a realitivly flat roof
+Feb 23 13:54:36 <satcom>	within a degree or two?
+Feb 23 13:54:40 -->	lmurphy (~lmurphy@dyn84-16.atd.ucar.edu) has joined #C130Q
+Feb 23 13:54:57 <schanot>	I'd say yes!
+Feb 23 13:55:57 <satcom>	ok...let me know when the dish is stowed
+Feb 23 13:56:55 <schanot>	There's a very slight pitch for water drainage
+Feb 23 13:57:04 <satcom>	ok
+Feb 23 13:57:20 <schanot>	it currently stowed
+Feb 23 13:57:33 <satcom>	is the pitch at the front of the dish?
+Feb 23 13:58:31 <schanot>	the antenna if anything is pitched slightly forward
+Feb 23 13:58:40 <satcom>	ok
+Feb 23 13:59:12 <satcom>	in the datastorm software there is a drop down box that says 'counts'
+Feb 23 13:59:40 <satcom>	please select 'degrees'
+Feb 23 14:00:05 <satcom>	and typa a 2 in the box to the left
+Feb 23 14:00:05 <schanot>	ok
+Feb 23 14:00:20 <schanot>	ok...
+Feb 23 14:00:52 <satcom>	click on the up arrow above 'elevation' once...the dish should raise two degrees
+Feb 23 14:01:54 <satcom>	in the upper right corner of the software, click on 'configure server'
+Feb 23 14:02:04 <schanot>	OK
+Feb 23 14:02:55 <satcom>	click on calibrate
+Feb 23 14:03:04 <schanot>	OK
+Feb 23 14:03:33 <satcom>	then check the 'tilt sensors' radio button and click next
+Feb 23 14:04:09 <satcom>	click next until it is finished
+Feb 23 14:04:53 <schanot>	done
+Feb 23 14:05:12 <satcom>	close the calibration window and click the down arrow below the elevation
+Feb 23 14:05:39 <schanot>	done
+Feb 23 14:05:54 <satcom>	click on configure server again
+Feb 23 14:06:00 <satcom>	and calibration
+Feb 23 14:06:10 <schanot>	done
+Feb 23 14:06:35 <schanot>	dish compass or tilt sensor
+Feb 23 14:06:47 <satcom>	click on the dish calibration and click next
+Feb 23 14:07:02 <satcom>	this will take about eight minutes
+Feb 23 14:07:03 <schanot>	done
+Feb 23 14:07:18 <satcom>	is the dish moving?
+Feb 23 14:07:20 <schanot>	run complete test?
+Feb 23 14:07:26 <satcom>	yes
+Feb 23 14:08:15 <schanot>	dish is moving
+Feb 23 14:09:18 <satcom>	please let me know when it is complete. BTW, after it stows, it comes back up a few degrees and then restows
+Feb 23 14:19:09 <schanot>	calibration complete
+Feb 23 14:20:39 <schanot>	next?
+Feb 23 14:21:28 <satcom>	now for the hard part
+Feb 23 14:21:39 <schanot>	ready
+Feb 23 14:22:06 <satcom>	we need to do the compass calibration...this step is critical if we are going to find the satellite
+Feb 23 14:22:39 <schanot>	OK.  sounds alot like what we did the first go around
+Feb 23 14:22:56 <satcom>	begin the calibration and half way through it will ask us to turn the 'vehicle' 180°
+Feb 23 14:23:06 <schanot>	give us the whole string of instructions
+Feb 23 14:23:40 <satcom>	when prompted to do so, move the blue box 180°. try to be precise
+Feb 23 14:23:47 <lmurphy>	It should help you guys (At the Gala) to know that there are already marks on the roof to match the corners of the box
+Feb 23 14:24:11 <schanot>	thanks larry
+Feb 23 14:24:35 <satcom>	after turning the box 180° come back and click the next button to finish the calibration
+Feb 23 14:25:05 <schanot>	working on it
+Feb 23 14:27:13 <schanot>	done = we assume we now return to original position?
+Feb 23 14:28:18 <satcom>	it's not neccessary
+Feb 23 14:28:56 <satcom>	ok, lets click on the refresh button and see if we have any N/A's in the data on the left
+Feb 23 14:29:01 <schanot>	we leave the box 180 degrees out of original ?
+Feb 23 14:29:47 <satcom>	you can move it back if you want. it will take the dish a little long to find the satellite but you don't have to move it back
+Feb 23 14:30:18 <schanot>	had 4 N/As to start, but only GPS altitude left
+Feb 23 14:30:51 <schanot>	will it in this orientations
+Feb 23 14:31:37 <satcom>	please click refresh several times
+Feb 23 14:31:56 <schanot>	done
+Feb 23 14:32:10 <satcom>	still NA in GPS altitude?
+Feb 23 14:32:22 <schanot>	yes
+Feb 23 14:32:40 <satcom>	ok...perhaps it's because you are at sea level
+Feb 23 14:32:51 <satcom>	please click fin satellite
+Feb 23 14:32:55 <schanot>	dish is stowed is that correct?
+Feb 23 14:32:59 <satcom>	yes
+Feb 23 14:33:24 <schanot>	ok
+Feb 23 14:33:45 <schanot>	dish moving
+Feb 23 14:34:02 <satcom>	<fingers crossed>
+Feb 23 14:34:27 <satcom>	from so much typing!!
+Feb 23 14:34:51 <schanot>	so much for our 20 minute task
+Feb 23 14:35:06 <satcom>	quicker by phone :)
+Feb 23 14:35:27 <lmurphy>	I can attest to that.
+Feb 23 14:37:05 <schanot>	quality 11 strength 138
+Feb 23 14:37:58 <satcom>	hasn't found the satellite yet
+Feb 23 14:39:04 <schanot>	no.  kind of points toward the building now.  plan to stow and rotate 180. then repeat.
+Feb 23 14:39:24 <satcom>	is the building in the way?
+Feb 23 14:39:46 <schanot>	on the north side
+Feb 23 14:40:09 <schanot>	away from the angle
+Feb 23 14:40:13 <satcom>	won't help
+Feb 23 14:40:35 <schanot>	looking above the building
+Feb 23 14:41:07 <satcom>	if it is not searching in the proper direction, turning the box will not make a difference
+Feb 23 14:41:52 <schanot>	what direction should it be searching we were told it needed exposure to the SE
+Feb 23 14:42:05 <satcom>	true
+Feb 23 14:42:31 <schanot>	that side is wide open to the ocean all the way to china
+Feb 23 14:43:18 <satcom>	what is the magnetic azimuth reading in the datastorm software
+Feb 23 14:44:06 <schanot>	wait one we are rerunning auto start after 180 rotation
+Feb 23 14:47:21 <satcom>	should be looking almot due east
+Feb 23 14:48:30 <schanot>	azimuth 156.1 sinnal now worse
+Feb 23 14:49:22 <lmurphy>	FYI, the original setup had the dish pointing at 145 degrees (the southeast arrow).
+Feb 23 14:50:31 <schanot>	larry - any extra cable to shift the antenna?
+Feb 23 14:50:32 <satcom>	what is the elevation under satellite longitude?
+Feb 23 14:51:48 <lmurphy>	we only bought the two (100') cables because we were restricted by the length of the control cable.
+Feb 23 14:52:20 <schanot>	70.6
+Feb 23 14:52:55 <lmurphy>	There is plenty of cable to turn the antenna (if that is what you are talking about).
+Feb 23 14:53:13 <schanot>	no
+Feb 23 14:53:13 <satcom>	does the elevation of the dish seem to get that high?
+Feb 23 14:55:34 <schanot>	looks about right.  pointing to open sky
+Feb 23 14:56:50 <satcom>	my concern is if the elevation of the datastorm is capable of pointing 70° without running out of travel
+Feb 23 14:58:03 <schanot>	do you mean the software can't control at such high angles?
+Feb 23 14:59:43 <schanot>	what is the general opinion.  are we finished with this test?
+Feb 23 15:01:00 <satcom>	not sure if the physical properties of the dish are allowing to to get to 70°
+Feb 23 15:01:51 <schanot>	we understand
+Feb 23 15:02:02 <satcom>	let me make a call to MotoSat. I'll call Mike later. Sorry guys.
+Feb 23 15:02:31 <daniels>	john, satmex5 does not require this, correct?
+Feb 23 15:03:13 <satcom>	SatMex elevation is 54° where you are. I really think it is faulty equipment
+Feb 23 15:03:25 <schanot>	thanks for the help.  we'll call it for today
+Feb 23 15:03:30 <daniels>	ok, thanks
+Feb 23 15:03:39 <satcom>	thanks
+Feb 23 15:03:48 <daniels>	THANKS EVERYBODY!!!!!
+Feb 23 15:03:58 <--	satcom has quit (CGI:IRC)
+Feb 23 15:03:59 <daniels>	we'll be in email contact
+Feb 23 15:04:12 <daniels>	allen, thanks a lot.  i bet you are cussing at me right now
+Feb 23 15:04:50 <schanot>	OK Mike.  tomorrow is bad.  but if anything comes up, we can try somemore on Wed-Fri.
+Feb 23 15:05:23 <jtanner>	exit
+Feb 23 15:05:24 <daniels>	then i will look at travel issues for someone from RDP.  sounds like they will need to ship equipment this time...
+Feb 23 15:05:33 <--	jtanner has quit (CGI:IRC)
+Feb 23 15:05:57 <schanot>	no cussing.  i wanted to see it work.  robbie held off on lunch until 10 minutes ago
+Feb 23 15:06:44 <schanot>	let's talk about further travel off line
+Feb 23 15:07:01 <daniels>	ok, i will let you know what i find out from here.  pls tell Robbie thanks.  yes, we can talk offline.
+Feb 23 15:07:42 <schanot>	i'm gone
+Feb 23 15:07:46 <daniels>	bye
+Feb 23 15:07:47 <--	daniels has quit (Leaving)
+Feb 23 15:07:52 <--	schanot has quit (CGI:IRC)
+Feb 23 15:12:59 <--	lmurphy has quit (Leaving)

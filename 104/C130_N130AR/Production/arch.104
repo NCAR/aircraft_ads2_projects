@@ -1,0 +1,45 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1999-104 Soil Moisture (Dinardo)
+#
+#  File created by '/home/local/scripts/genar' Revision 7 on Thu Sep 9 15:53:12 MDT 1999
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /home/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 104
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/104rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/104rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  Job(s) submitted on Thu Sep  9 16:04:03 MDT 1999
+# Sequence number = MI5998 -- LRT/RF01.cdf -- OK @ 9 Sep 1999 16:04:35
+# Sequence number = MI6005 -- LRT/RF02.cdf -- OK @ 9 Sep 1999 16:04:37
+# Sequence number = MI6013 -- LRT/RF03.cdf -- OK @ 9 Sep 1999 16:04:54
+# Sequence number = MI6020 -- LRT/RF04.cdf -- OK @ 9 Sep 1999 16:08:45
+# Sequence number = MI6027 -- LRT/RF05.cdf -- OK @ 9 Sep 1999 16:09:12
+# Sequence number = MI6034 -- LRT/RF06.cdf -- OK @ 9 Sep 1999 16:04:54
+# Sequence number = MI6041 -- LRT/RF07.cdf -- OK @ 9 Sep 1999 16:09:06
+# Sequence number = MI6048 -- LRT/RF08.cdf -- OK @ 9 Sep 1999 16:12:42
+# Sequence number = MI6055 -- LRT/RF09.cdf -- OK @ 9 Sep 1999 16:09:06
+#

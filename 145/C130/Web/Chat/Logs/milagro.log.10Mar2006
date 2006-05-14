@@ -1,0 +1,75 @@
+[GMT 03/10/06 14:48:36] MarkBradford-Boulder (mark@rdcc.guest.ucar.edu) left irc: Quit
+[GMT 03/10/06 16:18:58] TeresaCampos-CamReal (TeresaCamp@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 16:39:55] TeresaCampos-CamReal (TeresaCamp@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 16:57:59] TeresaCampos-CamReal (TeresaCamp@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 17:05:08] TeresaCampos-CamReal (TeresaCamp@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 17:15:34] AlSchanot-ops (schanot@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 17:26:01] MarkBradford-Boulder (mark@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 17:57:32] TeresaCampos-CamReal (TeresaCamp@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 18:44:43] StuartBeaton-jeffco (StuartBeat@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 18:45:05] <StuartBeaton-jeffco> Al, I'm here (I think!?)
+[GMT 03/10/06 18:45:42] <AlSchanot-ops> hi stuart.  did you get may message on the other line?
+[GMT 03/10/06 18:46:09] <StuartBeaton-jeffco> ONly the one about switching to this chat room
+[GMT 03/10/06 18:46:48] <AlSchanot-ops> Ok.  on RF01 we saw quite a bit of drift in the UV siganl when we were high & dry
+[GMT 03/10/06 18:47:12] <AlSchanot-ops> on RF02 we got excellent agreement but:
+[GMT 03/10/06 18:47:25] <AlSchanot-ops> sinal looks logrithmic - is this expected?
+[GMT 03/10/06 18:47:47] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 18:48:05] <StuartBeaton-jeffco> On what sort of time scale was the drift. Does it correlate with the detector or sample temperature (xUVHDT)
+[GMT 03/10/06 18:48:08] <AlSchanot-ops> also looks like we flatlinerd at high humidity - above 14 g/m3
+[GMT 03/10/06 18:48:34] <AlSchanot-ops> drift looked thermal
+[GMT 03/10/06 18:49:05] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 18:49:48] maxson (maxson@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 18:49:55] maxson (maxson@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/10/06 18:50:35] <StuartBeaton-jeffco> The output does not go through a log amp as it did with the old lyman alphas so I think logarithmic is expected. As a straight absorption instrument I would expect signal to be proportonal to e^(number density). Or log(signal) proportional to number density.
+[GMT 03/10/06 18:51:03] <StuartBeaton-jeffco> At what voltage did it flatline at high humidity?
+[GMT 03/10/06 18:51:17] <AlSchanot-ops> OK but we lose resolution at high humidity
+[GMT 03/10/06 18:51:38] <AlSchanot-ops> large changes in humidity to smaller changes in voltage
+[GMT 03/10/06 18:52:24] <AlSchanot-ops> plot goes almost straight up at 0.2 volts
+[GMT 03/10/06 18:53:34] <StuartBeaton-jeffco> Al wrote:"lose resolution at high humidity". That's correct, but it's only in appearance - the fundamental signal is unchanged. Take a mathematical log and you get the same thing as before when using the logarithmic amplifier.
+[GMT 03/10/06 18:54:43] <AlSchanot-ops> OK.  that means we'll have nothing to dispense until we get all of the conversions worked out.
+[GMT 03/10/06 18:55:06] <AlSchanot-ops> I just want to make sure we were getting what we expected.
+[GMT 03/10/06 18:55:22] <StuartBeaton-jeffco> "straight up at 0.2 volts" -- That means an abrupt change? Perhaps condensation formed?
+[GMT 03/10/06 18:55:26] <AlSchanot-ops> I am VERY encouraged by what I am seeing so far.  Good work!
+[GMT 03/10/06 18:56:33] <AlSchanot-ops> staright up means asymtopic to 0.2 volts - ala logrithmic at the boundary
+[GMT 03/10/06 19:00:20] <StuartBeaton-jeffco> by dispense you mean as a (preliminary?) data product for the researchers? You might get something by taking the exponential of the signal. The other confounding factor is that there is still O2 interference. At high pressures (which correlate with high humidity of course) the O2 absorption will decrease the signal and the signal fluctuations (which are a percent of the signal)
+[GMT 03/10/06 19:01:10] <StuartBeaton-jeffco> If the signal voltage is going positive it probably means there is almost no light getting through. It recovers from this, right?
+[GMT 03/10/06 19:06:44] <StuartBeaton-jeffco> About the thermal (?) drift. I had planned to temp-control the detector and amp, but found that the controller generated a bunch of noise so I disconnected it and am just recording the temp. I'll have to try again with an analog proportional controller, or a different detector (not gas filled) which I am still looking into.
+[GMT 03/10/06 19:07:22] <StuartBeaton-jeffco> Regardless, I'm glad, relieved even, that it is looking pretty good!
+[GMT 03/10/06 19:09:32] <AlSchanot-ops> voltage output goes positive at around 7 g/m3 in reference absolute humidity
+[GMT 03/10/06 19:09:46] <AlSchanot-ops> what path lenght are you using?
+[GMT 03/10/06 19:10:15] <AlSchanot-ops> when we are in the tropics we would normally decrease the old lyman-alpha pathlength from .5 to 0.25 cm
+[GMT 03/10/06 19:14:11] <StuartBeaton-jeffco> It's at about 1/4" (6 mm) - couldn't get closer and still make room for the air flow channels. So the voltage goes positive at 7 g/m3, but still shows response until around 14? So there's an offset I wasn't aware of. Not to surprising.
+[GMT 03/10/06 19:17:19] <StuartBeaton-jeffco> "Not too surprising" I should say. Constantly seeing that typo was really annoying me!
+[GMT 03/10/06 19:18:47] <StuartBeaton-jeffco> Have you looked at the high rate data? Can you see any rolloff above 20 Hz? Maybe we can reduce the airflow without impacting the time response.
+[GMT 03/10/06 19:23:43] <AlSchanot-ops> I'll have to get back to you on the HR response.  I'm going out for 1/2 hour to get some other stuff done
+[GMT 03/10/06 19:24:09] <AlSchanot-ops> i don't think we can reduce the flow 
+[GMT 03/10/06 19:24:14] <StuartBeaton-jeffco> Sounds good. Lunchtime here too.
+[GMT 03/10/06 19:24:34] <AlSchanot-ops> we may be able to setup the flow path better, however
+[GMT 03/10/06 19:44:33] DeedeeMontzka-NCARVeracruz (montzka@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 19:50:01] MarkBradford-Boulder (mark@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 03/10/06 19:52:22] montzka_ (montzka@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 19:54:36] DeedeeMontzka-NCARVeracruz (montzka@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 20:53:40] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 20:55:34] montzka__ (montzka@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 20:57:32] montzka_ (montzka@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 20:58:46] montzka__ (montzka@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 20:59:13] DeedeeMontzka-NCARVeracruz (montzka@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 21:00:53] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 21:06:48] montzka_ (montzka@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 21:09:29] DeedeeMontzka-NCARVeracruz (montzka@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 21:12:49] montzka_ (montzka@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[GMT 03/10/06 21:15:51] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 21:17:57] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 21:21:23] MarkBradford-Boulder (mark@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 21:28:15] AlSchanot-ops (schanot@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/10/06 21:30:16] StuartBeaton-jeffco (StuartBeat@rdcc.guest.ucar.edu) left &MILAGRO.
+[GMT 03/10/06 21:36:24] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 21:38:24] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 22:15:08] TeresaCampos-CamReal (TeresaCamp@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 22:16:39] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 22:19:19] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 22:34:52] BillIrwin-C130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/10/06 22:43:50] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/10/06 23:08:31] DataSystem-c130 (ads@rdcc.guest.ucar.edu) joined &MILAGRO.
+[GMT 03/10/06 23:32:06] DataSystem-c130 (ads@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/11/06 00:00:00] --- Sat Mar 11 2006

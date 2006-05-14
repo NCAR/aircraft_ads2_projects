@@ -1,0 +1,844 @@
+----------------------------------------------------
+FF01A Processed:  2/14/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 121% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Time break of 2 seconds ending @ 16:49:30, filling in with MISSING_VALUE.
+Time interval(s) completed : 15:33:30-20:52:17
+Processing took 11.1 minutes.
+
+mistral:/home/local/proj/162/Production/beforeJuly25 83% skel
+Time interval(s) completed : 15:33:30-20:52:17
+Processing took 1.9 minutes.
+
+mistral:/home/productiondata 78% cp 162ff01a.cdf r162ff01a.cdf
+mistral:/home/productiondata 86% ncmerge r162ff01a.cdf 162ff01aprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 41% mv r162ff01a.cdf 162ff01a.cdf
+----------------------------------------------------
+FF01B Processed:  2/2/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 55% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Time interval(s) completed : 20:58:38-21:13:14
+Processing took 0.4 minutes.
+
+mistral:/home/local/proj/162/Production/beforeJuly25 62% skel
+Time interval(s) completed : 20:58:38-21:13:14
+Processing took 0.2 minutes.
+
+mistral:/home/productiondata 65% cp 162ff01b.cdf r162ff01b.cdf
+mistral:/home/productiondata 66% ncmerge r162ff01b.cdf 162ff01bprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 45% mv r162ff01b.cdf 162ff01b.cdf
+----------------------------------------------------
+RF01 Processed:  2/14/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 104% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Advancing past odd-ball time stamp:
+  previous time = 16:39:55
+       odd time = 16:39:54
+    advanced to = 16:39:58
+Time break of 2 seconds ending @ 16:39:58, filling in with MISSING_VALUE.
+Time interval(s) completed : 15:01:20-17:54:51
+Processing took 5.2 minutes.
+
+mistral:/home/local/proj/162/Production/beforeJuly25 66% skel
+Time interval(s) completed : 15:01:20-17:54:51
+Processing took 1.2 minutes.
+
+mistral:/home/productiondata 42% cp 162rf01.cdf r162rf01.cdf
+mistral:/home/productiondata 75% ncmerge r162rf01.cdf 162rf01prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 47% mv r162rf01.cdf 162rf01.cdf
+----------------------------------------------------
+RF02 Processed:  2/2/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 78% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_2
+Time interval(s) completed : 15:13:12-17:28:22
+Processing took 3.1 minutes.
+
+mistral:/home/local/proj/162/Production/beforeJuly25 64% skel
+Time interval(s) completed : 15:13:12-17:28:22
+Processing took 0.8 minutes.
+
+mistral:/home/productiondata 71% cp 162rf02.cdf r162rf02.cdf
+mistral:/home/productiondata 72% ncmerge r162rf02.cdf 162rf02prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 49% mv r162rf02.cdf 162rf02.cdf
+----------------------------------------------------
+RF03 Processed:  2/13/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 130% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_3
+Advancing past odd-ball time stamp:
+  previous time = 17:06:16
+       odd time = 17:06:15
+    advanced to = 17:06:20
+Time break of 3 seconds ending @ 17:06:20, filling in with MISSING_VALUE.
+Time interval(s) completed : 14:21:22-18:34:10
+Processing took 6.6 minutes.
+
+mistral:/home/local/proj/162/Production/beforeJuly25 90% skel
+Time interval(s) completed : 14:21:22-18:34:10
+Processing took 1.5 minutes.
+
+mistral:/home/productiondata 94% cp 162rf03.cdf r162rf03.cdf
+mistral:/home/productiondata 96% ncmerge r162rf03.cdf 162rf03prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 51% mv r162rf03.cdf 162rf03.cdf
+----------------------------------------------------
+RF04 Processed:  2/2/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 107% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_4
+Time interval(s) completed : 14:01:06-16:50:42
+Processing took 4.3 minutes.
+
+mistral:/home/local/proj/162/Production/beforeJuly25 66% skel
+Time interval(s) completed : 14:01:06-16:50:42
+Processing took 1.1 minutes.
+
+mistral:/home/productiondata 78% cp 162rf04.cdf r162rf04.cdf
+mistral:/home/productiondata 80% ncmerge r162rf04.cdf 162rf04prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 53% mv r162rf04.cdf 162rf04.cdf
+----------------------------------------------------
+RF05 Processed:  2/14/96  
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 112% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_5
+Time break of 48 seconds ending @ 13:43:47, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 13:43:47
+       odd time = 13:42:58
+    advanced to = 13:43:49
+Time break of 1 seconds ending @ 13:43:49, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:14:05
+       odd time = 16:14:04
+    advanced to = 16:14:47
+Time break of 41 seconds ending @ 16:14:47, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 16:14:49, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:56:38
+       odd time = 16:56:37
+    advanced to = 16:57:09
+Time break of 30 seconds ending @ 16:57:09, filling in with MISSING_VALUE.
+Time interval(s) completed : 12:58:44-17:57:48
+Processing took 10.1 minutes.
+
+mistral:/home/local/proj/162/Production/beforeJuly25 98% skel
+Time interval(s) completed : 12:58:44-17:57:48
+Processing took 1.8 minutes.
+
+mistral:/home/productiondata 104% cp 162rf05.cdf r162rf05.cdf
+mistral:/home/productiondata 106% ncmerge r162rf05.cdf 162rf05prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 55% mv r162rf05.cdf 162rf05.cdf
+----------------------------------------------------
+RF06 Processed:  1/25/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 91% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/scms.nimbus
+Time interval(s) completed : 14:56:12-17:42:29
+Processing took 4.0 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 95% skel
+Time interval(s) completed : 14:56:12-17:42:29
+Processing took 0.9 minutes.
+
+mistral:/home/productiondata 105% cp 162rf06.cdf r162rf06.cdf
+mistral:/home/productiondata 107% ncmerge r162rf06.cdf 162rf06prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 64% mv r162rf06.cdf 162rf06.cdf
+----------------------------------------------------
+RF07 Processed:  2/6/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 111% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Time interval(s) completed : 13:53:21-14:42:13
+Processing took 1.2 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 96% skel
+Time interval(s) completed : 13:53:21-14:42:13
+Processing took 0.3 minutes.
+
+mistral:/home/productiondata 109% cp 162rf07.cdf r162rf07.cdf
+mistral:/home/productiondata 111% ncmerge r162rf07.cdf 162rf07prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 65% mv r162rf07.cdf 162rf07.cdf
+----------------------------------------------------
+RF08 Processed:  2/6/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 98% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_8
+Time interval(s) completed : 14:20:50-16:13:57
+Processing took 3.0 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 97% skel
+Time interval(s) completed : 14:20:50-16:13:57
+Processing took 0.6 minutes.
+
+mistral:/home/productiondata 113% cp 162rf08.cdf r162rf08.cdf
+mistral:/home/productiondata 115% ncmerge r162rf08.cdf 162rf08prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 66% mv r162rf08.cdf 162rf08.cdf 
+----------------------------------------------------
+RF09 Processed:  2/6/96
+---------------------------------------------------- 
+mistral:/home/local/proj/162/Production 106% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_9
+Time interval(s) completed : 16:22:17-17:52:00
+Processing took 2.2 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 98% skel
+Time interval(s) completed : 16:22:17-17:52:00
+Processing took 0.5 minutes.
+
+mistral:/home/productiondata 117% cp 162rf09.cdf r162rf09.cdf
+mistral:/home/productiondata 119% ncmerge r162rf09.cdf 162rf09prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 67% mv r162rf09.cdf 162rf09.cdf
+----------------------------------------------------
+RF10 Processed:  2/8/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 41% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_10
+Time interval(s) completed : 14:04:11-15:38:45
+Processing took 2.4 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 100% skel
+Time interval(s) completed : 14:04:11-15:38:45
+Processing took 0.5 minutes.
+
+mistral:/home/productiondata 121% cp 162rf10.cdf r162rf10.cdf
+mistral:/home/productiondata 123% ncmerge r162rf10.cdf 162rf10prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 68% mv r162rf10.cdf 162rf10.cdf
+----------------------------------------------------
+RF11 Processed:  2/9/96
+---------------------------------------------------- 
+mistral:/home/local/proj/162/Production 46% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_11
+Time interval(s) completed : 13:01:49-16:48:54
+Processing took 5.7 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 126% skel
+Time interval(s) completed : 13:01:49-16:48:54
+Processing took 1.2 minutes.
+
+mistral:/home/productiondata 130% cp 162rf11.cdf r162rf11.cdf
+mistral:/home/productiondata 132% ncmerge r162rf11.cdf 162rf11prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 75% mv r162rf11.cdf 162rf11.cdf
+----------------------------------------------------
+RF12 Processed:  2/13/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 115% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_12
+Advancing past odd-ball time stamp:
+  previous time = 14:23:33
+       odd time = 14:23:32
+    advanced to = 14:23:36
+Time break of 2 seconds ending @ 14:23:36, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:14:15
+       odd time = 16:14:14
+    advanced to = 16:14:18
+Time break of 2 seconds ending @ 16:14:18, filling in with MISSING_VALUE.
+Time interval(s) completed : 13:00:05-16:15:57
+Processing took 6.2 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 134% skel
+Time interval(s) completed : 13:00:05-16:15:57
+Processing took 1.8 minutes.
+
+mistral:/home/productiondata 137% cp 162rf12.cdf r162rf12.cdf
+mistral:/home/productiondata 139% ncmerge r162rf12.cdf 162rf12prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 76% mv r162rf12.cdf 162rf12.cdf
+----------------------------------------------------
+RF13 Processed:  2/13/96
+----------------------------------------------------
+mistral:/home/local/proj/162/Production 117% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_13
+Advancing past odd-ball time stamp:
+  previous time = 15:00:59
+       odd time = 15:00:58
+Advancing past duplicate time stamp:
+  previous time = 15:00:59
+       odd time = 15:00:59
+Advancing past odd-ball time stamp:
+  previous time = 15:00:59
+       odd time = 15:00:58
+    advanced to = 15:01:03
+Time break of 3 seconds ending @ 15:01:03, filling in with MISSING_VALUE.
+Time interval(s) completed : 12:49:40-17:08:54
+Processing took 8.1 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 105% skel
+Time interval(s) completed : 12:49:40-17:08:54
+Processing took 4.6 minutes.
+
+mistral:/home/productiondata 109% cp 162rf13.cdf r162rf13.cdf
+mistral:/home/productiondata 111% ncmerge r162rf13.cdf 162rf13prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 77% mv r162rf13.cdf 162rf13.cdf
+-----------------------------------------------------
+RF14 Processed:  2/9/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 57% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_14
+Time interval(s) completed : 12:54:12-15:24:31
+Processing took 3.8 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 114% skel
+Time interval(s) completed : 12:54:12-15:24:31
+Processing took 2.0 minutes.
+
+mistral:/home/productiondata 118% cp 162rf14.cdf r162rf14.cdf
+mistral:/home/productiondata 120% ncmerge r162rf14.cdf 162rf14prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 78% mv r162rf14.cdf 162rf14.cdf
+-----------------------------------------------------
+RF15 Processed:  2/9/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 65% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_15
+Time interval(s) completed : 13:50:16-15:03:13
+Processing took 1.9 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 122% skel
+Time interval(s) completed : 13:50:16-15:03:13
+Processing took 0.9 minutes.
+
+mistral:/home/productiondata 126% cp 162rf15.cdf r162rf15.cdf
+mistral:/home/productiondata 128% ncmerge r162rf15.cdf 162rf15prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 79% mv r162rf15.cdf 162rf15.cdf
+-----------------------------------------------------
+RF16 Processed:  2/13/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 110% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_16
+Advancing past odd-ball time stamp:
+  previous time = 15:13:02
+       odd time = 15:13:01
+Advancing past duplicate time stamp:
+  previous time = 15:13:02
+       odd time = 15:13:02
+    advanced to = 15:13:06
+Time break of 3 seconds ending @ 15:13:06, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:12
+Advancing past duplicate time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:13
+Advancing past odd-ball time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:12
+Advancing past duplicate time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:13
+    advanced to = 16:29:18
+Time break of 4 seconds ending @ 16:29:18, filling in with MISSING_VALUE.
+Time interval(s) completed : 13:59:41-17:43:52
+Processing took 5.9 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 130% skel
+Time interval(s) completed : 13:59:41-17:43:52
+Processing took 2.7 minutes.
+
+mistral:/home/productiondata 135% cp 162rf16.cdf r162rf16.cdf
+mistral:/home/productiondata 137% ncmerge r162rf16.cdf 162rf16prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 80% mv r162rf16.cdf 162rf16.cdf
+-----------------------------------------------------
+RF17 Processed:  2/13/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 47% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_17
+Time interval(s) completed : 13:13:48-16:06:52
+Processing took 4.3 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 140% skel
+Time interval(s) completed : 13:13:48-16:06:52
+Processing took 1.3 minutes.
+
+mistral:/home/productiondata 143% cp 162rf17.cdf r162rf17.cdf
+mistral:/home/productiondata 145% ncmerge r162rf17.cdf 162rf17prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 88% mv r162rf17.cdf 162rf17.cdf
+-----------------------------------------------------
+RF18 Processed:  2/13/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 105% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_18
+Advancing past odd-ball time stamp:
+  previous time = 13:41:50
+       odd time = 13:41:49
+    advanced to = 13:41:54
+Time break of 3 seconds ending @ 13:41:54, filling in with MISSING_VALUE.
+Time break of 25 seconds ending @ 13:42:54, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 13:50:31
+       odd time = 13:50:30
+    advanced to = 13:50:35
+Time break of 3 seconds ending @ 13:50:35, filling in with MISSING_VALUE.
+Time interval(s) completed : 13:28:31-14:42:42
+Processing took 2.5 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 148% skel
+Time interval(s) completed : 13:28:31-14:42:42
+Processing took 0.6 minutes.
+
+mistral:/home/productiondata 152% cp 162rf18.cdf r162rf18.cdf
+mistral:/home/productiondata 154% ncmerge r162rf18.cdf 162rf18prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 89% mv r162rf18.cdf 162rf18.cdf
+-----------------------------------------------------
+RF19 Processed:  2/13/96    
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 123% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_19
+Time interval(s) completed : 13:22:26-15:32:21
+Processing took 4.4 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 156% skel
+Time interval(s) completed : 13:22:26-15:32:21
+Processing took 0.9 minutes.
+
+mistral:/home/productiondata 160% cp 162rf19.cdf r162rf19.cdf
+mistral:/home/productiondata 161% ncmerge r162rf19.cdf 162rf19prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 90% mv r162rf19.cdf 162rf19.cdf
+-----------------------------------------------------
+RF20 Processed:  2/13/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 136% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_20
+Time interval(s) completed : 18:24:36-19:12:23
+Processing took 1.6 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 163% skel
+Time interval(s) completed : 18:24:36-19:12:23
+Processing took 0.7 minutes.
+
+mistral:/home/productiondata 168% cp 162rf20.cdf r162rf20.cdf
+mistral:/home/productiondata 170% ncmerge r162rf20.cdf 162rf20prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 91% mv r162rf20.cdf 162rf20.cdf
+-----------------------------------------------------
+FF04 Processed:  2/15/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 104% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_4
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_20
+Advancing past odd-ball time stamp:
+  previous time = 19:41:51
+       odd time = 19:41:50
+    advanced to = 19:41:54
+Time break of 2 seconds ending @ 19:41:54, filling in with MISSING_VALUE.
+Time interval(s) completed : 15:42:20-21:17:35
+Processing took 12.2 minutes.
+
+mistral:/home/local/proj/162/Production/afterJuly25 172% skel
+Time interval(s) completed : 15:42:20-21:17:35
+Processing took 1.9 minutes.
+
+mistral:/home/productiondata 178% cp 162ff04.cdf r162ff04.cdf
+mistral:/home/productiondata 180% ncmerge r162ff04.cdf 162ff04prb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+
+mistral:/home/productiondata 92% mv r162ff04.cdf 162ff04.cdf
+-----------------------------------------------------

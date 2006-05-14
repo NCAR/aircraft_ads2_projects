@@ -1,0 +1,103 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF HRT output files for 1999-102 INDOEX (Clarke, et al.)
+#
+#  File adapted from arch.102 by Ron Ruth         Thu Apr 27 11:32:22 MDT 2000
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 102
+set SDIR = /jnet/data/INDOEX
+#
+#
+set TURBRT = HRT
+#
+#nrnet msput $SDIR/102rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf11h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf12h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf13h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf14h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf15ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf15bh.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf16h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf17h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/102rf18h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  Following jobs archived the production HRT netCDF data files (that do
+#   not include any merged files).  They were put into the MSS production
+#   directory:  /RAF/1999/102/
+#
+#  Job(s) submitted on Fri Apr 28 13:16:01 MDT 2000
+# Sequence number = LN3214 -- HRT/RF03.cdf -- OK @ 28 Apr 2000 13:49:30
+# Sequence number = LN3222 -- HRT/RF04.cdf -- OK @ 28 Apr 2000 13:45:21
+#
+#  Job(s) submitted on Fri Apr 28 15:39:13 MDT 2000
+# Sequence number = LN5017 -- HRT/RF11.cdf -- OK @ 28 Apr 2000 15:55:46
+#
+#  Job(s) submitted on Fri Apr 28 17:09:21 MDT 2000
+# Sequence number = LN6437 -- HRT/RF17.cdf -- OK @ 28 Apr 2000 17:28:42
+#
+#  Job(s) submitted on Mon May  1 11:07:07 MDT 2000
+# Sequence number = LN7520 -- HRT/RF14.cdf -- OK @ 1 May 2000 11:23:03
+#
+#  Job(s) submitted on Mon May  1 14:22:13 MDT 2000
+# Sequence number = LN0388 -- HRT/RF09.cdf -- OK @ 1 May 2000 14:43:18
+#
+#  Job(s) submitted on Fri May 12 11:23:43 MDT 2000
+# Sequence number = LN9573 -- HRT/RF02.cdf -- OK @ 12 May 2000 11:56:04
+# Sequence number = LN9581 -- HRT/RF05.cdf -- OK @ 12 May 2000 11:55:02
+#
+#  Job(s) submitted on Fri May 12 14:35:46 MDT 2000
+# Sequence number = LN3624 -- HRT/RF06.cdf -- OK @ 12 May 2000 14:54:16
+#
+#  Job(s) submitted on Fri May 12 15:00:50 MDT 2000
+# Sequence number = LN4027 -- HRT/RF07.cdf -- OK @ 12 May 2000 15:19:21
+#
+#  Job(s) submitted on Fri May 12 16:39:38 MDT 2000
+# Sequence number = LN5538 -- HRT/RF08.cdf -- OK @ 12 May 2000 16:57:28
+#
+#  Job(s) submitted on Fri May 12 18:23:22 MDT 2000
+# Sequence number = LN6513 -- HRT/RF10.cdf -- OK @ 12 May 2000 18:41:22
+#
+#  Job(s) submitted on Mon May 15 11:32:26 MDT 2000
+# Sequence number = LN9407 -- HRT/RF12.cdf -- OK @ 15 May 2000 11:47:11
+#
+#  Job(s) submitted on Mon May 15 13:58:29 MDT 2000
+# Sequence number = LN1957 -- HRT/RF13.cdf -- OK @ 15 May 2000 14:16:27
+#
+#  Job(s) submitted on Mon May 15 15:39:48 MDT 2000
+# Sequence number = LN3638 -- HRT/RF15A.cdf -- OK @ 15 May 2000 15:53:05
+#
+#  Job(s) submitted on Mon May 15 16:17:45 MDT 2000
+# Sequence number = LN6226 -- HRT/RF15B.cdf -- OK @ 15 May 2000 16:26:30
+#
+#  Job(s) submitted on Tue May 16 12:01:08 MDT 2000
+# Sequence number = LN2430 -- HRT/RF18.cdf -- OK @ 16 May 2000 12:21:05
+#
+#  Job(s) submitted on Tue May 16 13:40:23 MDT 2000
+# Sequence number = LN4485 -- HRT/RF16.cdf -- OK @ 16 May 2000 13:58:00
+#
+#  Job(s) submitted on Tue May 16 14:26:11 MDT 2000
+# Sequence number = LN6056 -- HRT/RF01.cdf -- OK @ 16 May 2000 14:39:29
+#
+#  Job(s) submitted on 
+#

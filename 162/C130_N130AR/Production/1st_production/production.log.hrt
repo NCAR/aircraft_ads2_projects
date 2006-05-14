@@ -1,0 +1,1077 @@
+-----------------------------------------------------
+RF01 Processed:  3/25/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 112% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Advancing past odd-ball time stamp:
+  previous time = 16:39:55
+       odd time = 16:39:54
+    advanced to = 16:39:58
+Time break of 2 seconds ending @ 16:39:58, filling in with MISSING_VALUE.
+Time interval(s) completed : 15:01:32-17:54:03
+Processing took 1.10 hour(s).
+
+mistral:/home/productiondata 116% mv 162rf01.cdf 162rf01h.cdf
+
+mistral:/home/local/proj/162/Production/hrBeforeJuly25 133% skel
+Time interval(s) completed : 15:01:32-17:54:03
+Processing took 15.6 minutes.
+
+mistral:/home/productiondata 138% ncmerge 162rf01h.cdf 162rf01hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF02 Processed:  3/25/96  
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 106% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_2
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 15:13:24-17:27:34
+Processing took 42.4 minutes.
+
+mistral:/home/productiondata 109% mv 162rf02.cdf 162rf02h.cdf
+
+mistral:/home/local/proj/162/Production/hrBeforeJuly25 103% skel
+Time interval(s) completed : 15:13:24-17:27:34
+Processing took 9.7 minutes.
+
+mistral:/home/productiondata 109% ncmerge 162rf02h.cdf 162rf02hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF03 Processed:  3/26/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 106% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_3
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Advancing past odd-ball time stamp:
+  previous time = 17:06:16
+       odd time = 17:06:15
+    advanced to = 17:06:20
+Time break of 3 seconds ending @ 17:06:20, filling in with MISSING_VALUE.
+Time interval(s) completed : 14:21:34-18:33:22
+Processing took 1.25 hour(s).
+
+mistral:/home/productiondata 109% mv 162rf03.cdf 162rf03h.cdf
+
+mistral:/home/local/proj/162/Production/hrBeforeJuly25 116% skel
+Time interval(s) completed : 14:21:34-18:33:22
+Processing took 23.6 minutes.
+
+mistral:/home/productiondata 122% ncmerge 162rf03h.cdf 162rf03hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF04 Processed:  3/26/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 105% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_4
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 14:01:18-16:49:54
+Processing took 52.1 minutes.
+
+mistral:/home/productiondata 110% mv 162rf04.cdf 162rf04h.cdf
+
+mistral:/home/local/proj/162/Production/hrBeforeJuly25 160% skel
+Time interval(s) completed : 14:01:18-16:49:54
+Processing took 10.9 minutes.
+
+mistral:/home/productiondata 167% ncmerge 162rf04h.cdf 162rf04hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF05 Processed:  3/27/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 104% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_1
+Loading setup file: /home/local/proj/162/Production/Flight_5
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time break of 48 seconds ending @ 13:43:47, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 13:43:47
+       odd time = 13:42:58
+    advanced to = 13:43:49
+Time break of 1 seconds ending @ 13:43:49, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:14:05
+       odd time = 16:14:04
+    advanced to = 16:14:47
+Time break of 41 seconds ending @ 16:14:47, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 16:14:49, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:56:38
+       odd time = 16:56:37
+    advanced to = 16:57:09
+Time break of 30 seconds ending @ 16:57:09, filling in with MISSING_VALUE.
+Time interval(s) completed : 12:58:56-17:57:00
+Processing took 1.85 hour(s).
+
+mistral:/home/productiondata 107% mv 162rf05.cdf 162rf05h.cdf
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+** Note: For archiving purposes, 162rf05h.cdf was split into two
+         separate files using the utility ncextr:
+             162rf05ha.cdf -- 12:58:56-15:30:00
+             162rf05hb.cdf -- 15:30:01-17:57:00
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+** Following are the results from running the hrBeforeJuly25 skel
+   program on 162rf05ha.cdf and merging the resultant file
+   162rf05haprb.cdf into 162rf05ha.cdf.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+mistral:/home/local/proj/162/Production/hrBeforeJuly25 135% skel
+Time interval(s) completed : 12:58:56-15:29:59
+Processing took 9.9 minutes.
+
+mistral:/home/productiondata 106% ncmerge 162rf05ha.cdf 162rf05haprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+** Following are the results from running the hrBeforeJuly25 skel
+   program on 162rf05hb.cdf and merging the resultant file
+   162rf05hbprb.cdf into 162rf05hb.cdf.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+mistral:/home/local/proj/162/Production/hrBeforeJuly25 152% skel
+Time interval(s) completed : 15:30:01-17:56:59
+Processing took 10.2 minutes.
+
+mistral:/home/productiondata 108% ncmerge 162rf05hb.cdf 162rf05hbprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF06 Processed:  3/25/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 131% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+LoadSetup: can't find HGM232.
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 14:56:24-17:41:41
+Processing took 50.4 minutes.
+
+mistral:/home/productiondata 134% mv 162rf06.cdf 162rf06h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 113% skel
+Time interval(s) completed : 14:56:24-17:41:41
+Processing took 15.0 minutes.
+
+mistral:/home/productiondata 119% ncmerge 162rf06h.cdf 162rf06hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF07 Processed:  3/25/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 145% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 13:53:33-14:41:25
+Processing took 14.6 minutes.
+
+mistral:/home/productiondata 148% mv 162rf07.cdf 162rf07h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 128% skel
+Time interval(s) completed : 13:53:33-14:41:25
+Processing took 4.3 minutes.
+
+mistral:/home/productiondata 133% ncmerge 162rf07h.cdf 162rf07hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF08 Processed:  4/4/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 109% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_8
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 14:21:02-16:13:09
+Processing took 41.7 minutes.
+
+mistral:/home/productiondata 113% mv 162rf08.cdf 162rf08h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 120% skel
+Time interval(s) completed : 14:21:02-16:13:09
+Processing took 9.8 minutes.
+
+mistral:/home/productiondata 107% ncmerge 162rf08h.cdf 162rf08hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF09 Processed:  4/5/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 127% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_9
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 16:22:29-17:51:12
+Processing took 23.8 minutes.
+
+mistral:/home/productiondata 130% mv 162rf09.cdf 162rf09h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 133% skel
+Time interval(s) completed : 16:22:29-17:51:12
+Processing took 6.2 minutes.
+
+mistral:/home/productiondata 109% ncmerge 162rf09h.cdf 162rf09hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF10 Processed:  4/5/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 140% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_10
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 14:04:23-15:37:57
+Processing took 28.3 minutes.
+
+mistral:/home/productiondata 144% mv 162rf10.cdf 162rf10h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 148% skel
+Time interval(s) completed : 14:04:23-15:37:57
+Processing took 11.4 minutes.
+
+mistral:/home/productiondata 110% ncmerge 162rf10h.cdf 162rf10hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF11 Processed:  4/5/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 158% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_11
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 13:02:01-16:48:06
+Processing took 1.07 hour(s).
+
+mistral:/home/productiondata 163% mv 162rf11.cdf 162rf11h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 168% skel
+Time interval(s) completed : 13:02:01-16:48:06
+Processing took 21.0 minutes.
+
+mistral:/home/productiondata 113% ncmerge 162rf11h.cdf 162rf11hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+------------------------------------------------------
+RF12 Processed:  4/8/96  
+------------------------------------------------------
+mistral:/home/local/proj/162/Production 118% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_12
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Advancing past odd-ball time stamp:
+  previous time = 14:23:33
+       odd time = 14:23:32
+    advanced to = 14:23:36
+Time break of 2 seconds ending @ 14:23:36, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:14:15
+       odd time = 16:14:14
+    advanced to = 16:14:18
+Time break of 2 seconds ending @ 16:14:18, filling in with MISSING_VALUE.
+Time interval(s) completed : 13:00:17-16:15:09
+Processing took 1.10 hour(s).
+
+mistral:/home/productiondata 122% mv 162rf12.cdf 162rf12h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 128% skel
+Time interval(s) completed : 13:00:17-16:15:09
+Processing took 23.6 minutes.
+
+mistral:/home/productiondata 171% ncmerge 162rf12h.cdf 162rf12hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF13 Processed:  4/8/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 130% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_13
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Advancing past odd-ball time stamp:
+  previous time = 15:00:59
+       odd time = 15:00:58
+Advancing past duplicate time stamp:
+  previous time = 15:00:59
+       odd time = 15:00:59
+Advancing past odd-ball time stamp:
+  previous time = 15:00:59
+       odd time = 15:00:58
+    advanced to = 15:01:03
+Time break of 3 seconds ending @ 15:01:03, filling in with MISSING_VALUE.
+Time interval(s) completed : 12:49:52-17:08:06
+Processing took 1.20 hour(s).
+
+mistral:/home/productiondata 134% mv 162rf13.cdf 162rf13h.cdf
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+** Note: For archiving purposes, 162rf13h.cdf was split into two
+         separate files using the utility ncextr:
+             162rf13ha.cdf -- 12:49:52-15:00:00
+             162rf13hb.cdf -- 15:00:01-17:08:06
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+** Following are the results from running the hrAfterJuly25 skel
+   program on 162rf13ha.cdf and merging the resultant file 
+   162rf13haprb.cdf into 162rf13ha.cdf.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+mistral:/home/local/proj/162/Production/hrAfterJuly25 199% skel
+Time interval(s) completed : 12:49:52-14:59:59
+Processing took 13.9 minutes.
+
+mistral:/home/productiondata 104% ncmerge 162rf13ha.cdf 162rf13haprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+** Following are the results from running the hrAfterJuly25 skel
+   program on 162rf13hb.cdf and merging the resultant file
+   162rf13hbprb.cdf into 162rf13hb.cdf.
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+mistral:/home/local/proj/162/Production/hrAfterJuly25 267% skel
+Time interval(s) completed : 15:00:01-17:08:05
+Processing took 8.9 minutes.
+
+mistral:/home/productiondata 105% ncmerge 162rf13hb.cdf 162rf13hbprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF14 Processed:  4/8/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 146% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_14
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 12:54:24-15:23:43
+Processing took 52.7 minutes.
+
+mistral:/home/productiondata 149% mv 162rf14.cdf 162rf14h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 153% skel
+Time interval(s) completed : 12:54:24-15:23:43
+Processing took 11.1 minutes.
+
+mistral:/home/productiondata 173% ncmerge 162rf14h.cdf 162rf14hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------------
+RF15 Processed:  4/8/96
+-----------------------------------------------------------
+mistral:/home/local/proj/162/Production 156% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_15
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 13:50:28-15:02:25
+Processing took 20.0 minutes.
+
+mistral:/home/productiondata 159% mv 162rf15.cdf 162rf15h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 162% skel
+Time interval(s) completed : 13:50:28-15:02:25
+Processing took 5.4 minutes.
+
+mistral:/home/productiondata 174% ncmerge 162rf15h.cdf 162rf15hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF16 Processed:  4/9/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 190% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_16
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Advancing past odd-ball time stamp:
+  previous time = 15:13:02
+       odd time = 15:13:01
+Advancing past duplicate time stamp:
+  previous time = 15:13:02
+       odd time = 15:13:02
+    advanced to = 15:13:06
+Time break of 3 seconds ending @ 15:13:06, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:12
+Advancing past duplicate time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:13
+Advancing past odd-ball time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:12
+Advancing past duplicate time stamp:
+  previous time = 16:29:13
+       odd time = 16:29:13
+    advanced to = 16:29:18
+Time break of 4 seconds ending @ 16:29:18, filling in with MISSING_VALUE.
+Time interval(s) completed : 13:59:53-17:43:04
+Processing took 1.31 hour(s).
+
+mistral:/home/productiondata 194% mv 162rf16.cdf 162rf16h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 198% skel
+Time interval(s) completed : 13:59:53-17:43:04
+Processing took 18.5 minutes.
+
+mistral:/home/productiondata 249% ncmerge 162rf16h.cdf 162rf16hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF17 Processed:  4/9/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 210% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_17
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 13:14:00-16:06:04
+Processing took 55.6 minutes.
+
+mistral:/home/productiondata 215% mv 162rf17.cdf 162rf17h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 218% skel
+Time interval(s) completed : 13:14:00-16:06:04
+Processing took 12.4 minutes.
+
+mistral:/home/productiondata 250% ncmerge 162rf17h.cdf 162rf17hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF18 Processed:  4/9/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 220% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_18
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Advancing past odd-ball time stamp:
+  previous time = 13:41:50
+       odd time = 13:41:49
+    advanced to = 13:41:54
+Time break of 3 seconds ending @ 13:41:54, filling in with MISSING_VALUE.
+Time break of 25 seconds ending @ 13:42:54, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 13:50:31
+       odd time = 13:50:30
+    advanced to = 13:50:35
+Time break of 3 seconds ending @ 13:50:35, filling in with MISSING_VALUE.
+Time interval(s) completed : 13:28:43-14:41:54
+Processing took 20.7 minutes.
+
+mistral:/home/productiondata 223% mv 162rf18.cdf 162rf18h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 226% skel
+Time interval(s) completed : 13:28:43-14:41:54
+Processing took 5.7 minutes.
+
+mistral:/home/productiondata 252% ncmerge 162rf18h.cdf 162rf18hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+---------------------------------------------------
+RF19 Processed:  4/10/96
+---------------------------------------------------
+mistral:/home/local/proj/162/Production 280% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_19
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 13:22:38-15:31:33
+Processing took 36.0 minutes.
+
+mistral:/home/productiondata 285% mv 162rf19.cdf 162rf19h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 289% skel
+Time interval(s) completed : 13:22:38-15:31:33
+Processing took 9.3 minutes.
+
+mistral:/home/productiondata 106% ncmerge 162rf19h.cdf 162rf19hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....
+-----------------------------------------------------
+RF20 Processed:  4/9/96
+-----------------------------------------------------
+mistral:/home/local/proj/162/Production 237% nimbus
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+2D-C_OBL has no description or units.
+2D-H_LPI has no description or units.
+2D-P_IBL has no description or units.
+DRFTA has no description or units.
+HGM232S has no description or units.
+TKAR has no description or units.
+TKAT has no description or units.
+mrfFilter: non-supported input rate, var = XGLWC, rate = 1000
+Loading setup file: /home/local/proj/162/Production/Flight_6
+Loading setup file: /home/local/proj/162/Production/Flight_20
+Despike for ACINS enabled, with slope of 4.000000.
+Despike for GSF enabled, with slope of 20.000000.
+Despike for LAT enabled, with slope of 0.010000.
+Despike for LON enabled, with slope of 0.010000.
+Despike for PITCH enabled, with slope of 0.300000.
+Despike for ROLL enabled, with slope of 0.200000.
+Despike for THDG enabled, with slope of 0.200000.
+Despike for VEW enabled, with slope of 20.000000.
+Despike for VNS enabled, with slope of 20.000000.
+Despike for VSPD enabled, with slope of 0.600000.
+Time interval(s) completed : 18:24:48-19:11:35
+Processing took 14.0 minutes.
+
+mistral:/home/productiondata 240% mv 162rf20.cdf 162rf20h.cdf
+
+mistral:/home/local/proj/162/Production/hrAfterJuly25 243% skel
+Time interval(s) completed : 18:24:48-19:11:35
+Processing took 7.6 minutes.
+
+mistral:/home/productiondata 293% ncmerge 162rf20h.cdf 162rf20hprb.cdf
+All variables being merged.
+Variable CF300_LPO exists in primary file, it will be overwritten.
+Variable CFSSP_IBR exists in primary file, it will be overwritten.
+Variable CONC3_LPO exists in primary file, it will be overwritten.
+Variable CONCF_IBR exists in primary file, it will be overwritten.
+Variable FACT_IBR exists in primary file, it will be overwritten.
+Variable FBMFR_IBR exists in primary file, it will be overwritten.
+Variable PLWCF_IBR exists in primary file, it will be overwritten.
+Starting to move data....

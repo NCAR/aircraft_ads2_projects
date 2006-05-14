@@ -1,0 +1,109 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2000-186 PELTI (Barry Huebert)
+#
+#  File created by '/usr/local/scripts/genar' Revision  8 on Tue Aug 29 10:59:50 MDT 2000
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2000
+set PROJ = 186
+set SDIR = $PROD_DATA
+#
+#  Original processing (before skeleton merge)
+#set TURBRT = LRT/ORIGINAL
+#
+#  Production processing (after skeleton merge)
+#set TURBRT = LRT
+#
+echo nrnet msput $SDIR/186ff01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186ff02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186tf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186tf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  Original processing (before skeleton merge)
+#  MSS path = /RAF/2000/186/LRT/ORIGINAL/
+#  Job(s) submitted on Tue Aug 29 11:01:47 MDT 2000
+# Sequence number = LN6587 -- LRT/ORIGINAL/FF01.cdf -- OK @ 29 Aug 2000 11:05:43
+# Sequence number = LN6595 -- LRT/ORIGINAL/FF02.cdf -- OK @ 29 Aug 2000 11:05:38
+# Sequence number = LN6603 -- LRT/ORIGINAL/RF01.cdf -- OK @ 29 Aug 2000 11:05:23
+# Sequence number = LN6611 -- LRT/ORIGINAL/RF02.cdf -- OK @ 29 Aug 2000 11:04:26
+# Sequence number = LN6619 -- LRT/ORIGINAL/RF03.cdf -- OK @ 29 Aug 2000 11:09:37
+# Sequence number = LN6629 -- LRT/ORIGINAL/RF04.cdf -- OK @ 29 Aug 2000 11:09:42
+# Sequence number = LN6639 -- LRT/ORIGINAL/RF05.cdf -- OK @ 29 Aug 2000 11:09:27
+# Sequence number = LN6650 -- LRT/ORIGINAL/RF06.cdf -- OK @ 29 Aug 2000 11:06:30
+# Sequence number = LN6660 -- LRT/ORIGINAL/RF07.cdf -- OK @ 29 Aug 2000 11:13:56
+# Sequence number = LN6668 -- LRT/ORIGINAL/RF08.cdf -- OK @ 29 Aug 2000 11:13:49
+# Sequence number = LN6676 -- LRT/ORIGINAL/RF09.cdf -- OK @ 29 Aug 2000 11:16:02
+# Sequence number = LN6686 -- LRT/ORIGINAL/TF01.cdf -- OK @ 29 Aug 2000 11:14:19
+# Sequence number = LN6694 -- LRT/ORIGINAL/TF02.cdf -- OK @ 29 Aug 2000 11:16:13
+#
+#  Production processing (after skeleton merge)
+#  MSS path = /RAF/2000/186/LRT/
+#  Job(s) submitted on Tue Aug 29 13:59:36 MDT 2000
+# Sequence number = LN7638 -- LRT/FF01.cdf -- OK @ 29 Aug 2000 14:04:06
+# Sequence number = LN7646 -- LRT/FF02.cdf -- OK @ 29 Aug 2000 14:03:57
+# Sequence number = LN7654 -- LRT/RF01.cdf -- OK @ 29 Aug 2000 14:03:51
+# Sequence number = LN7664 -- LRT/RF02.cdf -- OK @ 29 Aug 2000 14:04:01
+# Sequence number = LN7674 -- LRT/RF03.cdf -- OK @ 29 Aug 2000 14:11:08
+# Sequence number = LN7682 -- LRT/RF04.cdf -- OK @ 29 Aug 2000 14:11:03
+# Sequence number = LN7692 -- LRT/RF05.cdf -- OK @ 29 Aug 2000 14:11:12
+# Sequence number = LN7702 -- LRT/RF06.cdf -- OK @ 29 Aug 2000 14:08:16
+# Sequence number = LN7710 -- LRT/RF07.cdf -- OK @ 29 Aug 2000 14:15:06
+# Sequence number = LN7718 -- LRT/RF08.cdf -- OK @ 29 Aug 2000 14:15:11
+# Sequence number = LN7726 -- LRT/RF09.cdf -- OK @ 29 Aug 2000 14:14:41
+# Sequence number = LN7734 -- LRT/TF01.cdf -- OK @ 29 Aug 2000 14:13:45
+# Sequence number = LN7742 -- LRT/TF02.cdf -- OK @ 29 Aug 2000 14:16:49
+#
+#  Second run Production processing (before skeleton merge)
+#  Job(s) submitted on Mon Sep 18 15:23:03 MDT 2000
+# Sequence number = LN3373 -- LRT/ORIGINAL/FF01.cdf -- OK @ 18 Sep 2000 15:27:52
+# Sequence number = LN3381 -- LRT/ORIGINAL/FF02.cdf -- OK @ 18 Sep 2000 15:28:24
+# Sequence number = LN3389 -- LRT/ORIGINAL/RF01.cdf -- OK @ 18 Sep 2000 15:28:14
+# Sequence number = LN3398 -- LRT/ORIGINAL/RF02.cdf -- OK @ 18 Sep 2000 15:27:32
+# Sequence number = LN3409 -- LRT/ORIGINAL/RF03.cdf -- OK @ 18 Sep 2000 15:50:30
+# Sequence number = LN3419 -- LRT/ORIGINAL/RF04.cdf -- OK @ 18 Sep 2000 15:47:25
+# Sequence number = LN3429 -- LRT/ORIGINAL/RF05.cdf -- OK @ 18 Sep 2000 15:36:15
+# Sequence number = LN3437 -- LRT/ORIGINAL/RF06.cdf -- OK @ 18 Sep 2000 15:31:44
+# Sequence number = LN3445 -- LRT/ORIGINAL/RF07.cdf -- OK @ 18 Sep 2000 15:41:47
+# Sequence number = LN3453 -- LRT/ORIGINAL/RF08.cdf -- OK @ 18 Sep 2000 15:47:20
+# Sequence number = LN3467 -- LRT/ORIGINAL/RF09.cdf -- OK @ 18 Sep 2000 15:41:03
+# Sequence number = LN3475 -- LRT/ORIGINAL/TF01.cdf -- OK @ 18 Sep 2000 15:48:55
+# Sequence number = LN3483 -- LRT/ORIGINAL/TF02.cdf -- OK @ 18 Sep 2000 15:44:32
+#
+#  Second run Production processing (after skeleton merge)
+#  Job(s) submitted on Mon Sep 18 17:19:48 MDT 2000
+# Sequence number = LN2781 -- LRT/FF01.cdf -- OK @ 18 Sep 2000 17:24:30
+# Sequence number = LN2789 -- LRT/FF02.cdf -- OK @ 18 Sep 2000 17:23:52
+# Sequence number = LN2797 -- LRT/RF01.cdf -- OK @ 18 Sep 2000 17:24:22
+# Sequence number = LN2809 -- LRT/RF02.cdf -- OK @ 18 Sep 2000 17:23:21
+# Sequence number = LN2819 -- LRT/RF03.cdf -- OK @ 18 Sep 2000 17:26:41
+# Sequence number = LN2829 -- LRT/RF04.cdf -- OK @ 18 Sep 2000 17:33:42
+# Sequence number = LN2838 -- LRT/RF05.cdf -- OK @ 18 Sep 2000 17:33:19
+# Sequence number = LN2849 -- LRT/RF06.cdf -- OK @ 18 Sep 2000 17:24:13
+# Sequence number = LN2857 -- LRT/RF07.cdf -- OK @ 18 Sep 2000 17:33:10
+# Sequence number = LN2866 -- LRT/RF08.cdf -- OK @ 18 Sep 2000 17:42:02
+# Sequence number = LN2875 -- LRT/RF09.cdf -- OK @ 18 Sep 2000 17:32:41
+# Sequence number = LN2883 -- LRT/TF01.cdf -- OK @ 18 Sep 2000 17:43:46
+# Sequence number = LN2891 -- LRT/TF02.cdf -- OK @ 18 Sep 2000 17:45:50
+#
+#  Job(s) submitted on 
+#

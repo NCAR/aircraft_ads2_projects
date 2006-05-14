@@ -1,0 +1,60 @@
+ACME - 125, Flight rf01
+Loading setup file: /jnet/local/proj/125/Production/Flight_rf01
+Loading setup file: /jnet/local/proj/125/Production/Flight_rf01
+LHHI has no description or units.
+LHLO has no description or units.
+PCONE has no description or units.
+XFO315 has no description or units.
+XPTRMS has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, TEO3CAL.
+Value set to 0,1,0 in AMLIB function TEO3CAL.
+Processed on: 2005-06-03 12:57:13 -0600
+Flight Date: 05/14/2004
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for ACINS enabled, with lag of -80 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -550 milliseconds.
+Time lag for GGTRK enabled, with lag of -550 milliseconds.
+Time lag for GGVEW enabled, with lag of -550 milliseconds.
+Time lag for GGVNS enabled, with lag of -550 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+Blanking HGM232 from 12:50:04 to 12:53:55.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 12:50:04 to 12:53:55.
+Blanking PLWCC from 16:33:50 to 16:33:54.
+Blanking PLWCC from 16:33:50 to 16:33:54.
+Time interval(s) completed : 
+12:48:00-16:33:54
+
+ACINS: 35 spikes removed with slope exceeding 4.000000
+ALT: 5 spikes removed with slope exceeding 1.200000
+LAT: 1 spikes removed with slope exceeding 0.020000
+LON: 1 spikes removed with slope exceeding 0.020000
+PITCH: 35 spikes removed with slope exceeding 0.300000
+ROLL: 35 spikes removed with slope exceeding 0.300000
+THDG: 5 spikes removed with slope exceeding 0.300000
+VSPD: 5 spikes removed with slope exceeding 0.600000
+IRS Error report: Latitude had 1 values of 0 (zero).
+IRS Error report: Longitude had 1 values of 0 (zero).
+IRS Error report: Track Angle had 5 values of 0 (zero).
+IRS Error report: True Heading had 5 values of 0 (zero).
+IRS Error report: Pitch had 35 values of 0 (zero).
+IRS Error report: Roll had 35 values of 0 (zero).
+IRS Error report: Altitude had 5 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 35 values of 0 (zero).
+IRS Error report: Vertical Speed had 5 values of 0 (zero).
+Processing took 1.4 minutes.

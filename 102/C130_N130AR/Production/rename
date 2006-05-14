@@ -1,0 +1,93 @@
+#! /bin/csh -f
+#
+#   Rename original production netCDF for project 1999-102 INDOEX (Clarke, et al.)
+#
+#   Save a copy before archiving the fully-merged version.
+#   Ron Ruth  7 October 1999
+#
+#  Written by Ronald L. Ruth using archive.support as a template     7 Oct 1999
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get setup information for this project
+set PRDIR = `pwd`
+set PROJ = `echo $PRDIR | sed -e "s/[a-zA-Z\/]//g"`
+set YEAR = `grep FY proj.info | sed -e "s/FY=//"`
+set TURBRT = LRT
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+#
+date
+#
+set FILES = ( \
+RF01.cdf \
+RF02.cdf \
+RF03.cdf \
+RF04.cdf \
+RF05.cdf \
+RF06.cdf \
+RF07.cdf \
+RF08.cdf \
+RF09.cdf \
+RF10.cdf \
+RF11.cdf \
+RF12.cdf \
+RF13.cdf \
+RF14.cdf \
+RF15A.cdf \
+RF15B.cdf \
+RF16.cdf \
+RF17.cdf \
+RF18.cdf \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+   newf=/RAF/$YEAR/$PROJ/ORIGINAL/$TURBRT/$FILE wpwd=RAFDMG
+  @ num ++
+end
+#
+# Done.
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#        Source directory:  /RAF/1999/102/LRT/
+#   Destination directory:  /RAF/1999/102/ORIGINAL/LRT/
+#
+#  Job(s) submitted on Thu Oct  7 13:46:17 MDT 1999
+# Sequence number = MI6851 -- LRT/RF01.cdf -- OK @ 7 Oct 1999 13:46:24
+# Sequence number = MI6858 -- LRT/RF02.cdf -- OK @ 7 Oct 1999 13:46:25
+# Sequence number = MI6865 -- LRT/RF03.cdf -- OK @ 7 Oct 1999 13:46:25
+# Sequence number = MI6872 -- LRT/RF04.cdf -- OK @ 7 Oct 1999 13:46:28
+# Sequence number = MI6879 -- LRT/RF05.cdf -- OK @ 7 Oct 1999 13:46:27
+# Sequence number = MI6886 -- LRT/RF06.cdf -- OK @ 7 Oct 1999 13:46:27
+# Sequence number = MI6893 -- LRT/RF07.cdf -- OK @ 7 Oct 1999 13:46:28
+# Sequence number = MI6900 -- LRT/RF08.cdf -- OK @ 7 Oct 1999 13:46:30
+# Sequence number = MI6907 -- LRT/RF09.cdf -- OK @ 7 Oct 1999 13:46:29
+# Sequence number = MI6914 -- LRT/RF10.cdf -- OK @ 7 Oct 1999 13:46:32
+# Sequence number = MI6921 -- LRT/RF11.cdf -- OK @ 7 Oct 1999 13:50:34
+# Sequence number = MI6928 -- LRT/RF12.cdf -- OK @ 7 Oct 1999 13:46:33
+# Sequence number = MI6935 -- LRT/RF13.cdf -- OK @ 7 Oct 1999 13:46:33
+# Sequence number = MI6942 -- LRT/RF14.cdf -- OK @ 7 Oct 1999 13:46:35
+# Sequence number = MI6949 -- LRT/RF15A.cdf -- OK @ 7 Oct 1999 13:50:34
+# Sequence number = MI6956 -- LRT/RF15B.cdf -- OK @ 7 Oct 1999 13:46:35
+# Sequence number = MI6963 -- LRT/RF16.cdf -- OK @ 7 Oct 1999 13:46:34
+# Sequence number = MI6970 -- LRT/RF17.cdf -- OK @ 7 Oct 1999 13:46:37
+# Sequence number = MI6977 -- LRT/RF18.cdf -- OK @ 7 Oct 1999 13:46:38
+#

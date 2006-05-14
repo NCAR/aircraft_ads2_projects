@@ -1,0 +1,113 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 5-127 Marine Stratus Cloud Top Project
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1995
+set PROJ = 127
+#set STAGE = "nfile=1"
+#set STAGE = "nrec=15000"
+#set STAGE = "skpr=15000 nrec=15000"
+#set STAGE = "skpr=30000 nrec=15000"
+#
+#  Section 1.  Whole flights  
+#set STAGE = "nfile=1"
+#set FLIGHTS =  ( RF01  RF04  )
+#set TAPELIST = ( R0874 R0877 )
+#
+#  Section 2.  First chunk
+#set STAGE = "nrec=15000"
+#set FLIGHTS =  ( RF02A RF03A RF05A RF06A RF07A RF08A RF09A RF10A )
+#set TAPELIST = ( R0875 R0876 R0878 R0879 R0880 R0882 R0883 R0884 )
+#
+#  Section 3a.  Second chunk
+#set STAGE = "skpr=15000 nrec=15000"
+#set FLIGHTS =  ( RF02B RF03B RF05B RF06B RF07B RF08B RF09B RF10B )
+#set TAPELIST = ( R0875 R0876 R0878 R0879 R0880 R0882 R0883 R0884 )
+#
+#  Section 3b.  Second chunk, second try
+#set SKIP = "skpr=15000"
+#set RECS = ( "nrec=3530" "nrec=3543" "nrec=9826" )
+#set FLIGHTS =  ( RF05B RF06B RF08B )
+#set TAPELIST = ( R0878 R0879 R0882 )
+#
+#  Section 3c.  Second chunk, third try
+#set SKIP = "skpr=15000"
+#set RECS = ( "nrec=3530" )
+#set FLIGHTS =  ( RF05B )
+#set TAPELIST = ( R0878 )
+#
+#  Section 3d.  Second chunk, fourth try
+set SKIP = "skpr=15000"
+set RECS = ( "nfil=1" )
+set FLIGHTS =  ( RF05B )
+set TAPELIST = ( R0878 )
+#
+#  Section 4.  Third chunk
+#set STAGE = "skpr=30000 nrec=6393"
+#set FLIGHTS =  ( RF07C )
+#set TAPELIST = ( R0880 )
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set REC = $RECS[$num]
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+#  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $SKIP $REC \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+#   proj=41113009 skpf=0 $STAG \
+#   proj=41113009 skpf=0 $STAGE \
+end
+#
+#  Jobs submitted Thu Feb  2 11:28:51 MST 1995
+# Sequence number = CK6090 -- RF01/R0874 -- OK
+# Sequence number = CK6096 -- RF04/R0877 -- OK
+# 
+#  Jobs submitted Fri Feb  3 09:57:39 MST 1995
+# Sequence number = CK3193 -- RF02A/R0875 -- OK
+# Sequence number = CK3198 -- RF03A/R0876 -- OK
+# Sequence number = CK3205 -- RF05A/R0878 -- OK
+# Sequence number = CK3212 -- RF06A/R0879 -- OK
+# Sequence number = CK3220 -- RF07A/R0880 -- OK
+# Sequence number = CK3227 -- RF08A/R0882 -- OK
+# Sequence number = CK3234 -- RF09A/R0883 -- OK
+# Sequence number = CK3241 -- RF10A/R0884 -- OK
+# 
+#  Jobs submitted Mon Feb  6 09:25:51 MST 1995
+# Sequence number = CK8711 -- RF02B/R0875 -- OK
+# Sequence number = CK8718 -- RF03B/R0876 -- OK
+# Sequence number = CK8725 -- RF05B/R0878 -- unknown (logfile lost)
+# Sequence number = CK8732 -- RF06B/R0879 -- unknown (logfile lost)
+# Sequence number = CK8739 -- RF07B/R0880 -- OK
+# Sequence number = CK8746 -- RF08B/R0882 -- unknown (logfile lost)
+# Sequence number = CK8753 -- RF09B/R0883 -- OK
+# Sequence number = CK8760 -- RF10B/R0884 -- OK
+# 
+#  Jobs submitted Wed Feb 15 12:33:17 MST 1995
+# Sequence number = CK4516 -- RF05B/R0878 -- Failed (output log lost?)
+# Sequence number = CK4523 -- RF06B/R0879 -- OK
+# Sequence number = CK4534 -- RF08B/R0882 -- OK
+# 
+#  Job submitted Wed Feb 15 12:36:00 MST 1995
+# Sequence number = CK4568 -- RF07C/R0880 -- OK
+# 
+#  Job submitted Fri Feb 17 16:38:17 MST 1995
+# Sequence number = CK8981 -- RF05B/R0878 -- Failed:  # Records problem
+# 
+#  Job submitted Tue Feb 21 16:50:51 MST 1995
+# Sequence number = CK8084 -- RF05B/R0878 --  Failed:  Data check errors
+# 
+#  Job submitted Wed Feb 22 15:52:23 MST 1995
+# Sequence number = CK3764 -- RF05B/R0878 --  
+# 
+# done.
+exit

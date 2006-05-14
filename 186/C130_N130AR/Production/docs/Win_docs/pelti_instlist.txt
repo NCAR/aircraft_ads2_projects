@@ -1,0 +1,135 @@
+Project #2000-186, PELTI
+Passing Efficiency of the Low-Turbulence Inlet
+Barry Huebert, et al.
+
+NCAR/NSF EC-130Q Hercules (N130AR)
+
+Aircraft Research Instrumentation
+
+
+RAF-Supplied Instrumentation
+
+I. Airborne Data System
+A. Acquisition
+(  	EC-130Q ADS2 (VME Motorola 68040 Based, with vxWorks)
+(  	NCAR Distributed Sampling Modules (4 Units), One in Each Wing Pod and Two in Cabin
+B. Operator Station
+(	Intel L440GX+ Motherboard with 2 Pentium III-500 CPUs, 512 MB Memory, Redhat Linux 6.2 OS
+(	9GB Disk Storage with RAID-1 (Hardware Mirroring Using 2 Drives)
+(	General Digital 17" 1280x1024 TFT Flat Panel Color Monitor
+(	IBM-DRHS36D 36GB Removable Disk Drives in Kingston Carriers (2 Units)
+(	Exabyte Model EXB-8505 Tape Drives (2 Units)
+(	UPS
+C. Forward Cabin User Display
+(	Sun SPARCstation 5
+(	PowerVideo Board
+(	16" High-Resolution Color Monitor
+(	HP1200C/PS DeskJet Printer
+(	Diamond Trackball
+(	UPS
+D. Flight Deck Display
+(	Sun SPARCstation 5
+(	PowerVideo Board
+(	16" High-Resolution Color Monitor
+(	HP1200C/PS DeskJet Printer
+(	Diamond Trackball
+(	UPS
+
+II. Aircraft Position, Velocity, and Attitude
+A. Honeywell Model HG1095-AC03 Laseref SM Inertial Reference System (Research)
+B. Trimble TANS III Global Positioning System (GPS)
+
+III. Static Pressures
+A. Rosemount Model 1501 Digital Pressure Transducer - Fuselage Port (PSFD, PSFDC)
+B. Ruska Model 7885 Digital Pressure Transducer - Fuselage Port (PSFRD, PSFC)
+C. Rosemount Model 1201F1 Pressure Transducer - Cabin (PCAB)
+
+IV. Dynamic (Pitot) Pressures
+A. Rosemount Model 1221F1VL - Radome (QCR)
+B. Rosemount Model 1221F1VL - Fuselage Pitot (QCF)
+
+V. Temperatures
+A. Rosemount Type 102 Non-deiced Sensor - Rosemount Model 510BF Amplifier - Right Radome Mount (TTRR, ATRR)
+B. Rosemount Type 102 Non-deiced Sensor - Rosemount Model 510BF Amplifier - Left Radome Mount (TTRL, ATRL)
+C. Rosemount Type 102E Deiced Sensor - Rosemount Model 510BF Amplifier - Left Inboard Wing Access Plate (TTWH, ATWH)
+
+VI. Flow Angle Sensors, Radome
+A. Attack - Rosemount Model 1221F1VL Differential Pressure Transducer (ADIFR)
+B. Sideslip - Rosemount Model 1221F1VL Differential Pressure Transducer (BDIFR)
+
+VII. Dew Point and Humidity
+A. General Eastern, Model 1011B Dew Point hygrometer - Starboard Radome Mount (DPT)
+B. General Eastern, Model 1011B Dew Point Hygrometer - Starboard Radome Mount (DPB)
+C. NCAR Model Crossflow Lyman-Alpha Hygrometer - Left Radome Mount (VLA, MRLA, RHOLA)
+
+VIII. Cloud and Aerosol Physics
+A. Rosemount Model 871FA Icing Rate Detector - Right Inboard Wing Access Plate (RICE)
+B. PMS Liquid Water Sensor (King Probe) - Left Outboard Wing Access Plate (PLWC, PLWCC)
+C. PMS Liquid Water Sensor (King Probe) - Right Outboard Wing Access Plate (PLWC1, PLWCC1)
+D. PMS Liquid Water Sensor (King Probe) - Left Wing Pod (PLWC2, PLWCC2)
+E. Particle Measuring Systems Model PCASP, Size Distribution, 0.12 to 3.12 (m - Right Pod
+F. Particle Measuring Systems Model FSSP-300 (S/N 305), Size Distribution, 0.3 to 20.0 (m - Left Pod and Window Right (Cabin)
+G. Particle Measuring Systems Model FSSP-300 (S/N 304, Borrowed from T. Strawa at NASA), Size Distribution, 0.3 to 20.0 (m - Window Right (Cabin) and Left Pod
+H. Particle Measuring Systems Model FSSP-100 (S/N 122), Size Distribution, 3.0 to 45.0 (m - Left Pod
+I. Particle Measuring Systems Model FSSP-100 [Droplet Measurement Technologies (DMT)-Modified Serial; S/N 109], Size Distribution, 3.0 to 45.0 (m - Right Pod
+J. TSI Model 3760 CN Counter, Size Distribution, 0.01 to 3.00 (m - Fuselage (Belly) Inlet (CONCN)
+K. Community Aerosol Inlet (CAI) - Starboard Fuselage Mount
+
+IX. Radiation Fluxes
+A. Visible Radiation - RAF-Modified Eppley Model PSP Pyranometers (2 Units in Multipurpose Radiometer Housings on Top and Bottom of Fuselage)
+(  Upward Looking (SWT, SWTC)
+(  Downward Looking (SWB)
+B. Ultraviolet Radiation - RAF-Modified Eppley Model TUVR Pyranometers (2 Units in Multipurpose Radiometer Housings on Top and Bottom of Fuselage)
+(  Upward Looking (UVT)
+(  Downward Looking (UVB)
+C. Infrared Radiation - RAF-Modified Eppley Model PIR Pyrgeometers (2 Units in Multipurpose Radiometer Housings on Top and Bottom of Fuselage)
+(  Upward Looking (IRT, IRTC)
+(  Downward Looking (IRB, IRBC)
+D. Remote Surface Temperature - Heimann Model KT19.85 Radiometers (2 Units, Downward Looking) - RSTB, RSTB1
+
+X. Chemistry
+A.  TECO Slow Response Ozone (O3) Monitor - Fuselage (Belly) Inlet Mount (TEO3C)
+
+XI. Geometric Altitude
+A. Stewart-Warner Model APN-232(v) - Fuselage Mount, 0 to 15,000 Meters AGL (HGM232)
+
+XII. Photography
+A. Sony XC-999 SVHS  Color Camera with JVC Model HR-S4700U Super VHS Recorder (3 Pairs) - Forward Looking (Cockpit Mount), Down Looking, and Left Side Looking
+B. Horita GPS Video Titler
+
+
+User-Supplied Instrumentation
+
+I. University of Hawaii (B. Huebert, et al.)
+A. Total Aerosol Sampler (TAS) - Right Forward Fuselage Mount
+B. Particle Measuring Systems Model FSSP-300 [Droplet Measurement Technologies (DMT)-Modified Serial; S/N 310], Size Distribution, 0.3 to 20.0 (m - Right Pod
+C. TSI Model 3020 Aerodynamic Particle Sizers (APSs) - 3 Units
+D. Radiance Research Model M903 Integrating Nephelometers - 4 Units
+E. Modified LAS-X Optical Particle Counter (OPC)
+F. Clarke Shrouded Solid-Diffuser/Curved-Tube Inlet (SD) - Left Forward Fuselage Mount
+G. 1 (m Teflon Filter Impactor System
+
+II. University of Denver (R. Seebaugh, B. LaFleur, and J. Wilson)
+A. Low-Turbulence Inlet (LTI) - Right Forward Fuselage Mount
+
+III. Arizona State University (J. Anderson)
+A. Pixe International Streakers with Nuclepore Filters (For SEM Analyses) - 3 Units
+
+IV. Drexel University (A. Bandy, D. Thornton, G. Mitchell, and B. Blomquist)
+A. Atmospheric Pressure Ionization Mass Spectrometer (APIMS) for Dimethyl Sulfide (DMS) and Sulfur Dioxide (SO2) Measurements - Left Forward Fuselage Inlet Mount
+B. Gas Chromatography/Mass Spectrometry (GC/MS) System for Dimethyl Sulfide (DMS) and Sulfur Dioxide (SO2) Measurements - Left Forward Fuselage Inlet Mount
+
+V. Princeton University (L. Russell, et al.)
+A. Sodium Particle Detector for Submicron Sea Salt - CAI Manifold Connection
+B. PIXE Impactor for Single Particle Organic Classes - CAI Manifold Connection
+C. High-Flow Particle Concentrator and Dual Impactor for Bulk Organic Classes - CAI Manifold Connection
+D. Radially-Classified Aerosol Detector (RCAD) for Submicron Particle Size Distributions - CAI Manifold Connection
+
+
+
+1
+
+
+4
+
+

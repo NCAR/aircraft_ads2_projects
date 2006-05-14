@@ -1,0 +1,650 @@
+#! /bin/csh -f
+#
+#  Archive raw CPI data files for 2004-109 AIRS-II
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  This file copied and modified from file
+#    /$LOCAL/proj/112/Production/archive/archcpi.112
+#   by Ron Ruth   1 November 2002
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = RAW_CPI
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+#  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+#  set msrcpMachine = "lenny"
+  set msrcpMachine = "mistral"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd readonly"
+#
+#  Choose a source directory (or set individually for each flight)
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+#set SDIR = "/jnet/win_jef2/cpi/?"
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI"
+#
+#  1st wave
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI/TF01"
+#set DDIR = "TF01"
+#set FILES = ( \
+#10231808.roi \
+#10231859.roi \
+#)
+#
+#  2nd wave
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI/TF02"
+#set DDIR = "TF02"
+#set FILES = ( \
+#10282059.roi \
+#)
+#
+#  3rd wave
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI/RF01"
+#set DDIR = "RF01"
+#set FILES = ( \
+#11051750.roi \
+#11051840.roi \
+#11051904.roi \
+#11052001.roi \
+#11052009.roi \
+#11052010.roi \
+#11052012.roi \
+#11052049.roi \
+#)
+#
+#  4th wave
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI/RF02"
+#set DDIR = "RF02"
+#set FILES = ( \
+#11061719.roi \
+#)
+#
+#  5th wave
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI/RF03"
+#set DDIR = "RF03"
+#set FILES = ( \
+#11071526.roi \
+#)
+#
+#  6th wave
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI/RF04"
+#set DDIR = "RF04"
+#set FILES = ( \
+#11101944.roi \
+#11102258.roi \
+#)
+#
+#  7th wave
+#set SDIR =  "/net/ftp/pub/archive/RAF-projects/AIRS2/CPI/RF05"
+#set DDIR = "RF05"
+#set FILES = ( \
+#11111720.roi \
+#11111800.roi \
+#11111803.roi \
+#11111815.roi \
+#11111905.roi \
+#11111920.roi \
+#11111928.roi \
+#11111933.roi \
+#11111936.roi \
+#11111943.roi \
+#11111950.roi \
+#11111959.roi \
+#)
+#
+#  8th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF05"
+#set DDIR = "RF05"
+#set FILES = ( \
+#11112009.roi \
+#11112021.roi \
+#11112046.roi \
+#11112057.roi \
+#11112103.roi \
+#11112109.roi \
+#11112138.roi \
+#11112155.roi \
+#11112203.roi \
+#11112211.roi \
+#11112221.roi \
+#11112230.roi \
+#11112231.roi \
+#11112232.roi \
+#11112233.roi \
+#11112234.roi \
+#11112235.roi \
+#11112236.roi \
+#11112237.roi \
+#11112243.roi \
+#11112245.roi \
+#11112247.roi \
+#11112251.roi \
+#11120026.roi \
+#11120040.roi \
+#11120100.roi \
+#)
+#
+#  9th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF06"
+#set DDIR = "RF06"
+#set FILES = ( \
+#11141140.roi \
+#11141141.roi \
+#11141350.roi \
+#11141357.roi \
+#11141512.roi \
+#11141530.roi \
+#11141535.roi \
+#11141543.roi \
+#11141550.roi \
+#11141602.roi \
+#11141741.roi \
+#)
+#
+# 10th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF07"
+#set DDIR = "RF07"
+#set FILES = ( \
+#11171512.roi \
+#11171705.roi \
+#11171706.roi \
+#11171707.roi \
+#11171751.roi \
+#11171859.roi \
+#11171902.roi \
+#)
+#
+# 11th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF08"
+#set DDIR = "RF08"
+#set FILES = ( \
+#11181023.roi \
+#11181132.roi \
+#11181144.roi \
+#11181346.roi \
+#11181541.roi \
+#11181634.roi \
+#11181704.roi \
+#11181719.roi \
+#)
+#
+# 12th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF09"
+#set DDIR = "RF09"
+#set FILES = ( \
+#11191549.roi \
+#11191616.roi \
+#11191620.roi \
+#11191626.roi \
+#11191630.roi \
+#11191637.roi \
+#11191644.roi \
+#11191649.roi \
+#11191653.roi \
+#11191657.roi \
+#11191701.roi \
+#11191734.roi \
+#11191739.roi \
+#11191743.roi \
+#11191757.roi \
+#11191800.roi \
+#11191803.roi \
+#11191808.roi \
+#11191911.roi \
+#11191918.roi \
+#11191922.roi \
+#11191926.roi \
+#11191928.roi \
+#11191933.roi \
+#11191942.roi \
+#11191945.roi \
+#11191952.roi \
+#11191958.roi \
+#11192003.roi \
+#11192005.roi \
+#11192007.roi \
+#11192008.roi \
+#11192010.roi \
+#11192013.roi \
+#11192016.roi \
+#11192027.roi \
+#11192032.roi \
+#11192037.roi \
+#11192042.roi \
+#11192046.roi \
+#11192049.roi \
+#11192051.roi \
+#11192054.roi \
+#11192057.roi \
+#11192100.roi \
+#11192102.roi \
+#11192104.roi \
+#11192106.roi \
+#11192108.roi \
+#11192109.roi \
+#11192111.roi \
+#11192113.roi \
+#11192116.roi \
+#11192125.roi \
+#11192130.roi \
+#11192138.roi \
+#)
+#
+# 13th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF10"
+#set DDIR = "RF10"
+#set FILES = ( \
+#11241340.roi \
+#11241423.roi \
+#11241425.roi \
+#11241434.roi \
+#11241437.roi \
+#11241441.roi \
+#11241810.roi \
+#11241813.roi \
+#11241818.roi \
+#11241826.roi \
+#11241830.roi \
+#11241837.roi \
+#11241840.roi \
+#11241844.roi \
+#11241846.roi \
+#11241849.roi \
+#11241851.roi \
+#11241854.roi \
+#11242010.roi \
+#11242017.roi \
+#11242018.roi \
+#)
+#
+# 14th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF11"
+#set DDIR = "RF11"
+#set FILES = ( \
+#11251312.roi \
+#)
+#
+# 15th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF12"
+#set DDIR = "RF12"
+#set FILES = ( \
+#12011525.roi \
+#12011726.roi \
+#12011801.roi \
+#12011840.roi \
+#12011853.roi \
+#12011858.roi \
+#12011901.roi \
+#12011919.roi \
+#12011928.roi \
+#12011935.roi \
+#12012041.roi \
+#12012059.roi \
+#12012120.roi \
+#12012126.roi \
+#12012130.roi \
+#12012137.roi \
+#12012144.roi \
+#12012149.roi \
+#12012152.roi \
+#12012154.roi \
+#12012205.roi \
+#)
+#
+# 16th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF13"
+#set DDIR = "RF13"
+#set FILES = ( \
+#12031606.roi \
+#12031822.roi \
+#12031906.roi \
+#)
+#
+# 17th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF14"
+#set DDIR = "RF14"
+#set FILES = ( \
+#12041306.roi \
+#12041352.roi \
+#12041555.roi \
+#)
+#
+# 18th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF15"
+#set DDIR = "RF15"
+#set FILES = ( \
+#12061449.roi \
+#12061543.roi \
+#12061934.roi \
+#)
+#
+#   th wave
+#set SDIR =  "/scr/jscience/cpi/AIRS2/RF1#"
+#set DDIR = "RF0#"
+#set FILES = ( \
+#)
+#
+#
+#  Get started:
+set todo = $#FILES
+echo "#  $todo Job(s) submitted on `date`"
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $SDIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DDIR/$FILE
+     echo "#  msrcp job for $DDIR/$FILE -- OK -- `date`"
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$FILE"
+    exit 1
+  endif
+end
+#
+echo "#   Completed on `date`"
+exit
+#
+#  MSS path for all bitfiles listed below:  /RAF/2004/109/RAW_CPI/
+#
+#  1st wave
+#  2 Job(s) submitted on Thu Nov 13 14:21:11 MST 2003
+#  msrcp job for TF01/10231808.roi -- OK -- Thu Nov 13 14:26:39 MST 2003
+#  msrcp job for TF01/10231859.roi -- OK -- Thu Nov 13 14:30:20 MST 2003
+#   Completed on Thu Nov 13 14:30:20 MST 2003
+#
+#  2nd wave
+#  1 Job(s) submitted on Thu Nov 13 14:34:06 MST 2003
+#  msrcp job for TF02/10282059.roi -- OK -- Thu Nov 13 14:55:24 MST 2003
+#   Completed on Thu Nov 13 14:55:24 MST 2003
+#
+#  3rd wave
+#  7 Job(s) submitted on Thu Nov 13 14:57:25 MST 2003
+#  msrcp job for RF01/11051840.roi -- OK -- Thu Nov 13 15:17:35 MST 2003
+#  msrcp job for RF01/11051904.roi -- OK -- Thu Nov 13 15:29:36 MST 2003
+#  msrcp job for RF01/11052001.roi -- OK -- Thu Nov 13 15:36:12 MST 2003
+#  msrcp job for RF01/11052009.roi -- OK -- Thu Nov 13 15:40:38 MST 2003
+#  msrcp job for RF01/11052010.roi -- OK -- Thu Nov 13 15:47:07 MST 2003
+#  msrcp job for RF01/11052012.roi -- OK -- Thu Nov 13 15:59:11 MST 2003
+#  msrcp job for RF01/11052049.roi -- OK -- Thu Nov 13 16:08:53 MST 2003
+#   Completed on Thu Nov 13 16:08:53 MST 2003
+#
+#  3rd wave (conclusion)
+#  1 Job(s) submitted on Thu Nov 13 16:13:54 MST 2003
+#  msrcp job for RF01/11051750.roi -- OK -- Thu Nov 13 16:20:36 MST 2003
+#   Completed on Thu Nov 13 16:20:36 MST 2003
+#
+#  4th wave
+#  1 Job(s) submitted on Thu Nov 13 16:45:20 MST 2003
+#  msrcp job for RF02/11061719.roi -- OK -- Thu Nov 13 16:58:38 MST 2003
+#   Completed on Thu Nov 13 16:58:38 MST 2003
+#
+#  5th wave
+#  1 Job(s) submitted on Thu Nov 13 17:11:44 MST 2003
+#  msrcp job for RF03/11071526.roi -- OK -- Thu Nov 13 17:16:41 MST 2003
+#   Completed on Thu Nov 13 17:16:41 MST 2003
+#
+#  6th wave
+#  2 Job(s) submitted on Thu Nov 13 17:20:52 MST 2003
+#  msrcp job for RF04/11101944.roi -- OK -- Thu Nov 13 17:24:44 MST 2003
+#  msrcp job for RF04/11102258.roi -- OK -- Thu Nov 13 17:25:12 MST 2003
+#   Completed on Thu Nov 13 17:25:12 MST 2003
+#
+#  7th wave
+#  12 Job(s) submitted on Thu Nov 13 17:26:00 MST 2003
+#  msrcp job for RF05/11111720.roi -- OK -- Thu Nov 13 17:26:26 MST 2003
+#  msrcp job for RF05/11111800.roi -- OK -- Thu Nov 13 17:29:20 MST 2003
+#  msrcp job for RF05/11111803.roi -- OK -- Thu Nov 13 17:34:51 MST 2003
+#  msrcp job for RF05/11111815.roi -- OK -- Thu Nov 13 17:43:08 MST 2003
+#  msrcp job for RF05/11111905.roi -- OK -- Thu Nov 13 17:49:18 MST 2003
+#  msrcp job for RF05/11111920.roi -- OK -- Thu Nov 13 17:54:53 MST 2003
+#  msrcp job for RF05/11111928.roi -- OK -- Thu Nov 13 17:59:31 MST 2003
+#  msrcp job for RF05/11111933.roi -- OK -- Thu Nov 13 18:02:42 MST 2003
+#  msrcp job for RF05/11111936.roi -- OK -- Thu Nov 13 18:05:50 MST 2003
+#  msrcp job for RF05/11111943.roi -- OK -- Thu Nov 13 18:08:55 MST 2003
+#  msrcp job for RF05/11111950.roi -- OK -- Thu Nov 13 18:11:51 MST 2003
+#  msrcp job for RF05/11111959.roi -- OK -- Thu Nov 13 18:14:48 MST 2003
+#   Completed on Thu Nov 13 18:14:48 MST 2003
+#
+#  8th wave
+#  26 Job(s) submitted on Wed Jan 28 10:53:53 MST 2004
+#  msrcp job for RF05/11112009.roi -- OK -- Wed Jan 28 10:55:12 MST 2004
+#  msrcp job for RF05/11112021.roi -- OK -- Wed Jan 28 10:56:31 MST 2004
+#  msrcp job for RF05/11112046.roi -- OK -- Wed Jan 28 10:57:53 MST 2004
+#  msrcp job for RF05/11112057.roi -- OK -- Wed Jan 28 10:59:17 MST 2004
+#  msrcp job for RF05/11112103.roi -- OK -- Wed Jan 28 11:00:41 MST 2004
+#  msrcp job for RF05/11112109.roi -- OK -- Wed Jan 28 11:02:06 MST 2004
+#  msrcp job for RF05/11112138.roi -- OK -- Wed Jan 28 11:03:27 MST 2004
+#  msrcp job for RF05/11112155.roi -- OK -- Wed Jan 28 11:05:49 MST 2004
+#  msrcp job for RF05/11112203.roi -- OK -- Wed Jan 28 11:07:37 MST 2004
+#  msrcp job for RF05/11112211.roi -- OK -- Wed Jan 28 11:08:57 MST 2004
+#  msrcp job for RF05/11112221.roi -- OK -- Wed Jan 28 11:10:20 MST 2004
+#  msrcp job for RF05/11112230.roi -- OK -- Wed Jan 28 11:11:53 MST 2004
+#  msrcp job for RF05/11112231.roi -- OK -- Wed Jan 28 11:13:28 MST 2004
+#  msrcp job for RF05/11112232.roi -- OK -- Wed Jan 28 11:15:56 MST 2004
+#  msrcp job for RF05/11112233.roi -- OK -- Wed Jan 28 11:17:20 MST 2004
+#  msrcp job for RF05/11112234.roi -- OK -- Wed Jan 28 11:18:44 MST 2004
+#  msrcp job for RF05/11112235.roi -- OK -- Wed Jan 28 11:20:04 MST 2004
+#  msrcp job for RF05/11112236.roi -- OK -- Wed Jan 28 11:21:26 MST 2004
+#  msrcp job for RF05/11112237.roi -- OK -- Wed Jan 28 11:23:13 MST 2004
+#  msrcp job for RF05/11112243.roi -- OK -- Wed Jan 28 11:25:05 MST 2004
+#  msrcp job for RF05/11112245.roi -- OK -- Wed Jan 28 11:26:35 MST 2004
+#  msrcp job for RF05/11112247.roi -- OK -- Wed Jan 28 11:28:07 MST 2004
+#  msrcp job for RF05/11112251.roi -- OK -- Wed Jan 28 11:29:32 MST 2004
+#  msrcp job for RF05/11120026.roi -- OK -- Wed Jan 28 11:31:02 MST 2004
+#  msrcp job for RF05/11120040.roi -- OK -- Wed Jan 28 11:32:31 MST 2004
+#  msrcp job for RF05/11120100.roi -- OK -- Wed Jan 28 11:32:40 MST 2004
+#   Completed on Wed Jan 28 11:32:40 MST 2004
+#
+#  9th wave
+#  11 Job(s) submitted on Wed Jan 28 12:00:07 MST 2004
+#  msrcp job for RF06/11141140.roi -- OK -- Wed Jan 28 12:00:31 MST 2004
+#  msrcp job for RF06/11141141.roi -- OK -- Wed Jan 28 12:03:42 MST 2004
+#  msrcp job for RF06/11141350.roi -- OK -- Wed Jan 28 12:07:17 MST 2004
+#  msrcp job for RF06/11141357.roi -- OK -- Wed Jan 28 12:11:09 MST 2004
+#  msrcp job for RF06/11141512.roi -- OK -- Wed Jan 28 12:12:41 MST 2004
+#  msrcp job for RF06/11141530.roi -- OK -- Wed Jan 28 12:12:49 MST 2004
+#  msrcp job for RF06/11141535.roi -- OK -- Wed Jan 28 12:14:28 MST 2004
+#  msrcp job for RF06/11141543.roi -- OK -- Wed Jan 28 12:16:14 MST 2004
+#  msrcp job for RF06/11141550.roi -- OK -- Wed Jan 28 12:17:49 MST 2004
+#  msrcp job for RF06/11141602.roi -- OK -- Wed Jan 28 12:19:30 MST 2004
+#  msrcp job for RF06/11141741.roi -- OK -- Wed Jan 28 12:19:55 MST 2004
+#   Completed on Wed Jan 28 12:19:55 MST 2004
+#
+# 10th wave
+#  7 Job(s) submitted on Wed Jan 28 12:21:53 MST 2004
+#  msrcp job for RF07/11171512.roi -- Failed -- Wed Jan 28 12:21:55 MST 2004
+#                RF07/11171512.roi: Cannot transfer zero size file, ignored
+#  msrcp job for RF07/11171705.roi -- OK -- Wed Jan 28 12:25:20 MST 2004
+#  msrcp job for RF07/11171706.roi -- OK -- Wed Jan 28 12:27:43 MST 2004
+#  msrcp job for RF07/11171707.roi -- OK -- Wed Jan 28 12:29:56 MST 2004
+#  msrcp job for RF07/11171751.roi -- OK -- Wed Jan 28 12:31:53 MST 2004
+#  msrcp job for RF07/11171859.roi -- OK -- Wed Jan 28 12:34:38 MST 2004
+#  msrcp job for RF07/11171902.roi -- OK -- Wed Jan 28 12:35:18 MST 2004
+#   Completed on Wed Jan 28 12:35:18 MST 2004
+#
+# 11th wave
+#  8 Job(s) submitted on Wed Jan 28 12:35:58 MST 2004
+#  msrcp job for RF08/11181023.roi -- OK -- Wed Jan 28 12:38:04 MST 2004
+#  msrcp job for RF08/11181132.roi -- OK -- Wed Jan 28 12:39:34 MST 2004
+#  msrcp job for RF08/11181144.roi -- OK -- Wed Jan 28 12:41:08 MST 2004
+#  msrcp job for RF08/11181346.roi -- OK -- Wed Jan 28 12:42:42 MST 2004
+#  msrcp job for RF08/11181541.roi -- OK -- Wed Jan 28 12:45:36 MST 2004
+#  msrcp job for RF08/11181634.roi -- OK -- Wed Jan 28 12:47:48 MST 2004
+#  msrcp job for RF08/11181704.roi -- OK -- Wed Jan 28 12:49:32 MST 2004
+#  msrcp job for RF08/11181719.roi -- OK -- Wed Jan 28 12:50:16 MST 2004
+#   Completed on Wed Jan 28 12:50:16 MST 2004
+#
+# 12th wave
+#  56 Job(s) submitted on Wed Jan 28 13:17:30 MST 2004
+#  msrcp job for RF09/11191549.roi -- OK -- Wed Jan 28 13:18:57 MST 2004 -  KB/s
+#  msrcp job for RF09/11191616.roi -- OK -- Wed Jan 28 13:20:27 MST 2004 -  KB/s
+#  msrcp job for RF09/11191620.roi -- OK -- Wed Jan 28 13:21:53 MST 2004 -  KB/s
+#  msrcp job for RF09/11191626.roi -- OK -- Wed Jan 28 13:23:18 MST 2004 -  KB/s
+#  msrcp job for RF09/11191630.roi -- OK -- Wed Jan 28 13:25:23 MST 2004 -  KB/s
+#  msrcp job for RF09/11191637.roi -- OK -- Wed Jan 28 13:34:38 MST 2004 -  KB/s
+#  msrcp job for RF09/11191644.roi -- OK -- Wed Jan 28 13:36:27 MST 2004 -  KB/s
+#  msrcp job for RF09/11191649.roi -- OK -- Wed Jan 28 13:37:47 MST 2004 -  KB/s
+#  msrcp job for RF09/11191653.roi -- OK -- Wed Jan 28 13:39:07 MST 2004 -  KB/s
+#  msrcp job for RF09/11191657.roi -- OK -- Wed Jan 28 13:41:06 MST 2004 -  KB/s
+#  msrcp job for RF09/11191701.roi -- OK -- Wed Jan 28 13:42:27 MST 2004 -  KB/s
+#  msrcp job for RF09/11191734.roi -- OK -- Wed Jan 28 13:43:47 MST 2004 -  KB/s
+#  msrcp job for RF09/11191739.roi -- OK -- Wed Jan 28 13:45:11 MST 2004 -  KB/s
+#  msrcp job for RF09/11191743.roi -- OK -- Wed Jan 28 13:46:33 MST 2004 -  KB/s
+#  msrcp job for RF09/11191757.roi -- OK -- Wed Jan 28 13:47:54 MST 2004 -  KB/s
+#  msrcp job for RF09/11191800.roi -- OK -- Wed Jan 28 13:49:13 MST 2004 -  KB/s
+#  msrcp job for RF09/11191803.roi -- OK -- Wed Jan 28 13:50:32 MST 2004 -  KB/s
+#  msrcp job for RF09/11191808.roi -- OK -- Wed Jan 28 13:51:54 MST 2004 -  KB/s
+#  msrcp job for RF09/11191911.roi -- OK -- Wed Jan 28 13:53:21 MST 2004 -  KB/s
+#  msrcp job for RF09/11191918.roi -- OK -- Wed Jan 28 13:54:43 MST 2004 -  KB/s
+#  msrcp job for RF09/11191922.roi -- OK -- Wed Jan 28 13:56:04 MST 2004 -  KB/s
+#  msrcp job for RF09/11191926.roi -- OK -- Wed Jan 28 13:57:35 MST 2004 -  KB/s
+#  msrcp job for RF09/11191928.roi -- OK -- Wed Jan 28 13:58:56 MST 2004 -  KB/s
+#  msrcp job for RF09/11191933.roi -- OK -- Wed Jan 28 14:01:06 MST 2004 -  KB/s
+#  msrcp job for RF09/11191942.roi -- OK -- Wed Jan 28 14:02:34 MST 2004 -  KB/s
+#  msrcp job for RF09/11191945.roi -- OK -- Wed Jan 28 14:04:07 MST 2004 -  KB/s
+#  msrcp job for RF09/11191952.roi -- OK -- Wed Jan 28 14:05:48 MST 2004 -  KB/s
+#  msrcp job for RF09/11191958.roi -- OK -- Wed Jan 28 14:07:14 MST 2004 -  KB/s
+#  msrcp job for RF09/11192003.roi -- OK -- Wed Jan 28 14:08:51 MST 2004 -  KB/s
+#  msrcp job for RF09/11192005.roi -- OK -- Wed Jan 28 14:10:35 MST 2004 -  KB/s
+#  msrcp job for RF09/11192007.roi -- OK -- Wed Jan 28 14:12:08 MST 2004 -  KB/s
+#  msrcp job for RF09/11192008.roi -- OK -- Wed Jan 28 14:13:44 MST 2004 -  KB/s
+#  msrcp job for RF09/11192010.roi -- OK -- Wed Jan 28 14:15:44 MST 2004 -  KB/s
+#  msrcp job for RF09/11192013.roi -- OK -- Wed Jan 28 14:17:54 MST 2004 -  KB/s
+#  msrcp job for RF09/11192016.roi -- OK -- Wed Jan 28 14:19:50 MST 2004 -  KB/s
+#  msrcp job for RF09/11192027.roi -- OK -- Wed Jan 28 14:21:54 MST 2004 -  KB/s
+#  msrcp job for RF09/11192032.roi -- OK -- Wed Jan 28 14:23:55 MST 2004 -  KB/s
+#  msrcp job for RF09/11192037.roi -- OK -- Wed Jan 28 14:25:23 MST 2004 -  KB/s
+#  msrcp job for RF09/11192042.roi -- OK -- Wed Jan 28 14:26:47 MST 2004 -  KB/s
+#  msrcp job for RF09/11192046.roi -- OK -- Wed Jan 28 14:28:28 MST 2004 -  KB/s
+#  msrcp job for RF09/11192049.roi -- OK -- Wed Jan 28 14:30:22 MST 2004 -  KB/s
+#  msrcp job for RF09/11192051.roi -- OK -- Wed Jan 28 14:31:48 MST 2004 -  KB/s
+#  msrcp job for RF09/11192054.roi -- OK -- Wed Jan 28 14:34:59 MST 2004 -  KB/s
+#  msrcp job for RF09/11192057.roi -- OK -- Wed Jan 28 14:39:25 MST 2004 -  KB/s
+#  msrcp job for RF09/11192100.roi -- OK -- Wed Jan 28 14:42:53 MST 2004 -  KB/s
+#  msrcp job for RF09/11192102.roi -- OK -- Wed Jan 28 14:45:40 MST 2004 -  KB/s
+#  msrcp job for RF09/11192104.roi -- OK -- Wed Jan 28 14:47:05 MST 2004 -  KB/s
+#  msrcp job for RF09/11192106.roi -- OK -- Wed Jan 28 14:48:42 MST 2004 -  KB/s
+#  msrcp job for RF09/11192108.roi -- OK -- Wed Jan 28 14:50:11 MST 2004 -  KB/s
+#  msrcp job for RF09/11192109.roi -- OK -- Wed Jan 28 14:51:34 MST 2004 -  KB/s
+#  msrcp job for RF09/11192111.roi -- OK -- Wed Jan 28 14:53:35 MST 2004 -  780 KB/s
+#  msrcp job for RF09/11192113.roi -- OK -- Wed Jan 28 14:55:04 MST 2004 - 1061 KB/s
+#  msrcp job for RF09/11192116.roi -- OK -- Wed Jan 28 14:59:36 MST 2004 -  347 KB/s
+#  msrcp job for RF09/11192125.roi -- OK -- Wed Jan 28 15:03:15 MST 2004 -  432 KB/s
+#  msrcp job for RF09/11192130.roi -- OK -- Wed Jan 28 15:05:26 MST 2004 -  721 KB/s
+#  msrcp job for RF09/11192138.roi -- OK -- Wed Jan 28 15:05:42 MST 2004 - 1012 KB/s
+#   Completed on Wed Jan 28 15:05:42 MST 2004
+#
+# 13th wave
+#  21 Job(s) submitted on Wed Jan 28 15:19:11 MST 2004
+#  msrcp job for RF10/11241340.roi -- OK -- Wed Jan 28 15:22:15 MST 2004 -  KB/s
+#  msrcp job for RF10/11241423.roi -- OK -- Wed Jan 28 15:24:03 MST 2004 -  KB/s
+#  msrcp job for RF10/11241425.roi -- OK -- Wed Jan 28 15:30:53 MST 2004 -  KB/s
+#  msrcp job for RF10/11241434.roi -- OK -- Wed Jan 28 15:33:43 MST 2004 -  KB/s
+#  msrcp job for RF10/11241437.roi -- OK -- Wed Jan 28 15:35:33 MST 2004 -  KB/s
+#  msrcp job for RF10/11241441.roi -- OK -- Wed Jan 28 15:37:30 MST 2004 -  KB/s
+#  msrcp job for RF10/11241810.roi -- OK -- Wed Jan 28 15:46:38 MST 2004 -  KB/s
+#  msrcp job for RF10/11241813.roi -- OK -- Wed Jan 28 15:50:08 MST 2004 -  KB/s
+#  msrcp job for RF10/11241818.roi -- OK -- Wed Jan 28 15:51:33 MST 2004 -  KB/s
+#  msrcp job for RF10/11241826.roi -- OK -- Wed Jan 28 16:00:00 MST 2004
+#  msrcp job for RF10/11241830.roi -- OK -- Wed Jan 28 16:07:03 MST 2004
+#  msrcp job for RF10/11241837.roi -- OK -- Wed Jan 28 16:11:17 MST 2004
+#  msrcp job for RF10/11241840.roi -- OK -- Wed Jan 28 16:14:11 MST 2004
+#  msrcp job for RF10/11241844.roi -- OK -- Wed Jan 28 16:16:02 MST 2004
+#  msrcp job for RF10/11241846.roi -- OK -- Wed Jan 28 16:20:38 MST 2004
+#  msrcp job for RF10/11241849.roi -- OK -- Wed Jan 28 16:23:30 MST 2004
+#  msrcp job for RF10/11241851.roi -- OK -- Wed Jan 28 16:24:54 MST 2004
+#  msrcp job for RF10/11241854.roi -- OK -- Wed Jan 28 16:25:51 MST 2004
+#  msrcp job for RF10/11242010.roi -- OK -- Wed Jan 28 16:25:57 MST 2004
+#  msrcp job for RF10/11242017.roi -- OK -- Wed Jan 28 16:26:02 MST 2004
+#  msrcp job for RF10/11242018.roi -- OK -- Wed Jan 28 16:26:08 MST 2004
+#   Completed on Wed Jan 28 16:26:08 MST 2004
+#
+# 14th wave
+#  1 Job(s) submitted on Thu Jan 29 11:37:26 MST 2004
+#  msrcp job for RF11/11251312.roi -- OK -- Thu Jan 29 11:39:11 MST 2004
+#   Completed on Thu Jan 29 11:39:11 MST 2004
+#
+# 15th wave
+#  21 Job(s) submitted on Thu Jan 29 12:27:42 MST 2004
+#  msrcp job for RF12/12011525.roi -- OK -- Thu Jan 29 12:31:12 MST 2004
+#  msrcp job for RF12/12011726.roi -- OK -- Thu Jan 29 12:32:35 MST 2004
+#  msrcp job for RF12/12011801.roi -- OK -- Thu Jan 29 12:34:13 MST 2004
+#  msrcp job for RF12/12011840.roi -- OK -- Thu Jan 29 12:37:40 MST 2004
+#  msrcp job for RF12/12011853.roi -- OK -- Thu Jan 29 12:41:23 MST 2004
+#  msrcp job for RF12/12011858.roi -- OK -- Thu Jan 29 12:44:24 MST 2004
+#  msrcp job for RF12/12011901.roi -- OK -- Thu Jan 29 12:47:35 MST 2004
+#  msrcp job for RF12/12011919.roi -- OK -- Thu Jan 29 12:49:06 MST 2004
+#  msrcp job for RF12/12011928.roi -- OK -- Thu Jan 29 12:51:28 MST 2004
+#  msrcp job for RF12/12011935.roi -- OK -- Thu Jan 29 12:56:21 MST 2004
+#  msrcp job for RF12/12012041.roi -- OK -- Thu Jan 29 13:01:30 MST 2004
+#  msrcp job for RF12/12012059.roi -- OK -- Thu Jan 29 13:09:22 MST 2004
+#  msrcp job for RF12/12012120.roi -- OK -- Thu Jan 29 13:12:16 MST 2004
+#  msrcp job for RF12/12012126.roi -- OK -- Thu Jan 29 13:16:59 MST 2004
+#  msrcp job for RF12/12012130.roi -- OK -- Thu Jan 29 13:18:53 MST 2004
+#  msrcp job for RF12/12012137.roi -- OK -- Thu Jan 29 13:20:42 MST 2004
+#  msrcp job for RF12/12012144.roi -- OK -- Thu Jan 29 13:22:48 MST 2004
+#  msrcp job for RF12/12012149.roi -- OK -- Thu Jan 29 13:26:54 MST 2004
+#  msrcp job for RF12/12012152.roi -- OK -- Thu Jan 29 13:28:17 MST 2004
+#  msrcp job for RF12/12012154.roi -- OK -- Thu Jan 29 13:31:07 MST 2004
+#  msrcp job for RF12/12012205.roi -- OK -- Thu Jan 29 13:33:46 MST 2004
+#   Completed on Thu Jan 29 13:33:46 MST 2004
+#
+# 16th wave
+#  3 Job(s) submitted on Thu Jan 29 13:56:23 MST 2004
+#  msrcp job for RF13/12031606.roi -- OK -- Thu Jan 29 13:58:40 MST 2004
+#  msrcp job for RF13/12031822.roi -- OK -- Thu Jan 29 14:00:55 MST 2004
+#  msrcp job for RF13/12031906.roi -- OK -- Thu Jan 29 14:03:35 MST 2004
+#   Completed on Thu Jan 29 14:03:35 MST 2004
+#
+# 17th wave
+#  3 Job(s) submitted on Thu Jan 29 14:23:21 MST 2004
+#  msrcp job for RF14/12041306.roi -- OK -- Thu Jan 29 14:23:27 MST 2004
+#  msrcp job for RF14/12041352.roi -- OK -- Thu Jan 29 14:26:09 MST 2004
+#  msrcp job for RF14/12041555.roi -- OK -- Thu Jan 29 14:28:41 MST 2004
+#   Completed on Thu Jan 29 14:28:41 MST 2004
+#
+# 18th wave
+#  3 Job(s) submitted on Thu Jan 29 14:29:04 MST 2004
+#  msrcp job for RF15/12061449.roi -- OK -- Thu Jan 29 14:30:26 MST 2004
+#  msrcp job for RF15/12061543.roi -- OK -- Thu Jan 29 14:31:52 MST 2004
+#  msrcp job for RF15/12061934.roi -- OK -- Thu Jan 29 14:33:44 MST 2004
+#   Completed on Thu Jan 29 14:33:44 MST 2004
+#
+#   th wave
+#  Job(s) submitted on 
+#

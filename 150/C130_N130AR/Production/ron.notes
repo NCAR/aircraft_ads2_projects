@@ -1,0 +1,35 @@
+Processing notes re: HRT rerun
+Mon Jun 28 17:18:32 MDT 2004
+
+This turned out to be a complete rerun (LRT and HRT).
+Mon Jul 19 17:56:53 MDT 2004
+
+After Allen produces new data sets:
+ + Get new HRT and LRT headers and update pertinent directories (/Headers)
+ + ncReorder all production data (LRT, HRT)
+ + Archive all production data
+ + Get new /ATD/DATA master directory list
+ + Create new taplog.150 file, derive taplog.lrt.150 and taplog.hrt.150
+    files and update pertinent directories (Production, /taplog)
+ + Verify that start/end times are unchanged from previous runs
+ + Create new taplog.hrt.150.html and taplog.lrt.150.html files
+ + Deal with two setup file groups (LRT and HRT)
+ + Update all web site pages (including release date):
+   +check start/end times
+   +update FltMatrix.html (add TF03 and all HRT data)
+   +reactivate data access pages:
+     taplog.hrt.150.html
+     taplog.lrt.150.html
+   +header.150
+   +Header.150
+   +create whole-flight plots for TF03
+   +check/recreate varlist.html varlistH.html
+ + Update then run tarit.150 (including setup file name changes)
+ + Run tarit.docs to get latest web site changes
+ + Update then run archive.support
+ + Get new GOTEX /RAF bitfile list (msls.150)
+ + Get new GOTEX /ATD/DATA bitfile list (msls.gotex)
+ - Get new /RAF master directory list
+
+Ron Ruth
+Wed Jul 21 17:12:28 MDT 2004

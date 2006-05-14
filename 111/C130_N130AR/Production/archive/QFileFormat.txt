@@ -1,0 +1,55 @@
+IDEAS-I "q" data file variables
+
+FX2SW      Switch denoting whether FX2 flow is on or off
+INLET      Inlet flag (0=CVI, 1=total, 2=interstitial)
+time       Time in UTC seconds after midnight
+cvrad      calculated cut radius in microns
+cvf3       mass flow rate out tip 
+cvl        distance to stagnation plane, cm
+cvf2c      CVF2 vol. flow rate, l/min
+fcn1c      CN vol. flow rate, l/min
+fcn2c      extra vol. flow rate, l/min
+fhc        hygrometer vol. flow rate, l/min
+fx2c       FX2 (usually user) vol. flow rate, l/min
+cvtas      Airspeed in m/s from aircraft
+cnc1       CN total concentration in cm-3 inside the CVI
+cnc2       non-volatile CN total concentration in cm-3 (unused)
+cfact      concentration factor inside CVI
+cnco1      CN total concentration in cm-3, corrected back to ambient 
+cnco2      non vol. CN conc. in cm-3, corrected back to ambient (unused)
+rhouv      UV hygrometer vapor density, inside CVI(unused) 
+rhola      Lyman-alpha vapor density, inside CVI
+rhoola     Lyman-alpha vapor density, g/m3 corrected back to amb
+rhoouv     UV hygrometer vapor density, g/m3 corrected back to amb (unused)
+cvf1       Nitrogen mass flow rate 
+mxuv       UV Hyg mixing rate (unused)
+cvpcn      CVI pressure (mb)
+fx1c       FX1 vol. flow rate, l/min
+fx0c       FX2 vol. flow rate, l/min
+fx0Lc      LAS-AIR vol. flow rate, corrected l/min
+
+RAW VARIABLES (volts):
+cvf1R      CVF1 mass flow rate
+cvf2R      CVF2 mass flow rate
+fcn1R      FCN1 (CN) mass flow rate
+fcn2R      FCN2 mass flow rate
+fhR        FH (hyg) mass flow rate
+fx2R       FX2 mass flow rate
+cvttR      CVI Tip Temperature
+cvpcnR     CVI pressure
+cvqcR      Extra
+cnt1R      CN Temperature
+cnt2R      CN Temperature (extra)
+cvtpR      CVI Probe Temp
+rholaR     Lyman alpha voltage
+cnhtR      CN heater temp (unused)
+fx0R       FX0 mass flow rate
+fx1R       FX1 mass flow rate
+cnct1      CN Counter Raw Counts  
+cnct2      Non-vol CN Counter Raw Counts (unused)  
+opcd       LAS-AIR mean diameter (basic data)
+opcc       LAS-AIR concentration (basic data)
+opcco      LAS-AIR conc corrected to ambient (basic data)
+opcdf      LAS-AIR dilution factor
+loop_time  LABVIEW Loop Time
+

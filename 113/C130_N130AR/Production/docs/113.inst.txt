@@ -1,0 +1,178 @@
+
+                                                        10/07/03
+	Aircraft Research Instrumentation
+	C-130 - Basic RAF IDEAS-III Configuration
+	Project #3-113
+	Stith et al
+
+
+RAF-Supplied Instrumentation:
+
+I.  Airborne Data System.
+     A. Acquisition.  C-130 ADS2 (Motorola 68040 based). 
+   NCAR Distributed Sampling Modules (4 units), one in
+   each wing pod and two in cabin.
+
+B. Operator Station. Intel L440GX+ Motherboard with 
+   2 Pentium III-500 CPU's, 512 MB Memory, Redhat
+   Linux 6.2 OS.  9GB Disk Storage with RAID-1.
+   General Digital 17 inch 1280x1024 TFT Flat Panel
+   Color Monitor.  IBM-DRHS36D 36GB Removable Disk Drives
+   In Kingston Carriers (2 units).  Exabyte Model EXB-8505
+   Tape Drive.  UPS.
+ 
+C. Aft User Displays(4): 
+(	Dell Latitude Pentium III-850 Laptop (1), Linux OS, 15"
+ 	 Display - Clyde
+(	Dell Latitude Pentium II-300 Laptop (1), Linux OS, 13"
+ Display - Grendel
+* Dell Latitude Pentium MMX-266 Laptop (1), Linux OS, 13"
+ Display - Agave
+* Dell Latitude Pentium MMX-233 Laptop (1), Linux OS, 13"
+ Display - Nuvola
+(	Lexmark Optra Color 45 Inkjet Printer
+
+D. Flight Deck Display
+(	Dell Latitude Pentium III-850 Laptop, Linux OS, 15"      Display - Bonnie
+(	Lexmark Optra Color 45 Inkjet Printer
+
+
+II. Aircraft Position, Velocity and Attitude.
+A. Honeywell Model HG1095-AC03 Laseref SM Inertial
+   Reference System . (Research).
+     B. Garmin GPS16 Global Positioning System. (GPS).
+
+
+III. Dynamic Pressures.
+     A. Rosemount Model 1221F1VL - Radome (QCR). 
+B. Rosemount Model 1221F1VL - Left Fuselage Pitot (QCF). 
+C. Rosemount Model 1221F1VL - Right Fuselage Pitot (QCFR).
+
+
+
+
+C-130 RAF IDEAS-III
+Page 2
+
+
+IV.Static Pressures.
+  	A. Rosemount Model 1501 Digital Pressure Transducer -
+   Fuselage Port (PSFD). 
+B. Ruska Model 7885 Digital Pressure Transducer -
+   Fuselage Port (PSFRD, PSFC).
+C. Rosemount Model 1201F1 Pressure Transducer - Cabin (PCAB).
+D. Paroscientific Model 1000 Pressure Transducer.
+
+
+V.  Temperatures.
+     A. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Starboard Radome Mount (TTRR). 
+     B. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Port Radome Mount (TTRL). 
+C. Rosemount Type 102E Deiced Sensor -- Rosemount Model
+        510BF Amplifier - Left Inboard Wing Access Plate (TTWH).
+	D. OPHIR-III Radiometric Near-field Temperature Sensor --
+   Starboard Wing Pod Mount (OAT).
+
+
+VI. Flow Angle Sensors, Radome.
+      A. Attack - Rosemount Model 1221F1VL Differential Pressure
+         Transducer (ADIFR). 
+      B. Sideslip - Rosemount Model 1221F1VL Differential 
+         Pressure Transducer (BDIFR). 
+
+
+VII. Dew Point and Humidity.
+A. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPT). 
+B. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPB). 
+
+
+VIII. Radiation Fluxes.
+       A. Visible Radiation.  RAF Modified Eppley Model PSP
+          Pyranometers - 2 units: Upward looking (SWT), Downward
+          looking (SWB). Multipurpose Radiometer Housings.
+  B. Ultraviolet Radiation.  RAF Modified Eppley Model TUVR
+     Pyranometers - 2 units: Upward looking (UVT), Downward
+     looking (UVB). Multipurpose Radiometer Housings. 
+       C. Infrared Radiation.  RAF Modified Eppley Model PIR
+          Pyrgeometers - 2 units: Upward looking (IRT), Downward
+          looking (IRB). Multipurpose Radiometer Housings.
+       D. Remote Surface Temperature.  Heiman Model KT19.85 
+     Radiometer - 2 units: Down looking (RSTB,RSTB1).
+  E. Remote Sky Temperature.  Heiman Model KT19.85 Radiometer.
+     Up looking (RSTT). 
+C-130 RAF IDEAS-III
+Page 3
+
+
+IX.  Standard Cloud Physics.
+       A. Rosemount Model 871FA Icing Rate Detector - Right
+     Wing Inboard Access Plate (RICE). 
+       B. PMS Liquid Water Sensor (King Probe) -
+     Left Wing Outboard Access Plate (PLWC).
+       C. PMS Liquid Water Sensor (King Probe) -
+     Right Wing Outboard Access Plate (PLWC1).
+  D. Particle Measuring Systems Model 2D-P
+     Size Distribution, 200 to 6400 um. Left Wing Tip Inboard.
+  E. Particle Measuring Systems Model SSP-100
+     Size Distribution, 3 - 45 um. Left Pod Outboard.
+  F. Particle Measuring Systems Model 2D-C
+     Size Distribution, 25 to 800 um. Left Wing Tip Outboard.
+  G. Particle Measuring Systems Model SSP-100 - Modified
+     Size Distribution, 3 - 45 um. Left Pod Center.
+  H. TSI Model 3760 CN Counter - Separation Inlet(CONCN).
+    	     Size Distribution, 0.01 to 3 um.
+
+
+X.   Geometric Altitude. 
+  A. Steward-Warner Model APN-232(v) - Fuselage Mount,
+
+    0 to 1,500 m AGL (HGM); 0 to 15,000 m AGL (HGM232). 
+
+XI.  Chemistry.
+A. TECO Slow Response Ozone Analyzer (TEO3C).
+  B. NCAR High Precision Carbon Dioxide Analyzer (IR - CO2).
+ 
+
+XII. Special Request Instruments.
+A. Nevzorov Dual Channel Total Water Sensor.
+Right R2 Fuselage Mount.
+B. RAF RDMA Radial Differential Mobility Analyzer Rack.
+   RAF Small Community Aerosol Inlet (SCAI) R1 Mount. 
+C. SPEC CPI Cloud Particle Imager.
+     Right Pod Inboard Mount.
+  D. Climet Aerosol Particle Analyzer.
+     RAF SCAI Aerosol Inlet / Aft Facing Inlet.
+  E. RAF Multi-Channel Cloud Radiometer.
+     Right Pod Mount - down looking.
+  H. RAF Rosemount 858 Gust Probe.  Belly Mount.
+I.  NCAR AIMR Microwave Radiometer. 
+  J. SPEC Scientific HVPS Particle Sampler
+     Right Pod Outboard.
+K.  RAF CVI Droplet Nuclei Analyzer. Left L1 Fuselage Mount.
+ 	  
+
+
+
+
+C-130 RAF IDEAS-II
+Page 4
+
+
+XIII. Photography.
+ A. Sony XC-999 $VH$ Color Camera with JVC Model HR-S4700U
+    Super VHS Recorder (2 pairs), Horita GPS Video Titler,
+    Forward facing Cockpit Mount, Side Looking, Down Looking.
+ B. RAF Digital Camera.
+    Cabin Mount - down looking.
+
+
+XIV. User Supplied Instrumentation.
+A. DRI Large Cloud Scope w/ Small T-probe. 
+  Right Wing Tip Inboard
+B. DRI Standard Cloud Scope. Right Wing Tip Outboard.
+C. Shaw Holographic Camera. Right Pod Center.
+D. CSU Ice Nuclei System. RAF Small Community Aerosol Inlet (SCAI) R1 Mount.
+E. CU NO-NOX Analyzer.  Belly inlet.
+F. Texas A&M Aerosol Systems.  RAF Small Community Aerosol Inlet (SCAI) R1 Mount.
+   

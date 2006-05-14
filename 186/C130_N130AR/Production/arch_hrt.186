@@ -1,0 +1,53 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2000-186 PELTI (Barry Huebert)
+#
+#  File adapted from arch.186
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2000
+set PROJ = 186
+set SDIR = $DATA_DIR
+#
+#  Production processing
+set TURBRT = HRT
+#
+echo nrnet msput $SDIR/186ff01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186ff02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186tf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/186tf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  Job(s) submitted on Thu Oct  5 15:32:50 MDT 2000
+# Sequence number = LN7102 -- HRT/FF01.cdf -- OK @ 5 Oct 2000 16:21:32
+# Sequence number = LN7110 -- HRT/FF02.cdf -- OK @ 5 Oct 2000 16:23:37
+# Sequence number = LN7118 -- HRT/RF01.cdf -- OK @ 5 Oct 2000 16:15:35
+# Sequence number = LN7128 -- HRT/RF02.cdf -- OK @ 5 Oct 2000 16:00:11
+# Sequence number = LN7138 -- HRT/RF03.cdf -- OK @ 5 Oct 2000 16:27:22
+# Sequence number = LN7146 -- HRT/RF04.cdf -- OK @ 5 Oct 2000 17:03:59
+# Sequence number = LN7156 -- HRT/RF05.cdf -- OK @ 5 Oct 2000 16:52:52
+# Sequence number = LN7166 -- HRT/RF06.cdf -- OK @ 5 Oct 2000 16:27:26
+# Sequence number = LN7174 -- HRT/RF07.cdf -- OK @ 5 Oct 2000 17:19:17
+# Sequence number = LN7182 -- HRT/RF08.cdf -- OK @ 5 Oct 2000 17:09:20
+# Sequence number = LN7190 -- HRT/RF09.cdf -- OK @ 5 Oct 2000 17:05:28
+# Sequence number = LN7198 -- HRT/TF01.cdf -- OK @ 5 Oct 2000 17:23:37
+# Sequence number = LN7206 -- HRT/TF02.cdf -- OK @ 5 Oct 2000 17:24:37
+#

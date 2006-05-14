@@ -1,0 +1,110 @@
+	Variable list for netCDF file /jnet/productiondata/181rf01h.cdf
+	Created using /usr/local/scripts/getcdfvars
+	on Mon Dec 17 15:12:24 MST 2001
+
+Name	Units	Description
+----	-----	------------------------------------------------
+base_time	none	Seconds since Jan 1, 1970.
+time_offset	none	Seconds since base_time.
+CINB	Vdc	Gerber CIN Backscatter
+CINCB	Vdc	Gerber CIN Cosine of Scattering Angle Times Backscatter
+CINCF	Vdc	Gerber CIN Cosine of Scattering Angle Times Forward Scatter
+CINF	Vdc	Gerber CIN Forward Scatter
+SWB	W/M2	Shortwave Irradiance, Bottom
+SWT	W/M2	Shortwave Irradiance, Top
+UFTP	Vdc	Polish UFT-F Dynamic Pressure Fluctuations from Venturi or Pitot
+UFTT1	Vdc	Polish UFT-F Fast Temperature Fluctuations, Sensor 1
+UFTT2	Vdc	Polish UFT-F Fast Temperature Fluctuations, Sensor 2
+UVB	W/M2	Ultraviolet Irradiance, Bottom
+UVT	W/M2	Ultraviolet Irradiance, Top
+VLA	Vdc	Raw Lyman-alpha Hygrometer Output
+VLA1	Vdc	Raw Lyman-alpha Hygrometer Output
+XGLWC	g/M3	Gerber PVM-100 Probe Liquid Water Content
+XGSFC	cM2/M3	Gerber PVM-100 Particle Surface Area (Raw)
+A260X_RWO	cnts	260X Raw Accumulation (per cell)
+AS100_LPI	cnts	FSSP-100 Raw Accumulation (per cell) - DMT
+AS200_RPO	cnts	SPP-200 (PCASP) Raw Accumulation (per cell) - DMT
+AS300_RPC	cnts	FSSP-300 Raw Accumulation (per cell) - DMT
+GALT	M	GPS Altitude (MSL)
+GLAT	deg	GPS Latitude
+GLON	deg	GPS Longitude
+GVEW	M/s	GPS Ground Speed Vector, East Component
+GVNS	M/s	GPS Ground Speed Vector, North Component
+HGM232	M	Geometric (Radar) Altitude (APN-232)
+HOUR	hours	Raw Tape Time Component
+MINUTE	minutes	Raw Tape Time Component
+PITCH	deg	Aircraft Pitch Angle
+ROLL	deg	Aircraft Roll Angle
+SECOND	s	Raw Tape Time Component
+SHDORC_RWI	cnts	2D-C Shadow OR Counts
+THDG	deg	Aircraft True Heading Angle
+TKAT	deg	IRS Track Angle, True
+VEW	M/s	Inertial Ground Speed Vector, East Component
+VNS	M/s	Inertial Ground Speed Vector, North Component
+VSPD	M/s	IRS-Computed Aircraft Vertical Velocity
+ALTX	M	Altitude, Reference (MSL)
+ATRL	C	Ambient Temperature, Radome Left
+ATRR	C	Ambient Temperature, Radome Right
+ATTACK	deg	Attack Angle, Reference
+ATX	C	Ambient Temperature, Reference
+C260X_RWO	N/L	260X Concentration (per cell)
+CING	none	Gerber CIN Asymmetry Parameter
+CINSIG	/kM	Gerber CIN Extinction Coefficient
+CONC2C_RWI	N/L	SPP-100 Particle2D-C Concentration
+CONC3_RPC	N/cm3	FSSP-300 Concentration (all cells)
+CONC6_RWO	N/L	260X Concentration (all cells)
+CONCF_LPI	N/cm3	FSSP-100 Concentration (all cells)
+CONCN	N/cm3	Condensation Nuclei (CN) Concentration
+CONCP_RPO	N/cm3	PCAS Concentration (all cells)
+CS100_LPI	N/cM3	FSSP-100 Concentration (per cell) - DMT
+CS200_RPO	N/cM3	SPP-200 (PCASP) Concentration (per cell) - DMT
+CS300_RPC	N/cM3	FSSP-300 Concentration (per cell) - DMT
+DBAR3_RPC	uM	FSSP-300 Mean Particle Diameter
+DBAR6_RWO	uM	260X Mean Particle Diameter
+DBARF_LPI	uM	FSSP-100 Mean Particle Diameter
+DBARP_RPO	uM	PCAS Mean Particle Diameter
+DBZ6_RWO	dBZ	260X Calculated Reflectivity
+DBZF_LPI	dBZ	FSSP-100 Calculated Reflectivity
+DISP6_RWO	none	260X Dispersion (sigma/dbarx)
+DISPF_LPI	none	FSSP-100 Dispersion (sigma/dbarx)
+DISPP_RPO	none	PCAS Dispersion (sigma/dbarx)
+DPXC	C	Dew Point Temperature, Reference
+EDPC	mbar	Ambient Water Vapor Pressure, Reference
+IRBC	W/M2	Corrected Infrared Irradiance, Bottom
+IRTC	W/M2	Corrected Infrared Irradiance, Top
+LATC	deg	GPS-Corrected Inertial Latitude
+LONC	deg	GPS-Corrected Inertial Longitude
+MR	g/kg	Mixing Ratio, T-Electric
+MRLA	g/kg	Mixing Ratio, Lyman-alpha
+MRLA1	g/kg	Mixing Ratio, Lyman-alpha
+PALT	M	NACA Pressure Altitude
+PLWC6_RWO	g/M3	260X Water/Ice Content
+PLWCC	g/M3	Corrected PMS-King Liquid Water Content
+PLWCC1	g/M3	Corrected PMS-King Liquid Water Content
+PLWCF_LPI	g/M3	FSSP-100 Water/Ice Content
+PSXC	mbar	Corrected Static Pressure, Reference
+PVOL3_RPC	cc/M3	SPP-300 Equivalent Volume
+PVOLP_RPO	cc/M3	SPP-200 (PCASP) Equivalent Volume
+RHODT	g/M3	Absolute Humidity, T-Electric Top
+RHOLA	g/M3	Absolute Humidity, Lyman-alpha
+RHOLA1	g/M3	Absolute Humidity, Lyman-alpha
+RHUM	%	Relative Humidity
+SSLIP	deg	Sideslip Angle, Reference
+SWTC	W/M2	Shortwave Irradiance, Top, (Attitude-Corrected)
+TASHC	M/s	Aircraft True Airspeed, Humidity Corrected
+THETA	K	Potential Temperature
+THETAE	K	Equivalent Potential Temperature
+THETAV	K	Virtual Potential Temperature
+TTX	C	Total Temperature, Reference
+UIC	M/s	GPS-Corrected Wind Vector, East Component
+UXC	M/s	GPS-Corrected Wind Vector, Longitudinal Component
+VEWC	M/s	GPS-Corrected Inertial Ground Speed Vector, East Component
+VIC	M/s	GPS-Corrected Wind Vector, North Component
+VNSC	M/s	GPS-Corrected Inertial Ground Speed Vector, North Component
+VYC	M/s	GPS-Corrected Wind Vector, Lateral Component
+WDC	deg	GPS-Corrected Horizontal Wind Direction
+WI	M/s	Wind Vector, Vertical Gust Component
+WIC	M/s	GPS-Corrected Wind Vector, Vertical Gust Component
+WP3	M/s	Damped Aircraft Vertical Velocity
+WSC	M/s	GPS-Corrected Horizontal Wind Speed
+XGRFF	uM	Gerber PVM-100 Effective Droplet Radius

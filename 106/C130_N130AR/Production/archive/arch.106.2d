@@ -1,0 +1,78 @@
+#! /bin/csh -f
+#
+#  Archive stripped PMS-2D data files for 1998-106 WiFE  (Radke, Clark)
+#
+#  File adapted from the file /home/local/proj/101/Production/arch.101.2d
+#    by Ron Ruth  30 September 1998
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1998
+set PROJ = 106
+#set SDIR = $TEMP
+set SDIR = $DATA_DIR
+#set SDIR = /home/staticdata
+set TURBRT = PMS2D
+#
+# 1st wave
+#set SFILES = ( \
+#106rf06.2D \
+#106rf07.2D \
+#)
+#set DFILES = ( \
+#RF06 \
+#RF07 \
+#)
+#
+# 2nd wave
+set SFILES = ( \
+106rf02.2D \
+)
+set DFILES = ( \
+RF02 \
+)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1998/106/
+#
+# 1st wave
+#  Job(s) submitted on Mon Oct 12 09:58:17 MDT 1998
+# Sequence number = MI4229 -- PMS2D/RF06 -- OK @ 12 Oct 1998 09:58:29
+# Sequence number = MI4236 -- PMS2D/RF07 -- OK @ 12 Oct 1998 09:58:29
+#
+# 2nd wave
+#  Job(s) submitted on Mon Oct 12 11:46:13 MDT 1998
+# Sequence number = MI6321 -- PMS2D/RF02 -- OK @ 12 Oct 1998 11:46:26
+#

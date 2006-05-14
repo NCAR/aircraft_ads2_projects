@@ -1,0 +1,203 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Copied and revised for project 1995-162 SCMS by RLR              16 Apr 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+#
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+LowRateVars \
+PMSspecs \
+ProjectName \
+README.DOCS \
+README.FIRST \
+README.processing \
+UserNames \
+VarDB \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+flat_panel_parms \
+header \
+header.AFT \
+header.CTL \
+header.FORWARD \
+header.PODLW \
+header.PODRW \
+landmarks \
+ophir3.names \
+plot_attr \
+plotspex \
+regions \
+scmsdocs/162hrtdump.asc \
+scmsdocs/162lrtdump.asc \
+scmsdocs/162rf02.mrcomp.ps \
+scmsdocs/acfltnotes.ps \
+scmsdocs/cnspike.ps \
+scmsdocs/dataqual.ps \
+scmsdocs/dbfltnotes.txt \
+scmsdocs/gerber.dat \
+scmsdocs/gerberinfo.ps \
+scmsdocs/lwcstruct.ps \
+scmsdocs/mruvsat.ps \
+scmsdocs/rfinoise.ps \
+scmsdocs/spdatinfo.ps \
+scmsdocs/spnoise.ps \
+scmsdocs/tempsat.ps \
+scmsdocs/tsismps.ps \
+scmsdocs/variables.scms \
+scmsdocs/mrcompfiles/162rf01.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf02.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf03.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf04.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf05.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf06.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf07.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf08.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf09.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf10.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf11.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf12.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf13.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf14.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf15.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf16.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf17.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf18.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf19.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf20.mrcomp.ps \
+Production/162rf20.hdr \
+Production/162rf20h.hdr \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_12 \
+Production/Flight_13 \
+Production/Flight_14 \
+Production/Flight_15 \
+Production/Flight_16 \
+Production/Flight_17 \
+Production/Flight_18 \
+Production/Flight_19 \
+Production/Flight_2 \
+Production/Flight_20 \
+Production/Flight_3 \
+Production/Flight_4 \
+Production/Flight_5 \
+Production/Flight_6 \
+Production/Flight_8 \
+Production/Flight_9 \
+Production/MSCP_out.162 \
+Production/Mail.162 \
+Production/arch_support.162 \
+Production/hrt_arch.162 \
+Production/lrt_arch.162 \
+Production/lrt_change.162 \
+Production/production.log.2d \
+Production/production.log.hrt \
+Production/production.log.lrt \
+Production/proj.info \
+Production/scms.nimbus \
+Production/taplog.ads.162 \
+Production/taplog.hrt.162 \
+Production/taplog.lrt.162 \
+Production/taplog.pms2d.162 \
+Production/tarit.162.tar \
+Production/tp2ms.summary \
+Production/varlist.162 \
+Production/afterJuly25/skel \
+Production/archive/2d2ms.job \
+Production/archive/rename2 \
+Production/archive/tape.log \
+Production/archive/tapes.162 \
+Production/archive/tp2ms.job1 \
+Production/archive/old/tp2ms.summary \
+Production/beforeJuly25/skel \
+Production/hrAfterJuly25/Makefile \
+Production/hrAfterJuly25/README \
+Production/hrAfterJuly25/XmSkeleton \
+Production/hrAfterJuly25/Xwin.c \
+Production/hrAfterJuly25/amlib.c \
+Production/hrAfterJuly25/cb_main.c \
+Production/hrAfterJuly25/cb_pause.c \
+Production/hrAfterJuly25/cb_time.c \
+Production/hrAfterJuly25/compute.c \
+Production/hrAfterJuly25/define.h \
+Production/hrAfterJuly25/error.c \
+Production/hrAfterJuly25/globals.c \
+Production/hrAfterJuly25/init.c \
+Production/hrAfterJuly25/lrloop.c \
+Production/hrAfterJuly25/netcdf.c \
+Production/hrAfterJuly25/search.c \
+Production/hrAfterJuly25/skel \
+Production/hrAfterJuly25/skel.c \
+Production/hrAfterJuly25/sort.c \
+Production/hrAfterJuly25/timeseg.c \
+Production/hrBeforeJuly25/Makefile \
+Production/hrBeforeJuly25/README \
+Production/hrBeforeJuly25/XmSkeleton \
+Production/hrBeforeJuly25/Xwin.c \
+Production/hrBeforeJuly25/amlib.c \
+Production/hrBeforeJuly25/cb_main.c \
+Production/hrBeforeJuly25/cb_pause.c \
+Production/hrBeforeJuly25/cb_time.c \
+Production/hrBeforeJuly25/compute.c \
+Production/hrBeforeJuly25/define.h \
+Production/hrBeforeJuly25/error.c \
+Production/hrBeforeJuly25/globals.c \
+Production/hrBeforeJuly25/init.c \
+Production/hrBeforeJuly25/lrloop.c \
+Production/hrBeforeJuly25/netcdf.c \
+Production/hrBeforeJuly25/search.c \
+Production/hrBeforeJuly25/skel \
+Production/hrBeforeJuly25/skel.c \
+Production/hrBeforeJuly25/sort.c \
+Production/hrBeforeJuly25/timeseg.c
+#------------
+#------  Project's home directory ------ !!ls ..
+#------  Project's scmsdocs subdirectory ------ !!ls ../scmsdocs
+#------  Project's mrcompfiles subdirectory ------ !!ls ../scmsdocs/mrcompfiles
+#------  Project's Production subdirectory ------ !!ls
+#------  Project's Production/afterJuly25  ------ !!ls afterJuly25
+#------  Project's Production/archive  ------ !!ls archive
+#------  Project's Production/archive/old  ------ !!ls archive/old
+#------  Project's Production/beforeJuly25  ------ !!ls beforeJuly25
+#------  Project's Production/hrAfterJuly25  ------ !!ls hrAfterJuly25
+#------  Project's Production/hrBeforeJuly25  ------ !!ls hrBeforeJuly25
+#------------
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

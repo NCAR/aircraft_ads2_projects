@@ -1,0 +1,991 @@
+From ron Tue Nov  1 16:30:02 1994
+Subject: BASE
+To: bruce (Bruce Morley)
+Date: Tue, 1 Nov 1994 16:30:02 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 103       
+Status: RO
+
+Bruce,
+
+Any idea when I can archive the raw ADS data from BASE to the SCD Mass Store
+System?
+
+-- 
+Ron
+
+From chris@chinook.atd.ucar.EDU Thu Feb 16 08:58 MST 1995
+From: chris@chinook.atd.ucar.EDU (Chris Webster)
+Return-Path: <chris@chinook.atd.ucar.EDU>
+Received: from cirque.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA26200; Thu, 16 Feb 1995 08:58:09 -0700
+Received: by cirque.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA01666; Thu, 16 Feb 1995 08:58:06 -0700
+Date: Thu, 16 Feb 1995 08:58:06 -0700
+Message-Id: <199502161558.IAA01666@cirque.atd.ucar.edu>
+To: ron
+Subject: 120 processing
+Content-Type: text
+Content-Length: 117
+Status: RO
+
+Ron,
+	I'm going to create a ~nimbus/120 directory for the base processor.
+I'll put all relevant code there.
+
+--Chris
+
+From ron Wed Mar  1 10:54:37 1995
+Subject: BASE
+To: bruce (Bruce Morley)
+Date: Wed, 1 Mar 1995 10:54:37 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 105       
+Status: RO
+
+Bruce,
+
+Any progress to report on this project?  How are things progressing
+toward production?
+
+-- 
+Ron
+
+From ron Wed Mar  1 11:09:12 1995
+Subject: Re: BASE
+To: bruce@chinook.atd.ucar.EDU (Bruce Morley)
+Date: Wed, 1 Mar 1995 11:09:12 -0700 (MST)
+In-Reply-To: <199503011804.LAA01123@adelie.atd.ucar.edu> from "Bruce Morley" at Mar 1, 95 11:04:48 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 783       
+Status: RO
+
+> 
+> Ron,
+> 
+> I have started to process the BASE data.  I have done several flights and
+> the rest should go faster as the data system was working better later in the
+> project.
+> 
+Bruce,
+
+It would help me greatly if you could give the NIMBUS output files the
+following naming convention:
+   120RFxx.cdf  <-- low-rate production data, where `xx' is the flight number
+   120RFxxH.cdf  <-- high-rate production data, where `xx' is the flight number
+
+I'm sure you are already aware that you need to be logged in as `nimbus,'
+and that the output files go in the `/home/local/data/production' directory. 
+
+Thanks for the update.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@chinook.atd.ucar.EDU Wed Mar  1 11:04 MST 1995
+From: bruce@chinook.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@chinook.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA08119; Wed, 1 Mar 1995 11:04:51 -0700
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01123; Wed, 1 Mar 1995 11:04:48 -0700
+Date: Wed, 1 Mar 1995 11:04:48 -0700
+Message-Id: <199503011804.LAA01123@adelie.atd.ucar.edu>
+To: ron@chinook.atd.ucar.EDU
+Subject: Re: BASE
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 173
+Status: RO
+
+Ron,
+
+I have started to process the BASE data.  I have done several flights and
+the rest should go faster as the data system was working better later in the
+project.
+
+Bruce
+
+From ron Wed Apr 12 15:29:51 1995
+Subject: BASE date problems
+To: bruce (Bruce Morley)
+Date: Wed, 12 Apr 1995 15:29:51 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1515      
+Status: RO
+
+Bruce,
+
+FYI
+
+   I renamed the production output files for 4-120 BASE in the
+`/home/productiondata' directory to follow my standard naming convention.
+They are very similar to your names, except that I added `RF' between the
+project number and flight number, and I capitalized the segment letter.
+For example:  12018a.cdf  -->  120RF18A.cdf
+
+   The following flights have no date in the netCDF header:  RF07, RF12
+and RF17.  Its entry looks like this:
+  RF07   :FlightDate = " " ;
+  RF12   :FlightDate = " " ;
+  RF17   :FlightDate = " " ;
+Most of the other flights have an incorrect date:
+  RF04   :FlightDate = "01/00/1994 " ;
+  RF10   :FlightDate = "03/26/1994 " ;
+  RF11   :FlightDate = "03/28/1994 " ;
+  RF13   :FlightDate = "01/00/1993 " ;
+  RF14   :FlightDate = "04/02/1994 " ;
+  RF15   :FlightDate = "04/04/1994 " ;
+  RF16   :FlightDate = "01/00/1994 " ;
+  RF18A  :FlightDate = "04/10/1993 " ;
+I wasn't aware that so many of them need fixing.
+
+   For some reason, RF03A has multiple time segments.  It shows three of
+them, but the last is "-1:00:00-00:00:00."  This usually indicates that
+the end time could not be found before the EOF.  I'm not sure what, if
+anything, is wrong, but it may be prudent to rerun RF03A with a time slice
+of 18:24:54-18:58:58.  I know that a program like `ncplot' won't be able
+to access the data beyond the first time gap which occurred at 18:54:00.
+
+   My data log file (taplog.120) is in the `120/Production' directory in
+case you want to review these summary data.
+
+-- 
+Ron
+
+From ron Fri Apr 14 14:50:48 1995
+Subject: 120 Archive
+To: bruce (Bruce Morley)
+Date: Fri, 14 Apr 1995 14:50:48 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 521       
+Status: RO
+
+Bruce,
+
+I archived to the SCD Mass Store System (MSS) the LRT netCDF data in the
+Production directory for 4-120 BASE.  I know you still need to manipulate
+the date information in the netCDF headers, but this will safeguard the
+data until you want to archive the corrected versions.
+
+A current Mass Store directory list is in the file:
+   /home/local/proj/archives/msfiles/msls.120
+
+The MSS bitfile log (such as it is with incorrect and missing dates)
+is in the file:  /home/local/proj/120/Production/taplog.120
+
+-- 
+Ron
+
+From ron Tue Apr 25 16:20:15 1995
+Subject: Files in ~nimbus directory
+To: bruce (Bruce Morley)
+Date: Tue, 25 Apr 1995 16:20:15 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 801       
+Status: RO
+
+Bruce,
+
+There are a number of files in the `nimbus' home directory that I'd like
+to move.  Can you tell me if any are yours, and, if so, what is their
+purpose?  I assume that the 120 subdirectory (which I should archive) has
+the special version of NIMBUS used to process your project's data.
+ 
+Thanks.
+ 
+Directory:  /home/users/nimbus
+drwxrwxr-x   3 nimbus   proj         512 Feb 16 09:31 120/
+drwxrwxr-x   2 nimbus   proj        3072 Apr 20 16:33 818/
+-rw-rw-r--   1 nimbus   proj         350 Feb 21 10:33 CO_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:39 XNOY_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:36 XNO_zero.pts
+-rw-rw-r--   1 nimbus   proj           0 Feb 14 12:53 XNST_zero.pts
+-rw-rw-r--   1 nimbus   proj         154 Feb 21 10:41 XSO2S_zero.pts
+
+-- 
+Ron
+
+From bruce Fri Apr 28 12:31 MDT 1995
+Date: Fri, 28 Apr 1995 12:31:33 -0600
+From: bruce (Bruce Morley)
+Return-Path: <bruce>
+Message-Id: <199504281831.MAA02163@raf.atd.ucar.EDU>
+Received: by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id MAA02163; Fri, 28 Apr 1995 12:31:33 -0600
+To: ron@raf.atd.ucar.EDU
+Subject: Re: Files in ~nimbus directory
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1212
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> There are a number of files in the `nimbus' home directory that I'd like
+> to move.  Can you tell me if any are yours, and, if so, what is their
+> purpose?  I assume that the 120 subdirectory (which I should archive) has
+> the special version of NIMBUS used to process your project's data.
+>  
+> Thanks.
+>  
+> Directory:  /home/users/nimbus
+> drwxrwxr-x   3 nimbus   proj         512 Feb 16 09:31 120/
+> drwxrwxr-x   2 nimbus   proj        3072 Apr 20 16:33 818/
+> -rw-rw-r--   1 nimbus   proj         350 Feb 21 10:33 CO_zero.pts
+> -rw-rw-r--   1 nimbus   proj         267 Feb 21 10:39 XNOY_zero.pts
+> -rw-rw-r--   1 nimbus   proj         267 Feb 21 10:36 XNO_zero.pts
+> -rw-rw-r--   1 nimbus   proj           0 Feb 14 12:53 XNST_zero.pts
+> -rw-rw-r--   1 nimbus   proj         154 Feb 21 10:41 XSO2S_zero.pts
+> 
+Ron,
+
+I don't know anything about the *zero.pts files.  I also do not have any
+knowledge about the 818 directory (BOREAS?).  The 120 directory is the
+BASE directory.
+
+Chris has a program to correct the BASE date.  I haven't tried it.  I think
+I have the correct dates with me but have not looked for them yet.  I may need
+your help in testing that program.
+
+Bruce
+
+
+From ron Mon May  8 16:11:17 1995
+Subject: AIMR data archived
+To: julie (Julie Haggerty)
+Date: Mon, 8 May 1995 16:11:17 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1322      
+Status: RO
+
+Julie,
+
+I have archived to the MSS all the aimr*.dat files in the `/home/data'
+directory.  I'm ready for the next batch.
+
+Pretty fast, huh!  :)
+
+/home/data directory list:
+-------------------------
+-rw-rw-r--   1 julie    science  20273664 May  8 09:43 aimr4-1.dat
+-rw-rw-r--   1 julie    science  27416064 May  8 09:52 aimr4-2.dat
+-rw-rw-r--   1 julie    science  63839232 May  8 10:10 aimr4-3.dat
+-rw-rw-r--   1 julie    science  55755264 May  8 10:33 aimr5-1.dat
+-rw-rw-r--   1 julie    science  3684864 May  8 10:41 aimr6-1.dat
+-rw-rw-r--   1 julie    science  63244800 May  8 10:59 aimr6-2.dat
+-rw-rw-r--   1 julie    science  63431168 May  8 11:39 aimr7-1.dat
+-rw-rw-r--   1 julie    science  23958528 May  8 11:47 aimr7-2.dat
+-rw-rw-r--   1 julie    science  2532864 May  8 14:29 aimr9-1.dat
+-rw-rw-r--   1 julie    science  63120384 May  8 14:46 aimr9-2.dat
+
+Mass Store directory list:
+-------------------------
+/RAF/1994/120/AIMR as of 05/08/95 16:00:00
+05/08/95 -WD-  20273664 TAPE/RF04A
+05/08/95 -WD-  27416064 TAPE/RF04B
+05/08/95 -W-S  63839232 TAPE/RF04C
+05/08/95 -W-S  55755264 TAPE/RF05
+05/08/95 -WD-   3684864 TAPE/RF06A
+05/08/95 -W-S  63244800 TAPE/RF06B
+05/08/95 -W-S  63431168 TAPE/RF07A
+05/08/95 -WD-  23958528 TAPE/RF07B
+05/08/95 -WD-   2532864 TAPE/RF09A
+05/08/95 -W-S  63120384 TAPE/RF09B
+
+-- 
+Ron
+
+From julie@raf.atd.ucar.EDU Mon May  8 16:13 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA29785; Mon, 8 May 1995 16:13:28 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA29689; Mon, 8 May 1995 16:13:20 -0600
+Date: Mon, 8 May 1995 16:13:20 -0600
+Message-Id: <199505082213.QAA29689@giselle.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: AIMR data archived
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 145
+Status: RO
+
+Wow, that was fast! Thanks. I'll have some more files ready for
+you shortly (though I can't read tapes as fast as you can move
+files...).
+
+Julie
+
+From ron Tue May  9 12:39:16 1995
+Subject: Re: more aimr data
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Tue, 9 May 1995 12:39:16 -0600 (MDT)
+In-Reply-To: <199505091524.JAA00097@giselle.atd.ucar.edu> from "Julie Haggerty" at May 9, 95 09:24:47 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 509       
+Status: RO
+
+Julie,
+
+I got an email messages this morning saying that both the MSS and MIGS are
+down.  I have not received word that either of them are back up.  Therefore,
+I have prepared an archive job but have not submitted it yet.  I have a
+MSS Advisory Committee Meeting this afternoon, so I hope to submit the job
+then (hoping everything is back to normal).
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From julie@raf.atd.ucar.EDU Tue May  9 09:25 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA02970; Tue, 9 May 1995 09:25:00 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA00097; Tue, 9 May 1995 09:24:47 -0600
+Date: Tue, 9 May 1995 09:24:47 -0600
+Message-Id: <199505091524.JAA00097@giselle.atd.ucar.edu>
+To: ron
+Subject: more aimr data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 139
+Status: RO
+
+Hi, there are some more files in /home/local/data. I'll delete
+them as soon as I hear you've moved them to the mass store.
+
+Thanks.
+
+Julie
+
+From ron Tue May  9 16:29:27 1995
+Subject: Re: more aimr data
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Tue, 9 May 1995 16:29:27 -0600 (MDT)
+In-Reply-To: <199505091524.JAA00097@giselle.atd.ucar.edu> from "Julie Haggerty" at May 9, 95 09:24:47 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1557      
+Status: RO
+
+Julie,
+
+I have archived to the MSS the next batch of aimr*.dat files in the
+`/home/data' directory.  I'm ready for more.
+
+/home/data directory list:
+-------------------------
+-rw-rw-r--   1 julie    science  36278272 Oct 21  1994 aimr10-1.dat
+-rw-rw-r--   1 julie    science  63410176 Oct 21  1994 aimr10-2.dat
+-rw-rw-r--   1 julie    science  63171584 Oct 21  1994 aimr10-3.dat
+-rw-rw-r--   1 julie    science  64599040 Oct 21  1994 aimr10-4.dat
+-rw-rw-r--   1 julie    science  64232448 Oct 21  1994 aimr10-5.dat
+-rw-rw-r--   1 julie    science  64057344 Oct 18  1994 aimr11-1.dat
+-rw-rw-r--   1 julie    science      1024 Oct 18  1994 aimr11-2.dat
+-rw-rw-r--   1 julie    science  29323264 Oct 18  1994 aimr11-3.dat
+-rw-rw-r--   1 julie    science      1024 Oct 18  1994 aimr11-4.dat
+-rw-rw-r--   1 julie    science  35589120 Oct 18  1994 aimr11-5.dat
+-rw-rw-r--   1 julie    science  63656960 Oct 18  1994 aimr12-1.dat
+-rw-rw-r--   1 julie    science  63691776 Oct 18  1994 aimr12-2.dat
+-rw-rw-r--   1 julie    science  39796736 Oct 18  1994 aimr12-3.dat
+-rw-rw-r--   1 julie    science  63388672 Oct 20  1994 aimr13-1.dat
+-rw-rw-r--   1 julie    science  63757312 Oct 20  1994 aimr13-2.dat
+-rw-rw-r--   1 julie    science  64572416 Oct 20  1994 aimr13-3.dat
+-rw-rw-r--   1 julie    science  63642624 Oct 20  1994 aimr13-4.dat
+-rw-rw-r--   1 julie    science  25438208 Oct 20  1994 aimr13-5.dat
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From julie@raf.atd.ucar.EDU Wed May 10 14:42 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA19734; Wed, 10 May 1995 14:42:03 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA00730; Wed, 10 May 1995 14:41:57 -0600
+Date: Wed, 10 May 1995 14:41:57 -0600
+Message-Id: <199505102041.OAA00730@giselle.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: more aimr data
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 160
+Status: RO
+
+Ron,
+
+The remaining AIMR files from BASE are on /home/local/data now.
+I would also like to archive the files from Telford. There are
+only a few of them.
+
+Julie
+
+From julie@chinook.atd.ucar.EDU Tue Nov  1 16:00:04 1994
+Received: from giselle.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id QAA10014; Tue, 1 Nov 1994 16:00:03 -0700
+Date: Tue, 1 Nov 94 16:00:19 MST
+Message-Id: <9411012300.AA02828@giselle>
+Received: by giselle (4.1/ NCAR Mail Client 04/19/90)
+	id AA02828; Tue, 1 Nov 94 16:00:19 MST
+To: ron@chinook.atd.ucar.EDU
+Subject: Re: AIMR data archive
+Status: RO
+
+> Julie,
+> 
+> In addition to the problems with the KuDA data on the SCD Mass Store System
+> (MSS), I like to discuss plans for archiving the AIMR data.  When your
+> schedule frees up, let's get together.
+> 
+
+Okay, I'm interested in talking to you and hearing your suggestions for
+both KuDA and AIMR data. My schedule is fairly open tomorrow or early next 
+week.
+
+Julie
+
+From julie@chinook.atd.ucar.EDU Tue Nov  1 16:10:36 1994
+Received: from giselle.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id QAA10162; Tue, 1 Nov 1994 16:10:35 -0700
+Date: Tue, 1 Nov 94 16:10:51 MST
+Message-Id: <9411012310.AA02831@giselle>
+Received: by giselle (4.1/ NCAR Mail Client 04/19/90)
+	id AA02831; Tue, 1 Nov 94 16:10:51 MST
+To: ron@chinook.atd.ucar.EDU
+Subject: Re: AIMR data archive
+Status: RO
+
+> 
+> Julie,
+> 
+> I'm free tomorrow before about 3:00 p.m.  Should I just drop down to your
+> office sometime during the day or do you want something more formal?
+> 
+
+Just drop by whenever you feel like it. I should be around all day.
+
+Julie
+
+From ron Wed May 10 15:19:21 1995
+Subject: Re: more aimr data
+To: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Date: Wed, 10 May 1995 15:19:21 -0600 (MDT)
+In-Reply-To: <199505102041.OAA00730@giselle.atd.ucar.edu> from "Julie Haggerty" at May 10, 95 02:41:57 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 589       
+Status: RO
+
+Thoust spake thusly:
+> 
+> Ron,
+> 
+> The remaining AIMR files from BASE are on /home/local/data now.
+> I would also like to archive the files from Telford. There are
+> only a few of them.
+> 
+Julie,
+
+I have submitted jobs to archive the remaining `aimr*.dat' files in
+the directory /home/local/data.
+
+As for the Telford project, just save the files with an unique naming
+scheme, and I'll archive them in the same manner as for BASE.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Thu May 11 15:58:40 1995
+Subject: Re: more aimr data
+To: julie (Julie Haggerty)
+Date: Thu, 11 May 1995 15:58:40 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 4116      
+Status: RO
+
+Julie,
+
+I have archived to the MSS the "last" batch of aimr*.dat files in the
+`/home/data' directory.  I'm ready for Telford.
+
+/home/data directory list:
+-------------------------
+-rw-rw-r--   1 julie    science  7111680 Oct 20  1994 aimr14-1.dat
+-rw-rw-r--   1 julie    science  63086592 Oct 20  1994 aimr14-2.dat
+-rw-rw-r--   1 julie    science  65001472 Oct 20  1994 aimr14-3.dat
+-rw-rw-r--   1 julie    science  62178304 Oct 20  1994 aimr14-4.dat
+-rw-rw-r--   1 julie    science  63976448 Oct 20  1994 aimr15-1.dat
+-rw-rw-r--   1 julie    science  63202304 Oct 20  1994 aimr15-2.dat
+-rw-rw-r--   1 julie    science  15928320 Oct 20  1994 aimr15-3.dat
+-rw-rw-r--   1 julie    science  63511552 Oct 20  1994 aimr15-4.dat
+-rw-rw-r--   1 julie    science  63156224 Oct 20  1994 aimr15-5.dat
+-rw-rw-r--   1 julie    science  17786880 Oct 20  1994 aimr15-6.dat
+-rw-rw-rw-   1 julie    science  63824896 Oct 22  1994 aimr16-1.dat
+-rw-rw-rw-   1 julie    science  63426560 Oct 22  1994 aimr16-2.dat
+-rw-rw-rw-   1 julie    science  3928064 Oct 22  1994 aimr16-3.dat
+-rw-rw-rw-   1 julie    science  54004736 Oct 22  1994 aimr16-4.dat
+-rw-rw-rw-   1 julie    science  63960064 Oct 22  1994 aimr16-5.dat
+-rw-rw-rw-   1 julie    science  10620928 Oct 22  1994 aimr16-6.dat
+-rw-rw-r--   1 julie    science  64281600 Oct 24  1994 aimr17-1.dat
+-rw-rw-r--   1 julie    science  63753216 Oct 24  1994 aimr17-2.dat
+-rw-rw-r--   1 julie    science  65376256 Oct 24  1994 aimr17-3.dat
+-rw-rw-r--   1 julie    science  37432320 Oct 24  1994 aimr17-4.dat
+-rw-rw-r--   1 julie    science  64292864 Nov 21 14:38 aimr120-18-1
+-rw-rw-r--   1 julie    science  34763776 Nov 21 14:47 aimr120-18-2
+-rw-rw-r--   1 julie    science  64045056 Nov 22 06:01 aimr120-18-3
+-rw-rw-r--   1 julie    science  63867904 Nov 22 11:42 aimr120-18-4
+-rw-rw-r--   1 julie    science  63779840 Nov 22 15:32 aimr120-19-1
+-rw-rw-r--   1 julie    science  62685184 Nov 22 15:48 aimr120-19-2
+
+MSS:/RAF/1994/120/AIMR/TAPE as of 05/11/95 15:43:38:
+---------------------------------------------------
+05/08/95 -WD-  20273664 RF04A
+05/08/95 -WD-  27416064 RF04B
+05/08/95 -W-S  63839232 RF04C
+05/08/95 -W-S  55755264 RF05
+05/08/95 -WD-   3684864 RF06A
+05/08/95 -W-S  63244800 RF06B
+05/08/95 -W-S  63431168 RF07A
+05/08/95 -WD-  23958528 RF07B
+05/08/95 -WD-   2532864 RF09A
+05/08/95 -W-S  63120384 RF09B
+05/09/95 -W-S  36278272 RF10A
+05/09/95 -W-S  63410176 RF10B
+05/09/95 -W-S  63171584 RF10C
+05/09/95 -W-S  64599040 RF10D
+05/09/95 -W-S  64232448 RF10E
+05/09/95 -W-S  64057344 RF11A
+05/09/95 -WD-      1024 RF11B
+05/09/95 -WD-  29323264 RF11C
+05/09/95 -WD-      1024 RF11D
+05/09/95 -W-S  35589120 RF11E
+05/09/95 -W-S  63656960 RF12A
+05/09/95 -W-S  63691776 RF12B
+05/09/95 -W-S  39796736 RF12C
+05/09/95 -W-S  63388672 RF13A
+05/09/95 -W-S  63757312 RF13B
+05/09/95 -W-S  64572416 RF13C
+05/09/95 -W-S  63642624 RF13D
+05/09/95 -WD-  25438208 RF13E
+05/10/95 -WD-   7111680 RF14A
+05/10/95 -W-S  63086592 RF14B
+05/10/95 -W-S  65001472 RF14C
+05/10/95 -W-S  62178304 RF14D
+05/10/95 -W-S  63976448 RF15A
+05/10/95 -W-S  63202304 RF15B
+05/10/95 -WD-  15928320 RF15C
+05/10/95 -W-S  63511552 RF15D
+05/10/95 -W-S  63156224 RF15E
+05/10/95 -WD-  17786880 RF15F
+05/10/95 -W-S  63824896 RF16A
+05/10/95 -W-S  63426560 RF16B
+05/10/95 -WD-   3928064 RF16C
+05/10/95 -W-S  54004736 RF16D
+05/10/95 -W-S  63960064 RF16E
+05/10/95 -WD-  10620928 RF16F
+05/11/95 -W-S  64281600 RF17A
+05/11/95 -W-S  63753216 RF17B
+05/11/95 -W-S  65376256 RF17C
+05/11/95 -W-S  37432320 RF17D
+05/11/95 -W-S  64292864 RF18A
+05/11/95 -W-S  34763776 RF18B
+05/11/95 -W-S  64045056 RF18C
+05/11/95 -W-S  63867904 RF18D
+05/11/95 -W-S  63779840 RF19A
+05/11/95 -W-S  62685184 RF19B
+  Legend:  - -> no read password (anyone can read the bitfile)
+           W -> write protected (cannot change/delete file without password)
+           D -> file on disk farm (not in off-line cartridge library)
+           S -> file on Storage Tek Silo (not in off-line cartridge library)
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From julie@raf.atd.ucar.EDU Thu May 11 13:00 MDT 1995
+From: julie@raf.atd.ucar.EDU (Julie Haggerty)
+Return-Path: <julie@raf.atd.ucar.EDU>
+Received: from giselle.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA06649; Thu, 11 May 1995 13:00:55 -0600
+Received: by giselle.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA01227; Thu, 11 May 1995 13:00:51 -0600
+Date: Thu, 11 May 1995 13:00:51 -0600
+Message-Id: <199505111900.NAA01227@giselle.atd.ucar.edu>
+To: ron
+Subject: more aimr files
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 186
+Status: RO
+
+I thought I was finished, but I wasn't. The rest of the BASE
+flights are there now. I'll start with the Telford files once
+you are finished and I can clear some space on /home/data.
+
+jh
+
+From ron Tue Jun  6 10:34:38 1995
+Subject: BASE:  RF03A
+To: bruce (Bruce Morley)
+Date: Tue, 6 Jun 1995 10:34:38 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 440       
+Status: RO
+
+Bruce,
+
+I just noticed that there are 3 time intervals for RF03A including the bogus
+one at the end that normally indicates a lack of EOF on the raw ADS tape.
+I'll discuss with Chris the possibility of splitting up this file into two
+segments while omitting the bad one.  I'd like to avoid redoing the flight
+with specified time intervals.  (We can leave it alone, of course, but
+`ncplot' cannot access the second time interval.)
+
+-- 
+Ron
+
+From bruce@raf.atd.ucar.EDU Thu Jun  8 08:58 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA22506; Thu, 8 Jun 1995 08:58:27 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA00274; Thu, 8 Jun 1995 08:58:25 -0600
+Date: Thu, 8 Jun 1995 08:58:25 -0600
+Message-Id: <199506081458.IAA00274@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: nimbus for 4-120
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 490
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> Am I correct in assuming that the version of the NIMBUS software you used for
+> processing BASE was in the ~nimbus/120/nimbus directory (i.e., it read the
+> raw ADS data and produced the netCDF files located in /home/productiondata)?
+> (I have since moved that entire directory to /home/local/proj/120/Procuction.)
+> 
+> I just want to make sure I don't have to archive a second (normal production)
+> version of the processor.
+> 
+> -- 
+> Ron
+
+Ron,
+
+You are correct.
+
+Bruce
+
+From ron Wed Jun  7 14:42:27 1995
+Subject: nimbus for 4-120
+To: bruce (Bruce Morley)
+Date: Wed, 7 Jun 1995 14:42:27 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 432       
+Status: RO
+
+Bruce,
+
+Am I correct in assuming that the version of the NIMBUS software you used for
+processing BASE was in the ~nimbus/120/nimbus directory (i.e., it read the
+raw ADS data and produced the netCDF files located in /home/productiondata)?
+(I have since moved that entire directory to /home/local/proj/120/Procuction.)
+
+I just want to make sure I don't have to archive a second (normal production)
+version of the processor.
+
+-- 
+Ron
+
+From bruce@raf.atd.ucar.EDU Tue Sep  5 09:31 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id JAA08479; Tue, 5 Sep 1995 09:31:24 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id JAA01477; Tue, 5 Sep 1995 09:31:22 -0600
+Date: Tue, 5 Sep 1995 09:31:22 -0600
+Message-Id: <199509051531.JAA01477@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: ncfixhdr
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 558
+Status: RO
+
+Ron,
+
+The program to fix the NetCDF file date is ncfixhdr.  It is in the 
+/home/local/dev/nimbus/src/wrk directory.
+
+The version of nimbus that I used to process the BASE data is in the
+/home/local/proj/120/Production/nimbus/src/filter directory.
+
+XKT and XKT1 are both heinmann radiometer surface temperatures.
+
+Julie is working on the AIMR data and will pass it on to the PI's.
+
+Krista tells me that the MCR data can not be used.  There is no calibration
+data for the MCR and there are no plans to do one that will make the BASE
+data recoverable.  
+
+Bruce
+
+From ron Thu Aug 31 16:28:34 1995
+Subject: Re: BASE flights
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Date: Thu, 31 Aug 1995 16:28:34 -0600 (MDT)
+In-Reply-To: <199508312222.QAA01269@adelie.atd.ucar.edu> from "Bruce Morley" at Aug 31, 95 04:22:38 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 570       
+Status: RO
+
+Thou spake thusly:
+> 
+> Judy and Jim,
+> 
+> The BASE flights are ready for your class.  Jim needs to contact Ron Ruth on
+> the best way to get a tape.  Ron's email address is ron@raf.atd.ucar.edu
+> 
+> Thanks for your patience.
+> 
+> Do you want copies of the down looking video tapes also?
+> 
+Bruce,
+
+It looks like I need to do some archiving.  I presume all the files are
+in the `/home/productiondata directory'.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Sep  1 10:07:45 1995
+Subject: Re: BASE data
+To: pinto@prester.Colorado.EDU (James Pinto)
+Date: Fri, 1 Sep 1995 10:07:45 -0600 (MDT)
+In-Reply-To: <199509011548.JAA07034@prester.Colorado.EDU> from "James Pinto" at Sep 1, 95 09:48:05 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 711       
+Status: RO
+
+Thou spake thusly:
+> 
+> 
+> Hi Ron,
+> 
+> Can you send the updated BASE data tape to me in the same format as
+> before? I believe that was netcdf, high density.
+> 
+> Thanks,
+Jim,
+
+Bruce just finished up the production processing yesterday, and I still have
+to archive the data to our Mass Store.  When that is completed (hopefully
+before the end of today), I will prepare your netCDF tape in the same format
+as last time (high-density ExaByte tape with one large tar file).
+
+I'll let you know when it is on its way to you (I would guess early next
+week).
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Sep  1 16:36:11 1995
+Subject: 120 Production wrap-up
+To: bruce (Bruce Morley)
+Date: Fri, 1 Sep 1995 16:36:11 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1857      
+Status: RO
+
+Bruce,
+
+This email is the first of, perhaps, a few I may be sending you with
+informationand/or requests for information, etc. regarding 120 BASE.
+
+I received an email from Jim Pinto (CU) for a copy of the new data sets.  I am
+now in the process of archiving all the data and support files.  I prepared a
+single `tar' file of all the production netCDF data files (easy to do if they
+are not too large).  I will give it to Jean Hurst to copy onto a high-density
+ExaByte tape.  This will be much faster than going through the Mass Store.
+
+I am now preparing to archive all the data and support files.  
+
+I have some requests for you:
+ 1.)  You mentioned to me, in passing yesterday, that I should archive
+      the program that rewrites the netCDF headers that correct the dates.
+      I did not remember the name of the program or where to find it.
+      Please give me that information again (including a full path name).
+      Also, if there are any support files that it needed, please give me
+      information on those, too.
+ 2.)  I would like to put a README file on the Mass Store that briefly
+      summarizes this project.  Please write one and put it in the
+      `...120/Production' directory.  Then I can easily archive it along
+      with the other files.  To save you a lot of time, I suppose the file
+      could be comprised mainly of your QC report.
+ 3.)  I looked in the 120RF04.cdf header and found two undefined
+      variables:  XKT and XKT1.    It would be a good idea to include
+      descriptions of these both in the README file and in the Project
+      Summary binder that you are preparing.
+
+Finally, some questions:
+ 1.)  What are your plans for the AIMR and the PMS-2D data?
+ 2.)  I understand that Krista cannot do anything with the MCR data.
+      Is this true?
+ 3.)  How are you coming on the Project Summary binder?
+
+-- 
+Ron
+
+From ron Fri Sep  1 16:59:34 1995
+Subject: NIMBUS version
+To: bruce (Bruce Morley)
+Date: Fri, 1 Sep 1995 16:59:34 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 213       
+Status: RO
+
+Bruce,
+
+I just thought of another question.  Which version of NIMBUS was used to
+process your data?  Was it the one in the `...120/Production/nimbus'
+directory?  I need to know what to archive.
+
+Thanks.
+
+-- 
+Ron
+
+From ron Tue Sep  5 11:18:12 1995
+Subject: Re: ncfixhdr
+To: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Date: Tue, 5 Sep 1995 11:18:12 -0600 (MDT)
+In-Reply-To: <199509051531.JAA01477@adelie.atd.ucar.edu> from "Bruce Morley" at Sep 5, 95 09:31:22 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 330       
+Status: RO
+
+Bruce,
+
+Thanks for all the information.  One further question:  When you fixed the
+headers, how did you get the "correct" information to `ncfixhdr' so it
+could do its job?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From bruce@raf.atd.ucar.EDU Tue Sep  5 11:45 MDT 1995
+From: bruce@raf.atd.ucar.EDU (Bruce Morley)
+Return-Path: <bruce@raf.atd.ucar.EDU>
+Received: from adelie.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA10669; Tue, 5 Sep 1995 11:45:37 -0600
+Received: by adelie.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA01515; Tue, 5 Sep 1995 11:45:30 -0600
+Date: Tue, 5 Sep 1995 11:45:30 -0600
+Message-Id: <199509051745.LAA01515@adelie.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: ncfixhdr
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 689
+Status: RO
+
+
+> 
+> Bruce,
+> 
+> Thanks for all the information.  One further question:  When you fixed the
+> headers, how did you get the "correct" information to `ncfixhdr' so it
+> could do its job?
+> 
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+Ron,
+
+The way I used the program was to be in the directory where the data file was
+(/home/productiondata) and to be logged in as nimbus.  Enter the following
+command
+
+ncfixhdr FILE_NAME
+
+You are asked for the new date which you enter and the new file is written over 
+the old file.
+
+Let me know if you have any more questions.
+
+Bruce
+
+
+

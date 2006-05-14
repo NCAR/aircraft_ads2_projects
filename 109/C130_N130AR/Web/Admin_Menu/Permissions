@@ -1,0 +1,8 @@
+        Group     Component   Instance                                                                                                                   Permission level
+old: Unregistered Menublock:: Main Menu:(My Account|Logout|Submit News|Submit Calendar Event|Discussion Forums|Online Chat):                             None
+new: Unregistered Menublock:: Main Menu:(My Account|Logout|Submit News|Submit Calendar Event|Update C-130Q|Online Chat|Discussion Forums|File Exchange): None
+new   All groups  Menublock:: Main Menu:(Update C-130Q): None
+
+
+Note:  for object not to appear on the menu the group must be "All groups" and
+       the permission must be "None."

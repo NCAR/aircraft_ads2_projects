@@ -1,0 +1,36 @@
+Undefined variable names in netCDF header that now have definitions:
+
+XINLET:units = "Vdc" ;
+XINLET:long_name = "inlet aerosol selection" ;
+
+XN9ATX_1:units = "K" ;
+XN9ATX_1:long_name = "nephelometer#1 air temperature" ;
+
+XN9BSCT_1:units = "M^-1" ;
+XN9BSCT_1:long_name = "nephelometer#1 light scattering extinction coeff." ;
+
+XN9CAL_1:units = "M^-1" ;
+XN9CAL_1:long_name = "nephelometer#1 calibration gas
+
+
+XN9PSX_1:units = "mbar" ;
+XN9PSX_1:long_name = "nephelometer#1 pressure" ;
+
+XN9RELA_1:units = none" ;
+XN9RELA_1:long_name = "nephelometer#1 relay status" ;
+
+XN9RHUM_1:units = "%" ;
+XN9RHUM_1:long_name = "nephelometer#2 relative humidity" ;
+
+ACLMT_C1:units = "none" ;
+ACLMT_C1:long_name = "Climet optical particle counter - array" ;
+
+CCLMT_C1:units = "#/cm^3" ;
+CCLMT_C1:long_name = "Climet optical particle counter" ;
+
+Variables still without definitions:
+XCOMR
+XLPWR
+CLMPOF_C1
+CONCT_C1
+

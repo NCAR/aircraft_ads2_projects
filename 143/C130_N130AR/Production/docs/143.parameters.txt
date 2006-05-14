@@ -1,0 +1,155 @@
+	OUTPUT PARAMETER LIST
+	NCAR C-130 - Project #0-143
+    TOPSE
+ Atlas et al 
+     
+
+RAF Reference Parameters
+
+Reference Ambient Temperature (C) - ATX
+Reference Total Temperature (C) - TTX
+Reference Ambient Static Pressure (mb) - PSXC
+Reference Dew Point Temperature (C) - DPXC
+Reference Corrected Dynamic Pressure (mb) - QCXC
+Reference Raw Dynamic Pressure (mb) - QCX
+Reference True Air Speed (M/s) - TASX
+Reference Liquid Water Content (g/M3) - PLWCC1
+Reference Surface Temperature (C) - RSTB1
+GPS Corrected Horizontal Wind Speed (m/s) - WSC 
+GPS Corrected Horizontal Wind Direction (deg) - WDC
+GPS Corrected Wind Vector, East Component (m/s) - UIC
+GPS Corrected Wind Vector, North Component (m/s) - VIC
+GPS Corrected Wind Vector, Longitudinal Component (m/s) - UXC
+GPS Corrected Wind Vector, Latitudinal Component (m/s) - VYC
+GPS Corrected Wind Vector, Vertical Gust Component (m/s) -WIC 
+GPS Corrected IRS Ground Speed Vector, East Comp, (m/s) - VEWC
+GPS Corrected IRS Ground Speed Vector, North Comp, (m/s) - VNSC
+
+RAF Standard Parameters
+
+Raw IRS Latitude Left (deg) - LAT
+Raw IRS Longitude Left (deg) - LON
+GPS Latitude (deg) - GLAT 
+GPS Longitude (deg) - GLON
+Corrected Static Pressure (digital) Fuselage (mb) - PSFDC
+Corrected Static Pressure, Fuselage (mb) - PSFC
+	Cabin Pressure (mb) - PCAB				
+Ambient Temperature, Radome Right Side(C) - ATRR
+Ambient Temperature: Radome Left Side(C) - ATRL
+Ambient Temperature: Heated, Wing (C) - ATWH
+Corrected Dew Point Temperature, Top Fuselage (C) - DPTC
+Corrected Dew Point Temperature, Bot Fuselage (C) - DPBC
+
+Horizontal Wind Speed, Radome (m/s) - WS 
+Horizontal Wind Direction, Radome (deg) - WD 
+Wind Vector, Radome East Component (m/s) - UI 
+Wind Vector, Radome North Component (m/s) - VI 
+Wind Vector, Radome Longitudinal Component (m/s) - UX 
+Wind Vector, Radome Latitudinal Component (m/s) - VY 
+Wind Vector, Radome Vertical Gust Component (m/s) - WI 
+
+Parameter List - 2 (Cont.)
+
+		Inertial Reference System Altitude : MSL (m) - ALT
+Pressure Altitude : MSL (m) - PALT
+Pressure Altitude : MSL (ft) - PALTF
+Radar Altitude : AGL (m) - HGM232
+
+Potential Temperature (K) - THETA	
+Equivalent Potential Temperature (K) - THETAE
+Absolute Humidity, Top (g/m3) - RHODT
+Relative Humidity (%) - RHUM					
+Mixing Ratio, Reference (g/kg) - MR			   
+ 	
+Radiometric Surface Temperature: Raw (C) - RSTB
+Radiometric Surface Temperature: RAW (C) - RSTB1
+Shortwave Irradiance, Top (W/m2) - SWT
+Shortwave Irradiance, Bottom (W/m2) - SWB
+Infrared Irradiance, Top (W/m2) - IRTC
+Infrared Irradiance, Bottom (W/m2) - IRBC
+Ultraviolet Irradiance, Top (W/m2) - UVT
+Ultraviolet Irradiance, Bottom (W/m2) - UVB
+
+TSI CN Particle Concentration (n/cm3) - CONCN
+FSSP 100 Cloud Particle Concentration (n/cm3) - CONCF_RPC
+FSSP 100 Mean Particle Diameter (um) - DBARF_RPC
+FSSP 300 Cloud Particle Concentration (n/cm3) - CONC3_RPO
+FSSP 300 Mean Particle Diameter (um) - DBAR3_RPO
+260X Cloud Droplet Concentration (n/l) - CONC6_OBL
+260X Mean Droplet Diameter (um) - DBAR6_OBL
+PCASP Aerosol Particle Concentration (n/cm3) - CONCP_IBL
+PCASP Mean Particle Diameter (um) - DBARP_IBL
+FSSP Water/Ice Content (g/m3) - PLWCF_RPC
+260X Water/Ice Content (g/m3) - PLWC6_OBL
+Corrected King Probe Liquid Water Content, left wing (g/m3) - PLWCC
+Corrected King Probe Liquid Water Content, right wing  (g/m3) - PLWCC1
+
+Aircraft True Heading (deg) - THDG
+Aircraft Roll Attitude Angle (deg) - ROLL
+Aircraft Pitch Attitude Angle (deg) - PITCH
+Aircraft IRS Vertical Velocity (m/s) - VSPD
+Damped Aircraft Vertical Velocity (m/s) - WP3
+IRS Ground Speed, Left (m/s) - GSF
+IRS Ground Speed Vector, East Comp (m/s) - VEW
+IRS Ground Speed Vector, North Comp (m/s) - VNS
+GPS Ground Speed Vector, North Comp (m/s) - GVNS
+GPS Ground Speed Vector, East Comp (m/s) - GVEW
+Aircraft True Airspeed, Fuselage (m/s) - TASF
+Aircraft True Airspeed, Radome (m/s) - TASR
+Corrected Dynamic Pressure, Fuselage (mb) - QCFC
+Corrected Dynamic Pressure, Radome (mb) - QCRC
+Raw Dynamic Pressure, Fuselage (mb) - QCF
+Raw Dynamic Pressure, Radome (mb) - QCR
+
+Parameter List - 3 (Cont.)
+
+
+Attack Angle, Radome Diff. Pressure (deg) - AKRD
+
+Sideslip Angle, Radome Diff. Pressure (deg) - SSRD
+Vertical Differential Pressure, Radome (mb) - ADIFR
+Horizontal Differential Pressure, Radome (mb) - BDIFR
+Raw Static Pressure, (digital) Fuselage (mb) - PSFD 
+Raw Static Pressure,  Fuselage (mb) - PSFRD 
+Total Temperature, Radome Right (C) - TTRR
+Total Temperature: Radome Left (C) - TTRL
+Total Temperature: Heated, Wing (C) - TTWH
+Raw Dew Point Temperature, Fuselage Top (C) - DPT
+Raw Dew Point Temperature, Fuselage Bot (C) - DPB
+
+Raw IR Irradiance, Top (W/m2) - IRT
+Raw IR Irradiance, Bot (W/m2) - IRB
+Top Pyrgeometer Dome Temp (C) - DTT
+Top Pyrgeometer Sink Temp (C) - STT
+Bottom Pyrgeometer Dome Temp (C) - DTB
+Bottom Pyrgeometer Sink Temp (C) - STB
+Heimann Sensing Head Temp: Housekeeping (C) - TRSTB
+Raw Icing Rate Indicator (vdc) - RICE
+Raw King Probe Liquid Water Content (watts) - PLWC
+Raw King Probe Liquid Water Content (watts) - PLWC1
+
+TSI CN Counter Output (N) - CNTS
+TSI CN Counter Flow: Raw (slpm) - FCN
+TSI CN Counter Sampling Pressure (mb) - PCN
+TSI CN Counter Sampling Temperature (C) - CNTEMP
+TSI CN Counter Corrected Flow (slpm) - FCNC
+TSI CN Counter Bypass Flow: Raw (slpm) - XICN
+TSI CN Counter Corrected BYPASS Flow (slpm) - XICNC
+
+	Solar Azimuth Angle (radians) - SOLAZ
+	Solar Declination Angle (radians) - SOLDE
+	Solar Elevation Angle (radians) - SOLEL
+	Solar Zenith Angle (radians) - SOLZE
+	Radiometer Correction Factore (none) - RADCF
+	Corrected Shortwave Irradiance, top (W/m2) - SWTC
+
+	TDL Laser Hygrometer Sample Pressure (mb) - PSLH
+	TDL Laser Hygrometer Sample Temperature (c) - ATLH
+	TDL Laser Hygrometer Raw signal output (g/kg) - MRLHS
+	TDL Laser Hygrometer Mixing Ratio (g/kg) - MRLHW
+
+User Variables:
+
+	PAN Sampling Status Monitor (Vdc) - XPAN
+	CalTech Sampling Status Monitor (Vdc) - XUCAL
+

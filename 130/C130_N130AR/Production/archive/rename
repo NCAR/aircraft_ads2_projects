@@ -1,0 +1,149 @@
+#! /bin/csh -f
+#
+#  Rename and delete MSS bitfiles for 6-130 ACE-1 (Air Chemistry Experiment #1)
+#   (Prior to consolidating data into larger chunks)
+#
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+set NDIR = OLD
+#
+#
+# Section 1.  Rename prior to rearchive
+#set FLIGHTS = ( \
+#RF19B \
+#RF21B \
+#RF22B \
+#RF23B \
+#RF24B \
+#RF29B \
+#RF31A \
+#RF31B \
+#RF33B \
+#)
+#set TAPELIST = ( \
+#R1050 \
+#R1052 \
+#R1054 \
+#R1055 \
+#R1056 \
+#R1062 \
+#R1064 \
+#R1064 \
+#R1067 \
+#)
+#
+# Section 2.  Delete after rearchive:  1st wave
+#set FLIGHTS = ( \
+#RF19C \
+#RF21C \
+#RF22C \
+#RF23C \
+#RF24C \
+#RF29C \
+#RF31C \
+#RF31D \
+#RF33C \
+#)
+#set TAPELIST = ( \
+#R1050 \
+#R1052 \
+#R1054 \
+#R1055 \
+#R1056 \
+#R1062 \
+#R1065 \
+#R1065 \
+#R1067 \
+#)
+#
+# Section 3.  Delete after rearchive:  2nd wave
+#set FLIGHTS = ( \
+#RF19B \
+#RF21B \
+#RF22B \
+#RF23B \
+#RF24B \
+#RF29B \
+#RF31A \
+#RF31B \
+#RF33B \
+#)
+#set TAPELIST = ( \
+#R1050 \
+#R1052 \
+#R1054 \
+#R1055 \
+#R1056 \
+#R1062 \
+#R1064 \
+#R1064 \
+#R1067 \
+#)
+#
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  echo \
+#  Section 1.  Rename
+#  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE w=RAFDMG \
+#                 npdn=/RAF/$YEAR/$PROJ/$NDIR/$FLIGHT/$TAPE
+#  Section 2.  1st wave of delete
+#  nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE w=RAFDMG
+#  Section 3.  2nd wave of delete
+#  nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$NDIR/$FLIGHT/$TAPE w=RAFDMG
+  @ num ++
+end
+#
+# Section 1.  Rename prior to rearchive
+#  Jobs submitted on Tue Feb 13 16:03:53 MST 1996
+# Sequence number = MI3712 -- OLD/RF19B/R1050 -- OK @ 13 Feb 1996 16:04:22
+# Sequence number = MI3719 -- OLD/RF21B/R1052 -- OK @ 13 Feb 1996 16:04:21
+# Sequence number = MI3726 -- OLD/RF22B/R1054 -- OK @ 13 Feb 1996 16:04:25
+# Sequence number = MI3733 -- OLD/RF23B/R1055 -- OK @ 13 Feb 1996 16:04:34
+# Sequence number = MI3740 -- OLD/RF24B/R1056 -- OK @ 13 Feb 1996 16:08:38
+# Sequence number = MI3747 -- OLD/RF29B/R1062 -- OK @ 13 Feb 1996 16:04:41
+# Sequence number = MI3754 -- OLD/RF31A/R1064 -- OK @ 13 Feb 1996 16:04:41
+# Sequence number = MI3761 -- OLD/RF31B/R1064 -- OK @ 13 Feb 1996 16:04:48
+# Sequence number = MI3768 -- OLD/RF33B/R1067 -- OK @ 13 Feb 1996 16:04:58
+#
+# Section 2.    Delete after rearchive:  1st wave
+#  Jobs submitted on Thu Feb 15 17:10:10 MST 1996
+# Sequence number = MI4502 -- RF19C/R1050 -- OK @ 15 Feb 1996 17:11:01
+# Sequence number = MI4509 -- RF21C/R1052 -- OK @ 15 Feb 1996 17:11:00
+# Sequence number = MI4516 -- RF22C/R1054 -- OK @ 15 Feb 1996 17:11:29
+# Sequence number = MI4523 -- RF23C/R1055 -- OK @ 15 Feb 1996 17:11:02
+# Sequence number = MI4530 -- RF24C/R1056 -- OK @ 15 Feb 1996 17:14:51
+# Sequence number = MI4537 -- RF29C/R1062 -- OK @ 15 Feb 1996 17:14:56
+# Sequence number = MI4544 -- RF31C/R1065 -- OK @ 15 Feb 1996 17:18:58
+# Sequence number = MI4551 -- RF31D/R1065 -- OK @ 15 Feb 1996 17:14:58
+# Sequence number = MI4558 -- RF33C/R1067 -- OK @ 15 Feb 1996 17:14:54
+#
+# Section 2.    Delete after rearchive:  2nd wave
+#  Jobs submitted on Thu Feb 15 17:21:42 MST 1996
+# Sequence number = MI4637 -- OLD/RF19B/R1050 -- OK @ 15 Feb 1996 17:22:13
+# Sequence number = MI4644 -- OLD/RF21B/R1052 -- OK @ 15 Feb 1996 17:22:29
+# Sequence number = MI4651 -- OLD/RF22B/R1054 -- OK @ 15 Feb 1996 17:22:31
+# Sequence number = MI4658 -- OLD/RF23B/R1055 -- OK @ 15 Feb 1996 17:22:22
+# Sequence number = MI4665 -- OLD/RF24B/R1056 -- OK @ 15 Feb 1996 17:26:44
+# Sequence number = MI4672 -- OLD/RF29B/R1062 -- OK @ 15 Feb 1996 17:26:33
+# Sequence number = MI4679 -- OLD/RF31A/R1064 -- OK @ 15 Feb 1996 17:26:33
+# Sequence number = MI4686 -- OLD/RF31B/R1064 -- OK @ 15 Feb 1996 17:26:44
+# Sequence number = MI4693 -- OLD/RF33B/R1067 -- OK @ 15 Feb 1996 17:30:27
+#

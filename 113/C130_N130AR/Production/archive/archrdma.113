@@ -1,0 +1,257 @@
+#! /bin/csh -f
+#
+#  Archive RDMA data files for 2003-113 IDEAS-III
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Advisory:
+#   RDMA data are extracted from the ADS data set by the "nimbus" software.
+#   For meaningful production processing of these data, other state parameter
+#   measurements are required, so there is no need for these data to stand
+#   alone.  Therefore, the separate RAW_RDMA files have been removed today
+#   from the SCD Mass Store System archive via the script:
+#       /jnet/shared/proj/archives/MSS_updates/remove_RDMA
+#   Ronald L. Ruth
+#   Thu Sep 25 09:52:39 MDT 2003
+#
+#  File adapted from file /$LOCAL/proj/181/Production/archive/archrdma.161
+#    by Ron Ruth  11 December 2001
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+#
+#  Select data type
+#  Raw (uncorrected) data
+set TYPE = RAW_RDMA
+#  Processed data
+#set TYPE = RDMA
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "vivaldi"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#113rf01.rdma \
+#113tf01.rdma \
+#)
+#set DFILES = ( \
+#RF01 \
+#TF01 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#113rf02.rdma \
+#)
+#set DFILES = ( \
+#RF02 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#113rf03.rdma \
+#)
+#set DFILES = ( \
+#RF03 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#113rf04.rdma \
+#)
+#set DFILES = ( \
+#RF04 \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#113rf05.rdma \
+#)
+#set DFILES = ( \
+#RF05 \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#113rf06.rdma \
+#)
+#set DFILES = ( \
+#RF06 \
+#)
+#
+#  7th wave
+#set SFILES = ( \
+#113rf07.rdma \
+#)
+#set DFILES = ( \
+#RF07 \
+#)
+#
+#  8th wave
+#set SFILES = ( \
+#113rf08.rdma \
+#)
+#set DFILES = ( \
+#RF08 \
+#)
+#
+#  9th wave
+#set SFILES = ( \
+#113rf09.rdma \
+#)
+#set DFILES = ( \
+#RF09 \
+#)
+#
+# 10th wave
+#set SFILES = ( \
+#113rf10.rdma \
+#)
+#set DFILES = ( \
+#RF10 \
+#)
+#
+#   th wave
+set SFILES = ( \
+113rf11.rdma \
+)
+set DFILES = ( \
+RF11 \
+)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    if ($status == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2003/113/
+#
+#  1st wave
+#  2 Job(s) submitted on Wed Aug 20 11:35:09 MDT 2003
+#  msrcp job for RAW_RDMA/RF01 -- OK -- Wed Aug 20 11:35:15 MDT 2003
+#  msrcp job for RAW_RDMA/TF01 -- OK -- Wed Aug 20 11:35:18 MDT 2003
+#   Completed on Wed Aug 20 11:35:18 MDT 2003
+#
+#  2nd wave
+#  1 Job(s) submitted on Fri Aug 22 13:55:51 MDT 2003
+#  msrcp job for RAW_RDMA/RF02 -- OK -- Fri Aug 22 13:55:57 MDT 2003
+#   Completed on Fri Aug 22 13:55:57 MDT 2003
+#
+#  3rd wave
+#  1 Job(s) submitted on Tue Aug 26 16:42:57 MDT 2003
+#  msrcp job for RAW_RDMA/RF03 -- OK -- Tue Aug 26 16:43:03 MDT 2003
+#   Completed on Tue Aug 26 16:43:03 MDT 2003
+#
+#  4th wave
+#  1 Job(s) submitted on Fri Aug 29 17:29:15 MDT 2003
+#  msrcp job for RAW_RDMA/RF04 -- OK -- Fri Aug 29 17:29:20 MDT 2003
+#   Completed on Fri Aug 29 17:29:20 MDT 2003
+#
+#  5th wave
+#  1 Job(s) submitted on Thu Sep  4 12:03:55 MDT 2003
+#  msrcp job for RAW_RDMA/RF05 -- OK -- Thu Sep  4 12:04:17 MDT 2003
+#   Completed on Thu Sep  4 12:04:17 MDT 2003
+#
+#  6th wave
+#  1 Job(s) submitted on Fri Sep  5 17:19:03 MDT 2003
+#  msrcp job for RAW_RDMA/RF06 -- OK -- Fri Sep  5 17:19:14 MDT 2003
+#   Completed on Fri Sep  5 17:19:14 MDT 2003
+#
+#  7th wave
+#  1 Job(s) submitted on Fri Sep 12 09:18:53 MDT 2003
+#  msrcp job for RAW_RDMA/RF07 -- OK -- Fri Sep 12 09:18:57 MDT 2003
+#   Completed on Fri Sep 12 09:18:57 MDT 2003
+#
+#  8th wave
+#  1 Job(s) submitted on Mon Sep 15 16:04:45 MDT 2003
+#  msrcp job for RAW_RDMA/RF08 -- OK -- Mon Sep 15 16:04:50 MDT 2003
+#   Completed on Mon Sep 15 16:04:50 MDT 2003
+#
+#  9th wave
+#  1 Job(s) submitted on Thu Sep 18 12:19:25 MDT 2003
+#  msrcp job for RAW_RDMA/RF09 -- OK -- Thu Sep 18 12:19:30 MDT 2003
+#   Completed on Thu Sep 18 12:19:30 MDT 2003
+#
+# 10th wave
+#  1 Job(s) submitted on Fri Sep 19 14:43:42 MDT 2003
+#  msrcp job for RAW_RDMA/RF10 -- OK -- Fri Sep 19 14:43:46 MDT 2003
+#   Completed on Fri Sep 19 14:43:46 MDT 2003
+#
+# 11th wave
+#
+#
+#   th wave
+#
+#

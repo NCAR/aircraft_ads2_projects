@@ -1,0 +1,500 @@
+                          Project:  1996-130 ACE-1
+
+Log of raw ADS tape-copy operation using "tpfix" software to correct the
+flight number and date of each tape.  The software source code (from:
+/home/local/dev/tptcp/tpfix.c) was put into the directory:
+/home/local/proj/130/Production/archive/tpfix.
+
+(Correct dates furnished by Allen Schanot.  Tape copies made by Ronald L. Ruth.)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+R1067  RF33   12/22/1995
+mistral/ron % tpfix /dev/rmt/0 /dev/rmt/1
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 33
+Enter date [mm/dd/yyyy]: 12/22/1995
+36078 records successfully read and written.
+Flight duration = 10:01:15
+mistral/ron % date
+Wed Jan 17 12:11:39 MST 1996
+
+R1066  RF32   12/20/1995
+mistral/ron % date ; tpfix /dev/rmt/0 /dev/rmt/1 ; date
+Wed Jan 17 12:15:37 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 32
+Enter date [mm/dd/yyyy]: 12/20/1995
+30256 records successfully read and written.
+Flight duration = 08:24:13
+Wed Jan 17 12:42:35 MST 1996
+
+R1065  RF31B  12/18/1995
+mistral/ron % date ; tpfix /dev/rmt/0 /dev/rmt/1 ; date ; echo ^G
+Wed Jan 17 13:02:11 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 31
+Enter date [mm/dd/yyyy]: 12/18/1995
+19851 records successfully read and written.
+Flight duration = 05:30:48
+Wed Jan 17 13:20:33 MST 1996
+
+R1064  RF31A  12/18/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G
+Thu Jan 18 14:36:01 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 31
+Enter date [mm/dd/yyyy]: 12/18/1995
+19696 records successfully read and written.
+Flight duration = 05:28:13
+Thu Jan 18 14:56:10 MST 1996
+
+1063  RF30   12/17/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G
+Thu Jan 18 15:19:16 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 30
+Enter date [mm/dd/yyyy]: 12/17/1995
+25069 records successfully read and written.
+Flight duration = 06:57:46
+Thu Jan 18 15:42:11 MST 1996
+
+R1062  RF29   12/15/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G
+Thu Jan 18 15:58:46 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 29
+Enter date [mm/dd/yyyy]: 12/15/1995
+34106 records successfully read and written.
+Flight duration = 09:28:23
+Thu Jan 18 16:29:37 MST 1996
+
+R1061  RF28   12/11/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G
+Thu Jan 18 16:33:39 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 28
+Enter date [mm/dd/yyyy]: 12/11/1995
+16704 records successfully read and written.
+Flight duration = 04:38:21
+Thu Jan 18 16:55:09 MST 1996
+ 
+R1060  RF27B  12/10/1995
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G
+Thu Jan 18 16:58:54 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 27
+Enter date [mm/dd/yyyy]: 12/10/1995
+11769 records successfully read and written.
+Flight duration = 03:16:06
+Thu Jan 18 17:14:07 MST 1996
+
+R1059  RF27A  12/10/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G
+Fri Jan 19 09:52:36 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 27
+Enter date [mm/dd/yyyy]: 12/10/1995
+6294 records successfully read and written.
+Flight duration = 01:44:51
+Fri Jan 19 10:01:27 MST 1996
+
+R1058  RF26   12/08/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Fri Jan 19 11:00:16 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 26
+Enter date [mm/dd/yyyy]: 12/08/1995
+38334 records successfully read and written.
+Flight duration = 10:38:51
+Fri Jan 19 11:35:20 MST 1996
+
+R1057  RF25   12/08/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Fri Jan 19 11:47:53 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 25
+Enter date [mm/dd/yyyy]: 12/08/1995
+31060 records successfully read and written.
+Flight duration = 08:37:37
+Fri Jan 19 12:15:06 MST 1996
+
+ExaByte tape cleaning cartridge used in both high-density drives between
+these copies.
+
+R1056  RF24   12/07/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Fri Jan 19 12:58:52 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 24
+Enter date [mm/dd/yyyy]: 12/07/1995
+33517 records successfully read and written.
+Flight duration = 09:18:34
+Fri Jan 19 13:28:22 MST 1996
+
+R1055  RF23   12/07/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Fri Jan 19 13:35:43 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 23
+Enter date [mm/dd/yyyy]: 12/07/1995
+35077 records successfully read and written.
+Flight duration = 09:44:34
+Fri Jan 19 14:07:22 MST 1996
+
+R1054  RF22B  12/05/1995
+Fri Jan 19 15:18:51 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 22
+Enter date [mm/dd/yyyy]: 12/05/1995
+17081 records successfully read and written.
+Flight duration = 04:44:38
+Fri Jan 19 15:34:11 MST 1996
+
+R1053  RF22A  12/05/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Fri Jan 19 15:38:53 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 22
+Enter date [mm/dd/yyyy]: 12/05/1995
+14531 records successfully read and written.
+Flight duration = 04:02:08
+Fri Jan 19 15:53:53 MST 1996
+
+R1052  RF21   12/04/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Fri Jan 19 16:21:09 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 21
+Enter date [mm/dd/yyyy]: 12/04/1995
+32568 records successfully read and written.
+Flight duration = 09:02:45
+Fri Jan 19 16:49:49 MST 1996
+
+R1051  RF20   12/02/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Fri Jan 19 17:02:13 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 20
+Enter date [mm/dd/yyyy]: 12/02/1995
+37917 records successfully read and written.
+Flight duration = 10:31:54
+Fri Jan 19 17:36:57 MST 1996
+
+R1050  RF19   12/02/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Mon Jan 22 13:13:49 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 19
+Enter date [mm/dd/yyyy]: 12/02/1995
+33556 records successfully read and written.
+Flight duration = 09:19:13
+Mon Jan 22 13:43:46 MST 1996
+
+R1049  RF18   12/01/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Mon Jan 22 13:52:32 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 18
+Enter date [mm/dd/yyyy]: 12/01/1995
+31542 records successfully read and written.
+Flight duration = 08:45:39
+Mon Jan 22 14:19:57 MST 1996
+
+R1048  RF17   11/28/1995  <-- Note:  This date is incorrect.  (See below.)
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Mon Jan 22 14:22:51 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 17
+Enter date [mm/dd/yyyy]: 11/28/1995
+47741 records successfully read and written.
+Flight duration = 13:15:38
+Mon Jan 22 15:15:46 MST 1996
+
+R1047  RF16   11/27/1995  <-- Note:  This date is incorrect.  (See below.)
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Mon Jan 22 15:27:49 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 16
+Enter date [mm/dd/yyyy]: 11/27/1995
+18996 records successfully read and written.
+Flight duration = 05:16:33
+Mon Jan 22 15:48:47 MST 1996
+
+R1046  RF15   11/24/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Mon Jan 22 16:10:15 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 15
+Enter date [mm/dd/yyyy]: 11/24/1995
+16842 records successfully read and written.
+Flight duration = 04:40:39
+Mon Jan 22 16:28:48 MST 1996
+
+R1045  RF14   11/23/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Mon Jan 22 16:43:43 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 14
+Enter date [mm/dd/yyyy]: 11/23/1995
+16427 records successfully read and written.
+Flight duration = 04:33:44
+Mon Jan 22 17:01:51 MST 1996
+
+R1044  RF13   11/23/1995
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Wed Jan 24 10:40:13 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 13
+Enter date [mm/dd/yyyy]: 11/23/1995
+31291 records successfully read and written.
+Flight duration = 08:41:28
+Wed Jan 24 11:14:56 MST 1996
+
+R1043  RF12   11/18/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Wed Jan 24 14:05:49 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 12
+Enter date [mm/dd/yyyy]: 11/18/1995
+16659 records successfully read and written.
+Flight duration = 04:37:36
+Wed Jan 24 14:24:04 MST 1996
+
+R1042  RF11   11/17/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Wed Jan 24 14:46:03 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 11
+Enter date [mm/dd/yyyy]: 11/17/1995
+15791 records successfully read and written.
+Flight duration = 04:23:08
+Wed Jan 24 15:03:24 MST 1996
+
+R1041  RF10   11/14/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Wed Jan 24 15:16:46 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 10
+Enter date [mm/dd/yyyy]: 11/14/1995
+10756 records successfully read and written.
+Flight duration = 02:59:13
+Wed Jan 24 15:29:14 MST 1996
+
+R1040  RF09   11/13/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Wed Jan 24 15:38:47 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 9
+Enter date [mm/dd/yyyy]: 11/13/1995
+15732 records successfully read and written.
+Flight duration = 04:22:09
+Wed Jan 24 15:56:08 MST 1996
+
+R1039  RF08   11/10/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Wed Jan 24 16:03:06 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 8
+Enter date [mm/dd/yyyy]: 11/10/1995
+16211 records successfully read and written.
+Flight duration = 04:30:08
+Wed Jan 24 16:21:01 MST 1996
+
+R1038  RF07   11/09/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Wed Jan 24 16:25:48 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 7
+Enter date [mm/dd/yyyy]: 11/09/1995
+15656 records successfully read and written.
+Flight duration = 04:20:53
+Wed Jan 24 16:42:59 MST 1996
+
+R1037  RF06B  11/08/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G^G ;
+Mon Jan 29 17:14:58 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 6
+Enter date [mm/dd/yyyy]: 11/08/1995
+25348 records successfully read and written.
+Flight duration = 07:02:25
+Mon Jan 29 17:43:32 MST 1996
+
+R1036  RF06A  11/08/1995
+mistral/ron % cd /home/local/dev/tptcp
+/home/local/dev/tptcp ~ 
+mistral/ron % date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 10:33:50 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 6
+Enter date [mm/dd/yyyy]: 11/08/1995
+20239 records successfully read and written.
+Flight duration = 05:37:16
+Thu Jan 25 10:57:10 MST 1996
+
+R1035  RF05   11/06/1995
+mistral/ron % !43
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 12:03:34 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 5
+Enter date [mm/dd/yyyy]: 11/06/1995
+16561 records successfully read and written.
+Flight duration = 04:35:58
+Thu Jan 25 12:21:44 MST 1996
+
+R1034  RF04B  11/05/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 11:23:09 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 4
+Enter date [mm/dd/yyyy]: 11/05/1995
+7018 records successfully read and written.
+Flight duration = 01:56:55
+Thu Jan 25 11:31:28 MST 1996
+
+R1033  RF04A  11/05/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 12:28:14 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 4
+Enter date [mm/dd/yyyy]: 11/05/1995
+7534 records successfully read and written.
+Flight duration = 02:05:31
+Thu Jan 25 12:37:08 MST 1996
+
+R1032  RF03   11/03/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 12:49:06 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 3
+Enter date [mm/dd/yyyy]: 11/03/1995
+28832 records successfully read and written.
+Flight duration = 08:00:29
+Thu Jan 25 13:20:58 MST 1996
+
+R1031  RF02B  11/02/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 13:52:30 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 2
+Enter date [mm/dd/yyyy]: 11/02/1995
+4786 records successfully read and written.
+Flight duration = 01:19:43
+Thu Jan 25 13:58:39 MST 1996
+
+R1030  RF02A  11/02/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 14:02:29 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 2
+Enter date [mm/dd/yyyy]: 11/02/1995
+12757 records successfully read and written.
+Flight duration = 03:32:34
+Thu Jan 25 14:16:52 MST 1996
+
+R1029  RF01   10/31/1995
+mistral/ron % !!
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ^G^G^G^G^G
+Thu Jan 25 14:24:13 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 1
+Enter date [mm/dd/yyyy]: 10/31/1995
+19707 records successfully read and written.
+Flight duration = 05:28:24
+Thu Jan 25 14:45:49 MST 1996
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Reprocess due to incorrect date information
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+R1047  RF16   11/26/1995
+mistral/ron % date ; tpfix/tpfix /dev/rmt/0 /dev/rmt/1 ; date
+Mon Feb 26 15:12:39 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 16
+Enter date [mm/dd/yyyy]: 11/26/1995
+18996 records successfully read and written.
+Flight duration = 05:16:33
+Mon Feb 26 15:33:36 MST 1996
+
+R1048  RF17   11/27/1995
+mistral/ron % !!
+date ; tpfix/tpfix /dev/rmt/0 /dev/rmt/1 ; date
+Mon Feb 26 15:40:17 MST 1996
+Rewinding tape
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0
+Enter flight number : 17
+Enter date [mm/dd/yyyy]: 11/27/1995
+47741 records successfully read and written.
+Flight duration = 13:15:38
+Mon Feb 26 16:33:33 MST 1996
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+end
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+The following command assures a high-density copy.
+date ; tpfix /dev/rmt/0m /dev/rmt/1m ; date ; echo ;
+cd /home/local/dev/tptcp
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

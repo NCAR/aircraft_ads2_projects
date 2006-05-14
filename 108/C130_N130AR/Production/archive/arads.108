@@ -1,0 +1,205 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data files for 2002-108 PALS Soil Moisture, Sea Salinity
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file /home/local/proj/102/Production/arch_ads.102
+#   by Ron Ruth  28 January 2K
+#  Revised by RLR 19 April 2002 to use DCS "msrcp" instead of MIGS
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+# Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#108tf01b.ads \
+#)
+#set DFILES = ( \
+#TF01 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#108ff01a.ads \
+#108ff01b.ads \
+#108ff02a.ads \
+#108rf01a.ads \
+#108rf02a.ads \
+#108rf03a.ads \
+#108rf04a.ads \
+#108rf05a.ads \
+#108rf06a.ads \
+#108rf07a.ads \
+#108rf07b.ads \
+#108rf08a.ads \
+#)
+#set DFILES = ( \
+#FF01A \
+#FF01B \
+#FF02 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07A \
+#RF07B \
+#RF08 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#108ff03a.ads \
+#108ff04a.ads \
+#108rf09a.ads \
+#108rf09b.ads \
+#108rf10a.ads \
+#108rf10b.ads \
+#108rf11a.ads \
+#108rf12a.ads \
+#108rf13a.ads \
+#)
+#set DFILES = ( \
+#FF03 \
+#FF04 \
+#RF09A \
+#RF09B \
+#RF10A \
+#RF10B \
+#RF11 \
+#RF12 \
+#RF13 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#108rf12a.ads \
+#)
+#set DFILES = ( \
+#RF12 \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#108tf04a.ads \
+#)
+#set DFILES = ( \
+#TF04 \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    if ($status == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2002/108/
+#
+#  1st wave
+#  1 Job(s) submitted on Thu Jun 20 14:06:56 MDT 2002
+#  msrcp job for ADS/TF01 -- OK -- Thu Jun 20 14:07:48 MDT 2002
+#   Completed on Thu Jun 20 14:07:48 MDT 2002
+#
+#  2nd wave
+#  12 Job(s) submitted on Mon Jul 15 11:10:20 MDT 2002
+#  msrcp job for ADS/FF01A -- OK -- Mon Jul 15 11:10:43 MDT 2002
+#  msrcp job for ADS/FF01B -- OK -- Mon Jul 15 11:11:56 MDT 2002
+#  msrcp job for ADS/FF02 -- OK -- Mon Jul 15 11:13:04 MDT 2002
+#  msrcp job for ADS/RF01 -- OK -- Mon Jul 15 11:15:14 MDT 2002
+#  msrcp job for ADS/RF02 -- OK -- Mon Jul 15 11:16:46 MDT 2002
+#  msrcp job for ADS/RF03 -- OK -- Mon Jul 15 11:18:04 MDT 2002
+#  msrcp job for ADS/RF04 -- OK -- Mon Jul 15 11:19:48 MDT 2002
+#  msrcp job for ADS/RF05 -- OK -- Mon Jul 15 11:22:01 MDT 2002
+#  msrcp job for ADS/RF06 -- OK -- Mon Jul 15 11:24:13 MDT 2002
+#  msrcp job for ADS/RF07A -- OK -- Mon Jul 15 11:25:02 MDT 2002
+#  msrcp job for ADS/RF07B -- OK -- Mon Jul 15 11:26:14 MDT 2002
+#  msrcp job for ADS/RF08 -- OK -- Mon Jul 15 11:27:56 MDT 2002
+#   Completed on Mon Jul 15 11:27:56 MDT 2002
+#
+#  3rd wave
+#  9 Job(s) submitted on Mon Jul 22 16:29:48 MDT 2002
+#  msrcp job for ADS/FF03 -- OK -- Mon Jul 22 16:31:53 MDT 2002
+#  msrcp job for ADS/FF04 -- OK -- Mon Jul 22 16:34:03 MDT 2002
+#  msrcp job for ADS/RF09A -- OK -- Mon Jul 22 16:34:17 MDT 2002
+#  msrcp job for ADS/RF09B -- OK -- Mon Jul 22 16:35:45 MDT 2002
+#  msrcp job for ADS/RF10A -- OK -- Mon Jul 22 16:35:56 MDT 2002
+#  msrcp job for ADS/RF10B -- OK -- Mon Jul 22 16:37:56 MDT 2002
+#  msrcp job for ADS/RF11 -- OK -- Mon Jul 22 16:40:52 MDT 2002
+#  msrcp job for ADS/RF12 -- OK -- Mon Jul 22 16:43:06 MDT 2002
+#  msrcp job for ADS/RF13 -- OK -- Mon Jul 22 16:44:40 MDT 2002
+#   Completed on Mon Jul 22 16:44:40 MDT 2002
+#
+#  4th wave (archive corrected RF12)
+#  1 Job(s) submitted on Wed Jul 24 15:44:37 MDT 2002
+#  msrcp job for ADS/RF12 -- OK -- Wed Jul 24 15:46:54 MDT 2002
+#   Completed on Wed Jul 24 15:46:54 MDT 2002
+#
+#  5th wave
+#  1 Job(s) submitted on Fri Sep 20 14:42:37 MDT 2002
+#  msrcp job for ADS/TF04 -- OK -- Fri Sep 20 14:43:35 MDT 2002
+#   Completed on Fri Sep 20 14:43:35 MDT 2002
+#
+#   th wave
+#  Job(s) submitted on 
+#

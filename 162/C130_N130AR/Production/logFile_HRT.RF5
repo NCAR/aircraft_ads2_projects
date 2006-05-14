@@ -1,0 +1,90 @@
+SCMS (Small Cumulus Microphysics Study) - 162, Flight RF5
+PSURF already added to derived list, ignoring duplicate, check dependencies.
+PVOL3 has no dependencies, turning off.
+PVOLP has no dependencies, turning off.
+RADCF has no dependencies, turning off.
+SWTC has no dependencies, turning off.
+Loading setup file: /usr/local/proj/162/Production/Flight_1
+Loading setup file: /usr/local/proj/162/Production/Flight_5
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+BLONGA has no description or units.
+HGM232S has no description or units.
+TCNT3_LPO has no description or units.
+TEVT3_LPO has no description or units.
+PVOL3_LPO has no description or units.
+PVOLP_RPC has no description or units.
+RADCF has no description or units.
+SWTC has no description or units.
+Request for non-existent default, ASTG.
+ASTG set to 1013.245972 in AMLIB function initPalt.
+Request for non-existent default, SFCT.
+SFCT set to 288.149994 in AMLIB function initPalt.
+Request for non-existent default, TWIRE_DIAM.
+Value set to 0.210000 in AMLIB function plwccInit.
+Request for non-existent default, PSURF_ALT_MAX.
+Value set to 7000.000000 in AMLIB function initPsurf.
+Processed on: Mar 14 02:00 UTC 2001
+Flight Date: 07/24/1995
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+BLONGA has no entry in the VarDB.
+Time lag for FACT_IBR enabled, with lag of -100 milliseconds.
+Time lag for FRST_IBR enabled, with lag of -100 milliseconds.
+Time lag for FSTB_IBR enabled, with lag of -100 milliseconds.
+Time lag for GSF enabled, with lag of -140 milliseconds.
+Time lag for LAT enabled, with lag of -130 milliseconds.
+Time lag for LON enabled, with lag of -130 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+TCNT3_LPO has no entry in the VarDB.
+TEVT3_LPO has no entry in the VarDB.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_ROLL_MAX.
+Value set to 40.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_TAUP.
+Value set to 100.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, GPS_ROLL_MAX.
+Value set to 40.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_TAUP.
+Value set to 100.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 48 seconds ending @ 13:43:47, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 13:43:47
+       odd time = 13:42:58
+    advanced to = 13:43:49
+Time break of 1 seconds ending @ 13:43:49, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:14:05
+       odd time = 16:14:04
+    advanced to = 16:14:47
+Time break of 41 seconds ending @ 16:14:47, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 16:14:49, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:56:38
+       odd time = 16:56:37
+    advanced to = 16:57:09
+Time break of 30 seconds ending @ 16:57:09, filling in with MISSING_VALUE.
+Time interval(s) completed : 12:58:56-17:57:00
+ACINS: 19 spikes removed with slope exceeding 4.000000
+PITCH: 167 spikes removed with slope exceeding 0.300000
+ROLL: 399 spikes removed with slope exceeding 0.200000
+THDG: 8 spikes removed with slope exceeding 0.300000
+VEW: 18 spikes removed with slope exceeding 1.200000
+VNS: 34 spikes removed with slope exceeding 1.200000
+VSPD: 56 spikes removed with slope exceeding 0.600000
+Processing took 42.1 minutes.

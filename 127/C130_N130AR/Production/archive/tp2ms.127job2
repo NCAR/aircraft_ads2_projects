@@ -1,0 +1,62 @@
+#! /bin/csh -f
+#
+#  Restage end of raw ADS data tape R0884 (RF10B)
+#    for 5-127 Marine Stratus Cloud Top Project
+#
+#  First, rename original file, so we keep something.
+#nrnet msmv % r flnm=/RAF/1995/127/RF10B/R0884 npdn=/RAF/1995/127/ORF10B/R0884 \
+#  w=RAFDMG
+#
+#  Lastly, rename original file back to its original name.  (See below.)
+#echo \
+nrnet msmv % r flnm=/RAF/1995/127/ORF10B/R0884 npdn=/RAF/1995/127/RF10B/R0884 \
+  w=RAFDMG
+exit
+#
+#set TYPE = QD
+#set YEAR = 1995
+#set PROJ = 127
+#
+#  First try.
+#set SKIP = ( "skpr=15000" )
+#set RECS = ( "nrec=8911" )
+#set FLIGHTS =  ( RF10B )
+#set TAPELIST = ( R0884 )
+#
+#  Get started:
+#date
+#set todo = $#TAPELIST
+#set num = 1
+#while ($num <= $todo)
+#  set REC = $RECS[$num]
+#  set TAPE = $TAPELIST[$num]
+#  set FLIGHT = $FLIGHTS[$num]
+## echo \
+#  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+#   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+#   proj=41113009 skpf=0 $SKIP $REC \
+#   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+#  @ num ++
+##   proj=41113009 skpf=0 $STAG \
+##   proj=41113009 skpf=0 $STAGE \
+#end
+# 
+# done.
+exit
+#
+#  Rename original bitfile.
+#  Job(s) submitted on Fri Nov 17 12:12:09 MST 1995
+# Sequence number = MI0866 -- ORF10B/R0884 -- OK @ 17 Nov 1995 12:12:25
+# 
+#  Rearchive file.
+#  Job(s) submitted on Mon Nov 20 13:23:51 MST 1995
+# Sequence number = MI7121 -- RF10B/R0884 -- Failed @ 21 Nov 1995 12:39:40
+#                                            (Data Check error in record #2)
+#
+#  Rename original bitfile (again).  It turns out that the entire data set
+#   from the tape was archived completely the first time.  The number of
+#   records on the MSS agrees with the number that Dick Friesen got when
+#   the data were copied in the field.
+#  Job(s) submitted on Tue Nov 21 14:34:20 MST 1995
+# Sequence number = MI3442 -- ORF10B/R0884 -- OK @ 21 Nov 1995 14:34:47
+#

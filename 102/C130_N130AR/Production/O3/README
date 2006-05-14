@@ -1,0 +1,13 @@
+This directory contains special files used to correct the Ozone data for
+the 1999-102 INDOEX project.  These files have the source code for the
+"amlib" portion of the NIMBUS skeleton program.  The skeleton program was
+used to generate netCDF files with the corrections.  The netCDF files were
+merged into the NIMBUS-processed netCDF files to create the final production
+data sets for this project.
+
+If the skeleton program needs to be used again, the rest of the source files
+for it can be found in the directory "coupling" in the directory parent to
+this one.
+
+Ronald L. Ruth, RAF Data Manager
+3 January 2000

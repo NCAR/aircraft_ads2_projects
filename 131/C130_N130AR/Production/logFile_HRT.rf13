@@ -1,0 +1,52 @@
+ACE-Asia - 131, Flight rf13
+Version - 3.3.1
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+C260X is depending on non-existent variable A260X_LPC, turning off.
+CFSSP is depending on non-existent variable AFSSP_RPC, turning off.
+CPCAS is depending on non-existent variable APCAS_RPI, turning off.
+FBMFR is depending on non-existent variable AFSSP_RPC, turning off.
+Loading setup file: /jnet/linux/proj/131/Production/Flight_rf13
+LoadSetup: can't find APCAS_RPI.
+LoadSetup: can't find ATLH.
+BOSSBI has no description or units.
+BOSSBY has no description or units.
+BOSSIDE has no description or units.
+BOSSSMP has no description or units.
+BSPHUM has no description or units.
+BSPRR has no description or units.
+TFILTF has no description or units.
+FTMP3_RPO has no description or units.
+TTLH has no description or units.
+Loading setup file: /jnet/shared/proj/131/Production/setup_HRT
+Processed on: Jun 18 18:40 UTC 2003
+Flight Date: 04/23/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Blanking VLA from 23:47:00 to 09:12:30.
+ The following variables depend upon this variable:
+ 
+Blanking CONC3_RPO from 23:47:00 to 09:12:30.
+Blanking DBAR3_RPO from 23:47:00 to 09:12:30.
+Blanking MRLA from 23:47:00 to 09:12:30.
+ The following variables depend upon this variable:
+ 
+Blanking RHOLA from 23:47:00 to 09:12:30.
+ The following variables depend upon this variable:
+ 
+Time interval(s) completed : 23:47:00-09:12:30
+Processing took 5.2 minutes.

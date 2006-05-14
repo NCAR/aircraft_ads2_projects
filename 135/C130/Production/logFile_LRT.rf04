@@ -1,0 +1,96 @@
+RICO - 135, Flight rf04
+Revision: 1924
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_rf04
+LHLO has no description or units.
+XPH has no description or units.
+REFF2DC_LWO1 has no description or units.
+REFF6_RWI has no description or units.
+TTWHC has no description or units.
+XCIM has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Processed on: 2005-05-02 13:45:09 -0600
+Flight Date: 12/10/2004
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for ACINS enabled, with lag of -80 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+REFF2DC_LWO1 has no entry in the VarDB.
+TTWHC has no entry in the VarDB.
+Blanking VLA1 from 14:04:00 to 22:31:50.
+ The following variables depend upon this variable:
+ 
+
+Blanking XCINB from 14:04:00 to 22:31:50.
+Blanking XCINCB from 14:04:00 to 22:31:50.
+Blanking XCINCF from 14:04:00 to 22:31:50.
+Blanking XCINF from 14:04:00 to 22:31:50.
+Blanking DPLA1 from 14:04:00 to 22:31:50.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA1 from 14:04:00 to 22:31:50.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA1 from 14:04:00 to 22:31:50.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHOLA1 from 14:04:00 to 22:31:50.
+ The following variables depend upon this variable:
+ 
+
+Blanking HGM232 from 14:04:00 to 14:12:05.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 14:04:00 to 14:12:05.
+Blanking PLWCC1 from 14:04:00 to 14:12:05.
+Blanking HGM232 from 22:31:35 to 22:31:50.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 22:29:45 to 22:31:50.
+Blanking PLWCC1 from 22:29:45 to 22:31:50.
+Blanking times (22:34:45 to 22:31:50) not valid for OAT.
+Blanking OAT from 19:51:45 to 19:51:54.
+Time interval(s) completed : 
+14:04:00-22:31:50
+
+ACINS: 72 spikes removed with slope exceeding 4.000000
+LAT: 10 spikes removed with slope exceeding 0.200000
+LON: 9 spikes removed with slope exceeding 0.200000
+PITCH: 90 spikes removed with slope exceeding 1.300000
+ROLL: 77 spikes removed with slope exceeding 1.300000
+THDG: 35 spikes removed with slope exceeding 1.500000
+VEW: 13 spikes removed with slope exceeding 20.000000
+VNS: 14 spikes removed with slope exceeding 20.000000
+VSPD: 38 spikes removed with slope exceeding 1.600000
+IRS Error report: Latitude had 10 values of 0 (zero).
+IRS Error report: Longitude had 9 values of 0 (zero).
+IRS Error report: Ground Speed had 27481 values of 0 (zero).
+IRS Error report: Track Angle had 23 values of 0 (zero).
+IRS Error report: True Heading had 31 values of 0 (zero).
+IRS Error report: Pitch had 87 values of 0 (zero).
+IRS Error report: Roll had 73 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 64 values of 0 (zero).
+IRS Error report: Vertical Speed had 37 values of 0 (zero).
+IRS Error report: NS Velocity had 27485 values of 0 (zero).
+IRS Error report: EW Velocity had 27484 values of 0 (zero).
+Processing took 0.5 minutes.

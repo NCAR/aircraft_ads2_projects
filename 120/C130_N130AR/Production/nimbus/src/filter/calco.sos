@@ -1,0 +1,133 @@
+/*
+-------------------------------------------------------------------------
+OBJECT NAME:	calco.c
+
+FULL NAME:		Apply Calibration Coefficients
+
+ENTRY POINTS:	ApplyCalCoes()
+
+STATIC FNS:		none
+
+DESCRIPTION:	Perform application of calibration coeffiecients to the
+				AveragedData or SampledData records.
+
+INPUT:			data, int LOW_RATE/SAMPLE_RATE
+
+OUTPUT:			modified input stream
+
+REFERENCES:		none
+
+REFERENCED BY:	LowRateLoop(), HighRateLoop(), winputops.c
+
+COPYRIGHT:		University Corporation for Atmospheric Research, 1994
+-------------------------------------------------------------------------
+*/
+
+#include "nimbus.h"
+#include "decode.h"
+
+
+/* -------------------------------------------------------------------- */
+void ApplyCalCoes(NR_TYPE *record, int which_record)
+{
+	int		i, j, k, corder, pos;
+	SDITBL	*sp, *sp1;
+	NR_TYPE	out, slope;
+
+
+
+	switch (which_record)
+		{
+		case LOW_RATE:
+			for (i = 0; (sp = sdi[i]); ++i)
+				{
+				if (sp->type == 'C' || sp->type == 'O')
+					continue;
+
+/* START SOS */ if (FlightNumber < 23)
+					{
+					float	fzv;
+
+					sp1	= sdi[SearchTable(sdi, nsdi, "FZV")];
+					fzv	= record[sp1->LRstart] * sp1->convertFactor;
+					slope	= 10.0 / (0.9 * fzv + 10.0);
+					}
+				else
+					{
+					float   o3ff;
+
+					sp1	= sdi[SearchTable(sdi, nsdi, "O3FF")];
+					o3ff	= record[sp1->LRstart] * sp1->convertFactor;
+					slope	= 10.0 / (10.0 + o3ff);
+/* END SOS */		}
+
+				corder  = sp->order - 1;
+				out     = sp->cof[corder];
+
+/* START SOS */
+				record[sp->LRstart] *= sp->convertFactor;
+
+				if (sp->type == 'A')
+					record[sp->LRstart] = (record[sp->LRstart]+10.0)*slope-10.0;
+/* END SOS */
+				for (k = 1; k < sp->order; k++)
+					out = sp->cof[corder-k] + record[sp->LRstart] * out;
+
+				record[sp->LRstart] = out;
+				}
+
+			break;
+
+		case SAMPLE_RATE:
+			for (i = 0; (sp = sdi[i]); ++i)
+				{
+				if (sp->type == 'C' || sp->type == 'O')
+					continue;
+
+				pos = sp->SRstart;
+
+				for (j = 0; j < sp->SampleRate; ++j, ++pos)
+					{
+					corder  = sp->order - 1;
+					out     = sp->cof[corder];
+
+/* START SOS */ 	if (FlightNumber < 23)
+						{
+						float	fzv;
+
+						sp1	= sdi[SearchTable(sdi, nsdi, "FZV")];
+						fzv	= record[sp1->SRstart] * sp1->convertFactor;
+						slope	= 10.0 / (0.9 * fzv + 10.0);
+						}
+					else
+						{
+						float   o3ff;
+
+						sp1	= sdi[SearchTable(sdi, nsdi, "O3FF")];
+						o3ff	= record[sp1->SRstart] * sp1->convertFactor;
+						slope	= 10.0 / (10.0 + o3ff);
+/* END SOS */			}
+
+
+/* START SOS */
+					record[pos] *= sp->convertFactor;
+					if (sp->type == 'A')
+						record[pos] = (record[pos]+10.0)*slope-10.0;
+/* END SOS */
+					for (k = 1; k < sp->order; k++)
+						out = sp->cof[corder-k] + record[pos] * out;
+
+					record[pos] = out;
+					}
+				}
+
+			break;
+
+		default:
+			fprintf(stderr, "calco.c: coding fuck up.\n");
+			exit(1);
+		}
+
+}	/* END APPLYCALCOES */
+
+/* END CALCO.C */

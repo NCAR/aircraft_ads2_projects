@@ -1,0 +1,21 @@
+Post production processing of RF10 done on 21 November 1995 @ 4:00 p.m.:
+
+Loading setup file: /home/local/proj/127/Production/Flight_8
+Loading setup file: /home/local/proj/127/Production/Flight_8
+Despike for CNTS enabled, with slope of 2500.000000.
+Advancing past odd-ball time stamp:
+  previous time = 14:13:36
+       odd time = 14:13:35
+Advancing past duplicate time stamp:
+  previous time = 14:13:36
+       odd time = 14:13:36
+    advanced to = 14:13:39
+Time break of 2 seconds ending @ 14:13:39, filling in with MISSING_VALUE.
+Time interval(s) completed : 14:02:31-20:13:20
+Processing took 5.4 minutes.
+
+Data source from MSS bitfiles.  Apparently when Dick processed the data the
+first time, only the first of the two segments was available to NIMBUS.  This
+time all the data were processed successfully.
+
+I'll put this data set in the `/home/productiondata' directory for now.

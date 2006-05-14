@@ -1,0 +1,75 @@
+#  Project:  2004-109 AIRS-II
+#  Purpose:  Customized instrument status list
+#  This file's name:  C130_instrument_list.txt
+#  This file's path:  $PROJ_DIR/ppp/Web/ (where:  ppp is the project number)
+#  Used by:  project's "real-time" web site
+#  Script name:  cgi-bin/C130_status.pl
+#  Script author:  Steve Roberts, JOSS
+#  Script modifier:  Ron Ruth, ATD/RAF
+#
+# Notes:  Any line that does not begin with "Inst:" is treated as a comment.
+#         Anything after "Inst:" is treated as a single status component.
+#         There is no limit to the number of components that can be added,
+#          but keep in mind that the longer the list, the leass readable the
+#          web page will be.  (The present limit is of 99 entries, at present,
+#          but the script code can be changed.)
+#
+#  Following list from Jorgen Jensen on 29 October 2003
+#
+Inst: Rosemount temperature (ATRL)
+Inst: Rosemount temperature (ATRR)
+Inst: Rosemount heated temperature (ATWH)
+Inst: Ophir temperature (OAT)
+Inst: Dewpoint temperature (DPB)
+Inst: Dewpoint temperature (DPT)
+Inst: TDL
+Inst: King LWC (PLWCC)
+Inst: King LWC (PLWCC1)
+Inst: Nevzorov LWC (NLWCC)
+Inst: Newzorov TWC (NTWCC)
+Inst: Icing rate (RICE)
+Inst: Cabin pressure (PCAB)
+Inst: Static pressure (PSFC)
+Inst: Static pressure (PSFDC)
+Inst: Dynamic pressure (QCFC)
+Inst: Dynamic pressure (QCFRC)
+Inst: Dynamic pressure (QCRC)
+Inst: Attack (ADIFR)
+Inst: Sideslip (BDIFR)
+Inst: Honeywell INS
+Inst: CMIGETS INS
+Inst: Garmin GPS
+Inst: Radar altimeter (HGM232)
+Inst: Wyoming air inlet
+Inst: CN
+Inst: RDMA
+Inst: FSSP (SPP-100)
+Inst: PCASP (SPP-200)
+Inst: 260X
+Inst: 2D-C
+Inst: 2D-P
+Inst: HVPS
+Inst: Remote surface temperature (RSTB)
+Inst: Remote surface temperature (RSTB1)
+Inst: Remote sky/cloud temperature (RSTT)
+Inst: Ultraviolet top (UVT)
+Inst: Ultraviolet bottom (UVB)
+Inst: Pyranometer top (SWTC)
+Inst: Pyranometer bottom (SWB)
+Inst: Pyrgeometer top (IRTC)
+Inst: Pyrgeometer bottom (IRBC)
+Inst: Scanning Aerosol Backscatter Lidar (SABL)
+Inst: Video cameras (forward, left, down)
+Inst: Tail-gate web camera
+Inst: WSI radar images
+Inst: Jeppesen map and tracking
+Inst: Chat
+Inst: CVI
+Inst: DRI CCN
+Inst: CSU CFDC ice nuclei
+Inst: DRI small cloud scope
+Inst: DRI large cloud scope
+Inst: DRI standard T-probe
+Inst: DRI large T-probe
+Inst: DMT CSI
+Inst: CSIRO giant aerosol impactor

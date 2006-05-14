@@ -1,0 +1,127 @@
+RICO - 135, Flight rf01
+Revision: 2160
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_rf01
+LHLO has no description or units.
+XPH has no description or units.
+REFF2DC_LWO1 has no description or units.
+REFF6_RWI has no description or units.
+TTWHC has no description or units.
+XCIM has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Processed on: 2005-06-13 15:11:31 -0600
+Flight Date: 12/07/2004
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+REFF2DC_LWO1 has no entry in the VarDB.
+TTWHC has no entry in the VarDB.
+Blanking VLA1 from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking XCINB from 20:11:56 to 20:25:21.
+Blanking XCINCB from 20:11:56 to 20:25:21.
+Blanking XCINCF from 20:11:56 to 20:25:21.
+Blanking XCINF from 20:11:56 to 20:25:21.
+Blanking DPLA1 from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPXC from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking EDPC from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA1 from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA1 from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHOLA1 from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking THETAE from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking THETAV from 20:11:56 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking times (16:10:00 to 16:12:00) not valid for PLWCC.
+Blanking times (16:10:00 to 16:12:00) not valid for PLWCC1.
+Blanking times (21:50:00 to 21:51:15) not valid for PLWCC.
+Blanking times (21:50:00 to 21:51:15) not valid for PLWCC1.
+Blanking times (21:50:38 to 21:51:15) not valid for HGM232.
+Blanking DPB from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPBC from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPXC from 20:12:00 to 20:25:21.
+DPXC has already been blanked because the DataQuality flag is Bad.
+Blanking RHODT from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking MR from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHUM from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking times (17:16:15 to 17:18:47) not valid for DPT.
+Blanking times (17:16:15 to 17:18:47) not valid for DPTC.
+Blanking DPT from 20:17:14 to 20:18:04.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPTC from 20:17:14 to 20:18:04.
+ The following variables depend upon this variable:
+ 
+
+Blanking times (20:44:50 to 20:50:50) not valid for DPT.
+Blanking times (20:44:50 to 20:50:50) not valid for DPTC.
+Blanking times (19:41:50 to 19:42:01) not valid for OAT.
+Blanking OAT from 20:18:38 to 20:18:53.
+Blanking times (19:53:34 to 19:53:40) not valid for OAT.
+Blanking times (18:47:43 to 18:47:50) not valid for OAT.
+Time interval(s) completed : 
+20:11:56-20:25:21
+
+ACINS: 2 spikes removed with slope exceeding 4.000000
+PITCH: 7 spikes removed with slope exceeding 1.300000
+ROLL: 1 spikes removed with slope exceeding 1.300000
+IRS Error report: Pitch had 7 values of 0 (zero).
+IRS Error report: Roll had 1 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 2 values of 0 (zero).
+Processing took 0.0 minutes.

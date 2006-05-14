@@ -1,0 +1,48 @@
+ACE - 1 - 130, Flight #12
+Warning: H2O2 has no dependencies.
+Warning: MHPEQ has no dependencies.
+O3FC is depending on non-existant variable FUDGE.
+O3FC has no compute function.
+Warning: PERACAL has no dependencies.
+Warning: PERACOR has no dependencies.
+Warning: PERAZRO has no dependencies.
+Warning: PERBCAL has no dependencies.
+Warning: PERBCOR has no dependencies.
+Warning: PERBZRO has no dependencies.
+Warning: ROOH has no dependencies.
+XCO2C is depending on non-existant variable XCO2P.
+XCO2C has no compute function.
+Loading setup file: /home/local/proj/130/Production/Flight_11
+2D-C_LPO has no description or units.
+2D-P_LPI has no description or units.
+EVENT_CKP has no description or units.
+EVENT_CTL has no description or units.
+EVENT_FWD has no description or units.
+EVENT_OBL has no description or units.
+EVENT_OBR has no description or units.
+HGM232S has no description or units.
+Loading setup file: /home/local/proj/130/Production/LRTFlight_11
+LoadSetup: can't find DRFTA.
+LoadSetup: can't find TKAR.
+LoadSetup: can't find TKAT.
+Request for non-existent default, XO3F1T_CAL.
+Request for non-existent default, CAL_FACTOR.
+Request for non-existent default, CO2_OFFSET.
+Processed on: Jul 31 16:29 UTC 1996
+Flight Date: 11/18/1995
+Despiking enabled.
+Time interval(s) completed : 22:25:09-05:53:15
+CN3760: 1192 spikes removed with slope exceeding 40000.000000
+DPB: 23 spikes removed with slope exceeding 1.000000
+O3FS: 27 spikes removed with slope exceeding 0.500000
+TTRR: 1 spikes removed with slope exceeding 0.600000
+ACINS: 23 spikes removed with slope exceeding 4.000000
+ALT: 38 spikes removed with slope exceeding 1.200000
+LAT: 2 spikes removed with slope exceeding 0.020000
+PITCH: 47 spikes removed with slope exceeding 0.300000
+ROLL: 145 spikes removed with slope exceeding 0.200000
+THDG: 19 spikes removed with slope exceeding 0.150000
+VEW: 1 spikes removed with slope exceeding 20.000000
+VNS: 1 spikes removed with slope exceeding 20.000000
+VSPD: 29 spikes removed with slope exceeding 0.600000
+Processing took 9.1 minutes.

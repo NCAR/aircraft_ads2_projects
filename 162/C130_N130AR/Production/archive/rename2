@@ -1,0 +1,59 @@
+#! /bin/csh -f
+#
+#  Rename ADS images for FF01 (done in segments with two tapes)
+#         Ron Ruth 960124
+#
+#  :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1995
+set PROJ = 162
+#
+date
+#
+#  Get started (Do in two pieces to keep failures from occurring.)
+#set ONAMES = ( \
+#FF01B/R0994 \
+#)
+#set NNAMES = ( \
+#FF01D/R0994 \
+#)
+set ONAMES = ( \
+FF01AC/R0993 \
+FF01AB/R0993 \
+FF01AA/R0993 \
+)
+set NNAMES = ( \
+FF01C/R0993 \
+FF01B/R0993 \
+FF01A/R0993 \
+)
+#
+if ($#ONAMES != $#NNAMES) then
+  echo "Need same number of source and destination names.  Quitting"
+  exit 1
+endif
+set todo = $#ONAMES
+set num = 1
+while ($num <= $todo)
+  set ONAME = $ONAMES[$num]
+  set NNAME = $NNAMES[$num]
+#  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$ONAME \
+    npdn=/RAF/$YEAR/$PROJ/$NNAME w=RAFDMG
+  @ num ++
+end
+#
+# Done.
+exit
+#
+# Job(s) submitted on Fri Jan 26 14:53:25 MST 1996
+# Sequence number = MI6268 -- FF01D/R0994 -- OK @ 26 Jan 1996 15:46:29
+#
+# Job(s) submitted on Mon Jan 29 09:03:45 MST 1996
+# Sequence number = MI0401 -- FF01C/R0993 -- OK @ 29 Jan 1996 09:08:48
+# Sequence number = MI0408 -- FF01B/R0993 -- OK @ 29 Jan 1996 09:15:39
+# Sequence number = MI0415 -- FF01A/R0993 -- OK @ 29 Jan 1996 10:37:42
+#

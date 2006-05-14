@@ -1,0 +1,193 @@
+                        Project #2001-181, DYCOMS-II
+                           Bjorn Stevens, et al.
+
+                      NCAR/NSF EC-130Q Hercules (N130AR)
+
+                      Aircraft Research Instrumentation
+
+                    ** Tentative - As of 15 March 2001 **
+
+
+RAF-Supplied Instrumentation
+
+  I. Airborne Data System
+    A. Acquisition
+      - EC-130Q ADS2 (VME Motorola 68040 Based, with vxWorks)
+      - NCAR Distributed Sampling Modules (4 Units), One in Each Wing Pod and
+         Two in Cabin
+    B. Operator Station
+      - Intel L440GX+ Motherboard with 2 Pentium III-500 CPUs, 512 MB Memory,
+         Redhat Linux 6.2 OS
+      - 9GB Disk Storage with RAID-1 (Hardware Mirroring Using 2 Drives)
+      - General Digital 17" 1280x1024 TFT Flat Panel Color Monitor
+      - IBM-DRHS36D 36GB Removable Disk Drives in Kingston Carriers (2 Units)
+      - Exabyte Model EXB-8505 Tape Drives (2 Units)
+      - UPS
+    C. Cabin User Displays
+      - Dell Latitude Pentium III-850 Laptop (1), Linux OS, 15" Display
+      - Dell Latitude Pentium II-300 Laptop (1), Linux OS, 13" Display
+      - Lexmark Printer
+    D. Flight Deck Display
+      - Dell Latitude Pentium III-850 Laptop, Linux OS, 15" Display
+      - HP 842C Printer
+  
+  II. Aircraft Position, Velocity, and Attitude
+    A. Honeywell Model HG1095-AC03 Laseref SM Inertial Reference System
+        (Research)
+    B. Trimble TANS III Global Positioning System (GPS)
+  
+  III. Static Pressures
+    A. Rosemount Model 1501 Digital Pressure Transducer - Fuselage Port
+        (PSFD, PSFDC)
+    B. Ruska Model 7885 Digital Pressure Transducer - Fuselage Port
+        (PSFRD, PSFC)
+    C. Rosemount Model 1201F1 Pressure Transducer - Cabin (PCAB)
+  
+  IV. Dynamic (Pitot) Pressures
+    A. Rosemount Model 1221F1VL - Radome (QCR)
+    B. Rosemount Model 1221F1VL - Fuselage Pitot (QCF)
+  
+  V. Temperatures
+    A. Rosemount Type 102 Non-deiced Sensor, Rosemount Model 510BF Amplifier -
+        Right Radome Mount (TTRR, ATRR)
+    B. Rosemount Type 102 Non-deiced Sensor, Rosemount Model 510BF Amplifier -
+       Left Radome Mount (TTRL, ATRL)
+    C. Rosemount Type 102E Deiced Sensor, Rosemount Model 510BF Amplifier -
+       Left Inboard Wing Access Plate (TTWH, ATWH)
+    D. OPHIR III Radiometric Thermometer - Right Wing Pod, Nose (OAT)
+  
+  VI. Flow Angle Sensors, Radome
+    A. Attack - Rosemount Model 1221F1VL Differential Pressure Transducer
+        (ADIFR)
+    B. Sideslip - Rosemount Model 1221F1VL Differential Pressure Transducer
+        (BDIFR)
+  
+  VII. Dew Point and Humidity
+    A. General Eastern, Model 1011B Dew Point hygrometer - Starboard Radome
+        Mount (DPT)
+    B. General Eastern, Model 1011B Dew Point Hygrometer - Starboard Radome
+        Mount (DPB)
+    C. NCAR Model Crossflow Lyman-Alpha Hygrometer - Left Radome Mount
+        (VLA, MRLA, RHOLA)
+    D. NCAR Model "Stub" Lyman-Alpha Hygrometer - Right Radome Mount (VLA1)
+    E. SpectraSensors, Inc., Laser Hygrometer (TDL) - Right Wing Pod, Nose
+        (MRLH)
+  
+  VIII. Cloud and Aerosol Physics
+    A. Rosemount Model 871FA Icing Rate Detector - Right Inboard Wing Access
+        Plate (RICE)
+    B. PMS Liquid Water Sensor (King Probe) - Left Outboard Wing Access Plate
+        (PLWC, PLWCC)
+    C. PMS Liquid Water Sensor (King Probe) - Right Outboard Wing Access Plate
+        (PLWC1, PLWCC1)
+    D. Particle Measuring Systems Model PCASP (0.12 to 3.12 um), Right Wing
+        Pod, Outboard 
+    E. Particle Measuring Systems Model FSSP-300 [Droplet Measurement
+        Technologies (DMT) - Modified SPP-300, Serial; S/N 305]
+        (0.3 to 20.0 um), Right Wing Pod, Center
+    F. Particle Measuring Systems Model FSSP-100 [Droplet Measurement
+        Technologies (DMT) - Modified SPP-100, Serial; S/N 76]
+        (3.0 to 45.0 um), Left Wing Tip
+    G. Particle Measuring Systems Model OAP 260X (S/N 06) (10.0 to 620.0 um),
+        Right Wing Tip 
+    H. Particle Measuring Systems Model 2D-C Probe (25 to 800 um), Right Wing
+        Tip
+    I. TSI Model 3760 CN Counter, Size Distribution, 0.01 to 3.00 um -
+        Fuselage (Belly) Inlet (CONCN)
+  
+  IX. Radiation Fluxes
+    A. Visible Radiation - RAF-Modified Eppley Model PSP Pyranometers, 2 Units
+        in Multipurpose Radiometer Housings on Top and Bottom of Fuselage)
+      - Upward Looking (SWT, SWTC)
+      - Downward Looking (SWB)
+    B. Ultraviolet Radiation - RAF-Modified Eppley Model TUVR Pyranometers, 2
+        Units in Multipurpose Radiometer Housings on Top and Bottom of Fuselage)
+      - Upward Looking (UVT)
+      - Downward Looking (UVB)
+    C. Infrared Radiation - RAF-Modified Eppley Model PIR Pyrgeometers, 2
+        Units in Multipurpose Radiometer Housings on Top and Bottom of Fuselage)
+      - Upward Looking (IRT, IRTC)
+      - Downward Looking (IRB, IRBC)
+    D. Remote Surface Temperature - Heimann Model KT19.85 Radiometers,
+        2 Units, Downward Looking)  (RSTB, RSTB1)
+  
+  X. Chemistry (T. Campos)
+    A. TECO Slow Response Ozone (O3) - Fuselage (Belly) Inlet Mount (TEO3C)
+    B. NCAR Fast Response Ozone (O3) (NO Chemiluminescence) - Fuselage (Belly)
+        Inlet Mount
+    C. NCAR High Precision Carbon Dioxide (CO2) (IR) - Fuselage (Belly) Inlet
+        Mount
+    D. Aero-Laser Fast Response Carbon Monoxide (CO) (UV resonance
+        fluorescence) - Fuselage (Belly) Inlet Mount
+  
+  XI. Geometric Altitude
+    A. Stewart-Warner Model APN-232(v) - Fuselage Mount, 0 to 15,000 Meters
+        AGL (HGM232)
+  
+  XII. Photography
+    A. Sony XC-999 SVHS Color Camera with JVC Model HR-S4700U Super VHS
+        Recorder (3 Pairs) - Forward Looking (Cockpit Mount), Down Looking,
+        and Left-Side Looking
+    B. Horita GPS Video Titler
+  
+  XIII. Remote Sensing
+    A. NCAR/RSF SABL Up/Downlooking Backscatter Lidar -  Dual Wavelength
+        [532 (Green) and 1064 (Infrared) nm], Left Wing Pod
+    B. NCAR/RAF Multichannel Cloud Radiometer (MCR) - Right Wing Pod, Tail
+  
+  XIV. GPS Dropsondes
+    A. NCAR/SSSF GPS Dropsonde Tube and Data System - Ramp Tube Mount
+  
+  XV. Aerosol Inlets
+    A. Low-Turbulence Inlet (LTI) - Right Forward Fuselage Mount, F.S. 277
+        (For J. Anderson and L. Russell)
+    B. Solid Diffuser (SD) Inlet - Right Forward Fuselage Mount, F.S. 307
+        (For L. Russell and J. Snider)
+
+
+User-Supplied Instrumentation
+
+  I. Drexel University (A. Bandy)
+    A. Atmospheric Pressure Ionization Mass Spectrometer (APIMS) for Dimethyl
+        Sulfide (DMS) and Sulfur Dioxide (SO2) Measurements - Left Forward
+        Fuselage Inlet Mount
+
+  II. Gerber Scientific, Inc. (H. Gerber)
+    A. Gerber Liquid Water Probe Model PVM-100, RAF Unit Modified for Ultra
+        High-Rate Sampling - Left Wing Pod, Outboard
+    B. Cloud Integrating Nephelometer (CIN) - Left Wing Tip
+
+  III. NCAR/Oregon State University (C. Twohy)
+    A. Counterflow Virtual Impactor (CVI) - Right Forward Cabin Rack Mount and
+        Right Forward Fuselage CVI Inlet Mount (F.S. 317).
+
+  IV. Arizona State University (J. Anderson)
+    A. Pixe International Streakers with Nuclepore Filters - 2 Units Mounted
+        in C. Twohy's CVI Rack.
+
+  V. University of Wyoming (G. Vali and J. Snider)
+    A. Wyoming Cloud Radar (WCR) - G. Vali; Ramp Antennae Mount
+    B. CCN Counters (2) and CN Counters (2) - J. Snider; Right Forward
+        Fuselage SD Inlet Connection
+
+  VI. Warsaw University (K. Haman)
+    A. Ultra-Fast Temperature (UFT-F) Probe - Left Wing Pod, Inboard
+
+  VII. CNRM (J.L. Brenguier and P. Nacass)
+    A. Fast FSSP-100 - J.L. Brenguier; Left Wing Pod, Center
+    B. Fast Airborne Microwave Refractometer-Hygrometer - P. Nacass; Left
+        Forward Fuselage Aperture Plate Mount
+
+  VIII. Princeton University (L. Russell, et al.)
+    A. PIXE Impactor for Single Particle Organic Classes - Right Forward
+        Fuselage SD Connection
+    B. High-Flow Particle Concentrator and Dual Impactor for Bulk Organic
+        Classes - Right Forward Fuselage SD Connection
+    C. Radially-Classified Aerosol Detector (RCAD) for Submicron Particle
+        Size Distributions - Right Forward Fuselage SD Connection.
+
+  IX. NCAR/Colorado State University (D. Straub and J. Collett)
+    A. Cloud Water Collector - Right Wing Pod, Inboard
+
+  X. NCAR (L. Radke)
+    A. Thermal Camera - Aft Down-Looking Lidar Port

@@ -1,0 +1,233 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 2001-131 ACE-Asia (B. Huebert, et al.)
+#
+#  Revised by RLR  (adapt to new MIGS "msimp" verb)                17 Mar 1999
+#  Revised by RLR  (add noglob, "start" code)                       3 May 1999
+#  Revised by RLR  (# TAPES and # FLIGHTS must match)              14 Jul 1999
+#  Revised by RLR  (add vi commands to ease flt and tape # lists)  30 Nov 1999
+#  Revised by RLR  (# SKIPS and # RECS must match, too,
+#                                               if greater than 1)  02 Dec 1999
+#  Revised by RLR (change the way $PROJ is determined)              20 Mar 2000
+#
+#  Note:  For the tape images to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#   Using 'vi' to edit lines extracted from a "tapes.ppp" file:
+#     first extract only tape and flight numbers
+#        :'a,'bs/\(............\)\(.*\)/\1
+#     copy the list to second section
+#        :'a,'bco.
+#     produce the tape number list
+#        :'a,'bs/.......$/ \\
+#     produce the flight number list
+#        :'c,'ds/\(.......\)\(.*\)/\2 \\
+#
+#   `vi' :map commands for annotating job completion:
+#   :map g eea 
+#   :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+#goto start
+#
+#start:
+#
+#  1st set, 1st try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1307 \
+#R1516 \
+#R1540 \
+#R1541 \
+#R1542 \
+#R1543 \
+#R1544 \
+#R1545 \
+#R1546 \
+#R1547 \
+#R1548 \
+#R1549 \
+#R1550 \
+#R1551 \
+#R1553 \
+#R1554 \
+#R1555 \
+#R1556 \
+#R1557 \
+#R1558 \
+#R1559 \
+#R1560 \
+#R1561 \
+#R1562 \
+#R1563 \
+#R1564 \
+#R1565 \
+#)
+#set FLIGHTS = ( \
+#RF15 \
+#TF04 \
+#FF01 \
+#FF02 \
+#FF03 \
+#FF04 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF16 \
+#RF17 \
+#RF18 \
+#RF19 \
+#FF05 \
+#FF06 \
+#FF07 \
+#)
+#
+#
+#  1st set, 2nd and 3rd tries
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1561 \
+#)
+#set FLIGHTS = ( \
+#RF18 \
+#)
+#
+#  Get started:
+date
+#
+#  Make sure I have the same number of tapes, flights and command arguments
+if ($#TAPES != $#FLIGHTS) then
+  echo "TAPES and FLIGHTS don't match.  Quitting."
+  exit 1
+endif
+if ($#SKIPS > 1) then
+  if ($#SKIPS != $#FLIGHTS) then
+    echo "SKIPS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+if ($#RECS > 1) then
+  if ($#RECS != $#FLIGHTS) then
+    echo "RECS and FLIGHTS don't match.  Quitting."
+    exit 1
+  endif
+endif
+#
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#
+#  All bitfiles archived to the MSS path /RAF/2001/131/fltno/tapeno
+#
+#  1st set, 1st try
+#  Jobs submitted on Wed May 30 16:49:47 MDT 2001
+# Sequence number = LN7330 -- RF15 -- OK @ 05/30/01 17:33:51.896
+# Sequence number = LN7338 -- TF04 -- OK @ 05/30/01 17:44:22.140
+# Sequence number = LN7346 -- FF01 -- OK @ 05/30/01 18:00:16.874
+# Sequence number = LN7354 -- FF02 -- OK @ 05/30/01 18:38:45.948
+# Sequence number = LN7362 -- FF03 -- OK @ 05/30/01 19:13:25.501
+# Sequence number = LN7370 -- FF04 -- OK @ 05/30/01 19:50:34.829
+# Sequence number = LN7378 -- RF01 -- OK @ 05/30/01 20:20:12.748
+# Sequence number = LN7386 -- RF02 -- OK @ 05/30/01 20:53:49.198
+# Sequence number = LN7394 -- RF03 -- OK @ 05/30/01 22:50:08.834
+# Sequence number = LN7404 -- RF04 -- OK @ 05/30/01 23:26:19.915
+# Sequence number = LN7419 -- RF05 -- OK @ 05/30/01 23:58:49.673
+# Sequence number = LN7440 -- RF06 -- OK @ 05/31/01 00:28:49.927
+# Sequence number = LN7467 -- RF07 -- OK @ 05/31/01 01:11:59.224
+# Sequence number = LN7492 -- RF08 -- OK @ 05/31/01 02:24:09.465
+# Sequence number = LN7509 -- RF09 -- OK @ 05/31/01 03:07:30.586
+# Sequence number = LN7523 -- RF10 -- OK @ 05/31/01 03:47:50.238
+# Sequence number = LN7531 -- RF11 -- OK @ 05/31/01 04:24:36.089
+# Sequence number = LN7540 -- RF12 -- OK @ 05/31/01 05:13:44.540
+# Sequence number = LN7553 -- RF13 -- OK @ 05/31/01 05:52:34.536
+# Sequence number = LN7566 -- RF14 -- OK @ 05/31/01 06:28:23.002
+# Sequence number = LN7579 -- RF16 -- OK @ 05/31/01 07:16:33.612
+# Sequence number = LN7598 -- RF17 -- OK @ 05/31/01 09:07:58.728
+# Sequence number = LN7615 -- RF18 -- Failed* @ 05/31/01 11:03:50.261
+# Sequence number = LN7628 -- RF19 -- OK @ 05/31/01 11:39:52.532
+# Sequence number = LN7642 -- FF05 -- OK @ 05/31/01 12:24:37.728
+# Sequence number = LN7656 -- FF06 -- OK @ 05/31/01 AT 13:01:33.659
+# Sequence number = LN7674 -- FF07 -- OK @ 05/31/01 AT 13:35:11.905
+#
+#  * SOME OTHER FATAL I/O ERROR. RC=         25
+#
+#  1st set, 2nd try
+#  Jobs submitted on Thu May 31 15:43:17 MDT 2001
+# Sequence number = LN3531 -- RF18 -- Failed* @ 05/31/01 AT 17:25:18.888
+#
+#  * SOME OTHER FATAL I/O ERROR. RC=         25
+#
+#  1st set, 3rd try
+#  Jobs submitted on Fri Jun  1 16:02:39 MDT 2001
+# Sequence number = LN8982 -- RF18 -- OK @ 06/01/01 AT 16:47:36.781
+#
+#      set,     segment,     try
+#  Jobs submitted on 
+#

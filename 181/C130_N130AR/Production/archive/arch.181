@@ -1,0 +1,220 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2001-181 DYCOMS-II (The Dynamics and Chemistry of Marine Stratocumulus, Phase II: Entrainment Studies) (B. Stevens, et al.)
+#
+#  File created by '/usr/local/scripts/genar' Revision  8 on Tue Oct 9 12:43:57 MDT 2001
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+date
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2001
+set PROJ = 181
+set SDIR = $PROD_DATA
+set RPWD = DYCONLY
+#
+#
+#set TURBRT = LRT
+#
+#  Rename first production version in preparation for second version
+#   which incorporates some additional PMS probe data enhancements
+# goto rename
+#
+#echo nrnet msput $SDIR/181ff01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181ff02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181tf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181tf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181tf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF03.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#exit
+#
+#
+#set TURBRT = HRT
+#set SDIR = $PROD_DATA/data
+#
+#  Archive in steps, since limited disk space exists
+#   1st wave
+# echo nrnet msput $SDIR/181rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+# echo nrnet msput $SDIR/181rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+# echo nrnet msput $SDIR/181rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#   2nd wave
+#echo nrnet msput $SDIR/181rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#   3rd wave
+#echo nrnet msput $SDIR/181rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#   4th wave
+#set TURBRT = HRT
+#set SDIR = $PROD_DATA
+#echo nrnet msput $SDIR/181ff02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#   5th wave (purge bad HRT files)
+#echo nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$TURBRT wpwd=RAFDMG rpwd=$RPWD opts=R
+#
+#   6th wave (HRT)
+#echo nrnet msput $SDIR/181ff02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#   7th wave (LRT RF01 reprocess)
+#set TURBRT = LRT
+#set SDIR = $PROD_DATA
+#echo nrnet msput $SDIR/181rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#   8th wave (HRT RF09 reprocess)
+#set TURBRT = HRT
+#set SDIR = $PROD_DATA
+#echo nrnet msput $SDIR/181rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+#   9th wave (not yet)
+#echo nrnet msput $SDIR/181ff01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181tf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181tf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#echo nrnet msput $SDIR/181tf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF03.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=$RPWD
+#
+exit
+#
+#  First production directory:  /RAF/2001/181/1ST_PRODUCTION/LRT/
+#  Job(s) submitted on Tue Oct  9 13:42:09 MDT 2001
+# Sequence number = LN3053 -- FF01.cdf -- OK @ 9 Oct 2001 13:44:19
+# Sequence number = LN3061 -- FF02.cdf -- OK @ 9 Oct 2001 13:45:33
+# Sequence number = LN3069 -- RF01.cdf -- OK @ 9 Oct 2001 13:46:27
+# Sequence number = LN3077 -- RF02.cdf -- OK @ 9 Oct 2001 13:46:53
+# Sequence number = LN3087 -- RF03.cdf -- OK @ 9 Oct 2001 13:50:10
+# Sequence number = LN3097 -- RF04.cdf -- OK @ 9 Oct 2001 13:49:35
+# Sequence number = LN3107 -- RF05.cdf -- OK @ 9 Oct 2001 14:02:53
+# Sequence number = LN3117 -- RF06.cdf -- OK @ 9 Oct 2001 14:02:42
+# Sequence number = LN3125 -- RF07.cdf -- OK @ 9 Oct 2001 14:05:39
+# Sequence number = LN3133 -- RF08.cdf -- OK @ 9 Oct 2001 14:03:08
+# Sequence number = LN3141 -- RF09.cdf -- OK @ 9 Oct 2001 14:03:44
+# Sequence number = LN3149 -- RF10.cdf -- OK @ 9 Oct 2001 14:13:53
+# Sequence number = LN3157 -- TF01.cdf -- OK @ 9 Oct 2001 14:08:19
+# Sequence number = LN3165 -- TF02.cdf -- OK @ 9 Oct 2001 14:08:52
+# Sequence number = LN3173 -- TF03.cdf -- OK @ 9 Oct 2001 14:08:44
+#
+#$rename:
+#  Rename first production version in preparation for second version
+#   which incorporates some additional PMS probe data enhancements
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/FF01.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/FF02.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF01.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF02.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF03.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF04.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF05.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF06.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF07.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF08.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF09.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/RF10.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/TF01.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/TF01.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/TF02.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/TF02.cdf
+#msmv -wpwd RAFDMG -rpwd $RPWD /RAF/$YEAR/$PROJ/$TURBRT/TF03.cdf /RAF/$YEAR/$PROJ/1ST_PRODUCTION/$TURBRT/TF03.cdf
+#date
+#  Rename began on Thu Dec  6 14:24:39 MST 2001
+#  Rename completed on Thu Dec  6 14:26:06 MST 2001
+#
+#  Production directory:  /RAF/2001/181/LRT
+#  Job(s) submitted on Thu Dec  6 14:32:02 MST 2001
+# Sequence number = LN4569 -- FF01.cdf -- OK @ 6 Dec 2001 14:35:14
+# Sequence number = LN4577 -- FF02.cdf -- OK @ 6 Dec 2001 15:00:08
+# Sequence number = LN4583 -- RF01.cdf -- OK @ 6 Dec 2001 14:38:53
+# Sequence number = LN4591 -- RF02.cdf -- OK @ 6 Dec 2001 14:41:07
+# Sequence number = LN4598 -- RF03.cdf -- OK @ 6 Dec 2001 14:43:39
+# Sequence number = LN4606 -- RF04.cdf -- OK @ 6 Dec 2001 14:44:16
+# Sequence number = LN4614 -- RF05.cdf -- OK @ 6 Dec 2001 15:01:47
+# Sequence number = LN4622 -- RF06.cdf -- OK @ 6 Dec 2001 14:51:05
+# Sequence number = LN4630 -- RF07.cdf -- OK @ 6 Dec 2001 14:54:02
+# Sequence number = LN4637 -- RF08.cdf -- OK @ 6 Dec 2001 14:53:27
+# Sequence number = LN4644 -- RF09.cdf -- OK @ 6 Dec 2001 15:00:39
+# Sequence number = LN4652 -- RF10.cdf -- OK @ 6 Dec 2001 14:49:54
+# Sequence number = LN4660 -- TF01.cdf -- OK @ 6 Dec 2001 14:46:39
+# Sequence number = LN4668 -- TF02.cdf -- OK @ 6 Dec 2001 15:02:24
+# Sequence number = LN4676 -- TF03.cdf -- OK @ 6 Dec 2001 14:44:45
+#
+#
+#  High-Rate Data Archive
+#  Production directory:  /RAF/2001/181/HRT/
+#   1st wave
+#  Job(s) submitted on Mon Dec 10 11:03:41 MST 2001
+# Sequence number = LN4613 -- RF01.cdf -- OK @ 10 Dec 2001 12:27:33
+# Sequence number = LN4621 -- RF02.cdf -- OK @ 10 Dec 2001 12:19:07
+# Sequence number = LN4629 -- RF03.cdf -- OK @ 10 Dec 2001 13:33:19
+#
+#   2nd wave
+#  Job(s) submitted on Tue Dec 11 10:54:04 MST 2001
+# Sequence number = LN2709 -- RF04.cdf -- OK @ 11 Dec 2001 11:44:52
+# Sequence number = LN2716 -- RF05.cdf -- OK @ 11 Dec 2001 11:38:27
+# Sequence number = LN2721 -- RF06.cdf -- OK @ 11 Dec 2001 11:48:45
+# Sequence number = LN2729 -- RF07.cdf -- OK @ 11 Dec 2001 11:50:42
+#
+#   3rd wave
+#  Job(s) submitted on Wed Dec 12 11:22:52 MST 2001
+# Sequence number = LN4993 -- RF08.cdf -- OK @ 12 Dec 2001 12:13:58
+# Sequence number = LN5001 -- RF09.cdf -- OK @ 12 Dec 2001 12:09:46
+# Sequence number = LN5009 -- RF10.cdf -- OK @ 12 Dec 2001 11:45:20
+#
+#   4th wave
+#  Job(s) submitted on Fri Dec 14 10:51:22 MST 2001
+# Sequence number = LN5276 -- FF02.cdf -- OK @ 14 Dec 2001 11:05:19
+#
+#   5th wave (remove bad HRT files)
+#  Job(s) submitted on Wed Jan  2 17:06:29 MST 2002
+# Sequence number = LN2251 -- ../HRT/* -- OK @ 2 Jan 2002 17:06:57
+#
+#   6th wave (HRT)  Directory:  /RAF/2001/181/HRT/
+#  Job(s) submitted on Tue Jan  8 15:54:51 MST 2002
+# Sequence number = LN5055 -- HRT/FF02.cdf -- OK @ 8 Jan 2002 21:06:33
+# Sequence number = LN5063 -- HRT/RF01.cdf -- OK @ 8 Jan 2002 21:17:10
+# Sequence number = LN5071 -- HRT/RF02.cdf -- OK @ 8 Jan 2002 19:12:12
+# Sequence number = LN5079 -- HRT/RF03.cdf -- OK @ 8 Jan 2002 20:16:23
+# Sequence number = LN5087 -- HRT/RF04.cdf -- OK @ 8 Jan 2002 19:51:17
+# Sequence number = LN5095 -- HRT/RF05.cdf -- OK @ 8 Jan 2002 20:48:09
+# Sequence number = LN5103 -- HRT/RF06.cdf -- OK @ 8 Jan 2002 20:09:00
+# Sequence number = LN5111 -- HRT/RF07.cdf -- OK @ 8 Jan 2002 21:13:32
+# Sequence number = LN5119 -- HRT/RF08.cdf -- OK @ 8 Jan 2002 21:35:00
+# Sequence number = LN5127 -- HRT/RF09.cdf -- OK @ 8 Jan 2002 19:53:02
+# Sequence number = LN5135 -- HRT/RF10.cdf -- OK @ 8 Jan 2002 20:23:33
+#
+#   7th wave (LRT RF01 reprocess)  Directory:  /RAF/2001/181/LRT/
+#  Job(s) submitted on Thu Jan 24 15:51:49 MST 2002
+# Sequence number = LN8061 -- RF01.cdf -- OK @ 24 Jan 2002 16:05:38
+#
+#   8th wave (HRT RF09 reprocess)  Directory:  /RAF/2001/181/HRT/
+#  Job(s) submitted on Thu Mar 28 15:14:53 MST 2002
+# Sequence number = LN8933 -- RF09.cdf -- OK @ 28 Mar 2002 15:35:10
+#
+#       wave
+#  Job(s) submitted on 
+#

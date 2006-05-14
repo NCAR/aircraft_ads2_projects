@@ -1,0 +1,100 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2001-161 EPIC2001 (Raymond, et al.)
+#   using the new ATD directory path
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 12b on Wed Jul 30 17:37:39 MDT 2003
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "vivaldi"
+endif
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+#set SFILES = ( \
+#161rf01h.nc \
+#161rf02h.nc \
+#161rf04h.nc \
+#161rf05h.nc \
+#161rf07h.nc \
+#161rf09h.nc \
+#161rf12h.nc \
+#161rf13h.nc \
+#161rf17h.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF01.20010903.135903_223711.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF02.20010905.135351_222920.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF04.20010909.142800_220604.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF05.20010913.142800_220433.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF07.20010916.142400_213831.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF09.20010920.145500_225234.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF12.20010928.143000_220059.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF13.20010929.142900_223315.PNI.nc \
+#mss:/ATD/DATA/2001/EPIC2001/C130_N130AR/HRT/RF17.20011006.153200_232220.PNI.nc \
+#)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2001/EPIC2001/C130_N130AR/"
+echo "#  (Check year in path, if project occurred in more than one.)"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  9 job(s) submitted on Wed Jul 30 17:55:16 MDT 2003
+#  Files archived to MSS directory:  /ATD/DATA/2001/EPIC2001/C130_N130AR/
+#   HRT/RF01.20010903.135903_223711.PNI.nc -- OK -- Wed Jul 30 17:56:30 MDT 2003
+#   HRT/RF02.20010905.135351_222920.PNI.nc -- OK -- Wed Jul 30 17:57:42 MDT 2003
+#   HRT/RF04.20010909.142800_220604.PNI.nc -- OK -- Wed Jul 30 17:58:57 MDT 2003
+#   HRT/RF05.20010913.142800_220433.PNI.nc -- OK -- Wed Jul 30 18:00:24 MDT 2003
+#   HRT/RF07.20010916.142400_213831.PNI.nc -- OK -- Wed Jul 30 18:01:38 MDT 2003
+#   HRT/RF09.20010920.145500_225234.PNI.nc -- OK -- Wed Jul 30 18:03:09 MDT 2003
+#   HRT/RF12.20010928.143000_220059.PNI.nc -- OK -- Wed Jul 30 18:04:13 MDT 2003
+#   HRT/RF13.20010929.142900_223315.PNI.nc -- OK -- Wed Jul 30 18:05:23 MDT 2003
+#   HRT/RF17.20011006.153200_232220.PNI.nc -- OK -- Wed Jul 30 18:06:28 MDT 2003
+#   Completed on Wed Jul 30 18:06:28 MDT 2003
+#

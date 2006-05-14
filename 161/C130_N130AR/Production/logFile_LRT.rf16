@@ -1,0 +1,58 @@
+EPIC2001 - 161, Flight rf16
+Version - 3.1.2
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /jnet/solaris/proj/161/Production/Flight_rf16
+DT1DP_LWO1 has no description or units.
+DT2DP_LWO2 has no description or units.
+DIFF1 has no description or units.
+Processed on: Apr 22 17:31 UTC 2002
+Flight Date: 10/05/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+DT1DP_LWO1 has no entry in the VarDB.
+DT2DP_LWO2 has no entry in the VarDB.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+DIFF1 has no entry in the VarDB.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Blanking PLWC1 from 14:49:00 to 23:42:00.
+ The following variables depend upon this variable:
+  PLWCC1
+Blanking AS300_RPC from 14:49:00 to 23:42:00.
+ The following variables depend upon this variable:
+  CONC3_RPC CS300_RPC DBAR3_RPC PLWCC1
+Blanking FTMP3_RPC from 14:49:00 to 23:42:00.
+Blanking CONC3_RPC from 14:49:00 to 23:42:00.
+ The following variables depend upon this variable:
+  CONC3_RPC CS300_RPC DBAR3_RPC PLWCC1
+Blanking CS300_RPC from 14:49:00 to 23:42:00.
+ The following variables depend upon this variable:
+  CONC3_RPC CS300_RPC DBAR3_RPC PLWCC1
+Blanking DBAR3_RPC from 14:49:00 to 23:42:00.
+ The following variables depend upon this variable:
+  CONC3_RPC CS300_RPC DBAR3_RPC PLWCC1
+Blanking PLWCC1 from 14:49:00 to 23:42:00.
+ The following variables depend upon this variable:
+  CONC3_RPC CS300_RPC DBAR3_RPC PLWCC1
+Blanking RSTB from 21:43:00 to 23:38:00.
+Blanking HGM232 from 15:33:52 to 15:33:56.
+ The following variables depend upon this variable:
+  PSURF
+Blanking PLWCC from 14:49:00 to 14:51:30.
+Blanking PLWCC from 23:41:00 to 23:42:00.
+Blanking OAT from 20:24:00 to 20:48:00.
+ The following variables depend upon this variable:
+  DIFF1
+Blanking OAT from 23:31:25 to 23:32:00.
+ The following variables depend upon this variable:
+  DIFF1
+Time interval(s) completed : 14:49:00-23:42:00
+Processing took 4.6 minutes.

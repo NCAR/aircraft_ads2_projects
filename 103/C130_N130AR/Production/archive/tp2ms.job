@@ -1,0 +1,79 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1998-103 Solar Corona (MacQueen, et al.)
+#    rev. 980105  RLR
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+#set SKIPS   = ( "skpr=0" )
+#set SKIPS   = ( "skpr=16000" )
+#set SKIPS   = ( "skpr=32000" )
+#
+#set RECS    = ( "nfile=1" )
+#set RECS    = ( "nrec=16000" )
+#
+#  1st set, 1st try
+set SKIPS   = ( "skpr=0" )
+set RECS    = ( "nfile=1" )
+set TAPES   = ( \
+R1219 \
+R1220 \
+R1221 \
+R1222 \
+)
+set FLIGHTS = ( \
+RF01 \
+RF02 \
+RF03 \
+RF04 \
+)
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $SKIP $REC \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st try
+#  Jobs submitted on Thu Mar  5 16:42:26 MST 1998
+# Sequence number = MI0523 -- RF01/R1219 -- OK @ 05 Mar 98 20:06:41
+# Sequence number = MI0530 -- RF02/R1220 -- OK @ 05 Mar 98 20:25:48
+# Sequence number = MI0537 -- RF03/R1221 -- OK @ 05 Mar 98 20:31:54
+# Sequence number = MI0544 -- RF04/R1222 -- OK @ 05 Mar 98 20:38:42
+#

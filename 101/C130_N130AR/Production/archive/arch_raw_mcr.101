@@ -1,0 +1,727 @@
+#! /bin/csh -f
+#
+#  Archive stripped MCR data files for 1998-101 SHEBA
+#   (Done one file at a time to keep from overloading the network)
+goto rename
+#
+#  File adapted from file /home/local/proj/101/Production/archive/arch.101.2d
+#    by Ron Ruth  23 March 1999
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set YEAR = 1998
+set PROJ = 101
+#set SDIR = $TEMP
+#set SDIR = /home/staticdata
+set SDIR = $DATA_DIR
+set TURBRT = MCR
+#
+# Preliminary wave
+#set SFILES = ( \
+#101rf16.rawMCRa \
+#101rf16.rawMCRb \
+#101rf16.rawMCRc \
+#)
+#set DFILES = ( \
+#RF16A \
+#RF16B \
+#RF16C \
+#)
+#
+# 1st wave
+#set SFILES = ( \
+#101rf01.rawMCRa \
+#)
+#set DFILES = ( \
+#RF01A \
+#)
+#
+# 2nd wave
+#set SFILES = ( \
+#101rf01.rawMCRb \
+#)
+#set DFILES = ( \
+#RF01B \
+#)
+#
+# 3rd wave
+#set SFILES = ( \
+#101rf01.rawMCRc \
+#)
+#set DFILES = ( \
+#RF01C \
+#)
+#
+# 4th wave
+#set SFILES = ( \
+#101rf01.rawMCRd \
+#)
+#set DFILES = ( \
+#RF01D \
+#)
+#
+# 5th wave
+#set SFILES = ( \
+#101rf02.rawMCRa \
+#)
+#set DFILES = ( \
+#RF02A \
+#)
+#
+# 6th wave
+#set SFILES = ( \
+#101rf02.rawMCRb \
+#)
+#set DFILES = ( \
+#RF02B \
+#)
+#
+# 7th wave
+#set SFILES = ( \
+#101rf02.rawMCRc \
+#)
+#set DFILES = ( \
+#RF02C \
+#)
+#
+# 8th wave
+#set SFILES = ( \
+#101rf03.rawMCRa \
+#)
+#set DFILES = ( \
+#RF03A \
+#)
+#
+# 9th wave
+#set SFILES = ( \
+#101rf03.rawMCRb \
+#)
+#set DFILES = ( \
+#RF03B \
+#)
+#
+# 10th wave
+#set SFILES = ( \
+#101rf03.rawMCRc \
+#)
+#set DFILES = ( \
+#RF03C \
+#)
+#
+# 11th wave
+#set SFILES = ( \
+#101rf04.rawMCRa \
+#)
+#set DFILES = ( \
+#RF04A \
+#)
+#
+# 12th wave
+#set SFILES = ( \
+#101rf04.rawMCRb \
+#)
+#set DFILES = ( \
+#RF04B \
+#)
+#
+# 13th wave
+#set SFILES = ( \
+#101rf04.rawMCRc \
+#)
+#set DFILES = ( \
+#RF04C \
+#)
+#
+# 14th wave
+#set SFILES = ( \
+#101rf05.rawMCRa \
+#)
+#set DFILES = ( \
+#RF05A \
+#)
+#
+# 15th wave
+#set SFILES = ( \
+#101rf05.rawMCRb \
+#)
+#set DFILES = ( \
+#RF05B \
+#)
+#
+# 16th wave
+#set SFILES = ( \
+#101rf05.rawMCRc \
+#)
+#set DFILES = ( \
+#RF05C \
+#)
+#
+# 17th wave
+#set SFILES = ( \
+#101rf06.rawMCRa \
+#)
+#set DFILES = ( \
+#RF06A \
+#)
+#
+# 18th wave
+#set SFILES = ( \
+#101rf06.rawMCRb \
+#)
+#set DFILES = ( \
+#RF06B \
+#)
+#
+# 19th and 20th waves
+#set SFILES = ( \
+#101rf06.rawMCRc \
+#)
+#set DFILES = ( \
+#RF06C \
+#)
+#
+# 21st wave
+#set SFILES = ( \
+#101rf07.rawMCRa \
+#)
+#set DFILES = ( \
+#RF07A \
+#)
+#
+# 22nd wave
+#set SFILES = ( \
+#101rf07.rawMCRb \
+#)
+#set DFILES = ( \
+#RF07B \
+#)
+#
+# 23rd wave
+#set SFILES = ( \
+#101rf07.rawMCRc \
+#)
+#set DFILES = ( \
+#RF07C \
+#)
+#
+# 24th wave
+#set SFILES = ( \
+#101rf08.rawMCRa \
+#)
+#set DFILES = ( \
+#RF08A \
+#)
+#
+# 25th wave
+#set SFILES = ( \
+#101rf08.rawMCRb \
+#)
+#set DFILES = ( \
+#RF08B \
+#)
+#
+# 26th wave
+#set SFILES = ( \
+#101rf08.rawMCRc \
+#)
+#set DFILES = ( \
+#RF08C \
+#)
+#
+# 27th wave
+#set SFILES = ( \
+#101rf09.rawMCRa \
+#)
+#set DFILES = ( \
+#RF09A \
+#)
+#
+# 28th wave
+#set SFILES = ( \
+#101rf09.rawMCRb \
+#)
+#set DFILES = ( \
+#RF09B \
+#)
+#
+# 29th wave
+#set SFILES = ( \
+#101rf09.rawMCRc \
+#)
+#set DFILES = ( \
+#RF09C \
+#)
+#
+# 30th wave
+#set SFILES = ( \
+#101rf10.rawMCRa \
+#)
+#set DFILES = ( \
+#RF10A \
+#)
+#
+# 31st wave
+#set SFILES = ( \
+#101rf10.rawMCRb \
+#)
+#set DFILES = ( \
+#RF10B \
+#)
+#
+# 32nd wave
+#set SFILES = ( \
+#101rf10.rawMCRc \
+#)
+#set DFILES = ( \
+#RF10C \
+#)
+#
+# 33rd wave
+#set SFILES = ( \
+#101rf11.rawMCRa \
+#)
+#set DFILES = ( \
+#RF11A \
+#)
+#
+# 34rd wave
+#set SFILES = ( \
+#101rf11.rawMCRb \
+#)
+#set DFILES = ( \
+#RF11B \
+#)
+#
+# 35rd wave
+#set SFILES = ( \
+#101rf11.rawMCRc \
+#)
+#set DFILES = ( \
+#RF11C \
+#)
+#
+# 36th wave
+#set SFILES = ( \
+#101rf12.rawMCRa \
+#)
+#set DFILES = ( \
+#RF12A \
+#)
+#
+# 37th wave
+#set SFILES = ( \
+#101rf12.rawMCRb \
+#)
+#set DFILES = ( \
+#RF12B \
+#)
+#
+# 38th wave
+#set SFILES = ( \
+#101rf12.rawMCRc \
+#)
+#set DFILES = ( \
+#RF12C \
+#)
+#
+# 39th wave
+#set SFILES = ( \
+#101rf13.rawMCRa \
+#)
+#set DFILES = ( \
+#RF13A \
+#)
+#
+# 40th wave
+#set SFILES = ( \
+#101rf13.rawMCRb \
+#)
+#set DFILES = ( \
+#RF13B \
+#)
+#
+# 41st wave
+#set SFILES = ( \
+#101rf13.rawMCRc \
+#)
+#set DFILES = ( \
+#RF13C \
+#)
+#
+# 42nd wave
+#set SFILES = ( \
+#101rf14.rawMCRa \
+#)
+#set DFILES = ( \
+#RF14A \
+#)
+#
+# 43rd wave
+#set SFILES = ( \
+#101rf14.rawMCRb \
+#)
+#set DFILES = ( \
+#RF14B \
+#)
+#
+# 44th wave
+#set SFILES = ( \
+#101rf14.rawMCRc \
+#)
+#set DFILES = ( \
+#RF14C \
+#)
+#
+# 45th wave
+#set SFILES = ( \
+#101rf15.rawMCRa \
+#)
+#set DFILES = ( \
+#RF15A \
+#)
+#
+# 46th wave
+#set SFILES = ( \
+#101rf15.rawMCRb \
+#)
+#set DFILES = ( \
+#RF15B \
+#)
+#
+# 47th wave
+#set SFILES = ( \
+#101rf15.rawMCRc \
+#)
+#set DFILES = ( \
+#RF15C \
+#)
+#
+# 48th wave
+#set SFILES = ( \
+#101rf16.rawMCRa \
+#)
+#set DFILES = ( \
+#RF16A \
+#)
+#
+# 49th wave
+#set SFILES = ( \
+#101rf16.rawMCRb \
+#)
+#set DFILES = ( \
+#RF16B \
+#)
+#
+# 50th wave
+#set SFILES = ( \
+#101rf16.rawMCRc \
+#)
+#set DFILES = ( \
+#RF16C \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1998/101/
+#
+# Preliminary wave
+#  Job(s) submitted on Fri Sep 18 11:21:52 MDT 1998
+# Sequence number = MI9822 -- RAWMCR/RF16A -- OK @ 18 Sep 1998 12:07:45
+# Sequence number = MI9829 -- RAWMCR/RF16B -- OK @ 18 Sep 1998 13:52:22
+# Sequence number = MI9836 -- RAWMCR/RF16C -- OK @ 18 Sep 1998 11:39:46
+#
+# 1st wave
+#  Job(s) submitted on Tue Mar 23 13:36:46 MST 1999
+# Sequence number = MI9469 -- MCR/RF01A -- OK @ 23 Mar 1999 14:03:59
+#
+# 2nd wave
+#  Job(s) submitted on Tue Mar 23 16:26:21 MST 1999
+# Sequence number = MI0679 -- MCR/RF01B -- OK @ 23 Mar 1999 16:56:56
+#
+# 3rd wave
+#  Job(s) submitted on Wed Mar 24 11:17:10 MST 1999
+# Sequence number = MI8484 -- MCR/RF01C -- OK @ 24 Mar 1999 11:30:38
+#
+# 4th wave
+#  Job(s) submitted on Wed Mar 24 11:29:36 MST 1999
+# Sequence number = MI8668 -- MCR/RF01D -- OK @ 24 Mar 1999 11:37:24
+#
+# 5th wave
+#  Job(s) submitted on Wed Mar 24 12:07:01 MST 1999
+# Sequence number = MI9323 -- MCR/RF02A -- OK @ 24 Mar 1999 12:32:13
+#
+# 6th wave
+#  Job(s) submitted on Wed Mar 24 12:36:34 MST 1999
+# Sequence number = MI9855 -- MCR/RF02B -- OK @ 24 Mar 1999 12:55:38
+#
+# 7th wave
+#  Job(s) submitted on Wed Mar 24 14:59:30 MST 1999
+# Sequence number = MI1091 -- MCR/RF02C -- OK @ 24 Mar 1999 15:37:42
+#
+# 8th wave
+#  Job(s) submitted on Fri Mar 26 14:05:38 MST 1999
+# Sequence number = MI7906 -- MCR/RF03A -- OK @ 26 Mar 1999 14:34:45
+#
+# 9th wave
+#  Job(s) submitted on Fri Mar 26 14:37:01 MST 1999
+# Sequence number = MI8006 -- MCR/RF03B -- OK @ 26 Mar 1999 15:06:00
+#
+# 10th wave
+#  Job(s) submitted on Fri Mar 26 15:16:13 MST 1999
+# Sequence number = MI9065 -- MCR/RF03C -- OK @ 26 Mar 1999 15:36:26
+#
+# 11th wave
+#  Job(s) submitted on Fri Mar 26 16:05:09 MST 1999
+# Sequence number = MI2085 -- MCR/RF04A -- OK @ 26 Mar 1999 16:32:40
+#
+# 12th wave
+#  Job(s) submitted on Fri Mar 26 15:23:11 MST 1999
+# Sequence number = MI0387 -- MCR/RF04B -- OK @ 26 Mar 1999 15:39:44
+#
+# 13th wave
+#  Job(s) submitted on Fri Mar 26 15:45:00 MST 1999
+# Sequence number = MI2039 -- MCR/RF04C -- OK @ 26 Mar 1999 16:03:48
+#
+# 14th wave
+#  Job(s) submitted on Mon Mar 29 14:33:46 MST 1999
+# Sequence number = MI6938 -- MCR/RF05A -- OK @ 29 Mar 1999 15:03:30
+#
+# 15th wave
+#  Job(s) submitted on Mon Mar 29 15:19:35 MST 1999
+# Sequence number = MI8301 -- MCR/RF05B -- OK @ 29 Mar 1999 15:46:14
+#
+# 16th wave
+#  Job(s) submitted on Mon Mar 29 15:39:59 MST 1999
+# Sequence number = MI8409 -- MCR/RF05C -- OK @ 29 Mar 1999 15:50:24
+#
+# 17th wave
+#  Job(s) submitted on Mon Mar 29 16:34:09 MST 1999
+# Sequence number = MI9959 -- MCR/RF06A -- OK @ 29 Mar 1999 17:05:31
+#
+# 18th wave
+#  Job(s) submitted on Tue Mar 30 10:38:30 MST 1999
+# Sequence number = MI1243 -- MCR/RF06B -- OK @ 30 Mar 1999 11:07:02
+#
+# 19th wave
+#  Job(s) submitted on Tue Mar 30 10:59:31 MST 1999
+# Sequence number = MI1410 -- MCR/RF06C -- OK @ 30 Mar 1999 11:08:16
+#
+# 20th wave
+#  Job(s) submitted on Tue Mar 30 11:41:48 MST 1999
+# Sequence number = MI3411 -- MCR/RF06C -- OK @ 30 Mar 1999 11:54:36
+#
+# 21st wave
+#  Job(s) submitted on Wed Mar 31 11:08:52 MST 1999
+# Sequence number = MI3120 -- MCR/RF07A -- OK @ 31 Mar 1999 11:37:29
+#
+# 22nd wave
+#  Job(s) submitted on Wed Mar 31 11:51:29 MST 1999
+# Sequence number = MI3600 -- MCR/RF07B -- OK @ 31 Mar 1999 12:18:14
+#
+# 23rd wave
+#  Job(s) submitted on Wed Mar 31 12:13:21 MST 1999
+# Sequence number = MI3856 -- MCR/RF07C -- OK @ 31 Mar 1999 12:25:25
+#
+# 24th wave
+#  Job(s) submitted on Wed Mar 31 12:22:24 MST 1999
+# Sequence number = MI3989 -- MCR/RF08A -- OK @ 31 Mar 1999 12:51:11
+#
+# 25th wave
+#  Job(s) submitted on Wed Mar 31 12:51:05 MST 1999
+# Sequence number = MI4287 -- MCR/RF08B -- OK @ 31 Mar 1999 13:22:19
+#
+# 26th wave
+#  Job(s) submitted on Wed Mar 31 13:14:22 MST 1999
+# Sequence number = MI4466 -- MCR/RF08C -- OK @ 31 Mar 1999 13:27:15
+#
+# 27th wave
+#  Job(s) submitted on Tue Jun  1 14:22:27 MDT 1999
+# Sequence number = MI4107 -- MCR/RF09A -- OK @ 1 Jun 1999 14:46:34
+#
+# 28th wave
+#  Job(s) submitted on Tue Jun  1 14:56:46 MDT 1999
+# Sequence number = MI4151 -- MCR/RF09B -- OK @ 1 Jun 1999 15:22:02
+#
+# 29th wave
+#  Job(s) submitted on Tue Jun  1 15:47:23 MDT 1999
+# Sequence number = MI4274 -- MCR/RF09C -- OK @ 1 Jun 1999 15:59:47
+#
+# 30th wave
+#  Job(s) submitted on Wed Jun  2 10:19:24 MDT 1999
+# Sequence number = MI1808 -- MCR/RF10A -- OK @ 2 Jun 1999 10:53:21
+#
+# 31st wave
+#  Job(s) submitted on Wed Jun  2 10:53:49 MDT 1999
+# Sequence number = MI2208 -- MCR/RF10B -- OK @ 2 Jun 1999 11:19:06
+#
+# 32nd wave
+#  Job(s) submitted on Wed Jun  2 11:56:20 MDT 1999
+# Sequence number = MI3265 -- MCR/RF10C -- OK @ 2 Jun 1999 12:00:49
+#
+# 33rd wave
+#  Job(s) submitted on Wed Jun  2 15:11:00 MDT 1999
+# Sequence number = MI7961 -- MCR/RF11A -- OK @ 2 Jun 1999 15:38:22
+#
+# 34th wave
+#  Job(s) submitted on Wed Jun  2 15:53:39 MDT 1999
+# Sequence number = MI8563 -- MCR/RF11B -- OK @ 2 Jun 1999 16:20:45
+#
+# 35th wave
+#  Job(s) submitted on Wed Jun  2 16:11:25 MDT 1999
+# Sequence number = MI8642 -- MCR/RF11C -- OK @ 2 Jun 1999 16:24:06
+#
+# 36th wave
+#  Job(s) submitted on Thu Jun  3 10:32:35 MDT 1999
+# Sequence number = MI4053 -- MCR/RF12A -- OK @ 3 Jun 1999 11:06:49
+#
+# 37th wave
+#  Job(s) submitted on Thu Jun  3 11:10:37 MDT 1999
+# Sequence number = MI4535 -- MCR/RF12B -- OK @ 3 Jun 1999 11:36:43
+#
+# 38th wave
+#  Job(s) submitted on Thu Jun  3 11:37:27 MDT 1999
+# Sequence number = MI5064 -- MCR/RF12C -- OK @ 3 Jun 1999 11:47:39
+#
+# 39th wave
+#  Job(s) submitted on Fri Jun 18 11:42:59 MDT 1999
+# Sequence number = MI6982 -- MCR/RF13A -- OK @ 18 Jun 1999 12:07:09
+#
+# 40th wave
+#  Job(s) submitted on Fri Jun 18 12:03:27 MDT 1999
+# Sequence number = MI7284 -- MCR/RF13B -- OK @ 18 Jun 1999 12:28:20
+#
+# 40st wave
+#  Job(s) submitted on Fri Jun 18 12:29:54 MDT 1999
+# Sequence number = MI7365 -- MCR/RF13C -- OK @ 18 Jun 1999 12:39:56
+#
+# 42nd wave
+#  Job(s) submitted on Mon Jun 21 10:55:53 MDT 1999
+# Sequence number = MI7202 -- MCR/RF14A -- OK @ 21 Jun 1999 11:24:40
+#
+# 43rd wave
+#  Job(s) submitted on Mon Jun 21 16:38:14 MDT 1999
+# Sequence number = MI8268 -- MCR/RF14B -- OK @ 21 Jun 1999 17:03:19
+#
+# 44th wave
+#  Job(s) submitted on Mon Jun 21 18:04:00 MDT 1999
+# Sequence number = MI8544 -- MCR/RF14C -- OK @ 21 Jun 1999 18:14:47
+#
+# 45th wave
+#  Job(s) submitted on Wed Jul  7 17:04:31 MDT 1999
+# Sequence number = MI8180 -- MCR/RF15A -- OK @ 7 Jul 1999 17:29:30
+#
+# 46th wave
+#  Job(s) submitted on Wed Jul  7 17:23:45 MDT 1999
+# Sequence number = MI8325 -- MCR/RF15B -- OK @ 7 Jul 1999 17:57:53
+#
+# 47th wave
+#  Job(s) submitted on Wed Jul  7 17:45:30 MDT 1999
+# Sequence number = MI8511 -- MCR/RF15C -- OK @ 7 Jul 1999 19:00:54
+#
+# 48th wave
+#  Job(s) submitted on Fri Jul  9 14:31:21 MDT 1999
+# Sequence number = MI9705 -- MCR/RF16A -- OK @ 9 Jul 1999 14:54:50
+#
+# 49th wave
+#  Job(s) submitted on Fri Jul  9 14:52:33 MDT 1999
+# Sequence number = MI9875 -- MCR/RF16B -- OK @ 9 Jul 1999 15:18:10
+#
+# 50th wave
+#  Job(s) submitted on Fri Jul  9 15:11:33 MDT 1999
+# Sequence number = MI0219 -- MCR/RF16C -- OK @ 9 Jul 1999 15:19:39
+#
+rename:
+#
+#  Since these were raw MCR files, they should have been put in a RAW_MCR directory
+#  (Run this on lenny, since it has updated DCE commands.)
+#date:  Fri Aug 17 17:05:45 MDT 2001
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF01A /RAF/1998/101/RAW_MCR/RF01A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF01B /RAF/1998/101/RAW_MCR/RF01B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF01C /RAF/1998/101/RAW_MCR/RF01C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF01D /RAF/1998/101/RAW_MCR/RF01D
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF02A /RAF/1998/101/RAW_MCR/RF02A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF02B /RAF/1998/101/RAW_MCR/RF02B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF02C /RAF/1998/101/RAW_MCR/RF02C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF03A /RAF/1998/101/RAW_MCR/RF03A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF03B /RAF/1998/101/RAW_MCR/RF03B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF03C /RAF/1998/101/RAW_MCR/RF03C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF04A /RAF/1998/101/RAW_MCR/RF04A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF04B /RAF/1998/101/RAW_MCR/RF04B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF04C /RAF/1998/101/RAW_MCR/RF04C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF05A /RAF/1998/101/RAW_MCR/RF05A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF05B /RAF/1998/101/RAW_MCR/RF05B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF05C /RAF/1998/101/RAW_MCR/RF05C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF06A /RAF/1998/101/RAW_MCR/RF06A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF06B /RAF/1998/101/RAW_MCR/RF06B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF06C /RAF/1998/101/RAW_MCR/RF06C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF07A /RAF/1998/101/RAW_MCR/RF07A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF07B /RAF/1998/101/RAW_MCR/RF07B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF07C /RAF/1998/101/RAW_MCR/RF07C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF08A /RAF/1998/101/RAW_MCR/RF08A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF08B /RAF/1998/101/RAW_MCR/RF08B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF08C /RAF/1998/101/RAW_MCR/RF08C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF09A /RAF/1998/101/RAW_MCR/RF09A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF09B /RAF/1998/101/RAW_MCR/RF09B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF09C /RAF/1998/101/RAW_MCR/RF09C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF10A /RAF/1998/101/RAW_MCR/RF10A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF10B /RAF/1998/101/RAW_MCR/RF10B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF10C /RAF/1998/101/RAW_MCR/RF10C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF11A /RAF/1998/101/RAW_MCR/RF11A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF11B /RAF/1998/101/RAW_MCR/RF11B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF11C /RAF/1998/101/RAW_MCR/RF11C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF12A /RAF/1998/101/RAW_MCR/RF12A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF12B /RAF/1998/101/RAW_MCR/RF12B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF12C /RAF/1998/101/RAW_MCR/RF12C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF13A /RAF/1998/101/RAW_MCR/RF13A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF13B /RAF/1998/101/RAW_MCR/RF13B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF13C /RAF/1998/101/RAW_MCR/RF13C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF14A /RAF/1998/101/RAW_MCR/RF14A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF14B /RAF/1998/101/RAW_MCR/RF14B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF14C /RAF/1998/101/RAW_MCR/RF14C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF15A /RAF/1998/101/RAW_MCR/RF15A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF15B /RAF/1998/101/RAW_MCR/RF15B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF15C /RAF/1998/101/RAW_MCR/RF15C
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF16A /RAF/1998/101/RAW_MCR/RF16A
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF16B /RAF/1998/101/RAW_MCR/RF16B
+#msmv -pr 41113009 -wpwd RAFDMG /RAF/1998/101/MCR/RF16C /RAF/1998/101/RAW_MCR/RF16C
+#date:  Aug 17 17:07:09 MDT 2001
+#
+#

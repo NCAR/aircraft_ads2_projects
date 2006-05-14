@@ -1,0 +1,249 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1998-101 SHEBA (Judy Curry)
+#    rev. 980105  RLR
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+#set SKIPS   = ( "skpr=0" )
+#set SKIPS   = ( "skpr=100000" )
+#set SKIPS   = ( "skpr=200000" )
+#
+#set RECS    = ( "nfile=1" )
+#set RECS    = ( "nrec=100000" )
+#
+#  1st set, 1st try
+#set SKIPS   = ( "skpr=0" )
+#set RECS    = ( "nfile=1" )
+#set TAPES   = ( \
+#R1256 \
+#R1257 \
+#R1258 \
+#R1259 \
+#R1260 \
+#R1261 \
+#R1262 \
+#R1263 \
+#R1264 \
+#R1265 \
+#R1266 \
+#R1267 \
+#R1268 \
+#R1269)
+#set FLIGHTS = ( \
+#FF01  \
+#RF01A \
+#RF01C \
+#RF02A \
+#RF02B \
+#RF03  \
+#RF04A \
+#RF04B \
+#RF05  \
+#RF06  \
+#RF07  \
+#RF08)
+#
+#  1st set, 2nd try (1st segment)
+#set SKIPS   = ( "skpr=0" )
+#set RECS    = ( "nrec=100000" )
+#set TAPES   = ( \
+#R1256 \
+#R1258 \
+#R1261 \
+#)
+#set FLIGHTS = ( \
+#FF01A \
+#RF01AA \
+#RF02AA \
+#)
+#
+#  1st set, 3rd try (2nd segment)
+#set SKIPS   = ( "skpr=100000" )
+#set RECS    = ( "nrec=100000" )
+#set TAPES   = ( \
+#R1256 \
+#R1258 \
+#R1261 \
+#)
+#set FLIGHTS = ( \
+#FF01B \
+#RF01AB \
+#RF02AB \
+#)
+#
+#  1st set, 4th try (1st segment)
+#set SKIPS   = ( "skpr=0" )
+#set RECS    = ( "nrec=100000" )
+#set TAPES   = ( \
+#R1261 \
+#)
+#set FLIGHTS = ( \
+#RF02AA \
+#)
+#
+#  1st set, 5th try (3rd segment)
+#set SKIPS   = ( "skpr=200000" )
+#set RECS    = ( "nrec=100000" )
+#set TAPES   = ( \
+#R1256 \
+#)
+#set FLIGHTS = ( \
+#FF01C \
+#)
+#
+#  1st set, 6th try (test "msimport" bug fix)
+#set SKIPS   = ( "skpr=200000" )
+#set RECS    = ( "nrec=100000" )
+#set TAPES   = ( \
+#R1256 \
+#)
+#set FLIGHTS = ( \
+#FF01C \
+#)
+#
+#  1st set, 7th try (finish up)
+set SKIPS   = ( "skpr=100000" "skpr=100000" \
+                "skpr=0"      "skpr=100000" "skpr=200000" \
+                "skpr=0"      "skpr=100000" \
+                "skpr=0"      "skpr=100000" "skpr=200000" \
+                "skpr=0"      "skpr=100000" "skpr=200000" \
+                "skpr=0"      "skpr=100000" "skpr=200000" \
+                "skpr=0"      "skpr=100000" "skpr=200000" \
+)
+set RECS    = ( "nfile=1"  "nfile=1" \
+                "nrec=100000" "nrec=100000" "nfile=1" \
+                "nrec=100000" "nfile=1" \
+                "nrec=100000" "nrec=100000" "nrec=100000" \
+                "nrec=100000" "nrec=100000" "nrec=100000" \
+                "nrec=100000" "nrec=100000" "nrec=100000" \
+                "nrec=100000" "nrec=100000" "nrec=100000" \
+)
+set TAPES   = ( R1258         R1261 \
+                R1263         R1263         R1263 \
+                R1264         R1264 \
+                R1266         R1266         R1266 \
+                R1267         R1267         R1267 \
+                R1268         R1268         R1268 \
+                R1269         R1269         R1269 \
+)
+set FLIGHTS = ( RF01AB        RF02AB \
+                RF03A         RF03B         RF03C \
+                RF04AA        RF04AB \
+                RF05A         RF05B         RF05C \
+                RF06A         RF06B         RF06C \
+                RF07A         RF07B         RF07C \
+                RF08A         RF08B         RF08C \
+)
+#
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $SKIP $REC \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st try
+#  Job(s) submitted on Mon Jun  1 16:15:10 MDT 1998
+# Sequence number = MI2081 -- FF01/R1256 -- Failed*  06/01/98 AT 16:23:17.913
+# Sequence number = MI2088 -- FF02/R1257 -- OK @ 06/01/98 AT 23:14:33.595
+# Sequence number = MI2095 -- RF01A/R1258 -- Failed**  06/02/98 AT 00:46:08.011
+# Sequence number = MI2102 -- RF01B/R1259 -- OK @ 06/02/98 AT 03:25:43.835
+# Sequence number = MI2109 -- RF01C/R1260 -- OK @ 06/02/98 AT 11:22:00.716
+# Sequence number = MI2116 -- RF02A/R1261 -- Failed**  06/02/98 AT 10:32:42.020
+# Sequence number = MI2123 -- RF02B/R1262 -- OK @ 06/02/98 AT 12:44:07.332
+# Sequence number = MI2130 -- RF03/R1263 -- Failed*  06/02/98 AT 12:44:28.348
+# Sequence number = MI2137 -- RF04A/R1264 -- Failed* 06/02/98 AT ?
+# Sequence number = MI2144 -- RF04B/R1265 -- OK @ 06/02/98 AT 05:06:15.115
+# Sequence number = MI2151 -- RF05/R1266 -- Failed**  06/02/98 AT 06:45:20.492
+# Sequence number = MI2158 -- RF06/R1267 -- Failed***  06/02/98 AT 07:14:55.514
+# Sequence number = MI2165 -- RF07/R1268 -- Failed**  06/02/98 AT 08:56:43.333
+# Sequence number = MI2172 -- RF08/R1269 -- Failed*  06/02/98 AT 13:10:56.515
+#
+#  * Operator intervention
+#  ** File size limit exceed (>1.5GB)
+#  *** DATA CHECK ENCOUNTERED RCODE=20
+#
+#  1st set, 2nd try
+#  Job(s) submitted on Tue Jun  2 16:14:19 MDT 1998
+# Sequence number = MI3044 -- FF01A/R1256 -- OK @ 2 Jun 1998 16:14:40
+# Sequence number = MI3051 -- RF01AA/R1258 -- OK @ 2 Jun 1998 16:14:43
+# Sequence number = MI3058 -- RF02AA/R1261 -- OK @ 2 Jun 1998 16:14:45
+#
+#  1st set, 3rd try
+#  Job(s) submitted on Tue Jun  2 16:15:33 MDT 1998
+# Sequence number = MI3081 -- FF01B/R1256 -- OK @ 2 Jun 1998 16:15:53
+# Sequence number = MI3088 -- RF01AB/R1258 -- OK @ 2 Jun 1998 16:16:00
+# Sequence number = MI3095 -- RF02AB/R1261 -- OK @ 2 Jun 1998 16:15:59
+#
+#  1st set, 4th try
+#  Job(s) submitted on Wed Jun  3 15:34:14 MDT 1998
+# Sequence number = MI1711 -- RF02AA/R1261 -- OK @ 3 Jun 1998 15:34:29
+#
+#  1st set, 5th try
+#  Job(s) submitted on Wed Jun  3 15:56:34 MDT 1998
+# Sequence number = MI2058 -- FF01C/R1256 -- Failed* @ 3 Jun 1998 15:56:53
+#  * "msimport" internal counter FIXEDOVERFLOW (bug in code)
+#
+#  1st set,  6th try (test "msimport" bug fix)
+#  Job(s) submitted on Mon Jul  6 15:53:15 MDT 1998
+# Sequence number = MI0815 -- FF01C/R1256 -- OK @ 6 Jul 1998 18:01:30
+#
+#  1st set,  7th try
+#  Job(s) submitted on Tue Jul  7 10:58:01 MDT 1998
+# Sequence number = MI6450 -- RF01AB/R1258 -- OK @ 7 Jul 1998 13:34:39
+# Sequence number = MI6457 -- RF02AB/R1261 -- OK @ 7 Jul 1998 16:08:38
+# Sequence number = MI6464 -- RF03A/R1263 -- OK @ 7 Jul 1998 18:25:06
+# Sequence number = MI6471 -- RF03B/R1263 -- OK @ 7 Jul 1998 21:29:18
+# Sequence number = MI6478 -- RF03C/R1263 -- OK @ 8 Jul 1998 23:39:21
+# Sequence number = MI6485 -- RF04AA/R1264 -- OK @ 9 Jul 1998 01:22:33
+# Sequence number = MI6492 -- RF04AB/R1264 -- OK @ 9 Jul 1998 03:53:18
+# Sequence number = MI6499 -- RF05A/R1266 -- OK @ 7 Jul 1998 23:13:53
+# Sequence number = MI6507 -- RF05B/R1266 -- OK @ 8 Jul 1998 01:58:17
+# Sequence number = MI6530 -- RF05C/R1266 -- OK @ 8 Jul 1998 05:10:46
+# Sequence number = MI6556 -- RF06A/R1267 -- OK @ 8 Jul 1998 07:07:41
+# Sequence number = MI6563 -- RF06B/R1267 -- OK @ 8 Jul 1998 10:08:37
+# Sequence number = MI6570 -- RF06C/R1267 -- OK @ 9 Jul 1998 06:41:04
+# Sequence number = MI6583 -- RF07A/R1268 -- OK @ 8 Jul 1998 11:59:58
+# Sequence number = MI6590 -- RF07B/R1268 -- OK @ 9 Jul 1998 09:24:25
+# Sequence number = MI6604 -- RF07C/R1268 -- OK @ 9 Jul 1998 12:34:40
+# Sequence number = MI6611 -- RF08A/R1269 -- OK @ 8 Jul 1998 14:04:46
+# Sequence number = MI6619 -- RF08B/R1269 -- OK @ 8 Jul 1998 17:06:25
+# Sequence number = MI6634 -- RF08C/R1269 -- OK @ 8 Jul 1998 20:43:03
+#

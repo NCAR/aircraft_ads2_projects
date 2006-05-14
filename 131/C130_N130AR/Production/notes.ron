@@ -1,0 +1,180 @@
+Notes from meeting with Dick Friesen on 7 June 2001
+
+*  Need to update the master VarDB file with:
+     SPP housekeeping
+     DMT*
+     RDMA*
+
+Web pages:
+  use new button version for home page
+  need graphic of C-130 along with "ACE-Asia" heading
+  flight matrix with whole-flight plots
+  need scientist notes:  point to JOSS links??
+  Do perl data files exist on caddis?
+  Can we use the field png files instead of creating new ones?
+
+SPP probe handling (new names and NIMBUS code needed)
+  SPP info for the PMSspecs file was hand-translated from a separate data
+  file, because the SPP probes don't use the info (possibility of erroneous
+  information due to mistyping)
+
+GPS Altitude Correction
+  Must come up with a "mixing" formula to combine the GPS altitude with a
+  pressure-referenced altitude (ALT, similar to HI3, or PALT) to provide
+  smooth data during GPS dropouts.  Will look at some flights to see what
+  differences occur at different altitudes.  This will help in determining
+  the algorithm to design.  Need to look at data rates for these.
+
+TDL and Chemistry correction data from Teresa Campos may be merged later.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Basic QC on ACE-Asia netCDF files downloaded from Japan
+
+General:
+TET inop
+TEP inop
+
+RF07
+HGM232 turned on @ 00:16
+PLWC inop
+
+RF08
+GPS no good:  01:07, 06:46, 06:52
+RSTB-RSTB1 = 0.22 deg C (whole-flight mean)
+
+RF09
+DPBC (DPXC) oscillating:  04:34-04:46, 05:22-05:33, 08:24-08:34
+GPS no good:  08:05-08:07, 08:20-08:21
+
+RF10
+GPS no good:  01:06, 06:08-06:10
+LATC, LONC no good:  01:06-01:08
+
+RF11
+IRS Schuler on VEW (UI/UIC): +/-18m/s, VNS (VI/VIC): +/-19m/s
+
+RF12
+GPS  no good:  02:27-02:29, 06:05
+MRLA suspect at times, although VLA and VLA1 look good together
+MRTDL seems to have a gain of 2
+PODTMPL no good:  05:22-05:23, 05:30-05:31, 06:15-06:23
+
+RF13
+DPTC no good:  06:10-06:27, 06:45-07:44
+GPS  no good:  04:18-04:19, 04:20-04:21, 04:26-04:28
+VLA (RHOLA) signal seemingly inverted
+MRTDL seems to have a gain of 2
+
+RF14
+DPTC no good, except for some brief periods:
+  04:14-04:57, 05:57-07:41, 08:31-09:08
+VLA (RHOLA) no good
+
+RF15
+DPTC no good:  01:04-01:16
+GPS  no good:  05:32, 09:27-09:28
+VLA (RHOLA) no good
+PODTMPL no good:  09:10-09:12
+RADCF, SWTC no good at times:  09:28-09:55
+
+RF16
+GPS  no good:  00:13
+
+-------
+
+HRT Processing:
+
+Settings:
+  add to LowRateVars:
+    GALTC
+    CONCR
+    CRDMA
+    SOLAZ
+    SOLDE
+    SOLEL
+    SOLZE
+    RADCF
+  set output rate to 1 sps
+    POFCCTL1
+    POFCCTL2
+    POFCCTL3
+    POFCCTLF
+    SOLAZ
+    SOLDE
+    SOLEL
+    SOLZE
+    RADCF
+  set output rate to 25 sps
+    DPB
+    DPT
+    DPBC
+    DPTC
+  add to VarDB
+    ARDMA_FCR
+    FREF3_RPO
+    CONCR_FCR
+    CRDMA_FCR
+  turn on output
+    ALT
+  turn off output
+    TTLH
+    ARDMA_FCR
+    RDMAHVPS_FCR
+    RDMAPABS_FCR
+    RDMAQA_FCR
+    RDMAQEX_FCR
+    RDMAQSH_FCR
+    RDMAQS_FCR
+    RDMARH_FCR
+    RDMATEMP_FCR
+    RDMAVD_FCR
+    RDMAVSH_FCR
+    CONCR_FCR
+    CRDMA_FCR
+
+Warnings:
+ - Adjust time periods to be same as LRT processing
+ - Check output rates for RDMA variables.  It seems
+   that, when toggling via the radio button, the
+   derived RDMA variables get set to high-rate even
+   though their names appear in LowRateVars (albeit
+   without the _FCR suffix).
+ - Word from Allen:  turn off all RDMA variables
+
+Ron Ruth
+Wed Jun 18 10:38:10 MDT 2003
+
+-------
+
+Created file "setup_HRT," a NIMBUS setup file which adapts NIMBUS for
+ a high-rate run.  setup_HRT makes all the necessary changes.
+Ran production on all 6 flights (RF03, RF09, RF13, RF14, RF16 and RF18)
+QC'd by checking a number of measurements in selected 1 hour time periods
+  with "ncplot"
+Archived files to the SCD Mass Store System
+
+Tasks:
+  archive current version of "nimbus" processor
+  add to documentation
+  update data catalogs
+
+Ron Ruth
+Wed Jun 18 16:59:57 MDT 2003
+
+-------
+
+Finally getting around to updating the Mass Store support-file archive.
+Previously, the current "nimbus" processor files were added to the project
+directory for archiving later.  The data catalogs were updated.  I'm not
+sure what documentation was added.
+
+On the Mass Store, I need to keep certain support files that would
+otherwise be overwritten by this process.  I guess I'll create a new
+HRT/DOCS subdirectory for this purpose and put the "duplicate" documents
+there.  Within this directory structure, the original documents have
+"orig_" prepended to their names.  The new files (for HRT) have the
+standard names.
+
+Ron Ruth
+Fri Sep 12 15:47:42 MDT 2003

@@ -1,0 +1,66 @@
+EPIC2001 - 161, Flight rf15
+Version - 3.1.2
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /jnet/solaris/proj/161/Production/Flight_rf15
+DT1DP_LWO1 has no description or units.
+DT2DP_LWO2 has no description or units.
+DIFF1 has no description or units.
+Processed on: Apr 22 14:18 UTC 2002
+Flight Date: 10/03/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+DT1DP_LWO1 has no entry in the VarDB.
+DT2DP_LWO2 has no entry in the VarDB.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+DIFF1 has no entry in the VarDB.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Time break of 481 seconds ending @ 18:48:54, filling in with MISSING_VALUE.
+Blanking PLWC1 from 14:35:00 to 23:22:42.
+ The following variables depend upon this variable:
+  PLWCC1
+Blanking PLWCC1 from 14:35:00 to 23:22:42.
+ The following variables depend upon this variable:
+  PLWCC1
+Blanking PLWCC from 14:35:00 to 14:37:20.
+Blanking PLWCC from 23:20:00 to 23:22:42.
+Blanking DPT from 17:17:00 to 17:30:00.
+ The following variables depend upon this variable:
+  DPTC
+Blanking DPTC from 17:17:00 to 17:30:00.
+Blanking DPT from 22:57:00 to 23:15:00.
+ The following variables depend upon this variable:
+  DPTC
+Blanking DPTC from 22:57:00 to 23:15:00.
+Blanking RSTB from 21:10:00 to 23:22:42.
+Blanking OAT from 18:40:48 to 18:54:00.
+ The following variables depend upon this variable:
+  DIFF1
+Blanking OAT from 20:05:00 to 20:06:15.
+ The following variables depend upon this variable:
+  DIFF1
+Blanking OAT from 20:10:30 to 20:20:00.
+ The following variables depend upon this variable:
+  DIFF1
+Time interval(s) completed : 14:35:00-23:22:42
+Processing took 4.4 minutes.

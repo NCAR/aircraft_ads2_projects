@@ -1,0 +1,1120 @@
+Two Exabyte tapes were given to me on 31 March 2004 within a 3-ring binder's
+worth of information apparently assembled by Bruce Morley for Bob MacQueen.
+It was labeled "C-130 Vibration."
+
+I created the logs below from jobs to transfer the data from tape to disc
+and to create a preliminary netCDF file of the data.  I had to turn off all
+the PMS-1D probes, since the PMSspecs had mid-point cell sizes instead of
+the end points that are now required.
+
+These disc ADS file images were archived to the SCD Mass Store System
+in the directory:  /RAF/1998/103/ on 2 April 2004
+See the files "taplog.103" and "archads.103" in this directory for more
+information.
+
+Ron Ruth
+Fri Apr  2 11:59:07 MST 2004
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+mistral/ruth % dnload
+Enter source tape drive [/dev/rmt/0] :
+Enter destination tape drive [return for no tape copy]:
+Enter destination disk file [return for no disk file]: R1170.ads
+Rewinding tape....
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0.
+Rewinding tape....
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0.
+Downloading tape to disk file R1170.ads.
+19:04:48 - 20:17:42
+2188 records successfully written to disk.
+
+valdi/ruth % nimbus &
+[1] 30400
+vivaldi/ruth % Version - 3.4.0
+HK28AII has no description or units.
+HK28AIV has no description or units.
+HK28UI has no description or units.
+HK28UV has no description or units.
+HK400 has no description or units.
+HK60D has no description or units.
+HK60L has no description or units.
+HK60R has no description or units.
+IMP1 has no description or units.
+IMP2 has no description or units.
+IMPTOT has no description or units.
+INPI has no description or units.
+INPO has no description or units.
+INPS3 has no description or units.
+INQC3 has no description or units.
+PLWC1 has no description or units.
+RSTB1 has no description or units.
+TRSTB has no description or units.
+XACCUX has no description or units.
+XACCVY has no description or units.
+XACCWZ has no description or units.
+XDMAP has no description or units.
+XEXT has no description or units.
+XO3FHV has no description or units.
+XPODXAC has no description or units.
+XPODYAC has no description or units.
+XPODZAC has no description or units.
+XTOTAS has no description or units.
+BLONGA has no description or units.
+DAY has no description or units.
+HGM232S has no description or units.
+MONTH has no description or units.
+PSFRD has no description or units.
+YEAR has no description or units.
+DPLA has no description or units.
+GALTC has no description or units.
+IAS has no description or units.
+INFLOWC has no description or units.
+INTAS3 has no description or units.
+PLWCC1 has no description or units.
+PVOL3_IBR has no description or units.
+PVOLP_RPI has no description or units.
+RADCF has no description or units.
+REFF3_IBR has no description or units.
+REFFF_OBR has no description or units.
+RHLA has no description or units.
+SOLAZ has no description or units.
+SOLDE has no description or units.
+SOLEL has no description or units.
+SOLZE has no description or units.
+SWTC has no description or units.
+TCNTF_OBR has no description or units.
+PMSspecs file contains mid-point, not end-point cell diameters for FSSP305.
+Nimbus was modified on 9/5/98 to use end-points.  Please fix.
+ 
+[1]    Exit 1                        nimbus
+vivaldi/ruth % nimbus &
+[1] 30412
+vivaldi/ruth % Version - 3.4.0
+HK28AII has no description or units.
+HK28AIV has no description or units.
+HK28UI has no description or units.
+HK28UV has no description or units.
+HK400 has no description or units.
+HK60D has no description or units.
+HK60L has no description or units.
+HK60R has no description or units.
+IMP1 has no description or units.
+IMP2 has no description or units.
+IMPTOT has no description or units.
+INPI has no description or units.
+INPO has no description or units.
+INPS3 has no description or units.
+INQC3 has no description or units.
+PLWC1 has no description or units.
+RSTB1 has no description or units.
+TRSTB has no description or units.
+XACCUX has no description or units.
+XACCVY has no description or units.
+XACCWZ has no description or units.
+XDMAP has no description or units.
+XEXT has no description or units.
+XO3FHV has no description or units.
+XPODXAC has no description or units.
+XPODYAC has no description or units.
+XPODZAC has no description or units.
+XTOTAS has no description or units.
+BLONGA has no description or units.
+DAY has no description or units.
+HGM232S has no description or units.
+MONTH has no description or units.
+PSFRD has no description or units.
+YEAR has no description or units.
+DPLA has no description or units.
+GALTC has no description or units.
+IAS has no description or units.
+INFLOWC has no description or units.
+INTAS3 has no description or units.
+PLWCC1 has no description or units.
+PVOL3_IBR has no description or units.
+PVOLP_RPI has no description or units.
+RADCF has no description or units.
+REFF3_IBR has no description or units.
+REFFF_OBR has no description or units.
+RHLA has no description or units.
+SOLAZ has no description or units.
+SOLDE has no description or units.
+SOLEL has no description or units.
+SOLZE has no description or units.
+SWTC has no description or units.
+TCNTF_OBR has no description or units.
+>>>>>>>>>>>>>>>  Pre AIRS-II pcors
+19:4:48
+19:4:49
+19:4:50
+19:4:51
+19:4:52
+19:4:53
+19:4:54
+19:4:55
+cntr=8
+19:4:52
+Despike: ALT, delta -3.65759 - slope=1.2, point = 0.149747, nPoints=23
+Despike: ALT, delta -3.65759 - slope=1.2, point = 0.071661, nPoints=29
+Despike: ALT, delta 2.51465 - slope=1.2, point = 0.16462, nPoints=16
+Despike: ALT, delta 2.51453 - slope=1.2, point = 0.103267, nPoints=10
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.045632, nPoints=34
+Despike: ALT, delta 2.51465 - slope=1.2, point = 0.0381951, nPoints=18
+Despike: ALT, delta 3.65759 - slope=1.2, point = -0.00270825, nPoints=18
+Despike: ALT, delta 3.99561 - slope=1.2, point = 0.127437, nPoints=9
+Despike: ALT, delta 2.47644 - slope=1.2, point = 0.105127, nPoints=9
+Despike: ALT, delta 1.3446 - slope=1.2, point = 0.0958306, nPoints=1
+Despike: ALT, delta 3.65759 - slope=1.2, point = -0.0138638, nPoints=38
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.110704, nPoints=31
+Despike: ALT, delta 2.51453 - slope=1.2, point = 0.0549281, nPoints=17
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.112563, nPoints=34
+Despike: ALT, delta 2.51465 - slope=1.2, point = 0.0939714, nPoints=18
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0753794, nPoints=35
+Despike: ALT, delta 2.55273 - slope=1.2, point = 0.114422, nPoints=18
+Despike: ALT, delta 2.51465 - slope=1.2, point = 0.157183, nPoints=16
+Despike: ALT, delta 2.55273 - slope=1.2, point = 0.127437, nPoints=21
+Despike: ALT, delta 2.51465 - slope=1.2, point = -0.0454714, nPoints=14
+Despike: ALT, delta 3.6958 - slope=1.2, point = -0.0677829, nPoints=27
+Despike: ALT, delta 1.80896 - slope=1.2, point = 0.106986, nPoints=3
+Despike: ALT, delta 2.47656 - slope=1.2, point = 0.0586465, nPoints=9
+Despike: ALT, delta 2.47644 - slope=1.2, point = -0.00828602, nPoints=7
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.114422, nPoints=17
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0567873, nPoints=14
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.0772386, nPoints=21
+Despike: ALT, delta 3.5813 - slope=1.2, point = 0.209239, nPoints=19
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.0790978, nPoints=18
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.0865346, nPoints=17
+Despike: ALT, delta 2.01929 - slope=1.2, point = 0.12, nPoints=27
+Despike: ALT, delta 1.67224 - slope=1.2, point = 0.173916, nPoints=1
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.188789, nPoints=18
+Despike: ALT, delta 3.5813 - slope=1.2, point = 0.192507, nPoints=17
+Despike: ALT, delta 2.01929 - slope=1.2, point = 0.222253, nPoints=28
+Despike: ALT, delta 2.33862 - slope=1.2, point = 0.090253, nPoints=2
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.106986, nPoints=16
+Despike: ALT, delta 2.78625 - slope=1.2, point = 0.129296, nPoints=7
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.12, nPoints=17
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.14231, nPoints=19
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.0623649, nPoints=27
+Despike: ALT, delta 1.88452 - slope=1.2, point = 0.105127, nPoints=2
+Despike: ALT, delta 1.29541 - slope=1.2, point = 0.0400543, nPoints=1
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.153465, nPoints=20
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0790978, nPoints=19
+Despike: ALT, delta 1.34448 - slope=1.2, point = 0.127437, nPoints=1
+Despike: ALT, delta 2.47656 - slope=1.2, point = -0.0603457, nPoints=9
+Despike: ALT, delta 2.40027 - slope=1.2, point = 0.201803, nPoints=6
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.127437, nPoints=17
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.0586465, nPoints=15
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.0958306, nPoints=13
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.0419135, nPoints=20
+Despike: ALT, delta 3.58142 - slope=1.2, point = -0.00828602, nPoints=18
+Despike: ALT, delta 3.5813 - slope=1.2, point = 0.192507, nPoints=17
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.0790978, nPoints=16
+Despike: ALT, delta -1.27649 - slope=1.2, point = -0.0194416, nPoints=26
+Despike: ALT, delta 1.29529 - slope=1.2, point = 0.099549, nPoints=1
+Despike: ALT, delta 2.43848 - slope=1.2, point = 0.118141, nPoints=7
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.114422, nPoints=17
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.123718, nPoints=25
+Despike: ALT, delta 1.47217 - slope=1.2, point = 0.090253, nPoints=1
+Despike: QCF, delta -1.24171 - slope=1, point = 0.155324, nPoints=12
+Despike: QCR, delta -1.17018 - slope=1, point = 0.155324, nPoints=12
+Despike: QCF, delta -1.25087 - slope=1, point = 0.168338, nPoints=9
+Despike: QCR, delta -1.22556 - slope=1, point = 0.168338, nPoints=9
+Despike: QCF, delta -1.01173 - slope=1, point = 0.123718, nPoints=35
+Despike: QCR, delta -1.00383 - slope=1, point = 0.125578, nPoints=31
+Despike: ALT, delta 2.55273 - slope=1.2, point = 0.157183, nPoints=18
+Despike: QCF, delta -1.40416 - slope=1, point = 0.175775, nPoints=7
+Despike: QCR, delta -1.03158 - slope=1, point = 0.170197, nPoints=9
+Despike: ALT, delta 2.51453 - slope=1.2, point = 0.196225, nPoints=10
+Despike: ALT, delta 2.47656 - slope=1.2, point = 0.173916, nPoints=7
+Despike: ALT, delta 3.5813 - slope=1.2, point = 0.149747, nPoints=29
+Despike: ALT, delta 2.65295 - slope=1.2, point = 0.151606, nPoints=5
+Despike: ALT, delta 3.5813 - slope=1.2, point = 0.105127, nPoints=26
+Despike: ALT, delta 1.52307 - slope=1.2, point = 0.140451, nPoints=1
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.14231, nPoints=16
+Despike: ALT, delta 4.03857 - slope=1.2, point = 0.14231, nPoints=33
+Despike: ALT, delta 3.60913 - slope=1.2, point = 0.18693, nPoints=6
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.14231, nPoints=29
+Despike: ALT, delta 2.67493 - slope=1.2, point = 0.170197, nPoints=5
+Despike: QCF, delta 1.05165 - slope=1, point = 0.0196027, nPoints=6
+Despike: QCF, delta 1.1927 - slope=1, point = -0.00828602, nPoints=3
+Despike: QCF, delta 1.5177 - slope=1, point = -0.160749, nPoints=2
+Despike: QCF, delta -1.1467 - slope=1, point = -0.162609, nPoints=22
+Despike: QCF, delta -1.19575 - slope=1, point = 0.0493504, nPoints=9
+Despike: QCF, delta 1.05166 - slope=1, point = 1.39698, nPoints=1
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.123718, nPoints=23
+Despike: QCF, delta -1.00872 - slope=1, point = 1.33193, nPoints=9
+Despike: QCF, delta -1.15285 - slope=1, point = 0.393286, nPoints=247
+Despike: QCF, delta 1.33988 - slope=1, point = 0.266871, nPoints=1
+Despike: QCF, delta -1.14057 - slope=1, point = 0.291039, nPoints=44
+Despike: QCF, delta -1.62807 - slope=1, point = 0.28918, nPoints=38
+Despike: QCF, delta -1.07004 - slope=1, point = 0.586616, nPoints=7
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.270589, nPoints=20
+Despike: ALT, delta 2.43835 - slope=1.2, point = 0.116282, nPoints=7
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.177634, nPoints=31
+Despike: ALT, delta 2.68115 - slope=1.2, point = 0.149747, nPoints=5
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.18507, nPoints=29
+Despike: ALT, delta 2.61682 - slope=1.2, point = 0.231548, nPoints=5
+Despike: ALT, delta 3.6958 - slope=1.2, point = 0.222253, nPoints=20
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.242703, nPoints=22
+Despike: ALT, delta 2.40027 - slope=1.2, point = 0.127437, nPoints=7
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.175775, nPoints=19
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.112563, nPoints=27
+Despike: ALT, delta 1.9762 - slope=1.2, point = 0.140451, nPoints=3
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.188789, nPoints=15
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.205521, nPoints=13
+Despike: ALT, delta 4.0387 - slope=1.2, point = 0.090253, nPoints=30
+Despike: ALT, delta 2.88879 - slope=1.2, point = 0.099549, nPoints=4
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.108845, nPoints=31
+Despike: ALT, delta 2.87964 - slope=1.2, point = 0.00101026, nPoints=7
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0883938, nPoints=16
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0474912, nPoints=21
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0883938, nPoints=21
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0735202, nPoints=15
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.203662, nPoints=23
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.0846754, nPoints=20
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.099549, nPoints=32
+Despike: ALT, delta 3.20325 - slope=1.2, point = 0.0549281, nPoints=7
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.16462, nPoints=30
+Despike: ALT, delta 2.62329 - slope=1.2, point = 0.0735202, nPoints=5
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.0828162, nPoints=28
+Despike: ALT, delta 2.46814 - slope=1.2, point = -0.0231601, nPoints=4
+Despike: ALT, delta 3.65759 - slope=1.2, point = -0.0529085, nPoints=17
+Despike: ALT, delta 2.43835 - slope=1.2, point = -0.0900945, nPoints=7
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.136733, nPoints=18
+Despike: ALT, delta 3.69568 - slope=1.2, point = 0.16462, nPoints=15
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.181352, nPoints=13
+Despike: ALT, delta 2.05737 - slope=1.2, point = 0.281744, nPoints=35
+Despike: ALT, delta 4.64941 - slope=1.2, point = 0.305912, nPoints=7
+Despike: ALT, delta 4.03857 - slope=1.2, point = 0.28918, nPoints=31
+Despike: ALT, delta 3.0415 - slope=1.2, point = 0.203662, nPoints=4
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.255717, nPoints=15
+Despike: ALT, delta 1.67639 - slope=1.2, point = 0.155324, nPoints=2
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.162761, nPoints=17
+Despike: ALT, delta 3.58142 - slope=1.2, point = 0.114422, nPoints=26
+Despike: ALT, delta 2.01367 - slope=1.2, point = 0.168338, nPoints=3
+Despike: ALT, delta 3.5813 - slope=1.2, point = 0.0828162, nPoints=28
+Despike: ALT, delta 2.46802 - slope=1.2, point = 0.0288989, nPoints=4
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.021462, nPoints=13
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.12, nPoints=9
+Despike: ALT, delta 4.0387 - slope=1.2, point = 0.12, nPoints=27
+Despike: ALT, delta 9.27417 - slope=1.2, point = 0.0883938, nPoints=12
+Despike: ALT, delta 3.65759 - slope=1.2, point = 0.110704, nPoints=7
+Despike: ALT, delta 3.65759 - slope=1.2, point = -0.0343158, nPoints=23
+Despike: ALT, delta -2.79858 - slope=1.2, point = -0.0231601, nPoints=20
+Despike: QCF, delta -2.15231 - slope=1, point = -0.036175, nPoints=1
+Despike: QCF, delta -1.80892 - slope=1, point = 0.0196027, nPoints=1
+Despike: QCF, delta -2.83293 - slope=1, point = 0.0121657, nPoints=1
+Despike: QCF, delta -4.02252 - slope=1, point = -0.0324565, nPoints=3
+Despike: QCF, delta -1.86717 - slope=1, point = -0.0213009, nPoints=1
+Despike: QCF, delta -3.44308 - slope=1, point = -0.00270825, nPoints=1
+Despike: QCF, delta -4.12676 - slope=1, point = -0.00828602, nPoints=1
+Despike: QCR, delta -2.60213 - slope=1, point = -0.0287379, nPoints=1
+Despike: QCR, delta -1.78301 - slope=1, point = -0.0213009, nPoints=1
+Despike: QCR, delta -5.90932 - slope=1, point = -0.00828602, nPoints=1
+Despike: TTRL, delta -0.741703 - slope=0.5, point = 0.0233212, nPoints=1
+Despike: TTRR, delta -0.799234 - slope=0.5, point = -0.0120045, nPoints=1
+Despike: TTRR, delta -0.846003 - slope=0.5, point = 0.0233212, nPoints=1
+Despike: QCF, delta -2.86359 - slope=1, point = -0.15889, nPoints=1
+Despike: QCF, delta -2.75315 - slope=1, point = -0.534503, nPoints=1
+Despike: QCF, delta -1.00247 - slope=1, point = -1.48305, nPoints=3
+Despike: QCF, delta 1.1404 - slope=1, point = -2.2849, nPoints=2
+Despike: QCF, delta -1.38565 - slope=1, point = -2.57146, nPoints=6
+Despike: QCF, delta 1.23236 - slope=1, point = -3.22098, nPoints=2
+Despike: QCF, delta 1.07603 - slope=1, point = -2.35933, nPoints=8
+Despike: QCF, delta -1.31513 - slope=1, point = -2.28304, nPoints=2
+Despike: QCF, delta -1.00854 - slope=1, point = -3.45924, nPoints=1
+Despike: QCF, delta -1.37947 - slope=1, point = -3.2731, nPoints=6
+Despike: QCF, delta -1.43771 - slope=1, point = -3.90788, nPoints=19
+Despike: QCF, delta -1.09437 - slope=1, point = -3.64911, nPoints=4
+Despike: QCF, delta 1.13422 - slope=1, point = -2.99205, nPoints=10
+Despike: QCF, delta -1.54499 - slope=1, point = -3.44621, nPoints=1
+Despike: QCF, delta -1.27526 - slope=1, point = -3.32522, nPoints=91
+Despike: QCF, delta 1.47448 - slope=1, point = -2.88411, nPoints=11
+Despike: QCF, delta 1.04838 - slope=1, point = -2.7985, nPoints=8
+Despike: QCF, delta 1.14649 - slope=1, point = -3.5095, nPoints=1
+Despike: QCF, delta 1.00853 - slope=1, point = -2.81339, nPoints=2
+Despike: QCF, delta 1.00238 - slope=1, point = -3.01811, nPoints=10
+Despike: QCF, delta -1.58173 - slope=1, point = -3.44435, nPoints=5
+Despike: QCF, delta 1.30586 - slope=1, point = -4.1015, nPoints=7
+Despike: QCF, delta -1.2047 - slope=1, point = -3.88181, nPoints=3
+Despike: QCF, delta -1.53882 - slope=1, point = -3.64539, nPoints=1
+Despike: QCF, delta -1.01464 - slope=1, point = -3.66214, nPoints=28
+Despike: QCF, delta -1.02997 - slope=1, point = -3.30102, nPoints=5
+Despike: QCF, delta 1.14646 - slope=1, point = -3.81479, nPoints=2
+Despike: QCF, delta -1.05754 - slope=1, point = -4.01958, nPoints=3
+Despike: QCF, delta 1.08818 - slope=1, point = 0.136733, nPoints=13
+Despike: QCF, delta -1.41923 - slope=1, point = 0.926772, nPoints=2
+Despike: QCF, delta 1.69506 - slope=1, point = 0.573604, nPoints=22
+Despike: QCF, delta 2.48387 - slope=1, point = 0.214816, nPoints=15
+Despike: QCF, delta -1.01152 - slope=1, point = -0.31322, nPoints=1
+Despike: QCF, delta -1.32725 - slope=1, point = -0.0584864, nPoints=41
+Despike: QCF, delta -1.00538 - slope=1, point = -0.309501, nPoints=3
+Despike: QCF, delta 1.1096 - slope=1, point = -0.571695, nPoints=9
+Despike: QCF, delta 1.14333 - slope=1, point = -1.31192, nPoints=2
+Despike: QCF, delta 1.11882 - slope=1, point = -1.31936, nPoints=1
+Despike: QCF, delta 1.78701 - slope=1, point = -1.23007, nPoints=5
+Despike: QCF, delta 1.14023 - slope=1, point = -1.04036, nPoints=2
+Despike: QCF, delta 1.4958 - slope=1, point = -1.05524, nPoints=1
+Despike: QCF, delta -4.43214 - slope=1, point = -0.168187, nPoints=1
+Despike: QCF, delta -1.06054 - slope=1, point = -0.134718, nPoints=2
+Despike: QCR, delta 1.05269 - slope=1, point = -0.138437, nPoints=2
+Despike: QCF, delta 2.77389 - slope=1, point = 0.181352, nPoints=2
+Despike: QCF, delta -2.93013 - slope=1, point = -0.947362, nPoints=1
+Despike: QCF, delta 1.11873 - slope=1, point = -4.3268, nPoints=2
+Despike: QCF, delta 1.50488 - slope=1, point = -6.86392, nPoints=10
+Despike: QCF, delta 1.19531 - slope=1, point = -6.94033, nPoints=17
+Despike: QCF, delta -1.03892 - slope=1, point = -9.54499, nPoints=22
+Despike: QCF, delta 1.11233 - slope=1, point = -8.97427, nPoints=5
+Despike: QCF, delta -1.03872 - slope=1, point = -12.2602, nPoints=24
+Despike: QCF, delta 1.07544 - slope=1, point = -13.1136, nPoints=1
+Despike: QCF, delta 1.24093 - slope=1, point = -16.3219, nPoints=17
+Despike: QCF, delta 1.0908 - slope=1, point = -14.5463, nPoints=2
+Despike: QCF, delta 1.16434 - slope=1, point = -14.4978, nPoints=3
+Despike: QCF, delta -1.08465 - slope=1, point = -13.334, nPoints=7
+Despike: QCF, delta 1.28382 - slope=1, point = -14.3053, nPoints=9
+Despike: QCF, delta 1.47992 - slope=1, point = -14.3744, nPoints=17
+Despike: QCF, delta -1.11221 - slope=1, point = -11.7543, nPoints=2
+Despike: QCF, delta 1.15818 - slope=1, point = -13.7056, nPoints=8
+Despike: QCF, delta -1.0448 - slope=1, point = -11.5695, nPoints=8
+Despike: QCF, delta 1.12444 - slope=1, point = -14.2773, nPoints=1
+Despike: QCF, delta -2.1233 - slope=1, point = -16.2621, nPoints=10
+Despike: QCF, delta -1.06012 - slope=1, point = -17.1446, nPoints=1
+Despike: QCF, delta -1.21947 - slope=1, point = -12.2658, nPoints=8
+Despike: QCF, delta -1.10305 - slope=1, point = -12.503, nPoints=63
+Despike: QCF, delta -1.2195 - slope=1, point = -13.6291, nPoints=2
+Despike: QCF, delta -1.18272 - slope=1, point = -12.6766, nPoints=7
+Despike: QCF, delta 1.02032 - slope=1, point = -10.9909, nPoints=7
+Despike: QCF, delta 1.02032 - slope=1, point = -12.0922, nPoints=1
+Despike: QCF, delta -1.40634 - slope=1, point = -13.4946, nPoints=1
+Despike: QCF, delta -1.02337 - slope=1, point = -12.8111, nPoints=4
+Despike: QCF, delta -1.39104 - slope=1, point = -12.9903, nPoints=2
+Despike: QCF, delta -1.05092 - slope=1, point = -12.1725, nPoints=3
+Despike: QCF, delta -1.14592 - slope=1, point = -13.814, nPoints=1
+Despike: QCF, delta 1.1827 - slope=1, point = -14.2605, nPoints=6
+Despike: QCF, delta -1.08464 - slope=1, point = -14.5295, nPoints=3
+Despike: QCF, delta -1.01417 - slope=1, point = -13.2163, nPoints=2
+Despike: QCF, delta 1.07545 - slope=1, point = -13.1883, nPoints=1
+Despike: QCF, delta -1.00496 - slope=1, point = -11.5714, nPoints=1
+Despike: QCF, delta 1.61166 - slope=1, point = -9.37525, nPoints=10
+Despike: QCF, delta -1.34815 - slope=1, point = -14.1222, nPoints=2
+Despike: QCF, delta 1.12141 - slope=1, point = -15.2415, nPoints=10
+Despike: QCF, delta 1.20724 - slope=1, point = -14.3894, nPoints=4
+Despike: QCF, delta -1.36348 - slope=1, point = -13.8682, nPoints=2
+Despike: QCF, delta -1.13059 - slope=1, point = -12.8764, nPoints=12
+Despike: QCF, delta 1.08769 - slope=1, point = -13.9802, nPoints=1
+Despike: QCF, delta -1.03866 - slope=1, point = -14.352, nPoints=2
+Despike: QCF, delta -1.09688 - slope=1, point = -15.5629, nPoints=3
+Despike: QCF, delta 1.02642 - slope=1, point = -16.7444, nPoints=3
+Despike: QCF, delta -1.02333 - slope=1, point = -13.7075, nPoints=1
+Despike: QCF, delta -1.73416 - slope=1, point = -16.2508, nPoints=3
+Despike: QCF, delta -1.11217 - slope=1, point = -13.0874, nPoints=5
+Despike: QCF, delta -1.02331 - slope=1, point = -13.9205, nPoints=4
+Despike: QCF, delta -1.41239 - slope=1, point = -17.7094, nPoints=1
+Despike: QCF, delta 1.11515 - slope=1, point = -16.3892, nPoints=7
+Despike: QCF, delta 1.34187 - slope=1, point = -16.3985, nPoints=1
+Despike: QCF, delta -1.20708 - slope=1, point = -16.1013, nPoints=26
+Despike: QCF, delta -1.04773 - slope=1, point = -21.4995, nPoints=9
+Despike: QCF, delta -1.04163 - slope=1, point = -22.0745, nPoints=2
+Despike: QCF, delta 1.76156 - slope=1, point = -22.0745, nPoints=6
+Despike: QCF, delta 1.03244 - slope=1, point = -20.3573, nPoints=3
+Despike: QCF, delta 1.43681 - slope=1, point = -19.0976, nPoints=13
+Despike: QCF, delta 1.15873 - slope=1, point = -19.7321, nPoints=1
+Despike: QCF, delta -1.73705 - slope=1, point = -18.0517, nPoints=5
+Despike: QCF, delta -1.21314 - slope=1, point = -19.0901, nPoints=1
+Despike: QCF, delta -1.34489 - slope=1, point = -21.5313, nPoints=1
+Despike: QCF, delta -1.13046 - slope=1, point = -22.4997, nPoints=11
+Despike: QCF, delta 1.99435 - slope=1, point = -22.0632, nPoints=7
+Despike: QCF, delta 1.09367 - slope=1, point = -20.5932, nPoints=139
+Despike: QCF, delta 1.4245 - slope=1, point = -22.6683, nPoints=9
+Despike: QCF, delta 1.19785 - slope=1, point = -21.6268, nPoints=1
+Despike: QCF, delta -1.29893 - slope=1, point = -21.4077, nPoints=6
+Despike: QCF, delta -1.10899 - slope=1, point = -21.3197, nPoints=3
+Despike: QCF, delta 1.33875 - slope=1, point = -22.4829, nPoints=2
+Despike: QCF, delta 1.27751 - slope=1, point = -21.2129, nPoints=1
+Despike: QCF, delta 1.05386 - slope=1, point = -21.5894, nPoints=7
+Despike: QCF, delta -1.09679 - slope=1, point = -20.1757, nPoints=4
+Despike: QCF, delta -1.02325 - slope=1, point = -19.3035, nPoints=60
+Despike: QCF, delta -1.04469 - slope=1, point = -15.6919, nPoints=17
+Despike: QCF, delta 1.09369 - slope=1, point = -17.8291, nPoints=14
+Despike: QCF, delta 1.24686 - slope=1, point = -16.8192, nPoints=1
+Despike: QCF, delta -1.04773 - slope=1, point = -16.679, nPoints=1
+Despike: QCF, delta -1.38167 - slope=1, point = -20.8347, nPoints=2
+Despike: QCF, delta 1.397 - slope=1, point = -21.0781, nPoints=13
+Despike: QCF, delta -1.13659 - slope=1, point = -21.5875, nPoints=13
+Despike: QCF, delta -1.09674 - slope=1, point = -22.8707, nPoints=5
+Despike: QCF, delta 1.72171 - slope=1, point = -20.5763, nPoints=3
+Despike: QCF, delta 1.83504 - slope=1, point = -21.6193, nPoints=2
+Despike: QCF, delta 1.09674 - slope=1, point = -20.6943, nPoints=5
+Despike: QCF, delta 1.10899 - slope=1, point = -21.9827, nPoints=1
+Despike: QCF, delta 1.04774 - slope=1, point = -21.1418, nPoints=1
+Despike: QCF, delta -1.38471 - slope=1, point = -20.816, nPoints=5
+Despike: QCF, delta 1.0079 - slope=1, point = -19.1481, nPoints=7
+Despike: QCF, delta -1.15188 - slope=1, point = -21.0912, nPoints=7
+Despike: QCF, delta -1.06012 - slope=1, point = -12.8764, nPoints=1
+Despike: QCF, delta 1.05094 - slope=1, point = -12.5982, nPoints=8
+Despike: QCF, delta 1.88431 - slope=1, point = -12.2248, nPoints=63
+Despike: QCF, delta -1.38494 - slope=1, point = -12.4805, nPoints=48
+Despike: QCF, delta -1.18577 - slope=1, point = -13.8663, nPoints=7
+Despike: QCF, delta 1.25317 - slope=1, point = -14.7388, nPoints=3
+Despike: QCF, delta -1.12143 - slope=1, point = -16.6248, nPoints=86
+Despike: QCF, delta -1.21024 - slope=1, point = -12.3947, nPoints=11
+Despike: QCF, delta 1.03255 - slope=1, point = -15.6676, nPoints=1
+Despike: QCF, delta -1.12137 - slope=1, point = -15.7667, nPoints=1
+Despike: QCF, delta -1.15813 - slope=1, point = -15.6153, nPoints=2
+Despike: QCF, delta 1.0019 - slope=1, point = -12.5963, nPoints=13
+Despike: QCF, delta 1.07549 - slope=1, point = -11.7562, nPoints=1
+Despike: QCR, delta 1.50731 - slope=1, point = -11.7562, nPoints=1
+Despike: TTRR, delta 1.15453 - slope=0.5, point = -12.7494, nPoints=1
+Despike: QCF, delta -2.09281 - slope=1, point = -9.6196, nPoints=3
+Despike: QCF, delta -3.36127 - slope=1, point = -10.4535, nPoints=1
+Despike: QCF, delta -2.95682 - slope=1, point = -11.7917, nPoints=1
+Despike: QCF, delta -3.28775 - slope=1, point = -12.109, nPoints=1
+Despike: QCF, delta -1.45238 - slope=1, point = -12.1837, nPoints=1
+Despike: QCF, delta -3.35205 - slope=1, point = -10.6737, nPoints=1
+Despike: QCF, delta -3.58189 - slope=1, point = -10.7614, nPoints=1
+Despike: QCF, delta -3.18965 - slope=1, point = -11.7525, nPoints=1
+Despike: QCF, delta -2.28881 - slope=1, point = -12.0773, nPoints=1
+Despike: QCR, delta -2.35316 - slope=1, point = -12.0773, nPoints=1
+Despike: QCF, delta -1.43711 - slope=1, point = -10.1606, nPoints=1
+Despike: QCF, delta -1.55662 - slope=1, point = 3.55525, nPoints=1
+Despike: QCR, delta -2.54413 - slope=1, point = -10.1606, nPoints=1
+Despike: QCF, delta -1.39722 - slope=1, point = -11.8253, nPoints=1
+Despike: QCF, delta -1.76189 - slope=1, point = -11.116, nPoints=1
+Despike: QCF, delta -1.50146 - slope=1, point = -9.74645, nPoints=1
+Despike: QCF, delta 1.7466 - slope=1, point = -9.72033, nPoints=1
+Despike: QCF, delta -3.36745 - slope=1, point = -9.65505, nPoints=3
+Despike: QCF, delta -1.1429 - slope=1, point = -11.9559, nPoints=1
+Despike: QCR, delta -1.05513 - slope=1, point = -11.9559, nPoints=1
+Despike: QCF, delta -1.19804 - slope=1, point = -13.0986, nPoints=5
+Despike: QCF, delta -1.02336 - slope=1, point = -13.7953, nPoints=1
+Despike: QCF, delta 1.02031 - slope=1, point = -13.3956, nPoints=9
+Despike: QCF, delta -1.49522 - slope=1, point = -13.2256, nPoints=3
+Despike: QCF, delta -1.32062 - slope=1, point = -12.1744, nPoints=195
+Despike: QCF, delta -1.00499 - slope=1, point = -10.2837, nPoints=1
+Despike: QCF, delta -1.02031 - slope=1, point = -11.1402, nPoints=3
+Despike: QCF, delta 1.53507 - slope=1, point = -13.0632, nPoints=1
+Despike: QCF, delta -1.00806 - slope=1, point = -12.9847, nPoints=11
+Despike: QCF, delta -3.80853 - slope=1, point = -13.4049, nPoints=1
+Despike: QCF, delta -1.02643 - slope=1, point = -12.882, nPoints=3
+Despike: QCF, delta -2.0008 - slope=1, point = -12.4413, nPoints=1
+Despike: QCF, delta -1.44315 - slope=1, point = -13.1827, nPoints=131
+Despike: QCF, delta 1.11529 - slope=1, point = -13.5824, nPoints=1
+Despike: QCF, delta 1.43088 - slope=1, point = -10.9667, nPoints=1
+Despike: QCF, delta -1.56567 - slope=1, point = -10.5692, nPoints=1
+Despike: QCF, delta -1.20105 - slope=1, point = -13.1453, nPoints=2
+Despike: QCF, delta 1.19498 - slope=1, point = -11.8122, nPoints=1
+Despike: QCF, delta -1.03566 - slope=1, point = -15.2321, nPoints=1
+Despike: QCF, delta -1.25013 - slope=1, point = -10.1606, nPoints=1
+Despike: QCF, delta 1.29301 - slope=1, point = -12.0922, nPoints=21
+Despike: QCF, delta -1.00807 - slope=1, point = -11.5639, nPoints=7
+Despike: QCF, delta -1.95485 - slope=1, point = -11.8477, nPoints=1
+Despike: QCR, delta -1.89795 - slope=1, point = -10.7353, nPoints=1
+Despike: TTRL, delta -0.885252 - slope=0.5, point = -10.9163, nPoints=1
+Despike: TTRR, delta -0.508217 - slope=0.5, point = -10.9163, nPoints=1
+Despike: QCF, delta 1.1092 - slope=1, point = -11.4538, nPoints=4
+Despike: QCF, delta -1.08467 - slope=1, point = -11.5882, nPoints=3
+Despike: QCF, delta 1.22563 - slope=1, point = -11.9989, nPoints=1
+Despike: QCF, delta -1.13982 - slope=1, point = -9.95165, nPoints=1
+Despike: QCF, delta 1.09081 - slope=1, point = -10.1737, nPoints=2
+Despike: QCF, delta -2.04988 - slope=1, point = -11.9429, nPoints=7
+Despike: QCF, delta -1.27158 - slope=1, point = -9.79682, nPoints=1
+Despike: QCF, delta 1.12759 - slope=1, point = -12.3088, nPoints=1
+Despike: QCF, delta 1.44933 - slope=1, point = -14.2268, nPoints=1
+Despike: QCF, delta 1.01115 - slope=1, point = -11.2765, nPoints=2
+Despike: QCF, delta 1.50141 - slope=1, point = -11.4314, nPoints=10
+Despike: QCF, delta 1.00196 - slope=1, point = -12.8465, nPoints=8
+Despike: QCF, delta 1.02645 - slope=1, point = -12.6374, nPoints=1
+Despike: QCF, delta -1.52896 - slope=1, point = -13.786, nPoints=6
+Despike: QCF, delta 1.12145 - slope=1, point = -14.2661, nPoints=4
+Despike: QCF, delta -1.08465 - slope=1, point = -9.68116, nPoints=6
+Despike: QCF, delta 1.01419 - slope=1, point = -11.4071, nPoints=6
+Despike: QCF, delta 1.28076 - slope=1, point = -12.2826, nPoints=20
+Despike: QCF, delta -1.13064 - slope=1, point = -14.9817, nPoints=7
+Despike: QCF, delta -1.62696 - slope=1, point = -14.7033, nPoints=2
+Despike: QCF, delta 1.37883 - slope=1, point = -13.8065, nPoints=1
+Despike: QCF, delta -1.17041 - slope=1, point = -14.9032, nPoints=5
+Despike: QCF, delta 1.84145 - slope=1, point = -12.7214, nPoints=14
+Despike: QCF, delta -1.12753 - slope=1, point = -12.7532, nPoints=2
+Despike: QCF, delta 1.20721 - slope=1, point = -15.1854, nPoints=1
+Despike: QCF, delta -1.03869 - slope=1, point = -15.0938, nPoints=1
+Despike: QCF, delta -1.09077 - slope=1, point = -14.5725, nPoints=3
+Despike: QCF, delta 1.23787 - slope=1, point = -14.9537, nPoints=2
+Despike: QCF, delta 1.12139 - slope=1, point = -15.0938, nPoints=2
+Despike: QCF, delta -1.0724 - slope=1, point = -9.98523, nPoints=3
+Despike: QCF, delta -1.29299 - slope=1, point = -16.2078, nPoints=9
+Despike: QCF, delta -1.13368 - slope=1, point = -10.6457, nPoints=8
+Despike: QCF, delta -2.8372 - slope=1, point = -12.8073, nPoints=1
+Despike: QCF, delta -1.21944 - slope=1, point = -13.5824, nPoints=2
+Despike: QCF, delta 1.02337 - slope=1, point = -13.6328, nPoints=7
+Despike: QCF, delta -1.04485 - slope=1, point = -13.7841, nPoints=14
+Despike: QCF, delta 1.04786 - slope=1, point = -14.8042, nPoints=2
+Despike: QCF, delta -1.88744 - slope=1, point = -12.5944, nPoints=1
+Despike: QCF, delta -1.03873 - slope=1, point = -12.7401, nPoints=31
+Despike: QCF, delta 1.5533 - slope=1, point = -12.0175, nPoints=117
+Despike: QCF, delta -2.34398 - slope=1, point = -9.50209, nPoints=1
+Despike: QCR, delta -1.25199 - slope=1, point = -9.50209, nPoints=1
+Despike: QCF, delta -2.02535 - slope=1, point = -11.0339, nPoints=1
+Despike: QCF, delta -1.89969 - slope=1, point = -12.6878, nPoints=1
+Despike: QCF, delta -1.25625 - slope=1, point = -15.277, nPoints=1
+Despike: QCR, delta -3.31593 - slope=1, point = -15.277, nPoints=1
+Despike: QCF, delta -1.32978 - slope=1, point = -13.0258, nPoints=1
+Despike: QCF, delta -1.35118 - slope=1, point = -16.0789, nPoints=1
+Despike: QCF, delta -2.2216 - slope=1, point = -7.46779, nPoints=1
+Despike: QCF, delta 1.31456 - slope=1, point = -9.62147, nPoints=1
+Despike: QCF, delta -1.97944 - slope=1, point = -11.2429, nPoints=1
+Despike: QCF, delta -4.06911 - slope=1, point = -12.5328, nPoints=1
+Despike: QCF, delta -1.0142 - slope=1, point = -11.857, nPoints=1
+Despike: QCF, delta -1.22253 - slope=1, point = -14.2268, nPoints=12
+Despike: QCF, delta -1.13061 - slope=1, point = -12.4451, nPoints=8
+Despike: QCF, delta 1.06627 - slope=1, point = -15.206, nPoints=3
+Despike: QCF, delta 1.005 - slope=1, point = -14.281, nPoints=1
+Despike: QCF, delta 1.02339 - slope=1, point = -15.4358, nPoints=11
+Despike: QCF, delta -1.05096 - slope=1, point = -12.5608, nPoints=1
+Despike: QCF, delta -1.16433 - slope=1, point = -13.3919, nPoints=7
+Despike: QCF, delta -1.53814 - slope=1, point = -12.5683, nPoints=8
+Despike: QCF, delta -1.1827 - slope=1, point = -11.4594, nPoints=9
+Despike: QCF, delta 1.03869 - slope=1, point = -12.2322, nPoints=11
+Despike: QCF, delta 1.02645 - slope=1, point = -14.5818, nPoints=1
+Despike: QCF, delta 1.26542 - slope=1, point = -13.375, nPoints=31
+Despike: QCF, delta -1.10919 - slope=1, point = -11.6143, nPoints=6
+Despike: QCF, delta 1.16129 - slope=1, point = -11.5658, nPoints=2
+Despike: QCF, delta -1.29303 - slope=1, point = -12.1669, nPoints=5
+Despike: QCF, delta -1.21951 - slope=1, point = -16.5705, nPoints=6
+Despike: QCF, delta 1.19806 - slope=1, point = -16.0153, nPoints=7
+Despike: QCF, delta -1.01727 - slope=1, point = -7.07824, nPoints=1
+Despike: QCF, delta 1.31754 - slope=1, point = -6.87138, nPoints=1
+Despike: QCF, delta -1.08465 - slope=1, point = -13.7206, nPoints=1
+Despike: QCF, delta 1.09688 - slope=1, point = -14.7631, nPoints=16
+Despike: QCF, delta 1.21639 - slope=1, point = -9.89942, nPoints=1
+Despike: QCF, delta 1.15818 - slope=1, point = -12.3069, nPoints=2
+Despike: QCF, delta 1.13673 - slope=1, point = -16.5088, nPoints=1
+Despike: QCF, delta -1.04787 - slope=1, point = -15.7723, nPoints=24
+Despike: QCF, delta -1.17348 - slope=1, point = -15.1293, nPoints=1
+Despike: QCF, delta 1.25012 - slope=1, point = -14.1428, nPoints=1
+Despike: QCF, delta -1.21336 - slope=1, point = -12.0418, nPoints=14
+Despike: QCF, delta -1.05096 - slope=1, point = -12.4563, nPoints=1
+Despike: QCF, delta 1.3359 - slope=1, point = -13.1061, nPoints=8
+Despike: QCF, delta 1.01112 - slope=1, point = -14.0942, nPoints=2
+Despike: QCF, delta -1.12447 - slope=1, point = -13.3414, nPoints=5
+Despike: QCF, delta 1.1214 - slope=1, point = -13.8289, nPoints=15
+Despike: QCF, delta -1.03255 - slope=1, point = -14.0811, nPoints=6
+Despike: QCF, delta -1.36958 - slope=1, point = -12.4693, nPoints=14
+Despike: QCF, delta -1.07237 - slope=1, point = -12.4824, nPoints=10
+Despike: QCF, delta -1.0295 - slope=1, point = -13.2462, nPoints=8
+Despike: QCF, delta 1.19188 - slope=1, point = -15.6358, nPoints=4
+Despike: QCF, delta -4.65102 - slope=1, point = 2.10632, nPoints=1
+Despike: QCF, delta 1.03252 - slope=1, point = -14.8808, nPoints=267
+Despike: QCF, delta -1.11525 - slope=1, point = -16.6734, nPoints=8
+Despike: QCF, delta -1.25008 - slope=1, point = -16.1779, nPoints=2
+Despike: QCF, delta 1.51971 - slope=1, point = -15.2452, nPoints=11
+Despike: QCF, delta -1.40637 - slope=1, point = -12.7868, nPoints=12
+Despike: QCF, delta -1.15207 - slope=1, point = -14.9518, nPoints=8
+Despike: QCF, delta -1.55346 - slope=1, point = -13.8439, nPoints=1
+Despike: QCF, delta -1.07852 - slope=1, point = -14.793, nPoints=8
+Despike: QCF, delta -1.29911 - slope=1, point = -13.6104, nPoints=8
+Despike: QCF, delta -1.11226 - slope=1, point = -11.7581, nPoints=18
+Despike: QCF, delta 1.18273 - slope=1, point = -17.0717, nPoints=1
+Despike: QCF, delta -1.04484 - slope=1, point = -16.9576, nPoints=1
+Despike: QCF, delta -1.05402 - slope=1, point = -11.7973, nPoints=6
+Despike: QCF, delta -1.02646 - slope=1, point = -15.6564, nPoints=3
+Despike: QCF, delta -1.06936 - slope=1, point = -13.1248, nPoints=7
+Despike: QCF, delta -1.38186 - slope=1, point = -12.3891, nPoints=2
+Despike: QCF, delta 1.06017 - slope=1, point = -11.2298, nPoints=1
+Despike: QCF, delta -1.19805 - slope=1, point = -10.9797, nPoints=2
+Despike: QCF, delta 1.30224 - slope=1, point = -10.6103, nPoints=2
+Despike: QCF, delta -1.95488 - slope=1, point = -10.4908, nPoints=10
+Despike: QCF, delta -1.1674 - slope=1, point = -12.3293, nPoints=1
+Despike: QCF, delta 1.10307 - slope=1, point = -14.4174, nPoints=7
+Despike: QCF, delta -1.19802 - slope=1, point = -11.7207, nPoints=4
+Despike: QCF, delta 1.11224 - slope=1, point = -11.7562, nPoints=13
+Despike: QCF, delta -1.34202 - slope=1, point = -7.21616, nPoints=7
+Despike: QCF, delta -1.10918 - slope=1, point = -10.3752, nPoints=15
+Despike: QCF, delta -1.12759 - slope=1, point = -11.605, nPoints=8
+Despike: QCF, delta -1.18581 - slope=1, point = -13.3321, nPoints=23
+Despike: QCF, delta -1.82928 - slope=1, point = -12.9829, nPoints=2
+Despike: QCF, delta -1.434 - slope=1, point = -13.6888, nPoints=31
+Despike: QCF, delta -1.3911 - slope=1, point = -13.263, nPoints=10
+Despike: QCF, delta 1.18579 - slope=1, point = -14.6603, nPoints=4
+Despike: QCF, delta -1.41866 - slope=1, point = -11.6834, nPoints=2
+Despike: QCF, delta 1.08776 - slope=1, point = -9.87703, nPoints=1
+Despike: QCF, delta -1.17662 - slope=1, point = -9.88822, nPoints=110
+Despike: QCF, delta 1.67913 - slope=1, point = -11.3007, nPoints=2
+Despike: QCF, delta -1.66077 - slope=1, point = -11.7338, nPoints=177
+Despike: QCF, delta 1.18274 - slope=1, point = -10.4535, nPoints=7
+Despike: QCF, delta 1.17662 - slope=1, point = -10.7017, nPoints=2
+Despike: QCF, delta 1.10921 - slope=1, point = -9.58789, nPoints=1
+Despike: QCF, delta -1.27772 - slope=1, point = -9.66437, nPoints=7
+Despike: QCF, delta -1.06631 - slope=1, point = -11.7861, nPoints=1
+Despike: QCF, delta -1.02343 - slope=1, point = -11.6087, nPoints=3
+Despike: QCF, delta -1.46158 - slope=1, point = -14.4174, nPoints=22
+Despike: QCF, delta -1.04177 - slope=1, point = -11.8607, nPoints=8
+Despike: QCF, delta 1.05403 - slope=1, point = -12.6841, nPoints=2
+Despike: QCF, delta -1.11529 - slope=1, point = -13.2107, nPoints=3
+Despike: QCF, delta 2.18779 - slope=1, point = -13.3377, nPoints=3
+Despike: QCF, delta -1.78637 - slope=1, point = -16.6248, nPoints=10
+Despike: QCF, delta -1.70672 - slope=1, point = -15.1929, nPoints=53
+Despike: QCF, delta -1.28693 - slope=1, point = -13.5394, nPoints=4
+Despike: QCF, delta -1.43097 - slope=1, point = -15.5368, nPoints=6
+Despike: QCF, delta 1.44937 - slope=1, point = -16.0919, nPoints=3
+Despike: QCF, delta -1.02651 - slope=1, point = -15.2546, nPoints=4
+Despike: QCF, delta 1.32066 - slope=1, point = -14.1073, nPoints=1
+Despike: QCF, delta -1.49837 - slope=1, point = -14.0213, nPoints=8
+Despike: QCF, delta -1.85682 - slope=1, point = -12.6747, nPoints=7
+Despike: QCF, delta 1.12148 - slope=1, point = -10.127, nPoints=6
+Despike: QCF, delta -1.39417 - slope=1, point = -12.3947, nPoints=27
+Despike: QCF, delta 1.15211 - slope=1, point = -14.8715, nPoints=15
+Despike: QCF, delta -1.0387 - slope=1, point = -15.8396, nPoints=1
+Despike: QCF, delta 1.03872 - slope=1, point = -14.5575, nPoints=2
+Despike: QCF, delta -1.0908 - slope=1, point = -14.0363, nPoints=3
+Despike: QCF, delta -1.63618 - slope=1, point = 8.62418, nPoints=7
+Despike: QCF, delta 1.87827 - slope=1, point = -10.8043, nPoints=1
+Despike: QCF, delta -1.44316 - slope=1, point = -10.3658, nPoints=7
+Despike: QCF, delta -1.13985 - slope=1, point = -7.48643, nPoints=26
+Despike: QCF, delta -1.62394 - slope=1, point = -4.95808, nPoints=1
+Despike: QCF, delta 1.0387 - slope=1, point = -7.88721, nPoints=15
+Despike: QCF, delta 1.68215 - slope=1, point = -11.0693, nPoints=10
+Despike: QCF, delta -1.08769 - slope=1, point = -14.1521, nPoints=1
+Despike: QCF, delta 1.0203 - slope=1, point = -14.7257, nPoints=1
+Despike: QCF, delta -1.28687 - slope=1, point = -16.5949, nPoints=5
+Despike: QCF, delta 1.34512 - slope=1, point = -18.164, nPoints=5
+Despike: QCF, delta -2.00079 - slope=1, point = -18.8263, nPoints=11
+Despike: QCF, delta -1.2685 - slope=1, point = -18.3866, nPoints=6
+Despike: QCF, delta -1.52895 - slope=1, point = -18.3136, nPoints=2
+Despike: QCF, delta -1.0387 - slope=1, point = -17.1259, nPoints=5
+Despike: QCF, delta -1.36962 - slope=1, point = -15.5237, nPoints=12
+Despike: QCF, delta -1.37571 - slope=1, point = -16.6098, nPoints=7
+Despike: QCF, delta -1.48605 - slope=1, point = -16.378, nPoints=19
+Despike: QCF, delta -1.03868 - slope=1, point = -13.7636, nPoints=1
+Despike: QCF, delta -1.02642 - slope=1, point = -14.7537, nPoints=20
+Despike: QCF, delta 1.24425 - slope=1, point = -14.2474, nPoints=182
+Despike: QCF, delta -1.08465 - slope=1, point = -9.42375, nPoints=1
+Despike: QCF, delta -1.12141 - slope=1, point = -9.47598, nPoints=7
+Despike: QCF, delta -1.33896 - slope=1, point = -12.18, nPoints=9
+Despike: QCF, delta 1.0969 - slope=1, point = -16.9894, nPoints=5
+Despike: QCF, delta 1.28994 - slope=1, point = -11.8383, nPoints=1
+Despike: QCF, delta -1.12141 - slope=1, point = -11.7095, nPoints=8
+Despike: QCF, delta 1.15815 - slope=1, point = -12.0885, nPoints=10
+Despike: QCF, delta 1.08767 - slope=1, point = -13.9821, nPoints=33
+Despike: QCF, delta -1.1551 - slope=1, point = -12.5552, nPoints=14
+Despike: QCF, delta 1.51971 - slope=1, point = -14.2549, nPoints=1
+Despike: QCF, delta -1.40327 - slope=1, point = -14.6977, nPoints=2
+Despike: QCF, delta -1.22556 - slope=1, point = -14.8266, nPoints=5
+Despike: QCF, delta -1.19186 - slope=1, point = -14.6977, nPoints=1
+Despike: QCF, delta 1.005 - slope=1, point = -12.8652, nPoints=2
+Despike: QCF, delta -1.15821 - slope=1, point = -15.262, nPoints=12
+Despike: QCF, delta 1.07549 - slope=1, point = -15.5405, nPoints=2
+Despike: QCF, delta -1.05711 - slope=1, point = -16.1891, nPoints=8
+Despike: QCF, delta -1.21643 - slope=1, point = -17.7487, nPoints=6
+Despike: QCF, delta -1.0908 - slope=1, point = -17.1091, nPoints=2
+Despike: QCF, delta 1.26853 - slope=1, point = -17.2082, nPoints=2
+Despike: QCF, delta -1.07856 - slope=1, point = -17.2157, nPoints=2
+Despike: QCF, delta 1.03259 - slope=1, point = -14.5239, nPoints=9
+Despike: QCF, delta -1.06937 - slope=1, point = -13.6963, nPoints=3
+Despike: QCF, delta -1.06628 - slope=1, point = -16.1218, nPoints=1
+Despike: QCF, delta -1.11226 - slope=1, point = -15.9274, nPoints=13
+Despike: QCF, delta -1.20415 - slope=1, point = -16.6341, nPoints=1
+Despike: QCF, delta 1.0387 - slope=1, point = -16.7183, nPoints=7
+Despike: QCF, delta 1.30222 - slope=1, point = -18.1172, nPoints=2
+Despike: QCF, delta -2.14178 - slope=1, point = -17.2587, nPoints=10
+Despike: QCF, delta -1.52284 - slope=1, point = -20.0933, nPoints=10
+Despike: QCF, delta 1.19807 - slope=1, point = -18.149, nPoints=3
+Despike: QCF, delta -1.56268 - slope=1, point = -17.3466, nPoints=4
+Despike: QCF, delta -1.04792 - slope=1, point = -11.0283, nPoints=1
+Despike: QCF, delta 1.34823 - slope=1, point = -6.1577, nPoints=1
+Despike: QCF, delta -1.13067 - slope=1, point = -6.47259, nPoints=18
+Despike: QCF, delta -1.41256 - slope=1, point = -5.33058, nPoints=8
+Despike: QCF, delta 1.05714 - slope=1, point = -5.20579, nPoints=4
+Despike: QCF, delta -1.17358 - slope=1, point = -6.20242, nPoints=1
+Despike: QCF, delta -1.16747 - slope=1, point = -6.6962, nPoints=1
+Despike: QCF, delta 1.36357 - slope=1, point = -5.05306, nPoints=7
+Despike: QCF, delta 1.12149 - slope=1, point = -9.41069, nPoints=2
+Despike: QCF, delta -1.20116 - slope=1, point = -7.77163, nPoints=4
+Despike: QCF, delta 1.22264 - slope=1, point = -4.48321, nPoints=6
+Despike: QCF, delta -1.16441 - slope=1, point = -5.54293, nPoints=28
+Despike: QCF, delta -1.23489 - slope=1, point = -6.55645, nPoints=17
+Despike: QCF, delta -1.09697 - slope=1, point = -11.3269, nPoints=1
+Despike: QCF, delta 1.17664 - slope=1, point = -11.2093, nPoints=19
+Despike: QCF, delta 1.1399 - slope=1, point = -9.97777, nPoints=4
+Despike: QCF, delta 1.1123 - slope=1, point = -9.40883, nPoints=9
+Despike: QCF, delta 1.04186 - slope=1, point = -9.86211, nPoints=1
+Despike: QCF, delta -1.26246 - slope=1, point = -11.0936, nPoints=1
+Despike: QCF, delta -1.23182 - slope=1, point = -6.00679, nPoints=7
+Despike: QCF, delta 1.04797 - slope=1, point = -7.10993, nPoints=7
+Despike: QCF, delta -1.08477 - slope=1, point = -10.2781, nPoints=9
+Despike: QCF, delta -1.04494 - slope=1, point = -5.04189, nPoints=2
+Despike: QCF, delta 1.03266 - slope=1, point = -3.40339, nPoints=7
+Despike: QCF, delta 1.09701 - slope=1, point = -3.12606, nPoints=7
+Despike: QCF, delta -1.10008 - slope=1, point = -3.8874, nPoints=5
+Despike: QCF, delta -1.00815 - slope=1, point = -3.65469, nPoints=7
+Despike: QCF, delta 1.25634 - slope=1, point = -4.09033, nPoints=29
+Despike: QCF, delta 1.06635 - slope=1, point = -7.17143, nPoints=8
+Despike: QCF, delta -2.07756 - slope=1, point = -8.10347, nPoints=46
+Despike: QCF, delta -1.08165 - slope=1, point = -12.2808, nPoints=2
+Despike: QCF, delta 1.75271 - slope=1, point = -10.1457, nPoints=1
+Despike: QCF, delta -1.66079 - slope=1, point = -13.0912, nPoints=28
+Despike: QCF, delta -1.01117 - slope=1, point = -11.9466, nPoints=116
+Despike: QCF, delta -1.01423 - slope=1, point = -15.9629, nPoints=3
+Despike: QCF, delta -1.15821 - slope=1, point = -11.8047, nPoints=2
+Despike: QCF, delta -1.03872 - slope=1, point = -14.5874, nPoints=39
+Despike: QCF, delta 1.14903 - slope=1, point = -16.1966, nPoints=1
+Despike: QCF, delta 1.62089 - slope=1, point = -18.033, nPoints=1
+Despike: QCF, delta -1.27157 - slope=1, point = -19.3241, nPoints=2
+Despike: QCF, delta -1.41267 - slope=1, point = -20.6138, nPoints=5
+Despike: QCF, delta 1.03883 - slope=1, point = -16.492, nPoints=8
+Despike: QCF, delta -1.19816 - slope=1, point = -14.7257, nPoints=10
+Despike: QCF, delta 1.01122 - slope=1, point = -14.0419, nPoints=6
+Despike: QCF, delta -1.05107 - slope=1, point = -20.9433, nPoints=9
+Despike: QCF, delta -1.46475 - slope=1, point = -19.1032, nPoints=7
+Despike: QCF, delta 1.1798 - slope=1, point = -19.9829, nPoints=4
+Despike: QCF, delta -1.1461 - slope=1, point = -18.2613, nPoints=19
+Despike: QCF, delta -1.31463 - slope=1, point = -17.9002, nPoints=5
+Despike: QCF, delta 1.08786 - slope=1, point = -16.9071, nPoints=14
+Despike: QCF, delta -1.1982 - slope=1, point = -21.0819, nPoints=1
+Despike: QCF, delta -1.13999 - slope=1, point = -11.9373, nPoints=31
+Despike: QCF, delta -1.19207 - slope=1, point = -17.154, nPoints=21
+Despike: QCF, delta 1.05725 - slope=1, point = -15.105, nPoints=1
+Despike: QCF, delta 1.10629 - slope=1, point = -16.8398, nPoints=3
+Despike: QCF, delta -1.07256 - slope=1, point = -17.6533, nPoints=3
+Despike: QCF, delta -1.06644 - slope=1, point = -20.8553, nPoints=6
+Despike: QCF, delta -1.16143 - slope=1, point = -20.0278, nPoints=13
+Despike: QCF, delta -1.00515 - slope=1, point = -17.5748, nPoints=3
+Despike: QCF, delta -1.21967 - slope=1, point = -15.6639, nPoints=3
+Despike: QCF, delta 1.07565 - slope=1, point = 12.1713, nPoints=1
+Despike: QCF, delta 1.19516 - slope=1, point = -16.1293, nPoints=2
+Despike: QCF, delta -1.02354 - slope=1, point = -14.849, nPoints=8
+Despike: QCF, delta -1.0634 - slope=1, point = -12.8503, nPoints=96
+Despike: QCF, delta 1.78024 - slope=1, point = -9.8677, nPoints=80
+Despike: QCF, delta -1.1155 - slope=1, point = -13.6384, nPoints=1
+Despike: QCF, delta -1.09097 - slope=1, point = -12.5776, nPoints=3
+Despike: QCF, delta -1.12778 - slope=1, point = -14.7687, nPoints=1
+Despike: QCF, delta -1.35764 - slope=1, point = -10.9256, nPoints=4
+Despike: QCF, delta -1.05425 - slope=1, point = -12.8297, nPoints=12
+Despike: QCF, delta -1.0573 - slope=1, point = -12.6971, nPoints=9
+Despike: QCF, delta -1.3086 - slope=1, point = -14.9593, nPoints=3
+Despike: QCF, delta 1.02667 - slope=1, point = -10.1718, nPoints=2
+Despike: QCF, delta 1.20136 - slope=1, point = -10.3117, nPoints=8
+Despike: QCF, delta 1.25347 - slope=1, point = -9.39204, nPoints=1
+Despike: QCF, delta -1.30251 - slope=1, point = -9.41815, nPoints=4
+Despike: QCF, delta -1.0083 - slope=1, point = -8.12025, nPoints=9
+Despike: QCF, delta -1.468 - slope=1, point = -8.51926, nPoints=14
+Despike: QCF, delta -1.11246 - slope=1, point = -13.3993, nPoints=7
+Despike: QCF, delta -1.12165 - slope=1, point = -8.59571, nPoints=1
+Despike: QCF, delta -1.57214 - slope=1, point = -11.06, nPoints=6
+Despike: QCF, delta -1.02667 - slope=1, point = -10.8622, nPoints=2
+Despike: QCF, delta -1.29635 - slope=1, point = -10.8566, nPoints=3
+Despike: QCF, delta 1.10322 - slope=1, point = -13.1341, nPoints=25
+Despike: QCF, delta -2.42114 - slope=1, point = -8.35704, nPoints=1
+Despike: QCF, delta 1.0114 - slope=1, point = -9.48157, nPoints=1
+Despike: QCF, delta 1.06964 - slope=1, point = -10.0599, nPoints=1
+Despike: QCF, delta 1.11256 - slope=1, point = -8.61622, nPoints=2
+Despike: QCR, delta 1.08024 - slope=1, point = -8.61622, nPoints=1
+Despike: QCF, delta -1.23204 - slope=1, point = -5.94345, nPoints=1
+Despike: QCF, delta -1.31779 - slope=1, point = -12.9978, nPoints=176
+Despike: QCF, delta -1.01439 - slope=1, point = -7.95992, nPoints=2
+Despike: QCF, delta -1.01133 - slope=1, point = -8.43908, nPoints=6
+Despike: QCF, delta 1.16457 - slope=1, point = -7.94314, nPoints=3
+Despike: QCF, delta -1.02971 - slope=1, point = -9.08617, nPoints=1
+Despike: QCF, delta -1.43422 - slope=1, point = -11.7375, nPoints=10
+Despike: QCF, delta 1.20744 - slope=1, point = -10.1681, nPoints=2
+Despike: QCF, delta -1.31466 - slope=1, point = -12.249, nPoints=1
+Despike: QCF, delta 1.82658 - slope=1, point = -10.0431, nPoints=1
+Despike: QCF, delta 1.08489 - slope=1, point = -9.2335, nPoints=1
+Despike: QCR, delta -4.38793 - slope=1, point = -9.26708, nPoints=1
+Despike: QCF, delta 1.29941 - slope=1, point = -8.65538, nPoints=1
+Despike: QCF, delta 1.63041 - slope=1, point = -8.52485, nPoints=1
+Despike: QCR, delta -3.47093 - slope=1, point = -8.52485, nPoints=1
+Despike: QCF, delta -1.13396 - slope=1, point = -12.6131, nPoints=3
+Despike: QCF, delta -1.042 - slope=1, point = -11.3045, nPoints=3
+Despike: QCF, delta 1.28716 - slope=1, point = -8.48197, nPoints=6
+Despike: QCF, delta -1.07577 - slope=1, point = -10.5356, nPoints=2
+Despike: QCF, delta -2.13933 - slope=1, point = -14.0849, nPoints=3
+Despike: QCF, delta -2.19454 - slope=1, point = -10.1867, nPoints=1
+Despike: QCF, delta -2.22828 - slope=1, point = -14.0064, nPoints=1
+Despike: QCF, delta 1.49888 - slope=1, point = -8.83254, nPoints=2
+Despike: QCF, delta 1.46517 - slope=1, point = -10.058, nPoints=2
+Despike: QCF, delta -4.51797 - slope=1, point = -8.61622, nPoints=1
+Despike: QCR, delta -5.26331 - slope=1, point = -8.61622, nPoints=1
+Despike: QCF, delta -1.082 - slope=1, point = -9.05819, nPoints=1
+Despike: QCF, delta 1.43451 - slope=1, point = -7.44729, nPoints=2
+Despike: QCR, delta 1.41595 - slope=1, point = -7.44729, nPoints=1
+Despike: QCF, delta -1.00231 - slope=1, point = -6.93288, nPoints=1
+Despike: QCF, delta 1.84526 - slope=1, point = -8.28619, nPoints=2
+Despike: QCF, delta 1.14028 - slope=1, point = -5.46097, nPoints=1
+Despike: QCF, delta -1.01461 - slope=1, point = -5.17785, nPoints=1
+Despike: QCF, delta 1.25677 - slope=1, point = -3.19678, nPoints=1
+Despike: QCF, delta -1.02381 - slope=1, point = -5.10521, nPoints=175
+Despike: QCF, delta -1.33342 - slope=1, point = -2.76128, nPoints=139
+Despike: QCF, delta 1.06369 - slope=1, point = -3.20795, nPoints=4
+Despike: QCF, delta -1.05448 - slope=1, point = -2.77058, nPoints=4
+Despike: QCF, delta 1.0116 - slope=1, point = -1.64675, nPoints=1
+Despike: QCF, delta -1.08211 - slope=1, point = -3.68262, nPoints=2
+Despike: TTRL, delta 0.649433 - slope=0.5, point = -2.51378, nPoints=3
+Despike: QCF, delta 1.80253 - slope=1, point = -3.38478, nPoints=1
+Despike: QCF, delta -1.15876 - slope=1, point = -4.11454, nPoints=2
+Despike: QCF, delta -1.1373 - slope=1, point = -3.44062, nPoints=4
+Despike: QCF, delta -1.02388 - slope=1, point = -3.15398, nPoints=2
+Despike: QCF, delta 1.03002 - slope=1, point = -3.32894, nPoints=8
+Despike: QCF, delta -1.076 - slope=1, point = -2.9325, nPoints=5
+Despike: QCF, delta -1.00243 - slope=1, point = -3.42387, nPoints=7
+Despike: QCF, delta 1.1649 - slope=1, point = -3.06278, nPoints=10
+Despike: QCF, delta -1.00242 - slope=1, point = -2.65892, nPoints=3
+Despike: QCF, delta -1.23238 - slope=1, point = -3.39595, nPoints=46
+Despike: QCF, delta 1.07603 - slope=1, point = -1.46445, nPoints=7
+Despike: QCF, delta -1.11282 - slope=1, point = -2.15279, nPoints=2
+Despike: QCF, delta -1.10669 - slope=1, point = -2.13791, nPoints=9
+Despike: QCF, delta -1.06686 - slope=1, point = -2.49331, nPoints=5
+Despike: QCF, delta -1.67693 - slope=1, point = -1.6821, nPoints=9
+Despike: QCF, delta -1.02394 - slope=1, point = -1.86813, nPoints=1
+Despike: QCF, delta -1.01476 - slope=1, point = -1.52583, nPoints=8
+Despike: QCF, delta 1.05461 - slope=1, point = -1.00502, nPoints=1
+Despike: TTRL, delta 0.625702 - slope=0.5, point = -2.08581, nPoints=7
+Despike: TTRR, delta 0.50161 - slope=0.5, point = -2.08581, nPoints=24
+Despike: QCF, delta -5.2148 - slope=1, point = -1.36772, nPoints=10
+Despike: QCF, delta -3.58392 - slope=1, point = -0.408054, nPoints=1
+Despike: QCF, delta -1.2049 - slope=1, point = -0.934343, nPoints=6
+Despike: QCF, delta -3.64842 - slope=1, point = -0.121703, nPoints=1
+Despike: QCF, delta -6.11951 - slope=1, point = -0.0547678, nPoints=1
+Despike: QCF, delta -4.35055 - slope=1, point = -0.0380343, nPoints=1
+Despike: QCF, delta -1.23253 - slope=1, point = 0.147888, nPoints=1
+Despike: QCF, delta -2.49264 - slope=1, point = -0.0770794, nPoints=1
+Despike: QCR, delta -6.02331 - slope=1, point = -0.0770794, nPoints=1
+Despike: QCF, delta -4.28922 - slope=1, point = 0.0976898, nPoints=1
+Despike: QCR, delta -2.64218 - slope=1, point = 0.0976898, nPoints=1
+Despike: QCF, delta -2.81148 - slope=1, point = 0.172056, nPoints=1
+Despike: QCR, delta -1.10862 - slope=1, point = 0.172056, nPoints=1
+Despike: QCF, delta -1.24477 - slope=1, point = 0.244562, nPoints=5
+Despike: QCR, delta -1.21637 - slope=1, point = 0.244562, nPoints=5
+Despike: QCF, delta -1.55746 - slope=1, point = 0.168338, nPoints=14
+Despike: QCR, delta -1.40108 - slope=1, point = 0.168338, nPoints=15
+ReadTextFile: can't open /jnet/linux/proj/103/Production/BlankOuts.tf01
+
+-- Begin output from nimbus status window
+Version - 3.4.0
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+DPLA has no dependencies, turning off.
+GALTC has no dependencies, turning off.
+IAS has no dependencies, turning off.
+PSURF is depending on non-existent variable HGM, turning off.
+PVOL3 has no dependencies, turning off.
+PVOLP has no dependencies, turning off.
+RADCF has no dependencies, turning off.
+REFF3 has no dependencies, turning off.
+REFFF has no dependencies, turning off.
+RHLA has no dependencies, turning off.
+SWTC has no dependencies, turning off.
+TCNTF has no dependencies, turning off.
+TEO3C is depending on non-existent variable TEP, turning off.
+Loading setup file: /jnet/linux/proj/103/Production/Flight_4
+LoadSetup: can't find IWD.
+LoadSetup: can't find IWS.
+LoadSetup: can't find XPSFD.
+LoadSetup: can't find XLATC.
+LoadSetup: can't find XLONC.
+LoadSetup: can't find XUIC.
+LoadSetup: can't find XUXC.
+LoadSetup: can't find XVEWC.
+LoadSetup: can't find XVIC.
+LoadSetup: can't find XVNSC.
+LoadSetup: can't find XVYC.
+LoadSetup: can't find XWDC.
+LoadSetup: can't find XWIC.
+LoadSetup: can't find XWSC.
+Request for non-existent default, XO3F1T_CAL.
+Values set to 0.000000, 0.000000 in AMLIB function kokInit.
+Request for non-existent default, SFCT.
+SFCT set to 288.149994 in AMLIB function initPalt.
+Request for non-existent default, TWIRE_TASFAC.
+Value set to 1.000000 in AMLIB function plwccInit.
+Request for non-existent default, TWIRE_DIAM.
+Value set to 0.210000 in AMLIB function plwccInit.
+Request for non-existent default, TWIRE_TASFAC1.
+Value set to 1.000000 in AMLIB function plwccInit.
+Request for non-existent default, TWIRE_DIAM1.
+Value set to 0.210000 in AMLIB function plwccInit.
+Despiking enabled.
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_ROLL_MAX.
+Value set to 40.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_TAUP.
+Value set to 100.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time interval(s) completed: 19:04:54-20:17:40
+Processing took 0.1 minutes.
+-- End output from nimbus status window
+
+mistral/ruth % ncdht R1170.nc
+// global attributes:
+                :Source = "NCAR Research Aviation Facility" ;
+                :Address = "P.O. Box 3000, Boulder, CO 80307-3000" ;
+                :Phone = "(303) 497-1030" ;
+                :Conventions = "NCAR-RAF/nimbus" ;
+                :Version = "1.2" ;
+                :WARNING = "This file contains PRELIMINARY DATA that are NOT to
+be used for critical analysis." ;
+                :DateProcessed = "Apr 01 22:48 UTC 2004" ;
+                :ProjectName = "SOLAR_CORONA" ;
+                :Aircraft = "N130AR" ;
+                :ProjectNumber = "103" ;
+                :FlightNumber = "tf01" ;
+                :FlightDate = "10/07/1997" ;
+                :TimeInterval = "19:04:54-20:17:40" ;
+                :Categories = "Position,Thermodynamic,Aircraft State,Atmos. State,Liquid Water,Uncorr\'d Raw,Wind,PMS Probe,Housekeeping,Chemistry,Radiation,Non-Standard" ;
+
+-------
+
+mistral/ruth % !!
+dnload
+Enter source tape drive [/dev/rmt/0]: /dev/rmt/1
+Enter destination tape drive [return for no tape copy]:
+Enter destination disk file [return for no disk file]: Accel_Cal.ads
+Rewinding tape....
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0.
+Rewinding tape....
+TapeStat: CurrentPR=0, ioctl=0, dsreg=0, erreg=0, fileno=0, blkno=0.
+Downloading tape to disk file Accel_Cal.ads.
+16:21:01 - 16:35:35
+438 records successfully written to disk.
+
+vivaldi/ruth % nimbus &
+Version - 3.4.0
+HK28AII has no description or units.
+HK28AIV has no description or units.
+HK28UI has no description or units.
+HK28UV has no description or units.
+HK400 has no description or units.
+HK60D has no description or units.
+HK60L has no description or units.
+HK60R has no description or units.
+IMP1 has no description or units.
+IMP2 has no description or units.
+IMPTOT has no description or units.
+INPI has no description or units.
+INPO has no description or units.
+INPS3 has no description or units.
+INQC3 has no description or units.
+PLWC1 has no description or units.
+RSTB1 has no description or units.
+TRSTB has no description or units.
+XACCUX has no description or units.
+XACCVY has no description or units.
+XACCWZ has no description or units.
+XDMAP has no description or units.
+XEXT has no description or units.
+XO3FHV has no description or units.
+XPODXAC has no description or units.
+XPODYAC has no description or units.
+XPODZAC has no description or units.
+XTOTAS has no description or units.
+BLONGA has no description or units.
+DAY has no description or units.
+HGM232S has no description or units.
+MONTH has no description or units.
+PSFRD has no description or units.
+YEAR has no description or units.
+DPLA has no description or units.
+GALTC has no description or units.
+IAS has no description or units.
+INFLOWC has no description or units.
+INTAS3 has no description or units.
+PLWCC1 has no description or units.
+PVOL3_IBR has no description or units.
+PVOLP_RPI has no description or units.
+RADCF has no description or units.
+REFF3_IBR has no description or units.
+REFFF_OBR has no description or units.
+RHLA has no description or units.
+SOLAZ has no description or units.
+SOLDE has no description or units.
+SOLEL has no description or units.
+SOLZE has no description or units.
+SWTC has no description or units.
+TCNTF_OBR has no description or units.
+>>>>>>>>>>>>>>>  Pre AIRS-II pcors
+16:21:1
+16:21:2
+16:21:3
+16:21:4
+16:21:5
+16:21:6
+16:21:7
+16:21:8
+cntr=8
+16:21:5
+ReadTextFile: can't open /jnet/linux/proj/103/Production/BlankOuts.gt01
+
+-- Begin output from nimbus status window
+Version - 3.4.0
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+DPLA has no dependencies, turning off.
+GALTC has no dependencies, turning off.
+IAS has no dependencies, turning off.
+PSURF is depending on non-existent variable HGM, turning off.
+PVOL3 has no dependencies, turning off.
+PVOLP has no dependencies, turning off.
+RADCF has no dependencies, turning off.
+REFF3 has no dependencies, turning off.
+REFFF has no dependencies, turning off.
+RHLA has no dependencies, turning off.
+SWTC has no dependencies, turning off.
+TCNTF has no dependencies, turning off.
+TEO3C is depending on non-existent variable TEP, turning off.
+Request for non-existent default, XO3F1T_CAL.
+Values set to 0.000000, 0.000000 in AMLIB function kokInit.
+Request for non-existent default, SFCT.
+SFCT set to 288.149994 in AMLIB function initPalt.
+Request for non-existent default, TWIRE_TASFAC.
+Value set to 1.000000 in AMLIB function plwccInit.
+Request for non-existent default, TWIRE_DIAM.
+Value set to 0.210000 in AMLIB function plwccInit.
+Request for non-existent default, TWIRE_TASFAC1.
+Value set to 1.000000 in AMLIB function plwccInit.
+Request for non-existent default, TWIRE_DIAM1.
+Value set to 0.210000 in AMLIB function plwccInit.
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_ROLL_MAX.
+Value set to 40.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_TAUP.
+Value set to 100.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time interval(s) completed: 16:21:07-16:35:33
+Processing took 0.0 minutes.
+-- End output from nimbus status window
+
+mistral/ruth % ncdht Accel_Cal.nc
+/ global attributes:
+                :Source = "NCAR Research Aviation Facility" ;
+                :Address = "P.O. Box 3000, Boulder, CO 80307-3000" ;
+                :Phone = "(303) 497-1030" ;
+                :Conventions = "NCAR-RAF/nimbus" ;
+                :Version = "1.2" ;
+                :WARNING = "This file contains PRELIMINARY DATA that are NOT to
+be used for critical analysis." ;
+                :DateProcessed = "Apr 01 23:10 UTC 2004" ;
+                :ProjectName = "SOLAR_CORONA" ;
+                :Aircraft = "N130AR" ;
+                :ProjectNumber = "103" ;
+                :FlightNumber = "gt01" ;
+                :FlightDate = "10/17/1997" ;
+                :TimeInterval = "16:21:07-16:35:33" ;
+                :Categories = "Position,Thermodynamic,Aircraft State,Atmos. State,Liquid Water,Uncorr\'d Raw,Wind,PMS Probe,Housekeeping,Chemistry,Radiation,Non-Standard" ;
+

@@ -1,0 +1,362 @@
+Notes on the reprocessing of data from project 1995-162 SCMS
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+11 March 1998,  Ron Ruth
+Due to changes in the NIMBUS processor, certain default outputs in the
+ production data have changed:
+ 1.  Fluxes, turned on by default in the earlier version of NIMBUS when doing
+      high-rate processing, are now turned off and don't appear.
+ 2.  LATC and LONC have been replaced by XLATC and XLONC.
+ 3.  VEWC and VNSC have been replaced by XVEWC and XVNSC.
+ 4.  netCDF attributes have been added to the header, and some parameters
+      which were put into the one large "Defaults" attribute, now appear
+      as attributes of the variable to which it pertains.  An example is
+      PMS-1D cell sizes.
+ 5.  Indicated Airspeed has been added to the default output.
+ 6.  Attitude-corrected SWT (XSWTC) is now output along with solar angle
+      calculations.
+ 7.  YEAR, MONTH and DAY have been added to the variable list.
+ 8.  ONE and ZERO have been added to the variable list.
+
+ (Needed to add SOLAZ, SOLDE, SOLEL, SOLZE, XRADCF, XSWTC, YEAR, MONTH and DAY
+  to the project's VarDB file.)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+20 April 1998,  Ron Ruth
+Problems still persist with the PMS-1D processing.  Significant differences
+ exist between the LRT and HRT data caused by the DOF calculation in the
+ file "/home/local/nimbus/src/amlib/std/pms1d.c."  Production processing
+ has stopped until this problem can be sorted out.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+4 May 1998,  Ron Ruth
+Chris told me last Friday that he and Darrel straightened out the PMS
+ processing problems with the 260X, so I should now be able to test a
+ production run again.  The special code is still located in the directory:
+   /home/local/nimbus_scms/src/
+Chris "fixed" an IRS bug he introduced to nimbus from a different mod.  I'll
+ await a reply to my inquiry to see if it is fixed for this version, too.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+7 May 1998,  Ron Ruth
+The IRS-processing code has been fixed but didn't need to be, since the data
+ come in differently now.
+Chris gave a copy of RF12 to Jay Miller who perused it and thought all was
+ in order.  He emailed Chris and me about the urgency of reprocessing all
+ these data ASAP, since there is a Cloud Physics Conference deadline of
+ 2 June.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+8 May 1998,  Ron Ruth
+Yesterday I reprocessed SCMS LRT RF06-RF20, put copies of all the files on
+ our anonymous ftp site for Jay Miller to pick up.  He apparently did so early
+ this morning.
+There is still the questions of LRT (RF01-RF05) and HRT (all).
+For now, archive all the new LRT data in the directory:  /RAF/1995/162/NEW/LRT
+  162rf06.cdf --> /RAF/1995/162/NEW/LRT/RF06.cdf
+  162rf07.cdf --> /RAF/1995/162/NEW/LRT/RF07.cdf
+  162rf08.cdf --> /RAF/1995/162/NEW/LRT/RF08.cdf
+  162rf09.cdf --> /RAF/1995/162/NEW/LRT/RF09.cdf
+  162rf10.cdf --> /RAF/1995/162/NEW/LRT/RF10.cdf
+  162rf11.cdf --> /RAF/1995/162/NEW/LRT/RF11.cdf
+  162rf12.cdf --> /RAF/1995/162/NEW/LRT/RF12.cdf
+  162rf13.cdf --> /RAF/1995/162/NEW/LRT/RF13.cdf
+  162rf14.cdf --> /RAF/1995/162/NEW/LRT/RF14.cdf
+  162rf15.cdf --> /RAF/1995/162/NEW/LRT/RF15.cdf
+  162rf16.cdf --> /RAF/1995/162/NEW/LRT/RF16.cdf
+  162rf17.cdf --> /RAF/1995/162/NEW/LRT/RF17.cdf
+  162rf18.cdf --> /RAF/1995/162/NEW/LRT/RF18.cdf
+  162rf19.cdf --> /RAF/1995/162/NEW/LRT/RF19.cdf
+  162rf20.cdf --> /RAF/1995/162/NEW/LRT/RF20.cdf
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+11 May 1998,  Ron Ruth
+Chris sent email with info on the two special versions of NIMBUS he created
+ for SCMS located in the directories:
+     /home/local/nimbus_scms1-5/
+     /home/local/nimbus_scms6-19/
+The new version for RF01-RF05 incorporates changes needed for the FSSP-100.
+The old version apparently was changed to handle the 1000sps Gerber probe data.
+I'll be trying them out today.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+12 May 1998,  Ron Ruth
+Today I am reprocessing the HRT data for flights whose raw data are already
+ at Jeffco.
+HRT flights which have been completed so far:
+  162rf04h.cdf
+  162rf06h.cdf
+  162rf07h.cdf
+  162rf08h.cdf
+  162rf09h.cdf
+  162rf10h.cdf
+  162rf12h.cdf
+  162rf17h.cdf
+  162rf18h.cdf
+  162rf19h.cdf
+  162rf20h.cdf
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+13 May 1998,  Ron Ruth
+LRT flights which remain to be processed:  FF01A, FF01B, FF04
+ at Jeffco.
+Before processing any HRT data, I had to archive then purge the extant files
+ from the /home/productiondata directory:
+  162rf04h.cdf --> /RAF/1995/162/NEW/HRT/RF04
+  162rf06h.cdf --> /RAF/1995/162/NEW/HRT/RF06
+  162rf07h.cdf --> /RAF/1995/162/NEW/HRT/RF07
+  162rf08h.cdf --> /RAF/1995/162/NEW/HRT/RF08
+  162rf09h.cdf --> /RAF/1995/162/NEW/HRT/RF09
+  162rf10h.cdf --> /RAF/1995/162/NEW/HRT/RF10
+  162rf12h.cdf --> /RAF/1995/162/NEW/HRT/RF12
+  162rf17h.cdf --> /RAF/1995/162/NEW/HRT/RF17
+  162rf18h.cdf --> /RAF/1995/162/NEW/HRT/RF18
+  162rf19h.cdf --> /RAF/1995/162/NEW/HRT/RF19
+  162rf20h.cdf --> /RAF/1995/162/NEW/HRT/RF20
+(This means that I may have to bring them back to create a new taplog file.)
+
+HRT flights which have been completed today:
+  162rf11h.cdf
+  162rf13h.cdf
+  162rf14h.cdf
+  162rf15h.cdf
+  162rf16h.cdf
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+14 May 1998,  Ron Ruth
+Flights which have been completed today:
+  162rf01h.cdf
+  162rf01.cdf
+  162rf02h.cdf
+  162rf02.cdf
+  162rf03h.cdf
+  162rf03.cdf
+  162ff01a.cdf
+Flights (/home/productiondata) which have been archived today:
+  162rf01h.cdf --> /RAF/1995/162/NEW/HRT/RF01.cdf
+  162rf02h.cdf --> /RAF/1995/162/NEW/HRT/RF02.cdf
+  162rf11h.cdf --> /RAF/1995/162/NEW/HRT/RF11.cdf
+  162rf13h.cdf --> /RAF/1995/162/NEW/HRT/RF13.cdf
+  162rf14h.cdf --> /RAF/1995/162/NEW/HRT/RF14.cdf
+  162rf15h.cdf --> /RAF/1995/162/NEW/HRT/RF15.cdf
+  162rf16h.cdf --> /RAF/1995/162/NEW/HRT/RF16.cdf
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+15 May 1998,  Ron Ruth
+Flights which have been completed today:
+  162rf05h.cdf
+  162rf05.cdf
+  162ff01b.cdf
+  162ff04.cdf
+  162rf12.cdf (redone to use setup file Flight_12)
+  162rf12h.cdf (redone to use setup file Flight_12)
+Flights remaining to be reprocessed:  none
+Flights (/home/productiondata) which have been archived today (the rest!):
+  162ff01a.cdf --> /RAF/1995/162/NEW/LRT/FF01A.cdf
+  162ff01b.cdf --> /RAF/1995/162/NEW/LRT/FF01B.cdf
+  162ff04.cdf  --> /RAF/1995/162/NEW/LRT/FF04.cdf
+  162rf01.cdf  --> /RAF/1995/162/NEW/LRT/RF01.cdf
+  162rf02.cdf  --> /RAF/1995/162/NEW/LRT/RF02.cdf
+  162rf03.cdf  --> /RAF/1995/162/NEW/LRT/RF03.cdf
+  162rf04.cdf  --> /RAF/1995/162/NEW/LRT/RF04.cdf
+  162rf05.cdf  --> /RAF/1995/162/NEW/LRT/RF05.cdf
+  162rf12.cdf  --> /RAF/1995/162/NEW/LRT/RF12.cdf
+  162rf03h.cdf --> /RAF/1995/162/NEW/HRT/RF03.cdf
+  162rf05h.cdf --> /RAF/1995/162/NEW/HRT/RF05.cdf
+  162rf12h.cdf --> /RAF/1995/162/NEW/HRT/RF12.cdf
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+20 May 1998,  Ron Ruth
+New glitch occurred yesterday when Neil Laird (Ill. St H2O Survey) discovered
+ that FSSP range was hosed.  Chris made a fix, but we now must reprocess and
+ rearchive all the data again.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+21 May 1998,  Ron Ruth
+With `ncplot' I looked at every variable for RF08 LRT, and except for some
+ new FSSP housekeeping variables (which should not be there at all), the
+ data look OK to me.
+Flights which have been completed yesterday and today and archived today:
+  162rf01.cdf   -->   /RAF/1995/162/NEW/LRT/RF01.cdf
+  162rf01h.cdf  -->   /RAF/1995/162/NEW/HRT/RF01.cdf
+  162rf02.cdf   -->   /RAF/1995/162/NEW/LRT/RF02.cdf
+  162rf02h.cdf  -->   /RAF/1995/162/NEW/HRT/RF02.cdf
+  162rf03.cdf   -->   /RAF/1995/162/NEW/LRT/RF03.cdf
+  162rf03h.cdf  -->   /RAF/1995/162/NEW/HRT/RF03.cdf
+  162rf04.cdf   -->   /RAF/1995/162/NEW/LRT/RF04.cdf
+  162rf04h.cdf  -->   /RAF/1995/162/NEW/HRT/RF04.cdf
+  162rf05.cdf   -->   /RAF/1995/162/NEW/LRT/RF05.cdf
+  162rf05h.cdf  -->   /RAF/1995/162/NEW/HRT/RF05.cdf
+  162rf06.cdf   -->   /RAF/1995/162/NEW/LRT/RF06.cdf
+  162rf06h.cdf  -->   /RAF/1995/162/NEW/HRT/RF06.cdf
+  162rf07.cdf   -->   /RAF/1995/162/NEW/LRT/RF07.cdf
+  162rf07h.cdf  -->   /RAF/1995/162/NEW/HRT/RF07.cdf
+  162rf08.cdf   -->   /RAF/1995/162/NEW/LRT/RF08.cdf
+  162rf08h.cdf  -->   /RAF/1995/162/NEW/HRT/RF08.cdf
+  162rf12.cdf   -->   /RAF/1995/162/NEW/LRT/RF12.cdf
+  162rf12h.cdf  -->   /RAF/1995/162/NEW/HRT/RF12.cdf
+  162rf13.cdf   -->   /RAF/1995/162/NEW/LRT/RF13.cdf
+  162rf13h.cdf  -->   /RAF/1995/162/NEW/HRT/RF13.cdf
+  162rf14.cdf   -->   /RAF/1995/162/NEW/LRT/RF14.cdf
+  162rf14h.cdf  -->   /RAF/1995/162/NEW/HRT/RF14.cdf
+  162rf15.cdf   -->   /RAF/1995/162/NEW/LRT/RF15.cdf
+  162rf15h.cdf  -->   /RAF/1995/162/NEW/HRT/RF15.cdf
+  162rf16.cdf   -->   /RAF/1995/162/NEW/LRT/RF16.cdf
+  162rf16h.cdf  -->   /RAF/1995/162/NEW/HRT/RF16.cdf
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+22 May 1998,  Ron Ruth
+Perused RF18 HRT with `ncplot.'
+Flights which have been completed and archived today:
+  162rf17.cdf   -->   /RAF/1995/162/NEW/LRT/RF17.cdf
+  162rf17h.cdf  -->   /RAF/1995/162/NEW/HRT/RF17.cdf
+  162rf18.cdf   -->   /RAF/1995/162/NEW/LRT/RF18.cdf
+  162rf18h.cdf  -->   /RAF/1995/162/NEW/HRT/RF18.cdf
+  162rf19.cdf   -->   /RAF/1995/162/NEW/LRT/RF19.cdf
+  162rf19h.cdf  -->   /RAF/1995/162/NEW/HRT/RF19.cdf
+  162rf20.cdf   -->   /RAF/1995/162/NEW/LRT/RF20.cdf
+  162rf20h.cdf  -->   /RAF/1995/162/NEW/HRT/RF20.cdf
+  162ff01a.cdf  -->   /RAF/1995/162/NEW/LRT/FF01A.cdf
+  162ff01b.cdf  -->   /RAF/1995/162/NEW/LRT/FF01B.cdf
+  162ff04.cdf   -->   /RAF/1995/162/NEW/LRT/FF04.cdf
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+23 May 2001,  Ron Ruth
+
+Plan for restructuring the /home/local/proj/162 directory
+---------------------------------------------------------
+    Create a new project subdirectory:  1st_production
+    Move appropriate files into 1st_production/ (See file "renameit.")
+
+Plan for archiving the May 1998 reprocessed data and support files:
+-------------------------------------------------------------------
+1. Initially:
+    Save the reprocessed HRT netCDF files to the MSS directory:
+       /RAF/1995/162/NEW/HRT/
+    Save the reprocessed LRT netCDF files to the MSS directory:
+       /RAF/1995/162/NEW/LRT/
+
+2. Move all MSS bitfiles which supported the original processing that are
+    in the main directory to a new directory:  /RAF/1995/162/1ST_PRODUCTION/*
+    to make room for the new support files.
+ Files to move:
+  .../162.tar
+  .../162.tar.dir
+  .../nimbus.tar
+  .../nimbus.tar.dir
+  .../nimbus_defaults.tar
+  .../nimbus_defaults.tar.dir
+
+3. Archive (tar) the two new NIMBUS processors used to produce these new data
+  /home/local/nimbus_scms1-5/*        -->  /RAF/1995/162/nimbus1-5.tar
+  /home/local/nimbus_scms6-20/*       -->  /RAF/1995/162/nimbus6-20.tar
+  /home/local/proj/nimbus/defaults/*  -->  /RAF/1995/162/nimbus_defaults.tar
+
+4. Don't forget the support files.
+    (The first processing has special code for the "golden egg." Therefore,
+     these data do not appear in the reprocessed data set.)
+
+5. Move all MSS data bitfiles associated with the original processing to
+  a new directory:  /RAF/1995/162/1ST_PRODUCTION/*
+ Files to move:           (RPW) = read password present for bitfiles
+  .../HRT/*.cdf
+  .../HRT/*.hdr
+  .../HRT/taplog.162
+  .../HRT/PMS-1D/*.cdf    (RPW) (skeleton merge files)
+  .../LRT/*.cdf
+  .../LRT/*.hdr
+  .../LRT/taplog.162
+  .../LRT/PMS-1D/*.cdf    (RPW) (skeleton merge files)
+  .../ORIGINAL/HRT/*.cdf  (RPW)
+  .../ORIGINAL/LRT/*.cdf  (RPW)
+
+6. Move all the reprocessed files into the standard production directory
+  /RAF/1995/162/NEW/HRT/RF01-RF20.cdf  -->  /RAF/1995/162/HRT/RF01-RF20.cdf
+  /RAF/1995/162/NEW/LRT/FF01-FF04.cdf  -->  /RAF/1995/162/LRT/FF01-FF04.cdf
+  /RAF/1995/162/NEW/LRT/RF01-RF20.cdf  -->  /RAF/1995/162/LRT/RF01-RF20.cdf
+
+7. Send HRT data to Peter Duynkerke and Alan Blyth.
+
+All of the above tasks have been completed as of 22 June 1998.
+  --  Ronald L. Ruth
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+13 March 2001,  Ron Ruth
+
+Second reprocessing of SCMS data by Chris Webster:
+-------------------------------------------------
+  When doing the first reprocessing, it was discovered that processing
+  for the 260X was walking through the raw data 62 bins at a time, not the
+  required 64.  At that time it seemed easier (to me) to modify the
+  processor to handle the work-arounds for the FSSP.  Two/three mistakes
+  were made:
+    1) the 25Hz strobes and resets were incorrectly averaged down to 10Hz.
+    2) Activity was incorrectly computed
+        a) because we assumed the DFRSTS variable was FAST resets, not TOTAL.
+        b) I used the previous second's resets and strobes.
+  We started looking into a second reprocessing when Sonia [Lasher-Trapp]
+  discovered a "tic" in the concentrations at the entry of every cloud.
+  We realized that DFSTRB and DFRSTS were 1/10 of second different in time
+  from the rest of the FSSP-100 data (due to the broken housekeeping card).
+  The above listed problems were then brought to light when Fred claimed
+  that our activity was [totally bogus].
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+14 March 2001,  Ron Ruth
+
+Plan for restructuring the /home/local/proj/162 directory -- March 2001
+-----------------------------------------------------------------------
+    Create a new project subdirectory:  2nd_production
+    Move appropriate files into 2nd_production/ (See file "renameit2.")
+    (done 14 March 2001)
+
+Plan for archiving the March 2001 reprocessed data and support files:
+---------------------------------------------------------------------
+1. Initially:
+    Save the reprocessed HRT netCDF files to the MSS directory:
+       /RAF/1995/162/NEW/HRT/
+    Save the reprocessed LRT netCDF files to the MSS directory:
+       /RAF/1995/162/NEW/LRT/
+    (done 14 March 2001)
+
+2. Move all MSS bitfiles which supported the 1st reprocessing that are
+    in the main directory to a new directory:  /RAF/1995/162/2ND_PRODUCTION/
+    to make room for the new support files.
+   Bitfiles to move:
+    .../162.tar
+    .../162.tar.dir
+    .../nimbus1-5.tar
+    .../nimbus1-5.tar.dir
+    .../nimbus6-20.tar
+    .../nimbus6-20.tar.dir
+    .../nimbus_defaults.tar
+    .../nimbus_defaults.tar.dir
+    .../taplog.162
+    (done 14 March 2001)
+
+3. Move all MSS data bitfiles associated with the first reprocessing to
+  a new directory:  /RAF/1995/162/2ND_PRODUCTION/*
+   Files to move:
+    .../HRT/*.cdf
+    .../LRT/*.cdf
+    (done 15 March 2001)
+
+4. Move all the reprocessed files into the standard production directory
+  /RAF/1995/162/NEW/HRT/RF01-RF20.cdf  -->  /RAF/1995/162/HRT/RF01-RF20.cdf
+  /RAF/1995/162/NEW/LRT/RF01-RF20.cdf  -->  /RAF/1995/162/LRT/RF01-RF20.cdf
+    (done 15 March 2001)
+
+5. Archive (tar) the two new NIMBUS processors used to produce these new data
+  /home/local/dev/nimbus_scms1-5/*    -->  /RAF/1995/162/nimbus_scms1-5.tar
+  /home/local/dev/nimbus_scms6-20/*   -->  /RAF/1995/162/nimbus_scms6-20.tar
+  /home/local/proj/nimbus/defaults/*  -->  /RAF/1995/162/nimbus_defaults.tar
+  (done 15 March 2001)
+
+6. Don't forget the support files.
+    (The first processing has special code for the "golden egg." Therefore,
+     these data do not appear in the reprocessed data set.)
+    162.tar          -->  /RAF/1995/162/162.tar
+    162.tar.dir      -->  /RAF/1995/162/162.tar.dir
+    Mail.162         -->  /RAF/1995/162/Mail.162
+    reprocess.notes  -->  /RAF/1995/162/reprocess.notes
+    taplog.162       -->  /RAF/1995/162/taplog.162
+    162rf01.hdr      -->  /RAF/1995/162/LRT/RF01.hdr
+    162rf12.hdr      -->  /RAF/1995/162/LRT/RF12.hdr
+    162rf01h.hdr     -->  /RAF/1995/162/HRT/RF01.hdr
+    162rf12h.hdr     -->  /RAF/1995/162/HRT/RF12.hdr
+  (done 15 March 2001)
+
+7. Send HRT data to Peter Duynkerke and Alan Blyth?
+
+8. Notify all "recipients."

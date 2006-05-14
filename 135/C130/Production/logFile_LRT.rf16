@@ -1,0 +1,99 @@
+RICO - 135, Flight rf16
+Revision: 1924
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_rf16
+XPH has no description or units.
+REFF2DC_LWO1 has no description or units.
+REFF6_RWI has no description or units.
+TTWHC has no description or units.
+XCIM has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Processed on: 2005-05-02 14:25:37 -0600
+Flight Date: 01/18/2005
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for ACINS enabled, with lag of -80 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+REFF2DC_LWO1 has no entry in the VarDB.
+TTWHC has no entry in the VarDB.
+Blanking RSTB1 from 11:28:44 to 19:11:57.
+Blanking PLWCC from 19:09:21 to 19:11:57.
+Blanking PLWCC1 from 19:09:21 to 19:11:57.
+Blanking ATRL from 13:49:00 to 15:22:00.
+Blanking DPT from 13:49:00 to 15:43:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPTC from 13:49:00 to 15:43:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPLA from 13:49:00 to 15:48:00.
+Blanking RHOLA from 13:49:00 to 15:48:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA from 13:49:00 to 15:48:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA from 13:49:00 to 15:48:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPT from 18:11:00 to 18:30:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPTC from 18:11:00 to 18:30:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPT from 18:44:00 to 18:53:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPTC from 18:44:00 to 18:53:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking RSTT from 11:28:44 to 17:01:00.
+Time interval(s) completed : 
+11:28:44-19:11:57
+
+ACINS: 74 spikes removed with slope exceeding 4.000000
+LAT: 329 spikes removed with slope exceeding 0.200000
+LON: 328 spikes removed with slope exceeding 0.200000
+PITCH: 68 spikes removed with slope exceeding 1.300000
+ROLL: 72 spikes removed with slope exceeding 1.300000
+THDG: 25 spikes removed with slope exceeding 1.500000
+VEW: 4597 spikes removed with slope exceeding 20.000000
+VNS: 4594 spikes removed with slope exceeding 20.000000
+VSPD: 28 spikes removed with slope exceeding 1.600000
+IRS Error report: Latitude had 345 values of 0 (zero).
+IRS Error report: Longitude had 344 values of 0 (zero).
+IRS Error report: Ground Speed had 19799 values of 0 (zero).
+IRS Error report: Track Angle had 13 values of 0 (zero).
+IRS Error report: True Heading had 21 values of 0 (zero).
+IRS Error report: Pitch had 61 values of 0 (zero).
+IRS Error report: Roll had 71 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 67 values of 0 (zero).
+IRS Error report: Vertical Speed had 27 values of 0 (zero).
+IRS Error report: NS Velocity had 19793 values of 0 (zero).
+IRS Error report: EW Velocity had 19797 values of 0 (zero).
+Processing took 0.5 minutes.

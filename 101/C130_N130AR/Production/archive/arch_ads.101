@@ -1,0 +1,231 @@
+#! /bin/csh -f
+#
+#  Archive stripped ADS SDI data files for 1998-101 SHEBA
+#
+#  File adapted from the file /home/local/proj/101/Production/arch.101.2d
+#    by Ron Ruth  27 August 1998
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1998
+set PROJ = 101
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = /home/staticdata
+set TURBRT = ADS
+#
+# 1st wave
+#set SFILES = ( \
+#101rf01a.ads \
+#101rf01b.ads \
+#101rf01c.ads \
+#101rf02a.ads \
+#101rf02b.ads \
+#101rf03.ads \
+#)
+#set DFILES = ( \
+#RF01A \
+#RF01B \
+#RF01C \
+#RF02A \
+#RF02B \
+#RF03  \
+#)
+#
+# 2nd wave
+#set SFILES = ( \
+#101rf04a.ads \
+#101rf04b.ads \
+#)
+#set DFILES = ( \
+#RF04A \
+#RF04B \
+#)
+#
+# 3rd wave
+#set SFILES = ( \
+#101rf05.ads  \
+#101rf06.ads  \
+#101rf07.ads  \
+#101rf08.ads  \
+#)
+#set DFILES = ( \
+#RF05  \
+#RF06  \
+#RF07  \
+#RF08  \
+#)
+#
+# 4th wave
+#set SFILES = ( \
+#101rf06.ads  \
+#101rf07.ads  \
+#101rf08.ads  \
+#)
+#set DFILES = ( \
+#RF06  \
+#RF07  \
+#RF08  \
+#)
+#
+# 5th wave
+#set SFILES = ( \
+#101rf16.ads \
+#)
+#set DFILES = ( \
+#RF16 \
+#)
+#
+# 6th wave
+#set SFILES = ( \
+#101rf09.ads \
+#)
+#set DFILES = ( \
+#RF09 \
+#)
+#
+# 7th wave
+#set SFILES = ( \
+#101rf11.ads \
+#)
+#set DFILES = ( \
+#RF11 \
+#)
+#
+# 8th wave (Do after hours)
+#set SFILES = ( \
+#101rf10.ads \
+#)
+#set DFILES = ( \
+#RF10 \
+#)
+#
+# 9th wave
+#set SFILES = ( \
+#101rf12.ads \
+#)
+#set DFILES = ( \
+#RF12 \
+#)
+#
+# 10th wave
+#set SFILES = ( \
+#101rf13.ads \
+#)
+#set DFILES = ( \
+#RF13 \
+#)
+#
+# 11th wave
+#set SFILES = ( \
+#101rf14.ads \
+#)
+#set DFILES = ( \
+#RF14 \
+#)
+#
+# 12th wave
+set SFILES = ( \
+101rf15.ads \
+)
+set DFILES = ( \
+RF15 \
+)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1998/101/
+#
+# 1st wave
+#  Job(s) submitted on Thu Aug 27 17:39:24 MDT 1998
+# Sequence number = MI2929 -- ADS/RF01A -- OK @ 27 Aug 1998 17:57:32
+# Sequence number = MI2936 -- ADS/RF01B -- OK @ 27 Aug 1998 17:56:35
+# Sequence number = MI2943 -- ADS/RF01C -- OK @ 27 Aug 1998 17:57:29
+# Sequence number = MI2950 -- ADS/RF02A -- OK @ 27 Aug 1998 18:21:09
+# Sequence number = MI2957 -- ADS/RF02B -- OK @ 27 Aug 1998 18:05:00
+# Sequence number = MI2964 -- ADS/RF03 -- OK @ 27 Aug 1998 18:22:38
+#
+# 2nd wave
+#  Job(s) submitted on Fri Aug 28 10:58:16 MDT 1998
+# Sequence number = MI0940 -- ADS/RF04A -- OK @ 28 Aug 1998 11:09:52
+# Sequence number = MI0947 -- ADS/RF04B -- OK @ 28 Aug 1998 11:08:54
+#
+# 3rd wave
+#  Job(s) submitted on Tue Sep  1 14:23:08 MDT 1998
+# Sequence number = MI1225 -- ADS/RF05 -- OK @ 1 Sep 1998 14:51:31
+# Sequence number = MI1232 -- ADS/RF06 -- Failed @ 1 Sep 1998 15:05:06
+#      RCP Error Messages: /rcp: dropped connection
+# Sequence number = MI1239 -- ADS/RF07 -- Failed @ 1 Sep 1998 15:05:05
+#      RCP Error Messages: /rcp: dropped connection
+# Sequence number = MI1246 -- ADS/RF08 -- Failed @ 1 Sep 1998 15:05:05
+#      RCP Error Messages: /rcp: dropped connection
+#
+# 4th wave
+#  Job(s) submitted on Thu Sep  3 18:00:01 MDT 1998
+# Sequence number = MI9167 -- ADS/RF06 -- OK @ 3 Sep 1998 18:44:25
+# Sequence number = MI9174 -- ADS/RF07 -- OK @ 3 Sep 1998 18:45:30
+# Sequence number = MI9181 -- ADS/RF08 -- OK @ 3 Sep 1998 18:46:37
+#
+# 5th wave
+#  Job(s) submitted on Fri Sep 18 11:09:51 MDT 1998
+# Sequence number = MI9798 -- ADS/RF16 -- OK @ 18 Sep 1998 11:19:56
+#
+# 6th wave
+#  Job(s) submitted on Mon Sep 21 15:33:00 MDT 1998
+# Sequence number = MI3126 -- ADS/RF09 -- OK @ 21 Sep 1998 15:51:30
+#
+# 7th wave
+#  Job(s) submitted on Mon Sep 21 16:36:25 MDT 1998
+# Sequence number = MI3783 -- ADS/RF11 -- OK @ 21 Sep 1998 16:48:56
+#
+# 8th wave
+#  Job(s) submitted on Mon Sep 21 17:17:51 MDT 1998
+# Sequence number = MI4161 -- ADS/RF10 -- OK @ 21 Sep 1998 17:30:51
+#
+# 9th wave
+#  Job(s) submitted on Wed Sep 30 12:38:34 MDT 1998
+# Sequence number = MI1594 -- ADS/RF12 -- OK @ 30 Sep 1998 13:02:51
+#
+# 10th wave
+#  Job(s) submitted on Wed Sep 30 13:57:51 MDT 1998
+# Sequence number = MI2074 -- ADS/RF13 -- OK @ 30 Sep 1998 14:12:05
+#
+# 11th wave
+#  Job(s) submitted on Thu Oct  1 12:45:31 MDT 1998
+# Sequence number = MI5514 -- ADS/RF14 -- OK @ 1 Oct 1998 12:59:41
+#
+# 12th wave
+#  Job(s) submitted on Thu Oct  1 16:09:55 MDT 1998
+# Sequence number = MI1141 -- ADS/RF15 -- OK @ 1 Oct 1998 16:24:50
+#

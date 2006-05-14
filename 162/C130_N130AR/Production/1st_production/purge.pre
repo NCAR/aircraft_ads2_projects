@@ -1,0 +1,101 @@
+#! /bin/csh -f
+#
+#  Purge all the preliminary MSS bitfiles for project 1995-162 SCMS
+#   This script is to be run on or after 2 May 1996.
+#
+#  Written by Ronald L. Ruth                                        17 Apr 1995
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set DIR = /RAF/1995/162/LRT/PRELIMINARY
+set RPW = xINANEx
+set WPW = RAFDMG
+set FILES = ( \
+162rf1.cdf \
+162rf10.cdf \
+162rf11.cdf \
+162rf12a.cdf \
+162rf12b.cdf \
+162rf12c.cdf \
+162rf13a.cdf \
+162rf13b.cdf \
+162rf14.cdf \
+162rf15.cdf \
+162rf16a.cdf \
+162rf16b.cdf \
+162rf16c.cdf \
+162rf17.cdf \
+162rf18a.cdf \
+162rf18b.cdf \
+162rf18c.cdf \
+162rf18d.cdf \
+162rf19.cdf \
+162rf2.cdf \
+162rf20.cdf \
+162rf3.cdf \
+162rf4.cdf \
+162rf5.cdf \
+162rf6.cdf \
+162rf8.cdf \
+162rf9.cdf \
+README.prescms \
+prescms.files \
+rfinoise.ps \
+uvhsat.ps \
+variables.scms \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  echo \
+  nrnet msrm % r flnm=$DIR/$FILE r=$RPW w=$WPW
+  @ num ++
+end
+#
+# -----------------------------------------------------------------------------
+#
+#  Remove all bitfiles in the MSS path:  /RAF/1995/162/LRT/PRELIMINARY
+#  Job(s) submitted on Wed Apr 17 17:45:06 MDT 1996
+# Sequence number = MI2500 -- 162rf1.cdf -- OK @ 17 Apr 1996 17:47:16
+# Sequence number = MI2507 -- 162rf10.cdf -- OK @ 17 Apr 1996 17:46:44
+# Sequence number = MI2514 -- 162rf11.cdf -- OK @ 17 Apr 1996 17:55:06
+# Sequence number = MI2521 -- 162rf12a.cdf -- OK @ 17 Apr 1996 17:51:11
+# Sequence number = MI2528 -- 162rf12b.cdf -- OK @ 17 Apr 1996 17:47:16
+# Sequence number = MI2535 -- 162rf12c.cdf -- OK @ 17 Apr 1996 17:53:15
+# Sequence number = MI2542 -- 162rf13a.cdf -- OK @ 17 Apr 1996 17:49:32
+# Sequence number = MI2549 -- 162rf13b.cdf -- OK @ 17 Apr 1996 17:47:12
+# Sequence number = MI2556 -- 162rf14.cdf -- OK @ 17 Apr 1996 17:53:20
+# Sequence number = MI2563 -- 162rf15.cdf -- OK @ 17 Apr 1996 17:53:20
+# Sequence number = MI2570 -- 162rf16a.cdf -- OK @ 17 Apr 1996 17:51:36
+# Sequence number = MI2577 -- 162rf16b.cdf -- OK @ 17 Apr 1996 17:47:52
+# Sequence number = MI2584 -- 162rf16c.cdf -- OK @ 17 Apr 1996 17:47:38
+# Sequence number = MI2591 -- 162rf17.cdf -- OK @ 17 Apr 1996 17:51:46
+# Sequence number = MI2598 -- 162rf18a.cdf -- OK @ 17 Apr 1996 17:49:46
+# Sequence number = MI2605 -- 162rf18b.cdf -- OK @ 17 Apr 1996 17:49:58
+# Sequence number = MI2612 -- 162rf18c.cdf -- OK @ 17 Apr 1996 17:52:09
+# Sequence number = MI2619 -- 162rf18d.cdf -- OK @ 17 Apr 1996 17:47:54
+# Sequence number = MI2626 -- 162rf19.cdf -- OK @ 17 Apr 1996 17:50:00
+# Sequence number = MI2633 -- 162rf2.cdf -- OK @ 17 Apr 1996 17:52:09
+# Sequence number = MI2640 -- 162rf20.cdf -- OK @ 17 Apr 1996 17:48:30
+# Sequence number = MI2647 -- 162rf3.cdf -- OK @ 17 Apr 1996 17:48:16
+# Sequence number = MI2654 -- 162rf4.cdf -- OK @ 17 Apr 1996 17:50:37
+# Sequence number = MI2661 -- 162rf5.cdf -- OK @ 17 Apr 1996 17:51:11
+# Sequence number = MI2671 -- 162rf6.cdf -- OK @ 17 Apr 1996 17:52:51
+# Sequence number = MI2678 -- 162rf8.cdf -- OK @ 17 Apr 1996 17:48:37
+# Sequence number = MI2685 -- 162rf9.cdf -- OK @ 17 Apr 1996 17:52:51
+# Sequence number = MI2692 -- README.prescms -- OK @ 17 Apr 1996 17:54:57
+# Sequence number = MI2699 -- prescms.files -- OK @ 17 Apr 1996 17:48:51
+# Sequence number = MI2706 -- rfinoise.ps -- OK @ 17 Apr 1996 17:49:25
+# Sequence number = MI2713 -- uvhsat.ps -- OK @ 17 Apr 1996 17:57:12
+# Sequence number = MI2720 -- variables.scms -- OK @ 17 Apr 1996 17:57:20
+#

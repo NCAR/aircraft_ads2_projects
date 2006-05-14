@@ -1,0 +1,813 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002, 2005                                                   *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Notes:  Create a copy of, modify and run this script from a project's 
+#            "Production/archive" subdirectory.
+#          IMPORTANT:  Use the "tarit.docs" script to create an archive
+#            file for the project's documentation in the "Production/docs"
+#            subdirectory.
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#  Revised by RLR (remind about "tarit.docs" script)                 4 Mar 2002
+#  Revised by RLR (change directory refs--now runs in archive dir)  28 Aug 2002
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+cd $PROJDIR
+tar chvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+Despike \
+HeaderChangeLog \
+Lags \
+Lags.save \
+LowRateVars \
+PMSspecs \
+ProjectName \
+StandardNames \
+UserNames \
+VarDB \
+VarDB.preUDunits \
+ascii_parms \
+flightNums \
+header \
+header.bak \
+old.ophir3 \
+ophir3.names \
+plotspex \
+regions \
+s109.default \
+s122.default \
+s122.default.prelim \
+s128.default \
+s200.default \
+Production/BlankOuts.ff02 \
+Production/BlankOuts.ff05 \
+Production/BlankOuts.rf01 \
+Production/BlankOuts.rf02 \
+Production/BlankOuts.rf03 \
+Production/BlankOuts.rf04 \
+Production/BlankOuts.rf05 \
+Production/BlankOuts.rf06 \
+Production/BlankOuts.rf07 \
+Production/BlankOuts.rf08 \
+Production/BlankOuts.rf09 \
+Production/BlankOuts.rf10 \
+Production/BlankOuts.rf11 \
+Production/BlankOuts.rf12 \
+Production/BlankOuts.rf13 \
+Production/BlankOuts.rf14 \
+Production/BlankOuts.rf15 \
+Production/BlankOuts.rf16 \
+Production/BlankOuts.rf17 \
+Production/BlankOuts.rf18 \
+Production/BlankOuts.rf19 \
+Production/FlightGroups \
+Production/Flight_base \
+Production/Flight_ff02 \
+Production/Flight_ff02L \
+Production/Flight_ff05 \
+Production/Flight_ff05L \
+Production/Flight_rf01 \
+Production/Flight_rf01L \
+Production/Flight_rf02 \
+Production/Flight_rf02L \
+Production/Flight_rf04 \
+Production/Flight_rf04L \
+Production/Flight_rf06 \
+Production/Flight_rf06L \
+Production/Flight_rf07 \
+Production/Flight_rf07L \
+Production/Flight_rf08 \
+Production/Flight_rf08L \
+Production/Flight_rf10 \
+Production/Flight_rf10L \
+Production/Flight_rf12 \
+Production/Flight_rf12L \
+Production/Flight_rf14 \
+Production/Flight_rf14L \
+Production/Flight_rf15 \
+Production/Flight_rf15L \
+Production/Flight_rf16 \
+Production/Flight_rf16L \
+Production/Flight_rf17 \
+Production/Flight_rf17L \
+Production/Flight_rf18 \
+Production/Flight_rf18L \
+Production/Flight_rf19 \
+Production/Flight_rf19L \
+Production/Ron_notes \
+Production/holdBlankOuts.rf01 \
+Production/logFile_HRT.ff02 \
+Production/logFile_HRT.ff05 \
+Production/logFile_HRT.rf01 \
+Production/logFile_HRT.rf02 \
+Production/logFile_HRT.rf03 \
+Production/logFile_HRT.rf04 \
+Production/logFile_HRT.rf05 \
+Production/logFile_HRT.rf06 \
+Production/logFile_HRT.rf07 \
+Production/logFile_HRT.rf08 \
+Production/logFile_HRT.rf09 \
+Production/logFile_HRT.rf10 \
+Production/logFile_HRT.rf11 \
+Production/logFile_HRT.rf12 \
+Production/logFile_HRT.rf13 \
+Production/logFile_HRT.rf14 \
+Production/logFile_HRT.rf15 \
+Production/logFile_HRT.rf16 \
+Production/logFile_HRT.rf17 \
+Production/logFile_HRT.rf18 \
+Production/logFile_HRT.rf19 \
+Production/logFile_LRT.ff02 \
+Production/logFile_LRT.ff05 \
+Production/logFile_LRT.rf01 \
+Production/logFile_LRT.rf02 \
+Production/logFile_LRT.rf03 \
+Production/logFile_LRT.rf04 \
+Production/logFile_LRT.rf05 \
+Production/logFile_LRT.rf06 \
+Production/logFile_LRT.rf07 \
+Production/logFile_LRT.rf08 \
+Production/logFile_LRT.rf09 \
+Production/logFile_LRT.rf10 \
+Production/logFile_LRT.rf11 \
+Production/logFile_LRT.rf12 \
+Production/logFile_LRT.rf13 \
+Production/logFile_LRT.rf14 \
+Production/logFile_LRT.rf15 \
+Production/logFile_LRT.rf16 \
+Production/logFile_LRT.rf17 \
+Production/logFile_LRT.rf18 \
+Production/logFile_LRT.rf19 \
+Production/proj.info \
+Production/taplog.camera.135 \
+Production/taplog.hrt.135 \
+Production/taplog.lrt.135 \
+Production/taplog.movie.135 \
+Production/taplog.pms2d.135 \
+Production/archive/arch2d.135 \
+Production/archive/archads.135 \
+Production/archive/archcam.135 \
+Production/archive/archcam_cleanup \
+Production/archive/archive.support \
+Production/archive/archmovie.135 \
+Production/archive/archprodnc_H.135 \
+Production/archive/archprodnc_L.135 \
+Production/archive/archpvm100.135 \
+Production/archive/archskel.135 \
+Production/archive/tapes.135 \
+Production/archive/tarit.135 \
+Production/archive/Camera_Archive/DR_times.txt \
+Production/archive/Camera_Archive/Digital_Camera_File_Info.txt \
+Production/archive/Camera_Archive/File_Lists/FF01.FWD.20041203.150100_151123.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF02.FWD.20041204.135800_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF02.FWD.20041204.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF02.FWD.20041204.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF02.FWD.20041204.160000_164921.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF03.FWD.20041221.140700_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF03.FWD.20041221.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF03.FWD.20041221.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF03.FWD.20041221.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF03.FWD.20041221.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF03.FWD.20041221.190000_190754.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF04.FWD.20050103.150600_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF04.FWD.20050103.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF04.FWD.20050103.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF04.FWD.20050103.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF04.FWD.20050103.190000_195300.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF05.FWD.20050126.143100_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF05.FWD.20050126.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF05.FWD.20050126.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF05.FWD.20050126.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF05.FWD.20050126.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF05.FWD.20050126.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF05.FWD.20050126.200000_200800.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF06.FWD.20050127.153500_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF06.FWD.20050127.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF06.FWD.20050127.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF06.FWD.20050127.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF06.FWD.20050127.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF06.FWD.20050127.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/FF06.FWD.20050127.210000_213127.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF02.FWD.20041208.141500_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF02.FWD.20041208.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF02.FWD.20041208.160000_162338.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.140400_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF03.FWD.20041209.220000_221724.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.150630_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF05.FWD.20041213.220000_220400.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.135900_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF06.FWD.20041216.210000_213350.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.142544_145939.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.150026_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF07.FWD.20041217.220000_222237.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.111100_115959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.120000_125959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.130000_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF08.FWD.20041219.190000_195405.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.105800_105959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.110000_115133.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.122216_125959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.130000_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF09.FWD.20041220.190000_190551.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.145200_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF10.FWD.20050105.220000_225836.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.140200_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.170000_172747.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.181200_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.190000_195342.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.200641_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF11.FWD.20050107.220000_222229.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.140300_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF12.FWD.20050111.220000_223400.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.142300_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF13.FWD.20050112.220000_224800.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.150200_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF14.FWD.20050114.220000_224206.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.140200_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF15.FWD.20050116.220000_222800.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.111300_115337.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.130447_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF16.FWD.20050118.190000_191259.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.115200_115959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.120000_125959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.130000_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.180000_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF17.FWD.20050119.200000_202000.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.100300_105959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.110000_115959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.120000_125959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.130000_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.170000_175959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF18.FWD.20050123.180000_183400.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.100300_105959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.110000_115959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.120000_125959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.130000_135959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.140000_145959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.150000_155959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.160000_165959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/RF19.FWD.20050124.170000_174300.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF01.FWD.20041117.180600_185959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF01.FWD.20041117.190000_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF01.FWD.20041117.200000_205300.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF02.FWD.20041119.195500_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF02.FWD.20041119.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF02.FWD.20041119.210000_215959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF02.FWD.20041119.220000_221230.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF03.FWD.20041123.200000_205959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF03.FWD.20041123.210000_214259.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF04.FWD.20041130.195700_195959.jpg.tar.dir \
+Production/archive/Camera_Archive/File_Lists/TF04.FWD.20041130.200000_202109.jpg.tar.dir \
+Web/PN_Site_Changes \
+Web/Welcome_User_Message \
+Web/Accounts/All_accts_sort.txt \
+Web/Accounts/students \
+Web/Accounts/old/All_accts.txt \
+Web/Accounts/old/RAF_list.txt \
+Web/Accounts/old/RAF_list_sort.txt \
+Web/Accounts/old/ricoaccts.txt \
+Web/Accounts/old/ricoaccts_orig.txt \
+Web/Accounts/old/ricoaccts_sort.txt \
+Web/Admin_Menu/Admin_Message_2 \
+Web/Admin_Menu/Admin_Messages \
+Web/Admin_Menu/Blocks \
+Web/Admin_Menu/PNphpBB2 \
+Web/Admin_Menu/Permissions \
+Web/Admin_Menu/RDCC_chat_howto.html \
+Web/Admin_Menu/Settings \
+Web/Admin_Menu/orig_RDCC_chat_howto.html \
+Web/Admin_Menu/participants \
+Web/Chat/Chat_channels \
+Web/Chat/extracted_c130q_chatlog.txt \
+Web/Chat/notes \
+Web/Chat/xchat_c130q_01112005.txt \
+Web/Chat/xchat_rico_01112005.txt \
+Web/Chat/Logs/EOL_RDCC-C130Q.log.gz \
+Web/Chat/Logs/EOL_RDCC-C130Q.log.MST.gz \
+Web/Chat/Logs/EOL_RDCC-C130Q.log.UTC.gz \
+Web/Chat/Logs/EOL_RDCC-C130Q.log.UTC.in.gz \
+Web/Chat/Logs/EOL_RDCC-C130Q.log.UTC.out.gz \
+Web/Chat/Logs/EOL_RDCC-GAUS.log.gz \
+Web/Chat/Logs/EOL_RDCC-GAUS.log.MST.gz \
+Web/Chat/Logs/EOL_RDCC-GAUS.log.UTC.gz \
+Web/Chat/Logs/EOL_RDCC-GAUS.log.UTC.in.gz \
+Web/Chat/Logs/EOL_RDCC-GAUS.log.UTC.out.gz \
+Web/Chat/Logs/EOL_RDCC-Kingair.log.gz \
+Web/Chat/Logs/EOL_RDCC-Kingair.log.MST.gz \
+Web/Chat/Logs/EOL_RDCC-Kingair.log.UTC.gz \
+Web/Chat/Logs/EOL_RDCC-Kingair.log.UTC.in.gz \
+Web/Chat/Logs/EOL_RDCC-Kingair.log.UTC.out.gz \
+Web/Chat/Logs/EOL_RDCC-RICO.log.gz \
+Web/Chat/Logs/EOL_RDCC-RICO.log.MST.gz \
+Web/Chat/Logs/EOL_RDCC-RICO.log.UTC.gz \
+Web/Chat/Logs/EOL_RDCC-RICO.log.UTC.out.gz \
+Web/Chat/Logs/EOL_RDCC-Spol.log.gz \
+Web/Chat/Logs/EOL_RDCC-Spol.log.MST.gz \
+Web/Chat/Logs/EOL_RDCC-Spol.log.UTC.gz \
+Web/Chat/Logs/EOL_RDCC-Spol.log.UTC.in.gz \
+Web/Chat/Logs/EOL_RDCC-Spol.log.UTC.out.gz \
+Web/Chat/Logs/EOL_RDCC-dropsonde.log.gz \
+Web/Chat/Logs/EOL_RDCC-dropsonde.log.MST.gz \
+Web/Chat/Logs/EOL_RDCC-dropsonde.log.UTC.gz \
+Web/Chat/Logs/EOL_RDCC-dropsonde.log.UTC.in.gz \
+Web/Chat/Logs/EOL_RDCC-dropsonde.log.UTC.out.gz \
+Web/Chat/Logs/EOL_RDCC-network.log.gz \
+Web/Chat/Logs/EOL_RDCC-network.log.MST.gz \
+Web/Chat/Logs/EOL_RDCC-network.log.UTC.gz \
+Web/Chat/Logs/EOL_RDCC-network.log.UTC.in.gz \
+Web/Chat/Logs/EOL_RDCC-network.log.UTC.out.gz \
+Web/Chat/Logs/EOL_RDCC-pam.log.gz \
+Web/Chat/Logs/README \
+Web/Chat/Logs/bae146_chatlog.txt.gz \
+Web/Chat/Logs/c130q_chatlog.txt.gz \
+Web/Chat/Logs/dropsonde_chatlog.txt.gz \
+Web/Chat/Logs/gaus_chatlog.txt.gz \
+Web/Chat/Logs/kingair.log.gz \
+Web/Chat/Logs/kingair_chatlog.txt.gz \
+Web/Chat/Logs/network.log.gz \
+Web/Chat/Logs/network_chatlog.txt.gz \
+Web/Chat/Logs/pam_chatlog.txt.gz \
+Web/Chat/Logs/rico_chatlog.txt.gz \
+Web/Chat/Logs/sabl_chatlog.txt.gz \
+Web/Chat/Logs/sewardjohnson_chatlog.txt.gz \
+Web/Chat/Logs/spol.log.gz \
+Web/Chat/Logs/spol_chatlog.txt.gz \
+Web/Chat/chatlog/bae146.xchatlog.UTC.gz \
+Web/Chat/chatlog/bae146_chatlog.txt.gz \
+Web/Chat/chatlog/c130q.xchatlog.UTC.gz \
+Web/Chat/chatlog/c130q_chatlog.txt.gz \
+Web/Chat/chatlog/dropsonde.MST.gz \
+Web/Chat/chatlog/dropsonde.UTC.gz \
+Web/Chat/chatlog/dropsonde.xchatlog.UTC.gz \
+Web/Chat/chatlog/dropsonde_chatlog.txt.gz \
+Web/Chat/chatlog/gaus.xchatlog.UTC.gz \
+Web/Chat/chatlog/gaus_chatlog.txt.gz \
+Web/Chat/chatlog/index.html.gz \
+Web/Chat/chatlog/kingair.xchatlog.UTC.gz \
+Web/Chat/chatlog/kingair_chatlog.txt.gz \
+Web/Chat/chatlog/network_chatlog.txt.gz \
+Web/Chat/chatlog/pam.xchatlog.UTC.gz \
+Web/Chat/chatlog/pam_chatlog.txt.gz \
+Web/Chat/chatlog/rico.MST.gz \
+Web/Chat/chatlog/rico.UTC.gz \
+Web/Chat/chatlog/rico.xchatlog.UTC.gz \
+Web/Chat/chatlog/rico_chatlog.txt.gz \
+Web/Chat/chatlog/sabl.xchatlog.UTC.gz \
+Web/Chat/chatlog/sabl_chatlog.txt.gz \
+Web/Chat/chatlog/sewardjohnson.xchatlog.UTC.gz \
+Web/Chat/chatlog/sewardjohnson_chatlog.txt.gz \
+Web/Chat/chatlog/spol.xchatlog.UTC.gz \
+Web/Chat/chatlog/spol_chatlog.txt.gz \
+Web/Chat/chatlog/students_chatlog.txt.gz \
+Web/Chat/chatlog/ByDate_Sanitized/README \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041201.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041202.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041203.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041204.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041205.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041206.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041207.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041208.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041209.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041210.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041211.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041212.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041213.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041214.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041215.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041216.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041217.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041218.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041219.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041220.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041221.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041222.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041223.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041224.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041225.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041226.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041227.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041228.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041229.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20041230.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050101.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050103.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050104.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050105.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050106.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050107.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050108.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050109.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050110.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050111.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050112.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050113.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050114.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050115.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050116.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050117.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050118.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050119.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050120.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050121.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050122.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050123.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050124.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050125.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050126.gz \
+Web/Chat/chatlog/ByDate_Sanitized/c130q.xchatlog.20050127.gz \
+Web/Chat/chatlog/ByDate_Sanitized/dropsonde.xchatlog.20050114.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041217.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041218.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041219.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041220.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041221.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041222.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041223.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041224.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041225.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041226.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041227.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041228.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041229.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041230.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20041231.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050101.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050102.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050103.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050104.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050105.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050106.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050107.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050108.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050109.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050110.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050111.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050112.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050113.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050114.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050115.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050116.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050117.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050118.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050119.gz \
+Web/Chat/chatlog/ByDate_Sanitized/gaus.xchatlog.20050120.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041217.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041218.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041219.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041220.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041223.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041224.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041225.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041226.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041228.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20041229.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050104.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050105.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050106.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050107.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050108.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050109.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050110.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050111.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050112.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050113.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050114.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050115.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050116.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050117.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050118.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050119.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050120.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050121.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050122.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050123.gz \
+Web/Chat/chatlog/ByDate_Sanitized/kingair.xchatlog.20050124.gz \
+Web/Chat/chatlog/ByDate_Sanitized/network.xchatlog.20050121.gz \
+Web/Chat/chatlog/ByDate_Sanitized/network.xchatlog.20050122.gz \
+Web/Chat/chatlog/ByDate_Sanitized/network.xchatlog.20050123.gz \
+Web/Chat/chatlog/ByDate_Sanitized/network.xchatlog.20050124.gz \
+Web/Chat/chatlog/ByDate_Sanitized/network.xchatlog.20050125.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041202.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041203.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041204.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041206.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041207.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041208.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041209.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041210.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041211.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041212.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041213.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041214.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041215.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041216.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041217.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041218.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041219.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041220.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041221.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041222.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041223.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041224.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041225.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041226.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041227.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041228.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041229.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20041230.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050101.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050103.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050104.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050105.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050106.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050107.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050108.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050109.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050110.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050111.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050112.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050113.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050114.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050115.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050116.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050117.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050118.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050119.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050120.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050121.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050122.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050123.gz \
+Web/Chat/chatlog/ByDate_Sanitized/rico.xchatlog.20050124.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041217.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041218.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041219.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041220.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041221.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041223.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041224.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041227.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20041231.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050103.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050104.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050105.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050106.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050107.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050109.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050110.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050111.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050112.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050113.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050114.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050115.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050116.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050117.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050118.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050119.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050120.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050123.gz \
+Web/Chat/chatlog/ByDate_Sanitized/sabl.xchatlog.20050124.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041202.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041203.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041204.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041205.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041206.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041207.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041208.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041209.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041210.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041211.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041212.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041213.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041214.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041215.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041216.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041217.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041218.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041219.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041220.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041221.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041222.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041223.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041224.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041225.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041226.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041227.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041228.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041229.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041230.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20041231.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050101.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050103.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050104.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050105.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050106.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050107.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050108.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050109.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050110.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050111.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050112.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050113.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050114.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050115.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050116.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050117.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050118.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050119.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050120.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050121.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050122.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050123.gz \
+Web/Chat/chatlog/ByDate_Sanitized/spol.xchatlog.20050124.gz \
+Web/Chat/chatlog/MST/awk_chat_time_change.gz \
+Web/Chat/chatlog/MST/bae146.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/c130q.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/dropsonde.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/gaus.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/kingair.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/pam.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/rico.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/sabl.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/sewardjohnson.xchatlog.MST.gz \
+Web/Chat/chatlog/MST/spol.xchatlog.MST.gz \
+Web/Instrument_Status/135.inst.doc \
+Web/Instrument_Status/135.inst.txt \
+Web/Instrument_Status/C130Q_instrument_list.txt \
+Web/Instrument_Status/C130Q_list_in.135 \
+Web/Instrument_Status/C130Q_list_out.135 \
+Web/Instrument_Status/C130Q_status.pl \
+Web/Instrument_Status/C130Q_status.pl_template \
+Web/Instrument_Status/README.Instrument_Status \
+Web/Instrument_Status/notes \
+Web/Instrument_Status/old_C130Q_status.pl \
+Web/PostNuke/PN_RICO.gz \
+Web/PostNuke/RICO_11Jul2005.tar.gz \
+Web/PostNuke/rico_11Jul2005.sql.gz
+#
+#  At this point one needs a list of files immediately under the above "tar
+#   command.  As a starting point, one can use the `vi' command:
+#                       !!ls ../..
+#   to get a list of files in the project's home directory then edit out the
+#   unneeded ones.  
+#  For the Production subdirectory, one can use this command:
+#                       !!ls ..
+#  For a subdirectory under Production (e.g., archive), one can repeat this:
+#                       !!ls ../archive
+#                       !!ls                  (for this specific example)
+#  For a subdirectory off the project's home directory, use a command like:
+#                       !!ls ../../<directory>
+#   (Execute these commands starting with the cursor at the first "#" line
+#    below the `tar' command.  The `vi' command `!!ls' replaces the current
+#    line with its output.)
+#  Other subdirectories also may have files that need to be archived.
+#  Remember that the `tar' command actually runs in the Project's home
+#  directory, so references need to be made from that path.  After you get
+#  the list of files, don't forget to add the subdirectory name (if any) to
+#  the beginning of each file name and add a trailing <space> and backslash
+#  (\) to each file name (except the last one), so the `tar' command gets
+#  the entire list of files.
+#
+#  Brief summary for standard project files:
+#      (project's home directory)
+# !!ls ../..
+#      (Production subdirectory)
+# !!ls ..
+#      (Production/archive subdirectory)
+# !!ls
+#
+#   filter out undesired files
+#   prepend appropriate subdirectory to affected file names
+#    (remember that root path is project's home directory)
+#   Add backslash at end of each line (except last)
+#   Save and exit
+#
+#
+# Production/docs/ <-- archived separately via "tarit.docs" script
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

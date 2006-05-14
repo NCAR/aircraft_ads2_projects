@@ -1,0 +1,324 @@
+From ron Mon Jul 22 16:30:39 1996
+Subject: 6-110 Archive status
+To: allen (Allen Schanot)
+Date: Mon, 22 Jul 1996 16:30:39 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1366      
+Status: RO
+
+Allen,
+
+I have archived to the SCD Mass Store System (MSS) all the raw ADS research
+flight tapes for project 1996-110 (Coastally Trapped Waves) with the exception
+of R1087 (RF08).  This process occurred in "record" time, since I started
+it at about noon today, and it took a little over 3 1/2 hours.  Two tries were
+needed to archive RF01 and RF02, but I suspect it was a problem with SCD's
+tape drives, since a second attempt with each of the tapes was successful.
+
+In case you are interested, the archive summary can be found in the file:
+      /home/local/proj/110/Production/archive/tp2ms.summary
+For each tape, it includes the total number of records and bytes archived.  If
+you suspect that any of these bitfiles has an incorrect length, please let me
+know, since each archive job ran to completion without error.  (None required
+more than one MSS bitfile.)
+
+Last week, Bob Rilling was able to make a "good" copy of RF08 using the
+header records from the "corrupt" tape and the remade "data" tape.  (He has a
+software program that can do that job.)  I plan to deliver that "good" tape to
+the SCD machine room tomorrow and archive it, too.
+
+I'll write you again when I have further information on RF08.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From rilling@stout.atd.ucar.edu Tue Jul 16 13:28 MDT 1996
+Return-Path: <rilling@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA12873; Tue, 16 Jul 1996 13:28:48 -0600
+Received: from malt.atd.ucar.edu.atd.ucar.EDU by atd.atd.ucar.EDU (8.7.5/ NCAR Mail Server 04/10/90)
+	id NAA02253; Tue, 16 Jul 1996 13:28:46 -0600 (MDT)
+Received: by malt.atd.ucar.edu (8.7.5/ NCAR Mail Client 04/19/90)
+	id TAA28512; Tue, 16 Jul 1996 19:28:44 GMT
+From: rilling@stout.atd.ucar.edu (Bob Rilling)
+Message-Id: <199607161928.TAA28512@malt.atd.ucar.edu>
+Subject: humptey dumptey
+To: ron@stout.atd.ucar.edu (Ron Ruth)
+Date: Tue, 16 Jul 1996 13:28:43 -0600 (MDT)
+Cc: rilling@stout.atd.ucar.edu (Bob Rilling)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 718
+Status: RO
+
+Ron,
+
+Your tape R1087 has been re-assembled from its two parts.  Not nearly
+as hard as reconstituting a cow from hamburger -- it was really no
+trouble at all.
+
+The tapes will be in your box at FL1.  Let me know if you want them
+sent to jeffco.  
+
+Total tape length was on the order of 114.6 Mbytes, in a single file.
+Record info is as follows (just the first couple of hundred records):
+
+malt > tcopy /dev/nrlxb1
+file 1: record 1: size 20
+file 1: records 2 to 3: size 6408
+file 1: records 4 to 40: size 31032
+file 1: record 41: size 28812
+file 1: records 42 to 294: size 31032
+file 1: record 295: size 28812
+^Cfile 1: records 296 to 329: size 31032
+interrupted at file 1: record 329
+total length: 10124828 bytes
+
+
+Bob
+
+From ron Wed Jul 24 12:13:56 1996
+Subject: 6-110 ADS Data Archived
+To: allen (Allen Schanot)
+Date: Wed, 24 Jul 1996 12:13:56 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 525       
+Status: RO
+
+Allen,
+
+I have archived to the SCD Mass Store System (MSS) the reconstructed tape
+R1087 (RF08).  All research flight ADS data have now been archived for this
+project.
+
+In case you're interested, summary files are:
+   /home/local/proj/110/Production/archive/tapes.110      <-- ADS tape log
+   /home/local/proj/110/Production/archive/tp2ms.summary  <-- Archive summary
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Tue Sep  3 16:40:50 1996
+Subject: 110 Project summary
+To: allen (Allen Schanot)
+Date: Tue, 3 Sep 1996 16:40:50 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 948       
+Status: RO
+
+Allen,
+
+I don't know how you did it, but the ancient reference to the "TBM mass
+storage system" crept back into your cover letter for 6-110.  The MSS
+is now known simply as the SCD Mass Store System.  I hope it isn't too
+late for you to change those references.
+
+You included an ADS tape summary.  As part of the ADS archiving procedure
+I create one, too.  In the future, perhaps we can save some duplication of
+effort.
+
+The other documents appear to be in good order.  I brought them into the
+110 Production subdirectory in ASCII form, making some minor formatting
+changes (e.g., we don't need page numbering) and plan to archive them to
+the MSS with the other support files and documentation for this project.
+
+P.S.  I changed the "TBM" reference in the ASCII version of the cover letter.
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Mon Sep  9 10:16:11 1996
+Subject: Proj 110 Archived to MSS
+To: allen (Allen Schanot)
+Date: Mon, 9 Sep 1996 10:16:11 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 432       
+Status: RO
+
+Allen,
+
+I have archived to the SCD Mass Store System all the data and support files
+for project 6-110 Coastally Trapped Waves (Rogers).
+
+If there are project-related files in directories other than the
+"/home/local/proj/110" path that you want archived, please let
+me know.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From allen@raf.atd.ucar.EDU Mon Sep  9 11:57 MDT 1996
+From: allen@raf.atd.ucar.EDU (Allen Schanot)
+Return-Path: <allen@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA14679; Mon, 9 Sep 1996 11:57:09 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA13401; Mon, 9 Sep 1996 11:57:07 -0600
+Message-Id: <199609091757.LAA13401@mistral.atd.ucar.edu>
+Subject: Re: Proj 110 Archived to MSS
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Mon, 9 Sep 1996 11:57:07 -0600 (MDT)
+In-Reply-To: <199609091616.KAA01625@music.atd.ucar.edu> from "Ron Ruth" at Sep 9, 96 10:16:12 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 66
+Status: RO
+
+Ron :  Thanks for the help.  When will the tapes be ready?
+
+allen
+
+From ron Mon Sep  9 12:09:25 1996
+Subject: Re: Proj 110 Archived to MSS
+To: allen@raf.atd.ucar.EDU (Allen Schanot)
+Date: Mon, 9 Sep 1996 12:09:26 -0600 (MDT)
+In-Reply-To: <199609091757.LAA13401@mistral.atd.ucar.edu> from "Allen Schanot" at Sep 9, 96 11:57:07 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 616       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron :  Thanks for the help.  When will the tapes be ready?
+> 
+Allen,
+
+The request went out to Jean Hurst last Thursday (5th).  I would expect
+the copying to be completed by the end of this week.  I'll give here
+a call to see how she's coming along then get back to you.  I'm having
+her make low-density ExaByte copies, since that is what Dave Rogers has
+requested in the past.  I assume you want us to ship the tapes directly
+to him.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From hurst@stout.atd.ucar.edu Fri Sep 13 08:29 MDT 1996
+Return-Path: <hurst@stout.atd.ucar.edu>
+Received: from atd.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA20278; Fri, 13 Sep 1996 08:29:43 -0600
+Received: by atd.atd.ucar.EDU (8.7.5/ NCAR Mail Server 04/10/90)
+	id IAA05089; Fri, 13 Sep 1996 08:29:42 -0600 (MDT)
+From: hurst@stout.atd.ucar.edu (Jean Hurst)
+Message-Id: <199609131429.IAA05089@atd.atd.ucar.EDU>
+Subject: rogers netCDF
+To: ron@stout.atd.ucar.edu (Ron Ruth)
+Date: Fri, 13 Sep 1996 08:29:42 -0600 (MDT)
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 220
+Status: RO
+
+Ron,
+
+I mentioned by phone, but this way too.
+
+Dave Rogers netCDF tapes went out this morning.  They are:
+1 exabyte with LRT data
+2 exabytes with the HRT data  
+
+The HRT took two.  These are low density TAR tapes.
+
+Jean
+
+From ron Fri Sep 13 09:16:53 1996
+Subject: Re: rogers netCDF
+To: hurst@stout.atd.ucar.edu (Jean Hurst)
+Date: Fri, 13 Sep 1996 09:16:53 -0600 (MDT)
+In-Reply-To: <199609131429.IAA05089@atd.atd.ucar.EDU> from "Jean Hurst" at Sep 13, 96 08:29:42 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 487       
+Status: RO
+
+Thou spake thusly:
+> 
+> Ron,
+> 
+> I mentioned by phone, but this way too.
+> 
+> Dave Rogers netCDF tapes went out this morning.  They are:
+> 1 exabyte with LRT data
+> 2 exabytes with the HRT data  
+> 
+> The HRT took two.  These are low density TAR tapes.
+> 
+Jean,
+
+I got both messages.
+
+Thanks.  I'll pass the word to Al Schanot.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Fri Sep 13 09:16:29 1996
+Subject: 6-110 Rogers' data shipped today.
+To: allen (Allen Schanot)
+Date: Fri, 13 Sep 1996 09:16:29 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 290       
+Status: RO
+
+Allen,
+
+Jean Hurst has shipped the netCDF data for Rogers' Coastally Trapped Waves
+project.  This should just about wrap things up.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Mon Dec 23 15:19:55 1996
+Subject: Proj 110 Rearchived to MSS
+To: allen (Allen Schanot)
+Date: Mon, 23 Dec 1996 15:19:55 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 442       
+Status: RO
+
+Allen,
+
+On 16 December 1996 I archived to the SCD Mass Store System all the
+reprocessed data and support files for project 6-110 Coastally Trapped
+Waves (Rogers).
+
+Jean has copied the data to a new ExaByte tape, and it was shipped via
+UPS 2-day air to Dr. Rogers on 20 December 1996.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+

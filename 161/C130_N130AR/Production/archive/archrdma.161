@@ -1,0 +1,242 @@
+#! /bin/csh -f
+#
+#  Archive RDMA data files for 2001-161 EPIC2001
+#   Rename RDMA files to reflect the fact that they are raw
+#goto rename
+#
+#  Advisory:
+#   RDMA data are extracted from the ADS data set by the "nimbus" software.
+#   For meaningful production processing of these data, other state parameter
+#   measurements are required, so there is no need for these data to stand
+#   alone.  Therefore, the separate RAW_RDMA files have been removed today
+#   from the SCD Mass Store System archive via the script:
+#       /jnet/shared/proj/archives/MSS_updates/remove_RDMA
+#   Ronald L. Ruth
+#   Thu Sep 25 09:52:39 MDT 2003
+#
+#  This script must be run from a project's Production/archive directory
+#
+#  File adapted from file /$LOCAL/proj/181/Production/archive/arch_rdma.181
+#    by Ron Ruth  11 December 2001
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Set initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+#set SDIR = $PROD_DATA
+set SDIR = $PROD_DATA
+set TURBRT = RDMA
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "lenny"
+#
+#  Set read password if RESTRICTED ACCESS
+set RPWD = ""
+#set RPWD = "-rpwd READ_PASSWORD"
+#
+#  Remove files processed incorrectly
+#  (word received from Al Schanot on 17 December 2001)
+#goto remove
+#
+#
+#  1st & 3rd waves
+#set SFILES = ( \
+#161rf01.rdma \
+#161rf02.rdma \
+#161rf03.rdma \
+#161rf04.rdma \
+#161rf05.rdma \
+#161rf06.rdma \
+#161rf07.rdma \
+#161rf08.rdma \
+#161rf09.rdma \
+#161rf10.rdma \
+#161rf11.rdma \
+#161rf12.rdma \
+#161rf13.rdma \
+#161rf14.rdma \
+#161rf15.rdma \
+#161rf16.rdma \
+#161rf17.rdma \
+#161rf18.rdma \
+#161rf19.rdma \
+#)
+#set DFILES = ( \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15 \
+#RF16 \
+#RF17 \
+#RF18 \
+#RF19 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  4th wave (rename bitfile path from RDMA to RAW_RDMA)
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "# $DFILE  completed OK @ `date`"
+    else
+      echo "# $DFILE not archived due to error $result @ `date`"
+    endif
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/161/RDMA/
+#
+#  1st wave  (RDMA file archive via msrcp)
+#  Job(s) submitted on Tue Dec 11 15:35:59 MST 2001
+# RF01  completed OK @ Tue Dec 11 15:36:12 MST 2001
+# RF02  completed OK @ Tue Dec 11 15:36:21 MST 2001
+# RF03  completed OK @ Tue Dec 11 15:36:35 MST 2001
+# RF04  completed OK @ Tue Dec 11 15:36:47 MST 2001
+# RF05  completed OK @ Tue Dec 11 15:37:00 MST 2001
+# RF06  completed OK @ Tue Dec 11 15:37:12 MST 2001
+# RF07  completed OK @ Tue Dec 11 15:37:21 MST 2001
+# RF08  completed OK @ Tue Dec 11 15:37:30 MST 2001
+# RF09  completed OK @ Tue Dec 11 15:37:46 MST 2001
+# RF10  completed OK @ Tue Dec 11 15:37:59 MST 2001
+# RF11  completed OK @ Tue Dec 11 15:38:13 MST 2001
+# RF12  completed OK @ Tue Dec 11 15:38:22 MST 2001
+# RF13  completed OK @ Tue Dec 11 15:38:30 MST 2001
+# RF14  completed OK @ Tue Dec 11 15:38:40 MST 2001
+# RF15  completed OK @ Tue Dec 11 15:38:51 MST 2001
+# RF16  completed OK @ Tue Dec 11 15:39:02 MST 2001
+# RF17  completed OK @ Tue Dec 11 15:39:11 MST 2001
+# RF18  completed OK @ Tue Dec 11 15:39:20 MST 2001
+# RF19  completed OK @ Tue Dec 11 15:39:29 MST 2001
+#
+#remove:
+#  2nd wave (remove above files; bad processing; word from Al Schanot)
+#date
+#echo msrm -R -wpwd RAFDMG $RPWD /RAF/2001/161/RDMA
+#date
+#exit
+#
+#  Job(s) submitted on Mon Dec 17 15:29:25 MST 2001
+#  Job(s) completed on Mon Dec 17 15:29:42 MST 2001
+#
+#  3rd wave
+#  Job(s) submitted on Thu Jan 10 17:26:18 MST 2002
+# RF01  completed OK @ Thu Jan 10 17:26:58 MST 2002
+# RF02  completed OK @ Thu Jan 10 17:27:20 MST 2002
+# RF03  completed OK @ Thu Jan 10 17:27:43 MST 2002
+# RF04  completed OK @ Thu Jan 10 17:28:02 MST 2002
+# RF05  completed OK @ Thu Jan 10 17:28:23 MST 2002
+# RF06  completed OK @ Thu Jan 10 17:28:36 MST 2002
+# RF07  completed OK @ Thu Jan 10 17:28:51 MST 2002
+# RF08  completed OK @ Thu Jan 10 17:29:06 MST 2002
+# RF09  completed OK @ Thu Jan 10 17:29:25 MST 2002
+# RF10  completed OK @ Thu Jan 10 17:29:42 MST 2002
+# RF11  completed OK @ Thu Jan 10 17:30:05 MST 2002
+# RF12  completed OK @ Thu Jan 10 17:30:20 MST 2002
+# RF13  completed OK @ Thu Jan 10 17:30:40 MST 2002
+# RF14  completed OK @ Thu Jan 10 17:30:53 MST 2002
+# RF15  completed OK @ Thu Jan 10 17:31:13 MST 2002
+# RF16  completed OK @ Thu Jan 10 17:31:30 MST 2002
+# RF17  completed OK @ Thu Jan 10 17:31:46 MST 2002
+# RF18  completed OK @ Thu Jan 10 17:31:58 MST 2002
+# RF19  completed OK @ Thu Jan 10 17:32:22 MST 2002
+#
+#  4th wave (rename path with RAW_RDMA rather than RDMA)
+#rename:
+#echo "#  Job(s) submitted on `date`"
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF01 /RAF/2001/161/RAW_RDMA/RF01
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF02 /RAF/2001/161/RAW_RDMA/RF02
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF03 /RAF/2001/161/RAW_RDMA/RF03
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF04 /RAF/2001/161/RAW_RDMA/RF04
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF05 /RAF/2001/161/RAW_RDMA/RF05
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF06 /RAF/2001/161/RAW_RDMA/RF06
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF07 /RAF/2001/161/RAW_RDMA/RF07
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF08 /RAF/2001/161/RAW_RDMA/RF08
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF09 /RAF/2001/161/RAW_RDMA/RF09
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF10 /RAF/2001/161/RAW_RDMA/RF10
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF11 /RAF/2001/161/RAW_RDMA/RF11
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF12 /RAF/2001/161/RAW_RDMA/RF12
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF13 /RAF/2001/161/RAW_RDMA/RF13
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF14 /RAF/2001/161/RAW_RDMA/RF14
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF15 /RAF/2001/161/RAW_RDMA/RF15
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF16 /RAF/2001/161/RAW_RDMA/RF16
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF17 /RAF/2001/161/RAW_RDMA/RF17
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF18 /RAF/2001/161/RAW_RDMA/RF18
+#msmv -wpwd RAFDMG /RAF/2001/161/RDMA/RF19 /RAF/2001/161/RAW_RDMA/RF19
+#echo "#  Completed on `date`"
+#exit
+#  Job(s) submitted on Wed May  8 15:15:58 MDT 2002
+#  Completed on Wed May  8 15:16:27 MDT 2002
+#
+#   th wave
+#  Job(s) submitted on 
+#

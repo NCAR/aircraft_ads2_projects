@@ -1,0 +1,48 @@
+#
+# This file contains flight equivalences.  That is "x == y"
+# says that flight x should use the [nimbus] setup that was
+# saved from flight y.
+#
+#  This version is used for all the Ferry flights.
+#  The Research file has been temporarily renamed "RFlightGroups"
+#
+1 == 1
+2 == 1
+3 == 1
+4 == 1
+5 == 1
+6 == 1
+7 == 16
+8 == 16
+9 == 16
+10 == 16
+11 == 16
+#
+#  Renamed Flight_XX files for Ferry Flight processing:
+#  Flight_1  --> RFlight_1
+#  Flight_4  --> RFlight_4
+#  Flight_5  --> RFlight_5
+#  Flight_6  --> RFlight_6
+#  Flight_7  --> RFlight_7
+#  Flight_8  --> RFlight_8
+#  Flight_9  --> RFlight_9
+#  Flight_10 --> RFlight_10
+#  Flight_11 --> RFlight_11
+#
+#  After processing the Ferry Flights, these files will be renamed back
+#  to their original names, and the following files will be renamed:
+#  Flight_1  --> FFlight_1
+#
+# Note:  The unique (research) Flight_X files are:
+#  Flight_1
+#  Flight_4
+#  Flight_9
+#  Flight_10
+#  Flight_12
+#  Flight_14
+#  Flight_16
+#        The redundant (research Flight_X files are:
+#  Flight_5, Flight_6, Flight_7, Flight_8 (=== Flight_4)
+#  Flight_11, Flight_13 (=== Flight_10)
+#
+#  Ron Ruth 13 December 1999

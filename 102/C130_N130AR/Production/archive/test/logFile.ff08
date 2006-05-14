@@ -1,0 +1,72 @@
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Unknown variable/probe ASYNC encountered, ignoring & continuing.
+Throwing away XBCUT, has no decode function.
+Throwing away XBABS, has no decode function.
+Throwing away XBSPD, has no decode function.
+Throwing away XBSPW, has no decode function.
+Throwing away XBSPWRH, has no decode function.
+Throwing away XMASS1, has no decode function.
+Throwing away XMASS2, has no decode function.
+Throwing away XMASS3, has no decode function.
+Throwing away XMASS4, has no decode function.
+Throwing away Throwing away Throwing away Throwing away Thro, has no compute function.
+Throwing away Throwing away Throwing away Throwing away Throwing away Throwing away Throwing away Thr, has no compute function.
+Throwing away Throwing away Throwing away Throwing away Throwing away Throwing away Throwing away Throwing away Throwing away Throwing away Th, has no compute function.
+RATIO has no dependencies, turning off.
+Loading setup file: /usr/local/proj/102/Production/Flight_8
+LoadSetup: can't find XCNC.
+LoadSetup: can't find XCNHC.
+Loading setup file: /usr/local/proj/102/Production/Flight_8Loading setup file: /usr/local/proj/102/Production/Flight_8
+LoadSetup: can't find XCNC.
+LoadSetup: can't find XCNHC.
+Despiking enabled.
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_ROLL_MAX.
+Value set to 40.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_TAUP.
+Value set to 100.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Record found id = 0 @ 00:00:00, throwing away.
+Time break of 1 seconds ending @ 04:19:05, filling in with MISSING_VALUE.
+Record found id = 0 @ 00:00:00, throwing away.
+Record found id = 0 @ 00:00:00, throwing away.
+Time break of 1 seconds ending @ 04:29:20, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 04:30:25, filling in with MISSING_VALUE.
+Record found id = 0 @ 00:00:00, throwing away.
+Record found id = 0 @ 00:00:00, throwing away.
+Time break of 3 seconds ending @ 04:33:26, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 06:07:11, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 06:09:36, filling in with MISSING_VALUE.
+Record found id = 0 @ 00:00:00, throwing away.
+Time break of 1 seconds ending @ 06:10:04, filling in with MISSING_VALUE.
+Record found id = 0 @ 00:00:00, throwing away.
+Record found id = 0 @ 00:00:00, throwing away.
+Record found id = 0 @ 00:00:00, throwing away.
+Time break of 1 seconds ending @ 06:10:50, filling in with MISSING_VALUE.
+Record found id = 0 @ 00:00:00, throwing away.
+Time break of 1 seconds ending @ 06:11:14, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 10:08:49, filling in with MISSING_VALUE.
+Time interval(s) completed : 23:43:13-10:16:41
+CNTS: 40 spikes removed with slope exceeding 3000.000000
+TEP: 771 spikes removed with slope exceeding 5.000000
+XCNCOLD: 325 spikes removed with slope exceeding 500.000000
+ACINS: 8 spikes removed with slope exceeding 4.000000
+HGM232: 189 spikes removed with slope exceeding 300.000000
+PITCH: 7 spikes removed with slope exceeding 0.300000
+ROLL: 6 spikes removed with slope exceeding 0.300000
+THDG: 2 spikes removed with slope exceeding 0.300000
+VEW: 1 spikes removed with slope exceeding 20.000000
+VSPD: 4 spikes removed with slope exceeding 0.600000
+XPSFD: 190 spikes removed with slope exceeding 20.000000
+Processing took 15.7 minutes.
+Processing completed before Fri Mar 10 12:05:43 MST 2000
+

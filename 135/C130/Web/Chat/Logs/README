@@ -1,0 +1,83 @@
+This directory was created at 2:24 p.m. MST on Wed 12 Jan 2005.
+It has copies of the RICO chatlogs which have been edited to include missing sections which occurred on Wed Jan 5, Thu Jan 6 and Fri Jan 7 2005.
+
+Description of files:
+EOL_RDCC-C130Q.log              - Mike Daniel's original log file for &C130Q chatroom
+EOL_RDCC-C130Q.log.MST          - EOL_RDCC-C130Q.log file ready for MST-to-UTC correction
+EOL_RDCC-C130Q.log.UTC          - EOL_RDCC-C130Q.log.MST file after UTC correction
+EOL_RDCC-C130Q.log.UTC.in       - EOL_RDCC-C130Q.log.UTC file ready for time-offset correction
+EOL_RDCC-C130Q.log.UTC.out      - EOL_RDCC-C130Q.log.UTC.in file after time-offset correction
+EOL_RDCC-GAUS.log               - Mike Daniel's original log file for &GAUS chatroom
+EOL_RDCC-GAUS.log.MST           - EOL_RDCC-GAUS.log file ready for MST-to-UTC correction
+EOL_RDCC-GAUS.log.UTC           - EOL_RDCC-GAUS.log.MST file after UTC correction
+EOL_RDCC-GAUS.log.UTC.in        - EOL_RDCC-GAUS.log.UTC file ready for time-offset correction
+EOL_RDCC-GAUS.log.UTC.out       - EOL_RDCC-GAUS.log.UTC.in file after time-offset correction
+EOL_RDCC-Kingair.log            - Mike Daniel's original log file for &Kingair chatroom
+EOL_RDCC-Kingair.log.MST        - EOL_RDCC-Kingair.log file ready for MST-to-UTC correction
+EOL_RDCC-Kingair.log.UTC        - EOL_RDCC-Kingair.log.MST file after UTC correction
+EOL_RDCC-Kingair.log.UTC.in     - EOL_RDCC-Kingair.log.UTC file ready for time-offset correction
+EOL_RDCC-Kingair.log.UTC.out    - EOL_RDCC-Kingair.log.UTC.in file after time-offset correction
+EOL_RDCC-RICO.log               - Mike Daniel's original log file for &RICO chatroom
+EOL_RDCC-RICO.log.MST           - EOL_RDCC-RICO.log file ready for MST-to-UTC correction
+EOL_RDCC-RICO.log.UTC           - EOL_RDCC-RICO.log.MST file after UTC correction, ready for time-offset correction
+EOL_RDCC-RICO.log.UTC.out       - EOL_RDCC-RICO.log.UTC.in file after time-offset correction
+EOL_RDCC-Spol.log               - Mike Daniel's original log file for &Spol chatroom
+EOL_RDCC-Spol.log.MST           - EOL_RDCC-Spol.log file ready for MST-to-UTC correction
+EOL_RDCC-Spol.log.UTC           - EOL_RDCC-Spol.log.MST file after UTC correction
+EOL_RDCC-Spol.log.UTC.in        - EOL_RDCC-Spol.log.UTC file ready for time-offset correction
+EOL_RDCC-Spol.log.UTC.out       - EOL_RDCC-Spol.log.UTC.in file after time-offset correction
+EOL_RDCC-dropsonde.log          - Mike Daniel's original log file for &dropsonde chatroom
+EOL_RDCC-dropsonde.log.MST      - EOL_RDCC-dropsonde.log file ready for MST-to-UTC correction
+EOL_RDCC-dropsonde.log.UTC      - EOL_RDCC-dropsonde.log.MST file after UTC correction
+EOL_RDCC-dropsonde.log.UTC.in   - EOL_RDCC-dropsonde.log.UTC file ready for time-offset correction
+EOL_RDCC-dropsonde.log.UTC.out  - EOL_RDCC-dropsonde.log.UTC.in file after time-offset correction
+EOL_RDCC-network.log            - Mike Daniel's original log file for &network chatroom
+EOL_RDCC-network.log.MST        - EOL_RDCC-network.log file ready for MST-to-UTC correction
+EOL_RDCC-network.log.UTC        - EOL_RDCC-network.log.MST file after UTC correction
+EOL_RDCC-network.log.UTC.in     - EOL_RDCC-network.log.UTC file ready for time-offset correction
+EOL_RDCC-network.log.UTC.out    - EOL_RDCC-network.log.UTC.in file after time-offset correction
+EOL_RDCC-pam.log                - Mike Daniel's original log file for &pam chatroom
+README                          - This file
+bae146_chatlog.txt              - original &BAE146 chatlog file as of Jan 12 @ 14:09 MST
+c130q_chatlog.txt               - original &C130Q chatlog file as of Jan 12 @ 14:20 MST
+dropsonde_chatlog.txt           - original &dropsonde chatlog file as of Jan 12 @ 14:09 MST
+gaus_chatlog.txt                - original &GAUS chatlog file as of Jan 12 @ 14:09 MST
+kingair.log                     - edited and corrected version of kingair_chatlog.txt
+kingair_chatlog.txt             - original &Kingair chatlog file as of Jan 12 @ 14:10 MST
+network.log                     - edited and corrected version of network_chatlog.txt
+network_chatlog.txt             - original &network chatlog file as of Jan 12 @ 14:16 MST
+pam_chatlog.txt                 - original &pam chatlog file as of Jan 12 @ 14:09 MST
+rico_chatlog.txt                - original &RICO chatlog file as of Jan 12 @ 14:16 MST
+sabl_chatlog.txt                - original &Sabl chatlog file as of Jan 12 @ 14:10 MST
+sewardjohnson_chatlog.txt       - original &sewardjohnson chatlog file as of Jan 12 @ 14:09 MST
+spol.log                        - edited and corrected version of spol_chatlog.txt
+spol_chatlog.txt                - original &Spol chatlog file as of Jan 12 @ 14:20 MST
+
+
+The time conversions were performed by two "awk" scripts:
+   /jnet/shared/proj/archives/scripts/awk_chat_time_change - adds 7 hours to time stamps
+   /jnet/shared/proj/archives/scripts/awk_chat_time_shift  - adds 3 min 57 sec to time stamps (Mike's computer time-offset)
+
+The following files needed no new editing, since they were corrected on a previous occasion:
+   c130q_chatlog.txt
+   rico_chatlog.txt
+   dropsonde_chatlog.txt
+
+The following files need no editing, since no traffic occurred during the down period:
+   pam_chatlog.txt
+   gaus_chatlog.txt
+
+For files edited on or after 12 January 2005:
+  the original name format is:      <chatroom>_chatlog.txt;
+  the newly-edited name format is:  <chatroom>.log
+
+The following files have been edited today:
+  kingair.log
+  network.log
+  spol.log
+
+-------
+Ron Ruth
+Wed Jan 12 16:41:52 MST 2005
+
+-------

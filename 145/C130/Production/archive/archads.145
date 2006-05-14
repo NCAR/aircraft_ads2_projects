@@ -1,0 +1,246 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data files for 2006-145 MIRAGE
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $JLOCAL/proj/102/Production/arch_ads.102
+#   by Ron Ruth  28 January 2K
+#  Revised by RLR 19 April 2002 to use DCS "msrcp" instead of MIGS
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s:\(.*\)/\([0-9][0-9][0-9]\)/\(.*\):\2:g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+#set YEAR = `grep FY $JLOCAL/projects/$PROJ/C130/Production/proj.info | sed -e "s/FY=//"`
+set YEAR = `grep FY $JLOCAL/projects/$PROJ/C130_N130AR/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = "/scr/raf2/Raw_Data/MIRAGE"
+#
+#  1st wave
+#set SFILES = ( \
+#145tf01a.ads \
+#)
+#set DFILES = ( \
+#TF01 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#145tf01a.ads \
+#145tf01b.ads \
+#)
+#set DFILES = ( \
+#TF01A \
+#TF01B \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#145tf02a.ads \
+#)
+#set DFILES = ( \
+#TF02 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#145tf03a.ads \
+#)
+#set DFILES = ( \
+#TF03 \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#145IC01a.ads \
+#145ff01b.ads \
+#145ff02a.ads \
+#145rf01a.ads \
+#145rf02a.ads \
+#145rf03a.ads \
+#145rf03b.ads \
+#145rf04a.ads \
+#145rf05a.ads \
+#145rf06a.ads \
+#145rf07a.ads \
+#145rf08a.ads \
+#145rf09d.ads \
+#145rf09e.ads \
+#145rf10b.ads \
+#145rf11b.ads \
+#145rf12a.ads \
+#)
+#set DFILES = ( \
+#IC01  \
+#FF01  \
+#FF02  \
+#RF01  \
+#RF02  \
+#RF03A \
+#RF03B \
+#RF04  \
+#RF05  \
+#RF06  \
+#RF07  \
+#RF08  \
+#RF09A \
+#RF09B \
+#RF10  \
+#RF11  \
+#RF12  \
+#)
+#
+#  6th wave (rename original and rearchive RF02 after date correction)
+# Began:  Tue May  2 16:27:04 GMT 2006
+#  msmv -wpwd RAFDMG /RAF/2006/145/ADS/RF02 /RAF/2006/145/ADS/ORIGINAL/RF02
+# Ended:  Tue May  2 16:27:07 GMT 2006
+#set SFILES = ( \
+#145rf02a.ads \
+#)
+#set DFILES = ( \
+#RF02  \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+#  Special job to rename G-V intercomparison flight (originally called TF01)
+#echo \
+#msmv -wpwd RAFDMG /RAF/$YEAR/$PROJ/$TYPE/TF01 /RAF/$YEAR/$PROJ/$TYPE/TF00
+#set result = $status
+#if ($result == 0) then
+#  echo "#  msmv job for $TYPE/TF00  -- OK -- `date`"
+#else
+#  echo "#  msmv job for $TYPE/TF00  -- Failed -- `date`"
+#  echo "#               $TYPE/$DFILE: error code $result"
+#  exit 1
+#endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+      echo "#                $TYPE/$DFILE: error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2006/145/
+#
+#  1st wave
+#  1 Job(s) submitted on Tue Dec 20 11:06:06 MST 2005
+#  msrcp job for ADS/TF01 -- OK -- Tue Dec 20 11:07:48 MST 2005
+#   Completed on Tue Dec 20 11:07:48 MST 2005
+#
+#  2nd wave
+#  2 Job(s) submitted on Thu Feb 16 17:08:40 MST 2006
+#  msrcp job for ADS/TF01A -- OK -- Thu Feb 16 17:08:58 MST 2006
+#  msrcp job for ADS/TF01B -- OK -- Thu Feb 16 17:09:41 MST 2006
+#   Completed on Thu Feb 16 17:09:41 MST 2006
+#
+#  3rd wave
+#  1 Job(s) submitted on Wed Feb 22 11:14:13 MST 2006
+#  msrcp job for ADS/TF02 -- OK -- Wed Feb 22 11:16:46 MST 2006
+#   Completed on Wed Feb 22 11:16:46 MST 2006
+#
+#  4th wave
+#  1 Job(s) submitted on Thu Mar  2 18:43:21 GMT 2006
+#  msrcp job for ADS/TF03 -- OK -- Thu Mar  2 18:44:52 GMT 2006
+#   Completed on Thu Mar  2 18:44:52 GMT 2006
+#
+#  5th wave
+#  17 Job(s) submitted on Thu Apr 13 14:27:10 MDT 2006
+#  msrcp job for ADS/IC01 -- OK -- Thu Apr 13 14:28:42 MDT 2006
+#  msrcp job for ADS/FF01 -- OK -- Thu Apr 13 14:30:04 MDT 2006
+#  msrcp job for ADS/FF02 -- OK -- Thu Apr 13 14:31:50 MDT 2006
+#  msrcp job for ADS/RF01 -- OK -- Thu Apr 13 14:34:10 MDT 2006
+#  msrcp job for ADS/RF02 -- OK -- Thu Apr 13 14:36:28 MDT 2006
+#  msrcp job for ADS/RF03A -- OK -- Thu Apr 13 14:36:50 MDT 2006
+#  msrcp job for ADS/RF03B -- OK -- Thu Apr 13 14:39:10 MDT 2006
+#  msrcp job for ADS/RF04 -- OK -- Thu Apr 13 14:41:47 MDT 2006
+#  msrcp job for ADS/RF05 -- OK -- Thu Apr 13 14:44:50 MDT 2006
+#  msrcp job for ADS/RF06 -- OK -- Thu Apr 13 14:47:42 MDT 2006
+#  msrcp job for ADS/RF07 -- OK -- Thu Apr 13 14:50:21 MDT 2006
+#  msrcp job for ADS/RF08 -- OK -- Thu Apr 13 14:53:36 MDT 2006
+#  msrcp job for ADS/RF09A -- OK -- Thu Apr 13 14:53:50 MDT 2006
+#  msrcp job for ADS/RF09B -- OK -- Thu Apr 13 14:55:47 MDT 2006
+#  msrcp job for ADS/RF10 -- OK -- Thu Apr 13 14:57:10 MDT 2006
+#  msrcp job for ADS/RF11 -- OK -- Thu Apr 13 15:00:29 MDT 2006
+#  msrcp job for ADS/RF12 -- OK -- Thu Apr 13 15:04:48 MDT 2006
+#   Completed on Thu Apr 13 15:04:48 MDT 2006
+#
+#  6th wave (rename original and rearchive RF02 after date correction)
+#  1 Job(s) submitted on Tue May  2 11:21:38 MDT 2006
+#  msrcp job for ADS/RF02 -- OK -- Tue May  2 11:24:36 MDT 2006
+#   Completed on Tue May  2 11:24:36 MDT 2006
+#
+#   th wave
+#  Job(s) submitted on 
+#

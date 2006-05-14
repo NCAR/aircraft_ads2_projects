@@ -1,0 +1,62 @@
+PELTI Flight Report for RF08, 21 July 2000
+
+The objective of this flight was to assess the ambient/LTI relationship, with more emphasis on dust than sea salt. We flew 4 one-hour legs, each with TAS and FSSP measurements to evaluate the inside/outside difference. Nuclepore filters were used in TAS for the three legs in FT dust. This flight may have had the highest dust concentrations of any, since it was at the start of a major dust event.
+
+1404:15 - 1426:30	Takeoff, South, Sounding to 5300 m'
+			Dust maxima at 1970 - 2120 m, 2730 m, and 4240 m
+1431:10 - 1441:30	Common-inlet cals at 4100 m
+
+1442 - 1542		Dust Leg 1, Nuclepore in TAS, Laminar 200 lpm, 4100 m
+1444:33 - 1542 (?)	APS Sampling
+1513:30		Flew out of dust, descent to 3790 m, 3 and 7 um peaks vary
+1526:30		Flew out of dust, descent to 3480 m, 7 um peak only
+1531:30		Flew out of dust, descent to 3180 m and then 2270 m; broad peak
+1536			Level at 2270 m in heavy dust, 3-4 um peak only
+	
+1543 - 1553		Sounding to 1200 m and back to 2120 m, turned East
+
+1553 - 1653		Dust Leg 2, Nuclepore in TAS, Laminar 200 lpm, 2120 m
+1554:20 - 1653	APS Sampling
+1554 - 1630		7 um peak 2-3x larger than 2-3 um peak; Visible even in NASA & CAI
+1635 - 1650		7 um peak disappeared, and a large 2-3 um peak appeared
+
+1655:50 - 1708:30	Sounding from 910 m to 3030 m, turned North
+1707:27 - 1712:25	APS and Nephs zeroed on filtered air
+
+1708:30 - 1753:52	Dust Leg 3, Nuclepore in TAS, 2570 m, RH 25%
+1712:59 - 1728	7 um mode dominates over smaller mode
+1728:12 - 17 38:18	7 um mode fades leaving 3 um mode
+1742			Flew out of dust; clear sky above and below; small 2 um mode
+~1730 - 1748		Displays froze; Data system rebooted
+
+1753:20 - 1800:20	Sounding to 30 m and Turned to West
+
+1800:20 - 1901:45	(Salt-less) MBL Leg, at 30 m, winds 5 m/s, no whitecaps
+			7 um mode always larger than 2-3 um mode; little seasalt
+
+1904:52 - 1930 (?)	Common-inlet calibrations
+1918			Data display froze again
+
+1940			Landed at STX
+
+
+Notes
+
+Some data was lost due to RAF data system problems. Fortunately, however, the LTI flows, APS, and neph data were recorded on other computers. During data system problems we left filter flows unchanged, so that we could interpolate to fill any missing sections. 
+
+The CAI APS was an order of magnitude below the others at 1818, but the common-inlet calibrations showed it was working very similarly to the other two. Under some conditions the CAI performed far worse than either the LTI or the NASA inlet.
+
+Commentary
+
+The variation of dust distributions on these legs was surprising. Each filter from the dust legs will be averaging over several quite different domains. At times the 7 um peak was virtually the only one, while at other times the big peak disappeared completely in favor of a 2-3 um one. The facts that 1) the two peaks varied independently and 2) the larger one sometimes even showed up behind the NASA inlet and the CAI (in dry regions where the mineral particles could bounce off the inlet walls) both argue that the 7 um mode is a real one, and is not the result of enhancement by the LTI. This does not say that this peak is not enhanced nor that the large end of it is not truncated by losses in tubing. It does, however, indicate that the ubiquity of the peak on other flights is not an artifact of the LTI. Presumably the SEM analyses of TAS filters and cones will tell us how accurately the LTI air represented the two ambient peaks on each leg.
+
+We found it hard to stay in the dust as we flew south, because the layer was clearly sloping downwards toward the south. Layers often slope; it is very hard to sample such a layer without the aid of an on-board lidar that can profile scattering in the vicinity of the plane. Since most lidars have a significant dead zone near their own altitude, the ability to scan the lidar over 180 degrees would be of tremendous value in these situations: by scanning out to the side (or front) of the plane, you could tell when the highest dust density is sloping above or beneath the flight altitude and adjust the sampling altitude accordingly. It is important that the ATD development of a radar controller for SABLE (to shut the beam off when an aircraft is within the non-eye-safe distance) proceed so that this capability will be available during ACE-Asia.
+
+In spite of the data system problems, this flight was a very good test of the LTI in dust. The wide variety of distributions we encountered confirmed that we were in fact sampling two or more size modes, and that the LTI was more successful at getting those modes into the aircraft than the other two inlets. Under some dry conditions (but not all), the solid diffuser (NASA) inlet passed nearly as many particles as the LTI.
+
+Barry Huebert
+1 Aug 2000
+
+
+
+

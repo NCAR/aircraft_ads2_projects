@@ -1,0 +1,111 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1999-105 Sulfur Instrument Test (Bandy)
+#    rev. 990317  RLR  (adapt to new MIGS "msimp" verb)
+#    rev. 990503  RLR  (add noglob, "start" code)
+#    rev. 990714  RLR  (# TAPES and # FLIGHTS must match)
+#
+#  Note:  For the tape images to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+goto start
+#
+#  1st set, 1st segment, 1st try
+set SKIPS   = ^B*0
+set RECS    = F*1
+set TAPES   = ( \
+R1430 \
+R1431 \
+R1432 \
+R1433 \
+R1434 \
+)
+set FLIGHTS = ( \
+TF01 \
+TF02 \
+TF03 \
+TF04 \
+TF05 \
+)
+#
+start:
+#
+#  Get started:
+set noglob
+date
+#
+#  Make sure I have the same number of tapes and flights
+if ($#TAPES != $#FLIGHTS) then
+  echo "TAPES and FLIGHTS don't match.  Quitting."
+  exit 1
+endif
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st segment, 1st try
+#  Jobs submitted on Mon Nov 29 15:28:56 MST 1999
+# Sequence number = LN0917 -- TF01/R1430 -- OK @ 29 Nov 99 18:13:51
+# Sequence number = LN0925 -- TF02/R1431 -- OK @ 29 Nov 99 18:31:29
+# Sequence number = LN0933 -- TF03/R1432 -- OK @ 29 Nov 99 18:39:07
+# Sequence number = LN0941 -- TF04/R1433 -- OK @ 29 Nov 99 18:49:55
+# Sequence number = LN0949 -- TF05/R1434 -- OK @ 29 Nov 99 18:56:23
+#

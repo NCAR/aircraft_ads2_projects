@@ -1,0 +1,28 @@
+Questions for Pavel:
+
+1)  What processor/software was used to calculate all the values in
+     this data set?  Are there references or other documentation you
+     can provide?
+2)  How are the standard deviations determined?  Are they calculated?
+     Is there a standard time interval for them?
+3)  How closely are these data synchronized with the measurements in
+     our standard production netCDF files?
+4)  Are there any "missing" data points in these files?  If so, how are
+     they indicated?
+5)  Can these data be translated into netCDF files and given a
+     meaningful header for each flight?  If so, we also need to create
+     some standard variable names and descriptions consistent with RAF's
+     naming conventions as well as some good global attributes.
+6)  Would it make sense to merge these data into the production netCDF
+     files?
+7)  Your "readme.txt" file has a non-printing character (on my Linux
+     workstation).  It is in the sentence:
+      "Most significant effect on relative height is caused by pitch
+      changes and can be as high as 1.3 m when pitch reaches its
+      extremes at about <B1>10 deg."
+     What is <B1> ?
+8)  Do you have a recommendataion about how data users can assimilate
+     the DGPS data into their analysis (along with our other data
+     products)?
+9)  Will we be making these measurements for more projects?  If so, we
+     need to standardize the procedures on how everything is done.

@@ -1,0 +1,193 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#  This version used for 4th archive (after complete HRT processing)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/${PROJ}_2.tar"
+#
+cd $PROJDIR
+tar chvf $OFILE \
+Categories  \
+Defaults  \
+DependTable  \
+DependTable.LRT  \
+Despike  \
+HeaderChangeLog  \
+Lags  \
+LowRateVars  \
+PMSspecs  \
+ProjectName  \
+UserNames  \
+VarDB  \
+header  \
+header.bak  \
+ophir3.names  \
+s100.default  \
+s200.default  \
+s300.default  \
+Production/BlankOuts.rf01  \
+Production/BlankOuts.rf02  \
+Production/BlankOuts.rf03  \
+Production/BlankOuts.rf04  \
+Production/BlankOuts.rf05  \
+Production/BlankOuts.rf06  \
+Production/BlankOuts.rf07  \
+Production/BlankOuts.rf08  \
+Production/BlankOuts.rf09  \
+Production/BlankOuts.rf10  \
+Production/BlankOuts.rf11  \
+Production/BlankOuts.rf12  \
+Production/BlankOuts.rf13  \
+Production/BlankOuts.rf14  \
+Production/BlankOuts.rf15  \
+Production/BlankOuts.rf16  \
+Production/BlankOuts.rf17  \
+Production/BlankOuts.rf18  \
+Production/BlankOuts.rf19  \
+Production/FlightGroups  \
+Production/Flight_hold08  \
+Production/Flight_rf01  \
+Production/Flight_rf02  \
+Production/Flight_rf03  \
+Production/Flight_rf04  \
+Production/Flight_rf05  \
+Production/Flight_rf06  \
+Production/Flight_rf07  \
+Production/Flight_rf08  \
+Production/Flight_rf09  \
+Production/Flight_rf10  \
+Production/Flight_rf11  \
+Production/Flight_rf12  \
+Production/Flight_rf13  \
+Production/Flight_rf14  \
+Production/Flight_rf15  \
+Production/Flight_rf16  \
+Production/Flight_rf17  \
+Production/Flight_rf18  \
+Production/Flight_rf19  \
+Production/Flight_rf19  \
+Production/HRFlight_rf08 \
+Production/HRFlight_rf15 \
+Production/MSCP_out.161  \
+Production/Mail.161  \
+Production/logFile_HRT.rf01  \
+Production/logFile_HRT.rf02  \
+Production/logFile_HRT.rf03  \
+Production/logFile_HRT.rf04  \
+Production/logFile_HRT.rf05  \
+Production/logFile_HRT.rf06  \
+Production/logFile_HRT.rf07  \
+Production/logFile_HRT.rf08  \
+Production/logFile_HRT.rf09  \
+Production/logFile_HRT.rf10  \
+Production/logFile_HRT.rf11  \
+Production/logFile_HRT.rf12  \
+Production/logFile_HRT.rf13  \
+Production/logFile_HRT.rf14  \
+Production/logFile_HRT.rf15  \
+Production/logFile_HRT.rf16  \
+Production/logFile_HRT.rf17  \
+Production/logFile_HRT.rf18  \
+Production/logFile_HRT.rf19  \
+Production/logFile_LRT.rf01  \
+Production/logFile_LRT.rf02  \
+Production/logFile_LRT.rf03  \
+Production/logFile_LRT.rf04  \
+Production/logFile_LRT.rf05  \
+Production/logFile_LRT.rf06  \
+Production/logFile_LRT.rf07  \
+Production/logFile_LRT.rf08  \
+Production/logFile_LRT.rf09  \
+Production/logFile_LRT.rf10  \
+Production/logFile_LRT.rf11  \
+Production/logFile_LRT.rf12  \
+Production/logFile_LRT.rf13  \
+Production/logFile_LRT.rf14  \
+Production/logFile_LRT.rf15  \
+Production/logFile_LRT.rf16  \
+Production/logFile_LRT.rf17  \
+Production/logFile_LRT.rf18  \
+Production/logFile_LRT.rf19  \
+Production/proj.info  \
+Production/setup_hrt  \
+Production/taplog.hrt.161  \
+Production/taplog.lrt.161  \
+Production/taplog.pms2d.161  \
+Production/tp2ms.summary  \
+Production/archive/arads.161  \
+Production/archive/arch.hrt.161  \
+Production/archive/arch.lrt.161  \
+Production/archive/arch2d.161  \
+Production/archive/archive.support  \
+Production/archive/archprodnc.161  \
+Production/archive/archrdma.161  \
+Production/archive/atdarch.161  \
+Production/archive/atdmv2d.161  \
+Production/archive/reprocess_notes  \
+Production/archive/return_tapes_from_opns.mo  \
+Production/archive/send_tapes_to_opns.mo  \
+Production/archive/tapes.161  \
+Production/archive/tarit.161  \
+Production/archive/tarit_2.161  \
+Production/archive/tp2ms.job  \
+Production/coupling/1st_amlib.c  \
+Production/coupling/Makefile  \
+Production/coupling/README  \
+Production/coupling/XmSkeleton  \
+Production/coupling/Xwin.c  \
+Production/coupling/amlib.c  \
+Production/coupling/cb_main.c  \
+Production/coupling/cb_pause.c  \
+Production/coupling/cb_time.c  \
+Production/coupling/compute.c  \
+Production/coupling/define.h  \
+Production/coupling/error.c  \
+Production/coupling/globals.c  \
+Production/coupling/init.c  \
+Production/coupling/lrloop.c  \
+Production/coupling/netcdf.c  \
+Production/coupling/search.c  \
+Production/coupling/skel.c  \
+Production/coupling/sort.c  \
+Production/coupling/timeseg.c  \
+Production/epic2d/Makefile  \
+Production/epic2d/epic2d.cc  \
+Production/epic2d/make  \
+Production/epic2d/xfix.cc
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $OFILE" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

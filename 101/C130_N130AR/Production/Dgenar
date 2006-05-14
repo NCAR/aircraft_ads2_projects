@@ -1,0 +1,322 @@
+#! /bin/csh -f
+#
+#   Script to create an special arch.proj# c-shell script file from the data
+#    available in the netCDF data files in a directory specified below.
+#    The script file is put in the user's current working directory and
+#    will replace an extant version if it is not write-protected.
+#   By customizing certain script variables one can uniquely identify
+#    specially-processed files and create an unique path in a project's
+#    MSS directory.
+#
+#   Note 1:  Copy this script using instructions found just after the
+#             "Executable code starts here" line below.
+#
+#    * * * * * * * * * * * * * * * * * * * * * * * * * *
+#    *   Copyright 1999, University Corporation for    *
+#    *   Atmospheric Research, All Rights Reserved.    *
+#    * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Adapted by Ronald L. Ruth from the script "genar"             27 Jan 1999
+#  Revision  0 by RLR                                            27 Jan 1999
+#
+#  Requirements:
+#   sdir    -- directory location of netCDF data files to be archived
+#   ncdump  -- netCDF dump utility
+#   sed     -- UNIX stream editor
+#   grep    -- UNIX search for string
+#   ls      -- UNIX list files
+#   uname   -- UNIX operating system name
+#
+#   Note:  For the script to be complete, all the netCDF files must follow
+#            a standard naming convention.  The naming convention is:
+#              pppXfnn[s][h].cdf
+#              where:  ppp is the 3-digit project number
+#                        X is r, f or t (research, ferry or test)
+#                        f is "f"
+#                       nn is the flight number
+#                      [s] is a possible segment letter (capitalized)
+#                      [h] is a possible HRT (high-rate) indicator
+#            There is one ambiguous case:  pppXfnnh.cdf.  The letter h may
+#            indicate an LRT segment or an HRT file without a segment.
+#            A test must be made on each of these occurrences to determine
+#            if HRT data exist in the file.  At present, that means reading
+#            the data file header and searching for the string with the
+#            NIMBUS Predefined High Rate (HRT):
+#               OutputRate = $HRT
+#            If the string exists, then the file is HRT, else it is LRT.
+#
+#            This ambiguity can cause a problem if a segment H occurs for
+#            a low-rate processed file, and the user does not abide by the
+#            naming rules for high-rate files.  One could use the same name
+#            for both and overwrite a valid data file.  Care is obviously
+#            needed to avoid this situation.
+#
+#          Further editing of the generated script file may be necessary.
+#
+#  W A R N I N G:  The fiscal year is manually set in this script if it does
+#                  not appear in the proj.info file in the $proj directory
+#                  or if the proj.info file is missing.  It would be nice
+#                  if there were an easy way to determine it independently.
+#
+#  usage:  genar <projno>
+#
+#
+#     * * * * * * * * * * * * * * *
+#    *                             *
+#   *  Executable code starts here  *
+#    *                             *
+#     * * * * * * * * * * * * * * *
+#
+# =========================================================================
+# Note 1:  Customize this script by changing these script variable settings
+# =========================================================================
+#
+# -------------------------------------------
+#  C u s t o m i z e   S c r i p t   H e r e
+# -------------------------------------------
+#
+#  ** Set destination MSS Special subdirectory name
+set SPdir = Duynkerke
+#
+#  Set source directory location for netCDF Data to be archived
+#set sdir = $PROD_DATA
+set sdir = $PROD_DATA
+#
+#  ** Starting character for renamed source netCDF Data Directory files
+set SPchar = D
+#
+# -------------------------------------------------------------------------
+# Note 2:  Copy and save this script using the name ${SPchar}genar
+# -------------------------------------------------------------------------
+#
+onintr abort
+#
+if ($#argv < 1) then
+  echo "   usage:  ${SPchar}genar <projno>"
+  exit 1
+endif
+set proj = $argv[1]
+#
+echo ""
+echo "$0"
+echo " Script to create/replace a ${SPchar}arch.$proj file in your present"
+echo "  working directory using netCDF files in the directory $sdir."
+echo ""
+echo " Report bugs or give questions to Ron Ruth (ron@raf.atd.ucar.edu)."
+set rev = "Revision 0"
+echo "     $rev   RLR  27 Jan 1999"
+echo ""
+#
+#  Get started
+#
+#  Set NIMBUS Predefined High Rate (HRT)
+set HRT = 25
+#
+#  Set boilerplate for nrnet command string
+set nrnet1 = 'echo nrnet msput $SDIR'
+set nrnet2 = "l df=tr r flnm=/RAF"
+set nrnet3 = "rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG"
+#
+#  Check for extant ${SPchar}arch.$proj file
+if (-e ${SPchar}arch.$proj) then
+  retry:
+  echo -n " File ${SPchar}arch.$proj already exists.  Overwrite (y,n, [r]=n)? "
+  set input = $<
+  if ($input == "") set input = n
+  switch ($input)
+    case [yY]:
+      breaksw
+    case [nN]:
+     echo " Job abandoned."
+     exit 1
+      breaksw
+    default
+      goto retry
+  endsw
+endif
+#
+pushd $sdir >& /dev/null
+#
+#  Find the netCDF data files
+ls ${SPchar}${proj}?f??.cdf >& /dev/null
+set result1 = $status
+if ($result1 == 0) set files1 = `ls ${SPchar}${proj}?f??.cdf`
+ls ${SPchar}${proj}?f??[a-z].cdf >& /dev/null
+set result2 = $status
+if ($result2 == 0) set files2 = (`ls ${SPchar}${proj}?f??[a-z].cdf`)
+ls ${SPchar}${proj}?f??[a-z]h.cdf >& /dev/null
+set result3 = $status
+if ($result3 == 0) set files3 = (`ls ${SPchar}${proj}?f??[a-z]h.cdf`)
+#  Check results of search
+if ( $result1 != 0 && $result2 != 0 && $result3 != 0 ) then
+  echo No netCDF files match the special naming conventions specified.
+  goto quit
+endif
+#
+popd > /dev/null
+set projname = no
+#
+#  LINUX compatibility (could change)
+set OSTYPE = `uname`
+if ($OSTYPE == "Linux") set LOCAL = $SOLARIS_LOCAL
+#
+#  Get project information
+set pfile = $LOCAL/proj/$proj/Production/proj.info
+if (-r $pfile) then
+  set pj = `grep Information $pfile`
+  @ presult = $status
+  set pj = `echo $pj | sed "s/Information for Project //"`
+  @ presult = $presult + $status
+  set fy = `grep FY $pfile`
+  @ presult = $presult + $status
+  set fy = `echo $fy | sed "s/FY=//"`
+  @ presult = $presult + $status
+  set SC = `grep 'Scientist(s):' $pfile`
+  @ presult = $presult + $status
+  shift SC
+else
+#  One could choose to read header from one file and infer the fiscal year
+#   from that flight's date, but it will not be definitive, because the
+#   flight's date may not determine the project's fiscal year.
+  set presult = 1
+  set fy = 1998
+  set pj
+  set SC
+  echo "Warning:  Could not access project's proj.info file, so please check"
+  echo "           fiscal year and project name in file ${SPchar}arch.$proj."
+endif
+#
+#  Write out boiler plate
+#
+echo "#! /bin/csh -f" >! ${SPchar}arch.$proj
+if ($status != 0) then
+  echo Problem writing file ${SPchar}arch.$proj
+  goto quit
+endif
+#
+echo "#" >> ${SPchar}arch.$proj
+echo "#  archive NIMBUS netCDF output files for $pj ($SC)" >> ${SPchar}arch.$proj
+echo "#" >> ${SPchar}arch.$proj
+set now = `date`
+echo "#  File created by '$0' $rev on $now" >> ${SPchar}arch.$proj
+echo "#" >> ${SPchar}arch.$proj
+echo "date" >> ${SPchar}arch.$proj
+echo "#" >> ${SPchar}arch.$proj
+echo "set YEAR = $fy" >> ${SPchar}arch.$proj
+echo "set PROJ = $proj" >> ${SPchar}arch.$proj
+echo "set SDIR = $sdir" >> ${SPchar}arch.$proj
+echo "#" >> ${SPchar}arch.$proj
+#
+@ count = 0
+#
+#  Case #1, LRT without segments (assumption from file-naming convention)
+if ($result1 == 0) then
+  echo "#" >> ${SPchar}arch.$proj
+  echo set TURBRT = LRT/$SPdir >> ${SPchar}arch.$proj
+  echo "#" >> ${SPchar}arch.$proj
+  @ num = 0
+  foreach file ($files1)
+    @ num ++
+    @ count ++
+    set ofile = `echo $file | sed "s/$SPchar$proj//g"`
+    set ofile = `echo $ofile | sed "s/\.cdf//"`
+    set ofile = `echo $ofile | tr '[a-z]' '[A-Z]'`
+    echo $nrnet1/$file $nrnet2/\$YEAR/\$PROJ/\$TURBRT/${ofile}.cdf $nrnet3 >> ${SPchar}arch.$proj
+  end
+  echo "#" >> ${SPchar}arch.$proj
+endif
+#
+#  Case #2, LRT with segments or HRT without segments
+#    Need to check HRT/LRT for each file named ####rf##h.cdf
+#    If string "OutputRate = $HRT" appears in its header, then file is HRT.
+#    If file is HRT, then the h needs to be removed for the archived file
+if ($result2 == 0) then
+  @ num = 0
+  set trate = low
+  foreach file ($files2)
+    @ num ++
+    @ count ++
+    set ofile = `echo $file | sed "s/$SPchar$proj//g"`
+#  Find output rate for this file
+    set test = `echo $ofile | grep -c 'h.cdf'`
+    if ($test == 0) then
+      if ($trate != "low") then
+        set trate = low
+        echo "#" >> ${SPchar}arch.$proj
+        echo set TURBRT = LRT/$SPdir >> ${SPchar}arch.$proj
+        echo "#" >> ${SPchar}arch.$proj
+      endif
+      set ofile = `echo $ofile | sed "s/\.cdf//"`
+      set ofile = `echo $ofile | tr '[a-z]' '[A-Z]'`
+      echo $nrnet1/$file $nrnet2/\$YEAR/\$PROJ/\$TURBRT/${ofile}.cdf $nrnet3 >> ${SPchar}arch.$proj
+    else
+      set line = `ncdump -h $sdir/$file | grep -c "OutputRate = $HRT"`
+      if ($line == 0) then
+        if ($trate != "low") then
+          set trate = low
+          echo "#" >> ${SPchar}arch.$proj
+          echo set TURBRT = LRT/$SPdir >> ${SPchar}arch.$proj
+          echo "#" >> ${SPchar}arch.$proj
+        endif
+        set ofile = `echo $ofile | sed "s/\.cdf//"`
+        set ofile = `echo $ofile | tr '[a-z]' '[A-Z]'`
+        echo $nrnet1/$file $nrnet2/\$YEAR/\$PROJ/\$TURBRT/${ofile}.cdf $nrnet3 >> ${SPchar}arch.$proj
+      else
+        if ($trate != "high") then
+          set trate = high
+          echo "#" >> ${SPchar}arch.$proj
+          echo set TURBRT = HRT/$SPdir >> ${SPchar}arch.$proj
+          echo "#" >> ${SPchar}arch.$proj
+        endif
+        set ofile = `echo $ofile | sed "s/h\.cdf//g"`
+        set ofile = `echo $ofile | tr '[a-z]' '[A-Z]'`
+        echo $nrnet1/$file $nrnet2/\$YEAR/\$PROJ/\$TURBRT/${ofile}.cdf $nrnet3 >> ${SPchar}arch.$proj
+      endif
+    endif
+  end
+  echo "#" >> ${SPchar}arch.$proj
+endif
+#
+#  Case #3, HRT with segments
+if ($result3 == 0) then
+  echo "#" >> ${SPchar}arch.$proj
+  echo set TURBRT = HRT/$SPdir >> ${SPchar}arch.$proj
+  echo "#" >> ${SPchar}arch.$proj
+  @ num = 0
+  foreach file ($files3)
+    @ num ++
+    @ count ++
+    set ofile = `echo $file | sed "s/$SPchar$proj//g"`
+    set ofile = `echo $ofile | sed "s/h\.cdf//"`
+    set ofile = `echo $ofile | tr '[a-z]' '[A-Z]'`
+    echo $nrnet1/$file $nrnet2/\$YEAR/\$PROJ/\$TURBRT/${ofile}.cdf $nrnet3 >> ${SPchar}arch.$proj
+  end
+  echo "#" >> ${SPchar}arch.$proj
+endif
+echo "exit" >> ${SPchar}arch.$proj
+echo "#" >> ${SPchar}arch.$proj
+echo "#  Job(s) submitted on " >> ${SPchar}arch.$proj
+echo "#" >> ${SPchar}arch.$proj
+#
+echo " Script will set up jobs to archive $count netCDF files."
+echo ""
+#
+#  Future enhancement (when running this script isn't so dangerous before
+#    first checking it out for accuracy)
+chmod a+x ${SPchar}arch.$proj
+echo " Done."
+echo " Check the file '${SPchar}arch.$proj' for accuracy.  When executed as generated, "
+echo '  it will echo the "nrnet" commands to your screen.  Before this file '
+echo "  will actually submit the archive jobs for these data, it must be edited"
+echo '  to delete the "echo"s preceding the "nrnet" commands.'
+echo '  ("vi" command to use is  :%s/^echo// )'
+echo ""
+exit
+#
+abort:
+onintr -
+#
+quit:
+echo " Quitting.  You may want to delete the file '${SPchar}arch.$proj' (if it exists),"
+echo "             since it would be incomplete."
+exit 1

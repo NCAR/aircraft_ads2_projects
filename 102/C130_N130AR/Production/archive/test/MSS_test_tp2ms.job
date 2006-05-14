@@ -1,0 +1,410 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1999-102 INDOEX (Clarke, et al.)
+#    rev. 990312  RLR  (adapt to new MIGS "msimp" verb)
+#
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive/test' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+#set PROJ = `pwd | sed "s:^.*proj/::" | sed "s:/Production/archive::"`
+#   Following works if the only digits in the directory path are the proj#
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*60000
+#set SKIPS   = ^B*120000
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*60000
+#set RECS    = B*100000
+#
+#
+#  2nd test set, 1st segment, 1st try
+#  3rd test set, 1st segment, 1st try
+#  4th test set, 1st segment, 1st try
+#  4th test set, 1st segment, 2nd try (after password change)
+#set SKIPS   = ^B*0
+#set RECS    = ( B*100000 B*100000 B*100000 B*100000 B*100000 F*1 F*1 F*1 \
+#                B*100000 B*100000 B*100000 B*100000 B*100000 )
+#set TAPES   = ( \
+#R1310 \
+#R1311 \
+#R1312 \
+#R1313 \
+#R1314 \
+#R1315 \
+#R1316 \
+#R1317 \
+#R1345 \
+#R1346 \
+#R1347 \
+#R1348 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF01A \
+#FF02A \
+#FF03A \
+#FF04A \
+#FF05A \
+#FF05C \
+#FF06A \
+#FF06B \
+#FF07A \
+#FF08A \
+#FF09A \
+#FF10A \
+#FF11A \
+#)
+#
+#  3rd test set, 2nd segment, 1st try
+#  4th test set, 2nd segment, 1st try
+#set SKIPS   = ^B*100000
+#set RECS    = (F*1 B*100000 F*1 F*1 F*1 B*100000 B*100000 F*1 F*1 B*60000 )
+#set TAPES   = ( \
+#R1310 \
+#R1311 \
+#R1312 \
+#R1313 \
+#R1314 \
+#R1345 \
+#R1346 \
+#R1347 \
+#R1348 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF01B  \
+#FF02B  \
+#FF03B  \
+#FF04B  \
+#FF05B  \
+#FF07B  \
+#FF08B  \
+#FF09B  \
+#FF10B  \
+#FF11B  \
+#)
+#
+#  3rd test set, 3rd segment, 1st try
+#  4th test set, 3rd segment, 1st try
+#set SKIPS   = (^B*200000 ^B*200000 ^B*200000 ^B*160000)
+#set RECS    = (F*1 F*1 F*1 B*60000)
+#set TAPES   = ( \
+#R1311 \
+#R1345 \
+#R1346 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF02C \
+#FF07C \
+#FF08C \
+#FF11C \
+#)
+#
+#  3rd test set, 4th segment, 1st try
+#  4th test set, 4th segment, 1st try
+#set SKIPS   = ^B*220000
+#set RECS    = B*60000
+#set TAPES   = ( \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF11D \
+#)
+#
+#  3rd test set, 5th segment, 1st try
+#  4th test set, 5th segment, 1st try
+#set SKIPS   = ^B*280000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF11E \
+#)
+#
+#  3rd test set, 2nd segment, 2nd try
+#set SKIPS   = ^B*100000
+#set RECS    = F*1
+#set TAPES   = ( \
+#R1347 \
+#)
+#set FLIGHTS = ( \
+#FF09B  \
+#)
+#
+#  4th test set, 1st segment (change to standard password)
+#set OPWD    =  RAFTEST
+#set NPWD    =  RAFDMG
+#set TAPES   = ( \
+#R1310 \
+#R1311 \
+#R1312 \
+#R1313 \
+#R1314 \
+#R1315 \
+#R1316 \
+#R1317 \
+#R1345 \
+#R1346 \
+#R1347 \
+#R1348 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF01A \
+#FF02A \
+#FF03A \
+#FF04A \
+#FF05A \
+#FF05C \
+#FF06A \
+#FF06B \
+#FF07A \
+#FF08A \
+#FF09A \
+#FF10A \
+#FF11A \
+#)
+#
+#  Get started:
+#date
+#if ($#TAPES != $#FLIGHTS) then
+#  echo "  Tapes and Flights don't match.  Quitting."
+#  exit 1 
+#endif
+#set todo = $#TAPES
+#set num = 1
+#while ($num <= $todo)
+#  set TAPE = $TAPES[$num]
+#  set FLIGHT = $FLIGHTS[$num]
+##  echo \
+#  nrnet mspasswd % r flnm=/RAF/TEST/$YEAR/$PROJ/$FLIGHT/$TAPE \
+#   wpwd=$OPWD neww=$NPWD
+#  @ num ++
+#end
+##
+## done.
+#exit
+#
+#   th test set,  th segment,  th try
+#set SKIPS   = 
+#set RECS    = 
+#set TAPES   = ( \
+#)
+#set FLIGHTS = ( \
+#)
+#
+#  Get started:
+date
+if ($#TAPES != $#FLIGHTS) then
+  echo "  Tapes and Flights don't match.  Quitting."
+  exit 1 
+endif
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" server=mss4 \
+   fmt=U cos=binary rtpd=90 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/TEST/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#
+#  2nd test set, 1st segment, 1st try
+#   MSS path for these archived bitfiles:  /RAF/TEST/jnet/shared/proj/102/
+#  Jobs submitted on Tue Feb 15 12:16:35 MST 2000
+# Sequence number = LN3591 -- test/FF01A/R1310 -- OK @ 15 Feb 2000 14:11:03
+# Sequence number = LN3599 -- test/FF02A/R1311 -- OK @ 15 Feb 2000 14:12:15
+# Sequence number = LN3607 -- test/FF03A/R1312 -- OK @ 15 Feb 2000 15:53:12
+# Sequence number = LN3615 -- test/FF04A/R1313 -- OK @ 15 Feb 2000 19:12:49
+# Sequence number = LN3623 -- test/FF05A/R1314 -- OK @ 15 Feb 2000 19:15:58
+# Sequence number = LN3631 -- test/FF05B/R1315 -- OK @ 15 Feb 2000 20:37:22
+# Sequence number = LN3639 -- test/FF06A/R1316 -- OK @ 15 Feb 2000 20:55:51
+# Sequence number = LN3647 -- test/FF06B/R1317 -- OK @ 15 Feb 2000 22:03:24
+# Sequence number = LN3655 -- test/FF07A/R1345 -- OK @ 15 Feb 2000 23:21:17
+# Sequence number = LN3663 -- test/FF08A/R1346 -- OK @ 15 Feb 2000 15:55:04
+# Sequence number = LN3671 -- test/FF09A/R1347 -- OK @ 15 Feb 2000 17:34:36
+# Sequence number = LN3679 -- test/FF10A/R1348 -- OK @ 15 Feb 2000 17:36:30
+# Sequence number = LN3687 -- test/FF11A/R1349 -- OK @ 15 Feb 2000 22:26:22
+#
+#  3rd test set, 1st segment, 1st try
+#   MSS path for these archived bitfiles:  /RAF/TEST/1999/102/
+#  Jobs submitted on #  Jobs submitted on Wed Feb 16 12:14:34 MST 2000
+# Sequence number = LN0682 -- FF01A/R1310 -- OK @ 16 Feb 2000 14:16:21
+# Sequence number = LN0691 -- FF02A/R1311 -- OK @ 16 Feb 2000 14:15:00
+# Sequence number = LN0703 -- FF03A/R1312 -- OK @ 16 Feb 2000 15:55:00
+# Sequence number = LN0713 -- FF04A/R1313 -- OK @ 16 Feb 2000 15:57:23
+# Sequence number = LN0723 -- FF05A/R1314 -- OK @ 16 Feb 2000 22:14:22
+# Sequence number = LN0733 -- FF05C/R1315 -- OK @ 16 Feb 2000 22:50:14
+# Sequence number = LN0741 -- FF06A/R1316 -- OK @ 16 Feb 2000 17:22:46
+# Sequence number = LN0749 -- FF06B/R1317 -- OK @ 16 Feb 2000 17:28:46
+# Sequence number = LN0757 -- FF07A/R1345 -- OK @ 16 Feb 2000 19:04:25
+# Sequence number = LN0765 -- FF08A/R1346 -- OK @ 16 Feb 2000 18:57:35
+# Sequence number = LN0773 -- FF09A/R1347 -- OK @ 16 Feb 2000 20:28:44
+# Sequence number = LN0781 -- FF10A/R1348 -- OK @ 16 Feb 2000 20:41:40
+# Sequence number = LN0792 -- FF11A/R1349 -- OK @ 16 Feb 2000 22:03:17
+#
+#  3rd test set, 2nd segment, 1st try
+#   MSS path for these archived bitfiles:  /RAF/TEST/1999/102/
+#  Jobs submitted on Fri Feb 18 15:07:43 MST 2000
+# Sequence number = LN4809 -- FF01B/R1310 -- OK @ 18 Feb 2000 15:18:40
+# Sequence number = LN4817 -- FF02B/R1311 -- OK @ 18 Feb 2000 16:45:36
+# Sequence number = LN4825 -- FF03B/R1312 -- OK @ 18 Feb 2000 16:50:30
+# Sequence number = LN4833 -- FF04B/R1313 -- OK @ 18 Feb 2000 18:30:05
+# Sequence number = LN4841 -- FF05B/R1314 -- OK @ 18 Feb 2000 19:44:15
+# Sequence number = LN4849 -- FF07B/R1345 -- OK @ 18 Feb 2000 19:58:30
+# Sequence number = LN4857 -- FF08B/R1346 -- OK @ 18 Feb 2000 21:34:32
+# Sequence number = LN4865 -- FF09B/R1347 -- Failed* @ 18 Feb 2000 20:03:40
+# Sequence number = LN4873 -- FF10B/R1348 -- OK @ 18 Feb 2000 18:17:01
+# Sequence number = LN4881 -- FF11B/R1349 -- OK @ 18 Feb 2000 18:06:19
+#  * Forward-space-file EXABYTE tape /dev/rmt/tps1d3v failed
+#
+#  3rd test set, 3rd segment, 1st try
+#   MSS path for these archived bitfiles:  /RAF/TEST/1999/102/
+#  Jobs submitted on Fri Feb 18 16:29:22 MST 2000
+# Sequence number = LN6122 -- FF02C/R1311 -- OK @ 18 Feb 2000 20:24:07
+# Sequence number = LN6130 -- FF07C/R1345 -- OK @ 18 Feb 2000 20:49:06
+# Sequence number = LN6138 -- FF08C/R1346 -- OK @ 18 Feb 2000 23:06:46
+# Sequence number = LN6146 -- FF11C/R1349 -- OK @ 18 Feb 2000 21:56:07
+#
+#  3rd test set, 4th segment, 1st try
+#   MSS path for these archived bitfiles:  /RAF/TEST/1999/102/
+#  Jobs submitted on Fri Feb 18 16:36:28 MST 2000
+# Sequence number = LN6248 -- FF11D/R1349 -- OK @ 18 Feb 2000 23:06:51
+#
+#  3rd test set, 5th segment, 1st try
+#   MSS path for these archived bitfiles:  /RAF/TEST/1999/102/
+#  Jobs submitted on Fri Feb 18 16:37:46 MST 2000
+# Sequence number = LN6285 -- FF11E/R1349 -- OK @ 18 Feb 2000 23:56:45
+#
+#  3rd test set, 2nd segment, 2nd try
+#  Jobs submitted on Tue Mar  7 14:46:32 MST 2000
+# Sequence number = LN4469 -- FF09B/R1347 -- OK @ 7 Mar 2000 15:09:49
+#
+#  4th test set, 1st segment, 1st try
+#  Jobs submitted on Tue Mar 21 10:57:42 MST 2000
+# Sequence number = LN6243 -- /102/FF01A/R1310 -- Failed* @ 21 Mar 2000 10:57:46
+# Sequence number = LN6251 -- /102/FF02A/R1311 -- Failed* @ 21 Mar 2000 10:57:46
+# Sequence number = LN6259 -- /102/FF03A/R1312 -- Failed* @ 21 Mar 2000 10:57:47
+# Sequence number = LN6267 -- /102/FF04A/R1313 -- Failed* @ 21 Mar 2000 10:57:47
+# Sequence number = LN6275 -- /102/FF05A/R1314 -- Failed* @ 21 Mar 2000 11:01:46
+# Sequence number = LN6283 -- /102/FF05C/R1315 -- Failed* @ 21 Mar 2000 11:01:46
+# Sequence number = LN6291 -- /102/FF06A/R1316 -- Failed* @ 21 Mar 2000 10:57:48
+# Sequence number = LN6299 -- /102/FF06B/R1317 -- Failed* @ 21 Mar 2000 10:57:48
+# Sequence number = LN6307 -- /102/FF07A/R1345 -- Failed* @ 21 Mar 2000 10:57:49
+# Sequence number = LN6315 -- /102/FF08A/R1346 -- Failed* @ 21 Mar 2000 10:57:49
+# Sequence number = LN6323 -- /102/FF09A/R1347 -- Failed* @ 21 Mar 2000 10:57:49
+# Sequence number = LN6331 -- /102/FF10A/R1348 -- Failed* @ 21 Mar 2000 10:57:50
+# Sequence number = LN6339 -- /102/FF11A/R1349 -- Failed* @ 21 Mar 2000 10:57:50
+#   * Failed due to incorrect write password
+#
+#  4th test set, 2nd segment, 1st try
+#  Jobs submitted on Tue Mar 21 10:59:01 MST 2000
+# Sequence number = LN6426 -- FF01B/R1310 -- OK @ 21 Mar 2000 17:05:31
+# Sequence number = LN6434 -- FF02B/R1311 -- OK @ 21 Mar 2000 12:52:26
+# Sequence number = LN6442 -- FF03B/R1312 -- OK @ 21 Mar 2000 12:49:36
+# Sequence number = LN6450 -- FF04B/R1313 -- OK @ 21 Mar 2000 13:13:26
+# Sequence number = LN6458 -- FF05B/R1314 -- OK @ 21 Mar 2000 14:21:06
+# Sequence number = LN6466 -- FF07B/R1345 -- OK @ 21 Mar 2000 14:46:20
+# Sequence number = LN6474 -- FF08B/R1346 -- OK @ 21 Mar 2000 15:47:04
+# Sequence number = LN6482 -- FF09B/R1347 -- OK @ 21 Mar 2000 15:35:30
+# Sequence number = LN6491 -- FF10B/R1348 -- OK @ 21 Mar 2000 17:05:21
+# Sequence number = LN6504 -- FF11B/R1349 -- OK @ 21 Mar 2000 16:56:55
+#
+#  4th test set, 3rd segment, 1st try
+#  Jobs submitted on Tue Mar 21 11:01:50 MST 2000
+# Sequence number = LN6754 -- FF02C/R1311 -- OK @ 21 Mar 2000 17:24:00
+# Sequence number = LN6762 -- FF07C/R1345 -- OK @ 21 Mar 2000 17:22:44
+# Sequence number = LN6770 -- FF08C/R1346 -- OK @ 21 Mar 2000 18:53:08
+# Sequence number = LN6778 -- FF11C/R1349 -- OK @ 21 Mar 2000 18:33:04
+#
+#  4th test set, 4th segment, 1st try
+#  Jobs submitted on Tue Mar 21 11:02:51 MST 2000
+# Sequence number = LN6843 -- FF11D/R1349 -- OK @ 21 Mar 2000 19:38:12
+#
+#  4th test set, 5th segment, 1st try
+#  Jobs submitted on Tue Mar 21 11:03:33 MST 2000
+# Sequence number = LN6874 -- FF11E/R1349 -- OK @ 21 Mar 2000 20:39:50
+#
+#  4th test set, 1st segment (change to standard password)
+#  Jobs submitted on Tue Mar 21 11:46:50 MST 2000
+# Sequence number = LN7406 -- FF01A/R1310 -- OK @ 21 Mar 2000 11:46:52
+# Sequence number = LN7414 -- FF02A/R1311 -- OK @ 21 Mar 2000 11:46:53
+# Sequence number = LN7422 -- FF03A/R1312 -- OK @ 21 Mar 2000 11:46:53
+# Sequence number = LN7430 -- FF04A/R1313 -- OK @ 21 Mar 2000 11:46:54
+# Sequence number = LN7438 -- FF05A/R1314 -- OK @ 21 Mar 2000 11:46:54
+# Sequence number = LN7446 -- FF05C/R1315 -- OK @ 21 Mar 2000 11:46:55
+# Sequence number = LN7462 -- FF06A/R1316 -- OK @ 21 Mar 2000 11:46:56
+# Sequence number = LN7477 -- FF06B/R1317 -- OK @ 21 Mar 2000 11:46:56
+# Sequence number = LN7496 -- FF07A/R1345 -- OK @ 21 Mar 2000 11:46:57
+# Sequence number = LN7513 -- FF08A/R1346 -- OK @ 21 Mar 2000 11:46:58
+# Sequence number = LN7530 -- FF09A/R1347 -- OK @ 21 Mar 2000 11:46:59
+# Sequence number = LN7542 -- FF10A/R1348 -- OK @ 21 Mar 2000 11:46:59
+# Sequence number = LN7553 -- FF11A/R1349 -- OK @ 21 Mar 2000 11:47:00
+#
+#  4th test set, 1st segment, 2nd try (after password change)
+#  Jobs submitted on Tue Mar 21 12:12:57 MST 2000
+# Sequence number = LN1506 -- FF01A/R1310 -- OK @ 21 Mar 2000 20:36:09
+# Sequence number = LN1514 -- FF02A/R1311 -- OK @ 21 Mar 2000 22:05:13
+# Sequence number = LN1522 -- FF03A/R1312 -- OK @ 21 Mar 2000 22:21:00
+# Sequence number = LN1530 -- FF04A/R1313 -- OK @ 22 Mar 2000 00:13:54
+# Sequence number = LN1538 -- FF05A/R1314 -- OK @ 22 Mar 2000 00:12:39
+# Sequence number = LN1546 -- FF05C/R1315 -- OK @ 22 Mar 2000 01:26:45
+# Sequence number = LN1554 -- FF06A/R1316 -- OK @ 22 Mar 2000 01:40:02
+# Sequence number = LN1562 -- FF06B/R1317 -- OK @ 22 Mar 2000 03:09:57
+# Sequence number = LN1577 -- FF07A/R1345 -- OK @ 22 Mar 2000 03:15:18
+# Sequence number = LN1593 -- FF08A/R1346 -- OK @ 22 Mar 2000 04:47:07
+# Sequence number = LN1613 -- FF09A/R1347 -- OK @ 22 Mar 2000 04:51:23
+# Sequence number = LN1627 -- FF10A/R1348 -- OK @ 22 Mar 2000 06:30:01
+# Sequence number = LN1645 -- FF11A/R1349 -- OK @ 22 Mar 2000 06:30:19
+#
+#      test set,     segment,     try
+#  Jobs submitted on 
+#

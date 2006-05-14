@@ -1,0 +1,144 @@
+May 20 06:06:05 -->	Jorgen (chatzilla@salt.atd.ucar.edu) has joined &C130Q
+May 20 06:06:18 <Jorgen>	Hi Larry - do you read me?
+May 20 06:19:37 -->	bonnie-c130 (bonnie-c13@ras50.ucar.edu) has joined &C130Q
+May 20 06:20:45 -->	ads-c130 (ads@ras50.ucar.edu) has joined &C130Q
+May 20 06:21:38 <ads-c130>	<this is Larry at the ADS during engine start for ACME RF03.
+May 20 06:32:53 <Jorgen>	Hi Larry - I get you
+May 20 06:34:19 <ads-c130>	Thanks, Jorgen.
+May 20 06:40:25 -->	aulenbac (aulenbac@cgdowl.cgd.ucar.edu) has joined &C130Q
+May 20 06:49:40 <Jorgen>	Larry - Is all well? I want to go out for breakfast if everything is running on rails.
+May 20 06:50:29 <bonnie-c130>	about to reach NST1, wind 60 kts out of SW so could get bumpy, all well from the cockpit
+May 20 06:50:30 <ads-c130>	All looks very good right now.
+May 20 06:50:35 <Jorgen>	OK
+May 20 06:51:15 <aulenbac>	Niwot Tundra cam shows low broken clouds
+May 20 07:12:43 -->	beaton (beaton@sbmac.atd.ucar.edu) has joined &C130Q
+May 20 07:13:18 <beaton>	Who's our ADS operator this morning
+May 20 07:13:52 <beaton>	Could you tell me what the XLA1 voltage reading is? Thanks
+May 20 07:23:10 <ads-c130>	xla1 is about -2.5 volts right now.
+May 20 07:40:42 -->	brandon (brandon@dyn84-124.atd.ucar.edu) has joined &C130Q
+May 20 07:43:07 <aulenbac>	Niwot: low, broken clouds, wind speed 4.6 m/s, wind direction 176
+May 20 07:43:44 -->	birwin (birwin@dyn84-8.atd.ucar.edu) has joined &C130Q
+May 20 07:46:10 <ads-c130>	The Winds display on Bonnie is giving us problems.
+May 20 07:46:32 -->	sburns (sburns@porter.Colorado.EDU) has joined &C130Q
+May 20 07:47:10 <ads-c130>	It is still running (updating) but none of the buttons respond. Any help?
+May 20 07:50:39 <Jorgen>	Hi Larry, I'm back. Is Bonnie up in the cockpit or where?
+May 20 07:50:50 <ads-c130>	I need a way to restart winds on Bonnie.
+May 20 07:51:07 <ads-c130>	Bonnie is the cockpit.
+May 20 07:53:32 <birwin>	restart bonnie, if you need to turn it off first, so be it
+May 20 07:54:55 <ads-c130>	I would need to shut down the computer.
+May 20 07:55:05 <birwin>	another way to try is request_winds bonnie (or host name) (cr)
+May 20 07:55:19 <birwin>	from hercules
+May 20 07:55:46 <birwin>	you need only shut down the lap top bonnie, not hercules as that would shut down disc win
+May 20 07:55:47 -->	Jcowan-Jeffco (jcowan@dyn84-150.atd.ucar.edu) has joined &C130Q
+May 20 07:59:21 <--	ads-c130 has quit (Ping timeout)
+May 20 07:59:22 <--	bonnie-c130 has quit (Ping timeout)
+May 20 08:01:21 -->	ads-c130 (ads@ras50.ucar.edu) has joined &C130Q
+May 20 08:01:36 -->	bonnie-c130 (bonnie-c13@ras50.ucar.edu) has joined &C130Q
+May 20 08:04:04 <ads-c130>	I got winds restarted on Bonnie but still non-responsive.
+May 20 08:05:22 <Jcowan-Jeffco>	Larry what is non-responsive? Sorry I'm late and missed the first part of the problem.
+May 20 08:05:42 <--	bonnie-c130 has quit (Read error: Connection reset by peer)
+May 20 08:09:24 <ads-c130>	Eventually I figured out that all of Bonnie was non-respopnsive.
+May 20 08:09:47 <ads-c130>	I had to reboot Bonnie, all is well.
+May 20 08:10:08 <Jorgen>	OK - it sounds like all is OK again?
+May 20 08:10:19 <Jorgen>	OK
+May 20 08:10:26 <ads-c130>	Yes
+May 20 08:10:47 <birwin>	good job larry
+May 20 08:10:47 <Jcowan-Jeffco>	Good fix Larry.
+May 20 08:12:43 <ads-c130>	See, maybe you won't have to replace me with a new guy?
+May 20 08:13:24 <Jcowan-Jeffco>	No, it takes to long to train a new one up.  Your stuck for the forseeable future. <grin>.
+May 20 08:13:58 <ads-c130>	Lucky for me!
+May 20 08:14:59 <ads-c130>	What's up with printing on Hercules?
+May 20 08:16:25 <Jcowan-Jeffco>	Chris did not get that fixed before he left. There is no Winds printing from any station.  We don't know when it will be fixed.
+May 20 08:16:42 <birwin>	read low priority
+May 20 08:18:19 <ads-c130>	I did get a printout from Clyde.
+May 20 08:19:11 <Jcowan-Jeffco>	Hmm.  That's interesting.  I don't have an answer for you on that then. 
+May 20 08:33:28 -->	bonnie-c130 (bonnie-c13@ras50.ucar.edu) has joined &C130Q
+May 20 08:33:47 <birwin>	yeah, our understand from Chris was no printing from any winds station
+May 20 08:34:32 <Jcowan-Jeffco>	I wonder though if msybe it's just Hercules and if the other staions will still print?
+May 20 08:35:46 <bonnie-c130>	britt back on in the cockpit after rebooting laptop - all well.  I just started watching the down camera images at 1 sec update.  Can someone please check with Stuart to make sure this won't cause any problems? thanks
+May 20 08:36:51 <ads-c130>	Only Clyde prints.
+May 20 08:36:52 <beaton>	One second updates should not be a problem, even if a few computers are showing them. 
+May 20 08:37:56 <beaton>	If you want to be certain, get on Clyde, go to the NetCam directory, and type ls to get a directory listing. Then do it again a few seconds later. 
+May 20 08:38:54 <beaton>	Since the filenames are in the form "c130_down_date_time.jpg", you can check that more images have been written by comparing the time in the filename.
+May 20 08:42:41 <aulenbac>	c130, what's your next waypoint?
+May 20 08:49:29 <bonnie-c130>	we are about 15 min. off my estimated schedule, and Dave is done flask sampling, so we are aborting the second rollercoaster, now heading direct to NST5
+May 20 08:49:56 <bonnie-c130>	do you think they have a donut shop in Montrose?
+May 20 08:50:32 <aulenbac>	Googling ...
+May 20 08:52:02 <brandon>	Daylight Donuts
+May 20 08:52:02 <brandon>	633 S Townsend Av
+May 20 08:52:02 <brandon>	MONTROSE,  CO 81401 - 4328
+May 20 08:52:02 <brandon>	(970) 249-1800
+May 20 08:53:30 <bonnie-c130>	that's great Dave was getting a bit nervous / low blood sugar
+May 20 08:54:53 <aulenbac>	How was the cloud cover over Niwot?
+May 20 08:55:20 <bonnie-c130>	stuart - did you mean clyde or the laptop in back?
+May 20 08:56:34 <beaton>	I meant the laptop on the back table, left side. I thought that was clyde.
+May 20 08:56:43 <bonnie-c130>	clouds about 800 AGL over the tower, which made the (lower) overpasses fun MCR saw a bunch of clouds but it's seeing nothing but trees and snow now
+May 20 08:57:10 <bonnie-c130>	stuart - larry checked the laptop and reports images recording fine - neat to watch from up here
+May 20 08:58:32 <beaton>	Glad you like it. I thought it might be nice to see what's directly underneath, since you can't really look down from your seat there. 
+May 20 09:14:00 <Jorgen>	Hi Larry - can you ask Britt for an ETA at JeffCo?
+May 20 09:15:59 <ads-c130>	ETA is 10:30.
+May 20 09:16:10 <Jorgen>	Thanx
+May 20 09:47:02 <Jcowan-Jeffco>	Larry, Looks like you are heading back.  Is 1030 still a good ETA?
+May 20 09:50:53 <bonnie-c130>	1025 to 1030 is my best guess
+May 20 09:55:54 <bonnie-c130>	lowell is now estimating 1015 - we sped up and caught a tailwind
+May 20 09:59:07 <Jorgen>	OK
+May 20 10:06:12 <bonnie-c130>	how many journalists are expected?  is there an ncar media person there?  if not, could you call bob or nicole?  thanks 5 minutes out from pattern
+May 20 10:08:16 <Jorgen>	will do
+May 20 10:09:25 <Jorgen>	Nicole is on her way - but none of the two tv stations are here yet..
+May 20 10:11:57 <--	aulenbac has quit (Quit: Leaving)
+May 20 10:13:32 <bonnie-c130>	thanks, we're down
+May 20 10:17:03 <--	ads-c130 has quit (Ping timeout)
+May 20 10:17:04 <--	bonnie-c130 has quit (Ping timeout)
+May 20 11:33:48 <--	beaton has quit (Quit: Leaving)
+May 20 12:24:36 <--	sburns has quit (Quit: Leaving)
+May 20 12:25:15 -->	anstett (anstett@blizzard.atd.ucar.edu) has joined &C130Q
+May 20 12:30:16 <--	birwin has quit (Quit: Leaving)
+May 20 12:43:37 <Jcowan-Jeffco>	preping plan for RF04
+May 20 13:19:12 -->	ads-c130 (ads@ras1.ucar.edu) has joined &C130Q
+May 20 13:20:56 <Ron-c_log>	ATIS BJCY 201848Z 10012KT 21/09 A3010
+May 20 13:21:56 -->	beaton_ (beaton@sbmac.atd.ucar.edu) has joined &C130Q
+May 20 13:26:58 -->	bonnie-c130 (bonnie-c13@ras1.ucar.edu) has joined &C130Q
+May 20 13:27:25 <Ron-c_log>	And they're off!
+May 20 13:37:34 <Jorgen>	Hi C-130 - are you reading chat?
+May 20 13:42:13 -->	aulenbac (aulenbac@cgdowl.cgd.ucar.edu) has joined &C130Q
+May 20 13:44:38 <ads-c130>	Yes! I am, flight now very bumby.It hard for me to typing
+May 20 13:45:31 -->	DaveR (dcrogers@dyn84-29.atd.ucar.edu) has joined &C130Q
+May 20 13:46:17 <Jorgen>	OK Ta. Thanks. Apart from turbulence, everything is OK?
+May 20 13:47:38 <ads-c130>	yes! everything look okay! for now
+May 20 13:48:08 <aulenbac>	c130, what's your next waypoint?
+May 20 14:01:34 <--	bonnie-c130 has quit (Ping timeout)
+May 20 14:01:42 <--	ads-c130 has quit (Ping timeout)
+May 20 14:18:22 <--	aulenbac has quit (Quit: Leaving)
+May 20 14:21:17 -->	ads-c130 (ads@ras1.ucar.edu) has joined &C130Q
+May 20 14:21:38 <Jcowan-Jeffco>	Back up Ta.  What was the problem?
+May 20 14:21:53 -->	bonnie-c130 (bonnie-c13@ras1.ucar.edu) has joined &C130Q
+May 20 14:26:44 <ads-c130>	could be caused by turburlence
+May 20 14:27:11 <Jcowan-Jeffco>	Was the phone "calling"?
+May 20 14:28:44 <ads-c130>	no
+May 20 14:29:28 <Jcowan-Jeffco>	Did AC tracker say Calling in Yellow?
+May 20 14:30:14 <Jcowan-Jeffco>	Was the phone turned on?  Did it say Iridium?
+May 20 14:30:53 <ads-c130>	no,ac tracker didn't tell. everything look normal
+May 20 14:31:27 <Jcowan-Jeffco>	Meaning that AC Tracker still was all Green?
+May 20 14:31:52 <ads-c130>	that's correct
+May 20 14:32:28 <Jcowan-Jeffco>	Okay,  Thanks for the input.  Janet was here and was interested.
+May 20 14:33:28 <Jcowan-Jeffco>	Ta,  Did the phone say Iridium on it when you looked at it, or was it powered off?
+May 20 14:34:54 <ads-c130>	irridium on but not data in progrress
+May 20 14:35:18 <Jcowan-Jeffco>	Thanks, That helps alot.
+May 20 14:36:09 -->	aulenbac (aulenbac@cgdowl.cgd.ucar.edu) has joined &C130Q
+May 20 14:37:35 <ads-c130>	we going to land in 3 minutes
+May 20 14:38:04 <Jcowan-Jeffco>	Okay thanks for the heads up.
+May 20 14:38:15 <--	aulenbac has quit (Quit: Leaving)
+May 20 14:39:33 <--	brandon has quit (Quit: Leaving)
+May 20 14:41:56 <--	ads-c130 has quit (Read error: EOF from client)
+May 20 14:45:00 <--	bonnie-c130 has quit (Ping timeout)
+May 20 14:45:33 <--	DaveR has quit (Quit: Leaving)
+May 20 14:46:07 <--	beaton_ has quit (Quit: Leaving)
+May 20 15:30:02 <--	Jcowan-Jeffco has quit (Quit: Leaving)
+May 20 16:22:35 -->	daniels (daniels@atd-trout.atd.ucar.edu) has joined &C130Q
+May 20 16:22:46 <--	daniels has quit (Quit: Leaving)
+May 20 17:24:41 -->	daniels (Mike@cpe-66-87-211-165.co.sprintbbd.net) has joined &C130Q
+May 20 17:35:23 <--	daniels has quit (Quit: Client exiting)
+May 20 21:07:03 -->	RLR_Babe (Ruth@cpe-66-87-37-5.co.sprintbbd.net) has joined &C130Q
+May 20 21:08:45 <--	RLR_Babe has quit (Quit: no reason)
+May 20 22:27:21 -->	daniels (daniels@cpe-66-87-211-165.co.sprintbbd.net) has joined &C130Q
+May 20 22:27:54 <--	daniels has quit (Quit: Leaving)

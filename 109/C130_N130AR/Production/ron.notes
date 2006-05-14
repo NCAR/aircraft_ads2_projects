@@ -1,0 +1,512 @@
+Variables not in the VarDB file as of 23 June 2004:
+  AHVPS_RPO1    High-Volume Particle Sampler Raw Accumulations
+  DTHVPS_RPO1   High-Volume Particle Sampler Dead Time (ms)
+  CHVPS_RPO1    High-Volume Particle Sampler Concentrations (N/L)
+  PLWCHV_RPO1   High-Volume Particle Sampler Ice/Liquid Water Content (g/M3)
+(Fixed in 22 July 2004 runs)
+
+Variables not in the VarDB file as of 22 July 2004:
+  RATIO:units = "Unk" ;       all flights
+  INHUM:units = "Unk" ;  }    TF01 only
+  DIFF1:units = "Unk" ;  \
+  DIFF2:units = "Unk" ;   \
+  DIFF3:units = "Unk" ;    }  RF13 only
+  LCLP:units = "Unk" ;    /
+  LCLT:units = "Unk" ;   /
+
+
+QA below based on original data (r109* files) before Allen's changes
+--------------------------------------------------------------------
+
+TF01
+  ATX (ATWH) - ATRL = -0.68 deg (18:28:00-18:43:00)
+  ATX (ATWH) - ATRR = -0.70 deg (18:28:00-18:43:00)
+  ATRR - ATRL       =  0.03 deg (18:28:00-18:43:00)
+  ATX (ATWH) - ATRL = -0.16 deg (18:28:00-18:43:00)
+  ATX (ATWH) - ATRR = -0.39 deg (18:28:00-18:43:00)
+  ATRR - ATRL       =  0.23 deg (18:28:00-18:43:00)
+  ATX - OAT         =  0.42 deg (18:25:00-19:05:00)
+
+  INFLOWC must be wrong  (INFLOW mean 592; INFLOWC mean 80001)
+  Looks like INPS2 is incorrect (7 mbar).
+
+  RSTB-RSTB1 = -5.76 deg (18:25:00-19:05:00)
+
+RF01
+  HGM232 turned on after TO @ 18:11:18; noise at landing (after 21:40:46)
+  ATRR, ATRL colder than ATWH/ATX by about 2C after 20:08 to 21:28
+   (Sensor icing?  T/DP about the same 20:05 to 20:40)
+  DPTC-DPBC ~ 1.7C between 18:37 and 20:50
+  CONCHV values more than an order of magnitude less than other PMS precips
+  PLWCF, PLWCC & NPLWCC agree better than PLWCC1 (20:05 to 20:41)
+  PLWC1DC and PLWC2DC went nuts between 20:29 and 21:08
+  Icing 20:05 to 20:45
+  RSTB1-RSTB ~ 2.7C mean difference
+  WIC mean -0.6 M/s.
+
+RF02
+  3 temps agree very well on this flight.
+  No icing on this flight (except on climbout and just before landing).
+  DPTC-DPBC ~ 1.45C
+  OAT positive glitches @ 18:51 and 21:06
+  RSTB1-RSTB ~ 2.8C mean difference
+  WIC mean -0.8 M/s.
+
+RF03
+  Data begin during climbout
+  OAT ~ 0.6C colder than other temps at low values (~ -30C); slightly warmer
+   (~ 0.1C) at higher values (~ -3C)
+  DPB/DPX very sluggish during this flight with a few large departures
+   (15:46 to 16:58, 17:16 to 17:45, 18:36 to 19:14 and 10:47 to end)
+   (DPT should be used as the reference for this flight!)
+  FCN/FCNC turned on late (15:36)
+  RSTB1-RSTB ~ 2.7C mean difference
+  WIC mean -0.78 M/s
+
+RF04
+  OAT ~0.4C colder than other temps at low values (~ -16C); agrees well
+   at warmer temperatures (> -8C).
+  Of CONCs, only CONCF, CONCP show any non-zero measurements on this flight.
+  HVPS glitch @ 21:01
+  RSTB1-RSTB ~ 3.1C mean difference
+  WIC mean -0.84 M/s
+
+RF05
+  ATRR/TTRR iced up 20:12 to 20:15 and 20:17 to 20:18
+  HVPS LWC measurements seem a bit wild from 19:26 to 20:07, 20:13 to 20:14,
+   20:39, 20:44 to 20:45, 21:04 to 21:05, 21:14 to 21:15, 21:24 to 21:25,
+   21:34 to 21:35, 21:42, 21:46, 21:54, 22:02
+  RSTB1-RSTB ~ 2.0C mean difference
+  (RSTB and RSTT tracked quite well when in cloud:  20:02 to 20:53)
+  SWB didn't zero at dark (offset at about 19 W/M2).
+  WIC mean -0.71 M/s
+
+RF06
+  OAT transient 18:27 to 18:28.
+  OAT: interesting character when compared to other temperature sensors
+   between 15:58 and 16:32
+  PLWC no good before 11:51 (powered off)
+  RSTB1-RSTB ~ 0.5C mean difference
+
+RF07
+  OAT transient not fully removed (extends from 16:08:14 to 16:09:00).
+  RSTB1-RSTB ~ 2.5C mean difference
+  Nevzerov powered off early (19:31).
+
+RF08
+  FSSP-100/SPP-100 glitch at 14:47 (affects all FSSP-derived measurements
+   except PLWCF)
+  PCAS zeroed out from 14:28:53 to 14:47:05 (should have been extended
+   to 14:47:08)
+  Nevzerov powered on late (11:50).
+  PMS LWC measurements completely swamp the in-situ ones (except for 260X
+   and FSSP-100/SPP-100).
+  Many PMS measurements missing from 14:28 to 14:47
+  RSTB1-RSTB ~ 2.5C mean difference
+  SWB zero offset about 15.5 W/M2
+
+RF09
+  Original ADS data File was "fixed" to correct an incorrect date using the
+   program "edADShdr"
+  Could not set start time to other than the beginning of the ADS data file
+   (Actual flight times:  15:48:18 to 23:49:20)
+  Some time periods should just be knocked out due to apparent ADS DSM
+   dropout problems:
+   16:55:33 extend to 16:56:30
+   16:58:53 extend to 17:00:30
+   20:38:54 extend to 20:40:08
+   20:41:30 extend to 20:42:25
+   20:44:20 extend to 20:46:48
+   20:48:02 extend to 20:49:01
+   20:56:34 extend to 20:58:44
+  ADIFR blanked out but derived AKRD and ATTACK not (e.g., ~17:30)
+  BDIFR not blanked out but suffering the same (icing/water-ingest) problem
+   (SSLIP blanked out but not SSRD)
+  Compared with DPBC, DPTC behaving erratically (17:42 to 18:09,
+   18:22 to 18:29, 19:15 to 19:41), but curiously LHLO had some similar
+   signal signature during the first and third time periods.
+  PMS LWC measurements completely swamp the in-situ ones (except for 260X
+   and FSSP-100/SPP-100).
+  PSURF has some strange behavior (e.g., 18:23 to 18:59) even though the
+   variables from which it is derived are behaving normally.  (Caused by
+   a maximum altitude setting of 7000m)
+  RSTB1-RSTB ~ 1.8C mean difference
+  Wind data no good at times when dependent measurements are zapped
+   (e.g., 17:00 to 17:40)
+
+RF10
+  AKRD bad from 14:34 to 14:39 (affects wind measurements)
+  Data System dropout from 15:35 to 15:49
+  OAT glitch 18:54
+  NTWCC zeroed after 18:23
+  NLWCC zeroed after 18:52
+  RSTB1-RSTB ~ 2.9C mean difference
+  WP3 ringout after ADS dropout; OK after 15:52
+  UI, VI, WI affected by WP3 ringout
+
+RF11
+  DPTC oscillating with amplitude of about 7 deg PP much of the flight
+  DPBC/DPXC also oscillating at times but with max amplitude of about 4 deg
+  PSFC-PSFDC varies from 1.3 (670 mbar) to 0.6 (750 mbar) to 0.5 (825 mbar)
+   to 0.4 (938 mbar)
+  RSTB1-RSTB ~ 2.4C mean difference
+  WI/WIC mean -0.67 M/s
+  XGN1 seems to be failing
+  XGN2 seems to be failing
+
+RF12
+  PSFC-PSFDC varies from 1.2 (567 mbar) to 0.6 (750 mbar) to 0.2 (838 mbar)
+   to -0.2 (972 mbar) to, late in flight, 0.25 (545 mbar) and 0.3 (690 mbar)
+  WI/WIC mean -0.47 M/s
+  RSTB1-RSTB ~ 1.5C mean difference
+  XGN1 seems to be failing
+  XGN2 seems to be failing
+
+RF13
+  Original ADS data File was "fixed" to correct an incorrect date using the
+   program "edADShdr"
+  Could not set start time to other than the beginning of the ADS data file
+   (Actual flight times:  16:26:22 to 21:37:14)
+  GGALT not trustworthy for this flight; suffers numerous glitches when ADS
+   dropouts occur (16:18:59 to 16:20:54 on ground, 20:58:55 to 20:59:44,
+   21:02:04 to 21:03:08, 21:04:02 to 21:05:16, 21:09:03 to 21:09:45 and
+   21:11:20 to 21:12:15)
+  DPB transient (balance) 16:41:56 to 16:47:20
+  260X erratic, especially 19:02:30 to 19:06:20
+  NLWCC no good before 16:49:18 (large offset)
+  PCN glitch 16:52:05 to 16:52:11
+  QCs agree better at high rather than low altitudes (although true airspeeds
+   track very well)
+  RSTB1-RSTB ~ 2.1C mean difference
+  WI/WIC mean -0.84 M/s
+  XGN1 seems to be failing
+  XGN2 seems to have failed
+
+RF14
+  useful data interval:  14:03:41 to 19:17:16
+  OAT greatly diverges from other measurements at cold temperatures
+   (2C colder at -34C)
+  ATWH about 1C colder than other Rosemounts at -34C)
+  All temperatures agree better (within 0.5 C) at -1C
+  Some minor oscillation in DPB and DPT at times
+  RSTB1-RSTB ~ 2.7C mean difference
+  WI/WIC mean -0.80 M/s
+  XGN1 seems to be failing
+  XGN2 seems to have failed
+
+RF15
+  Original ADS data File was "fixed" to correct an incorrect date using the
+   program "edADShdr"
+  Could not set start time to other than the beginning of the ADS data file
+   (Actual flight times:  15:05:17 to 21:15:55)
+  ADS dropout 17:33:59 to 7:35:14
+  GGALTC couldn't handle ADS dropout gracefully; use GGALT instead
+  FSSP-100/SPP-100 glitch @ 15:41
+  NLWCC has bad zero offset from takeoff until 15:36
+  RSTB1-RSTB ~ 2.0C mean difference
+  WI/WIC mean -0.74 M/s
+
+All flights so far:
+  Don't need both SSRD and SSLIP, AKRD and ATTACK.
+  DPB used as reference dew/frost point measurement.
+  Both static pressures well matched
+  QCs very well matched
+  True Airspeeds very well matched
+  CONCR == 0 "RDMA Concentration (all particles)"
+   (No RDMA data processed for merging.)
+
+-------
+
+QA below based on data (r109* files) after Allen's changes 20-21 July 2004
+--------------------------------------------------------------------------
+
+TF01
+  ATX (ATWH) - ATRL = -0.24 deg (18:28:00-18:43:00) (better)
+  ATX (ATWH) - ATRR = -0.27 deg (18:28:00-18:43:00) (better)
+  ATRR - ATRL       =  0.03 deg (18:28:00-18:43:00) (same)
+  ATX - OAT         =  0.76 deg (18:25:00-19:05:00) (worse)
+  INFLOWC must be wrong  (INFLOW mean 592; INFLOWC mean 80001)
+  Looks like INPS2 is incorrect (7 mbar).
+  RSTB-RSTB1 = 0.32 deg (18:25:00-19:05:00)
+
+RF01
+  HGM232 turned on after TO @ 18:11:18; noise at landing (after 21:40:46)
+  ATRR colder than ATWH/ATX by about 1.1C after 20:08 to 21:28
+  ATRL colder than ATWH/ATX by about 1.6C after 20:08 to 21:28
+   (Sensor icing?  T/DP about the same 20:05 to 20:40)
+  DPTC-DPBC ~ 1.7C between 18:37 and 20:50
+  CONCHV values more than an order of magnitude less than other PMS precips
+  PLWCF, PLWCC & NLWCC agree better than PLWCC1 (20:05 to 20:41)
+  PLWC1DC and PLWC2DC went nuts between 20:29 and 21:08
+  Icing 20:05 to 20:45
+  RSTB-RSTB1 0.03 C mean difference (20:10-21:28)
+  WIC mean -0.7 M/s (20:10-21:28)
+
+RF02
+  3 temps agree very well on this flight
+  OAT about 0.5C colder (17:15-21:30)
+  OAT positive glitches @ 18:51 and 21:06
+  No icing on this flight (except on climbout and just before landing).
+  DPTC-DPBC 1.85C mean difference (17:15-21:30)
+  RSTB-RSTB1 -0.04C mean difference (17:15-21:30)
+  WIC mean -0.8 M/s (17:15-21:30)
+
+RF03
+  Data begin during climbout
+  OAT ~ 1.0C colder than other temps at low values (~ -30C); slightly warmer
+   (~ 0.1C) at higher values (~ -3C)
+  DPB/DPX very sluggish during this flight with a few large departures
+   (15:46 to 16:58, 17:16 to 17:45, 18:36 to 19:14 and 10:47 to end)
+   (DPT should be used as the reference for this flight!)
+  FCN/FCNC turned on late (15:36)
+  RSTB-RSTB1 -0.12C mean difference (15:43-20:58)
+  WIC mean -0.76 M/s (15:43-20:58)
+
+RF04
+  OAT ~0.4C colder than other temps at low values (~ -16C); agrees well
+   at warmer temperatures (> -8C).
+  Of CONCs, only CONCF, CONCP show any non-zero measurements on this flight.
+  HVPS glitch @ 21:01
+  RSTB-RSTB1 0.03C mean difference (19:11-23:45)
+  WIC mean -0.75 M/s (19:11-23:45)
+
+RF05
+  ATRR/TTRR iced up 20:12 to 20:15 and 20:17 to 20:18
+  OAT colder than ATX (1.2C) at -30C, warmer than ATX (0.5C) at -3C
+  HVPS LWC measurements seem a bit wild from 19:26 to 20:07, 20:13 to 20:14,
+   20:39, 20:44 to 20:45, 21:04 to 21:05, 21:14 to 21:15, 21:24 to 21:25,
+   21:34 to 21:35, 21:42, 21:46, 21:54, 22:02
+  RSTB-RSTB1 0.02C mean difference (17:50-24:57)
+  RSTB, RSTB1 and RSTT tracked very well when in cloud (22:30-22:47)
+  SWB didn't zero at dark (offset at about 19 W/M2).
+  WIC mean -0.7 M/s
+
+RF06
+  OAT transient 18:27 to 18:28.
+  OAT: interesting character when compared to other temperature sensors
+   between 15:58 and 16:32
+  PLWC no good before 11:51 (powered off)
+  RSTB-RSTB1 0.79C mean difference (3.14C, 15:59-16:38 @ ~ -36C)
+  WIC mean -0.72 M/s
+
+RF07
+  OAT transient not fully removed (extends from 16:08:14 to 16:09:00).
+  RSTB-RSTB1 ~ -2.5C mean difference
+  Nevzerov powered off early (19:31).
+  WIC mean -0.77 M/s
+
+RF08
+  FSSP-100/SPP-100 glitch at 14:47 (affects all FSSP-derived measurements
+   except PLWCF)
+* PCAS zeroed out from 14:28:53 to 14:47:05 (should have been extended
+   to 14:47:08)
+  Nevzerov powered on late (11:50).
+  PMS LWC measurements completely swamp the in-situ ones (except for 260X
+   and FSSP-100/SPP-100).
+  Many PMS measurements missing from 14:28 to 14:47
+  RSTB-RSTB1 -0.03C mean difference
+  SWB zero offset about 15.5 W/M2
+  WIC mean -0.65 M/s
+
+RF09
+  Original ADS data File was "fixed" to correct an incorrect date using the
+   program "edADShdr"
+  Could not set start time to other than the beginning of the ADS data file
+   (Actual flight times:  15:48:18 to 23:49:20)
+* Some time periods should just be knocked out due to apparent ADS DSM
+   dropout problems:
+   16:55:33 extend to 16:56:30
+   16:58:53 extend to 17:00:30
+   20:38:54 extend to 20:40:08
+   20:41:30 extend to 20:42:25
+   20:44:20 extend to 20:46:48
+   20:48:02 extend to 20:49:01
+   20:56:34 extend to 20:58:44
+  Interesting temperature "oscillation" (~1.5 deg peak-to-peak) between
+   18:14:20 and 18:15:00
+  Compared with DPBC, DPTC behaving erratically (17:42 to 18:09,
+   18:22 to 18:29, 19:15 to 19:41), but curiously LHLO had some similar
+   signal signature during the first and third time periods.
+  PMS LWC measurements completely swamp the in-situ ones (except for 260X
+   and FSSP-100/SPP-100).
+  PSURF has some strange behavior (e.g., 18:23 to 18:59) even though the
+   variables from which it is derived are behaving normally.  (Caused by
+   a maximum altitude setting of 7,000 m)
+  RSTB-RSTB1 0.14C mean difference (17:04-20:35)
+  RSTB-RSTB1 0.27C mean difference (20:59-23:36)
+  Uncorrected wind data (UI, UX, VI, VY, WD, WI, WS) no good at times when
+   dependent measurements are zapped (e.g., 17:00 to 17:40)
+  WIC mean -0.3 M/s (21:06-21:43)
+
+RF10
+* Data should be zapped starting at 15:35:57 (not 15:35:58)
+* Other zapped time periods have bad starting and ending values.  Before data
+   return to normal but after zapping, 11 seconds of zero values are output
+   (see GSF, 15:46:10 to 15:46:20).  This also happens at other times.  Is
+   this a NIMBUS problem?
+* AKRD bad from 14:33:05 to 14:40:20 (affects wind measurements)
+  Data System dropout from 15:35 to 15:48:42
+  After dropout ends (15:48:42), WI and WP3 ring out until about 15:53!
+  OAT glitch 18:54
+  NTWCC zeroed after 18:23
+  NLWCC zeroed after 18:52
+  RSTB-RSTB1 0.10 C mean difference (15:53-19:07)
+  UI, VI, WI affected by WP3 ringout
+  WIC mean -0.66 M/s (15:53-19:07)
+
+RF11
+  DPTC oscillating with amplitude of about 7 deg PP much of the flight
+  DPBC/DPXC also oscillating at times but with max amplitude of about 4 deg
+  PSFC-PSFDC varies from 1.3 (670 mbar) to 0.8 (775 mbar) to 0.6 (825 mbar)
+   to 0.5 (938 mbar)
+  RSTB-RSTB1 -0.04C mean difference (13:35-18:03)
+  WI/WIC mean -0.64 M/s (13:35-18:03)
+  XGN1 seems to be failing
+  XGN2 seems to be failing
+
+RF12
+  PSFC-PSFDC varies from 1.2 (567 mbar) to 0.65 (936 mbar) to 0.17 (838 mbar)
+   to -0.2 (972 mbar) to, late in flight, 0.25 (545 mbar) and 0.3 (690 mbar)
+  RSTB-RSTB1 0.285C mean difference (16:15-22:00)
+  WI/WIC mean -0.39 M/s (16:15-22:00)
+  XGN1 seems to be failing
+  XGN2 seems to be failing
+
+RF13
+  Original ADS data File was "fixed" to correct an incorrect date using the
+   program "edADShdr"
+  Could not set start time to other than the beginning of the ADS data file
+   (Actual flight times:  16:26:22 to 21:37:14)
+  GGALT not trustworthy for this flight; suffers numerous glitches when ADS
+   dropouts occur (16:18:59 to 16:20:54 on ground, 20:58:55 to 20:59:44,
+   21:02:04 to 21:03:08, 21:04:02 to 21:05:16, 21:09:03 to 21:09:45 and
+   21:11:20 to 21:12:15); GGALTC is worse
+  DPB transient (balance) 16:41:56 to 16:47:20
+  260X erratic, especially 19:02:30 to 19:06:20
+  NLWCC no good before 16:49:18 (large offset)
+  PCN glitch 16:52:05 to 16:52:11
+  QCs agree but seem to have minor differences depending on altitude although
+   true airspeeds track quite well:
+   TASF-TASR -0.08 @ 556 mbar
+   TASF-TASR -0.15 @ 579 mbar
+   TASF-TASR -0.10 @ 653 mbar
+   TASF-TASR -0.03 @ 808 mbar
+   TASF-TASR -0.05 @ 855 mbar
+   TASF-TASR -0.06 @ 971 mbar
+  RSTB-RSTB1 -0.02C mean difference (16:33-20:56)
+  WI/WIC mean -0.80 M/s (16:33-20:56)
+  XGN1 seems to be failing
+  XGN2 seems to have failed
+
+RF14
+  useful data interval:  14:03:41 to 19:17:16
+  OAT greatly diverges from other measurements at cold temperatures
+   (2C colder at -34C)
+  Some minor oscillation in DPB and DPT at times
+  RSTB-RSTB1 -0.19C mean difference (14:05-19:15)
+  WI/WIC mean -0.75 M/s (14:05-19:15)
+  XGN1 seems to be failing
+  XGN2 seems to have failed
+
+RF15
+  Original ADS data File was "fixed" to correct an incorrect date using the
+   program "edADShdr"
+  Could not set start time to other than the beginning of the ADS data file
+   (Actual flight times:  15:05:17 to 21:15:55)
+  ADS dropout 17:33:59 to 7:35:14
+  GGALTC couldn't handle ADS dropout gracefully; use GGALT instead
+  (GGALT has one zero value @ 17:34:20 before dropout)
+  FSSP-100/SPP-100 glitch @ 15:41
+  NLWCC has bad zero offset from takeoff until 15:36
+  RSTB1-RSTB -0.08C mean difference (15:14-21:10)
+  WI/WIC mean -0.75 M/s (15:15-17:32) before ADS dropout
+  WI/WIC mean -1.07 M/s (17:44-21:05) after ADS dropout
+
+All flights so far:
+  Don't need both SSRD and SSLIP, AKRD and ATTACK.
+  DPB used as reference dew/frost point measurement.
+  Both static pressures well matched
+  QCs very well matched
+  True Airspeeds very well matched
+  CONCR == 0 "RDMA Concentration (all particles)"
+   (No RDMA data processed for merging.)
+
+QA below based on data (r109* files) after Allen's changes 23 July 2004
+-----------------------------------------------------------------------
+
+This will only be a spot check for specific changes.
+The nimbus version had the residual -0.25 degree offset for attack angle
+programmed into the amlib/std/gust.c routine.  This caused the constant
+-0.6 M/s offset in vertical wind.
+
+
+Ron Ruth
+Fri Jul 23 10:21:10 MDT 2004
+
+
+NIMBUS code change to test for correct pcor
+-----------------------------------------------------------------------
+  (filter/cb_main.c, amlib/std/initAC.c)
+  cb_main.c
+   in StartProcessing()
+    moved InitAircraftDependencies() function after CreateNetCDF()
+    (previously it was before RunAMLIBinitializers())  This is needed
+    to pass flight date to initAC
+  initac.c
+   reenable test for flight date (which had come up zero previously)
+
+Ron Ruth
+Mon Jul 26 12:37:56 MDT 2004
+
+
+Remaining web page documentation
+--------------------------------
+ -  Flight Summary Information Matrix (update anomalies)      -- Ron
+ -  Flight Summary Information Matrix (mission type?)         -- Jorgen
+ -  SCD Mass Store System Bitfile List (RAF path)             -- Ron
+ -  SCD Mass Store System Bitfile List (ATD path)             -- Ron
+ -  Categorized RAF Variable List                             -- Jorgen
+ -  Low-Rate Variable List from Production netCDF File        -- Ron
+ -  Example Production Output netCDF File Header (Low Rate)   -- Ron
+ -  Project Managers' Data Quality Report                     -- Jorgen
+ -  Project Participants (if desired)                         -- Jorgen
+ -  Mission Results and Education Opportunities (if desired)  -- Jorgen
+ -  Aircraft Configuration(s) (outboard and floor plan)       -- Jorgen
+ -  RAF-Supplied Instrumentation (Allen has template)         -- Jorgen
+ -  Summary of Instrument Calibration Factors, if desired     -- Jorgen
+ -  Project Photos, if any                                    -- Jorgen
+
+Ron Ruth
+Thu Jul 29 16:21:07 MDT 2004
+
+
+Calibration Coefficients for TTWH for each flight
+-------------------------------------------------
+RF01 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:08 UTC 2004" ;
+RF02 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:10 UTC 2004" ;
+RF03 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:11 UTC 2004" ;
+RF04 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:06 UTC 2004" ;
+RF05 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:13 UTC 2004" ;
+RF06 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:15 UTC 2004" ;
+RF07 TTWH:CalibrationCoefficients = -0.4f, 6.2128f, -0.0092f ;:DateProcessed = "Jul 23 21:17 UTC 2004" ;
+RF08 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:20 UTC 2004" ;
+RF09 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:22 UTC 2004" ;
+RF10 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:24 UTC 2004" ;
+RF11 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:26 UTC 2004" ;
+RF12 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:28 UTC 2004" ;
+RF13 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:30 UTC 2004" ;
+RF14 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:32 UTC 2004" ;
+RF15 TTWH:CalibrationCoefficients = -0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:34 UTC 2004" ;
+TF01 TTWH:CalibrationCoefficients = 0.4f, 6.12f, -0.0034f ;:DateProcessed = "Jul 23 21:36 UTC 2004" ;
+
+Ron Ruth
+Thu Oct 14 12:35:04 MDT 2004
+
+RF10, after TTWH calibration change
+-----------------------------------
+There is a divergence between ATRR and ATWH that occurs at 18:46:30.
+With the new cals, the two agree more before.
+With the old cals, the two agree more after.
+
+Ron Ruth
+Thu Oct 14 14:45:10 MDT 2004

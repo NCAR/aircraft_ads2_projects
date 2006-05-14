@@ -1,0 +1,79 @@
+RICO - 135, Flight rf18
+Revision: 1924
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_rf18
+XPH has no description or units.
+REFF2DC_LWO1 has no description or units.
+REFF6_RWI has no description or units.
+TTWHC has no description or units.
+XCIM has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Processed on: 2005-05-02 14:28:34 -0600
+Flight Date: 01/23/2005
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for ACINS enabled, with lag of -80 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+REFF2DC_LWO1 has no entry in the VarDB.
+TTWHC has no entry in the VarDB.
+Blanking RSTB1 from 10:00:00 to 18:31:00.
+Blanking XCINB from 10:00:00 to 18:31:00.
+Blanking XCINCB from 10:00:00 to 18:31:00.
+Blanking XCINCF from 10:00:00 to 18:31:00.
+Blanking XCINF from 10:00:00 to 18:31:00.
+Blanking HGM232 from 10:00:00 to 10:04:24.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 10:00:00 to 10:04:24.
+Blanking PLWCC1 from 10:00:00 to 10:04:24.
+Blanking HGM232 from 18:30:07 to 18:31:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 18:23:16 to 18:31:00.
+Blanking PLWCC1 from 18:23:16 to 18:31:00.
+Blanking ATRL from 14:01:00 to 15:25:00.
+Blanking OAT from 11:01:35 to 11:03:00.
+Blanking OAT from 12:12:45 to 12:13:00.
+Blanking OAT from 12:58:23 to 12:58:36.
+Blanking XUFCT from 10:32:20 to 10:35:46.
+Time interval(s) completed : 
+10:00:00-18:31:00
+
+ACINS: 59 spikes removed with slope exceeding 4.000000
+LAT: 344 spikes removed with slope exceeding 0.200000
+LON: 344 spikes removed with slope exceeding 0.200000
+PITCH: 65 spikes removed with slope exceeding 1.300000
+ROLL: 63 spikes removed with slope exceeding 1.300000
+THDG: 16 spikes removed with slope exceeding 1.500000
+VEW: 7564 spikes removed with slope exceeding 20.000000
+VNS: 7564 spikes removed with slope exceeding 20.000000
+VSPD: 27 spikes removed with slope exceeding 1.600000
+IRS Error report: Latitude had 356 values of 0 (zero).
+IRS Error report: Longitude had 356 values of 0 (zero).
+IRS Error report: Ground Speed had 26049 values of 0 (zero).
+IRS Error report: Track Angle had 10 values of 0 (zero).
+IRS Error report: True Heading had 16 values of 0 (zero).
+IRS Error report: Pitch had 53 values of 0 (zero).
+IRS Error report: Roll had 56 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 51 values of 0 (zero).
+IRS Error report: Vertical Speed had 25 values of 0 (zero).
+IRS Error report: NS Velocity had 26048 values of 0 (zero).
+IRS Error report: EW Velocity had 26050 values of 0 (zero).
+Processing took 0.5 minutes.

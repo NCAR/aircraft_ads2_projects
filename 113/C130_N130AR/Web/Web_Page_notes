@@ -1,0 +1,131 @@
+TASKS (RLR)
+as of Wed Jul 30 15:32:00 MDT 2003
+
+Set up web page (for the main screen) with:
++ Current mission status
++ Link to Data download
++ List of completed flights (flight matrix ??)
+x Link to "How tos"
+x Brief explanation of what's on the home page (layout)
+
+Add an "Inflight Info" category to left side
+- chat access
+- ION access
+
+Can I generate a flight matrix and add it as a link?
+  column titles
++   fltno
++   date
++   times
++   mission statement
++   instrument anomalies
+x     links to specific instrument forum topics?
+x   link to flight forum topic
++   links to data download (netCDF, MCR, CPI)
++   whole-flight plots
+
+Presentation to 12 Aug 2003 meeting on new Real-Time web site
+  what's on the web site
+  establishing your own login (shrink/expand buttons)
+  navigation (site layout)
+    calendar with upcoming events
+      (posting/searching the calendar)
+  how tos
+    getting preliminary data
+      netCDF
+      CPI
+      MCR
+      other
+    getting software
+      IDL virtual machine from RSI (MCR and CPI)
+      ncplot and other RAF software
+    analyzing data
+    posting/reading forum entries/topics
+    searching the site
+  sign up for email list
+
+Administration of PostNuke
+
+Sometimes (often?), when logged in and making administrative changes, it
+"forgets" that you are logged in and denies the operation you're attempting.
+Logging out then back in sometimes fixes it.  Completely restarting the
+browser also sometimes fixes it.  Sometimes just repeatedly trying fixes it.
+I haven't yet found a sure cure.
+
+Gotchas:
+  Calendar
+    Make sure to set distribution to "Global"
+    Fill in all required information (date, titles, etc.)
+  News
+    Make sure to set your article to post, if you can.
+    Administrators may still have to "approve" their own posts.
+
+PHP settings different from what PostNuke wants:
+ syrah:/etc/php.ini (if it is the controlling version)
+  magic_quotes_gpc = On  (PostNuke wants:  magic_quotes_gpc = Off)
+
+4 September 2003
+PostNuke posted an error and would not come up.  I had been logged in at
+the time.  It was unique to me and not dependent on any other user.
+Instead of coming up it produced the following message:
+
+   Warning: Failed opening 'modules/ruth/index.php' for
+   inclusion (include_path='.:/php/includes:/usr/share/php')
+   in /var/www/html/IDEAS3/index.php on line 127
+
+In successive order I tried to clear the problem by shutting down and
+restarting mozilla, logging out of my Linux session and rebooting the
+computer.  None of these had any effect.  I finally traced it to something
+within the Mozilla browser.  Since I also have a "KDE_ruth" profile which
+I normally use at FL, I fired up a second version of Mozilla and used it
+instead.  It brought up the IDEAS3 web site without a problem.  I then
+logged in and out a few times exiting the KDE version while logged out
+of the IDEAS3 web site.  All this didn't matter when the original Mozilla
+profile was used.  So, at present, I must use the KDE_ruth profile to access
+the IDEAS3 web site!.  I set up an additional Mozilla profile in case it,
+too, goes belly-up.
+
+I guess I need to go searching within my .mozilla subdirectory for some
+file that is corrupted.
+
+What caused this problem is a cookie (.atd.ucar.edu:name) set by the ATD Data
+Retrieval web page.  I'm not sure if PostNuke sets one with the same name,
+but when the info is filled in for the data retrieval page, the "name" field
+saved in the cookie file is used by PostNuke and its value shows up in the
+error message.  It apparently tries to load a module with whatever is entered
+there.  If the Data Retrieval "name" field is left blank, it reports an error
+and wants it filled in.  I used the <space> character, and it replaced it with
+an underscore (_).  This caused the same error in PostNuke.  Therefore, at
+least with Mozilla on Linux, anyone who uses the Retrieval page, is going to
+have a problem with PostNuke.
+
+Places to check in the PostNuke code:
+error.php:<input type="hidden" name="name" value="Search">
+error.php:<input class="pn-text" type=name name=query size="25"></font></form></CENTER>
+error.php: * keyword (in request_uri) => Module name
+                                                                                
+index.php:     $name,
+index.php:                                  'name',
+                                                                                
+pntables.php:                                         'name'      => $bannerclient . '.pn_name',
+pntables.php:                                     'name'      => $comments . '.pn_name',
+                                                                                
+pnversion.php:$modversion['name'] = 'pnchat';
+                                                                                
+cgiirc/client.c, line 110 - 132
+ int get_cookie(char *cookie) {}
+                                                                                
+includes/oldfuncs.php, line 41 - 61
+ function cookiedecode() {}
+                                                                                
+includes/pnSession.php, line 60 - 64
+   // Use cookie to store the session ID
+    ini_set('session.use_cookies', 1);
+   // Name of our cookie
+    ini_set('session.name', 'POSTNUKESID');
+
+file:  config.php, line 46
+  $pnconfig['dbpass'] = 'sn0w';
+
+ 
+Ron

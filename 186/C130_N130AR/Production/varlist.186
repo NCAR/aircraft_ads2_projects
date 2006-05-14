@@ -1,0 +1,279 @@
+	Variable list for netCDF file /jnet/productiondata/186rf04.cdf
+	Created using /usr/local/scripts/getcdfvars
+	on Wed Sep 27 17:41:42 MDT 2000
+
+Name	Units	Description
+----	-----	------------------------------------------------
+base_time		Seconds since Jan 1, 1970.
+time_offset		Seconds since base_time.
+ADIFR	mbar	Vertical Differential Pressure, Radome
+BDIFR	mbar	Horizontal Differential Pressure, Radome
+CAI2F	M/s	CAI Flow (Small Huebert Tube)
+CFILTF	slpm	CAI Filter Flow
+CIMPF	slpm	CAI Impactor Flow
+CNEPH	/mM	CAI Scattering (Bsp) at 450 nm
+CNEPHF	slpm	CAI Nephelometer Flow
+CNTEMP	C	CN Counter Inlet Temperature
+CNTS	cnts	TSI CN Counter Output
+CSTR		CAI Streaker Advance Signal (Anderson)
+CSTRF	slpm	CAI Streaker Flow (Anderson)
+CTOTF	slpm	Total CAI Flow (Huebert Big Tube)
+DPB	C	Dew/Frost Point Temperature, Fuselage Bottom
+DPT	C	Dew/Frost Point Temperature, Fuselage Top
+DTB	C	Pyrgeometer Dome Temperature, Bottom
+DTT	C	Pyrgeometer Dome Temperature, Top
+FCN	slpm	Raw CN Counter Sample Flow Rate
+HK28AII	Vdc	28 Vdc Power Housekeeping Variable
+HK28AIV	Vdc	28 Vdc Power Housekeeping Variable
+HK28UI	Vdc	28 Vdc Power Housekeeping Variable
+HK28UV	Vdc	28 Vdc Power Housekeeping Variable
+HK400	Vdc	400 Hz Power Housekeeping Variable
+HK60D	Vdc	60 Hz Power Housekeeping Variable
+HK60L	Vdc	60 Hz Power Housekeeping Variable
+HK60R	Vdc	60 Hz Power Housekeeping Variable
+INFLOW	splm	C.A.I. Excess Flow
+INPS1	mbar	C.A.I. Shroud Static Pressure
+INPS2	mbar	C.A.I. Sample Plane Static Pressure
+INPS3	mbar	C.A.I. Exhaust Cone Static Pressure
+INQC1	mbar	C.A.I. Shroud Dynamic Pressure
+INQC2	mbar	C.A.I. Sample Plane Dynamic Pressure
+INQC3	mbar	C.A.I. Exhaust Cone Dynamic Pressure
+INTEMP	C	C.A.I. Sample Plane Temperature
+IRB	W/M2	Raw Infrared Irradiance, Bottom
+IRT	W/M2	Raw Infrared Irradiance, Top
+LFILTF	slpm	LTI Filter Flow
+LFSSPF	slpm	LTI FSSP-300 Flow
+LNEPH	/mM	LTI Scattering (Bsp) at 450 nm
+LNEPHF	Vdc	LTI Core LFE Static Pressure Transducer
+LNEPHIM	/mM	LTI Submicron Scattering (Bsp)
+LSTRF	slpm	LTI Streaker Flow (Anderson)
+NCADHVS	Vdc	NCAR RCAD High Voltage Power Supply
+NCADQAE	Vdc	NCAR RCAD Aerosol Flow
+NCADQEX	Vdc	NCAR RCAD Excess Flow
+NCADQSA	Vdc	NCAR RCAD Sample Flow
+NCADQSH	Vdc	NCAR RCAD Sheath Flow
+PCAB	mbar	Interior Cabin Static Pressure
+PCAIFL1	Vdc	Princeton CAI Bypass
+PCN	mbar	CN Counter Inlet Pressure
+PLWC	W	Raw PMS-King Liquid Water Content Output
+PLWC1	W	Raw PMS-King Liquid Water Content Output
+PLWC2	W	Raw PMS-King Liquid Water Content Output
+PODTMPL	C	Pod Temperature, Left Wing
+PODTMPR	C	Pod Temperature, Right Wing
+POFCFL1	Vdc	Princeton Organic Filter Concentrator Major Flow 1
+POFCFL2	Vdc	Princeton Organic Filter Concentrator Major Flow 2
+POFCFL3	Vdc	Princeton Organic Filter Concentrator Major Flow 3
+POFCFLF	Vdc	Princeton Organic Filter Concentrator Filter Flow
+PSF	mbar	Raw Static Pressure, Fuselage
+PSFD1	cnts	Raw PSFD, Low-order word
+PSFD2	cnts	Raw PSFD, High-order word
+QCF	mbar	Raw Dynamic Pressure, Fuselage
+QCR	mbar	Raw Dynamic Pressure, Radome
+RICE	Vdc	Raw Icing-Rate Indicator
+RSTB	C	Radiometric Surface Temperature
+RSTB1	C	Radiometric Surface Temperature
+SFILTF	slpm	NASA Filter Flow
+SNEPH	/mM	NASA Scattering (Bsp) at 450 nm
+SNEPHF	Vdc	LTI Plenum/Suction LFE Differential Pressure Transducer
+SSTRF	slpm	NASA Streaker Flow (Anderson)
+STB	C	Pyrgeometer Sink Temperature, Bottom
+STOTF	slpm	Total NASA Inlet Flow
+STT	C	Pyrgeometer Sink Temperature, Top
+SWB	W/M2	Shortwave Irradiance, Bottom
+SWT	W/M2	Shortwave Irradiance, Top
+TEO3	ppb	Raw TECO Ozone Output
+TEP	mbar	Internal TECO Ozone Sampling Pressure
+TET	C	Internal TECO Ozone Sampling Temperature
+TFILTF	slpm	TAS Flow
+TRSTB	C	RSTB Sensor Head Temperature
+TTRL	C	Total Temperature, Radome Left
+TTRR	C	Total Temperature, Radome Right
+TTWH	C	Total Temperature, Deiced Wing
+UVB	W/M2	Ultraviolet Irradiance, Bottom
+UVT	W/M2	Ultraviolet Irradiance, Top
+VLA	Vdc	Raw Lyman-alpha Hygrometer Output
+XDCNT	cnts	Bandy/Thornton APIMS Raw Counts
+XDMASS	Vdc	Bandy/Thornton APIMS Mass
+XICN	slpm	CN Isokinetic Side Flow Rate
+ACINS	M/s2	Aircraft Vertical Acceleration
+AF300_LPO	cnts	FSSP-300 Raw Accumulation (per cell)
+AF300_WDR	cnts	FSSP-300 Raw Accumulation (per cell)
+AFSSP_LPC	cnts	FSSP-100 Raw Accumulation (per cell)
+ALT	M	IRS Baro-Inertial Altitude
+APCAS_RPI	cnts	PCAS Raw Accumulation (per cell)
+AS100_RPC	cnts	FSSP-100 Raw Accumulation (per cell) - DMT
+AS300_RPO	cnts	FSSP-300 Raw Accumulation (per cell) - DMT
+BLATA	G	IRS Lateral Body Acceleration
+BLONGA	G	IRS Longitudinal Body Acceleration
+BNORMA	G	IRS Normal Body Acceleration
+BPITCHR	deg/s	IRS Body Pitch Rate
+BROLLR	deg/s	IRS Body Roll Rate
+BYAWR	deg/s	IRS Body Yaw Rate
+DAY	day	Raw Tape Date Component
+DRFTA	deg	IRS Drift Angle
+EVENT_CKP	none	Event Marker
+EVENT_CTL	none	Event Marker
+EVENT_FCL	none	Event Marker
+EVENT_FCR	none	Event Marker
+EVENT_RCL	none	Event Marker
+EVENT_RCR	none	Event Marker
+FACT_LPC	none	FSSP-100 Activity Fraction
+FACT_LPO	none	FSSP-100 Activity Fraction
+FACT_WDR	none	FSSP-100 Activity Fraction
+FANV_LPC	Vdc	FSSP-100 Annulus Baseline Voltage
+FREF_LPC	none	FSSP-100 Laser Reference Voltage
+FRNG_LPC	none	FSSP-100 Size Range Category
+FRNG_RPC	none	FSSP-100 Size Range Category
+FRST_LPC	cnts	FSSP-100 Fast Resets
+FRST_LPO	cnts	FSSP-100 Fast Resets
+FRST_WDR	cnts	FSSP-100 Fast Resets
+FSIG_LPC	Vdc	FSSP-100 Signal Voltage
+FSTB_LPC	cnts	FSSP-100 Strobes
+FSTT_LPC	cnts	FSSP-100 Signal Transit Time
+FTMP_LPC	C	FSSP-100 Housekeeping Data
+GALT	M	GPS Altitude (MSL)
+GLAT	deg	GPS Latitude
+GLON	deg	GPS Longitude
+GMODE	none	GPS Mode
+GSF	M/s	Inertial Ground Speed
+GSTAT	none	GPS Status
+GVEW	M/s	GPS Ground Speed Vector, East Component
+GVNS	M/s	GPS Ground Speed Vector, North Component
+GVZI	M/s	GPS-Computed Aircraft Vertical Velocity
+HGM232	M	Geometric (Radar) Altitude (APN-232)
+HGM232S		Geometric Altitude Status Monitor (APN-232)
+HOUR	hours	Raw Tape Time Component
+LAT	deg	Inertial Latitude
+LON	deg	Inertial Longitude
+MINUTE	minutes	Raw Tape Time Component
+MONTH	month	Raw Tape Date Component
+OVFLW_RPC	cnts	DMT FSSP-100 Counts w/ A/D Converter at Maximum and in Overflow
+PACT_RPI	cnts	PCAS Raw Activity
+PBRS_RPI	none	PCAS Beam Diffraction Ratio
+PFLW_RPI	Vdc	PCAS Flow
+PITCH	deg	Aircraft Pitch Angle
+PREF_RPI	Vdc	PCAS Laser Reference Voltage
+PSFD	mbar	Raw Static Pressure, Fuselage Digital
+PSFRD	mbar	Raw Static Pressure, Fuselage (Ruska)
+PSTT_RPI	cnts	PCAS Signal Transit Time
+PTMP_RPI	C	PCAS Detector Temperature
+REJAT_RPC	cnts	DMT FSSP-100 Total Rejected Particles, Based on Transit Time
+REJDOF_RPC	cnts	DMT FSSP-100 Total Rejected Particles, Based on Depth of Field
+ROLL	deg	Aircraft Roll Angle
+SECOND	s	Raw Tape Time Component
+THDG	deg	Aircraft True Heading Angle
+TKAR	deg/S	IRS Track Angle Rate
+TKAT	deg	IRS Track Angle, True
+VEW	M/s	Inertial Ground Speed Vector, East Component
+VNS	M/s	Inertial Ground Speed Vector, North Component
+VSPD	M/s	IRS-Computed Aircraft Vertical Velocity
+YEAR	year	Raw Tape Date Component
+AKRD	deg	Attack Angle, Radome Diff. Pressure
+ATRL	C	Ambient Temperature, Radome Left
+ATRR	C	Ambient Temperature, Radome Right
+ATTACK	deg	Attack Angle, Reference
+ATWH	C	Ambient Temperature, Deiced Wing
+ATX	C	Ambient Temperature, Reference
+CF300_LPO	N/cM3	FSSP-300 Concentration (per cell)
+CF300_WDR	N/cM3	FSSP-300 Concentration (per cell)
+CFSSP_LPC	N/cM3	FSSP-100 Concentration (per cell)
+CONC3_LPO	N/cm3	FSSP-300 Concentration (all cells)
+CONC3_RPO	N/cm3	FSSP-300 Concentration (all cells)
+CONC3_WDR	N/cm3	FSSP-300 Concentration (all cells)
+CONCF_LPC	N/cm3	FSSP-100 Concentration (all cells)
+CONCF_RPC	N/cm3	FSSP-100 Concentration (all cells)
+CONCN	N/cm3	Condensation Nuclei (CN) Concentration
+CONCP_RPI	N/cm3	PCAS Concentration (all cells)
+CPCAS_RPI	N/cM3	PCAS Concentration (per cell)
+CS100_RPC	N/cM3	FSSP-100 Concentration (per cell) - DMT
+CS300_RPO	N/cM3	FSSP-300 Concentration (per cell) - DMT
+DBAR3_LPO	uM	FSSP-300 Mean Particle Diameter
+DBAR3_RPO	uM	FSSP-300 Mean Particle Diameter
+DBAR3_WDR	uM	FSSP-300 Mean Particle Diameter
+DBARF_LPC	uM	FSSP-100 Mean Particle Diameter
+DBARF_RPC	uM	FSSP-100 Mean Particle Diameter
+DBARP_RPI	uM	PCAS Mean Particle Diameter
+DBZF_LPC	dBZ	FSSP-100 Calculated Reflectivity
+DBZF_RPC	dBZ	FSSP-100 Calculated Reflectivity
+DISPF_LPC	none	FSSP-100 Dispersion (sigma/dbarx)
+DISPF_RPC	none	FSSP-100 Dispersion (sigma/dbarx)
+DISPP_RPI	none	PCAS Dispersion (sigma/dbarx)
+DPBC	C	Dew Point Temperature, T-Electric Bottom
+DPTC	C	Dew Point Temperature, T-Electric Top
+DPXC	C	Dew Point Temperature, Reference
+EDPC	mbar	Ambient Water Vapor Pressure, Reference
+FBMFR_LPC	none	FSSP-100 Beam Fraction
+FCNC	vlpm	Corrected CN Counter Sample Flow Rate
+IAS	knots	Indicated Airspeed
+INFLOWC	vlpm	SCAI Corrected Excess Flow
+INPWANT	mbar	C.A.I Desired Inlet Pressure Differential
+INTAS1	M/s	C.A.I. Shroud True Air Speed
+INTAS2	M/s	C.A.I. Sample Plane True Air Speed
+INTAS3	M/s	C.A.I. Exhaust Cone True Air Speed
+IRBC	W/M2	Corrected Infrared Irradiance, Bottom
+IRTC	W/M2	Corrected Infrared Irradiance, Top
+LATC	deg	GPS-Corrected Inertial Latitude
+LONC	deg	GPS-Corrected Inertial Longitude
+MR	g/kg	Mixing Ratio, T-Electric
+MRLA	g/kg	Mixing Ratio, Lyman-alpha
+PALT	M	NACA Pressure Altitude
+PALTF	feet	NACA Pressure Altitude
+PFLWC_RPI	slpm	PCAS Corrected Flow
+PLWCC	g/M3	Corrected PMS-King Liquid Water Content
+PLWCC1	g/M3	Corrected PMS-King Liquid Water Content
+PLWCC2	g/M3	Corrected PMS-King Liquid Water Content
+PLWCF_LPC	g/M3	FSSP-100 Water/Ice Content
+PLWCF_RPC	g/M3	FSSP-100 Water/Ice Content
+PSFC	mbar	Corrected Static Pressure, Fuselage
+PSFDC	mbar	Corrected Static Pressure, Fuselage Digital
+PSURF	mbar	Calculated Surface Pressure
+PSX	mbar	Raw Static Pressure, Reference
+PSXC	mbar	Corrected Static Pressure, Reference
+PVOL3_LPO	ug3/cm3	FSSP-300 Particle Volume
+PVOL3_RPO	ug3/cm3	FSSP-300 Particle Volume
+PVOL3_WDR	ug3/cm3	FSSP-300 Particle Volume
+PVOLP_RPI	ug3/cm3	PCASP Particle Volume
+QCFC	mbar	Corrected Dynamic Pressure, Fuselage
+QCRC	mbar	Corrected Dynamic Pressure, Radome
+QCX	mbar	Raw Dynamic Pressure, Reference
+QCXC	mbar	Corrected Dynamic Pressure, Reference
+RADCF	none	Radiation Correction Factor
+RHODT	g/M3	Absolute Humidity, T-Electric Top
+RHOLA	g/M3	Absolute Humidity, Lyman-alpha
+RHUM	%	Relative Humidity
+SOLAZ	radians	Solar Azimuth Angle
+SOLDE	radians	Solar Declination Angle
+SOLEL	radians	Solar Elevation Angle
+SOLZE	radians	Solar Zenith Angle
+SSLIP	deg	Sideslip Angle, Reference
+SSRD	deg	Sideslip Angle, Radome Diff. Pressure
+SWTC	W/M2	Shortwave Irradiance, Top, (Attitude-Corrected)
+TASF	M/s	Aircraft True Airspeed, Fuselage
+TASHC	M/s	Aircraft True Airspeed, Humidity Corrected
+TASR	M/s	Aircraft True Airspeed, Radome
+TASX	M/s	Aircraft True Airspeed, Reference
+TEO3C	ppbv	Corrected TECO (UV) Ozone Concentration
+THETA	K	Potential Temperature
+THETAE	K	Equivalent Potential Temperature
+THETAV	K	Virtual Potential Temperature
+TTX	C	Total Temperature, Reference
+UI	M/s	Wind Vector, East Component
+UIC	M/s	GPS-Corrected Wind Vector, East Component
+UX	M/s	Wind Vector, Longitudinal Component
+UXC	M/s	GPS-Corrected Wind Vector, Longitudinal Component
+VEWC	M/s	GPS-Corrected Inertial Ground Speed Vector, East Component
+VI	M/s	Wind Vector, North Component
+VIC	M/s	GPS-Corrected Wind Vector, North Component
+VNSC	M/s	GPS-Corrected Inertial Ground Speed Vector, North Component
+VY	M/s	Wind Vector, Lateral Component
+VYC	M/s	GPS-Corrected Wind Vector, Lateral Component
+WD	deg	Horizontal Wind Direction
+WDC	deg	GPS-Corrected Horizontal Wind Direction
+WI	M/s	Wind Vector, Vertical Gust Component
+WIC	M/s	GPS-Corrected Wind Vector, Vertical Gust Component
+WP3	M/s	Damped Aircraft Vertical Velocity
+WS	M/s	Horizontal Wind Speed
+WSC	M/s	GPS-Corrected Horizontal Wind Speed
+XICNC	vlpm	Corrected CN Isokinetic Side Flow Rate
+XMACH2	none	Aircraft Mach Number Squared
+XNASFLW	M/s	Cabin FSSP-300 Flow Speed

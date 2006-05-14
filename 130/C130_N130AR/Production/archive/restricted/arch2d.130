@@ -1,0 +1,241 @@
+#! /bin/csh -f
+#
+#  archive PMS-2D raw data stripped from ADS tapes for project:
+#     1996-130 Aerosol Characterization Experiment 1 (Barry Huebert, et al.)
+#
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1996
+set PROJ = 130
+#set SDIR = $PROD_DATA
+set SDIR = /home/data
+set rpw = "x1-ECAx"
+#
+set TURBRT = PMS2D
+#
+#  1st wave
+#set SOURCES = ( \
+#130rf01.2d \
+#130rf02a.2d \
+#130rf02b.2d \
+#130rf03.2d \
+#130rf04a.2d \
+#130rf04b.2d \
+#)
+#set DESTS = ( \
+#RF01 \
+#RF02A \
+#RF02B \
+#RF03 \
+#RF04A \
+#RF04B \
+#)
+#
+#
+#  2nd wave
+#set SOURCES = ( \
+#130rf05.2d \
+#130rf06a.2d \
+#130rf06b.2d \
+#130rf06c.2d \
+#)
+#set DESTS = ( \
+#RF05 \
+#RF06A \
+#RF06B \
+#RF06C \
+#)
+#
+#  3rd wave
+#set SOURCES = ( \
+#130rf07.2d \
+#130rf08.2d \
+#130rf09.2d \
+#130rf10.2d \
+#130rf11.2d \
+#130rf12.2d \
+#)
+#set DESTS = ( \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#)
+#
+#  4th wave
+#set SOURCES = ( \
+#130rf13a.2d \
+#130rf13b.2d \
+#)
+#set DESTS = ( \
+#RF13A \
+#RF13B \
+#)
+#
+#  5th wave
+#set SOURCES = ( \
+#130rf14.2d \
+#130rf15.2d \
+#130rf16.2d \
+#)
+#set DESTS = ( \
+#RF14 \
+#RF15 \
+#RF16 \
+#)
+#
+#  6th wave
+#set SOURCES = ( \
+#130rf17a.2d \
+#130rf17b.2d \
+#130rf17c.2d \
+#)
+#set DESTS = ( \
+#RF17A \
+#RF17B \
+#RF17C \
+#)
+#
+#  7th wave
+#set SOURCES = ( \
+#130rf18.2d \
+#130rf19.2d \
+#130rf20.2d \
+#130rf21.2d \
+#130rf22a.2d \
+#130rf22b.2d \
+#130rf23.2d \
+#130rf24.2d \
+#130rf25.2d \
+#)
+#set DESTS = ( \
+#RF18 \
+#RF19 \
+#RF20 \
+#RF21 \
+#RF22A \
+#RF22B \
+#RF23 \
+#RF24 \
+#RF25 \
+#)
+#
+#  8th wave
+#set SOURCES = ( \
+#130rf26.2d \
+#130rf27a.2d \
+#130rf27b.2d \
+#130rf28.2d \
+#130rf29.2d \
+#130rf30.2d \
+#130rf31a.2d \
+#130rf31b.2d \
+#130rf32.2d \
+#130rf33.2d \
+#)
+#set DESTS = ( \
+#RF26 \
+#RF27A \
+#RF27B \
+#RF28 \
+#RF29 \
+#RF30 \
+#RF31A \
+#RF31B \
+#RF32 \
+#RF33 \
+#)
+#
+#
+#  Get started:
+date
+set todo = $#SOURCES
+set num = 1
+while ($num <= $todo)
+  set SOURCE = $SOURCES[$num]
+  set DEST = $DESTS[$num]
+  echo \
+    nrnet msput $SDIR/$SOURCE  l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DEST \
+    rtpd=4095 name=RAF proj=41113009 mvn=CTRAFDMG w=RAFDMG r=$rpw
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st wave
+#  Job(s) submitted on Thu Mar 14 16:54:50 MST 1996
+# Sequence number = MI0802 -- PMS2D/RF01 -- OK @ 14 Mar 1996 17:12:39
+# Sequence number = MI0809 -- PMS2D/RF02A -- OK @ 14 Mar 1996 17:11:00
+# Sequence number = MI0816 -- PMS2D/RF02B -- OK @ 14 Mar 1996 16:59:43
+# Sequence number = MI0823 -- PMS2D/RF03 -- OK @ 14 Mar 1996 17:25:22
+# Sequence number = MI0830 -- PMS2D/RF04A -- OK @ 14 Mar 1996 17:02:13
+# Sequence number = MI0837 -- PMS2D/RF04B -- OK @ 14 Mar 1996 17:04:21
+#
+#  2nd wave
+#  Job(s) submitted on Fri Mar 15 10:28:25 MST 1996
+# Sequence number = MI0901 -- PMS2D/RF05 -- OK @ 15 Mar 1996 10:29:52
+# Sequence number = MI0908 -- PMS2D/RF06A -- OK @ 15 Mar 1996 10:58:03
+# Sequence number = MI0915 -- PMS2D/RF06B -- OK @ 15 Mar 1996 11:04:08
+# Sequence number = MI0922 -- PMS2D/RF06C -- OK @ 15 Mar 1996 10:50:09
+#
+#  3rd wave
+#  Job(s) submitted on Fri Mar 15 12:42:44 MST 1996
+# Sequence number = MI0965 -- PMS2D/RF07 -- OK @ 15 Mar 1996 12:46:48
+# Sequence number = MI0972 -- PMS2D/RF08 -- OK @ 15 Mar 1996 12:46:22
+# Sequence number = MI0979 -- PMS2D/RF09 -- OK @ 15 Mar 1996 12:44:01
+# Sequence number = MI0986 -- PMS2D/RF10 -- OK @ 15 Mar 1996 12:48:39
+# Sequence number = MI0993 -- PMS2D/RF11 -- OK @ 15 Mar 1996 12:48:40
+# Sequence number = MI1000 -- PMS2D/RF12 -- OK @ 15 Mar 1996 12:45:55
+#
+#  4th wave
+#  Job(s) submitted on Fri Mar 15 14:49:35 MST 1996
+# Sequence number = MI1056 -- PMS2D/RF13A -- OK @ 15 Mar 1996 15:05:53
+# Sequence number = MI1063 -- PMS2D/RF13B -- OK @ 15 Mar 1996 14:53:30
+#
+#  5th wave
+#  Job(s) submitted on Mon Mar 18 17:16:32 MST 1996
+# Sequence number = MI1659 -- PMS2D/RF14 -- OK @ 18 Mar 1996 17:21:47
+# Sequence number = MI1666 -- PMS2D/RF15 -- OK @ 18 Mar 1996 17:26:52
+# Sequence number = MI1673 -- PMS2D/RF16 -- OK @ 18 Mar 1996 17:27:43
+#
+#  6th wave
+#  Job(s) submitted on Tue Mar 19 13:02:45 MST 1996
+# Sequence number = MI1992 -- PMS2D/RF17A -- OK @ 19 Mar 1996 13:38:11
+# Sequence number = MI1999 -- PMS2D/RF17B -- OK @ 19 Mar 1996 13:44:16
+# Sequence number = MI2006 -- PMS2D/RF17C -- OK @ 19 Mar 1996 13:13:49
+#
+#  7th wave
+#  Job(s) submitted on Wed Mar 20 17:07:16 MST 1996
+# Sequence number = MI2556 -- PMS2D/RF18 -- OK @ 20 Mar 1996 17:08:42
+# Sequence number = MI2563 -- PMS2D/RF19 -- OK @ 20 Mar 1996 17:16:30
+# Sequence number = MI2570 -- PMS2D/RF20 -- OK @ 20 Mar 1996 17:25:39
+# Sequence number = MI2577 -- PMS2D/RF21 -- OK @ 20 Mar 1996 17:08:06
+# Sequence number = MI2584 -- PMS2D/RF22A -- OK @ 20 Mar 1996 17:12:12
+# Sequence number = MI2591 -- PMS2D/RF22B -- OK @ 20 Mar 1996 17:12:19
+# Sequence number = MI2598 -- PMS2D/RF23 -- OK @ 20 Mar 1996 17:29:36
+# Sequence number = MI2605 -- PMS2D/RF24 -- OK @ 20 Mar 1996 17:08:29
+# Sequence number = MI2612 -- PMS2D/RF25 -- OK @ 20 Mar 1996 17:14:28
+#
+#  8th wave
+#  Job(s) submitted on Thu Mar 21 16:02:16 MST 1996
+# Sequence number = MI2940 -- PMS2D/RF26 -- OK @ 21 Mar 1996 16:12:45
+# Sequence number = MI2947 -- PMS2D/RF27A -- OK @ 21 Mar 1996 16:03:06
+# Sequence number = MI2954 -- PMS2D/RF27B -- OK @ 21 Mar 1996 16:05:33
+# Sequence number = MI2961 -- PMS2D/RF28 -- OK @ 21 Mar 1996 16:08:39
+# Sequence number = MI2968 -- PMS2D/RF29 -- OK @ 21 Mar 1996 16:13:55
+# Sequence number = MI2975 -- PMS2D/RF30 -- OK @ 21 Mar 1996 16:07:19
+# Sequence number = MI2982 -- PMS2D/RF31A -- OK @ 21 Mar 1996 16:18:54
+# Sequence number = MI2989 -- PMS2D/RF31B -- OK @ 21 Mar 1996 16:06:14
+# Sequence number = MI2996 -- PMS2D/RF32 -- OK @ 21 Mar 1996 16:12:53
+# Sequence number = MI3003 -- PMS2D/RF33 -- OK @ 21 Mar 1996 16:16:07
+#

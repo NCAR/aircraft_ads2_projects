@@ -1,0 +1,123 @@
+#! /bin/csh -f
+#
+#  Archive preliminary 5-162 SCMS data set and protect with a read password
+#         Ron Ruth 951107
+#
+#  :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1995
+set PROJ = 126
+set TURBRT = LRT/PRELIMINARY
+set READ = (See SCMS project notebook for proper READ password)
+#
+set SDIR = /home/data
+#
+date
+#
+exit
+#
+#  Get started
+set NAMES = ( \
+162rf1.cdf \
+162rf10.cdf \
+162rf11.cdf \
+162rf12a.cdf \
+162rf12b.cdf \
+162rf12c.cdf \
+162rf13a.cdf \
+162rf13b.cdf \
+162rf14.cdf \
+162rf15.cdf \
+162rf16a.cdf \
+162rf16b.cdf \
+162rf16c.cdf \
+162rf17.cdf \
+162rf18a.cdf \
+162rf18b.cdf \
+162rf18c.cdf \
+162rf18d.cdf \
+162rf19.cdf \
+162rf2.cdf \
+162rf20.cdf \
+162rf3.cdf \
+162rf4.cdf \
+162rf5.cdf \
+162rf6.cdf \
+162rf8.cdf \
+162rf9.cdf \
+)
+#
+set todo = $#NAMES
+set num = 1
+while ($num <= $todo)
+  set NAME = $NAMES[$num]
+  echo \
+  nrnet msput $SDIR/$NAME  l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$NAME \
+    rtpd=365 mvn=CTRAFDMG w=RAFDMG r=$READ
+  @ num ++
+end
+#
+set SDIR = /home/local/proj/162
+#
+set NAMES = ( \
+)
+README.prescms \
+rfinoise.ps \
+uvhsat.ps \
+prescms.files \
+variables.scms \
+)
+#
+set todo = $#NAMES
+set num = 1
+while ($num <= $todo)
+  set NAME = $NAMES[$num]
+  echo \
+  nrnet msput $SDIR/$NAME  l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$NAME \
+    rtpd=365 mvn=CTRAFDMG w=RAFDMG r=$READ
+  @ num ++
+end
+#
+# Done.
+exit
+#
+#  Job(s) submitted on Tue Nov  7 16:55:02 MST 1995
+#    Note:  All data put in the MSS directory:  /RAF/1995/126/LRT/PRELIMINARY
+# Sequence number = MI7497 -- 162rf1.cdf -- OK @ 7 Nov 1995 17:01:47
+# Sequence number = MI7504 -- 162rf10.cdf -- OK @ 7 Nov 1995 16:58:10
+# Sequence number = MI7511 -- 162rf11.cdf -- OK @ 7 Nov 1995 17:20:55
+# Sequence number = MI7518 -- 162rf12a.cdf -- OK @ 7 Nov 1995 16:57:55
+# Sequence number = MI7525 -- 162rf12b.cdf -- OK @ 7 Nov 1995 16:58:37
+# Sequence number = MI7532 -- 162rf12c.cdf -- OK @ 7 Nov 1995 17:00:01
+# Sequence number = MI7539 -- 162rf13a.cdf -- OK @ 7 Nov 1995 17:05:31
+# Sequence number = MI7546 -- 162rf13b.cdf -- OK @ 7 Nov 1995 17:10:14
+# Sequence number = MI7553 -- 162rf14.cdf -- OK @ 7 Nov 1995 17:35:49
+# Sequence number = MI7560 -- 162rf15.cdf -- OK @ 7 Nov 1995 17:04:50
+# Sequence number = MI7567 -- 162rf16a.cdf -- OK @ 7 Nov 1995 17:01:55
+# Sequence number = MI7574 -- 162rf16b.cdf -- OK @ 7 Nov 1995 17:08:36
+# Sequence number = MI7581 -- 162rf16c.cdf -- OK @ 7 Nov 1995 17:13:10
+# Sequence number = MI7588 -- 162rf17.cdf -- OK @ 7 Nov 1995 17:16:14
+# Sequence number = MI7595 -- 162rf18a.cdf -- OK @ 7 Nov 1995 17:12:49
+# Sequence number = MI7602 -- 162rf18b.cdf -- OK @ 7 Nov 1995 17:16:51
+# Sequence number = MI7609 -- 162rf18c.cdf -- OK @ 7 Nov 1995 17:08:54
+# Sequence number = MI7616 -- 162rf18d.cdf -- OK @ 7 Nov 1995 17:17:04
+# Sequence number = MI7623 -- 162rf19.cdf -- OK @ 7 Nov 1995 17:11:07
+# Sequence number = MI7630 -- 162rf2.cdf -- OK @ 7 Nov 1995 17:10:37
+# Sequence number = MI7637 -- 162rf20.cdf -- OK @ 7 Nov 1995 17:13:48
+# Sequence number = MI7644 -- 162rf3.cdf -- OK @ 7 Nov 1995 17:30:05
+# Sequence number = MI7651 -- 162rf4.cdf -- OK @ 7 Nov 1995 17:50:11
+# Sequence number = MI7658 -- 162rf5.cdf -- OK @ 7 Nov 1995 17:32:31
+# Sequence number = MI7665 -- 162rf6.cdf -- OK @ 7 Nov 1995 17:35:27
+# Sequence number = MI7672 -- 162rf8.cdf -- OK @ 7 Nov 1995 17:36:04
+# Sequence number = MI7679 -- 162rf9.cdf -- OK @ 7 Nov 1995 17:06:16
+# Sequence number = MI7686 -- README.prescms -- OK @ 7 Nov 1995 17:35:55
+# Sequence number = MI7693 -- rfinoise.ps    -- OK @ 7 Nov 1995 17:02:15
+# Sequence number = MI7700 -- uvhsat.ps      -- OK @ 7 Nov 1995 17:14:13
+# Sequence number = MI7707 -- prescms.files  -- OK @ 7 Nov 1995 16:58:16
+#
+#  Job(s) submitted on Wed Nov  8 09:32:59 MST 1995
+# Sequence number = MI8077 -- variables.scms -- OK @ 8 Nov 1995 09:34:05
+#

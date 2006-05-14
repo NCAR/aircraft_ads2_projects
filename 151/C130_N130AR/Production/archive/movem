@@ -1,0 +1,27 @@
+#! /bin/csh -f
+#
+#  Rename MSS bitfiles originally put in the /RAF/1996/130/ directory.
+#  They belong in the /RAF/1995/151/ directory.
+#
+date
+#msmv -wpwd RAFDMG /RAF/1996/130/RF02/R0975 /RAF/1995/151/RF02/R0975
+#msmv -wpwd RAFDMG /RAF/1996/130/RF03/R0977 /RAF/1995/151/RF03/R0977
+#msmv -wpwd RAFDMG /RAF/1996/130/RF05/R0979 /RAF/1995/151/RF05/R0979
+#msmv -wpwd RAFDMG /RAF/1996/130/RF06/R0980 /RAF/1995/151/RF06/R0980
+#msmv -wpwd RAFDMG /RAF/1996/130/RF07/R0981 /RAF/1995/151/RF07/R0981
+#msmv -wpwd RAFDMG /RAF/1996/130/RF08/R0982 /RAF/1995/151/RF08/R0982
+#msmv -wpwd RAFDMG /RAF/1996/130/RF09/R0983 /RAF/1995/151/RF09/R0983
+#msmv -wpwd RAFDMG /RAF/1996/130/RF10/R0984 /RAF/1995/151/RF10/R0984
+#msmv -wpwd RAFDMG /RAF/1996/130/RF11/R0986 /RAF/1995/151/RF11/R0986
+#msmv -wpwd RAFDMG /RAF/1996/130/RF12/R0987 /RAF/1995/151/RF12/R0987
+#
+#  Job(s) submitted on Fri Jun 27 10:15:30 MDT 2003
+#  Rename completed on Fri Jun 27 10:15:53 MDT 2003
+#
+#msmv -wpwd RAFDMG /RAF/1996/130/RF04/R0978 /RAF/1995/151/RF04/R0978
+#
+#  Job(s) submitted on Mon Jun 30 14:54:08 MDT 2003
+#  Rename completed on Mon Jun 30 14:54:12 MDT 2003
+#
+date
+exit

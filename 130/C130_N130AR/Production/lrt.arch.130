@@ -1,0 +1,115 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 6-130 Aerosol Characterization Experiment 1 (Barry Huebert, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Wed May 8 11:24:11 MDT 1996
+#
+date
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+set YEAR = 1996
+set PROJ = 130
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+#  Special archive for RF02B after correcting its date field.
+goto fix
+#
+nrnet msput $SDIR/130rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf17.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf18.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf19.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf20.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf21.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF21.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf23.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF23.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf24.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF24.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf25.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF25.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf26.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF26.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf28.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF28.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf29.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF29.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf32.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF32.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf33.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF33.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+nrnet msput $SDIR/130rf02a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf02b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf04a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf04b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf06a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf06b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf22a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf22b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF22B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf27a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf27b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF27B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf31a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF31A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/130rf31b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF31B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Wed May  8 11:26:12 MDT 1996
+# Sequence number = MI6216 -- LRT/RF01.cdf -- OK @ 8 May 1996 11:35:33
+# Sequence number = MI6223 -- LRT/RF03.cdf -- OK @ 8 May 1996 11:38:33
+# Sequence number = MI6230 -- LRT/RF05.cdf -- OK @ 8 May 1996 11:36:36
+# Sequence number = MI6237 -- LRT/RF07.cdf -- OK @ 8 May 1996 11:39:33
+# Sequence number = MI6244 -- LRT/RF08.cdf -- OK @ 8 May 1996 11:50:33
+# Sequence number = MI6251 -- LRT/RF09.cdf -- OK @ 8 May 1996 12:09:06
+# Sequence number = MI6258 -- LRT/RF10.cdf -- OK @ 8 May 1996 12:13:01
+# Sequence number = MI6265 -- LRT/RF11.cdf -- OK @ 8 May 1996 12:34:23
+# Sequence number = MI6272 -- LRT/RF12.cdf -- OK @ 8 May 1996 12:39:35
+# Sequence number = MI6279 -- LRT/RF13.cdf -- OK @ 8 May 1996 12:03:50
+# Sequence number = MI6286 -- LRT/RF14.cdf -- OK @ 8 May 1996 12:02:21
+# Sequence number = MI6293 -- LRT/RF15.cdf -- OK @ 8 May 1996 12:46:15
+# Sequence number = MI6300 -- LRT/RF16.cdf -- OK @ 8 May 1996 12:47:27
+# Sequence number = MI6307 -- LRT/RF17.cdf -- OK @ 8 May 1996 11:43:11
+# Sequence number = MI6314 -- LRT/RF18.cdf -- OK @ 8 May 1996 11:56:31
+# Sequence number = MI6321 -- LRT/RF19.cdf -- OK @ 8 May 1996 12:41:49
+# Sequence number = MI6328 -- LRT/RF20.cdf -- OK @ 8 May 1996 12:58:38
+# Sequence number = MI6335 -- LRT/RF21.cdf -- OK @ 8 May 1996 12:51:10
+# Sequence number = MI6342 -- LRT/RF23.cdf -- OK @ 8 May 1996 12:28:20
+# Sequence number = MI6349 -- LRT/RF24.cdf -- OK @ 8 May 1996 13:01:29
+# Sequence number = MI6356 -- LRT/RF25.cdf -- OK @ 8 May 1996 12:59:33
+# Sequence number = MI6363 -- LRT/RF26.cdf -- OK @ 8 May 1996 13:03:17
+# Sequence number = MI6370 -- LRT/RF28.cdf -- OK @ 8 May 1996 13:09:49
+# Sequence number = MI6377 -- LRT/RF29.cdf -- OK @ 8 May 1996 13:14:50
+# Sequence number = MI6384 -- LRT/RF32.cdf -- OK @ 8 May 1996 13:08:41
+# Sequence number = MI6391 -- LRT/RF33.cdf -- OK @ 8 May 1996 12:16:39
+# Sequence number = MI6398 -- LRT/RF02A.cdf -- OK @ 8 May 1996 11:41:22
+# Sequence number = MI6405 -- LRT/RF02B.cdf -- OK @ 8 May 1996 12:14:23
+# Sequence number = MI6412 -- LRT/RF04A.cdf -- OK @ 8 May 1996 12:36:27
+# Sequence number = MI6419 -- LRT/RF04B.cdf -- OK @ 8 May 1996 13:13:47
+# Sequence number = MI6426 -- LRT/RF06A.cdf -- OK @ 8 May 1996 13:12:48
+# Sequence number = MI6433 -- LRT/RF06B.cdf -- OK @ 8 May 1996 13:17:42
+# Sequence number = MI6440 -- LRT/RF22A.cdf -- OK @ 8 May 1996 12:47:49
+# Sequence number = MI6447 -- LRT/RF22B.cdf -- OK @ 8 May 1996 11:47:15
+# Sequence number = MI6454 -- LRT/RF27A.cdf -- OK @ 8 May 1996 12:09:41
+# Sequence number = MI6461 -- LRT/RF27B.cdf -- OK @ 8 May 1996 12:22:12
+# Sequence number = MI6468 -- LRT/RF31A.cdf -- OK @ 8 May 1996 12:29:11
+# Sequence number = MI6475 -- LRT/RF31B.cdf -- OK @ 8 May 1996 12:23:58
+#
+#  Special archive for RF02B after correcting its date field.
+fix:
+nrnet msput $SDIR/130rf02b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+exit
+#
+#  Job(s) submitted on Fri Sep 13 15:44:13 MDT 1996
+# Sequence number = MI2872 -- LRT/RF02B.cdf -- OK @ 13 Sep 1996 15:51:40
+#

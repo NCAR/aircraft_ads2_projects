@@ -1,0 +1,111 @@
+#! /bin/csh -f
+#
+#  Archive to the SCD Mass Store System the project's support files
+#
+#   Helpful vi map commands:
+#     :map g eea 
+#     :map v AOK @ 
+#
+date
+#
+set YEAR = 1995
+set PROJ = 127
+set SDIR = $PROD_DATA
+#
+exit
+#
+#  Files for the project's HRT directory
+#
+set TURBRT = HRT
+#
+set PDIR = $LOCAL/proj/$PROJ/Production
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+# echo \
+  nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+   rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#
+#  Archiving activity that has been completed 
+#  ------------------------------------------
+#
+#  Files for the project's parent directory
+#
+set PDIR = $LOCAL/proj/$PROJ/Production
+set FILES = ( \
+MSCP_out.127 \
+Mail.127 \
+tp2ms.summary \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+# echo \
+  nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+   rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#
+#  Files for the project's LRT directory
+#
+set TURBRT = LRT
+#
+#set PDIR = $LOCAL/proj/$PROJ/Production
+set FILES = ( \
+127.tar.dir \
+127.tar \
+nimbus.tar.dir \
+nimbus.tar \
+production.log \
+project_data.notes \
+taplog.127 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+# echo \
+  nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+   rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#  Do special stuff here (like a different name for output)
+#
+set TURBRT = LRT
+set PDIR = $LOCAL/proj/$PROJ/Production
+set FILE = 127rf01.hdr
+set OFILE = RF01.hdr
+# echo \
+  nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+   rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  Bitfiles below are in MSS path:  /RAF/1995/127/
+#  Job(s) submitted on Thu Nov 16 15:44:01 MST 1995
+# Sequence number = MI1825 -- MSCP_out.127 -- OK @ 16 Nov 1995 15:44:31
+# Sequence number = MI1832 -- Mail.127 -- OK @ 16 Nov 1995 15:44:39
+# Sequence number = MI1839 -- tp2ms.summary -- OK @ 16 Nov 1995 15:44:46
+# Sequence number = MI1846 -- LRT/127.tar.dir -- OK @ 16 Nov 1995 15:44:51
+# Sequence number = MI1853 -- LRT/127.tar -- OK @ 16 Nov 1995 15:44:57
+# Sequence number = MI1860 -- LRT/nimbus.tar.dir -- OK @ 16 Nov 1995 15:45:02
+# Sequence number = MI1867 -- LRT/nimbus.tar -- OK @ 16 Nov 1995 15:48:53
+# Sequence number = MI1874 -- LRT/production.log -- OK @ 16 Nov 1995 15:45:07
+# Sequence number = MI1883 -- LRT/project_data.notes --OK @ 16 Nov 1995 15:45:10
+# Sequence number = MI1890 -- LRT/taplog.127 -- OK @ 16 Nov 1995 15:45:14
+# Sequence number = MI1906 -- LRT/RF01.hdr -- OK @ 16 Nov 1995 15:45:18
+#

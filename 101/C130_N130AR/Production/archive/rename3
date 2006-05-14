@@ -1,0 +1,53 @@
+#! /bin/csh -f
+#
+#  Rename ADS images for 1998-101 SHEBA
+#         Ron Ruth 980818
+#
+#  :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1998
+set PROJ = 101
+#
+date
+#
+#  Get started (Do in three pieces to keep overwrites from occurring.)
+set ONAMES = ( \
+FF06AA/R1293 \
+FF06BA/R1295 \
+FF06BB/R1295 \
+)
+set NNAMES = ( \
+FF06A/R1293 \
+FF06B/R1295 \
+FF06C/R1295 \
+)
+#
+#)
+#
+if ($#ONAMES != $#NNAMES) then
+  echo "Need same number of source and destination names.  Quitting"
+  exit 1
+endif
+set todo = $#ONAMES
+set num = 1
+while ($num <= $todo)
+  set ONAME = $ONAMES[$num]
+  set NNAME = $NNAMES[$num]
+#  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$ONAME \
+    newf=/RAF/$YEAR/$PROJ/$NNAME wpwd=RAFDMG
+  @ num ++
+end
+#
+# Done.
+exit
+#
+#  1st wave
+# Job(s) submitted on Tue Aug 18 14:59:28 MDT 1998
+# Sequence number = MI3979 -- FF06AA/R1293 -- OK @ 18 Aug 1998 14:59:39
+# Sequence number = MI3986 -- FF06BA/R1295 -- OK @ 18 Aug 1998 14:59:39
+# Sequence number = MI3993 -- FF06BB/R1295 -- OK @ 18 Aug 1998 14:59:40
+#

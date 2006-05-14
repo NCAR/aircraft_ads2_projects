@@ -1,0 +1,128 @@
+#! /bin/csh -f
+#
+#
+set YEAR = 1994
+set PROJ = 120
+set TURBRT = OLDLRT
+set TURBRT2 = PRELIM/LRT
+#
+date
+#
+#  Remove obsolete and preliminary netCDF 4-120 BASE data files
+#            Ron Ruth 951027
+#
+#
+#  Get started
+set NAMES = ( \
+120.tar \
+120.tar.dir \
+RF03A.cdf \
+RF03B.cdf \
+RF03C.cdf \
+RF04.cdf \
+RF04.hdr \
+RF05.cdf \
+RF06.cdf \
+RF07.cdf \
+RF10.cdf \
+RF11.cdf \
+RF12.cdf \
+RF13.cdf \
+RF14.cdf \
+RF15.cdf \
+RF16.cdf \
+RF17.cdf \
+RF18A.cdf \
+RF18B.cdf \
+nimbus.tar \
+nimbus.tar.dir \
+taplog.120 \
+tarit.120.tar \
+tarit.nimbus.tar \
+)
+set todo = $#NAMES
+set num = 1
+while ($num <= $todo)
+  set NAME = $NAMES[$num]
+# echo \
+  nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$NAME \
+                 w=RAFDMG
+  @ num ++
+end
+#
+set NAMES = ( \
+RF03A.cdf \
+RF03B.cdf \
+RF03C.cdf \
+RF04.cdf \
+RF05.cdf \
+RF06.cdf \
+RF07.cdf \
+RF10.cdf \
+RF11.cdf \
+RF12.cdf \
+RF13.cdf \
+RF14.cdf \
+RF15.cdf \
+RF16.cdf \
+RF17.cdf \
+RF18A.cdf \
+RF18B.cdf \
+)
+#
+set todo = $#NAMES
+set num = 1
+while ($num <= $todo)
+  set NAME = $NAMES[$num]
+# echo \
+  nrnet msrm % r flnm=/RAF/$YEAR/$PROJ/$TURBRT2/$NAME \
+                 w=RAFDMG
+  @ num ++
+end
+#
+exit
+#
+#  Job(s) submitted on Fri Oct 27 14:18:32 MDT 1995
+# Sequence number = MI3231 -- OLDLRT/120.tar -- OK @ 27 Oct 1995 14:19:04
+# Sequence number = MI3238 -- OLDLRT/120.tar.dir -- OK @ 27 Oct 1995 14:19:05
+# Sequence number = MI3245 -- OLDLRT/RF03A.cdf -- OK @ 27 Oct 1995 14:19:08
+# Sequence number = MI3252 -- OLDLRT/RF03B.cdf -- OK @ 27 Oct 1995 14:19:22
+# Sequence number = MI3259 -- OLDLRT/RF03C.cdf -- OK @ 27 Oct 1995 14:19:27
+# Sequence number = MI3266 -- OLDLRT/RF04.cdf -- OK @ 27 Oct 1995 14:19:34
+# Sequence number = MI3273 -- OLDLRT/RF04.hdr -- OK @ 27 Oct 1995 14:19:36
+# Sequence number = MI3280 -- OLDLRT/RF05.cdf -- OK @ 27 Oct 1995 14:19:52
+# Sequence number = MI3287 -- OLDLRT/RF06.cdf -- OK @ 27 Oct 1995 14:20:11
+# Sequence number = MI3294 -- OLDLRT/RF07.cdf -- OK @ 27 Oct 1995 14:19:50
+# Sequence number = MI3301 -- OLDLRT/RF10.cdf -- OK @ 27 Oct 1995 14:20:28
+# Sequence number = MI3308 -- OLDLRT/RF11.cdf -- OK @ 27 Oct 1995 14:20:15
+# Sequence number = MI3315 -- OLDLRT/RF12.cdf -- OK @ 27 Oct 1995 14:24:04
+# Sequence number = MI3322 -- OLDLRT/RF13.cdf -- OK @ 27 Oct 1995 14:20:11
+# Sequence number = MI3329 -- OLDLRT/RF14.cdf -- OK @ 27 Oct 1995 14:20:27
+# Sequence number = MI3336 -- OLDLRT/RF15.cdf -- OK @ 27 Oct 1995 14:24:25
+# Sequence number = MI3343 -- OLDLRT/RF16.cdf -- OK @ 27 Oct 1995 14:20:26
+# Sequence number = MI3350 -- OLDLRT/RF17.cdf -- OK @ 27 Oct 1995 14:20:27
+# Sequence number = MI3357 -- OLDLRT/RF18A.cdf -- OK @ 27 Oct 1995 14:20:47
+# Sequence number = MI3364 -- OLDLRT/RF18B.cdf -- OK @ 27 Oct 1995 14:24:39
+# Sequence number = MI3371 -- OLDLRT/nimbus.tar -- OK @ 27 Oct 1995 14:20:41
+# Sequence number = MI3378 -- OLDLRT/nimbus.tar.dir -- OK @ 27 Oct 1995 14:21:24
+# Sequence number = MI3385 -- OLDLRT/taplog.120 -- OK @ 27 Oct 1995 14:21:11
+# Sequence number = MI3392 -- OLDLRT/tarit.120.tar -- OK @ 27 Oct 1995 14:21:01
+# Sequence number = MI3399 -- OLDLRT/tarit.nimbus.tar -- OK @ 27 Oct 1995 14:21
+# Sequence number = MI3406 -- PRELIM/LRT/RF03A.cdf -- OK @ 27 Oct 1995 14:21:11
+# Sequence number = MI3413 -- PRELIM/LRT/RF03B.cdf -- OK @ 27 Oct 1995 14:25:06
+# Sequence number = MI3420 -- PRELIM/LRT/RF03C.cdf -- OK @ 27 Oct 1995 14:21:23
+# Sequence number = MI3427 -- PRELIM/LRT/RF04.cdf -- OK @ 27 Oct 1995 14:21:39
+# Sequence number = MI3434 -- PRELIM/LRT/RF05.cdf -- OK @ 27 Oct 1995 14:25:26
+# Sequence number = MI3441 -- PRELIM/LRT/RF06.cdf -- OK @ 27 Oct 1995 14:21:39
+# Sequence number = MI3448 -- PRELIM/LRT/RF07.cdf -- OK @ 27 Oct 1995 14:21:39
+# Sequence number = MI3455 -- PRELIM/LRT/RF10.cdf -- OK @ 27 Oct 1995 14:25:36
+# Sequence number = MI3462 -- PRELIM/LRT/RF11.cdf -- OK @ 27 Oct 1995 14:21:43
+# Sequence number = MI3469 -- PRELIM/LRT/RF12.cdf -- OK @ 27 Oct 1995 14:22:05
+# Sequence number = MI3476 -- PRELIM/LRT/RF13.cdf -- OK @ 27 Oct 1995 14:25:46
+# Sequence number = MI3485 -- PRELIM/LRT/RF14.cdf -- OK @ 27 Oct 1995 14:25:51
+# Sequence number = MI3492 -- PRELIM/LRT/RF15.cdf -- OK @ 27 Oct 1995 14:22:04
+# Sequence number = MI3499 -- PRELIM/LRT/RF16.cdf -- OK @ 27 Oct 1995 14:22:10
+# Sequence number = MI3508 -- PRELIM/LRT/RF17.cdf -- OK @ 27 Oct 1995 14:22:17
+# Sequence number = MI3515 -- PRELIM/LRT/RF18A.cdf -- OK @ 27 Oct 1995 14:22:20
+# Sequence number = MI3522 -- PRELIM/LRT/RF18B.cdf -- OK @ 27 Oct 1995 14:26:18
+#

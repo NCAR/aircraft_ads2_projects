@@ -1,0 +1,385 @@
+#! /bin/csh -f
+#
+#  Archive stripped raw ADS data files for 1999-102 INDOEX
+#   (Done one file at a time to keep from overloading the network)
+#
+#  File adapted from file /home/local/proj/101/Production/arch_mcr.101
+#    by Ron Ruth  12 April 1999
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set YEAR = 1999
+set PROJ = 102
+#set SDIR = $TEMP
+#set SDIR = /home/staticdata
+set SDIR = $DATA_DIR
+set TURBRT = ADS
+#
+#  1st wave
+#set SFILES = ( \
+#102rf01a.ads \
+#102rf01b.ads \
+#)
+#set DFILES = ( \
+#RF01A \
+#RF01B \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#102rf02.ads \
+#)
+#set DFILES = ( \
+#RF02 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#102rf03.ads \
+#)
+#set DFILES = ( \
+#RF03 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#102rf04.ads \
+#)
+#set DFILES = ( \
+#RF04 \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#102rf05.ads \
+#)
+#set DFILES = ( \
+#RF05 \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#102rf06.ads \
+#)
+#set DFILES = ( \
+#RF06A \
+#)
+#
+#  7th wave
+#set SFILES = ( \
+#102rf06b.ads \
+#)
+#set DFILES = ( \
+#RF06B \
+#)
+#
+#  8th wave
+#set SFILES = ( \
+#102rf07.ads \
+#)
+#set DFILES = ( \
+#RF07 \
+#)
+#
+#  9th wave
+#set SFILES = ( \
+#102rf08.ads \
+#)
+#set DFILES = ( \
+#RF08 \
+#)
+#
+# 10th wave
+#set SFILES = ( \
+#102rf09a.ads \
+#)
+#set DFILES = ( \
+#RF09A \
+#)
+#
+# 11th wave
+#set SFILES = ( \
+#102rf09b.ads \
+#)
+#set DFILES = ( \
+#RF09B \
+#)
+#
+# 12th wave
+#set SFILES = ( \
+#102rf10.ads \
+#)
+#set DFILES = ( \
+#RF10 \
+#)
+#
+# 13th wave
+#set SFILES = ( \
+#102rf11.ads \
+#)
+#set DFILES = ( \
+#RF11 \
+#)
+#
+# 14th wave
+#set SFILES = ( \
+#102rf12.ads \
+#)
+#set DFILES = ( \
+#RF12 \
+#)
+#
+# 15th wave
+#set SFILES = ( \
+#102rf13.ads \
+#)
+#set DFILES = ( \
+#RF13 \
+#)
+#
+# 16th wave
+#set SFILES = ( \
+#102rf14.ads \
+#)
+#set DFILES = ( \
+#RF14 \
+#)
+#
+# 17th wave
+#set SFILES = ( \
+#102rf15a.ads \
+#)
+#set DFILES = ( \
+#RF15A \
+#)
+#
+# 18th wave
+#set SFILES = ( \
+#102rf15b.ads \
+#)
+#set DFILES = ( \
+#RF15B \
+#)
+#
+# 19th wave
+#set SFILES = ( \
+#102rf16a.ads \
+#)
+#set DFILES = ( \
+#RF16A \
+#)
+#
+# 20th wave
+#set SFILES = ( \
+#102rf16b.ads \
+#)
+#set DFILES = ( \
+#RF16B \
+#)
+#
+# 21st wave
+#set SFILES = ( \
+#102rf16c.ads \
+#)
+#set DFILES = ( \
+#RF16C \
+#)
+#
+# 22nd wave
+#set SFILES = ( \
+#102rf17.ads \
+#)
+#set DFILES = ( \
+#RF17 \
+#)
+#
+# 23rd wave
+#set SFILES = ( \
+#102rf11.ads \
+#)
+#set DFILES = ( \
+#RF11 \
+#)
+#
+# 24th wave
+#set SFILES = ( \
+#102rf18a.ads \
+#)
+#set DFILES = ( \
+#RF18A \
+#)
+#
+# 25th wave
+#set SFILES = ( \
+#102rf18b.ads \
+#)
+#set DFILES = ( \
+#RF18B \
+#)
+#
+# 26th wave
+#set SFILES = ( \
+#102rf18c.ads \
+#)
+#set DFILES = ( \
+#RF18C \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1999/102/
+#
+#  1st wave
+#  Job(s) submitted on Mon Apr 12 15:37:22 MDT 1999
+# Sequence number = MI5397 -- ADS/RF01A -- OK @ 12 Apr 1999 15:43:13
+# Sequence number = MI5404 -- ADS/RF01B -- OK @ 12 Apr 1999 15:51:26
+#
+#  2nd wave
+#  Job(s) submitted on Tue Apr 13 15:52:53 MDT 1999
+# Sequence number = MI8894 -- ADS/RF02 -- OK @ 13 Apr 1999 16:06:19
+#
+#  3rd wave
+#  Job(s) submitted on Wed Apr 14 13:36:23 MDT 1999
+# Sequence number = MI1012 -- ADS/RF03 -- OK @ 14 Apr 1999 13:50:11
+#
+#  4th wave
+#  Job(s) submitted on Fri Apr 16 11:53:11 MDT 1999
+# Sequence number = MI4169 -- ADS/RF04 -- OK @ 16 Apr 1999 12:06:18
+#
+#  5th wave
+#  Job(s) submitted on Mon Apr 19 15:57:43 MDT 1999
+# Sequence number = MI6958 -- ADS/RF05 -- OK @ 19 Apr 1999 16:59:49
+#
+#  6th wave
+#  Job(s) submitted on Tue Apr 20 13:17:35 MDT 1999
+# Sequence number = MI2253 -- ADS/RF06A -- OK @ 20 Apr 1999 13:25:01
+#
+#  7th wave
+#  Job(s) submitted on Tue Apr 20 15:10:45 MDT 1999
+# Sequence number = MI3376 -- ADS/RF06B -- OK @ 20 Apr 1999 15:15:22
+#
+#  8th wave
+#  Job(s) submitted on Wed Apr 21 12:32:31 MDT 1999
+# Sequence number = MI9638 -- ADS/RF07 -- OK @ 21 Apr 1999 12:44:44
+#
+#  9th wave
+#  Job(s) submitted on Fri Apr 23 16:48:58 MDT 1999
+# Sequence number = MI5838 -- ADS/RF08 -- OK @ 23 Apr 1999 16:58:22
+#
+# 10th wave
+#  Job(s) submitted on Mon Apr 26 12:50:49 MDT 1999
+# Sequence number = MI0157 -- ADS/RF09A -- OK @ 26 Apr 1999 13:01:29
+#
+# 11th wave
+#  Job(s) submitted on Mon Apr 26 16:04:46 MDT 1999
+# Sequence number = MI1606 -- ADS/RF09B -- OK @ 26 Apr 1999 16:07:05
+#
+# 12th wave
+#  Job(s) submitted on Tue Apr 27 11:23:32 MDT 1999
+# Sequence number = MI3747 -- ADS/RF10 -- OK @ 27 Apr 1999 11:33:08
+#
+# 13th wave
+#  Job(s) submitted on Wed Apr 28 10:07:01 MDT 1999
+# Sequence number = MI2847 -- ADS/RF11 -- OK @ 28 Apr 1999 10:13:03
+#
+# 14th wave
+#  Job(s) submitted on Thu Apr 29 11:23:53 MDT 1999
+# Sequence number = MI4910 -- ADS/RF12 -- OK @ 29 Apr 1999 11:37:28
+#
+# 15th wave
+#  Job(s) submitted on Thu Apr 29 16:55:21 MDT 1999
+# Sequence number = MI0887 -- ADS/RF13 -- OK @ 29 Apr 1999 17:06:40
+#
+# 16th wave
+#  Job(s) submitted on Mon May  3 13:40:01 MDT 1999
+# Sequence number = MI2850 -- ADS/RF14 -- OK @ 3 May 1999 13:49:02
+#
+# 17th wave
+#  Job(s) submitted on Tue May  4 11:48:19 MDT 1999
+# Sequence number = MI2247 -- ADS/RF15A -- OK @ 4 May 1999 11:56:28
+#
+# 18th wave
+#  Job(s) submitted on Tue May  4 11:54:07 MDT 1999
+# Sequence number = MI2282 -- ADS/RF15B -- OK @ 4 May 1999 12:02:06
+#
+# 19th wave
+#  Job(s) submitted on Wed May  5 11:15:56 MDT 1999
+# Sequence number = MI0662 -- ADS/RF16A -- OK @ 5 May 1999 11:22:14
+#  Job(s) submitted on Wed May  5 11:18:16 MDT 1999
+# Sequence number = MI0698 -- ADS/RF16A -- OK @ 5 May 1999 11:28:12
+#
+# 20th wave
+#  Job(s) submitted on Wed May  5 11:20:19 MDT 1999
+# Sequence number = MI0722 -- ADS/RF16B -- OK @ 5 May 1999 11:20:29
+#
+# 21st wave
+#  Job(s) submitted on Wed May  5 11:23:43 MDT 1999
+# Sequence number = MI1953 -- ADS/RF16C -- OK @ 5 May 1999 11:33:05
+#
+# 22nd wave
+#  Job(s) submitted on Thu May  6 10:50:53 MDT 1999
+# Sequence number = MI4566 -- ADS/RF17 -- OK @ 6 May 1999 11:03:17
+#
+# 23rd wave
+#  Job(s) submitted on Thu May  6 17:09:01 MDT 1999
+# Sequence number = MI7943 -- ADS/RF11 -- OK @ 6 May 1999 17:24:28
+#
+# 24th wave
+#  Job(s) submitted on Fri May  7 14:33:09 MDT 1999
+# Sequence number = MI3208 -- ADS/RF18A -- OK @ 7 May 1999 14:38:28
+#
+# 25th wave
+#  Job(s) submitted on Fri May  7 14:37:25 MDT 1999
+# Sequence number = MI3279 -- ADS/RF18B -- OK @ 7 May 1999 14:41:01
+#
+# 26th wave
+#  Job(s) submitted on Fri May  7 14:40:51 MDT 1999
+# Sequence number = MI3346 -- ADS/RF18C -- OK @ 7 May 1999 14:44:45
+#
+#   th wave
+#  Job(s) submitted on 
+#

@@ -1,0 +1,69 @@
+                       Suggested ACE-Asia variable list
+                                NCAR C-130 
+Name	Units	Description
+----	-----	------------------------------------------------
+base_time		Seconds since Jan 1, 1970.
+time_offset		Seconds since base_time.
+PCAB	mbar	Interior Cabin Static Pressure
+RICE	Vdc	Raw Icing-Rate Indicator
+RSTB1	C	Radiometric Surface Temperature
+SWB	W/M2	Shortwave Irradiance, Bottom
+SWT	W/M2	Shortwave Irradiance, Top
+TEO3C	ppbv	Corrected TECO (UV) Ozone Concentration
+UVB	W/M2	Ultraviolet Irradiance, Bottom
+UVT	W/M2	Ultraviolet Irradiance, Top
+DAY	day	Raw Tape Date Component
+HOUR	hours	Raw Tape Time Component
+MINUTE	minutes	Raw Tape Time Component
+MONTH	month	Raw Tape Date Component
+PITCH	deg	Aircraft Pitch Angle
+ROLL	deg	Aircraft Roll Angle
+SECOND	s	Raw Tape Time Component
+THDG	deg	Aircraft True Heading Angle
+VSPD	M/s	IRS-Computed Aircraft Vertical Velocity
+YEAR	year	Raw Tape Date Component
+ALTX	M	Altitude, Reference (MSL)
+ATTACK	deg	Attack Angle, Reference
+ATX	C	Ambient Temperature, Reference
+CONC3_RPO	N/cm3	FSSP-300 Concentration (all cells)
+CONC6_LPC	N/L	260X Concentration (all cells)
+CONCF_LPI	N/cm3	FSSP-100 Concentration (all cells)
+CONCF_RPC	N/cm3	FSSP-100 Concentration (all cells)
+CONCN	N/cm3	Condensation Nuclei (CN) Concentration
+DBAR3_RPO	uM	FSSP-300 Mean Particle Diameter
+DBAR6_LPC	uM	260X Mean Particle Diameter
+DBARF_LPI	uM	FSSP-100 Mean Particle Diameter
+DBARF_RPC	uM	FSSP-100 Mean Particle Diameter
+**DPXC	C	Dew Point Temperature, Reference
+IRBC	W/M2	Corrected Infrared Irradiance, Bottom
+IRTC	W/M2	Corrected Infrared Irradiance, Top
+LATC	deg	GPS-Corrected Inertial Latitude
+LONC	deg	GPS-Corrected Inertial Longitude
+**MR	g/kg	Mixing Ratio, T-Electric
+*PLWCC1	g/M3	Corrected PMS-King Liquid Water Content
+PSURF	mbar	Calculated Surface Pressure
+PSXC	mbar	Corrected Static Pressure, Reference
+QCXC	mbar	Corrected Dynamic Pressure, Reference
+**RHODT	g/M3	Absolute Humidity, T-Electric Top
+**RHUM	%	Relative Humidity
+SOLAZ	radians	Solar Azimuth Angle
+SOLDE	radians	Solar Declination Angle
+SOLEL	radians	Solar Elevation Angle
+SOLZE	radians	Solar Zenith Angle
+SSLIP	deg	Sideslip Angle, Reference
+TASX	M/s	Aircraft True Airspeed, Reference
+THETA	K	Potential Temperature
+THETAE	K	Equivalent Potential Temperature
+THETAV	K	Virtual Potential Temperature
+WDC	deg	GPS-Corrected Horizontal Wind Direction
+WIC	M/s	GPS-Corrected Wind Vector, Vertical Gust Component
+WSC	M/s	GPS-Corrected Horizontal Wind Speed
+
+* For liquid water content (LWC) use PLWCC1 for flights 10, 11, 12, 15, 16, 17,
+  18, 19. Use PLWCC for flights 1,2. Use XGLWC for flights 3 through 9, 13, 14.
+
+** For dew point (DP), water vapor (RHO, MR), and humidity (RH) use the 
+   following:
+   For flights 1, 2, 3, 7, 9, 12, 14, 15, 17, 18, 19 use DPXC, RHODT, MR, RHUM
+   For flights 2, 5, 6, 8, 10, 13, 16 use DPLA1, RHOLA1, MRLA1, RHLA1
+   For flights 11, use DPLA, RHOLA, MRLA, RHLA

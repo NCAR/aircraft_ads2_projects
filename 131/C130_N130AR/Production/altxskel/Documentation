@@ -1,0 +1,725 @@
+####################################  <-- search for this
+
+Notes on derivation of a "corrected" GPS altitude
+  Ron Ruth
+
+1.) I used ncplot to get average values of HGM232, ALT, PALT and GALT during
+     constant-altitude legs for all flights.  HGM232 values (below) in
+     parentheses represent measurements that are not entirely over water.
+     GALT values (below) in parentheses represent measurements that were
+     made when GMODE/GSTAT indicated problems with the GPS signal.  Data
+     lines where HGM232 values have dashes occurred when the aircraft was
+     on the ground and HGM232 was putting out bogus values.
+2.) From all the "legal" measurements below I created an ASCII data file
+     (galt.1).
+3.) I reformatted the lines with a false time to put it into a form that
+     asc2cdf could use (galt.2) to create a netCDF file for ncplot.
+4.) I converted the data in galt.2 to a netCDF file using asc2cdf (galt.cdf).
+5.) I ran ncplot using galt.cdf to create x-y charts.  
+6.) I used the Regression option to create curve-fit equations.
+7.) Summary of results:
+
+GALT vs. PALT (reverse relationship)
+order corr. coef.    A[0]        A[1]         A[2]         A[3]         A[4]
+  1   0.99982255   6.19167344  1.01546830
+  2   0.99966265  14.56087947  1.00053064   0.00000244
+  3   0.99966265  18.66311168  0.98577136   0.00000849  -0.00000000
+  4   0.99966684  17.82092469  0.99076214   0.00000466   0.00000000  -0.00000000
+     
+ALT vs. GALT (normal relationship)
+order corr. coef.    A[0]        A[1]         A[2]         A[3]         A[4]
+  1   0.99983535 -46.28775654  0.97866477
+     
+GALT vs. ALT (reverse relationship)
+order corr. coef.    A[0]        A[1]         A[2]         A[3]         A[4]
+  1   0.99983535  48.01963262  1.02146390
+  2   0.99969188  56.76116437  1.00504446   0.00000272
+  3   0.99969901  61.52654529  0.98566691   0.00001089  -0.00000000
+  4   0.99969928  60.81213578  0.99088120   0.00000673   0.00000000  -0.00000000
+
+GALT vs. HGM232 (reverse relationship)
+order corr. coef.    A[0]        A[1]         A[2]         A[3]         A[4]
+  1   0.97510787  44.17394733  0.96842470
+  2   0.95188827 -22.15867141  1.08265045  -0.00001818
+  3   0.95225222  18.47145217  0.94272496   0.00003803  -0.00000001
+  4   0.95226038  24.29438080  0.91013595   0.00006246  -0.00000001   0.00000000
+
+The equation with the best correlation coefficient is the linear using ALT.
+My plan now is to calculate a 5-minute "running" or exponential average
+difference between GALT and a converted value of ALT using the equation:
+   NewDALT = GALT - (ALT*0.97866477 - 46.28775654)
+   DALT = NewDALT*Tau + DALT*(1.0 - Tau)
+When GMODE/GSTAT indicates that GALT is missing, the value of DALT will be
+saved and a "corrected" GALT will be calculated using the following:
+   GALTC = ALT*0.97866477 - 46.28775654 + DALT
+Otherwise:
+   GALTC = GALT
+The hope is that this routine will create values that are extremely close
+to those that would be generated had GALT been OK.
+
+I will try this out using a skeleton program.
+
+Cases to consider (from example of the GPS/IRS correction program):
+  if (goodGPS < 10 )
+/*     Bad or recovering GPS  */
+         do not update "delta"
+         use the "delta" to calculate ALTC
+         slowly migrate "delta" to zero and calculate ALTC using equation
+           and ALT
+
+    {
+/*       Is next one needed (Schuller consideration)?  */
+    if (countr > 1800.0)
+      {
+/*       let's assume that it isn't as of now.  */
+      }
+    }
+  else
+    {
+    /* Good GPS comes here.  */
+    /*   drift from correction to GPS ??  */
+        update "delta"
+        use GALT or a function that "smooths" GALT ???
+
+    ++countr;
+    }
+
+/*  All cases come here.  Is this a good place to do anything?  */
+
+18 June 2001 Ron
+-------
+
+The long-term average doesn't seem to work, because the linear equation
+doesn't closely enough match the real world.  I tried a 10-point linear
+average instead, and that seems to work much better.  I found that
+occasionally the GALT measurement is in error one second prior to a GPS GMODE
+change from "good" to "bad." 
+
+Since the function cannot "predict" the bad data ahead of time, I'm not sure
+how to handle those cases.  I tried adding a kind of spike test, but it fails
+at the beginning of the flight and never recovers.  (A different design may
+work better.)
+
+Following are times in the ACE-Asia data set which have known GALT glitches.
+RF01  00:49:34, 02:05:14, 03:55:09
+RF02  00:53:17, 02:04:39
+
+Plot time periods with GMODE < 4
+ * means that algorithm didn't satisfactorily correct the data
+RF01: 24:49-24:51, 26:05-26:06, 26:47-26:49, 26:51-26:53, 27:55-27:56, 30:22-30:24
+RF02: 24:53-24:54, 26:02-26:04, 26:04-26:06
+RF03: 24:51-24:52, 25:02-25:03, 25:05-25:06, 25:11-25:12, 25:54-25:56,
+      25:59-26:00, 26:01-26:03, 26:05-26:07, 26:11-16:12, 26:12-26:14,
+     *26:14-26:15, 26:17-26:18, 27:28-27:29, 28:31-28:32, 30:09-30:11,
+      31:42-31:44
+RF04: 27:39-27:40, 29:58-29:59
+RF05: 03:17-03:19, 03:21-03:22, 03:25-03:26, 05:41-05:44, 05:50-05:51,
+      06:29-06:31, 06:32-06:33, 06:35-06:37, 07:23-07:25, 
+RF10: *28:50-28:51
+RF12:
+RF13: *31:26-31:28, *31:44-31:46
+RF14:
+RF17:
+
+
+21 June 2001 Ron
+-------
+
+Two things were happening to cause erroneous ALTC output.  In addition to the
+occasional bad GALT without GMODE warning, GALT and ALT sometimes were set to
+the "MISSING_VALUE."  Without taking these into account, really bad values of
+ALTC were calculated.  I added a test for MISSING_VALUE to pass that along to
+ALTC when necessary.
+
+The test for bad GALT without a bad GMODE was more of a challenge.  I finally
+devised code that would work for only one occurrence of a bad GALT.  The
+detector I'm using is a difference of more than 50 meters between the current
+value of GALT and an ALTC calculated using the present value of newALT and the
+previous "delta" value (GALT - newALT).  This seems to work reasonably well on
+most flights I've tested.
+  The value of 50 meters can be adjusted.
+  The 10-second wait time (after GMODE/GSTAT are OK) may be too long or
+   could be used to somehow migrate ALTC back to GALT.
+
+22 June 2001 Ron
+-------
+
+As a way to smooth the transition from altc back to galt, I added a little
+routine to linearly walk the output from one to the other after a fixed
+delay.  The delay is needed to account for a bad GALT that can occur
+when GMODE indicates it's good.
+
+28 June 2001 Ron
+-------
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Official documentation of ALTC/ALTX routine
+-------------------------------------------------------------------------------
+The NIMBUS file "saltx.c" has the code for correcting the GPS altitude (GALT)
+when the TANS-III is no longer calculating it.  This is typically indicated
+by GMODE and/or GSTAT values that change from their normal values, but can
+also can occur one or two samples before or after.
+
+GALT transients can be quite bothersome when doing analysis.  Therefore, a
+clean altitude signal is quite important, and the ALTX derived measurement
+is hopefully the best choice.
+
+To calculate a corrected GPS altitude, one must have the following input
+signals:
+  GALT  - Uncorrected GPS Altitude (meters)
+  ALT   - Altitude reference, e.g., pressure-corrected IRS altitude (meters)
+  GMODE - GPS mode flag
+  GSTAT - GPS status flag
+
+Principles:
+  All data are sampled at one sample per second (sps).  There will be no
+   high-rate derivation.
+  Always use the GPS altitude (GALT) if no problem is detected.
+  If either the GPS altitude (GALT) or the altitude reference (ALT) have the
+   MISSING_VALUE, then output the MISSING_VALUE to ALTX.
+  Always calculate a predicted, corrected GPS altitude (newalt) using
+   an empirically-developed, linear-regression equation and the altitude
+   reference (ALT).
+  Always calculate a difference (dalt) between the predicted altitude (newalt)
+   and the present GALT.
+  Always check to see if GALT has changed more than 50 meters from its
+   predicted value (newalt) or if GALT is still bad.  (Bad is defined as
+   changing more than 50 meters or GMODE/GSTAT has flagged it as bad.)
+  
+  Omit the most recent measurement of "dalt" since it could be erroneous.
+  Extrapolate a new ALTX using saved values and reference altitude.
+
+####################################  Stopped here
+
+  After good GPS altitude data return, linearly walk the derived value (ALTX)
+   back to GALT over a 10-second interval.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ncplot regression output data
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Linear regression (GALT vs. PALT):
+---------------------------------
+Number of data points            =    176
+Mean of independent variable     =   2202.18181818
+Mean of dependent variable       =   2242.43750000
+Standard dev. of ind. variable   =   2291.06586322
+Standard dev. of dep. variable   =   2326.91766852
+Correlation coefficient          =      0.99982255
+Regression coefficient (SLOPE)   =      1.01546830
+Standard error of coefficient    =      0.00145045
+t - value for coefficient        =    700.10574919
+Regression constant (INTERCEPT)  =      6.19167344
+Standard error of constant       =      4.60246826
+t - value for constant           =      1.34529411
+
+Analysis of variance
+Source           d.f     Sum of squares  Mean Square     F
+Regression         1    9.472093e+08    9.472093e+08    490148.1
+Residual          174   336254.3        1932.496
+Total             175   9.475455e+08
+
+Second-order regression (GALT vs. PALT):
+---------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     14.56087947
+A[1] =      1.00053064
+A[2] =      0.00000244
+R square =      0.99966265
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2202.18181818
+Sdev X   =   2291.06586322
+
+Third-order regression (GALT vs. PALT):
+--------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     18.66311168
+A[1] =      0.98577136
+A[2] =      0.00000849
+A[3] =     -0.00000000
+R square =      0.99966665
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2202.18181818
+Sdev X   =   2291.06586322
+
+Fourth-order regression (GALT vs. PALT):
+---------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     17.82092469
+A[1] =      0.99076214
+A[2] =      0.00000466
+A[3] =      0.00000000
+A[4] =     -0.00000000
+R square =      0.99966684
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2202.18181818
+Sdev X   =   2291.06586322
+
+Linear regression (ALT vs. GALT):
+--------------------------------
+Number of data points            =    176
+Mean of independent variable     =   2242.43750000
+Mean of dependent variable       =   2148.30681818
+Standard dev. of ind. variable   =   2326.91766852
+Standard dev. of dep. variable   =   2277.64734688
+Correlation coefficient          =      0.99983535
+Regression coefficient (SLOPE)   =      0.97866477
+Standard error of coefficient    =      0.00134650
+t - value for coefficient        =    726.82383078
+Regression constant (INTERCEPT)  =    -46.28775654
+Standard error of constant       =      4.34488498
+t - value for constant           =    -10.65339054
+
+Linear regression (GALT vs. ALT):
+--------------------------------
+Number of data points            =    176
+Mean of independent variable     =   2148.30681818
+Mean of dependent variable       =   2242.43750000
+Standard dev. of ind. variable   =   2277.64734688
+Standard dev. of dep. variable   =   2326.91766852
+Correlation coefficient          =      0.99983535
+Regression coefficient (SLOPE)   =      1.02146390
+Standard error of coefficient    =      0.00140538
+t - value for coefficient        =    726.82383078
+Regression constant (INTERCEPT)  =     48.01963262
+Standard error of constant       =      4.39356686
+t - value for constant           =     10.92953269
+
+Analysis of variance
+Source           d.f     Sum of squares  Mean Square     F
+Regression         1    9.472335e+08    9.472335e+08    528272.9
+Residual          174   311995.3        1793.076
+Total             175   9.475455e+08
+
+Second-order regression (GALT vs. ALT):
+--------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     56.76116437
+A[1] =      1.00504446
+A[2] =      0.00000272
+R square =      0.99969188
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2148.30681818
+Sdev X   =   2277.64734688
+
+Third-order regression (GALT vs. ALT):
+-------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     61.52654529
+A[1] =      0.98566691
+A[2] =      0.00001089
+A[3] =     -0.00000000
+R square =      0.99969901
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2148.30681818
+Sdev X   =   2277.64734688
+
+Fourth-order regression (GALT vs. ALT):
+--------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     60.81213578
+A[1] =      0.99088120
+A[2] =      0.00000673
+A[3] =      0.00000000
+A[4] =     -0.00000000
+R square =      0.99969928
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2148.30681818
+Sdev X   =   2277.64734688
+
+Linear regression (GALT vs. HGM232):
+-----------------------------------
+Number of data points            =    176
+Mean of independent variable     =   2269.93750000
+Mean of dependent variable       =   2242.43750000
+Standard dev. of ind. variable   =   2342.97589563
+Standard dev. of dep. variable   =   2326.91766852
+Correlation coefficient          =      0.97510787
+Regression coefficient (SLOPE)   =      0.96842470
+Standard error of coefficient    =      0.01669418
+t - value for coefficient        =     58.00973436
+Regression constant (INTERCEPT)  =     44.17394733
+Standard error of constant       =     54.38039497
+t - value for constant           =      0.81231384
+
+Analysis of variance
+Source           d.f     Sum of squares  Mean Square     F
+Regression         1    9.009598e+08    9.009598e+08    3365.129
+Residual          174   4.658573e+07    267734.1
+Total             175   9.475455e+08
+
+Second-order regression (GALT vs. HGM232):
+-----------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =    -22.15867141
+A[1] =      1.08265045
+A[2] =     -0.00001818
+R square =      0.95188827
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2269.93750000
+Sdev X   =   2342.97589563
+
+Third-order regression (GALT vs. HGM232):
+----------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     18.47145217
+A[1] =      0.94272496
+A[2] =      0.00003803
+A[3] =     -0.00000001
+R square =      0.95225222
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2269.93750000
+Sdev X   =   2342.97589563
+
+Fourth-order regression (GALT vs. HGM232):
+-----------------------------------------
+Number of data points = 176
+A[0] is the constant, A[i] is the coefficient for ith power of X
+A[0] =     24.29438080
+A[1] =      0.91013595
+A[2] =      0.00006246
+A[3] =     -0.00000001
+A[4] =      0.00000000
+R square =      0.95226038
+Avg Y    =   2242.43750000
+Sdev Y   =   2326.91766852
+Avg X    =   2269.93750000
+Sdev X   =   2342.97589563
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Raw data measurements (leg averages) from ncplot
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+RF01:  Entire time period:  22:46:11 30:34:37
+
+HGM232   ALT  PALT  GALT   Time period
+  ----    -8    -8    12   22:58:11-23:39:37
+ (5084) 5487  5558  5331   23:58:11-24:17:37
+ (4712) 4879  4947  4722   24:24:11-24:40:37
+   179   120   163   192   24:55:11-25:30:37
+  2518  2523  2581  2534   25:41:11-25:58:37
+  (961)  902   948   986   26:11:11-26:25:37
+   927   847   892   940   27:01:11-27:22:37
+   649   564   606   664   27:28:11-27:45:37
+  2107  2045  2093  2119   28:16:11-29:23:37
+ (5619) 5776  5846  5738   29:53:11-30:04:37
+
+
+RF02:  Entire time period:  23:35:18 32:13:30
+
+HGM232   ALT  PALT  GALT   Time period
+    40    15    61    51   24:22:18-24:47:30
+   148   138   182   159   24:56:18-25:13:30
+   594   585   632   604   25:21:18-25:34:30
+  1671  1695  1751  1681   28:32:18-28:44:30
+   155   148   185   174   28:56:18-29:08:30
+    38    49    86    48   29:14:18-29:34:30
+  2619  2614  2663  2633   30:39:18-31:26:30
+ (3354) 3659  3716  3734   31:35:18-31:45:30
+
+
+RF03:  Entire time period:  23:13:34 33:00:55
+
+HGM232   ALT  PALT  GALT   Time period
+ (3509) 3899  3973  3992   24:18:34-24:30:55
+ (4428) 4356  4430  4443   24:39:34-24:48:55
+    39   -62   -17    52   25:23:34-25:34:55
+  4433  4352  4425  4433   26:12:34-26:23:55
+  5440  5354  5432  5461   26:31:34-26:40:55
+  3193  3136  3197  3204   26:49:34-26:58:55
+  2889  2834  2894  2900   27:00:34-27:10:55
+  2293  2239  2296  2300   27:14:34-27:24:55
+  1533  1478  1527  1547   27:32:34-27:41:55
+   613   533   575   623   27:48:34-27:58:55
+    39   -50   -11    50   28:04:34-28:18:55
+  4543  4418  4485  4548   28:59:34-29:09:55
+    42    -37    1    44   29:28:34-29:48:55
+  1381  1314  1357  1382   30:16:34-30:51:55
+   296   224   259   304   31:29:34-31:40:55
+ (3464) 3927  3987  4075   32:20:34-32:33:55
+
+
+RF04:  Entire time period:  23:34:49 09:48:26
+
+HGM232   ALT  PALT  GALT   Time period
+  ----   -69   161    11   25:12:49-25:43:26
+    41   -44     1    53   26:07:49-26:29:26
+   631   541   587   644   26:24:49-26:34:26
+   979   885   933   990   26:24:49-26:34:26
+  3725  3588  3649  3736   27:02:49-27:15:26
+    39   -47    -8    56   27:44:49-28:38:26
+  3518  3412  3471  3534   29:07:49-29:54:26
+   745   669   710   752   30:08:49-30:19:26
+  1047   997  1018  1056   30:26:49-31:01:26
+  1801  1740  1785  1815   30:08:49-31:22:26
+  2779  2689  2741  2788   31:41:49-32:10:26
+ (7521) 7316  7382  7545   32:47:49-32:58:26
+
+
+RF05:  Entire time period:  03:04:10 10:39:31
+
+HGM232   ALT  PALT  GALT   Time period
+ (3801) 3937  4008  4091   03:32:10-03:54:31
+    33   -24    20    42   04:18:10-04:29:31
+  2625  2554  2610  2631   05:03:10-05:33:31
+  5084  4977  5050  5107   05:53:10-06:05:31
+  5134  5018  5089  5159   06:11:10-06:26:31
+    32   -24    14    45   06:47:10-07:08:31
+  4008  3914  3974  4007   07:31:10-08:01:31
+  1387  1325  1367  1390   08:19:10-08:27:31
+  3844  3752  3816  3869   08:43:10-09:09:31
+   460   398   433   468   09:24:10-09:46:31
+ (4697) 4870  4933  5035   10:03:10-10:13:31
+
+
+RF06:  Entire time period:  23:15:32 07:21:18
+
+HGM232   ALT  PALT  GALT   Time period
+  ----     1    24    13   23:22:32-23:46:18
+  4386  4256  4332  4404   24:15:32-24:24:18
+  6934  6723  6815  6959   24:46:32-25:13:18
+   166   117   158   180   25:51:32-27:07:18
+   438   408   447   449   27:55:32-28:27:18
+    91    56    92   101   28:38:32-29:33:18
+  6538  6390  6463  6556   30:13:32-30:31:18
+
+
+RF07:  Entire time period:  23:42:06 09:14:12
+
+HGM232   ALT  PALT  GALT   Time period
+ (6640) 6702  6795  6664   24:47:06-25:09:12
+    36     0    44    40   25:40:06-25:53:12
+  (329)  299   343   341   25:59:06-26:11:12
+  (781)  753   800   789   26:15:06-26:29:12
+  1247  1221  1270  1258   26:33:06-27:07:12
+    31    11    49    44   27:21:06-28:14:12
+    31    10    49    44   27:19:06-28:14:12
+  3933  3946  4010  3944   28:46:06-29:21:12
+   472   452   491   479   29:48:06-30:30:12
+   292   268   301   298   31:18:06-31:30:12
+  (750)  725   763   753   31:35:06-31:46:12
+ (1210) 1191  1229  1214   31:51:06-32:03:12
+  6362  6396  6469  6382   32:20:06-32:39:12
+
+
+RF08:  Entire time period:  23:38:22 08:47:25
+
+HGM232   ALT  PALT  GALT   Time period
+  ----   -21   -17     3   23:43:22-24:02:25
+  3963  3950  4024  3961   24:46:22-25:02:25
+  1243  1213  1266  1252   25:18:22-25:28:25
+   649   606   654   651   25:34:22-25:43:25
+    38    -9    35    46   25:50:22-26:00:25
+ (3565) 3787  3855  3834   26:33:22-27:03:25
+    38   -41    -2    55   27:38:22-29:26:25
+   613   522   560   626   29:36:22-29:54:25
+  1203  1115  1158  1219   30:03:22-30:20:25
+  2524  2438  2491  2564   30:32:22-30:42:25
+  4674  4555  4621  4690   31:54:22-32:08:25
+
+
+RF09:  Entire time period:  23:39:38 09:28:37
+
+HGM232   ALT  PALT  GALT   Time period
+  4688  4532  4607  4700   24:31:38-24:42:37
+    36   -42     3    48   25:03:38-25:30:37
+   953   861   911   962   25:39:38-26:03:37
+  3901  3766  3833  3916   26:17:38-26:28:37
+  3583  3461  3525  3599   26:31:38-26:41:37
+ (4589) 4707  4781  4868   27:17:38-27:36:37
+    34   -22    16    48   27:58:38-28:22:37
+ (2429) 2390  2443  2502   28:35:38-28:45:37
+   612   547   590   622   28:51:38-29:14:37
+  5616  5478  5552  5650   29:57:38-30:07:37
+ (4970) 4859  4930  5025   30:27:38-30:39:37
+    33     4    41    46   31:08:38-31:20:37
+  1535  1485  1526  1555   31:49:38-31:59:37
+  2474  2413  2460  2508   32:07:38-32:19:37
+  4658  4556  4619  4701   32:31:38-32:41:37
+ (3975) 3962  4021  4088   32:52:38-33:03:37
+
+
+RF10:  Entire time period:  23:36:05 09:03:26
+
+HGM232   ALT  PALT  GALT   Time period
+  6842  6701  6799  6862   24:29:05-24:44:26
+  1100  1050  1102  1111   25:19:00-25:34:00
+   109    74   117   119   26:01:00-26:31:00
+   956   911   960   976   27:37:00-28:03:00
+  4362  4216  4282  4377   29:57:00-30:07:00
+   304   283   322   322   30:47:00-31:10:00
+  1050  1016  1058  1064   31:18:00-31:41:00
+  6564  6394  6465  6600   32:02:00-32:25:00
+
+
+RF11:  Entire time period:  23:33:07 09:20:30
+
+HGM232   ALT  PALT  GALT   Time period
+  ----    -1     3    13   23:36:00-23:56:00
+ (5958) 5788  5877  6003   24:23:00-24:35:00
+    31    31    77    39   25:08:00-25:35:00
+   467   468   515   473   25:46:00-26:00:00
+   463   476   522   454   26:22:00-26:44:00
+  1672  1700  1750  1667   27:09:00-27:37:00
+   142   217   257   131   28:06:00-28:42:00
+ (2644) 3261  3317  3111   28:59:00-29:20:00
+   586   548   586   598   30:32:00-30:57:00
+
+
+RF12:  Entire time period:  22:45:00 08:07:43
+
+HGM232   ALT  PALT  GALT   Time period
+  5358  5176  5260  5395   23:16:00-23:31:00
+   456   366   414   448   24:19:00-24:45:00
+    35   -50    -7    31   25:00:00-25:12:00
+    33   -53   -10    29   25:16:00-25:27:00
+  5507  5299  5375  5512   25:48:00-25:59:00
+  1434  1330  1379  1428   26:38:00-27:01:00
+    37   -47    -8    34   27:08:00-27:19:00
+    35   -48    -9    31   27:24:00-27:36:00
+  2827  2698  2751  2825   27:45:00-28:08:00
+  3845  3682  3740  3836   28:25:00-28:41:00
+   751   674   715   742   29:10:00-29:23:00
+ (5527) 5478  5548  5679   30:31:00-30:43:00
+ (7401) 7306  7375  7575   30:59:00-31:29:00
+
+
+RF13:  Entire time period:  23:30:09 09:13:27
+
+HGM232   ALT  PALT  GALT   Time period
+  ----   -18   -18     5   23:34:00-23:47:00
+  6949  6723  6814  6964   24:39:00-25:11:00
+    30   -39     3    40   25:54:00-27:03:00
+  5430  5330  5400  5447   27:35:00-28:12:00
+   668   603   645   673   28:34:00-29:14:00
+   232   172   207   249   29:20:00-30:21:00
+    30    -2    33    37   30:56:00-31:08:00
+   146   115   149   152   31:12:00-31:24:00
+  1873  1827  1869  1879   32:47:00-31:57:00
+  6598  6400  6463  6622   32:17:00-32:35:00
+
+
+RF14:  Entire time period:  23:26:18 09:19:08
+
+HGM232   ALT  PALT  GALT   Time period
+  ----    -7    -5     9   23:32:00-24:01:00
+  6912  6712  6806  6930   24:56:00-25:07:00
+  6248  6084  6162  6267   25:13:00-25:30:00
+  6918  6716  6805  6936   25:48:00-25:59:00
+  5306  5173  5249  5324   26:29:00-26:54:00
+   467   399   443   474   27:26:00-27:48:00
+  1524  1451  1499  1527   28:33:00-28:47:00
+    43   -31     7    51   29:04:00-29:20:00
+  5507  5400  5468  5525   30:13:00-31:01:00
+   121    52    86   127   31:36:00-32:02:00
+  7832  7632  7699  7842   32:29:00-32:45:00
+
+
+RF15:  Entire time period:  00:03:57 10:11:11
+                            00:04:00 10:11:00
+
+HGM232   ALT  PALT  GALT   Time period
+  ----   -64   -60    11   00:25:00-00:36:00
+  4424  4268  4345  4435   00:53:00-01:02:00
+   494   403   452   500   01:44:00-02:01:00
+   176    86   132   183   02:09:00-02:32:00
+  6962  6713  6797  6989   03:05:00-03:12:00
+   628   554   599   640   03:43:00-04:06:00
+   175   111   148   182   04:34:00-05:10:00
+  4676  4562  4628  4706   05:37:00-05:50:00
+  4070  3957  4019  4070   06:22:00-06:47:00
+   626   557   598   630   07:09:00-07:19:00
+   627   558   599   636   07:24:00-07:37:00
+    32   -29     6    45   08:01:00-08:11:00
+  1605  1524  1568  1615   08:22:00-08:49:00
+  5518  5336  5429  5544   09:07:00-09:18:00
+
+
+RF16:  Entire time period:  23:31:44 08:45:54
+                            23:32:00 08:45:00
+
+HGM232   ALT  PALT  GALT   Time period
+  ----    37    41     8   23:39:00-23:50:00
+  2538  2477  2541  2549   23:58:00-24:09:00
+   109   119   165   113   24:49:00-25:44:00
+   470   431   478   481   26:14:00-26:34:00
+  1469  1372  1422  1479   26:54:00-27:04:00
+    33    17    58    43   27:39:00-28:42:00
+   216   187   224   221   29:31:00-29:47:00
+   232   209   245   240   30:08:00-30:35:00
+  3077  2977  3029  3094   31:30:00-31:45:00
+ (4639) 4567  4626  4747   31:57:00-32:17:00
+
+
+RF17:  Entire time period:  23:23:47 09:21:05
+                            23:24:00 33:21:00
+
+HGM232   ALT  PALT  GALT   Time period
+  ----     0   204    13   23:32:00-24:01:00
+  6676  6411  6502  6699   24:32:00-24:57:00
+  3465  3353  3418  3477   25:22:00-25:31:00
+  7361  7179  7261  7373   28:16:00-28:29:00
+  5467  5333  5400  5484   28:57:00-29:09:00
+  3587  3493  3548  3592   29:20:00-29:30:00
+  2660  2596  2644  2663   29:34:00-29:45:00
+  2052  1994  2040  2058   29:49:00-29:59:00
+  1113  1067  1111  1114   30:03:00-30:16:00
+    52    19    54    61   30:23:00-30:33:00
+  5625  5482  5546  5643   30:54:00-31:16:00
+  5651  5483  5543  5677   31:38:00-31:51:00
+  5661  5483  5543  5685   32:03:00-32:38:00
+
+
+RF18:  Entire time period:  00:16:10 09:16:05
+                            00:17:00 09:16:00
+
+HGM232   ALT  PALT  GALT   Time period
+  6240  6111  6202  6260   01:06:00-01:33:00
+  5480  5339  5417 (3396)  01:48:00-01:59:00
+    32     1    45    44   02:33:00-02:44:00
+    33     4    47    47   02:51:00-03:01:00
+   444   414   460   456   02:51:00-03:01:00
+   913   875   922   926   03:36:00-03:51:00
+   909   875   922   919   03:55:00-04:07:00
+  2814  2754  2810  2837   04:31:00-05:06:00
+   230   203   242   243   05:30:00-06:16:00
+   330   305   344   347   06:54:00-07:28:00
+  6550  6396  6466  6572   06:54:00-07:28:00
+
+
+RF19:  Entire time period:  22:56:05 07:37:29
+                            22:57:00 07:37:00
+
+HGM232   ALT  PALT  GALT   Time period
+  ----   -55   -51     9   23:24:00-23:41:00
+  5068  4877  4953  5098   24:25:00-24:35:00
+  6336  6099  6183  6360   24:44:00-24:51:00
+  2369  2247  2300  2375   25:37:00-26:13:00
+    34   -48    -9    46   26:56:00-27:09:00
+  4127  3958  4019  4129   27:39:00-28:12:00
+  4138  3963  4023  4137   28:21:00-28:36:00
+   298   227   264   301   28:46:00-29:16:00
+    35   -30     7    48   29:21:00-29:57:00
+  6053  5791  5857  6076   30:18:00-30:32:00
+  6026  5791  5859  6051   30:37:00-30:45:00

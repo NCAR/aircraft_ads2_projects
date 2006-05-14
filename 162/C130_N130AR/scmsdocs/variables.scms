@@ -1,0 +1,221 @@
+*************************************************************
+SCMS (PROJECT 5-162) PROCESSED VARIABLES LIST
+*************************************************************
+
+Name         Units              Definition
+----         -----              ----------
+
+A260X_OBR    cnts         260X Raw Accumulation
+ACINS        M/s2         Aircraft Vertical Acceleration            
+ADIFR        mbar         Vertical Differential Pressure, Radome   
+AF300_LPO    cnts         FSSP-300 Raw Accumulation
+AFSSP_IBR    cnts         FSSP-100 Raw Accumulation
+AKRD         deg          Attack Angle, Radome Diff. Pressure        
+ALT          M            Inertial Altitude                        
+APCAS_RPC    cnts         PCAS Partical Spacing   **DATA BAD -- DO NOT USE**
+ATRL         C            Ambient Temperature, Radome Left          
+ATRR         C            Ambient Temperature, Radome Right         
+ATTACK       deg          Attack Angle, Reference                   
+ATWH         C            Ambient Temperature, Deiced Wing         
+ATX          C            Ambient Temperature, Reference           
+BDIFR        mbar         Horizontal Differential Pressure, Radome
+C260X_OBR    N/L          260X Corrected Concentration
+CF300_LPO    N/cm3        FSSP-300 Corrected Concentration
+CFSSP_IBR    N/cm3        FSSP-100 Corrected Concentration
+CNTEMP       C            CN Counter Inlet Temperature              
+CNTS         cnts         TSI CN Counter Output                    
+CON2C1       N/L          2D-C Probe Concentration                
+CON2P1       N/L          2D-P Probe Concentration               
+CONC3_LPO    N/cm3        FSSP-300 Probe Concentration          
+CONC6_OBR    N/cm3        260X Probe Concentration             
+CONCF_IBR    N/cm3        FSSP-100 Probe Concentration         
+CONCN        N/cm3        Condensation Nuclei (CN) Concentration 
+CPCAS_RPC    N/cm3        PCAS Corrected Concentration   **DATA BAD -- DO NOT USE**
+DBAR3_LPO    uM           FSSP-300 Mean Particle Diameter         
+DBAR6_OBR    uM           260X Mean Particle Diameter          
+DBARF_IBR    uM           FSSP-100 Mean Particle Diameter     
+DBZ6_OBR     dB           260X Calculated Reflectivity        
+DBZF_IBR     dB           FSSP-100 Calculated Reflectivity   
+DEI          kM           Distance East of Reference          
+DFRSTS       cnts         FSSP-100 Total Reset (Digital)    
+DFSTRB       cnts         FSSP-100 Total Strobe (Digital)      
+DISP6_OBR    none         260X Dispersion (sigma/dbarx)         
+DISPF_IBR    none         FSSP-100 Dispersion (sigma/dbarx)   
+DNI          kM           Distance North of Reference            
+DPB          C            Dew/Frost Point Temperature, Fuselage Bottom 
+DPBC         C            Dew Point Temperature, T-Electric Bottom 
+DPT          C            Dew/Frost Point Temperature, Fuselage Top  
+DPTC         C            Dew Point Temperature, T-Electric Top     
+DPXC         C            Dew Point Temperature, Reference         
+DTB          C            Pyrgeometer Dome Temperature, Bottom    
+DTT          C            Pyrgeometer Dome Temperature, Top         
+EDPC         mbar         Ambient Water Vapor Pressure, Reference  
+EVTCKP       none         Event Marker - Cockpit                  
+EVTCTL       none         Event Marker - ADS Operator Station       
+EVTFWD       none         Event Marker - Forward Observer Display  
+EVTOBL       none         Event Marker - Aft Left Observer Display  
+EVTOBR       none         Event Marker - Aft Right Observer Display 
+FACT_IBR     none         FSSP-100 Activity Fraction             
+FACT_LPO     none         FSSP-300 Activity Fraction
+FANV_IBR     Vdc          FSSP-100 Annulus Baseline Voltage        
+FBMFR_IBR    none         FSSP-100 Beam Fraction                
+FCN          slpm         Raw CN Counter Sample Flow Rate    
+FCNC         vlpm         Corrected CN Counter Sample Flow Rate  
+FLXQQ        (g/M3)^2     Variance of Absolute Humidity Over Last N Minutes 
+FLXTT        (K)^2        Variance of Potential Temperature Computed Over Last N Minutes  
+FLXUU        (M/s)^2      Variance of UI Computed Over Last N Minutes 
+FLXVV        (M/s)^2      Variance of VI Computed Over Last N Minutes 
+FLXWQ        (M/s)(g/M3)  Covariance of WI and Absolute Humidity Over Last N Minutes  
+FLXWT        (M/s)(K)     Covariance of WI and Potential Temperature Over Last N Minutes 
+FLXWU        (M/s)^2      Covariance of WI and UI Over Last N Minutes 
+FLXWV        (M/s)^2      Covariance of WI and VI Over Last N Minutes 
+FLXWW        (M/s)^2      Variance of WI Computed Over Last N Minutes 
+FREF_IBR     none         FSSP-100 Laser Reference Voltage         
+FREF_LPO     none         FSSP-300 Laser Reference Voltage
+FRNG_IBR     none         FSSP-100 Size Range Category             
+FRST_IBR     cnts         FSSP-100 Fast Resets                     
+FSIG_IBR     Vdc          FSSP-100 Signal Voltage                
+FSTB_IBR     cnts         FSSP-100 Strobes                      
+FSTB_LPO     cnts         FSSP-300 Strobes
+FSTT_IBR     cnts         FSSP-100 Signal Transit Time         
+FTMP_IBR     none         FSSP-100 Temperature          
+FXAZIM       deg          Radial Azimuth from Fixed Reference     
+FXDIST       nmi          Radial Distance from Fixed Reference  
+GALT         M            GPS-Derived Altitude                 
+GLAT         deg          GPS Latitude                      
+GLON         deg          GPS Longitude                          
+GMODE        none         GPS Mode                              
+GSF          M/s          Inertial Ground Speed                  
+GSTAT        none         GPS Status                             
+GVEW         M/s          GPS Ground Speed Vector, East Component  
+GVNS         M/s          GPS Ground Speed Vector, North Component 
+GVZI         M/s          GPS-Computed Aircraft Vertical Velocity  
+HOUR         hours        Raw Tape Time Component              
+IRB          W/M2         Raw Infrared Irradiance, Bottom     
+IRBC         W/M2         Corrected Infrared Irradiance, Bottom
+IRT          W/M2         Raw Infrared Irradiance, Top           
+IRTC         W/M2         Corrected Infrared Irradiance, Top      
+LAT          deg          Inertial Latitude                     
+LON          deg          Inertial Longitude                  
+MINUTE       minute       Raw Tape Time Component         
+MR           g/kg         Mixing Ratio: T-Electric       
+MRLA         g/kg         Mixing Ratio: Lyman-alpha       
+MRUV         g/kg         Mixing Ratio: UV Hygrometer         
+OAT          C            Ophir Ambient Temperature             
+OBBCOD       cnts         Ophir Black Body Code               
+OBBCR        W/M2/uM      Ophir Hemispherical Black Body Radiance  
+ODETDC       cnts         Ophir Detector Bias Voltage             
+ODETOF       cnts         Ophir Detector Offset                  
+ODETSG       cnts         Ophir Raw Detector Signal              
+ODSIGC       Vdc          Ophir Detector Signal, Corrected      
+OGAIN        cnts         Ophir Gain                            
+OGAINF       cnts         Ophir Detector Gain Factor           
+OSMOTR       cnts         Ophir Chopper Motor Speed           
+OTBBC        cnts         Ophir Controlled Black Body Temperature  
+OTBBF        cnts         Ophir Free Black Body Temperature      
+OTBNCH       cnts         Ophir Optical Bench Temperature       
+OTBOX        cnts         Ophir Electronics Box Temperature       
+OTDET        cnts         Ophir Detector Temperature              
+OTDETC       K            Ophir Detector Temperature, Corrected    
+OTSNT        cnts         Ophir Optics Temperature               
+PALT         M            NACA Pressure Altitude               
+PALTF        feet         NACA Pressure Altitude            
+PCN          mbar         CN Counter Inlet Pressure             
+PFSSP_IBR    cnts         FSSP-100 Partical Spacing
+PITCH        deg          Aircraft Pitch Angle                   
+PLWC         W            Raw PMS-King Liquid Water Content Output 
+PLWC6_OBR    g/M3         260X Water/Ice Content                   
+PLWCC        g/M3         Corrected PMS-King Liquid Water Content 
+PLWCF_IBR    g/M3         FSSP-100 Water/Ice Content            
+PODFANL      boolean      Pod Fan Status, Left Wing            
+PODFANR      boolean      Pod Fan Status, Right Wing             
+PODTMPL      C            Pod Temperature, Left Wing         
+PODTMPR      C            Pod Temperature, Right Wing           
+PSF          mbar         Raw Static Pressure, Fuselage          
+PSFC         mbar         Corrected Static Pressure, Fuselage   
+PSFD         mbar         Raw Static Pressure, Fuselage Digital
+PSFD1        cnts         Raw PSFD - Low order word             
+PSFD2        cnts         Raw PSFD - High order word             
+PSFDC        mbar         Corrected Static Pressure, Fuselage Digital
+PSURF        mbar         Calculated Surface Pressure             
+PSX          mbar         Raw Static Pressure, Reference         
+PSXC         mbar         Corrected Static Pressure, Reference    
+QCF          mbar         Raw Dynamic Pressure, Fuselage         
+QCFC         mbar         Corrected Dynamic Pressure, Fuselage    
+QCR          mbar         Raw Dynamic Pressure, Radome           
+QCRC         mbar         Corrected Dynamic Pressure, Radome      
+QCX          mbar         Raw Dynamic Pressure, Reference        
+QCXC         mbar         Corrected Dynamic Pressure, Reference   
+RHODT        g/M3         Absolute Humidity: T-Electric Top      
+RHOLA        g/M3         Absolute Humidity: Lyman-alpha          
+RHUM         %            Relative Humidity                       
+RICE         Vdc          Raw Icing-Rate Indicator             
+ROLL         deg          Aircraft Roll Angle                     
+RSTB         C            Radiometric Surface Temperature          
+RSTB1        C            Radiometric Surface Temperature #2      
+SDWC1        cnts         PMS: 2D-C Probe Shadow OR Counts      
+SDWP1        cnts         PMS: 2D-P Probe Shadow OR Counts       
+SECOND       s            Raw Tape Time Component                   
+SSLIP        deg          Sideslip Angle, Reference                
+SSRD         deg          Sideslip Angle, Radome Diff. Pressure     
+STB          C            Pyrgeometer Sink Temperature, Bottom     
+STT          C            Pyrgeometer Sink Temperature, Top     
+SWB          W/M2         Shortwave Irradiance, Bottom        
+SWT          W/M2         Shortwave Irradiance, Top               
+TASF         M/s          Aircraft True Airspeed, Fuselage       
+TASHC        M/s          Aircraft True Airspeed, Humidity Corrected 
+TASR         M/s          Aircraft True Airspeed, Radome          
+TASX         M/s          Aircraft True Airspeed, Reference        
+THDG         deg          Aircraft True Heading Angle               
+THETA        K            Potential Temperature                    
+THETAE       K            Equivalent Potential Temperature       
+THETAV       K            Virtual Potential Temperature          
+TTRL         C            Total Temperature, Radome Left           
+TTRR         C            Total Temperature, Radome Right        
+TTWH         C            Total Temperature, Deiced Wing           
+TTX          C            Total Temperature, Reference            
+UI           M/s          Wind Vector, East Component               
+UVB          W/M2         Ultraviolet Irradiance, Bottom            
+UVCHRF       cnts         UV Hygrometer Lamp-Off Ref. Detector      
+UVCHSP       cnts         UV Hygrometer Lamp-Off Signal Detector    
+UVHREF       cnts         UV Hygrometer H-lamp Reference Detector   
+UVHSMP       cnts         UV Hygrometer H-lamp Signal Detector     
+UVKRRF       cnts         UV Hygrometer K-lamp Reference Detector 
+UVKRSP       cnts         UV Hygrometer K-lamp Signal Detector      
+UVPVOL       mbar         UV Hygrometer Sample Volume Pressure     
+UVT          W/M2         Ultraviolet Irradiance, Top             
+UVTVOL       C            UV Hygrometer Sample Vol. Temperature 
+UX           M/s          Wind Vector, Longitudinal Component       
+VEW          M/s          Inertial Ground Speed Vector, East Component  
+VI           M/s          Wind Vector, North Component            
+VLA          Vdc          Raw Lyman-alpha Hygrometer Output         
+VNS          M/s          Inertial Ground Speed Vector, North Component 
+VSPD         M/s          IRS-Computed Aircraft Vertical Velocity   
+VY           M/s          Wind Vector, Lateral Component           
+WD           deg          Horizontal Wind Direction               
+WI           M/s          Wind Vector, Vertical Gust Component 
+WP3          M/s          Damped Aircraft Vertical Velocity        
+WS           M/s          Horizontal Wind Speed                   
+XEGGT1       C            Golden Egg Temperature #1
+XEGGT2       C            Golden Egg Temperature #2
+XEGGT3       C            Golden Egg Temperuture #3
+XGLWC        Vdc          Gerber Liquid Water Content Raw Voltage               
+XGSFC        Vdc          Gerber Particle Surface Area Raw Voltage           
+XLATC        deg          GPS-Corrected Inertial Latitude       
+XLONC        deg          GPS-Corrected Inertial Longitude     
+XMACH2       none         Aircraft Mach Number Squared               
+XOPHR        Vdc          Analog Ambient Temperature Signal, Ophir  
+XRF3         Vdc          Golden Egg Ref. Temperature #3         
+XRF4         Vdc          Golden Egg Ref. Temperature #4           
+XTC3         Vdc          Golden Egg Thermocouple #3            
+XTC4         Vdc          Golden Egg Thermocouple #4                
+XTC5         Vdc          Golden Egg Thermocouple #5               
+XUIC         M/s          GPS-Corrected Wind Vector, East Component
+XUXC         M/s          GPS-Corrected Wind Vector, Longitudinal Component   
+XVEWC        M/s          GPS-Corrected Inertial Ground Speed Vector, East Component 
+XVIC         M/s          GPS-Corrected Wind Vector, North Component 
+XVNSC        M/s          GPS-Corrected Inertial Ground Speed Vector, North Component 
+XVYC         M/s          GPS-Corrected Wind Vector, Lateral Component  
+XWDC         deg          GPS-Corrected Horizontal Wind Direction  
+XWIC         M/s          GPS-Corrected Wind Vector, Vertical Gust Component  
+XWSC         M/s          GPS-Corrected Horizontal Wind Speed     

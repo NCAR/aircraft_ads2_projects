@@ -1,0 +1,64 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1998-101 SHEBA (Surface Heat Budget of the Arctic Ocean) (Judy Curry, et al.)
+#
+#  File adapted from 'Darch.101'
+#
+#  Data processing used Nimbus version 2.5.5
+#
+date
+#
+set YEAR = 1998
+set PROJ = 101
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = HRT/Curry
+#
+nrnet msput $SDIR/101rf01Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf02Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf03Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf04Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf05Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf06Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf07Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf08Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf09Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf10Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf11Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf15Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf16Hjc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+nrnet msput $SDIR/101rf12Hjca.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf12Hjcb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf13Hjca.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf13Hjcb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf13Hjcc.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13C.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf14Hjca.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/101rf14Hjcb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Wed Jan 27 17:06:53 MST 1999
+# All bitfiles are in the path:  /RAF/1998/101/
+# Sequence number = MI5517 -- HRT/Curry/RF01.cdf -- OK @ 27 Jan 1999 17:09:48
+# Sequence number = MI5522 -- HRT/Curry/RF02.cdf -- OK @ 27 Jan 1999 17:09:57
+# Sequence number = MI5529 -- HRT/Curry/RF03.cdf -- OK @ 27 Jan 1999 17:09:38
+# Sequence number = MI5537 -- HRT/Curry/RF04.cdf -- OK @ 27 Jan 1999 17:13:41
+# Sequence number = MI5544 -- HRT/Curry/RF05.cdf -- OK @ 27 Jan 1999 17:13:51
+# Sequence number = MI5551 -- HRT/Curry/RF06.cdf -- OK @ 27 Jan 1999 17:09:20
+# Sequence number = MI5558 -- HRT/Curry/RF07.cdf -- OK @ 27 Jan 1999 17:13:33
+# Sequence number = MI5565 -- HRT/Curry/RF08.cdf -- OK @ 27 Jan 1999 17:17:09
+# Sequence number = MI5577 -- HRT/Curry/RF09.cdf -- OK @ 27 Jan 1999 17:17:13
+# Sequence number = MI5585 -- HRT/Curry/RF10.cdf -- OK @ 27 Jan 1999 17:17:03
+# Sequence number = MI5593 -- HRT/Curry/RF11.cdf -- OK @ 27 Jan 1999 17:13:15
+# Sequence number = MI5599 -- HRT/Curry/RF15.cdf -- OK @ 27 Jan 1999 17:21:20
+# Sequence number = MI5609 -- HRT/Curry/RF16.cdf -- OK @ 27 Jan 1999 17:21:24
+# Sequence number = MI5617 -- HRT/Curry/RF12A.cdf -- OK @ 27 Jan 1999 17:16:54
+# Sequence number = MI5624 -- HRT/Curry/RF12B.cdf -- OK @ 27 Jan 1999 17:21:14
+# Sequence number = MI5631 -- HRT/Curry/RF13A.cdf -- OK @ 27 Jan 1999 17:21:16
+# Sequence number = MI5644 -- HRT/Curry/RF13B.cdf -- OK @ 27 Jan 1999 17:24:37
+# Sequence number = MI5652 -- HRT/Curry/RF13C.cdf -- OK @ 27 Jan 1999 17:24:48
+# Sequence number = MI5660 -- HRT/Curry/RF14A.cdf -- OK @ 27 Jan 1999 17:25:04
+# Sequence number = MI5668 -- HRT/Curry/RF14B.cdf -- OK @ 27 Jan 1999 17:24:54
+#

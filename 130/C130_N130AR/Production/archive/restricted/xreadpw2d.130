@@ -1,0 +1,324 @@
+#! /bin/csh -f
+#
+#  Remove read passwords from archived PMS-2D stripped raw data
+#     1996-130 Aerosol Characterization Experiment 1 (Barry Huebert, et al.)
+#
+#   Adapted from the file arch2d.130 by Ronald L. Ruth on 13 March 2000
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1996
+set PROJ = 130
+set TURBRT = PMS2D
+#
+#set rpw = "1-ECA"
+#set rpw = "x1-ECAx"
+#set rpw = "ACE-1"
+#set rpw = "x1-ECAx"
+#set rpw = "1ECA"
+#set rpw = "ACE1"
+#set rpw = "X1-ECAX"
+#set rpw = "XACE-1X"
+#set rpw = "XACE1X"
+#set rpw = "1-ECAx"
+#
+#set rpws = ( \
+# "x1-ECA" \
+# "xACE-1x" \
+# "ACE-1x" \
+# "xACE-1" \
+# "xACE1x" \
+# "x1_ECAx" \
+# "1_ECA" \
+# "ACE_1" \
+# "xACE_1x" \
+# "xACE_1" \
+# "ACE_1x" \
+# "x1ECA" \
+# "1ECAx" \
+#)
+#
+#set rpws = ( \
+#"1-ACE" \
+#"x1-ACEx" \
+#"1-ACEx" \
+#"x1-ACE" \
+#"ECA-1" \
+#"xECA-1x" \
+#"ECA-1x" \
+#"xECA-1" \
+#)
+#
+#
+#  1st wave
+#set DESTS = ( \
+#RF01 \
+#RF02A \
+#RF02B \
+#RF03 \
+#RF04A \
+#RF04B \
+#RF05 \
+#RF06A \
+#RF06B \
+#RF06C \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13A \
+#RF13B \
+#RF14 \
+#RF15 \
+#RF16 \
+#RF17A \
+#RF17B \
+#RF17C \
+#RF18 \
+#RF19 \
+#RF20 \
+#RF21 \
+#RF22A \
+#RF22B \
+#RF23 \
+#RF24 \
+#RF25 \
+#RF26 \
+#RF27A \
+#RF27B \
+#RF28 \
+#RF29 \
+#RF30 \
+#RF31A \
+#RF31B \
+#RF32 \
+#RF33 \
+#)
+#
+#  2nd through  th waves
+set DESTS = ( \
+RF01 \
+)
+#
+#   th wave
+#RF02A \
+#RF02B \
+#RF03 \
+#RF04A \
+#RF04B \
+#RF05 \
+#RF06A \
+#RF06B \
+#RF06C \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13A \
+#RF13B \
+#RF14 \
+#RF15 \
+#RF16 \
+#RF17A \
+#RF17B \
+#RF17C \
+#RF18 \
+#RF19 \
+#RF20 \
+#RF21 \
+#RF22A \
+#RF22B \
+#RF23 \
+#RF24 \
+#RF25 \
+#RF26 \
+#RF27A \
+#RF27B \
+#RF28 \
+#RF29 \
+#RF30 \
+#RF31A \
+#RF31B \
+#RF32 \
+#RF33 \
+#)
+#
+#  Get started:
+date
+#
+foreach rpw ($rpws)
+  set todo = $#DESTS
+  set num = 1
+  while ($num <= $todo)
+    set DEST = $DESTS[$num]
+#    echo \
+      nrnet mspasswd % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DEST \
+      rpwd=$rpw newr=OFF
+    @ num ++
+  end
+end
+#
+# done.
+exit
+#
+#  1st wave, rpw = "1-ECA"
+#  Job(s) submitted on Mon Mar 13 14:45:09 MST 2000
+# Sequence number = LN1625 -- Failed @ 13 Mar 2000 14:45:12
+# Sequence number = LN1633 -- Failed
+# Sequence number = LN1641 -- Failed
+# Sequence number = LN1649 -- Failed
+# Sequence number = LN1657 -- Failed
+# Sequence number = LN1665 -- Failed
+# Sequence number = LN1673 -- Failed
+# Sequence number = LN1681 -- Failed
+# Sequence number = LN1691 -- Failed
+# Sequence number = LN1703 -- Failed
+# Sequence number = LN1711 -- Failed
+# Sequence number = LN1723 -- Failed
+# Sequence number = LN1733 -- Failed
+# Sequence number = LN1741 -- Failed
+# Sequence number = LN1757 -- Failed
+# Sequence number = LN1774 -- Failed
+# Sequence number = LN1791 -- Failed
+# Sequence number = LN1803 -- Failed
+# Sequence number = LN1814 -- Failed
+# Sequence number = LN1832 -- Failed
+# Sequence number = LN1851 -- Failed
+# Sequence number = LN1864 -- Failed
+# Sequence number = LN1885 -- Failed
+# Sequence number = LN1908 -- Failed
+# Sequence number = LN1923 -- Failed
+# Sequence number = LN1935 -- Failed
+# Sequence number = LN1948 -- Failed
+# Sequence number = LN1961 -- Failed
+# Sequence number = LN1974 -- Failed
+# Sequence number = LN1988 -- Failed
+# Sequence number = LN2009 -- Failed
+# Sequence number = LN2023 -- Failed
+# Sequence number = LN2035 -- Failed
+# Sequence number = LN2043 -- Failed
+# Sequence number = LN2051 -- Failed
+# Sequence number = LN2061 -- Failed
+# Sequence number = LN2078 -- Failed
+# Sequence number = LN2093 -- Failed
+# Sequence number = LN2104 -- Failed
+# Sequence number = LN2115 -- Failed
+# Sequence number = LN2123 -- Failed
+# Sequence number = LN2131 -- Failed
+# Sequence number = LN2141 -- Failed @ 13 Mar 2000 14:45:39
+#
+#  2nd wave, rpw = "x1-ECAx"
+#  Job(s) submitted on Mon Mar 13 14:54:16 MST 2000
+# Sequence number = LN2403 -- Failed @ 13 Mar 2000 14:54:17
+#
+#  3rd wave, rpw = "ACE-1"
+#  Job(s) submitted on Mon Mar 13 14:58:15 MST 2000
+# Sequence number = LN2469 -- Failed @ 13 Mar 2000 14:58:16
+#
+#  4th wave, rpw = "x1-ECAx"
+#  Job(s) submitted on Mon Mar 13 15:02:46 MST 2000
+# Sequence number = LN2554 -- Failed @ 13 Mar 2000 15:02:48
+#
+#  5th wave, rpw = "1ECA"
+#  Job(s) submitted on Mon Mar 13 15:05:52 MST 2000
+# Sequence number = LN2643 -- Failed @ 13 Mar 2000 15:05:54
+#
+#  6th wave, rpw = "ACE1"
+#  Job(s) submitted on Mon Mar 13 15:12:56 MST 2000
+# Sequence number = LN2765 -- Failed @ 13 Mar 2000 15:12:58
+#
+#  7th wave, rpw = "X1-ECAX"
+#  Job(s) submitted on Mon Mar 13 15:14:05 MST 2000
+# Sequence number = LN2791 -- Failed @ 13 Mar 2000 15:14:07
+#
+#  8th wave, rpw = "XACE-1X"
+#  Job(s) submitted on Mon Mar 13 15:15:23 MST 2000
+# Sequence number = LN2814 -- Failed @ 13 Mar 2000 15:15:25
+#
+#  9th wave, rpw = "XACE1X"
+#  Job(s) submitted on Mon Mar 13 15:31:58 MST 2000
+# Sequence number = LN3239 -- Failed @ 13 Mar 2000 15:32:00
+#
+# 10th wave, rpw = "1-ECAx"
+#  Job(s) submitted on Mon Mar 13 15:53:59 MST 2000
+# Sequence number = LN3831 -- Failed @ 13 Mar 2000 15:54:01
+#
+# 11th wave, rpws = x1-ECA, xACE-1x, ACE-1x, xACE-1, xACE1x, x1_ECAx, 1_ECA, 
+#                   ACE_1, xACE_1x, xACE_1, ACE_1x, x1ECA, 1ECAx,
+#  Job(s) submitted on Mon Mar 13 15:57:09 MST 2000
+# Sequence number = LN3931 -- Failed @ 13 Mar 2000 15:57:12
+# Sequence number = LN3939 -- Failed @ 13 Mar 2000 15:57:13
+# Sequence number = LN3947 -- Failed @ 13 Mar 2000 15:57:13
+# Sequence number = LN3955 -- Failed @ 13 Mar 2000 15:57:14
+# Sequence number = LN3963 -- Failed @ 13 Mar 2000 15:59:13
+# Sequence number = LN3971 -- Failed @ 13 Mar 2000 15:57:14
+# Sequence number = LN3979 -- Failed @ 13 Mar 2000 15:59:14
+# Sequence number = LN3987 -- Failed @ 13 Mar 2000 15:57:14
+# Sequence number = LN3997 -- Failed @ 13 Mar 2000 15:57:15 
+# Sequence number = LN4007 -- Failed @ 13 Mar 2000 15:57:16
+# Sequence number = LN4021 -- Failed @ 13 Mar 2000 15:57:16
+# Sequence number = LN4038 -- Failed @ 13 Mar 2000 15:57:17
+# Sequence number = LN4063 -- Failed @ 13 Mar 2000 15:57:18
+#
+# 12th wave, rpws = 1-ACE, x1-ACEx, 1-ACEx, x1-ACE, ECA-1, xECA-1x, ECA-1x,
+#                   xECA-1
+#  Job(s) submitted on Wed Mar 15 11:23:12 MST 2000
+Sequence number = LN6702 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:13
+Sequence number = LN6710 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:13
+Sequence number = LN6718 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:14
+Sequence number = LN6726 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:14
+Sequence number = LN6743 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:15
+Sequence number = LN6765 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:16
+Sequence number = LN6783 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:16
+Sequence number = LN6793 -- Rejected (nimbus login) @ 15 Mar 2000 11:23:17
+#
+# 13th wave,
+rpws = 1-ACE, x1-ACEx, 1-ACEx, x1-ACE, ECA-1, xECA-1x, ECA-1x,
+#                   xECA-1
+#  Job(s) submitted on Wed Mar 15 11:23:44 MST 2000
+Sequence number = LN6865 -- Failed @ 15 Mar 2000 11:23:46
+Sequence number = LN6873 -- Failed @ 15 Mar 2000 11:23:47
+Sequence number = LN6881 -- Failed @ 15 Mar 2000 11:23:47
+Sequence number = LN6889 -- Failed @ 15 Mar 2000 11:23:48
+Sequence number = LN6897 -- Failed @ 15 Mar 2000 11:23:48
+Sequence number = LN6906 -- Failed @ 15 Mar 2000 11:23:49
+Sequence number = LN6918 -- Failed @ 15 Mar 2000 11:23:49
+Sequence number = LN6929 -- Failed @ 15 Mar 2000 11:23:50
+#
+# 14th wave,
+#  Job(s) submitted on 
+#
+# 15th wave,
+#  Job(s) submitted on 
+#
+# 16th wave,
+#  Job(s) submitted on 
+#
+# 17th wave,
+#  Job(s) submitted on 
+#
+# 18th wave,
+#  Job(s) submitted on 
+#
+# 19th wave,
+#  Job(s) submitted on 
+#
+# 20th wave,
+#  Job(s) submitted on 
+#
+#  1st wave
+#  2nd wave
+#  3rd wave
+#   th wave
+#  Job(s) submitted on 
+#

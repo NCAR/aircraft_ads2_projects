@@ -1,0 +1,199 @@
+#! /bin/csh -f
+#
+#  Archive LRT production skeleton output files from RICO
+#  (These data were merged into the production LRT files.)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2005                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $LOCAL/proj/135/archads.135
+#   by Ron Ruth  17 June 1005
+#  Revised by RLR
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = PROD_SKEL
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+set SDIR = $PROD_DATA
+#set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#135skel01.nc \
+#135skel02.nc \
+#135skel03.nc \
+#135skel04.nc \
+#135skel05.nc \
+#135skel06.nc \
+#135skel07.nc \
+#135skel08.nc \
+#135skel09.nc \
+#135skel10.nc \
+#135skel11.nc \
+#135skel12.nc \
+#135skel13.nc \
+#135skel14.nc \
+#135skel15.nc \
+#135skel16.nc \
+#135skel17.nc \
+#135skel18.nc \
+#135skel19.nc \
+#135skelff02.nc \
+#135skelff05.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#FF02.nc \
+#FF05.nc \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+      echo "#                $TYPE/$DFILE: error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+    echo "#^G   Cannot access source file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2005/135/
+#
+#  1st wave
+#  21 Job(s) submitted on Fri Jun 17 15:25:29 MDT 2005
+#  msrcp job for PROD_SKEL/RF01.nc -- OK -- Fri Jun 17 15:25:36 MDT 2005
+#  msrcp job for PROD_SKEL/RF02.nc -- OK -- Fri Jun 17 15:25:41 MDT 2005
+#  msrcp job for PROD_SKEL/RF03.nc -- OK -- Fri Jun 17 15:25:47 MDT 2005
+#  msrcp job for PROD_SKEL/RF04.nc -- OK -- Fri Jun 17 15:25:52 MDT 2005
+#  msrcp job for PROD_SKEL/RF05.nc -- OK -- Fri Jun 17 15:25:57 MDT 2005
+#  msrcp job for PROD_SKEL/RF06.nc -- OK -- Fri Jun 17 15:26:03 MDT 2005
+#  msrcp job for PROD_SKEL/RF07.nc -- OK -- Fri Jun 17 15:26:08 MDT 2005
+#  msrcp job for PROD_SKEL/RF08.nc -- OK -- Fri Jun 17 15:26:13 MDT 2005
+#  msrcp job for PROD_SKEL/RF09.nc -- OK -- Fri Jun 17 15:26:19 MDT 2005
+#  msrcp job for PROD_SKEL/RF10.nc -- OK -- Fri Jun 17 15:26:24 MDT 2005
+#  msrcp job for PROD_SKEL/RF11.nc -- OK -- Fri Jun 17 15:26:29 MDT 2005
+#  msrcp job for PROD_SKEL/RF12.nc -- OK -- Fri Jun 17 15:26:36 MDT 2005
+#  msrcp job for PROD_SKEL/RF13.nc -- OK -- Fri Jun 17 15:26:41 MDT 2005
+#  msrcp job for PROD_SKEL/RF14.nc -- OK -- Fri Jun 17 15:26:46 MDT 2005
+#  msrcp job for PROD_SKEL/RF15.nc -- OK -- Fri Jun 17 15:26:52 MDT 2005
+#  msrcp job for PROD_SKEL/RF16.nc -- OK -- Fri Jun 17 15:26:57 MDT 2005
+#  msrcp job for PROD_SKEL/RF17.nc -- OK -- Fri Jun 17 15:27:02 MDT 2005
+#  msrcp job for PROD_SKEL/RF18.nc -- OK -- Fri Jun 17 15:27:08 MDT 2005
+#  msrcp job for PROD_SKEL/RF19.nc -- OK -- Fri Jun 17 15:27:13 MDT 2005
+#  msrcp job for PROD_SKEL/FF02.nc -- OK -- Fri Jun 17 15:27:18 MDT 2005
+#  msrcp job for PROD_SKEL/FF05.nc -- OK -- Fri Jun 17 15:27:23 MDT 2005
+#   Completed on Fri Jun 17 15:27:23 MDT 2005
+#
+#  2nd wave
+#
+#  3rd wave
+#
+#  4th wave
+#
+#   th wave
+#

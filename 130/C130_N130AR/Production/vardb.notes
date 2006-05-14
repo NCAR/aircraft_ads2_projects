@@ -1,0 +1,119 @@
+From allen@raf.atd.ucar.EDU Tue Oct 17 13:34 MDT 1995
+From: allen@raf.atd.ucar.EDU (Allen Schanot)
+Return-Path: <allen@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA23839; Tue, 17 Oct 1995 13:34:01 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA12570; Tue, 17 Oct 1995 13:34:00 -0600
+Message-Id: <199510171934.NAA12570@mistral.atd.ucar.edu>
+Subject: Re: Missing variables in VarDB for ACE-1
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 17 Oct 1995 13:34:00 -0600 (MDT)
+In-Reply-To: <199510171856.MAA00370@music.atd.ucar.edu> from "Ron Ruth" at Oct 17, 95 12:56:19 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 1530
+Status: RO
+
+Ron : Thanks for the heads up. See corrections below.>
+                                                                         Master
+Name        Units     Description                                         too?
+----------  -------- --------------------------------------------------  ------
+AZFLOW      Vdc      Univ. of Arizona Total Flow
+AZSAMP1     Vdc      Univ. of Arizona Sample 1 Flow
+AZSAMP2     Vdc      Univ. of Arizona Sample 2 Flow
+CNTEMP      C        CN Counter Inlet Temperature                          ML
+IMPFL       boolean  CLARKE Digital Status Word
+INFLOW      splm     C.A.I. Excess Flow                                    ML
+INPDIFF     mbar     C.A.I. Shroud Pressure Difference                     ML
+INPS1       mbar     C.A.I. Shroud Static Pressure                         ML
+INPS2       mbar     C.A.I. Sample Plain Static Pressure                   ML
+INQC1       mbar     C.A.I. Shroud Dynamic Pressure                        ML
+INQC2       mbar     C.A.I. Sample Plain Dynamic Pressure                  ML
+INTEMP      C        C.A.I. Sample Plain Temperature                       ML
+PLANTMP     C        Left Pod Temperature
+PLCPTMP     C        Left Pod Temperature
+PLSLTMP     C        Left Pod Temperature
+PLSRTMP     C        Left Pod Temperature
+H2O2
+INFLOWC
+INPWANT     mbar     C.A.I. Desired Inlet Differential Pressure            ML
+INTAS1      M/s      C.A.I. Shroud True Air Speed                          ML
+INTAS2      M/s      C.A.I. Sample Plain True Air Speed                    ML
+MHPEQ
+PERACAL See Greg Kok for next 6
+PERACOR
+PERAZRO
+PERBCAL
+PERBCOR
+PERBZRO
+ROOH
+
+There are lots of variables that have rather generic names:
+CAL1
+CAL2
+IMP1
+IMP2
+IMPTOT
+INFLOW
+INTEMP
+H2O2
+MANFOLD
+TRAP1
+TRAP2
+TRAP3
+XEXT
+I hate to see these, because it then becomes hard to define similar
+measurements later.  (On the other hand, I suppose it makes it easier
+for the users.)  I don't suppose there's much we can do about them now--
+just future food for thought.
+
+-- 
+Ron
+
+From greg@raf.atd.ucar.EDU Tue Jan 30 16:02 MST 1996
+From: greg@raf.atd.ucar.EDU (Greg Kok)
+Return-Path: <greg@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA27637; Tue, 30 Jan 1996 16:02:18 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA03425; Tue, 30 Jan 1996 16:02:17 -0700
+Message-Id: <199601302302.QAA03425@mistral.atd.ucar.edu>
+Subject: Re: ACE variable names
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 30 Jan 1996 16:02:17 -0700 (MST)
+In-Reply-To: <199601302130.OAA01170@music.atd.ucar.edu> from "Ron Ruth" at Jan 30, 96 02:30:11 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 963
+Status: RO
+
+> 
+> Greg,
+> 
+> Chris told me that you have the units and (long) descriptions for the
+> following ACE-1 variables (Please fill in the blanks.):
+> 
+>   Name        Units                           Description
+>   --------  --------  -------------------------------------------------------
+>   H2O2	ppbv	Hydrogen Peroxide, gas phase
+>   MHPEQ	ppbv	Methylhydroperoxide, equivalent
+>   PERACAL	ppbv	Total hydroperoxide, calibrated	
+>   PERACOR	Vdc 	Total hydroperoxide signal, baseline corrected
+>   PERAZRO	Vdc 	Total hydroperoxide zero baseline
+>   PERBCAL	ppbv	Catalase residual hydroperoxide, calibrated
+>   PERBCOR	Vdc 	Catalase residual hydroperoxide, baseline corrected
+>   PERBZRO	Vdc 	Catalase residual hydropoeroxide, zero baseline
+>   ROOH	ppbv	Organic hydroperoxide, gas phase
+> 
+> Thanks.
+> -- 
+> Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+> <ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+> 
+
+

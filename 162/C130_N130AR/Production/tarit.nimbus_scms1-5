@@ -1,0 +1,58 @@
+#! /bin/csh -f
+#
+#   Save present special version of the NIMBUS processor for SCMS RF01-RF05
+#     and its essential support files (in prepararation for archiving to the
+#     SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                        14 Mar 2001
+#  (adapted from the file usr/local/proj/archives/scripts/tarit.nimbus)
+#
+#  Note:  Run this script from a project's "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#        having a "Production" subdirectory;
+#   2.  Project's name (and only its name) is in the file
+#        $LOCAL/proj/<3-digit project #>/ProjectName;
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory;
+#   4.  The NIMBUS software is in the `nimbus' subdirectory of $LOCAL.
+#
+#  Get setup information for this project
+#set PROJ = `pwd | sed "s:^.*proj/::" | sed "s:/Production/archive::"`
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+set PRODDIR = $PROJDIR/Production
+set FY = `grep FY $PRODDIR/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PRODDIR/nimbus_scms1-5.tar"
+set DEFAULTS = $LOCAL/proj
+set ODFILE = "$PRODDIR/nimbus_defaults.tar"
+#
+#  Make the NIMBUS archive
+cd $LOCAL/dev
+# echo \
+tar chlvFFf $OFILE nimbus_scms1-5
+#
+#  Put tar directory list into a file
+set dfile = $PROJDIR/Production/nimbus_scms1-5.tar.dir
+echo " Directory list for file nimbus_scms1-5.tar" >! $dfile
+echo "  NIMBUS processor for project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+#  Make the support file archive
+cd $DEFAULTS
+# echo \
+tar chlvf $ODFILE defaults
+#
+#  Put tar directory list into a file
+set dfile = $PRODDIR/nimbus_defaults.tar.dir
+echo " Directory list for file nimbus_defaults.tar" >! $dfile
+echo "  NIMBUS support files for project $FY-$PROJ $PROJNAME" >> $dfile
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $ODFILE >> $dfile
+#
+exit

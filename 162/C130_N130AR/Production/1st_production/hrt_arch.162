@@ -1,0 +1,280 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output HRT files for 5-162 SCMS (Small Cumulus Microphysics Study) (Charlie Knight, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Thu Mar 28 09:26:24 MST 1996
+#  Subsequently adapted to archive more files by Ron Ruth, March & April 1996
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#`vi' commands for formatting the submit log at the end of this file:
+#  :'a,'bs/^/# 
+#  :'a,'bs/$/ -- -- 
+#
+date
+#
+set YEAR = 1995
+set PROJ = 162
+set SDIR = $PROD_DATA
+#
+#
+#set TURBRT = ORIGINAL/HRT
+#set TURBRT = HRT/PMS-1D
+#set TURBRT = HRT
+set rpw  = (See SCMS project notebook for proper READ password)
+#
+goto start
+#
+#   1st wave:  std original hrt files
+#echo nrnet msput $SDIR/162rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf05ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf05bh.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#    2nd wave:  Std Original HRT/PMS-1D files (protected)
+#set TURBRT = HRT/PMS-1D
+#echo nrnet msput $SDIR/162rf01hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf02hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf03hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#    2nd wave:  Production output HRT files (public access)
+#set TURBRT = HRT
+#echo nrnet msput $SDIR/162rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#    3rd wave:    Std Original HRT files
+#set TURBRT = ORIGINAL/HRT
+#echo nrnet msput $SDIR/162rf05ha.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf05hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#    3rd wave:  Std Original HRT/PMS-1D files (protected)
+#set TURBRT = HRT/PMS-1D
+#echo nrnet msput $SDIR/162rf04hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf05haprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf05hbprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#    3rd wave:  Production output HRT files (public access)
+#set TURBRT = HRT
+#echo nrnet msput $SDIR/162rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#    4th wave:  Std Original HRT/PMS-1D files (protected)
+#set TURBRT = HRT/PMS-1D
+#echo nrnet msput $SDIR/162rf06hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf07hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#    4th wave:  Production output HRT files (public access)
+#set TURBRT = HRT
+#echo nrnet msput $SDIR/162rf05ha.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf05hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#    5th wave:  Std Original HRT files (protected)
+#set TURBRT = ORIGINAL/HRT
+#echo nrnet msput $SDIR/162rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf11h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#    5th wave:  Std Original HRT/PMS-1D files (protected)
+#set TURBRT = HRT/PMS-1D
+#echo nrnet msput $SDIR/162rf08hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf09hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf10hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf11hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#    6th wave:  Production output HRT files (public access)
+set TURBRT = HRT
+#echo nrnet msput $SDIR/162rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#echo nrnet msput $SDIR/162rf11h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#    7th wave  Std Original HRT files (protected):
+set TURBRT = ORIGINAL/HRT
+#echo nrnet msput $SDIR/162rf12h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf14h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf15h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#    7th wave:  Std Original HRT/PMS-1D files (protected)
+set TURBRT = HRT/PMS-1D
+#echo nrnet msput $SDIR/162rf12hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf14hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#echo nrnet msput $SDIR/162rf15hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#    8th wave:  Production output HRT files (public access)
+set TURBRT = HRT
+echo nrnet msput $SDIR/162rf12h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf14h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf15h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#    9th wave  Std Original HRT files (protected):
+set TURBRT = ORIGINAL/HRT
+echo nrnet msput $SDIR/162rf16h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf17h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf18h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#    9th wave:  Std Original HRT/PMS-1D files (protected)
+set TURBRT = HRT/PMS-1D
+echo nrnet msput $SDIR/162rf16hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf17hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf18hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#   10th wave  Std Original HRT files (protected):
+set TURBRT = ORIGINAL/HRT
+echo nrnet msput $SDIR/162rf20h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#   10th wave:  Std Original HRT/PMS-1D files (protected)
+set TURBRT = HRT/PMS-1D
+echo nrnet msput $SDIR/162rf20hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#   10th wave:  Production output HRT files (public access)
+set TURBRT = HRT
+echo nrnet msput $SDIR/162rf16h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf17h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf18h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#   11th wave  Std Original HRT files (protected):
+set TURBRT = ORIGINAL/HRT
+echo nrnet msput $SDIR/162rf13ha.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf13hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf19h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41119009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#   11th wave:  Std Original HRT/PMS-1D files (protected)
+set TURBRT = HRT/PMS-1D
+echo nrnet msput $SDIR/162rf13haprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf13hbprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+echo nrnet msput $SDIR/162rf19hprb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#   12th wave  Std Original HRT files (protected):
+set TURBRT = ORIGINAL/HRT
+echo nrnet msput $SDIR/162rf19h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG r=$rpw
+#
+#   13th wave:  Production output HRT files (public access)
+set TURBRT = HRT
+echo nrnet msput $SDIR/162rf13ha.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf13hb.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf19h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf20h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+start:
+#
+exit
+#
+#
+#   M S S   A R C H I V E   L O G
+#
+#   1st wave
+#  Job(s) submitted on Thu Mar 28 10:45:09 MST 1996
+# Sequence number = MI9338 -- ORIGINAL/HRT/RF01.cdf -- OK @ 28 Mar 1996 11:40:25
+# Sequence number = MI9345 -- ORIGINAL/HRT/RF02.cdf -- OK @ 28 Mar 1996 11:32:38
+# Sequence number = MI9352 -- ORIGINAL/HRT/RF03.cdf -- OK @ 28 Mar 1996 11:53:52
+# Sequence number = MI9359 -- ORIGINAL/HRT/RF04.cdf -- OK @ 28 Mar 1996 11:46:44
+# Sequence number = MI9366 -- ORIGINAL/HRT/RF05.cdf -- Failed (file too large)
+# Sequence number = MI9375 -- ORIGINAL/HRT/RF06.cdf -- OK @ 28 Mar 1996 12:25:19
+# Sequence number = MI9384 -- ORIGINAL/HRT/RF07.cdf -- OK @ 28 Mar 1996 11:47:35
+#
+#   2nd wave
+#  Job(s) submitted on Wed Apr  3 14:41:06 MST 1996
+# Sequence number = MI4432 -- HRT/PMS-1D/RF02.cdf -- OK @ 3 Apr 1996 14:49:52
+# Sequence number = MI4439 -- HRT/PMS-1D/RF03.cdf -- OK @ 3 Apr 1996 15:15:48
+# Sequence number = MI4446 -- HRT/RF02.cdf -- OK @ 3 Apr 1996 15:24:32
+# Sequence number = MI4453 -- HRT/RF03.cdf -- OK @ 3 Apr 1996 15:13:07
+#
+#  Job(s) submitted on Wed Apr  3 14:58:37 MST 1996
+# Sequence number = MI4490 -- HRT/PMS-1D/RF01.cdf -- OK @ 3 Apr 1996 15:15:24
+# Sequence number = MI4497 -- HRT/RF01.cdf -- OK @ 3 Apr 1996 15:28:14
+#
+#   3rd wave
+#  Job(s) submitted on Thu Apr  4 13:26:24 MST 1996
+# Sequence number = MI4865 -- ORIGINAL/HRT/RF05A.cdf -- OK @ 4 Apr 1996 13:44:07
+# Sequence number = MI4872 -- ORIGINAL/HRT/RF05B.cdf -- OK @ 4 Apr 1996 13:41:32
+# Sequence number = MI4880 -- HRT/PMS-1D/RF04.cdf -- OK @ 4 Apr 1996 13:35:47
+# Sequence number = MI4887 -- HRT/PMS-1D/RF05A.cdf -- OK @ 4 Apr 1996 13:32:50
+# Sequence number = MI4896 -- HRT/PMS-1D/RF05B.cdf -- OK @ 4 Apr 1996 13:37:10
+# Sequence number = MI4903 -- HRT/RF04.cdf -- OK @ 4 Apr 1996 13:51:30
+#
+#   4th wave
+#  Job(s) submitted on Thu Apr  4 14:38:18 MST 1996
+# Sequence number = MI4968 -- HRT/PMS-1D/RF06.cdf -- OK @ 4 Apr 1996 14:41:44
+# Sequence number = MI4975 -- HRT/PMS-1D/RF07.cdf -- OK @ 4 Apr 1996 14:39:16
+# Sequence number = MI4982 -- HRT/RF05A.cdf -- OK @ 4 Apr 1996 15:04:16
+# Sequence number = MI4991 -- HRT/RF05B.cdf -- OK @ 4 Apr 1996 15:01:13
+# Sequence number = MI4998 -- HRT/RF06.cdf -- OK @ 4 Apr 1996 15:10:25
+# Sequence number = MI5005 -- HRT/RF07.cdf -- OK @ 4 Apr 1996 14:56:59
+# 
+#   5th wave
+#  Job(s) submitted on Fri Apr  5 15:29:27 MST 1996
+# Sequence number = MI5588 -- ORIGINAL/HRT/RF08.cdf -- OK @ 5 Apr 1996 15:55:12
+# Sequence number = MI5595 -- ORIGINAL/HRT/RF09.cdf -- OK @ 5 Apr 1996 15:47:38
+# Sequence number = MI5602 -- ORIGINAL/HRT/RF10.cdf -- OK @ 5 Apr 1996 15:49:25
+# Sequence number = MI5609 -- ORIGINAL/HRT/RF11.cdf -- OK @ 5 Apr 1996 15:59:03
+# Sequence number = MI5616 -- HRT/PMS-1D/RF08.cdf -- OK @ 5 Apr 1996 15:51:55
+# Sequence number = MI5623 -- HRT/PMS-1D/RF09.cdf -- OK @ 5 Apr 1996 15:51:43
+# Sequence number = MI5630 -- HRT/PMS-1D/RF10.cdf -- OK @ 5 Apr 1996 15:59:38
+# Sequence number = MI5637 -- HRT/PMS-1D/RF11.cdf -- OK @ 5 Apr 1996 15:59:21
+# 
+#   6th wave
+#  Job(s) submitted on Mon Apr  8 10:08:56 MDT 1996
+# Sequence number = MI8795 -- HRT/RF08.cdf -- OK @ 8 Apr 1996 10:38:58
+# Sequence number = MI8802 -- HRT/RF09.cdf -- OK @ 8 Apr 1996 10:32:52
+# Sequence number = MI8809 -- HRT/RF10.cdf -- OK @ 8 Apr 1996 10:35:06
+# Sequence number = MI8816 -- HRT/RF11.cdf -- OK @ 8 Apr 1996 10:49:45
+# 
+#   7th wave
+#  Job(s) submitted on Mon Apr  8 15:38:35 MDT 1996
+# Sequence number = MI4357 -- ORIGINAL/HRT/RF12.cdf -- OK @ 8 Apr 1996 16:16:34
+# Sequence number = MI4365 -- ORIGINAL/HRT/RF14.cdf -- OK @ 8 Apr 1996 16:12:42
+# Sequence number = MI4384 -- ORIGINAL/HRT/RF15.cdf -- OK @ 8 Apr 1996 15:57:20
+# Sequence number = MI4402 -- HRT/PMS-1D/RF12.cdf -- OK @ 8 Apr 1996 15:47:27
+# Sequence number = MI4431 -- HRT/PMS-1D/RF14.cdf -- OK @ 8 Apr 1996 15:53:44
+# Sequence number = MI4461 -- HRT/PMS-1D/RF15.cdf -- OK @ 8 Apr 1996 15:57:29
+# 
+#   8th wave
+#  Job(s) submitted on Tue Apr  9 10:24:39 MDT 1996
+# Sequence number = MI7931 -- HRT/RF12.cdf -- OK @ 9 Apr 1996 10:49:30
+# Sequence number = MI7938 -- HRT/RF14.cdf -- OK @ 9 Apr 1996 11:02:46
+# Sequence number = MI7945 -- HRT/RF15.cdf -- OK @ 9 Apr 1996 10:34:02
+# 
+#   9th wave
+#  Job(s) submitted on Tue Apr  9 15:01:58 MDT 1996
+# Sequence number = MI9689 -- ORIGINAL/HRT/RF16.cdf -- OK @ 9 Apr 1996 15:29:37
+# Sequence number = MI9697 -- ORIGINAL/HRT/RF17.cdf -- OK @ 9 Apr 1996 15:26:12
+# Sequence number = MI9704 -- ORIGINAL/HRT/RF18.cdf -- OK @ 9 Apr 1996 15:13:24
+# Sequence number = MI9711 -- HRT/PMS-1D/RF16.cdf -- OK @ 9 Apr 1996 15:06:32
+# Sequence number = MI9720 -- HRT/PMS-1D/RF17.cdf -- OK @ 9 Apr 1996 15:14:08
+# Sequence number = MI9727 -- HRT/PMS-1D/RF18.cdf -- OK @ 9 Apr 1996 15:15:36
+# 
+#  10th wave
+#  Job(s) submitted on Tue Apr  9 16:40:24 MDT 1996
+# Sequence number = MI4356 -- ORIGINAL/HRT/RF20.cdf -- OK @ 9 Apr 1996 16:50:09
+# Sequence number = MI4366 -- HRT/PMS-1D/RF20.cdf -- OK @ 9 Apr 1996 16:41:54
+# Sequence number = MI4374 -- HRT/RF16.cdf -- OK @ 9 Apr 1996 17:24:04
+# Sequence number = MI4381 -- HRT/RF17.cdf -- OK @ 9 Apr 1996 17:20:02
+# Sequence number = MI4388 -- HRT/RF18.cdf -- OK @ 9 Apr 1996 17:04:08
+# 
+#  11th wave
+#  Job(s) submitted on Wed Apr 10 10:30:09 MDT 1996
+# Sequence number = MI7065 -- ORIGINAL/HRT/RF13A.cdf - OK @ 10 Apr 1996 10:58:06
+# Sequence number = MI7072 -- ORIGINAL/HRT/RF13B.cdf - OK @ 10 Apr 1996 10:55:25
+# Sequence number = MI7079 -- ORIGINAL/HRT/RF19.cdf -- Failed* 10 Apr 1996 10:51
+# Sequence number = MI7086 -- HRT/PMS-1D/RF13A.cdf -- OK @ 10 Apr 1996 10:33:45
+# Sequence number = MI7093 -- HRT/PMS-1D/RF13B.cdf -- OK @ 10 Apr 1996 10:38:02
+# Sequence number = MI7100 -- HRT/PMS-1D/RF19.cdf -- OK @ 10 Apr 1996 10:41:48
+#  * Failure due to editing error giving job an invalid Project number
+# 
+#  12th wave
+#  Job(s) submitted on Wed Apr 10 11:06:36 MDT 1996
+# Sequence number = MI7116 -- ORIGINAL/HRT/RF19.cdf - OK @ 10 Apr 1996 11:14:17
+#  
+#  13th wave
+#  Job(s) submitted on Wed Apr 10 13:26:00 MDT 1996
+# Sequence number = MI3828 -- HRT/RF13A.cdf -- OK @ 10 Apr 1996 13:44:46
+# Sequence number = MI3841 -- HRT/RF13B.cdf -- OK @ 10 Apr 1996 13:42:41
+# Sequence number = MI3849 -- HRT/RF19.cdf -- OK @ 10 Apr 1996 13:46:43
+# Sequence number = MI3856 -- HRT/RF20.cdf -- OK @ 10 Apr 1996 13:33:37
+#  

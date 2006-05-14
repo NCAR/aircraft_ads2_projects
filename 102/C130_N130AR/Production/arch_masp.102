@@ -1,0 +1,301 @@
+#! /bin/csh -f
+#
+#  Archive stripped MASP data files for 1999-102 INDOEX
+#   (Done one file at a time to keep from overloading the network)
+#
+#  File adapted from file /home/local/proj/101/Production/arch_mcr.102
+#    by Ron Ruth  12 April 1999
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set YEAR = 1999
+set PROJ = 102
+#set SDIR = $TEMP
+#set SDIR = /home/staticdata
+set SDIR = $DATA_DIR
+set TURBRT = MASP
+#
+#  1st wave
+#set SFILES = ( \
+#102rf01a.MASP \
+#102rf01b.MASP \
+#)
+#set DFILES = ( \
+#RF01A \
+#RF01B \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#102rf02.MASP \
+#)
+#set DFILES = ( \
+#RF02 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#102rf03.MASP \
+#)
+#set DFILES = ( \
+#RF03 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#102rf04.MASP \
+#)
+#set DFILES = ( \
+#RF04 \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#102rf05.MASP \
+#)
+#set DFILES = ( \
+#RF05 \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#102rf06.MASP \
+#)
+#set DFILES = ( \
+#RF06A \
+#)
+#
+#  7th wave
+#set SFILES = ( \
+#102rf07.MASP \
+#)
+#set DFILES = ( \
+#RF07 \
+#)
+#
+#  8th wave
+#set SFILES = ( \
+#102rf08.MASP \
+#)
+#set DFILES = ( \
+#RF08 \
+#)
+#
+#  9th wave
+#set SFILES = ( \
+#102rf09a.MASP \
+#)
+#set DFILES = ( \
+#RF09A \
+#)
+#
+# 10th wave
+#set SFILES = ( \
+#102rf09b.MASP \
+#)
+#set DFILES = ( \
+#RF09B \
+#)
+#
+# 11th wave
+#set SFILES = ( \
+#102rf10.MASP \
+#)
+#set DFILES = ( \
+#RF10 \
+#)
+#
+# 12th wave
+#set SFILES = ( \
+#102rf12.MASP \
+#)
+#set DFILES = ( \
+#RF12 \
+#)
+#
+# 13th wave
+#set SFILES = ( \
+#102rf13.MASP \
+#)
+#set DFILES = ( \
+#RF13 \
+#)
+#
+# 14th wave
+#set SFILES = ( \
+#102rf14.MASP \
+#)
+#set DFILES = ( \
+#RF14 \
+#)
+#
+# 15th wave
+#set SFILES = ( \
+#102rf15a.MASP \
+#)
+#set DFILES = ( \
+#RF15A \
+#)
+#
+# 16th wave
+#set SFILES = ( \
+#102rf15b.MASP \
+#)
+#set DFILES = ( \
+#RF15B \
+#)
+#
+# 17th wave
+#set SFILES = ( \
+#102rf16a.MASP \
+#)
+#set DFILES = ( \
+#RF16A \
+#)
+#
+# 18th wave
+#set SFILES = ( \
+#102rf16b.MASP \
+#)
+#set DFILES = ( \
+#RF16B \
+#)
+#
+# 19th wave
+#set SFILES = ( \
+#102rf16c.MASP \
+#)
+#set DFILES = ( \
+#RF16C \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1999/102/
+#
+#  1st wave
+#  Job(s) submitted on Mon Apr 12 15:36:03 MDT 1999
+# Sequence number = MI5329 -- MASP/RF01A -- OK @ 12 Apr 1999 15:36:36
+# Sequence number = MI5336 -- MASP/RF01B -- OK @ 12 Apr 1999 15:37:13
+#
+#  2nd wave
+#  Job(s) submitted on Tue Apr 13 16:08:58 MDT 1999
+# Sequence number = MI8942 -- MASP/RF02 -- OK @ 13 Apr 1999 16:09:08
+#
+#  3rd wave
+#  Job(s) submitted on Wed Apr 14 13:24:55 MDT 1999
+# Sequence number = MI0357 -- MASP/RF03 -- OK @ 14 Apr 1999 13:31:51
+#
+#  4th wave
+#  Job(s) submitted on Fri Apr 16 11:51:39 MDT 1999
+# Sequence number = MI4136 -- MASP/RF04 -- OK @ 16 Apr 1999 12:05:12
+#
+#  5th wave
+#  Job(s) submitted on Mon Apr 19 15:35:48 MDT 1999
+# Sequence number = MI6821 -- MASP/RF05 -- OK @ 19 Apr 1999 15:50:53
+#
+#  6th wave
+#  Job(s) submitted on Tue Apr 20 13:23:57 MDT 1999
+# Sequence number = MI2367 -- MASP/RF06A -- OK @ 20 Apr 1999 13:26:02
+#
+#  7th wave
+#  Job(s) submitted on Wed Apr 21 12:30:16 MDT 1999
+# Sequence number = MI9600 -- MASP/RF07 -- OK @ 21 Apr 1999 12:31:31
+#
+#  8th wave
+#  Job(s) submitted on Fri Apr 23 16:46:10 MDT 1999
+# Sequence number = MI2563 -- MASP/RF08 -- OK @ 23 Apr 1999 16:49:51
+#
+#  9th wave
+#  Job(s) submitted on Mon Apr 26 12:47:25 MDT 1999
+# Sequence number = MI9961 -- MASP/RF09A -- OK @ 26 Apr 1999 12:48:28
+#
+# 10th wave
+#  Job(s) submitted on Mon Apr 26 16:02:54 MDT 1999
+# Sequence number = MI1582 -- MASP/RF09B -- OK @ 26 Apr 1999 16:03:20
+#
+# 11th wave
+#  Job(s) submitted on Tue Apr 27 11:19:17 MDT 1999
+# Sequence number = MI3462 -- MASP/RF10 -- OK @ 27 Apr 1999 11:20:35
+#
+# 12th wave
+#  Job(s) submitted on Thu Apr 29 11:04:55 MDT 1999
+# Sequence number = MI4151 -- MASP/RF12 -- OK @ 29 Apr 1999 11:18:00
+#
+# 13th wave
+#  Job(s) submitted on Thu Apr 29 16:52:55 MDT 1999
+# Sequence number = MI0721 -- MASP/RF13 -- OK @ 29 Apr 1999 16:54:16
+#
+# 14th wave
+#  Job(s) submitted on Mon May  3 13:02:46 MDT 1999
+# Sequence number = MI2588 -- MASP/RF14 -- OK @ 3 May 1999 13:23:08
+#
+# 15th wave
+#  Job(s) submitted on Tue May  4 11:22:30 MDT 1999
+# Sequence number = MI1826 -- MASP/RF15A -- OK @ 4 May 1999 11:27:17
+#  Job(s) submitted on Tue May  4 11:28:28 MDT 1999
+# Sequence number = MI1932 -- MASP/RF15A -- OK @ 4 May 1999 11:33:11
+#
+# 16th wave
+#  Job(s) submitted on Tue May  4 11:43:15 MDT 1999
+# Sequence number = MI2145 -- MASP/RF15B -- OK @ 4 May 1999 11:43:32
+#
+# 17th wave
+#  Job(s) submitted on Wed May  5 11:09:34 MDT 1999
+# Sequence number = MI9340 -- MASP/RF16A -- OK @ 5 May 1999 11:10:10
+#
+# 18th wave
+#  Job(s) submitted on Wed May  5 11:10:05 MDT 1999
+# Sequence number = MI9364 -- MASP/RF16B -- OK @ 5 May 1999 11:12:15
+#
+# 19th wave
+#  Job(s) submitted on Wed May  5 11:12:35 MDT 1999
+# Sequence number = MI9388 -- MASP/RF16C -- OK @ 5 May 1999 11:13:18
+#
+#   th wave
+#  Job(s) submitted on 
+#

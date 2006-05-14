@@ -1,0 +1,37 @@
+#
+#  Commands to convert Bruce Gandrud's LH data files to a format
+#   that "asc2cdf" can use.
+#  Ron Ruth  1 December 2K
+#
+#  Substitute <space> for all <tab> characters
+:%s/<tab>/ /g
+#
+#  Convert time data (first step)
+:'a,'bs#\(..\).....\(..\).....\(..\)...........#\1:\2:\3  #
+     :s#\(..\).....\(..\).....\(..\)...........#\1:\2:\3  #
+
+||||||||||0.||0000 ||28||.000 ||1.||0000 1681.0|| 9.1548
+0.0000 28.000 1.0000 1681.0 9.1548
+00:28:01   091548
+
+#  Convert time data (second step)
+:'a,'bs#\(.\)\.#0\1#g
+     :s#\(.\)\.#0\1#g
+
+#  Convert time data (third step)
+:'a,'bs#0\([0-9]\)\([0-9][0-9]*\)$#\1.\2
+     :s#0\([0-9]\)\([0-9][0-9]*\)$#\1.\2
+
+#
+#         netCDF        netCDF                    Gandrud      Gandrud
+#         base time     start                     start        base time
+#  rf01 = 966279981 --> 19:06:21  Gandrud start = 19:16:36 --> 966279996
+#  rf02 = 966471976 --> 00:26:16  Gandrud start = 00:28:01 --> 966472081
+#  rf03 = 966560249 --> 00:57:29  Gandrud start = 01:12:48 --> 966561168
+#  rf04 = 966646698 --> 00:58:18  Gandrud start = 01:48:54 --> 966649734
+#  rf05 = 966819554 --> 00:59:14  Gandrud start = 01:14:15 --> 966820455
+#  rf06 = 966904676 --> 00:37:56  Gandrud start = 01:10:43 --> 966906643
+#  rf07 = 967166839 --> 01:27:19  Gandrud start = 02:10:40 --> 967169440
+#  ff02 = not processed           Gandrud start = 16:20:42
+#  ff02 = 967166839 + 24*3600 + (- 01:27:19     + 16:20:42)--> 967306842
+#

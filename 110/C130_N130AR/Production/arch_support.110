@@ -1,0 +1,102 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 1996-110 Coastally Trapped Waves
+#  Revision for reprocess  16 December 1996
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (debug)                                           16 Apr 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PDIR = $LOCAL/proj/$PROJ
+set PRDIR = $PDIR/Production
+cd $PDIR
+#
+set YEAR = `grep FY Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat ProjectName`
+#
+date
+#
+#  Current archive (nrnet) commands go here
+set DIR = $PRDIR
+#
+#  These were done previously.
+#set FILES = (110.tar 110.tar.dir 110_QA.txt MSCP_out.110 nimbus.tar \
+#  nimbus.tar.dir nimbus_defaults.tar nimbus_defaults.tar.dir taplog.110 )
+#
+#  These reflect the reprocessing that was done.
+set FILES = (110.tar 110.tar.dir nimbus.tar \
+  nimbus.tar.dir nimbus_defaults.tar nimbus_defaults.tar.dir taplog.110 )
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+set IFILE = 110rf01.hdr
+set OFILE = RF01.hdr
+set TURBRATE = LRT
+#
+echo \
+  nrnet msput $DIR/$IFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRATE/$OFILE \
+    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set IFILE = 110rf01h.hdr
+set OFILE = RF01.hdr
+set TURBRATE = HRT
+#
+echo \
+  nrnet msput $DIR/$IFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRATE/$OFILE \
+    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+#  Job(s) submitted on Fri Sep  6 17:32:59 MDT 1996
+# Sequence number = MI1310 -- 110_QA.txt -- OK @ 6 Sep 1996 17:37:46
+# Sequence number = MI1317 -- MSCP_out.110 -- OK @ 6 Sep 1996 17:37:00
+# Sequence number = MI1359 -- tapes.110 -- OK @ 6 Sep 1996 17:42:35
+#
+#  Job(s) submitted on Mon Dec 16 16:57:29 MST 1996
+# Sequence number = MI1990 -- 110.tar -- OK @ 16 Dec 1996 17:10:05
+# Sequence number = MI1997 -- 110.tar.dir -- OK @ 16 Dec 1996 17:14:16
+# Sequence number = MI2004 -- nimbus.tar -- OK @ 16 Dec 1996 17:01:38
+# Sequence number = MI2011 -- nimbus.tar.dir -- OK @ 16 Dec 1996 17:08:50
+# Sequence number = MI2018 -- nimbus_defaults.tar -- OK @ 16 Dec 1996 17:09:37
+# Sequence number = MI2025 -- nimbus_defaults.tar.dir--OK @ 16 Dec 1996 17:01:35
+# Sequence number = MI2032 -- taplog.110 -- OK @ 16 Dec 1996 17:07:29
+# Sequence number = MI2039 -- LRT/RF01.hdr -- OK @ 16 Dec 1996 17:08:22
+# Sequence number = MI2046 -- HRT/RF01.hdr -- OK @ 16 Dec 1996 17:01:14
+#

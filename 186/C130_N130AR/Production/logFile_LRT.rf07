@@ -1,0 +1,25 @@
+PELTI - 186, Flight rf07
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /usr/local/proj/186/Production/Flight_rf04
+LoadSetup: can't find PSPSQSH.
+Processed on: Sep 18 19:13 UTC 2000
+Flight Date: 07/19/2000
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 20 seconds ending @ 14:47:12, filling in with MISSING_VALUE.
+Time interval(s) completed : 14:45:36-20:07:02
+ACINS: 1 spikes removed with slope exceeding 4.000000
+PSFRD: 1 spikes removed with slope exceeding 20.000000
+THDG: 3 spikes removed with slope exceeding 0.300000
+Processing took 2.6 minutes.

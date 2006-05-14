@@ -1,0 +1,10 @@
+This set of files was tarred on 8 December during production processing.
+Flights processed using this version of NIMBUS may be limited but probably
+include RF01 through RF08 and may include RF08 and RF09.  Chris was releasing
+new versions of NIMBUS during the production processing after Krista found
+bugs relating to turning off "first" measurements (like VLA, MRLA and PLWCC)
+when only the second ones (VLA1, MRLA1 and PLWCC1) were desired.  Krista
+chose to output all of them to alleviate the problem.  The changes should
+not affect any data.
+
+Ron Ruth  11 December 1998

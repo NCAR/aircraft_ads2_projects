@@ -1,0 +1,125 @@
+
+
+	Summary of Calibration Factors
+NCAR C-130 - Project #0-143    
+      TOPSE   
+   Atlas et al 
+ 
+
+
+
+Pre-Calibration -  1/10/00
+Param
+         Variable                    Name      C1        C2       C3 
+Dynamic Pressure-Fuselage (mb)	QCF	  86.750	   8.622   .0012
+Dynamic Pressure-Radome (mb)	QCR	  85.574	   8.626	-.0031
+Total Temperature-Radome Right (oC)	TTRR	  -1.915	   5.978	 .0001
+Total Temperature-Radome Left (oC)	TTRL	  -3.050	   6.023	 .0035
+Total Temperature:Heated- Wing (oC)  TTWH     -0.476     6.146  -.0064
+Remote Surface Temp. Bot. (oC) 	RSTB    -52.720    10.111   .0000
+Remote Surface Temp.-Bot. (oC) 	RSTB1   -53.450    10.238  -.0037
+Downward Shortwave Irrad. (W/m2)	SWT    3055.200	 301.976  -.4761
+Upward Shortwave Irrad. (W/m2)	SWB    3597.500	 453.305	9.8773
+Downward Infrared Irrad. (W/m2)      IRT	 257.000   139.453  -.0619
+Upward Infrared Irrad. (W/m2)        IRB	 308.700	 136.655  -.2717
+Downward Ultraviolet Irrad. (W/m2)	UVT      36.750	   3.702	 .0008
+Upward Ultraviolet Irrad. (W/m2)	UVB      37.200	   3.703	-.0015
+Dew Point Temperature-Bottom (oC)	DPB	  -1.000	  10.003	-.0024
+Dew Point Temperature-Top (oC)	DPT	  -1.260	   9.991	-.0014
+Vertical Press. Diff. Radome (mb)	ADIFR	   0.172     5.150	-.0050
+Horizontal Press. Diff. Radome(mb) 	BDIFR	  -0.065     5.131   .0010
+Cabin Pressure (mb)                  PCAB     -2.430   109.344  -.0797
+CN Inlet Pressure (mb)               PCN     541.200    54.195  -.0048
+CN Flow Rate (slpm)	FCN	   0.022	   0.198   .0000
+
+
+
+Calibration Summary
+page 2
+
+
+
+Post Calibration - 5/01/00
+Param
+         Variable                    Name      C1        C2       C3__
+Dynamic Pressure-Fuselage (mb)	QCF	  86.836     8.629  -.0010
+Dynamic Pressure-Radome (mb)	QCR	  83.488	   8.713	 .2199
+Total Temperature-Radome Right (oC)	TTRR+	  -0.623	   5.999	-.0034
+Total Temperature-Radome Left (oC)	TTRL+    -0.678	   6.065	-.0032
+Total Temperature:Heated- Wing (oC)  TTWH     -0.497     6.167  -.0061
+Remote Surface Temp: Bot. (oC)       RSTB    -52.990    10.648	-.0314
+Remote Surface Temp: Bot. (oC) 	RSTB1   -52.221    10.500  -.0248
+Downward Shortwave Irrad. (W/m2)	SWT    3086.400	 316.714	 .8373
+Upward Shortwave Irrad. (W/m2)	SWB    3106.700	 311.893	 .0735
+Downward Infrared Irrad. (W/m2)      IRT 	 261.970   139.453  -.0619
+Upward Infrared Irrad. (W/m2)        IRB 	 309.200	 141.385	 .0625
+Downward Ultraviolet Irrad. (W/m2)	UVT      36.800	   3.699	 .0005
+Upward Ultraviolet Irrad. (W/m2)	UVB      30.900	   3.090	 .0003
+Dew Point Temperature-Bottom (oC)	DPB	   0.027	  10.054	-.0004
+Dew Point Temperature-Top (oC)	DPT 	  -0.390	   9.959	 .0832
+Vertical Press. Diff. Radome (mb)	ADIFR	   0.076     5.196	-.0010
+Horizontal Press. Diff. Radome(mb) 	BDIFR	  -0.069     5.200   .0013
+Cabin Pressure (mb)                  PCAB     -3.135   109.377  -.0817
+CN Inlet Pressure (mb)               PCN     541.200    54.245  -.0069
+
+
+*  Differences between the Pre- and Post-Calibrations were generally 
+within acceptable levels, thus indicating generally stable response. Except for the channels indicated, Pre-Project calibrations have been used in the final data processing. In the case of the reference Heimann remote temperature sensor (RSTB1), it was necessary to apply a third order calibration factor to achieve the best results.
+
++  Certain sensors had to be replaced during the course of the experiment.  Post Calibration coefficients were used from the point of the exchange to the end of the project.
+
+
+Calibration Manuevers - 02/21/00, 04/30/00           
+
+     RAF uses sets of in-flight maneuvers specifically designed to help evaluate the performance of the 3-D wind measurement system on the aircraft.  Sets of maneuvers were flown on one early test flight and one of the research flights: RF04, RF26, respectively.  In each case the variations observed fell within acceptable limits.  
+
+
+
+
+
+
+
+
+PMS - 1-D Probe Bin Sizes
+
+     The FSSP100, FSSP300, PCASP, and 260X 1-D probes were used on the project.  The minimum droplet size (microns) for each sampling bin are listed below:
+
+ FSSP100		        			
+(Range 0)		 FSSP300 		 PCASP  
+
+bin#1 		 5.60 um		 0.30 um		 0.10 um
+bin#2		 	 7.90		 0.35		 0.14
+bin#3			10.10		 0.40		 0.17
+bin#4			12.50		 0.45		 0.21
+bin#5			15.00		 0.50		 0.25
+bin#6			18.00		 0.55		 0.31
+bin#7			22.10		 0.60		 0.35
+bin#8			26.30		 0.68		 0.39
+bin#9			30.40		 0.75		 0.44
+bin#10		34.50		 0.89		 0.61
+bin#11		38.50		 1.00		 0.84
+bin#12		42.60		 1.07		 1.16
+bin#13		46.70		 1.22		 1.47
+bin#14		51.00		 1.35		 1.79
+bin#15		55.00		 1.45		 2.10
+bin#16					 1.56
+bin#17					 2.00
+bin#18					 2.70
+bin#19					 3.40
+bin#20					 4.05
+bin#21					 4.75
+bin#22					 5.55
+bin#23					 6.40
+bin#24					 7.30
+bin#25					 8.15
+bin#26					 9.05
+bin#27					 9.90 
+bin#28					11.50
+bin#29					13.90
+bin#30					16.35
+bin#31					18.75
+bin#32					30.00
+
+The 260X probe provides measurements for 64 bins of 10 um each.  Air
+seed limitations place the initial sizing threshold at 50 um.
+

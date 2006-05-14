@@ -1,0 +1,230 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1995-162 SCMS (Knight, Smith)
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1995
+set PROJ = 162
+#
+#  Current
+#set STAGES = "skpr=0"
+#set STAGES = "skpr=15000"
+#set STAGES = "skpr=30000"
+#set STAGES = "skpr=45000"
+#set STAGED = "nrec=15000"
+#set STAGED = "nfile=1"
+#
+#  Obsolete
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+#
+# First set, first try
+#set TAPES =   ( R0993     R0994     R0995     R0996     R0997     R0998     \
+#                R0999        )
+#set FLIGHTS = ( FF01A     FF01B     RF01      RF02      RF03      RF04      \
+#                RF05A        )
+#set STAGES =  ( " "       " "       " "       " "       " "       " "       \
+#                " "          )
+#set STAGED =  ( "nfile=1" "nfile=1" "nfile=1" "nfile=1" "nfile=1" "nfile=1" \
+#                 "nrec=20000" )
+#
+# First set, second try
+#set TAPES   = ( R0993        R0993        R0993        R0999        R0999    )
+#set FLIGHTS = ( FF01AA       FF01AB       FF01AC       RF05A        RF05B    )
+#set STAGES  = ( "skpr=0"     "skpr=15000" "skpr=30000" "skpr=0"     "skpr=15000")
+#set STAGED  = ( "nrec=15000" "nrec=15000" "nfile=1"    "nrec=15000" "nfile=1")
+#
+# First set, third try
+#set TAPES   = (  R0997    )
+#set FLIGHTS = (  RF03     )
+#set STAGES  = ( " "       )
+#set STAGED  = ( "nfile=1" )
+#
+# First set, fourth try
+#set TAPES   = ( R0993        )
+#set FLIGHTS = ( FF01AC       )
+#set STAGES  = ( "skpr=30000" )
+#set STAGED  = ( "nfile=1"    )
+#
+# Second set, first try
+#set TAPES   = ( R1000     R1012        R1013         R1015     R1017     \
+#                R1019     R1020        R1020         R1021     )
+#set FLIGHTS = ( RF06      RF08         RF09          RF10      RF11      \
+#                RF12      RF13A        RF13B         RF14      )
+#set STAGES  = ( "skpr=0"  "skpr=0"     "skpr=0"      "skpr=0"  "skpr=0"  \
+#                 "skpr=0"  "skpr=0"     "skpr=15000"  "skpr=0"  )
+#set STAGED  = ( "nfile=1" "nfile=1"    "nfile=1"     "nfile=1" "nfile=1" \
+#                 "nfile=1" "nrec=15000" "nfile=1"     "nfile=1" )
+#
+# Third set, first try
+#set TAPES   = ( R1022        R1023     R1024        R1025        R1026        \
+#                R1026        R1027     R1028        R1028        R1028 )
+#set FLIGHTS = ( RF15         RF16      RF17         RF18         RF19A        \
+#                RF19B        RF20      FF04A        FF04B        FF04C )
+#set STAGES  = ( "skpr=0"     "skpr=0"  "skpr=0"     "skpr=0"     "skpr=0"     \
+#                "skpr=15000" "skpr=0"  "skpr=0"     "skpr=15000" "skpr=30000" )
+#set STAGED  = ( "nfile=1"    "nfile=1" "nfile=1"    "nfile=1"    "nrec=15000" \
+#                "nfile=1"    "nfile=1" "nrec=15000" "nrec=15000" "nfile=1"    )
+#
+# First, second and third set mop-up, first try
+#set TAPES   = ( R0993        R1020     R1022     R1028        R1028 )
+#set FLIGHTS = ( FF01AC       RF13      RF15      FF04B        FF04C )
+#set STAGES  = ( "skpr=30000" "skpr=0"  "skpr=0"  "skpr=15000" "skpr=30000" )
+#set STAGED  = ( "nfile=1"    "nfile=1" "nfile=1" "nrec=15000" "nfile=1"    )
+#
+# First, second and third set mop-up, second try
+#set TAPES   = ( R1022     R0993        R1028        R1028        )
+#set FLIGHTS = ( RF15      FF01AC       FF04B        FF04C        )
+#set STAGES  = ( "skpr=0"  "skpr=30000" "skpr=15000" "skpr=30000" )
+#set STAGED  = ( "nfile=1" "nfile=1"    "nrec=15000" "nfile=1"    )
+#
+# First, second and third set mop-up, third try
+#set TAPES   = ( R0993        R1028        )
+#set FLIGHTS = ( FF01AC       FF04C        )
+#set STAGES  = ( "skpr=30000" "skpr=30000" )
+#set STAGED  = ( "nrec=12727" "nrec=4937" )
+#
+# Fourth set, first try
+#set TAPES   = ( R1001  )
+#set FLIGHTS = ( RF07   )
+#set STAGES  = ( "skpr=0" )
+#set STAGED  = ( "nrec=2984" )
+#
+# First, second and third set mop-up, fourth, fifth and sixth tries
+set TAPES   = ( R1028        )
+set FLIGHTS = ( FF04C        )
+set STAGES  = ( "skpr=30000" )
+set STAGED  = ( "nrec=4937"  )
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  set STAGE1 = $STAGES[$num]
+  set STAGE = $STAGED[$num]
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE1 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+#
+# done.
+exit
+#
+# First set, first try
+#  Job(s) submitted on Thu Sep  7 14:06:57 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI8875 -- FF01A/R0993 -- Failed (file too large)
+# Sequence number = MI8882 -- FF01B/R0994 -- OK @ 8 Sep 1995 11:42:16
+# Sequence number = MI8889 -- RF01/R0995 -- OK @ 12 Sep 1995 15:50:32
+# Sequence number = MI8896 -- RF02/R0996 -- OK @ 8 Sep 1995 12:24:03
+# Sequence number = MI8903 -- RF03/R0997 -- Failed** @ 14 Sep 1995 00:08:47
+# Sequence number = MI8910 -- RF04/R0998 -- OK @ 12 Sep 1995 15:00:56
+# Sequence number = MI8917 -- RF05A/R0999 -- Failed* @ 13 Sep 1995 14:55:46
+#  * dropped at my request
+# ** dropped by operator by mistake
+#
+# First set, second try
+#  Job(s) submitted on Wed Sep 13 15:02:00 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI5383 -- FF01AA/R0993 -- OK @ 15 Sep 1995 10:21:35
+# Sequence number = MI5390 -- FF01AB/R0993 -- OK @ 15 Sep 1995 13:20:37
+# Sequence number = MI5397 -- FF01AC/R0993 -- Failed @ 17 Sep 1995 10:44:00
+# Sequence number = MI5412 -- RF05A/R0999 -- OK @ 15 Sep 1995 16:27:11
+# Sequence number = MI5419 -- RF05B/R0999 -- OK @ 19 Sep 1995 07:55:52
+#
+# First set, third try
+#  Job(s) submitted on Thu Sep 14 10:41:02 MDT 1995
+#  Sequence number = MI2734 -- RF03/R0997 -- OK @ 19 Sep 1995 12:34:47
+#
+# First set, fourth try
+#  Job(s) submitted on Tue Sep 19 09:46:02 MDT 1995
+# Sequence number = MI9480 -- FF01AC/R0993 -- Failed (job dropped?)
+#
+# Second set, first try
+#  Job(s) submitted on Thu Sep 14 13:35:56 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI4998 -- RF06/R1000 -- OK @ 20 Sep 1995 08:57:09
+# Sequence number = MI5005 -- RF08/R1012 -- OK @ 20 Sep 1995 10:37:55
+# Sequence number = MI5012 -- RF09/R1013 -- OK @ 20 Sep 1995 11:53:38
+# Sequence number = MI5019 -- RF10/R1015 -- OK @ 20 Sep 1995 11:27:48
+# Sequence number = MI5026 -- RF11/R1017 -- OK @ 20 Sep 1995 12:42:05
+# Sequence number = MI5033 -- RF12/R1019 -- OK @ 20 Sep 1995 13:49:12
+# Sequence number = MI5040 -- RF13A/R1020 -- Failed (job dropped) \  Power
+# Sequence number = MI5047 -- RF13B/R1020 -- Failed (job dropped) /  Failure ??
+# Sequence number = MI5054 -- RF14/R1021 -- OK @ 23 Sep 1995 18:13:50
+#
+# Third set, first try
+#  Job(s) submitted on Wed Sep 20 15:11:19 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI7846 -- RF15/R1022 -- Failed (job dropped?)(log file lost)
+# Sequence number = MI7853 -- RF16/R1023 -- OK @ 28 Sep 1995 13:54:37
+# Sequence number = MI7860 -- RF17/R1024 -- OK @ 28 Sep 1995 15:36:34
+# Sequence number = MI7867 -- RF18/R1025 -- OK @ 28 Sep 1995 18:01:57
+# Sequence number = MI7874 -- RF19A/R1026 -- OK @ 30 Sep 1995 00:03:12
+# Sequence number = MI7881 -- RF19B/R1026 -- OK @ 30 Sep 1995 07:29:13
+# Sequence number = MI7888 -- RF20/R1027 -- OK @ 30 Sep 1995 14:08:06
+# Sequence number = MI7895 -- FF04A/R1028 -- OK @ 30 Sep 1995 ~17:11
+# Sequence number = MI7902 -- FF04B/R1028 -- Failed (job dropped, >2 failures)
+# Sequence number = MI7909 -- FF04C/R1028 -- Failed (job dropped)
+#
+# First, second and third set mop-up, first try
+#  Job(s) submitted on Mon Oct  2 15:36:45 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI2199 -- FF01AC/R0993 -- Job dropped @ 3 Oct 1995 22:10:34
+# Sequence number = MI2206 -- RF13/R1020 -- OK @ 3 Oct 1995 01:22:08
+# Sequence number = MI2213 -- RF15/R1022 -- Job dropped @ 3 Oct 1995 02:50:15
+# Sequence number = MI2222 -- FF04B/R1028 -- Job dropped @ 3 Oct 1995 08:21:00
+# Sequence number = MI2229 -- FF04C/R1028 -- Job dropped @ 4 Oct 1995 07:48:08
+#
+# First, second and third set mop-up, second try
+#  Job(s) submitted on Wed Oct  4 09:55:58 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI9552 -- RF15/R1022 -- OK @ 5 Oct 1995 13:25:47
+# Sequence number = MI9559 -- FF01AC/R0993 -- Job dropped @ 5 Oct 1995 06:10:55
+# Sequence number = MI9567 -- FF04B/R1028 -- OK @ 5 Oct 1995 12:16:40
+# Sequence number = MI9574 -- FF04C/R1028 -- Job dropped @ 6 Oct 1995 08:48:46
+#
+# First, second and third set mop-up, third try
+#  Job(s) submitted on Fri Oct  6 11:23:16 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI8546 -- FF01AC/R0993 -- OK @ 6 Oct 1995 15:13:41
+# Sequence number = MI8553 -- FF04C/R1028 -- Job dropped @ 8 Oct 1995 14:41:36
+#
+# Fourth set, first try
+#  Job(s) submitted on Tue Jan 30 10:32:47 MST 1996
+# Sequence number = MI1044 -- RF07/R1001 -- Failed @ 30 Jan 1996 14:16:11
+#                                            (msimport buffer overflow)
+# Fourth set, second try
+#  Job(s) submitted on Wed Jan 31 10:52:55 MST 1996
+# Sequence number = MI1529 -- RF07/R1001 -- OK @ 31 Jan 1996 11:20:31
+#
+# First, second and third set mop-up, fourth try
+#  Job(s) submitted on Thu Feb  1 16:25:18 MST 1996
+# Sequence number = MI7868 -- FF04C/R1028 -- Job dropped @ 2 Feb 1996 08:38:59
+#
+# First, second and third set mop-up, fifth try
+#  Job(s) submitted on Wed Feb  7 11:51:10 MST 1996
+# Sequence number = MI6407 -- FF04C/R1028 -- Failed @ 7 Feb 1996 ~noon
+#
+# First, second and third set mop-up, sixth try
+#  Job(s) submitted on Wed Feb  7 16:14:21 MST 1996
+# Sequence number = MI4883 -- FF04C/R1028 -- OK @ 7 Feb 1996 17:38:52
+#

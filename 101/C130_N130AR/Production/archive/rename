@@ -1,0 +1,88 @@
+#! /bin/csh -f
+#
+#  Rename ADS images for 1998-101 SHEBA
+#         Ron Ruth 980709
+#
+#  :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1998
+set PROJ = 101
+#
+date
+#
+#  Get started (Do in three pieces to keep overwrites from occurring.)
+#set ONAMES = ( \
+#RF01C/R1260 \
+#RF02B/R1262 \
+#RF04B/R1265 \
+#)
+#set NNAMES = ( \
+#RF01D/R1260 \
+#RF02C/R1262 \
+#RF04C/R1265 \
+#)
+#
+#set ONAMES = ( \
+#RF01B/R1259 \
+#)
+#set NNAMES = ( \
+#RF01C/R1259 \
+#)
+#
+#set ONAMES = ( \
+#RF01AB/R1258 \
+#RF01AA/R1258 \
+#RF02AB/R1261 \
+#RF02AA/R1261 \
+#RF04AB/R1264 \
+#RF04AA/R1264 \
+#)
+#set NNAMES = ( \
+#RF01B/R1258 \
+#RF01A/R1258 \
+#RF02B/R1261 \
+#RF02A/R1261 \
+#RF04B/R1264 \
+#RF04A/R1264 \
+#)
+#
+if ($#ONAMES != $#NNAMES) then
+  echo "Need same number of source and destination names.  Quitting"
+  exit 1
+endif
+set todo = $#ONAMES
+set num = 1
+while ($num <= $todo)
+  set ONAME = $ONAMES[$num]
+  set NNAME = $NNAMES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$ONAME \
+    newf==/RAF/$YEAR/$PROJ/$NNAME wpwd=RAFDMG
+  @ num ++
+end
+#
+# Done.
+exit
+#
+#  1st wave
+# Job(s) submitted on Thu Jul  9 17:47:43 MDT 1998
+# Sequence number = MI1670 -- RF01D/R1260 -- OK @ 9 Jul 1998 17:47:50
+# Sequence number = MI1677 -- RF02C/R1262 -- OK @ 9 Jul 1998 17:47:51
+# Sequence number = MI1684 -- RF04C/R1265 -- OK @ 9 Jul 1998 17:47:51
+#
+#  2nd wave
+# Job(s) submitted on Thu Jul  9 17:40:47 MDT 1998
+# Sequence number = MI1629 -- RF01C/R1259 -- OK @ 9 Jul 1998 17:40:54
+#
+#  3rd wave
+# Job(s) submitted on Thu Jul  9 17:53:39 MDT 1998
+# Sequence number = MI1704 -- RF01B/R1258 -- OK @ 9 Jul 1998 17:53:50
+# Sequence number = MI1711 -- RF01A/R1258 -- OK @ 9 Jul 1998 17:53:52
+# Sequence number = MI1718 -- RF02B/R1261 -- OK @ 9 Jul 1998 17:53:50
+# Sequence number = MI1725 -- RF02A/R1261 -- OK @ 9 Jul 1998 17:53:52
+# Sequence number = MI1732 -- RF04B/R1264 -- OK @ 9 Jul 1998 17:57:49
+# Sequence number = MI1739 -- RF04A/R1264 -- OK @ 9 Jul 1998 17:57:49
+#

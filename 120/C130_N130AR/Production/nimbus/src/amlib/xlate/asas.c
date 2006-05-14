@@ -1,0 +1,49 @@
+/*
+-------------------------------------------------------------------------
+OBJECT NAME:	asas.c
+
+FULL NAME:	Translate PMS1D to new record format (including Version 2)
+
+ENTRY POINTS:	xlaact()
+
+STATIC FNS:	none
+
+DESCRIPTION:	
+
+INPUT:		
+
+OUTPUT:		
+
+REFERENCES:	none
+
+REFERENCED BY:	rec_decode.c
+
+COPYRIGHT:	University Corporation for Atmospheric Research, 1992
+-------------------------------------------------------------------------
+*/
+
+#include "nimbus.h"
+#include "amlib.h"
+
+/* -------------------------------------------------------------------- */
+void xlaact(varp, p, np)
+RAWTBL		*varp;
+struct P16_blk	*p;
+NR_TYPE		*np;
+{
+	register int	i;
+	NR_TYPE		reset;
+
+	for (i = 0; i < varp->SampleRate; ++i)
+		{
+		reset = p[i].aux[4];
+
+		if (reset < 0)
+			reset += 65536;
+
+		np[i] = (reset * p[i].aux[2] / 1024.0) * 0.52;
+		}
+
+}	/* END XLAACT */
+
+/* END ASAS.C */

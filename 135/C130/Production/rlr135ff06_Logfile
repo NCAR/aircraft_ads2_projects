@@ -1,0 +1,112 @@
+Revision: 3016
+Last Changed Date: 2005-10-04 09:42:16 -0600 (Tue, 04 Oct 2005)
+URL: http://orion/svn/raf/nimbus
+
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_ff05L
+LoadSetup: can't find DBZ1DC_LWO1.
+LoadSetup: can't find DBZ1DP_LWI1.
+LoadSetup: can't find DBZ2DC_LWO2.
+LoadSetup: can't find DBZ2DP_LWI2.
+LoadSetup: can't find DISP1DC_LWO1.
+LoadSetup: can't find DISP1DP_LWI1.
+LoadSetup: can't find DISP2DC_LWO2.
+LoadSetup: can't find DISP2DP_LWI2.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Preliminary run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+NCAR C-130 pcor's installed.
+PCORS:  AIRS-II and later pcors().
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+Blanking PLWC1 from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking RSTB1 from 15:34:56 to 21:31:15.
+Blanking XCINB from 15:34:56 to 21:31:15.
+Blanking XCINCB from 15:34:56 to 21:31:15.
+Blanking XCINCF from 15:34:56 to 21:31:15.
+Blanking XCINF from 15:34:56 to 21:31:15.
+Blanking AS100_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking OVFLW_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking REJAT_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking REJDOF_LPC from 15:34:56 to 21:31:15.
+Blanking CONCF_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking CS100_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking DBARF_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPLA from 15:34:56 to 21:31:15.
+Blanking MRLA from 15:34:56 to 21:31:15.
+Blanking PLWCC1 from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCF_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking REFFF_LPC from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA from 15:34:56 to 21:31:15.
+Blanking RHOLA from 15:34:56 to 21:31:15.
+ The following variables depend upon this variable:
+ 
+
+Time interval(s) completed : 
+15:34:56-21:31:15
+
+PITCH: 2 spikes removed with slope exceeding 1.300000
+ROLL: 18 spikes removed with slope exceeding 1.300000
+IRS Error report: Latitude had 381 values of 0 (zero).
+IRS Error report: Longitude had 381 values of 0 (zero).
+IRS Error report: Ground Speed had 94279 values of 0 (zero).
+IRS Error report: Pitch had 60 values of 0 (zero).
+IRS Error report: Roll had 56 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 19 values of 0 (zero).
+IRS Error report: NS Velocity had 94279 values of 0 (zero).
+IRS Error report: EW Velocity had 94279 values of 0 (zero).
+Processing took 0.4 minutes.
+

@@ -1,0 +1,59 @@
+PELTI Flight Report for RF03 - 11 July, 2000
+
+The objective of this flight was to vary the parameters that control the LTI's performance to see how the efficiency varies with these things. We used sea salt as the test aerosol (the day was nearly a minimum in  dust concentration), by flying at 60 m most of the time. The flight was conducted to the east and slightly north of St. Croix.
+
+We made the LTI {isokinetic/superisokinetic/ subisokinetic}, {turbulent/laminar}, and varied the suction percentage that controls both the enhancement and the losses in tubing bends. For each leg there was setup time to get the flows adjusted and the LTI software running, followed by the 10 minute period in which APS data was collected, and then a few minutes in which the hot-film anemometer probe was used to profile the flow at the rear of the porous diffuser. 
+
+[Note: The most reliable information on whether the LTI was isokinetic, laminar, etc. is on the DU computer, to which I don't have access. When that data is available we will produce a table listing times for various inlet conditions, APS integrations, and filter exposures so that other data - such as FSSP output - can be averaged over precisely those same times. The times noted below for each condition are from the APS, which was usually not started until the flow had been stabilized. If seconds are given, the time should be an accurate picture of the stable segment. -BJH]
+
+No filters were exposed on the 15 minute legs, as there was insufficient time to get meaningful samples. TAS was not operational on this flight, as we lacked some parts.
+
+1641			Takeoff
+1642 - 1653		Sounding up to 2400 m (Roughly ENE)
+	~700 m cloud base, ~1600 m tops
+1653 - 1703		Level at 2400 m - LTI Flow/Pressure-drop check
+1703:40 - 1717:30	Sounding down to 60 m in the MBL 
+			Turned East and remained at 60 m
+
+Isokinetic LTI with various target sample flows to test enhancement. 
+1717			35 lpm - Min bend velocity, Laminar, FSSP flow off
+1737			70 lpm - Laminar, FSSP on again
+1757			95 lpm - Laminar
+1813			Turned to West, still 60 m
+1816			160 lpm - Barely turbulent
+1831 - 1910		120 lpm - Barely laminar, Max bend velocity
+1831 - 1910		Filters exposed
+1847 - 1910		Good APS data (sample flow too high due during first part of leg)
+
+1915			Turned to East, still 60 m
+1922			190 lpm -Turbulent
+
+Subisokinetic (by about 13%)
+1942 - 2027		120 lpm - Barely laminar
+1947 - 2027		Filter exposure
+1957			Penetrated a rain shaft 
+2027			180 Turn to West, still at 60 m
+
+Superisokinetic (by about 20%)
+2039:02		120 lpm - Barely laminar
+
+Isokinetic
+2055			214 lpm - Turbulent
+2055 - 2120		Filter exposure
+2122 - 2132		Common-inlet APS and Neph calibration
+
+2132:30 - 2143:15	Sounding up to 2400 m
+2143 - 2146		Level at 2400 m
+2146			Descent and Return to STX
+2154			Landed at STX
+
+Notes
+* Some Teflon and Nuclepore filters broke. We are awaiting backings to support them on future flights. Chemical data shows LTI to be more efficient than the other inlets.
+* The DU LFE sample flows sometimes disagreed with those from serial UH TFMs. This could introduce extra uncertainty into how closely we could set isokinetic flow.
+* There may be a leak behind the internal FSSP-300 that allows flow when the FSSP valve is closed. The flowmeter also needs to be re-calibrated or exchanged for another. The cabin 300 seems to show larger concentrations above 3-4 um than the wing-mounted 300. To assure that this observations is not due to calibration differences, we will exchange 300 positions on each flight. 
+* The APS behind the NASA inlet was replaced before this flight: it behaved strangely, and will be replaced by the one that had been removed. NASA's APS data will not be considered valid for this flight.
+
+Commentary
+This was a successful flight for testing the LTI under a variety of conditions in sea salt. It would have been desirable to have higher salt concentrations, but the statistics of the APSs and FSSPs look satisfactory, certainly up to 7 um. It still takes quite a while to get all the sample and suction flows stabilized, resulting in the shortening of the time available for collecting data. Automating the LTI flow control to achieve isokinetic and laminar conditions would enable a much more efficient use of flight hours in subsequent programs. Is the double-peak structure behind the LTI real or an artifact of enhancement and plumbing losses? It is clear that the LTI admits more large particles than the other inlets under laminar flow conditions and even when somewhat turbulent. It is not clear, however, how much enhancement is occurring (in flight the different conditions didn't seem to make much difference, so their impact is subtle). At high turbulence, however, the LTI produces APS distributions that look very much like those from the other inlets. We still need TAS and APS data to address the issue of ambient/LTI differences.
+
+-Barry Huebert, 17 July, 2000

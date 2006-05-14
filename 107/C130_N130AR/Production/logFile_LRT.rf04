@@ -1,0 +1,46 @@
+Sea Salinity - 107, Flight rf04
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+INTEO3 has no description or units.
+TEO3P has no description or units.
+WVDC has no description or units.
+XFO3F has no description or units.
+XFO3P has no description or units.
+XFO3S has no description or units.
+XFO3T has no description or units.
+WVAT has no description or units.
+WVIX has no description or units.
+WVMR has no description or units.
+WVPF has no description or units.
+WVPR has no description or units.
+WVPS has no description or units.
+WVRH has no description or units.
+WVVV has no description or units.
+WVZO has no description or units.
+Loading setup file: /usr/local/proj/107/Production/Flight_rf02
+Processed on: Oct 27 22:02 UTC 2000
+Flight Date: 08/19/2000
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 20 seconds ending @ 01:32:28, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 01:32:29
+       odd time = 01:32:28
+Advancing past duplicate time stamp:
+  previous time = 01:32:29
+       odd time = 01:32:29
+    advanced to = 01:32:30
+Time interval(s) completed : 00:58:18-05:44:21
+ACINS: 1 spikes removed with slope exceeding 4.000000
+THDG: 5 spikes removed with slope exceeding 0.300000
+Processing took 0.8 minutes.

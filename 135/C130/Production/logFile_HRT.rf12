@@ -1,0 +1,140 @@
+RICO - 135, Flight rf12
+Revision: 2160
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_rf12
+XPH has no description or units.
+REFF2DC_LWO1 has no description or units.
+REFF6_RWI has no description or units.
+TTWHC has no description or units.
+XCIM has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Processed on: 2005-06-10 10:47:21 -0600
+Flight Date: 01/11/2005
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for PLWC enabled, with lag of -40 milliseconds.
+Time lag for PLWC1 enabled, with lag of -40 milliseconds.
+Time lag for XGLWC enabled, with lag of 20 milliseconds.
+Time lag for XGREFF enabled, with lag of 20 milliseconds.
+Time lag for XGSFC enabled, with lag of 20 milliseconds.
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for AS100_LPC enabled, with lag of 200 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -550 milliseconds.
+Time lag for GGTRK enabled, with lag of -550 milliseconds.
+Time lag for GGVEW enabled, with lag of -550 milliseconds.
+Time lag for GGVNS enabled, with lag of -550 milliseconds.
+Time lag for OVFLW_LPC enabled, with lag of 200 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for REJAT_LPC enabled, with lag of 200 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+Blanking RSTB1 from 13:58:00 to 22:31:29.
+Blanking VLA1 from 13:58:00 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking XCINB from 13:58:00 to 22:31:29.
+Blanking XCINCB from 13:58:00 to 22:31:29.
+Blanking XCINCF from 13:58:00 to 22:31:29.
+Blanking XCINF from 13:58:00 to 22:31:29.
+Blanking DPLA1 from 13:58:00 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA1 from 13:58:00 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA1 from 13:58:00 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHOLA1 from 13:58:00 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking HGM232 from 13:58:00 to 14:04:20.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 13:58:00 to 14:04:20.
+Blanking PLWCC1 from 13:58:00 to 14:04:20.
+Blanking HGM232 from 22:30:50 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 20:28:10 to 22:31:29.
+Blanking PLWCC1 from 20:28:10 to 22:31:29.
+Blanking ATRL from 14:14:00 to 14:50:00.
+  WARNING: ATRL NOT found!  Continuing.
+Blanking ATRL from 15:08:00 to 15:20:00.
+  WARNING: ATRL NOT found!  Continuing.
+Blanking ATRL from 15:57:00 to 16:08:00.
+  WARNING: ATRL NOT found!  Continuing.
+Blanking ATRL from 16:43:00 to 17:14:00.
+  WARNING: ATRL NOT found!  Continuing.
+Blanking OAT from 19:12:25 to 19:12:31.
+Blanking OAT from 19:44:53 to 19:45:04.
+Blanking OAT from 19:52:00 to 19:52:12.
+Blanking OAT from 19:58:00 to 19:58:12.
+Blanking OAT from 21:12:37 to 21:12:54.
+Blanking OAT from 21:33:30 to 21:34:45.
+Blanking TEO3 from 22:31:15 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking TEO3C from 22:31:15 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPLA from 22:19:37 to 22:31:29.
+Blanking RHOLA from 22:19:37 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA from 22:19:37 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA from 22:19:37 to 22:31:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPT from 15:21:32 to 15:25:20.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 15:21:32 to 15:25:20.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking OAT from 14:02:03 to 14:02:23.
+Blanking XUFCT from 14:18:28 to 14:18:40.
+Blanking XUFCT from 14:31:25 to 14:33:13.
+Time interval(s) completed : 
+13:58:00-22:31:29
+
+ACINS: 61 spikes removed with slope exceeding 4.000000
+LAT: 7 spikes removed with slope exceeding 0.200000
+LON: 4 spikes removed with slope exceeding 0.200000
+PITCH: 75 spikes removed with slope exceeding 1.300000
+ROLL: 79 spikes removed with slope exceeding 1.300000
+THDG: 28 spikes removed with slope exceeding 1.500000
+VEW: 12 spikes removed with slope exceeding 20.000000
+VNS: 17 spikes removed with slope exceeding 20.000000
+VSPD: 29 spikes removed with slope exceeding 1.600000
+IRS Error report: Latitude had 5 values of 0 (zero).
+IRS Error report: Longitude had 4 values of 0 (zero).
+IRS Error report: True Heading had 23 values of 0 (zero).
+IRS Error report: Pitch had 71 values of 0 (zero).
+IRS Error report: Roll had 75 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 55 values of 0 (zero).
+IRS Error report: Vertical Speed had 26 values of 0 (zero).
+IRS Error report: NS Velocity had 37790 values of 0 (zero).
+IRS Error report: EW Velocity had 37785 values of 0 (zero).
+Processing took 4.4 minutes.

@@ -1,0 +1,201 @@
+#! /bin/csh -f
+#
+#  Archive stripped PMS-2D data files for 1998-101 SHEBA
+#
+#  File adapted from the file /home/local/proj/812/Production/arch.812
+#    by Ron Ruth  27 August 1998
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1998
+set PROJ = 101
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = /home/staticdata
+set TURBRT = PMS2D
+#
+# 1st wave
+#set SFILES = ( \
+#101rf01a.2D \
+#101rf01b.2D \
+#101rf01c.2D \
+#101rf02a.2D \
+#101rf02b.2D \
+#101rf03.2D  \
+#101rf04a.2D \
+#101rf04b.2D \
+#)
+#set DFILES = ( \
+#RF01A \
+#RF01B \
+#RF01C \
+#RF02A \
+#RF02B \
+#RF03  \
+#RF04A \
+#RF04B \
+#)
+#
+# 2nd wave
+#set SFILES = ( \
+#101rf05.2D  \
+#101rf06.2D  \
+#101rf07.2D  \
+#101rf08.2D  \
+#)
+#set DFILES = ( \
+#RF05  \
+#RF06  \
+#RF07  \
+#RF08  \
+#)
+#
+# 3rd wave
+#set SFILES = ( \
+#101rf16.2D \
+#)
+#set DFILES = ( \
+#RF16 \
+#)
+#
+# 4th wave
+#set SFILES = ( \
+#101rf09.2D \
+#)
+#set DFILES = ( \
+#RF09 \
+#)
+#
+# 5th wave
+#set SFILES = ( \
+#101rf11.2D \
+#)
+#set DFILES = ( \
+#RF11 \
+#)
+#
+# 6th wave (Do after hours)
+#set SFILES = ( \
+#101rf10.2D \
+#)
+#set DFILES = ( \
+#RF10 \
+#)
+#
+# 7th wave
+#set SFILES = ( \
+#101rf12.2D \
+#)
+#set DFILES = ( \
+#RF12 \
+#)
+#
+# 8th wave
+#set SFILES = ( \
+#101rf13.2D \
+#)
+#set DFILES = ( \
+#RF13 \
+#)
+#
+# 9th wave
+#set SFILES = ( \
+#101rf14.2D \
+#)
+#set DFILES = ( \
+#RF14 \
+#)
+#
+# 10th wave
+set SFILES = ( \
+101rf15.2D \
+)
+set DFILES = ( \
+RF15 \
+)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1998/101/
+#
+# 1st wave
+#  Job(s) submitted on Thu Aug 27 17:29:50 MDT 1998
+# Sequence number = MI2790 -- PMS2D/RF01A -- OK @ 27 Aug 1998 17:30:12
+# Sequence number = MI2797 -- PMS2D/RF01B -- OK @ 27 Aug 1998 17:55:56
+# Sequence number = MI2804 -- PMS2D/RF01C -- OK @ 27 Aug 1998 17:30:09
+# Sequence number = MI2811 -- PMS2D/RF02A -- OK @ 27 Aug 1998 17:30:30
+# Sequence number = MI2818 -- PMS2D/RF02B -- OK @ 27 Aug 1998 17:34:23
+# Sequence number = MI2825 -- PMS2D/RF03 -- OK @ 27 Aug 1998 17:55:22
+# Sequence number = MI2835 -- PMS2D/RF04A -- OK @ 27 Aug 1998 17:30:54
+# Sequence number = MI2852 -- PMS2D/RF04B -- OK @ 27 Aug 1998 17:35:12
+#
+# 2nd wave
+#  Job(s) submitted on Tue Sep  1 14:22:30 MDT 1998
+# Sequence number = MI1121 -- PMS2D/RF05 -- OK @ 1 Sep 1998 14:23:41
+# Sequence number = MI1128 -- PMS2D/RF06 -- OK @ 1 Sep 1998 14:50:25
+# Sequence number = MI1135 -- PMS2D/RF07 -- OK @ 1 Sep 1998 14:49:50
+# Sequence number = MI1142 -- PMS2D/RF08 -- OK @ 1 Sep 1998 14:50:06
+#
+# 3rd wave
+#  Job(s) submitted on Fri Sep 18 11:08:49 MDT 1998
+# Sequence number = MI9774 -- PMS2D/RF16 -- OK @ 18 Sep 1998 11:13:40
+#
+# 4th wave
+#  Job(s) submitted on Mon Sep 21 15:33:52 MDT 1998
+# Sequence number = MI3150 -- PMS2D/RF09 -- OK @ 21 Sep 1998 15:37:24
+#
+# 5th wave
+#  Job(s) submitted on Mon Sep 21 16:36:24 MDT 1998
+# Sequence number = MI3774 -- PMS2D/RF11 -- OK @ 21 Sep 1998 16:45:19
+#
+# 6th wave
+#  Job(s) submitted on Mon Sep 21 17:17:51 MDT 1998
+# Sequence number = MI4152 -- PMS2D/RF10 -- OK @ 21 Sep 1998 17:18:59
+#
+# 7th wave
+#  Job(s) submitted on Wed Sep 30 12:20:08 MDT 1998
+# Sequence number = MI1566 -- PMS2D/RF12 -- OK @ 30 Sep 1998 12:22:18
+#
+# 8th wave
+#  Job(s) submitted on Wed Sep 30 13:57:45 MDT 1998
+# Sequence number = MI2050 -- PMS2D/RF13 -- OK @ 30 Sep 1998 14:01:06
+#
+# 9th wave
+#  Job(s) submitted on Thu Oct  1 12:45:26 MDT 1998
+# Sequence number = MI5490 -- PMS2D/RF14 -- OK @ 1 Oct 1998 12:55:09
+#
+# 10th wave
+#  Job(s) submitted on Thu Oct  1 16:09:49 MDT 1998
+# Sequence number = MI1117 -- PMS2D/RF15 -- OK @ 1 Oct 1998 16:20:39
+#

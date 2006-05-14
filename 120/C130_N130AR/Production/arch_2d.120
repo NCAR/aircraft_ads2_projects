@@ -1,0 +1,29 @@
+#! /bin/csh -f
+#
+#   Archive the stripped PMS-2D data for 1994-120 BASE (Curry, et al.)
+#
+#      (Special file for redoing RF17)
+#      RLR  12 August 1996
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+set DDIR = "/home/data"
+set YEAR = "1994"
+set PROJ = "120"
+#
+date
+#
+#  Take care of special PMS-2D data stripped from the raw ADS files
+#echo \
+ nrnet msput $DDIR/base2d17 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF17 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Mon Aug 12 11:49:53 MDT 1996
+# Sequence number = MI0570 -- PMS2D/RF17 -- OK @ 12 Aug 1996 11:53:18
+#
+exit

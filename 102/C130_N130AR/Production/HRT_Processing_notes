@@ -1,0 +1,188 @@
+From Dick Friesen's email to Andy Heymsfield on 11 October 1999:
+  I understand your need for the high rate data and you are pursuing the 
+right course talking to Ron Ruth. Of the six flights you mention I would 
+suggest that we run one first (2/20?) and you take a look to see that you
+are getting what you expect. (These will be very large files.) There are 
+several things about the processing of the low-rate files that I should 
+point out. The gerber probe, the liquid water probes (King probes), the 
+ozone, the CVI measurements, and the ophir were all handled with special 
+processing and merged back in to the main nimbus CDF file. Also, we worked 
+with Darrel to put in some special processing for the FSSP-100 to account for
+the lack of houskeeping data (I think you are aware of this). This code will
+have to be modified to the high rate and checked out. The point of all of this
+is that it is not a trivial task to produce a high rate data set with all of
+the special processing incorporated for INDOEX. 
+  I propose that we run a first flight without all of the special processing
+except for the FSSP-100. Ron can work with Darrel and Chris to make sure
+that the FSSP code is working at the high rate. The CVI and ozone data are
+only available at the low rate. The ophir, gerber and King probes will not
+have the offset removed without special processing. (I believe the ophir and
+the King probes were sampled at the higher rate, but I am not sure what the
+upper limit of repsonse of the King probes is.) The gerber probe was 
+sampled at 250 sps, and Ron can process it at this rate if you wish - it will
+have an offset, but should give a good reading of the fluctuations and 
+structures.
+-------
+
+  The following variables are not defined in the project's VarDB file:
+CONC2C_OBR
+CONC2P_IBR
+SPHUM
+XTASHC
+(They have been added.)
+
+RF03
+  TKAT has a problem 04:55:00 - 04:56:45
+
+RLR  18 February 2K
+-------
+
+   The prototype HRT setup file contains flight-specific information.
+I need to edit the file then test it to assure that NIMBUS can handle
+the changes without choking.
+
+RLR   4 April 2K
+-------
+
+   I made the HRT setup file generic by only keeping the necessary parameters.
+I also changed some entries in the LowRateVars file to provide the correct
+output rate for some measurements.
+
+RLR   7 April 2K
+-------
+
+RF03 Spectrum analysis:
+   Spectral analysis was done primarily during the time period 5:00 to
+5:30 UTC (with the "offending" measurements checked from 10:00 to 10:30).
+Most measurements were well behaved.  Those singled out below were worth
+reporting.  Some had unusual or unexpected responses; ones that disturbed
+me most are starred.
+  -ATWH/ATRR coherence drops off @ about 0.5Hz where phase = 90 deg.
+  -DPTC/DPBC coherence drops off @ about 0.3Hz.
+  -DPB/DPBC spectrum begins flattening out about 1Hz.
+ *-DPT/DPTC spectrum begins flattening out about 2Hz but takes an upward turn
+    above 4.5Hz as if some other signal was aliased in.  Since this measurement
+    is used for all reference humidity measurements, this behavior can be
+    found in EDPC, MR, RHUM, RHODT, SPHUM, THETAE and THETAV (minor effect).
+    The spectra for MRLA and MRLA1 do not show this effect.  (This occurred
+    throughout the flight.
+ *-FCNC spectrum takes an upward turn above 0.75Hz and has strong peaks
+    @ 0.125Hz and 0.25Hz (0.1Hz and 0.3Hz @ 10:00 UTC). 
+  -PSFC and PSFDC coherence drops off and phase drifts @ about 2Hz.
+  -QCFC and QCRC coherence drops off @ about 5Hz; phase OK.
+  -TKAR spectrum has a strong peak @ 3Hz.
+ *-UI, VY, WS spectra have little sharp spikes at 1, 2, 3, 4, 5 & 6Hz (5Hz
+    only @ 10:00).
+ *-XUIC, XVYC, XWSC spectra have little sharp spikes at 1, 2, 3, 4, 5 & 6Hz
+    (5Hz only @ 10:00).
+ *-VEW spectrum has sharp spikes at 1, 2, 3, 4 & 5Hz (OK @ 10:00).
+ *-VNS spectrum has sharp spikes at 2, 3, 4 & 5Hz (OK @ 10:00).
+ *-VSPD spectrum has sharp spikes at 6.5, 7 & 8Hz (OK @ 10:00).
+ *-VSPD and WP3 coherence drops off @ about 5Hz, and phase begins drifting
+    @ about 0.5Hz (45 deg @ 4Hz, 90 deg @ 8Hz).
+  -ACINS and WP3 phase remains @ about 90 deg throughtout the spectral range.
+ *-XPSFD bottoms out about 0.1Hz then rises to a peak @ about 0.3Hz then
+    drops back down again (OK @ 10:00).
+   
+RLR  11 April 2K
+-------
+   
+Processing of Andy Heymsfield's priority flights (RF03, RF04, RF09, RF11, RF14
+and RF17) during the past few days has been very slow, taking almost two hours
+per flight.  The NFS transfer rates have been extremely slow.
+
+I discovered today that some derived measurements have been mistakenly output
+at the high rate.  These include:  COCAL, COCOR, CONC2C_OBR, CONC2P_IBR.
+For some reason, the PMS-2D suffixes must be added to the names in the
+LowRateVars file or they are ignored.
+
+I must rerun all the flights to produce the correct rates for the above
+measurements.
+
+RF04 (04:00-05:00):  PLWC6_OBL looks to be about 2 orders of magnitude too
+                      large.
+                     TKAT has zero values interspersed with the good data.
+                      (Looks like a despiker may work.)
+
+RLR  26 April 2K
+-------
+
+Rerunning flights, because COCAL, COCOR, CONC2C_OBR and CONC2P_IBR had
+incorrect output rates.
+
+As of 11:30 a.m., RF03 and RF04 have been done.  RF09 is in progress.
+As of  2:30 p.m., RF03, RF04 and RF09 have been done.  RF11 is in progress.
+
+2:40 p.m.  I discovered that I'm using the standard version of NIMBUS,
+not the special INDOEX version (nimbus_indo).  So, I'm starting over.
+Andy's priority order is:  RF03, RF04, RF11, RF17, RF14 and RF09.
+
+RLR  27 April 2K
+-------
+
+As of 3:45 p.m.  The following files have been archived to the MSS:
+   102rf03h.cdf --  /RAF/1999/102/HRT/RF03  (647.360896 MB)
+   102rf04h.cdf --  /RAF/1999/102/HRT/RF04  (662.005352 MB)
+   102rf11h.cdf --  /RAF/1999/102/HRT/RF11  (653.603816 MB)
+
+RLR  28 April 2K
+-------
+
+As of 2:45 p.m. all six files have been processed and archived to the MSS:
+   102rf09h.cdf --  /RAF/1999/102/HRT/RF09  (643.889544 MB)
+   102rf14h.cdf --  /RAF/1999/102/HRT/RF14  (539.758968 MB)
+   102rf17h.cdf --  /RAF/1999/102/HRT/RF17  (691.491516 MB)
+
+Andy Heymsfield notified at 5:11 p.m. in a memo which describes the
+"preliminary" nature of the data set:  only run through "nimbus" without
+adding any merged data.  Therefore the following are not present:
+  1.  add corrected CVI measurements;
+  2.  further correct the TECO Ozone data;
+  3.  remove long-term drift from some measurements;
+  4.  calculate an estimated surface temperature from a Heimann IR radiometer.
+
+RLR  1 May 2K
+-------
+
+Processed RF01, RF02 and RF05 as HRT using "nimbus_indo" version.
+
+RLR  11 May 2K
+-------
+
+Processed RF06, RF07, RF08 and RF10 as HRT using "nimbus_indo" version.
+
+RLR  12 May 2K
+-------
+
+Processed RF12, RF13, RF15 and RF16 as HRT using "nimbus_indo" version.
+It turns out that RF16 has its flight number as RF160 in the ADS header.
+This produced an RF160 flight which didn't properly load the setup file.
+I fixed the header for ADS segment RF16A and will rerun it tomorrow.
+
+RLR  15 May 2K
+-------
+
+Processed RF18 and reprocessed RF16.  All HRT data now archived to the MSS.
+
+Based on a query by Greg McFarquar, I checked the FSSP-100 bin sizes in
+use for each LRT flight.  The standard 0-47 um set was used for: RF01 - RF03.
+The 0-70 um set was used for:  RF04 - RF18.
+
+AFSSP_LPI:SerialNumber = "FSSP109" ;
+AFSSP_RPC:SerialNumber = "FSSP122" ;
+
+Sent email to Andy Heymsfield informing him that all data have been processed.
+He was grateful.
+
+RLR  16 May 2K
+-------
+
+Prepared to archive new HRT support files.
+
+RLR  18 May 2K
+-------
+
+Archived support files.
+
+RLR  19 May 2K
+-------

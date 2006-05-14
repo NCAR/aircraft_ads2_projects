@@ -1,0 +1,15 @@
+Revision 2
+#
+# This file contains flight equivalences.  That is "x := y"
+# says that flight x should use the [nimbus] setup that was
+# saved from flight y.  (Note the use of ff, rf and tf.)
+# Do not use the same number for both entries.
+#
+# Examples:
+#rf02 := rf01
+#ff02 := rf01
+#tf02 := rf01
+#
+rf01 := rf02
+rf03 := rf02
+rf04 := rf02

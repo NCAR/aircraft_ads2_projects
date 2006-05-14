@@ -1,0 +1,87 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2001-131 ACE-Asia (B. Huebert, et al.)
+#   using the new ATD directory path
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 12b on Wed Jun 18 16:19:33 MDT 2003
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+set SFILES = ( \
+131rf03h.nc \
+131rf09h.nc \
+131rf13h.nc \
+131rf14h.nc \
+131rf16h.nc \
+131rf18h.nc \
+)
+#
+set DFILES = ( \
+mss:/ATD/DATA/2001/ACE-Asia/C130_N130AR/HRT/RF03.20010403.235800_085659.PNI.nc \
+mss:/ATD/DATA/2001/ACE-Asia/C130_N130AR/HRT/RF09.20010416.235816_092722.PNI.nc \
+mss:/ATD/DATA/2001/ACE-Asia/C130_N130AR/HRT/RF13.20010423.234700_091230.PNI.nc \
+mss:/ATD/DATA/2001/ACE-Asia/C130_N130AR/HRT/RF14.20010424.235500_091748.PNI.nc \
+mss:/ATD/DATA/2001/ACE-Asia/C130_N130AR/HRT/RF16.20010429.234900_083927.PNI.nc \
+mss:/ATD/DATA/2001/ACE-Asia/C130_N130AR/HRT/RF18.20010502.001900_091517.PNI.nc \
+)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2001/ACE-Asia/C130_N130AR/"
+echo "#  (Check year in path, if project occurred in more than one.)"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  6 job(s) submitted on Wed Jun 18 16:24:30 MDT 2003
+#  Files archived to MSS directory:  /ATD/DATA/2001/ACE-Asia/C130_N130AR/
+#   HRT/RF03.20010403.235800_085659.PNI.nc -- OK -- Wed Jun 18 16:32:21 MDT 2003
+#   HRT/RF09.20010416.235816_092722.PNI.nc -- OK -- Wed Jun 18 16:40:59 MDT 2003
+#   HRT/RF13.20010423.234700_091230.PNI.nc -- OK -- Wed Jun 18 16:48:09 MDT 2003
+#   HRT/RF14.20010424.235500_091748.PNI.nc -- OK -- Wed Jun 18 16:55:11 MDT 2003
+#   HRT/RF16.20010429.234900_083927.PNI.nc -- OK -- Wed Jun 18 17:02:39 MDT 2003
+#   HRT/RF18.20010502.001900_091517.PNI.nc -- OK -- Wed Jun 18 17:09:26 MDT 2003
+#   Completed on Wed Jun 18 17:09:26 MDT 2003
+#

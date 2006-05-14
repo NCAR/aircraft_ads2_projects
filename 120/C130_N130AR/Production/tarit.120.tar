@@ -1,0 +1,73 @@
+#! /bin/csh -f
+#
+#  Save pertinent files for 4-120 BASE
+#
+cd /home/local/proj/120
+tar chlvf /home/local/proj/120/Production/120.tar \
+Categories \
+Defaults \
+DependTable \
+ProjectName \
+VarDB \
+adscmd \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+despike \
+header \
+header.AFT \
+header.CTL \
+header.FORWARD \
+header.PODLW \
+header.PODRW \
+header.save \
+header.text \
+header.works \
+history_file \
+hvars.text \
+landmarks \
+plot_attr \
+plotspex \
+plotspexbruce \
+regions \
+regions.BASE \
+stats_selns \
+Production/120RF04.hdr \
+Production/FlightGroups \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_12 \
+Production/Flight_13 \
+Production/Flight_17 \
+Production/Flight_3 \
+Production/Flight_4 \
+Production/Flight_6 \
+Production/Flight_7 \
+Production/MSCP_out.120 \
+Production/Mail.120 \
+Production/arch.120 \
+Production/arch_support.120 \
+Production/process_log \
+Production/proj.info \
+Production/rename \
+Production/taplog.120 \
+Production/tarit.120.tar \
+Production/tarit.nimbus.tar \
+Production/nimbus.tar.dir \
+Production/ncfixhdr.tar.dir \
+Production/tp2ms.summary \
+Production/archive/tapes.120 \
+Production/archive/tp2ms.120job1 \
+Production/archive/tp2ms.120job2 \
+Production/archive/tp2ms.120job3
+#
+#  Get tar directory list for archiving
+set dfile = /home/local/proj/120/Production/120.tar.dir
+echo " Directory list for file 120.tar:  Support files for 1994-120 BASE" >! $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf /home/local/proj/120/Production/120.tar >> $dfile
+#
+exit

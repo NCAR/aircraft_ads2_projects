@@ -1,0 +1,173 @@
+#! /bin/csh -f
+#
+#  Archive stripped raw PMS-2D data files for 2001-181 DYCOMS-II
+goto purge
+#
+#  Note:  Because these files also were archived to the new /ATD/DATA
+#          path by the script "atdarch2d.181," there is no reason to
+#          keep two copies.  Therefore, the files archived by this
+#          script were removed by the "msssearch decision support tool,
+#          Alpha Release" on Mon Mar 24, 2003 sometime before 15:03:45 MST.
+#
+#
+#  File adapted from file /home/local/proj/102/Production/arads.181
+#    by Ron Ruth   7 August 2001
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+set TYPE = PMS2D
+#
+# Designations for 2001-181 DYCOMS-II
+#set RPWD = ""
+set RPWD = "rpwd=DYCONLY"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#181ff01a.2d \
+#181ff01b.2d \
+#181ff02.2d \
+#181rf01.2d \
+#181rf02.2d \
+#181rf03.2d \
+#181rf04.2d \
+#181rf05.2d \
+#181rf06a.2d \
+#181rf06b.2d \
+#181rf07a.2d \
+#181rf07b.2d \
+#181rf08a.2d \
+#181rf08b.2d \
+#181rf08c.2d \
+#181rf09a.2d \
+#181rf09b.2d \
+#181rf10a.2d \
+#181rf10b.2d \
+#181rf10c.2d \
+#181tf01.2d \
+#181tf02.2d \
+#181tf03.2d \
+#)
+#set DFILES = ( \
+#FF01A \
+#FF01B \
+#FF02 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06A \
+#RF06B \
+#RF07A \
+#RF07B \
+#RF08A \
+#RF08B \
+#RF08C \
+#RF09A \
+#RF09B \
+#RF10A \
+#RF10B \
+#RF10C \
+#TF01 \
+#TF02 \
+#TF03 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TYPE/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG $RPWD
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/181/
+#
+#  1st wave
+#  Job(s) submitted on Tue Aug  7 13:10:48 MDT 2001
+# Sequence number = LN3659 -- PMS2D/FF01A -- OK @ 7 Aug 2001 13:21:51
+# Sequence number = LN3667 -- PMS2D/FF01B -- OK @ 7 Aug 2001 13:31:41
+# Sequence number = LN3675 -- PMS2D/FF02 -- OK @ 7 Aug 2001 13:16:58
+# Sequence number = LN3683 -- PMS2D/RF01 -- OK @ 7 Aug 2001 13:11:26
+# Sequence number = LN3693 -- PMS2D/RF02 -- OK @ 7 Aug 2001 13:23:38
+# Sequence number = LN3704 -- PMS2D/RF03 -- OK @ 7 Aug 2001 13:23:11
+# Sequence number = LN3717 -- PMS2D/RF04 -- OK @ 7 Aug 2001 13:20:44
+# Sequence number = LN3725 -- PMS2D/RF05 -- OK @ 7 Aug 2001 13:55:19
+# Sequence number = LN3733 -- PMS2D/RF06A -- OK @ 7 Aug 2001 13:51:36
+# Sequence number = LN3741 -- PMS2D/RF06B -- OK @ 7 Aug 2001 13:50:09
+# Sequence number = LN3749 -- PMS2D/RF07A -- OK @ 7 Aug 2001 13:53:33
+# Sequence number = LN3757 -- PMS2D/RF07B -- OK @ 7 Aug 2001 13:35:40
+# Sequence number = LN3765 -- PMS2D/RF08A -- OK @ 7 Aug 2001 13:51:49
+# Sequence number = LN3773 -- PMS2D/RF08B -- OK @ 7 Aug 2001 13:53:22
+# Sequence number = LN3781 -- PMS2D/RF08C -- OK @ 7 Aug 2001 13:41:01
+# Sequence number = LN3789 -- PMS2D/RF09A -- OK @ 7 Aug 2001 13:31:18
+# Sequence number = LN3799 -- PMS2D/RF09B -- OK @ 7 Aug 2001 13:41:14
+# Sequence number = LN3807 -- PMS2D/RF10A -- OK @ 7 Aug 2001 14:01:30
+# Sequence number = LN3815 -- PMS2D/RF10B -- OK @ 7 Aug 2001 13:17:46
+# Sequence number = LN3823 -- PMS2D/RF10C -- OK @ 7 Aug 2001 13:41:25
+# Sequence number = LN3831 -- PMS2D/TF01 -- OK @ 7 Aug 2001 13:55:28
+# Sequence number = LN3839 -- PMS2D/TF02 -- OK @ 7 Aug 2001 14:03:32
+# Sequence number = LN3847 -- PMS2D/TF03 -- OK @ 7 Aug 2001 13:55:39
+#
+#  2nd wave  (Remove bitfiles with "bad" 2D-C data)
+purge:
+date
+#nrnet msrm % r flnm=/RAF/2001/181/PMS2D/FF01A wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msrm % r flnm=/RAF/2001/181/PMS2D/FF01B wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msrm % r flnm=/RAF/2001/181/PMS2D/RF01 wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msrm % r flnm=/RAF/2001/181/PMS2D/TF03 wpwd=RAFDMG rpwd=DYCONLY
+#
+#  Job(s) submitted on Fri Oct  5 13:28:33 MDT 2001
+# Sequence number = LN3456 -- PMS2D/FF01A -- Purged @ 5 Oct 2001 13:28:36
+# Sequence number = LN3464 -- PMS2D/FF01B -- Purged @ 5 Oct 2001 13:28:37
+# Sequence number = LN3472 -- PMS2D/RF01 -- Purged @ 5 Oct 2001 13:28:37
+# Sequence number = LN3481 -- PMS2D/TF03 -- Purged @ 5 Oct 2001 13:28:38
+#

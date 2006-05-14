@@ -1,0 +1,58 @@
+EPIC2001 - 161, Flight rf15
+Version - 3.1.2
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /jnet/linux/proj/161/Production/Flight_rf15
+DT1DP_LWO1 has no description or units.
+DT2DP_LWO2 has no description or units.
+DIFF1 has no description or units.
+Loading setup file: /jnet/solaris/proj/161/Production/Flight_rf08
+Processed on: Apr 17 19:25 UTC 2002
+Flight Date: 10/03/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to 1000 ms and continuing.
+Time break of 481 seconds ending @ 18:48:54, filling in with MISSING_VALUE.
+Blanking PLWCC from 14:35:00 to 14:37:20.
+Blanking PLWCC from 23:20:00 to 23:21:54.
+Blanking DPT from 17:17:00 to 17:30:00.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 17:17:00 to 17:30:00.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking DPT from 22:57:00 to 23:15:00.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 22:57:00 to 23:15:00.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking RSTB from 21:10:00 to 23:21:54.
+  WARNING: RSTB NOT found!  Continuing.
+Blanking OAT from 18:40:48 to 18:54:00.
+  WARNING: OAT NOT found!  Continuing.
+Blanking OAT from 20:05:00 to 20:06:15.
+  WARNING: OAT NOT found!  Continuing.
+Blanking OAT from 20:10:30 to 20:20:00.
+  WARNING: OAT NOT found!  Continuing.
+Time interval(s) completed : 14:35:00-23:21:54
+Processing took 4.0 minutes.

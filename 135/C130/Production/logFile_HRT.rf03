@@ -1,0 +1,107 @@
+RICO - 135, Flight rf03
+Revision: 2160
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_rf02
+LHLO has no description or units.
+XPH has no description or units.
+REFF2DC_LWO1 has no description or units.
+REFF6_RWI has no description or units.
+TTWHC has no description or units.
+XCIM has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Processed on: 2005-06-09 14:06:15 -0600
+Flight Date: 12/09/2004
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for PLWC enabled, with lag of -40 milliseconds.
+Time lag for PLWC1 enabled, with lag of -40 milliseconds.
+Time lag for XGLWC enabled, with lag of 20 milliseconds.
+Time lag for XGREFF enabled, with lag of 20 milliseconds.
+Time lag for XGSFC enabled, with lag of 20 milliseconds.
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for AS100_LPC enabled, with lag of 200 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -550 milliseconds.
+Time lag for GGTRK enabled, with lag of -550 milliseconds.
+Time lag for GGVEW enabled, with lag of -550 milliseconds.
+Time lag for GGVNS enabled, with lag of -550 milliseconds.
+Time lag for OVFLW_LPC enabled, with lag of 200 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for REJAT_LPC enabled, with lag of 200 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+Blanking VLA1 from 14:01:00 to 22:19:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking XCINB from 14:01:00 to 22:19:29.
+Blanking XCINCB from 14:01:00 to 22:19:29.
+Blanking XCINCF from 14:01:00 to 22:19:29.
+Blanking XCINF from 14:01:00 to 22:19:29.
+Blanking DPLA1 from 14:01:00 to 22:19:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA1 from 14:01:00 to 22:19:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA1 from 14:01:00 to 22:19:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHOLA1 from 14:01:00 to 22:19:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking HGM232 from 14:01:00 to 14:05:41.
+ The following variables depend upon this variable:
+ 
+
+Blanking HGM232 from 22:19:20 to 22:19:29.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 14:01:00 to 14:05:45.
+Blanking PLWCC1 from 14:01:00 to 14:05:45.
+Blanking PLWCC from 22:13:00 to 22:19:29.
+Blanking PLWCC1 from 22:13:00 to 22:19:29.
+Blanking times (22:19:55 to 22:19:30) not valid for OAT.
+Blanking DPT from 16:29:00 to 17:03:00.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 16:29:00 to 17:03:00.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking OAT from 19:36:13 to 19:36:25.
+Blanking OAT from 19:42:05 to 19:42:19.
+Blanking OAT from 19:47:30 to 19:47:45.
+Blanking OAT from 21:33:20 to 21:34:23.
+Time interval(s) completed : 
+14:01:00-22:19:29
+
+ACINS: 61 spikes removed with slope exceeding 4.000000
+LAT: 2 spikes removed with slope exceeding 0.200000
+LON: 2 spikes removed with slope exceeding 0.200000
+PITCH: 92 spikes removed with slope exceeding 1.300000
+ROLL: 74 spikes removed with slope exceeding 1.300000
+THDG: 28 spikes removed with slope exceeding 1.500000
+VEW: 11 spikes removed with slope exceeding 20.000000
+VNS: 10 spikes removed with slope exceeding 20.000000
+VSPD: 31 spikes removed with slope exceeding 1.600000
+IRS Error report: Latitude had 1 values of 0 (zero).
+IRS Error report: Longitude had 2 values of 0 (zero).
+IRS Error report: True Heading had 25 values of 0 (zero).
+IRS Error report: Pitch had 86 values of 0 (zero).
+IRS Error report: Roll had 68 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 58 values of 0 (zero).
+IRS Error report: Vertical Speed had 30 values of 0 (zero).
+IRS Error report: NS Velocity had 34248 values of 0 (zero).
+IRS Error report: EW Velocity had 34248 values of 0 (zero).
+Processing took 4.3 minutes.

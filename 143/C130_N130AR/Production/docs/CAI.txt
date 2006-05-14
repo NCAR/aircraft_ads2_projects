@@ -1,0 +1,21 @@
+The RAF Community Aerosol Inlet (CAI) is a three-stage diffuser designed
+to slow the air prior to its ingestion into the cabin for distribution to
+the various particle samplers.  Flow through the CAI is monitored at three
+locations:  Intake Shroud (INQC1,INPS1), Sampling Plane (INQC2,INPS2,INTEMP)
+and Exhaust Cone (INQC3,INPS3).  In each case the QC designation stands
+for dynamic pressure, the PS for static pressure and the TEMP for total
+temperature.  Airspeed calculations (INTAS1,INTAS2,INTAS3) are performed for
+each location to provide a direct comparison of the flow characteristics of
+the CAI.
+     A total of seven (7) sampling tubes are used to distribute air
+samples to the in-cabin analyzers.  To ensure uniform sampling, a constant
+volumetric flow must be maintained within each sample tube.  Users taking
+samples from the CAI are responsible for maintaining a predetermined flow
+rate.  All unused tubes are routed into a common manifold from which RAF
+pulls the flow (INFLOW,INFLOWC) needed to preserve the flow characteristics
+at the sampling plane.
+     The air flow through the CAI is fairly well-behaved with a
+well-correlated deceleration from the free stream to the sampling plane.
+This ratio will vary somewhat with altitude.  However, pitch and sideslip
+maneuvers do not appear to affect this relationship.
+

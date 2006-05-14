@@ -1,0 +1,102 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 6-110 Coastally Trapped Waves (Dr. David P. Rogers)
+#  (Reprocessed data)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Mon Dec 16 11:41:28 MST 1996
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set YEAR = 1996
+set PROJ = 110
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo \ 
+ nrnet msput $SDIR/110rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#
+set TURBRT = HRT
+#
+echo \ 
+ nrnet msput $SDIR/110rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo \ 
+ nrnet msput $SDIR/110rf11h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Mon Dec 16 11:45:17 MST 1996
+# Sequence number = MI1694 -- LRT/RF01.cdf -- OK @ 16 Dec 1996 11:46:54
+# Sequence number = MI1704 -- LRT/RF02.cdf -- OK @ 16 Dec 1996 11:47:29
+# Sequence number = MI1711 -- LRT/RF03.cdf -- OK @ 16 Dec 1996 11:48:06
+# Sequence number = MI1720 -- LRT/RF04.cdf -- OK @ 16 Dec 1996 11:48:40
+# Sequence number = MI1727 -- LRT/RF05.cdf -- OK @ 16 Dec 1996 11:49:09
+# Sequence number = MI1734 -- LRT/RF06.cdf -- OK @ 16 Dec 1996 11:50:18
+# Sequence number = MI1742 -- LRT/RF07.cdf -- OK @ 16 Dec 1996 11:50:55
+# Sequence number = MI1749 -- LRT/RF08.cdf -- OK @ 16 Dec 1996 11:51:42
+# Sequence number = MI1756 -- LRT/RF09.cdf -- OK @ 16 Dec 1996 11:53:11
+# Sequence number = MI1763 -- LRT/RF10.cdf -- OK @ 16 Dec 1996 11:52:37
+# Sequence number = MI1771 -- LRT/RF11.cdf -- OK @ 16 Dec 1996 11:55:41
+# Sequence number = MI1778 -- HRT/RF01.cdf -- OK @ 16 Dec 1996 12:09:01
+# Sequence number = MI1786 -- HRT/RF02.cdf -- OK @ 16 Dec 1996 12:10:28
+# Sequence number = MI1794 -- HRT/RF03.cdf -- OK @ 16 Dec 1996 12:02:50
+# Sequence number = MI1804 -- HRT/RF04.cdf -- OK @ 16 Dec 1996 12:13:25
+# Sequence number = MI1813 -- HRT/RF05.cdf -- OK @ 16 Dec 1996 12:18:27
+# Sequence number = MI1821 -- HRT/RF06.cdf -- OK @ 16 Dec 1996 12:24:05
+# Sequence number = MI1833 -- HRT/RF07.cdf -- OK @ 16 Dec 1996 12:37:36
+# Sequence number = MI1844 -- HRT/RF08.cdf -- Failed @ 16 Dec 1996 12:10:00*
+# Sequence number = MI1852 -- HRT/RF08.cdf -- OK @ 16 Dec 1996 12:21:14
+# Sequence number = MI1859 -- HRT/RF09.cdf -- OK @ 16 Dec 1996 12:31:39
+# Sequence number = MI1867 -- HRT/RF10.cdf -- OK @ 16 Dec 1996 12:36:15
+# Sequence number = MI1877 -- HRT/RF11.cdf -- OK @ 16 Dec 1996 12:38:42
+#
+# * Duplicate keys in NRNET Command Line:   MVN=
+#   (Probably a result of this file being edited as it was being run)
+#

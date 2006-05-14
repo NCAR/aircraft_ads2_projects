@@ -1,0 +1,147 @@
+#! /bin/csh -f
+#
+#
+set YEAR = 1994
+set PROJ = 120
+set TURBRT = LRT
+#
+date
+#
+#
+exit
+#
+#   -----------------
+#    Completed stuff
+#   -----------------
+#
+#  Move some files to the LRT directory that should have been put there in
+#   the first place.
+#            Ron Ruth 951026
+#
+#set NAMES = ( \
+#120.tar \
+#120.tar.dir \
+#tarit.120.tar \
+#)
+set NAMES = ( \
+120.tar.dir \
+)
+#
+#  Get started
+set todo = $#NAMES
+set num = 1
+while ($num <= $todo)
+  set NAME = $NAMES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$NAME \
+                 npdn=/RAF/$YEAR/$PROJ/$TURBRT/$NAME \
+                 w=RAFDMG
+  @ num ++
+end
+#
+#  Job(s) submitted on Thu Oct 26 14:31:46 MDT 1995
+# Sequence number = MI2775 -- LRT/120.tar -- OK @ 26 Oct 1995 14:32:18
+# Sequence number = MI2782 -- LRT/120.tar.dir -- Failed @ 26 Oct 1995 14:32:18
+# Sequence number = MI2789 -- LRT/tarit.120.tar -- OK @ 26 Oct 1995 14:32:31
+#
+# Fail message:  Remote error -60
+#   The file name specified in the Remote DSD is not syntactically correct.
+#
+#  Job(s) submitted on Thu Oct 26 14:41:37 MDT 1995
+# Sequence number = MI2802 -- LRT/120.tar.dir -- OK @ 26 Oct 1995 19:47:13
+#
+#
+#  Prepare MSS for archive of BASE processed data completed on 31 August 1995
+#            Ron Ruth  950901
+#
+#  Step 1.  Rename unique files.
+# echo\
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/120.tar \
+#                npdn=/RAF/$YEAR/$PROJ/OLD${TURBRT}/120.tar \
+#                w=RAFDMG
+# echo \
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/120.tar.dir \
+#                npdn=/RAF/$YEAR/$PROJ/OLD${TURBRT}/120.tar.dir \
+#                w=RAFDMG
+# echo \
+# nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/tarit.120.tar \
+#                npdn=/RAF/$YEAR/$PROJ/OLD${TURBRT}/tarit.120.tar \
+#                w=RAFDMG
+#
+#  Step 2.  Move older data from the LRT subdirectory to OLDLRT.
+#set NAMES = ( \
+#RF03A.cdf )
+#RF03A.cdf \
+#RF03B.cdf \
+#RF03C.cdf \
+#RF04.cdf \
+#RF04.hdr \
+#RF05.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18A.cdf \
+#RF18B.cdf \
+#nimbus.tar \
+#nimbus.tar.dir \
+#taplog.120 \
+#tarit.nimbus.tar \
+#)
+#
+#  Get started
+set todo = $#NAMES
+set num = 1
+while ($num <= $todo)
+  set NAME = $NAMES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$NAME \
+                 npdn=/RAF/$YEAR/$PROJ/OLD${TURBRT}/$NAME \
+                 w=RAFDMG
+  @ num ++
+end
+#
+exit
+#
+#  Jobs submitted on Fri Sep  1 10:51:43 MDT 1995
+# Sequence number = MI7248 -- OLDLRT/120.tar -- OK @ 1 Sep 1995 10:52:25
+# Sequence number = MI7256 -- OLDLRT/RF03A.cdf -- Failed (Remote error -60)
+# Sequence number = MI7263 -- OLDLRT/RF03B.cdf -- OK @ 1 Sep 1995 10:52:20
+# Sequence number = MI7270 -- OLDLRT/RF03C.cdf -- OK @ 1 Sep 1995 10:52:25
+# Sequence number = MI7277 -- OLDLRT/RF04.cdf -- OK @ 1 Sep 1995 10:56:14
+# Sequence number = MI7284 -- OLDLRT/RF04.hdr -- OK @ 1 Sep 1995 10:56:20
+# Sequence number = MI7291 -- OLDLRT/RF05.cdf -- OK @ 1 Sep 1995 10:52:55
+# Sequence number = MI7298 -- OLDLRT/RF06.cdf -- OK @ 1 Sep 1995 11:04:40
+# Sequence number = MI7305 -- OLDLRT/RF07.cdf -- OK @ 1 Sep 1995 10:56:36
+# Sequence number = MI7312 -- OLDLRT/RF10.cdf -- OK @ 1 Sep 1995 11:05:59
+# Sequence number = MI7319 -- OLDLRT/RF11.cdf -- OK @ 1 Sep 1995 11:06:10
+# Sequence number = MI7326 -- OLDLRT/RF12.cdf -- OK @ 1 Sep 1995 10:56:22
+# Sequence number = MI7333 -- OLDLRT/RF13.cdf -- OK @ 1 Sep 1995 10:56:37
+# Sequence number = MI7340 -- OLDLRT/RF14.cdf -- OK @ 1 Sep 1995 11:05:46
+# Sequence number = MI7347 -- OLDLRT/RF15.cdf -- OK @ 1 Sep 1995 11:05:40
+# Sequence number = MI7354 -- OLDLRT/RF16.cdf -- OK @ 1 Sep 1995 10:56:49
+# Sequence number = MI7361 -- OLDLRT/RF17.cdf -- OK @ 1 Sep 1995 11:10:45
+# Sequence number = MI7368 -- OLDLRT/RF18A.cdf -- OK @ 1 Sep 1995 10:52:33
+# Sequence number = MI7375 -- OLDLRT/RF18B.cdf -- OK @ 1 Sep 1995 11:10:05
+# Sequence number = MI7382 -- OLDLRT/nimbus.tar -- OK @ 1 Sep 1995 11:11:22
+# Sequence number = MI7389 -- OLDLRT/nimbus.tar.dir -- OK @ 1 Sep 1995 11:11:11
+# Sequence number = MI7396 -- OLDLRT/taplog.120 -- OK @ 1 Sep 1995 10:56:56
+# Sequence number = MI7403 -- OLDLRT/tarit.nimbus.tar--OK @ 1 Sep 1995 10:52:35
+#
+#  Jobs submitted on Fri Sep  1 10:55:14 MDT 1995
+# Sequence number = MI7413 -- OLDLRT/120.tar.dir -- OK @ 1 Sep 1995 10:55:40
+# Sequence number = MI7420 -- OLDLRT/tarit.120.tar -- OK @ 1 Sep 1995 10:55:37
+#
+#  Job submitted on Fri Sep  1 11:11:06 MDT 1995
+# Sequence number = MI6563 -- OLDLRT/RF03A.cdf -- OK @ 3 Sep 1995 03:56:10
+#
+#  Remote error -60 is:
+#  The file name specified in the Remote DSD is not syntactically correct.
+#  (not a real error, just some screwup in the MSS somewhere.)
+# 

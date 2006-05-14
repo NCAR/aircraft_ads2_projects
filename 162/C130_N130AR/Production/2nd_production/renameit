@@ -1,0 +1,136 @@
+#! /bin/csh -f
+#  Move files associated with the first production run to a new directory
+#   (preparation for documenting the new reprocessed production data)
+#     Ron Ruth  18 May 1998
+#
+# move following files/directories in
+#      the directory:  /home/local/proj/162/Production/
+#   to the directory:  /home/local/proj/162/Production/1st_production/
+mv 162.tar.dir 1st_production/.
+mv 162rf20.hdr 1st_production/.
+mv 162rf20h.hdr 1st_production/.
+mv afterJuly25 1st_production/.
+mv arch_support.162 1st_production/.
+mv beforeJuly25 1st_production/.
+mv hrAfterJuly25 1st_production/.
+mv hrBeforeJuly25 1st_production/.
+mv hrt_arch.162 1st_production/.
+mv lrt_arch.162 1st_production/.
+mv lrt_change.162 1st_production/.
+mv nimbus.tar.dir 1st_production/.
+mv nimbus_defaults.tar.dir 1st_production/.
+mv pre_arch.162 1st_production/.
+mv pre_rename.162 1st_production/.
+mv production.log.2d 1st_production/.
+mv production.log.hrt 1st_production/.
+mv production.log.lrt 1st_production/.
+mv purge.pre 1st_production/.
+mv scms.nimbus 1st_production/.
+mv taplog.hrt.162 1st_production/.
+mv taplog.lrt.162 1st_production/.
+mv tarit.162.tar 1st_production/.
+mv varlist.162 1st_production/.
+#
+exit
+#
+# Keep here:
+# FlightGroups
+# Flight_1
+# Flight_10
+# Flight_11
+# Flight_12
+# Flight_13
+# Flight_14
+# Flight_15
+# Flight_16
+# Flight_17
+# Flight_18
+# Flight_19
+# Flight_2
+# Flight_20
+# Flight_3
+# Flight_4
+# Flight_5
+# Flight_6
+# Flight_8
+# Flight_9
+# HRT.convert
+# MSCP_out.162
+# Mail.162@
+# archive/
+# dir_list
+# logFile_HRT.1
+# logFile_HRT.10
+# logFile_HRT.11
+# logFile_HRT.12
+# logFile_HRT.13
+# logFile_HRT.14
+# logFile_HRT.15
+# logFile_HRT.16
+# logFile_HRT.17
+# logFile_HRT.18
+# logFile_HRT.19
+# logFile_HRT.2
+# logFile_HRT.20
+# logFile_HRT.3
+# logFile_HRT.4
+# logFile_HRT.5
+# logFile_HRT.6
+# logFile_HRT.7
+# logFile_HRT.8
+# logFile_HRT.9
+# logFile_LRT.1
+# logFile_LRT.10
+# logFile_LRT.11
+# logFile_LRT.12
+# logFile_LRT.13
+# logFile_LRT.14
+# logFile_LRT.15
+# logFile_LRT.16
+# logFile_LRT.17
+# logFile_LRT.18
+# logFile_LRT.19
+# logFile_LRT.2
+# logFile_LRT.20
+# logFile_LRT.3
+# logFile_LRT.4
+# logFile_LRT.5
+# logFile_LRT.6
+# logFile_LRT.7
+# logFile_LRT.8
+# logFile_LRT.9
+# logFile_LRT.FF01A
+# logFile_LRT.FF01B
+# logFile_LRT.FF04
+# log_scrn.1
+# log_scrn.10
+# log_scrn.11
+# log_scrn.12
+# log_scrn.13
+# log_scrn.14
+# log_scrn.15
+# log_scrn.16
+# log_scrn.17
+# log_scrn.18
+# log_scrn.19
+# log_scrn.2
+# log_scrn.20
+# log_scrn.3
+# log_scrn.4
+# log_scrn.5
+# log_scrn.6
+# log_scrn.7
+# log_scrn.8
+# log_scrn.9
+# log_scrn.ff01a
+# log_scrn.ff01b
+# log_scrn.ff04
+# new_arch.162
+# new_taplog.162
+# proj.info
+# recipients
+# renameit
+# reprocess.notes
+# taplog.ads.162
+# taplog.pms2d.162
+# tp2ms.summary

@@ -1,0 +1,237 @@
+On 18 January 1999 I received the first inquiry from Peter Duynkerke
+(Utrecht U, The Netherlands) for high-rate data, based on his perusal
+of a low-rate data set sent to him earlier.
+
+Because Krista was busy with INDOEX preparations and with preparing
+a special high-rate data set for Judy Curry, she asked me to set up
+and create these data for Peter.
+
+I made minimal change to the production setup for creating the HRT
+data set:  output VEW and VNS at 10sps, the sample rate.  (Actually
+Duynkerke didn't ask for those variables, so they are only output
+if a normal production run is made.)
+
+The data he requested:
+rf01a   21:00:00-end
+rf02    21:00:00-25:00:00
+rf05    21:00:00-25:00:00
+rf08    21:00:00-25:00:00
+
+The variables he requested:
+   RSTB
+   RSTB1
+   XGLWC
+   XGSFC
+   ALT
+   DAY
+   HGM232
+   HOUR
+   LAT
+   LON
+   MINUTE
+   MONTH
+   MRUV
+   ROLL
+   SECOND
+   THDG
+   YEAR
+   ATX
+   C260X_OBL
+   CF300_RPO
+   CFSSP_LPI
+   CONC3_RPO
+   CONC6_OBL
+   CONCF_LPI
+   CONCP_IBL
+   CPCAS_IBL
+   IRBC
+   IRTC
+   MR
+   MRLA
+   MRLA1
+   OAT
+   PALT
+   PLWC6_OBL
+   PLWCC
+   PLWCC1
+   PLWCF_LPI
+   PSX
+   PSXC
+   RHODT
+   RHOLA
+   RHOLA1
+   XUIC
+   XUXC
+   XVIC
+   XVYC
+   XWIC
+
+Because he had requested THDG and ROLL, I also added PITCH.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+The 1998-101 SHEBA EC-130Q HRT data tape left NCAR yesterday and is on its way
+to you.
+
+A hardware limitation within the RAF data acquisition system (ADS) results
+in incomplete inertial platform (IRS) data.  The processing software recovers
+as much of the original data as possible, but apparently it has its own
+limitations.  As a result, some spectral peaks occur in the IRS measurements
+and in derived data where the IRS is used, for example, the 3-dimensional
+winds.  They show up at even frequencies, like 1Hz, 2Hz, etc.  All are
+above 0.5Hz; therefore, they are not present in the low-rate (LRT) data.
+
+Due to INDOEX and other field projects, RAF has not had enough time to
+fully research the spectral anomalies nor to investigate ways to minimize
+or eliminate them.  At this point, I don't know to what extent it compromises
+the measurements.
+ 
+To help you evaluate the data I'm sending you, I have subjectively summarized
+the spectral peaks that occur during each 10-minute period for the data you
+will receive.  Although I only have shown a limited number of measurements,
+please be aware that spectral peaks could occur on other measurements not
+depicted here.  (I apologize for not including this information as a separate
+document within the tape shipment.)
+
+RF01       ATX    XUIC            XVIC    XWIC   XUXC   XVYC
+---------  -----  --------------  ------  -----  -----  ---------
+2100 2110  7,8Hz  5,7,8Hz         5,7Hz   none   7Hz    5Hz
+2110-2120  7,8Hz  7,8Hz           7Hz     7Hz    7,8Hz  2.5,7,8Hz
+2120-2130  7,8Hz  7,8Hz           7Hz     7Hz    7,8Hz  2.5,7,8Hz
+2130-2140  7,8Hz  7,8Hz           7Hz     7Hz    7,8Hz  2.5,7,8Hz
+2140-2150  none    none           7,8Hz   7,8Hz  7,8Hz  none
+2150-2200  none    none           none    none   none   none
+2200-2210  none    none           none    none   none   none
+2210-2220  none    none           none    none   none   none
+2220-2230  none    10,11,12Hz     none    none   none   10-12Hz
+2230-2240  none    none           none    none   none   none
+2240-2250  none    none           none    none   none   none
+2250-2300  none    none           none    none   none   none
+2300-2310  none    none           none    none   none   none
+2310-2320  none    none           none    none   none   none
+2320-2330  none    10Hz           10Hz    none   none   10,12Hz
+2330-2340 *lots    1,2,3,4,5,6Hz  1-6Hz   none   none   1-6Hz
+2340-2350 *none    1,2,3,4,5,6Hz  1-6Hz   none   none   1-6Hz
+2350-2400 *none    1,2,3,4,5,6Hz  1-6Hz   none   none   1-6Hz
+2400-2410  spectrum not obtainable due to time breaks
+2410-2414  spectrum not obtainable due to time breaks
+  *Data processing problems at time breaks may have caused some of these
+     spectral peaks
+Time break of  1 second  ending @ 23:37:29
+Time break of  1 second  ending @ 00:00:10
+Time break of  8 seconds ending @ 00:00:24
+Time break of  2 seconds ending @ 00:01:10
+Time break of  1 second  ending @ 00:01:14
+Time break of  1 second  ending @ 00:02:04
+Time break of  6 seconds ending @ 00:02:17
+Time break of 12 seconds ending @ 00:04:06
+Time break of 11 seconds ending @ 00:05:05
+Time break of  2 seconds ending @ 00:05:50
+Time break of 11 seconds ending @ 00:06:04
+Time break of  3 seconds ending @ 00:06:43
+Time break of  1 second  ending @ 00:06:47
+Time break of  1 second  ending @ 00:06:51
+Time break of  1 second  ending @ 00:07:41
+Time break of  1 second  ending @ 00:07:44
+Time break of  1 second  ending @ 00:08:40
+Time break of  8 seconds ending @ 00:08:54
+Time break of  1 second  ending @ 00:09:37
+Time break of  1 second  ending @ 00:09:41
+Time break of  1 second  ending @ 00:10:35
+Time break of  8 seconds ending @ 00:10:45
+Time break of  2 seconds ending @ 00:11:34
+Time break of  1 second  ending @ 00:12:22
+Time break of  2 seconds ending @ 00:12:27
+Time break of  1 second  ending @ 00:13:21
+Time break of  1 second  ending @ 00:13:26
+Time break of  1 second  ending @ 00:14:12
+Time break of  1 second  ending @ 00:14:16
+Time break of  1 second  ending @ 00:14:20
+Time break of  8 seconds ending @ 00:14:31
+Time break of 35 seconds ending @ 00:15:29
+Time break of  2 seconds ending @ 00:15:36
+Time break of  2 seconds ending @ 00:15:55
+
+RF02       ATX         XUIC               XVIC     XWIC        XUXC     XVYC
+---------  ----------  -----------------  -------  ----------  -------  ----------
+2100 2110  5,6,7,8Hz   7Hz                7Hz      7,8Hz       7Hz      3,5.5,7Hz
+2110 2120  none        1,2,3,4,5,6,8Hz    1-8Hz    7,8Hz       4,5Hz    1-6,8,10Hz
+2120 2130  4,5,6,8Hz   1,2,3,4,5,6,Hz     1-6Hz    none        none     1-6Hz
+2130 2140  5,8Hz       1,2,3,4,5,6,8Hz    1-6Hz    none        none     1-6Hz
+2140 2150  3,5,8,10Hz  1,2,3,4,5,6,7,8Hz  1-8Hz    7,8Hz       none     1-6Hz
+2150 2200  5,8,10Hz    7,8Hz              7,8Hz    7,8,10Hz    none     none
+2200 2210  none        none               none     7,8,9,10Hz  none     none
+2210 2220  none        none               none     none        none     none
+2220 2230  none        none               none     none        none     4Hz
+2230 2240  none        none               none     none        none     none
+2240 2250  spectrum not obtainable due to time breaks
+2250 2300  none        none               none     none        none     none
+2300 2310  none        none               none     none        none     none
+2310 2320  none        none               none     none        none     none
+2320 2330  none        none               none     none        none     none
+2330 2340  none        none               none     none        none     none
+2340 2350  none        none               none     none        none     none
+2350 2400  none        5Hz                5Hz      none        none     5Hz
+2400 2410  5,7Hz       5Hz                5Hz      7,8Hz       none     5Hz
+2410 2420  5,7,8Hz     5,7,8Hz            5,7,8Hz  7,8Hz       7,8Hz    5Hz
+2420 2430  none        5,8Hz              5,8Hz    7,8Hz       5,7,8Hz  5Hz
+2430 2440  none        7,8Hz              7,8Hz    7,8Hz       7,8Hz    3,8Hz
+2440 2450  none        7Hz                7,8Hz    7,8Hz       7,8Hz    7Hz
+2450 2459  5,7,8Hz     7,8Hz              7,8Hz    7,8Hz       7,8Hz    3,7,8Hz
+Time break of 117 seconds ending @ 22:42:40
+
+RF05       ATX    XUIC         XVIC                XWIC   XUXC     XVYC
+---------  -----  -----------  ------------------  -----  -------  -------------
+2100 2110  5,7Hz  7Hz          7Hz                 7,8Hz  7Hz      3,7Hz
+2110 2120  none   none         none                none   none     none
+2120 2130  none   8Hz          none                none   8Hz      none
+2130 2140  none   1,2,3,4,5Hz  1-5Hz               none   none     1,2,3,4,5,6Hz
+2140 2150  none   1,2,3,4,5Hz  1-5Hz               none   none     1,2,3,4,5,6Hz
+2150 2200  none   none         none                none   none     none
+2200 2210  none   none         none                none   none     none
+2210 2220  none   5,8Hz        none                none   none     none
+2220 2230  none   none         none                2Hz    none     4Hz
+2230 2240  none   none         none                none   none     none
+2240 2250  none   none         none                none   none     none
+2250 2300  none   none         none                none   none     none
+2300 2310  none   none         none                none   none     none
+2310 2320  none   none         none                none   none     none
+2320 2330  none   none         none                none   none     none
+2330 2340  none   5Hz          none                none   none     5Hz 
+2340 2350  none   5Hz          5Hz                 none   none     5Hz 
+2350 2400  none   5Hz          5Hz                 3,4Hz  none     5Hz
+2400 2410  none   none         5Hz                 none   5Hz      5Hz
+2410 2420  none   none         2Hz                 none   none     none 
+2420 2430  none   none         none                none   5,7,8Hz  none 
+2430 2440  none   none         none                none   none     none 
+2440 2450  none   none         none                none   none     none 
+2450 2500  none   5,10Hz       5,7,8,9,10,11,12Hz  none   8Hz      5,7,8,9,10,11,12Hz
+Time break of 7 seconds ending @ 21:52:00
+
+RF08       ATX    XUIC            XVIC    XWIC         XUXC      XVYC
+---------  -----  --------------  ------  -----------  --------  ----------------
+2100 2110  none   1,2,3,4,5,6Hz   1-6Hz   7Hz          none      1,2,3,4,5,6Hz
+2110 2120  none   1,2,3,4,5,6Hz   1-6Hz   7,8Hz        none      1,2,3,4,5,6Hz
+2120 2130  none   none            none    3.5,4,7Hz    none      none
+2130 2140  none   none            5,10Hz  none         none      5,10Hz
+2140 2150  none   none            none    none         none      none
+2150 2200  none   none            none    none         none      none
+2200 2210  none   none            none    none         none      none
+2210 2220  none   none            none    none         none      none
+2220 2230  none   none            none    none         none      none
+2230 2240  none   8Hz             none    5.5,7Hz      8Hz       none
+2240 2250  none   5Hz             none    none         none      5Hz
+2250 2300  none   5Hz             5Hz     none         5,8,10Hz  5Hz
+2300 2310  none   5Hz             5Hz     none         none      5Hz
+2310 2320  none   5,6,7,8,9,10Hz  5-10Hz  none         none      5,6,7,8,9,10Hz
+2320 2330  none   none            none    none         none      none
+2330 2340  none   none            none    none         none      none 
+2340 2350  none   none            none    none         none      none 
+2350 2400  none   none            none    none         none      none
+2400 2410  none   none            none    none         none      none
+2410 2420  none   none            none    none         none      none 
+2420 2430  none   none            none    none         7,8Hz     none 
+2430 2440  none   none            none    6.5,7,8Hz    none      none 
+2440 2450  7,8Hz  1,2,3,4,5Hz     7,8Hz   6.5,7Hz      7,8Hz     1,2,3,4,5,6,10Hz 
+2450 2500  5,7Hz  2,3,5,7,8Hz     7,8Hz   5,6.5,7,8Hz  7,8Hz     2,3,3.5,4,5,7Hz
+-------
+Ronald L. Ruth,  RAF Data Manager

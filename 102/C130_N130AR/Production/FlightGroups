@@ -1,0 +1,47 @@
+#
+# This file contains flight equivalences.  That is "x == y"
+# says that flight x should use the [nimbus] setup that was
+# saved from flight y.
+#
+#
+#1 == 1
+2 == 1
+3 == 1
+#4 == 4
+#5 == 5
+#6 == 6
+#7 == 7
+#8 == 8
+#9 == 9
+#10 == 10
+#11 == 11
+#12 == 12
+#13 == 13
+#14 == 14
+15 == 13
+#16 == 16
+17 == 16
+18 == 13
+#
+# Note 1:  Unique Flight_X files are:
+#    Flight_1
+#    Flight_4
+#    Flight_9
+#    Flight_10
+#    Flight_12
+#    Flight_14
+#    Flight_16
+#          Redundant Flight_X files are:
+#    Flight_5, Flight_6, Flight_7, Flight_8 (=== Flight_4)
+#    Flight_11, Flight_13 (=== Flight_10)
+#
+# Note 2:  RF04, RF11 have flight #0 in their ADS headers.
+#          Therefore, NIMBUS will not load the correct setup files
+#          for these flights; they must be loaded manually.
+#
+# One Ferry Flight file also exists; it is named:  FFlight_1.
+# While the Ferry Flights were being processeed by NIMBUS, this file was
+#  renamed RFlight_Groups, and affected Flight_X files were renamed to
+#  RFlight_X.  See the FFlightGroups file for more information.
+#
+#  Ron Ruth  13 December 1999

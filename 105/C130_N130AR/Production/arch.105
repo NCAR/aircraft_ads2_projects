@@ -1,0 +1,37 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1999-105 Sulfur Instrument Test (Alan Bandy)
+#
+#  File created by '/home/local/scripts/genar' Revision 7 on Wed Dec 8 10:39:55 MST 1999
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /home/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 105
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/105tf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/105tf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/105tf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/105tf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+echo nrnet msput $SDIR/105tf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  Job(s) submitted on Wed Dec  8 10:54:53 MST 1999
+# Sequence number = LN6477 -- LRT/TF01.cdf -- OK @ 8 Dec 1999 11:03:06
+# Sequence number = LN6484 -- LRT/TF02.cdf -- OK @ 8 Dec 1999 11:03:12
+# Sequence number = LN6491 -- LRT/TF03.cdf -- OK @ 8 Dec 1999 11:03:10
+# Sequence number = LN6498 -- LRT/TF04.cdf -- OK @ 8 Dec 1999 11:03:19
+# Sequence number = LN6505 -- LRT/TF05.cdf -- OK @ 8 Dec 1999 11:07:06
+#

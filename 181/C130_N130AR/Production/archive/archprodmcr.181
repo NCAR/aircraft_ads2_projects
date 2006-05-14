@@ -1,0 +1,649 @@
+#! /bin/csh -f
+#
+#  Archive processed MCR data files for 2001-181 <DYCOMS-II>
+#   (Done one file at a time to keep from overloading the network)
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $PROJ_DIR/181/Production/archive/arch_mcr.181
+#   by Ron Ruth  19 April 2002
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  `vi' commands for generating destination file names
+#   (Source lines are marked "e" through "f" and cursor is at point
+#    of insertion for destination lines.)
+#     :'e,'fco.
+#     mh''jmg
+#     :'g,'hs/^........
+#     :'g,'hs/r/R
+#     :'g,'hs/f/F
+#     :'e,'fs/^/#
+#     :'g,'hs
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+set TYPE = MCR
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+# Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  After the fact, the read password was set for these data files.
+#  mahler/ron % mspasswd -R -wpwd RAFDMG -newr DYCONLY /RAF/2001/181/MCR
+#  mahler/ron % date
+#  Thu May  2 17:15:16 MDT 2002
+#    Ron Ruth
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+#set SDIR = $DATA_DIR/mcr/#
+set SDIR = /jnet/mcr/DYCOMS
+set logfile = arch_prod_mcr_log.$PROJ
+#
+#  1st wave
+#set wave = "1st"
+#set SFILES = ( \
+#ff02/181ff02.195344-195816 \
+#ff02/181ff02.195847-200613 \
+#ff02/181ff02.200633-200817 \
+#ff02/181ff02.200905-201549 \
+#ff02/181ff02.201629-201821 \
+#ff02/181ff02.201956-203619 \
+#ff02/181ff02.203727-204852 \
+#ff02/181ff02.204933-205052 \
+#)
+#set DFILES = ( \
+#FF02.195344-195816 \
+#FF02.195847-200613 \
+#FF02.200633-200817 \
+#FF02.200905-201549 \
+#FF02.201629-201821 \
+#FF02.201956-203619 \
+#FF02.203727-204852 \
+#FF02.204933-205052 \
+#)
+#
+#  1st wave
+#set wave = "more 1st"
+#set SFILES = ( \
+#ff02/181ff02.205231-211535 \
+#ff02/181ff02.211558-211938 \
+#ff02/181ff02.211944-212118 \
+#ff02/181ff02.212212-213254 \
+#ff02/181ff02.213302-214123 \
+#ff02/181ff02.214128-214426 \
+#ff02/181ff02.214716-215745 \
+#ff02/181ff02.215903-220112 \
+#ff02/181ff02.220143-220239 \
+#ff02/181ff02.220246-220413 \
+#ff02/181ff02.220418-221008 \
+#ff02/181ff02.221013-221242 \
+#ff02/181ff02.221956-222118 \
+#ff02/181ff02.223618-224026 \
+#)
+#set DFILES = ( \
+#FF02.205231-211535 \
+#FF02.211558-211938 \
+#FF02.211944-212118 \
+#FF02.212212-213254 \
+#FF02.213302-214123 \
+#FF02.214128-214426 \
+#FF02.214716-215745 \
+#FF02.215903-220112 \
+#FF02.220143-220239 \
+#FF02.220246-220413 \
+#FF02.220418-221008 \
+#FF02.221013-221242 \
+#FF02.221956-222118 \
+#FF02.223618-224026 \
+#)
+#
+#  2nd wave
+#set wave = "2nd"
+#set SFILES = ( \
+#rf01/181rf01.142015-142159  \
+#rf01/181rf01.143005-144031  \
+#rf01/181rf01.144111-145406  \
+#rf01/181rf01.145502-145858  \
+#rf01/181rf01.145926-150241  \
+#rf01/181rf01.150526-150629  \
+#)
+#set DFILES = ( \
+#RF01.142015-142159  \
+#RF01.143005-144031  \
+#RF01.144111-145406  \
+#RF01.145502-145858  \
+#RF01.145926-150241  \
+#RF01.150526-150629  \
+#)
+#
+#  3rd wave
+#set wave = "3rd"
+#set SFILES = ( \
+#rf02/181rf02.132305-132358  \
+#rf02/181rf02.140931-141329  \
+#rf02/181rf02.141352-141453  \
+#rf02/181rf02.141459-142059  \
+#rf02/181rf02.142111-142825  \
+#rf02/181rf02.142935-143039  \
+#rf02/181rf02.143136-143600  \
+#rf02/181rf02.143640-143910  \
+#rf02/181rf02.144800-144934  \
+#rf02/181rf02.144940-145536  \
+#rf02/181rf02.150420-150639  \
+#rf02/181rf02.150704-152929  \
+#rf02/181rf02.153009-153238  \
+#rf02/181rf02.153300-153542  \
+#)
+#set DFILES = ( \
+#RF02.132305-132358  \
+#RF02.140931-141329  \
+#RF02.141352-141453  \
+#RF02.141459-142059  \
+#RF02.142111-142825  \
+#RF02.142935-143039  \
+#RF02.143136-143600  \
+#RF02.143640-143910  \
+#RF02.144800-144934  \
+#RF02.144940-145536  \
+#RF02.150420-150639  \
+#RF02.150704-152929  \
+#RF02.153009-153238  \
+#RF02.153300-153542  \
+#)
+#
+#  4th wave
+#set wave = "4th"
+#set SFILES = ( \
+#rf03/181rf03.140522-140713  \
+#rf03/181rf03.140759-141134  \
+#rf03/181rf03.141444-142735  \
+#rf03/181rf03.144029-144701  \
+#rf03/181rf03.144855-150225  \
+#rf03/181rf03.150239-150747  \
+#rf03/181rf03.150925-152419  \
+#rf03/181rf03.152459-152854  \
+#rf03/181rf03.152859-153206  \
+#)
+#set DFILES = ( \
+#RF03.140522-140713  \
+#RF03.140759-141134  \
+#RF03.141444-142735  \
+#RF03.144029-144701  \
+#RF03.144855-150225  \
+#RF03.150239-150747  \
+#RF03.150925-152419  \
+#RF03.152459-152854  \
+#RF03.152859-153206  \
+#)
+#
+#  5th wave
+#set wave = "5th"
+#set SFILES = ( \
+#rf04/181rf04.142307-143538 \
+#rf04/181rf04.143614-144339 \
+#rf04/181rf04.144453-145952 \
+#rf04/181rf04.150017-150550 \
+#rf04/181rf04.150603-150934 \
+#rf04/181rf04.151222-151913 \
+#)
+#set DFILES = ( \
+#RF04.142307-143538 \
+#RF04.143614-144339 \
+#RF04.144453-145952 \
+#RF04.150017-150550 \
+#RF04.150603-150934 \
+#RF04.151222-151913 \
+#)
+#
+#  6th wave
+#set wave = "6th"
+#set SFILES = ( \
+#rf05/181rf05.083705-084636 \
+#rf05/181rf05.135319-135426 \
+#rf05/181rf05.140536-140650 \
+#rf05/181rf05.142719-142820 \
+#rf05/181rf05.143044-143318 \
+#rf05/181rf05.143551-144436 \
+#rf05/181rf05.145238-145936 \
+#rf05/181rf05.145959-150700 \
+#rf05/181rf05.150749-151510 \
+#)
+#set DFILES = ( \
+#RF05.083705-084636 \
+#RF05.135319-135426 \
+#RF05.140536-140650 \
+#RF05.142719-142820 \
+#RF05.143044-143318 \
+#RF05.143551-144436 \
+#RF05.145238-145936 \
+#RF05.145959-150700 \
+#RF05.150749-151510 \
+#)
+#
+#  7th wave
+#set wave = "7th"
+#set SFILES = ( \
+#rf06/181rf06.140535-141034 \
+#rf06/181rf06.141042-141146 \
+#rf06/181rf06.141232-141845 \
+#rf06/181rf06.142630-144459 \
+#rf06/181rf06.144525-144830 \
+#rf06/181rf06.144902-145714 \
+#)
+#set DFILES = ( \
+#RF06.140535-141034 \
+#RF06.141042-141146 \
+#RF06.141232-141845 \
+#RF06.142630-144459 \
+#RF06.144525-144830 \
+#RF06.144902-145714 \
+#)
+#
+#  8th wave
+#set wave = "8th"
+#set SFILES = ( \
+#rf07/181rf07.141849-142039 \
+#rf07/181rf07.142241-142631 \
+#rf07/181rf07.142641-142826 \
+#rf07/181rf07.142843-143029 \
+#rf07/181rf07.143053-143214 \
+#rf07/181rf07.143322-143521 \
+#rf07/181rf07.143706-143822 \
+#rf07/181rf07.143827-143941 \
+#rf07/181rf07.144244-144355 \
+#rf07/181rf07.144443-144711 \
+#rf07/181rf07.145310-151412 \
+#rf07/181rf07.151420-151625 \
+#rf07/181rf07.151733-153108 \
+#rf07/181rf07.153730-153904 \
+#)
+#set DFILES = ( \
+#RF07.141849-142039 \
+#RF07.142241-142631 \
+#RF07.142641-142826 \
+#RF07.142843-143029 \
+#RF07.143053-143214 \
+#RF07.143322-143521 \
+#RF07.143706-143822 \
+#RF07.143827-143941 \
+#RF07.144244-144355 \
+#RF07.144443-144711 \
+#RF07.145310-151412 \
+#RF07.151420-151625 \
+#RF07.151733-153108 \
+#RF07.153730-153904 \
+#)
+#
+#  9th wave
+#set wave = "9th"
+#set SFILES = ( \
+#rf08/181rf08.000557-002759 \
+#rf08/181rf08.203943-204549 \
+#rf08/181rf08.204607-205740 \
+#rf08/181rf08.205749-210411 \
+#rf08/181rf08.210712-210855 \
+#rf08/181rf08.211015-211254 \
+#rf08/181rf08.211306-211928 \
+#rf08/181rf08.212948-213058 \
+#rf08/181rf08.221937-222109 \
+#rf08/181rf08.222120-222422 \
+#rf08/181rf08.222445-222843 \
+#rf08/181rf08.222927-223233 \
+#rf08/181rf08.223243-223558 \
+#rf08/181rf08.224934-230534 \
+#rf08/181rf08.230559-231910 \
+#rf08/181rf08.232112-232210 \
+#rf08/181rf08.235537-000526 \
+#)
+#set DFILES = ( \
+#RF08.000557-002759 \
+#RF08.203943-204549 \
+#RF08.204607-205740 \
+#RF08.205749-210411 \
+#RF08.210712-210855 \
+#RF08.211015-211254 \
+#RF08.211306-211928 \
+#RF08.212948-213058 \
+#RF08.221937-222109 \
+#RF08.222120-222422 \
+#RF08.222445-222843 \
+#RF08.222927-223233 \
+#RF08.223243-223558 \
+#RF08.224934-230534 \
+#RF08.230559-231910 \
+#RF08.232112-232210 \
+#RF08.235537-000526 \
+#)
+#
+# 10th wave
+#set wave = "10th"
+#set SFILES = ( \
+#rf09/181rf09.000601-001203 \
+#rf09/181rf09.001414-002015 \
+#rf09/181rf09.002220-002819 \
+#rf09/181rf09.003027-003643 \
+#rf09/181rf09.003942-004544 \
+#rf09/181rf09.004741-005350 \
+#rf09/181rf09.005856-005952 \
+#rf09/181rf09.010114-010720 \
+#rf09/181rf09.010921-011544 \
+#rf09/181rf09.011843-012445 \
+#rf09/181rf09.012656-013249 \
+#rf09/181rf09.013601-013722 \
+#rf09/181rf09.014004-014608 \
+#rf09/181rf09.014832-015430 \
+#rf09/181rf09.015729-020334 \
+#rf09/181rf09.020532-021150 \
+#rf09/181rf09.022212-023735 \
+#rf09/181rf09.023810-024030 \
+#rf09/181rf09.024035-024457 \
+#rf09/181rf09.024608-024822 \
+#rf09/181rf09.024827-030214 \
+#rf09/181rf09.192210-193344 \
+#rf09/181rf09.193417-193702 \
+#rf09/181rf09.193708-194029 \
+#rf09/181rf09.194035-195504 \
+#rf09/181rf09.200840-201026 \
+#rf09/181rf09.201122-201316 \
+#rf09/181rf09.203211-203612 \
+#rf09/181rf09.203931-204105 \
+#rf09/181rf09.204139-204243 \
+#rf09/181rf09.204311-204858 \
+#rf09/181rf09.205058-205711 \
+#rf09/181rf09.205857-210508 \
+#rf09/181rf09.210715-211313 \
+#rf09/181rf09.211650-212252 \
+#rf09/181rf09.212437-213040 \
+#rf09/181rf09.213250-213850 \
+#rf09/181rf09.214125-214713 \
+#rf09/181rf09.215012-215616 \
+#rf09/181rf09.215830-220429 \
+#rf09/181rf09.221114-221706 \
+#rf09/181rf09.221923-222533 \
+#rf09/181rf09.222840-223436 \
+#rf09/181rf09.223651-224243 \
+#rf09/181rf09.233104-233309 \
+#rf09/181rf09.233450-234032 \
+#rf09/181rf09.234538-234724 \
+#rf09/181rf09.234956-235602 \
+#rf09/181rf09.235753-000359 \
+#)
+#set DFILES = ( \
+#RF09.000601-001203 \
+#RF09.001414-002015 \
+#RF09.002220-002819 \
+#RF09.003027-003643 \
+#RF09.003942-004544 \
+#RF09.004741-005350 \
+#RF09.005856-005952 \
+#RF09.010114-010720 \
+#RF09.010921-011544 \
+#RF09.011843-012445 \
+#RF09.012656-013249 \
+#RF09.013601-013722 \
+#RF09.014004-014608 \
+#RF09.014832-015430 \
+#RF09.015729-020334 \
+#RF09.020532-021150 \
+#RF09.022212-023735 \
+#RF09.023810-024030 \
+#RF09.024035-024457 \
+#RF09.024608-024822 \
+#RF09.024827-030214 \
+#RF09.192210-193344 \
+#RF09.193417-193702 \
+#RF09.193708-194029 \
+#RF09.194035-195504 \
+#RF09.200840-201026 \
+#RF09.201122-201316 \
+#RF09.203211-203612 \
+#RF09.203931-204105 \
+#RF09.204139-204243 \
+#RF09.204311-204858 \
+#RF09.205058-205711 \
+#RF09.205857-210508 \
+#RF09.210715-211313 \
+#RF09.211650-212252 \
+#RF09.212437-213040 \
+#RF09.213250-213850 \
+#RF09.214125-214713 \
+#RF09.215012-215616 \
+#RF09.215830-220429 \
+#RF09.221114-221706 \
+#RF09.221923-222533 \
+#RF09.222840-223436 \
+#RF09.223651-224243 \
+#RF09.233104-233309 \
+#RF09.233450-234032 \
+#RF09.234538-234724 \
+#RF09.234956-235602 \
+#RF09.235753-000359 \
+#)
+#
+# 11th wave
+#set wave = "11th"
+#set SFILES = ( \
+#rf10/181rf10.201704-202256 \
+#rf10/181rf10.214115-215143 \
+#rf10/181rf10.215202-220049 \
+#rf10/181rf10.231410-231615 \
+#rf10/181rf10.231903-232143 \
+#rf10/181rf10.232648-234258 \
+#rf10/181rf10.234339-235048 \
+#rf10/181rf10.235102-235252 \
+#rf10/181rf10.235331-235650 \
+#rf10/181rf10.235816-235915 \
+#)
+#set DFILES = ( \
+#RF10.201704-202256 \
+#RF10.214115-215143 \
+#RF10.215202-220049 \
+#RF10.231410-231615 \
+#RF10.231903-232143 \
+#RF10.232648-234258 \
+#RF10.234339-235048 \
+#RF10.235102-235252 \
+#RF10.235331-235650 \
+#RF10.235816-235915 \
+#)
+#
+# 12th wave
+#set wave = "12th"
+#set SFILES = ( \
+#tf02/181tf02.172445-172707 \
+#tf02/181tf02.173316-173442 \
+#tf02/181tf02.173640-173958 \
+#tf02/181tf02.174005-174059 \
+#tf02/181tf02.174208-174428 \
+#tf02/181tf02.174607-174944 \
+#tf02/181tf02.175246-175441 \
+#tf02/181tf02.175511-175849 \
+#tf02/181tf02.175933-180810 \
+#tf02/181tf02.181033-181526 \
+#tf02/181tf02.182045-182204 \
+#tf02/181tf02.182658-182937 \
+#tf02/181tf02.183106-183216 \
+#tf02/181tf02.183416-184404 \
+#tf02/181tf02.184645-184926 \
+#tf02/181tf02.193152-194023 \
+#tf02/181tf02.194034-194353 \
+#tf02/181tf02.194824-194913 \
+#tf02/181tf02.195200-195413 \
+#)
+#set DFILES = ( \
+#TF02.172445-172707 \
+#TF02.173316-173442 \
+#TF02.173640-173958 \
+#TF02.174005-174059 \
+#TF02.174208-174428 \
+#TF02.174607-174944 \
+#TF02.175246-175441 \
+#TF02.175511-175849 \
+#TF02.175933-180810 \
+#TF02.181033-181526 \
+#TF02.182045-182204 \
+#TF02.182658-182937 \
+#TF02.183106-183216 \
+#TF02.183416-184404 \
+#TF02.184645-184926 \
+#TF02.193152-194023 \
+#TF02.194034-194353 \
+#TF02.194824-194913 \
+#TF02.195200-195413 \
+#)
+#
+#   th wave
+#set wave = " th"
+#set SFILES = ( \
+# \
+#)
+#set DFILES = ( \
+# \
+#)
+#
+#
+#  Get started:
+#
+#  Set up and/or test log file
+if (! -e $logfile) then
+  echo "Log file for archiving Production MCR data to the SCD Mass Store System" >! $logfile
+  if ($status != 0) then
+    echo "  Cannot create log file $logfile."
+    echo "  Quitting."
+    exit 1
+  else
+    echo " created by the script ${0} on `date`" >> $logfile
+  endif
+else if (! -w $logfile) then
+  echo "  Cannot update log file $logfile."
+  echo "  Quitting."
+  exit 1
+endif
+echo "" >> $logfile
+if ($status != 0) then
+  echo "  Cannot update log file $logfile."
+  echo "  Quitting."
+  exit 1
+endif
+echo "------- $wave wave" >> $logfile
+echo " $#DFILES files to be archived to the MSS directory:  /RAF/$YEAR/$PROJ/$TYPE/"
+echo " Files archived to the MSS directory:  /RAF/$YEAR/$PROJ/$TYPE/" >> $logfile
+set sdate = `date`
+echo $sdate
+echo " Job submssion began on $sdate" >> $logfile
+#
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match." >> $logfile
+  echo " Number of source and destination file names don't match."
+  echo " Quitting."
+  exit 1
+endif
+#
+if ($#SFILES != $#DFILES) then
+  echo "  Number of source and destination files don't match.  Quitting."
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo " rsh $msrcpMachine msrcp -> mss:../$DFILE completed successfully on `date`" >> $logfile
+    else
+      echo " rsh $msrcpMachine msrcp -> mss:../$DFILE FAILED (error=$result) on `date`" >> $logfile
+    endif
+  else
+    echo " Cannot access file $SDIR/$SFILE" >> $logfile
+  endif
+  @ num ++
+end
+#
+set cdate = `date`
+echo " Job completed on $cdate" >> $logfile
+echo " Job completed on $cdate"
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/181/MCR/
+#
+#  See logfile "mcr_arch_log.ppp" for archive status
+#
+#  1st wave
+#  Job(s) submitted on Tue Apr 30 12:19:54 MDT 2002
+#  Job completed on Tue Apr 30 12:27:41 MDT 2002
+#  
+#  more 1st wave
+#  Job(s) submitted on Tue Apr 30 12:45:58 MDT 2002
+#  Job completed on Tue Apr 30 13:11:11 MDT 2002
+#
+#  2nd wave
+#  Job(s) submitted on Tue Apr 30 14:00:43 MDT 2002
+#   Job completed on Tue Apr 30 14:08:26 MDT 2002
+#
+#  3rd wave
+#  Job(s) submitted on Tue Apr 30 14:09:52 MDT 2002
+#   Job completed on Tue Apr 30 14:33:43 MDT 2002
+#
+#  4th wave
+#  Job(s) submitted on Tue Apr 30 14:37:11 MDT 2002
+#   Job completed on Tue Apr 30 14:48:52 MDT 2002
+#
+#  5th wave
+#  Job(s) submitted on Tue Apr 30 14:50:25 MDT 2002
+#   Job completed on Tue Apr 30 15:03:10 MDT 2002
+#
+#  6th wave
+#  Job(s) submitted on Wed May 1 10:45:00 MDT 2002
+#  Job completed on Wed May 1 10:56:15 MDT 2002
+#
+#  7th wave
+#  Job(s) submitted on Wed May 1 12:17:14 MDT 2002
+#  Job completed on Wed May 1 12:24:45 MDT 2002
+#
+#  8th wave
+#  Job(s) submitted on Wed May 1 13:53:41 MDT 2002
+#  Job completed on Wed May 1 14:17:03 MDT 2002
+#
+#  9th wave
+#  Job(s) submitted on Wed May 1 14:44:15 MDT 2002
+#  Job completed on Wed May 1 16:17:17 MDT 2002
+#
+# 10th wave
+#  Job(s) submitted on Wed May 1 16:29:27 MDT 2002
+#  Job completed on Wed May 1 19:55:57 MDT 2002
+#
+# 11th wave
+#  Job(s) submitted on Thu May 2 09:03:25 MDT 2002
+#  Job completed on Thu May 2 09:41:12 MDT 2002
+#
+# 12th wave
+#  Job(s) submitted on Thu May 2 09:48:33 MDT 2002
+#  Job completed on Thu May 2 10:06:33 MDT 2002
+#
+#   th wave
+#  Job(s) submitted on 
+#  

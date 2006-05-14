@@ -1,0 +1,52 @@
+#! /bin/csh -f
+#
+#  archive preliminary NIMBUS netCDF output files for 2001-131 ACE-Asia (B. Huebert, et al.)
+#
+#  File adapted from arch.131 by Ron Ruth  28 September 2001
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2001
+set PROJ = 131
+#set SDIR = $DATA_DIR
+#
+#
+set TURBRT = LRT/PRELIMINARY
+#
+#echo nrnet msput $SDIR/131ff01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131ff02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131ff03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF03.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131ff04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF04.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131ff05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF05.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131ff06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF06.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131ff07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF07.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#
+set SDIR = /jnet/ftp/pub/projects/ACE-Asia
+#echo nrnet msput $SDIR/131tf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF01.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131tf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF02.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131tf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF03.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#echo nrnet msput $SDIR/131tf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/TF04.cdf rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG
+#
+#   Files archived to the MSS directory:  /RAF/2001/131/LRT/PRELIMINARY/
+#  Job(s) submitted on Fri Sep 28 11:04:20 MDT 2001
+# Sequence number = LN1879 -- LRT/PRELIMINARY/FF01.cdf -- OK @ 28 Sep 2001 11:05:32
+# Sequence number = LN1887 -- LRT/PRELIMINARY/FF02.cdf -- OK @ 28 Sep 2001 11:08:19
+# Sequence number = LN1895 -- LRT/PRELIMINARY/FF03.cdf -- OK @ 28 Sep 2001 11:07:36
+# Sequence number = LN1903 -- LRT/PRELIMINARY/FF04.cdf -- OK @ 28 Sep 2001 11:08:09
+# Sequence number = LN1911 -- LRT/PRELIMINARY/FF05.cdf -- OK @ 28 Sep 2001 11:09:36
+# Sequence number = LN1921 -- LRT/PRELIMINARY/FF06.cdf -- OK @ 28 Sep 2001 11:15:48
+# Sequence number = LN1933 -- LRT/PRELIMINARY/FF07.cdf -- OK @ 28 Sep 2001 11:15:12
+#
+#  Job(s) submitted on Mon Dec 10 14:00:23 MST 2001
+# Sequence number = LN9246 -- LRT/PRELIMINARY/TF01.cdf -- OK @ 10 Dec 2001 14:03:14
+# Sequence number = LN9254 -- LRT/PRELIMINARY/TF02.cdf -- OK @ 10 Dec 2001 14:02:43
+# Sequence number = LN9262 -- LRT/PRELIMINARY/TF03.cdf -- OK @ 10 Dec 2001 14:04:44
+# Sequence number = LN9276 -- LRT/PRELIMINARY/TF04.cdf -- OK @ 10 Dec 2001 14:02:30
+#

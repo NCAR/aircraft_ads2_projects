@@ -1,0 +1,181 @@
+#! /bin/csh -f
+#
+#  Archive MCR data files for 2003-113 IDEAS-III
+#   (Done one file at a time to keep from overloading the network)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file /$LOCAL/proj/102/Production/arch_mcr.102
+#   by Ron Ruth  12 April 1999
+#  Revision 1 by RLR    ~Mar 2002 (convert from MIGS to DCS)
+#  Revision 2 by RLR  15 Apr 2002 (use "msput_job" script)
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = RAW_MCR
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "vivaldi"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+set SDIR = $DATA_DIR
+#set SDIR = $DATA_DIR/mcr/
+#
+#  1st wave
+#set SFILES = ( \
+#113rf07a.rawMCRa \
+#113rf07b.rawMCRa \
+#)
+#set DFILES = ( \
+#RF07A \
+#RF07B \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#113rf08a.rawMCRa \
+#)
+#set DFILES = ( \
+#RF08 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#113rf09b.rawMCRa \
+#)
+#set DFILES = ( \
+#RF09 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#113rf10a.rawMCRa \
+#)
+#set DFILES = ( \
+#RF10 \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#113rf11a.rawMCRa \
+#113rf11b.rawMCRa \
+#113rf11c.rawMCRa \
+#)
+#set DFILES = ( \
+#RF11A \
+#RF11B \
+#RF11C \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#
+#  Note:  These jobs will not be submitted in background mode with the present
+#          code.  I don't know how the RAF or SCD network will react to a
+#          bunch of jobs submitted at once.  If one adds an & at the end,
+#          then the jobs will be done in background.
+#              Ron Ruth
+#
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    if ($status == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2003/113/
+#
+#  1st wave
+#  2 Job(s) submitted on Thu Sep 11 17:46:03 MDT 2003
+#  msrcp job for RAW_MCR/RF07A -- OK -- Thu Sep 11 17:51:09 MDT 2003
+#  msrcp job for RAW_MCR/RF07B -- OK -- Thu Sep 11 17:58:52 MDT 2003
+#   Completed on Thu Sep 11 17:58:52 MDT 2003
+#
+#  2nd wave
+#  1 Job(s) submitted on Mon Sep 15 16:09:45 MDT 2003
+#  msrcp job for RAW_MCR/RF08 -- OK -- Mon Sep 15 16:18:22 MDT 2003
+#   Completed on Mon Sep 15 16:18:22 MDT 2003
+#
+#  3rd wave
+#  1 Job(s) submitted on Thu Sep 18 12:20:47 MDT 2003
+#  msrcp job for RAW_MCR/RF09 -- OK -- Thu Sep 18 12:33:34 MDT 2003
+#   Completed on Thu Sep 18 12:33:34 MDT 2003
+#
+#  4th wave
+#  1 Job(s) submitted on Fri Sep 19 14:45:03 MDT 2003
+#  msrcp job for RAW_MCR/RF10 -- OK -- Fri Sep 19 14:57:23 MDT 2003
+#   Completed on Fri Sep 19 14:57:23 MDT 2003
+#
+#  5th wave
+#  3 Job(s) submitted on Wed Sep 24 17:11:33 MDT 2003
+#  msrcp job for RAW_MCR/RF11A -- OK -- Wed Sep 24 17:14:07 MDT 2003
+#  msrcp job for RAW_MCR/RF11B -- OK -- Wed Sep 24 17:14:32 MDT 2003
+#  msrcp job for RAW_MCR/RF11C -- OK -- Wed Sep 24 17:18:00 MDT 2003
+#   Completed on Wed Sep 24 17:18:00 MDT 2003
+#
+#   th wave
+#  Job(s) submitted on 
+#

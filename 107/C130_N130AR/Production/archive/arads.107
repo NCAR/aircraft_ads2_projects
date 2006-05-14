@@ -1,0 +1,164 @@
+#! /bin/csh -f
+#
+#  Archive stripped raw ADS data files for 2000-107 Soil Moisture (Dinardo)
+#
+#  File adapted from file /home/local/proj/102/Production/arch_ads.102
+#    by Ron Ruth  28 January 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR/dinardo
+#
+#  1st wave
+#set SFILES = ( \
+#107ff01a.ads \
+#107ff01b.ads \
+#107ff02a.ads \
+#107ff02b.ads \
+#107rf01a.ads \
+#107rf02a.ads \
+#107rf03a.ads \
+#107rf04a.ads \
+#107rf05a.ads \
+#107rf06a.ads \
+#107rf07a.ads \
+#107tf01a.ads \
+#)
+#set DFILES = ( \
+#FF01 \
+#FF01 \
+#FF02 \
+#FF02 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#TF01 \
+#)
+#
+#  2nd & 3rd waves
+#set SFILES = ( \
+#107ff01a.ads \
+#107ff01b.ads \
+#107ff02a.ads \
+#107ff02b.ads \
+#)
+#set DFILES = ( \
+#FF01 \
+#FF01 \
+#FF02 \
+#FF02 \
+#)
+#set DFILES = ( \
+#FF01A \
+#FF01B \
+#FF02A \
+#FF02B \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TYPE/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2000/107/
+#
+#  1st wave
+#  Job(s) submitted on Mon Sep 25 14:49:31 MDT 2000
+# Sequence number = LN0315 -- ADS/FF01A -- Failed* @ 25 Sep 2000 14:50:01
+# Sequence number = LN0323 -- ADS/FF01B -- Failed* @ 25 Sep 2000 14:52:03
+# Sequence number = LN0332 -- ADS/FF02A -- Failed* @ 25 Sep 2000 14:50:12
+# Sequence number = LN0340 -- ADS/FF02B -- Failed* @ 25 Sep 2000 14:52:09
+# Sequence number = LN0351 -- ADS/RF01 -- OK @ 25 Sep 2000 14:59:27
+# Sequence number = LN0365 -- ADS/RF02 -- OK @ 25 Sep 2000 15:01:31
+# Sequence number = LN0377 -- ADS/RF03 -- OK @ 25 Sep 2000 15:01:03
+# Sequence number = LN0387 -- ADS/RF04 -- OK @ 25 Sep 2000 15:00:32
+# Sequence number = LN0395 -- ADS/RF05 -- OK @ 25 Sep 2000 15:08:14
+# Sequence number = LN0403 -- ADS/RF06 -- OK @ 25 Sep 2000 15:08:44
+# Sequence number = LN0411 -- ADS/RF07 -- OK @ 25 Sep 2000 15:07:51
+# Sequence number = LN0420 -- ADS/TF01 -- OK @ 25 Sep 2000 15:04:08
+#  * Incorrect destination bitfile name
+#
+#  2nd wave
+#  Job(s) submitted on Mon Sep 25 15:13:38 MDT 2000
+# Sequence number = LN3137 -- ADS/FF01 -- Failed* @ 25 Sep 2000 15:14:07
+# Sequence number = LN3145 -- ADS/FF01 -- Failed* @ 25 Sep 2000 15:16:09
+# Sequence number = LN3153 -- ADS/FF02 -- Failed* @ 25 Sep 2000 15:14:16
+# Sequence number = LN3163 -- ADS/FF02 -- Failed* @ 25 Sep 2000 15:16:15
+#  * Incorrect destination bitfile name
+#
+#  3rd wave
+#  Job(s) submitted on Mon Sep 25 15:17:38 MDT 2000
+# Sequence number = LN3653 -- ADS/FF01A -- OK @ 25 Sep 2000 15:18:04
+# Sequence number = LN3661 -- ADS/FF01B -- OK @ 25 Sep 2000 15:20:08
+# Sequence number = LN3669 -- ADS/FF02A -- OK @ 25 Sep 2000 15:18:16
+# Sequence number = LN3680 -- ADS/FF02B -- OK @ 25 Sep 2000 15:20:15
+#
+#  Job(s) submitted on 
+#
+#  4th wave
+#  Job(s) submitted on 
+#
+#   th wave
+#  Job(s) submitted on 
+#

@@ -1,0 +1,55 @@
+PELTI Flight Report for RF07, 19 July 2000
+
+The objective of this flight was to assess the ambient/LTI relationship, with slightly more emphasis on sea salt than dust. A similar flight on 21 July will emphasize dry dust, since a high-altitude dust storm is forecast for that time. We flew 4 one-hour legs, each with TAS and FSSP measurements to evaluate the inside/outside difference. A pair of legs at 30 m was designed to see how the size-dependent efficiency changes with turbulence in the LTI.
+
+1457			Takeoff, ENE 
+1503:20		Setup and adjustment of flows at 30 m
+1524:28 - 1529:26	Common-inlet calibration
+			Turned to East
+
+1531 - 1620		Level at 30 m - LTI Laminar 120 lpm
+1536:50 - 1620	APS Data Period  (distribution variable due to rain)
+1559			Turned to Southeast as soon as we cleared the Antilles chain
+1603			Brief rain; turned south to avoid more
+
+1627 - 1720		Level at  30 m - LTI Turbulent at 200 lpm
+1628:25 - 1720	APS Data Period (distribution fairly constant)
+
+1720 - 1739		Sounding to 3000 m 
+1739 - 1743		Level at 3000 m 
+
+1743 - 1843		Level at Dust Altitude (2700 m) - LTI Laminar
+1744:38 - 1843	APS Data Period (7 um peak variable)
+
+1843 - 1857		Sounding to Salt Altitude (230 m)
+
+1857 - 1938		Level at Salt Altitude (230 m) - LTI Laminar
+1857:50 - 1938	APS Data Period (distribution variable)
+
+1938 -  		Common-inlet calibrations
+1940:05 - 1955(?)	APS Data Period
+
+2004			Return to STX
+
+Notes:
+
+* The sizing modules were all calibrated on 18 July with PSL and glass beads of various sizes. This showed us that the APSs were not all sizing exactly the same. One was off by 2 channels and one by 1 channel. We will correct the sizes henceforth for this sizing error. The cause of it is a mystery, since all the APS sample flows seemed to be well-controlled when checked with a reference flowmeter. The flight was delayed an hour while we cleaned all the tubing that had become coated with the calibration beads.
+
+* We started and ended the flight with common-inlet calibrations, and noted a slight decrease in the sensitivity of the LTI APS (relative to the CAI APS) during the flight.
+
+* We again had difficulty getting the DU computer to correctly compute the LTI sample flow, which introduces uncertainty into how isokinetic the LTI was. We tried to use thermal mass flowmeter data to determine the correct LTI sample flow and adjusted the suction flow accordingly to what we believe was with in a few percent of isokinetic. 
+
+* The Wing-mounted FSSP-300 gave about 2 orders of magnitude more counts below 0.5 um than the internal 300, so it could not be used as a way to look for dust layers during profiling.
+
+* The "dry dust layer" was not as dry as we had expected, with an RH varying between 50 and 60%. 
+
+* Dust particles seemed to bounce back into the stream from the diffuser walls: the nephs behind the solid diffuser and the LTI were nearly identical in the dust layer. The CAI neph was still considerably lower, however.
+
+Commentary
+
+This flight was an excellent comparison of the inlets under several sets of conditions, and we should have ample TAS data against which to test our inside/outside questions. The dust leg was particularly interesting, because the volume peak at 7 um changed size throughout the leg, while the mode at 3 um was much more constant. This is pretty strong evidence that the larger mode is a real one, and not only an artifact of enhancement by the curving streamlines in the LTI. This same mode was present in the sea salt legs, as well, which appear to be a combination of a typical seasalt mode and a dust mode at a larger size. The SEM analyses will give us a solid answer to this issue, if they see a lot of volume at 7 um which is different from that at 3 um.
+
+The turbulence didn't seem to make much difference in the LTI performance relative to the other inlets in the MBL. This turbulence that is observed at 200 lpm sample flow is very mild relative to that observed when there is no suction or when we flew with a sharp leading edge on the LTI. I suspect that this turbulence begins farther back in the LTI, where the air has already slowed enough that the danger of large-particle loss is greatly reduced. It may well be that we can operate the LTIs in this slightly-turbulent range and achieve higher sample flows (and use less suction) than what is required to produce a large flow of entirely-laminar air.
+
+-Barry Huebert
+31 July 2000

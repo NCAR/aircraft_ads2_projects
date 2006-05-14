@@ -1,0 +1,90 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2002-111 IDEAS (Instrument Development and Education in Airborne Science, Phase 1) (Jeff Stith, et al.)
+#   using the new ATD directory path
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 12b on Fri Jan 31 11:34:09 MST 2003
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+#set SFILES = ( \
+#111rf01.nc \
+#111rf02.nc \
+#111rf03.nc \
+#111rf04.nc \
+#111rf05.nc \
+#111rf07.nc \
+#111rf08.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF01.20020405.193500_000801.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF02.20020412.183200_235500.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF03.20020418.203000_220500.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF04.20020425.183100_222800.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF05.20020430.182800_223200.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF07.20020509.192700_215800.PNI.nc \
+#mss:/ATD/DATA/2002/IDEAS-1/C130_N130AR/LRT/RF08.20020514.160200_192300.PNI.nc \
+#)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2002/IDEAS-1/C130_N130AR/"
+#echo "#  (Check year in path, if project occurred in more than one.)"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  7 job(s) submitted on Tue Mar 25 10:05:15 MST 2003
+#  Files archived to MSS directory:  /ATD/DATA/2002/IDEAS-1/C130_N130AR/
+#   LRT/RF01.20020405.193500_000801.PNI.nc -- OK -- Tue Mar 25 10:08:15 MST 2003
+#   LRT/RF02.20020412.183200_235500.PNI.nc -- OK -- Tue Mar 25 10:20:50 MST 2003
+#   LRT/RF03.20020418.203000_220500.PNI.nc -- OK -- Tue Mar 25 10:26:01 MST 2003
+#   LRT/RF04.20020425.183100_222800.PNI.nc -- OK -- Tue Mar 25 10:39:19 MST 2003
+#   LRT/RF05.20020430.182800_223200.PNI.nc -- OK -- Tue Mar 25 10:46:09 MST 2003
+#   LRT/RF07.20020509.192700_215800.PNI.nc -- OK -- Tue Mar 25 10:51:05 MST 2003
+#   LRT/RF08.20020514.160200_192300.PNI.nc -- OK -- Tue Mar 25 11:04:30 MST 2003
+#   Completed on Tue Mar 25 11:04:30 MST 2003
+#

@@ -1,0 +1,50 @@
+Data sets archived for IDEAS-1 project
+  as of:  Mon Jul 29 17:14:37 MDT 2002
+Raw ADS in MSS path /RAF/2002/111/ADS
+Raw PMS-2D in MSS path /RAF/2002/111/PMS2D
+Raw MCR in MSS path /RAF/2002/111/RAW_MCR
+Raw PCI in MSS path /RAF/2002/111/RAW_PCI
+
+Raw PMS-2D moved to MSS path /ATD/DATA/2002/IDEAS-1/C130_N130AR/PMS2D
+ on Thu Apr  3 15:12:38 MST 2003
+
+
+Undefined variable names in netCDF header that now have definitions:
+
+XINLET:units = "Vdc" ;
+XINLET:long_name = "inlet aerosol selection" ;
+
+XN9ATX_1:units = "K" ;
+XN9ATX_1:long_name = "nephelometer#1 air temperature" ;
+
+XN9BSCT_1:units = "M^-1" ;
+XN9BSCT_1:long_name = "nephelometer#1 light scattering extinction coeff." ;
+
+XN9CAL_1:units = "M^-1" ;
+XN9CAL_1:long_name = "nephelometer#1 calibration gas
+
+
+XN9PSX_1:units = "mbar" ;
+XN9PSX_1:long_name = "nephelometer#1 pressure" ;
+
+XN9RELA_1:units = none" ;
+XN9RELA_1:long_name = "nephelometer#1 relay status" ;
+
+XN9RHUM_1:units = "%" ;
+XN9RHUM_1:long_name = "nephelometer#2 relative humidity" ;
+
+CNTS1:units = "cnts" ;
+CNTS1:long_name = "counts, CN counter#1" ;
+
+CONCN1:units = "#/cm^3" ;
+CONCN1:long_name = "concentration of condensation nuclei, CN counter#1" ;
+
+Variables still without definitions:
+XCO
+XCOSTAT
+XNHT
+ACLMT_C1
+CLMPOF_C1
+DT1DP_RWI1
+DT2DP_RWI2
+

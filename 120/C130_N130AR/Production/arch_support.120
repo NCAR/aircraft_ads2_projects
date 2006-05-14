@@ -1,0 +1,246 @@
+#! /bin/csh -f
+#
+#   Archive the NIMBUS support files for 1994-120 BASE (Curry, et al.)
+#      RLR  1 September 1995
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+set LDIR = "/home/local/proj/120/Production"
+set YEAR = "1994"
+set PROJ = "120"
+#
+date
+#
+#   Archive second wave of HRT support files
+#
+#     Update/add to main directory files
+#
+#set file="README"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set file="Mail.120"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#     Update/add to HRT directory files
+#set TURBRT = "HRT"
+#
+#set file="120.hrt.tar.dir"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set file="120.hrt.tar"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set file="nimbus.tar.dir"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set file="nimbus.tar"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set file="nimbus_defaults.tar.dir"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set file="nimbus_defaults.tar"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set sfile="taplog.hrt.120"
+#set dfile="taplog.120"
+#echo nrnet msput $LDIR/$sfile l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$dfile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set sfile="120rf04h.hdr"
+#set dfile="RF04.hdr"
+#echo nrnet msput $LDIR/$sfile l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$dfile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Fri May 24 13:59:42 MDT 1996
+# Sequence number = MI5219 --             Mail.120 -- OK @ 24 May 1996 14:18:22
+# Sequence number = MI5226 --  HRT/120.hrt.tar.dir -- OK @ 24 May 1996 14:18:44
+# Sequence number = MI5233 --      HRT/120.hrt.tar -- OK @ 24 May 1996 14:21:07
+# Sequence number = MI5240 --   HRT/nimbus.tar.dir -- OK @ 24 May 1996 14:19:12
+# Sequence number = MI5247 --       HRT/nimbus.tar -- OK @ 24 May 1996 14:19:32
+# Sequence = MI5254 -- HRT/nimbus_defaults.tar.dir -- OK @ 24 May 1996 14:37:13
+# Sequence no. = MI5261 -- HRT/nimbus_defaults.tar -- OK @ 24 May 1996 14:39:13
+# Sequence number = MI5268 --       HRT/taplog.120 -- OK @ 24 May 1996 14:37:21
+# Sequence number = MI5275 --         HRT/RF04.hdr -- OK @ 24 May 1996 14:39:40
+#
+exit
+#
+#  Archive PMS-2D support files
+#
+set  file="base2d.tar.dir"
+#echo \
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="2d_log"
+#echo \
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  Archive HRT support files
+#
+set  file="120hr.tar.dir"
+#echo \
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/HRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="flt07hr"
+#echo \
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/HRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+set  file="hr_process_log"
+#echo \
+nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/HRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Thu Oct 26 16:41:14 MDT 1995
+# Sequence number = MI2875 -- PMS2D/base2d.tar.dir -- OK @ 26 Oct 1995 16:41:52
+# Sequence number = MI2882 -- PMS2D/2d_log -- OK @ 26 Oct 1995 16:41:58
+# Sequence number = MI2889 -- HRT/120hr.tar.dir -- OK @ 26 Oct 1995 16:42:04
+# Sequence number = MI2896 -- HRT/flt07hr -- OK @ 26 Oct 1995 16:42:11
+# Sequence number = MI2903 -- HRT/hr_process_log -- OK @ 26 Oct 1995 16:42:16
+#
+#
+# Archive LRT support files
+#
+#set  file="120.tar"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="120.tar.dir"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="tarit.120.tar"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="Mail.120"
+#echo nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="MSCP_out.120"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="tp2ms.summary"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#set TURBRT = "LRT"
+#
+#set  file="120RF04.hdr"
+#set  file="RF04.hdr"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ofile rtpd=4095 w=RAFDMG
+#
+#set  file="taplog.120"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="nimbus.tar"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="nimbus.tar.dir"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="ncfixhdr.tar"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="ncfixhdr.tar.dir"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file="tarit.nimbus.tar"
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Tue Sep  5 12:29:56 MDT 1995
+# Sequence number = MI4888 -- 120.tar -- OK @ 5 Sep 1995 12:30:39
+# Sequence number = MI4895 -- 120.tar.dir -- OK @ 5 Sep 1995 12:30:51
+# Sequence number = MI4902 -- tarit.120.tar -- 5 Sep 1995 12:30:58
+# Sequence number = MI4909 -- Mail.120 -- OK @ 5 Sep 1995 12:31:13
+# Sequence number = MI4916 -- LRT/taplog.120 -- OK @ 5 Sep 1995 12:31:22
+# Sequence number = MI4923 -- LRT/nimbus.tar -- OK @ 5 Sep 1995 12:31:35
+# Sequence number = MI4930 -- LRT/nimbus.tar.dir -- OK @ 5 Sep 1995 12:32:01
+# Sequence number = MI4937 -- LRT/ncfixhdr.tar -- OK @ 5 Sep 1995 12:35:14
+# Sequence number = MI4944 -- LRT/ncfixhdr.tar.dir -- OK @ 5 Sep 1995 12:35:26
+# Sequence number = MI4951 -- LRT/tarit.nimbus.tar -- OK @ 5 Sep 1995 12:31:43
+#
+#
+#nrnet msput base2d.tar.dir  l df=tr r flnm=/RAF/1994/120/base2d.tar.dir \
+# rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#nrnet msput base2d.tar  l df=tr r flnm=/RAF/1994/120/base2d.tar rtpd=4095 \
+# w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Wed Oct 25 09:59:36 MDT 1995
+# Sequence number = MI2217 -- base2d.tar.dir -- OK @ 25 Oct 1995 10:10:12
+#
+#  Job(s) submitted on Wed Oct 25 10:00:11 MDT 1995
+# Sequence number = MI2225 -- base2d.tar -- Failed (file too large!)
+#
+#
+#  Take care of special PMS-2D data stripped from the raw ADS files
+nrnet msput /home/data/base2d03A l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF03A \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d03B l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF03B \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d03C l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF03C \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d04 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF04 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d05 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF05 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d06 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF06 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d07 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF07 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d10 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF10 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d11 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF11 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d12 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF12 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d13 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF13 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d14 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF14 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d15 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF15 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d16 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF16 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d17 l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF17 \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d18A l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF18A \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput /home/data/base2d18B l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/RF18B \
+ rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  Job(s) submitted on Wed Oct 25 10:58:37 MDT 1995
+# Sequence number = MI2255 -- PMS2D/RF03A -- OK @ 25 Oct 1995 11:18:10
+# Sequence number = MI2262 -- PMS2D/RF03B -- OK @ 25 Oct 1995 11:03:47
+# Sequence number = MI2269 -- PMS2D/RF03C -- OK @ 25 Oct 1995 10:59:34
+# Sequence number = MI2276 -- PMS2D/RF04 -- OK @ 25 Oct 1995 11:12:36
+# Sequence number = MI2283 -- PMS2D/RF05 -- OK @ 25 Oct 1995 11:04:35
+# Sequence number = MI2290 -- PMS2D/RF06 -- OK @ 25 Oct 1995 11:21:15
+# Sequence number = MI2297 -- PMS2D/RF07 -- OK @ 25 Oct 1995 11:25:48
+# Sequence number = MI2304 -- PMS2D/RF10 -- OK @ 25 Oct 1995 11:28:58
+# Sequence number = MI2311 -- PMS2D/RF11 -- OK @ 25 Oct 1995 11:46:42
+# Sequence number = MI2318 -- PMS2D/RF12 -- OK @ 25 Oct 1995 11:09:44
+# Sequence number = MI2325 -- PMS2D/RF13 -- OK @ 25 Oct 1995 11:57:00
+# Sequence number = MI2332 -- PMS2D/RF14 -- OK @ 25 Oct 1995 11:42:19
+# Sequence number = MI2339 -- PMS2D/RF15 -- OK @ 25 Oct 1995 11:16:27
+# Sequence number = MI2346 -- PMS2D/RF16 -- OK @ 25 Oct 1995 11:30:47
+# Sequence number = MI2353 -- PMS2D/RF17 -- OK @ 25 Oct 1995 11:33:55
+# Sequence number = MI2360 -- PMS2D/RF18A -- OK @ 25 Oct 1995 11:35:40
+# Sequence number = MI2367 -- PMS2D/RF18B -- OK @ 25 Oct 1995 11:39:47
+#
+#
+exit
+#
+#   Templates
+#set  file=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file=""
+#set ofile=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$ofile rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$file rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#set  file=""
+#set ofile=""
+#nrnet msput $LDIR/$file l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ofile rtpd=4095 w=RAFDMG
+#

@@ -1,0 +1,106 @@
+Files to move/rearchive           primary reason           archive script
+
+161.documents.tar                 (updated web pages)      archive.support
+161.documents.tar.dir             (updated web pages)      archive.support
+161.tar                           (new nimbus log files)   archive.support
+161.tar.dir                       (new nimbus log files)   archive.support
+HRT/RF*.cdf                       (reprocess)              arch.hrt.161
+ATD/DATA...EPIC2001...HRT*        (reprocess)              atdarch.161
+HRT/RF03.hdr                      (reprocess)              archive.support
+HRT/nimbus.hrt.tar                (newer version)          archive.support
+HRT/nimbus.hrt.tar.dir            (newer version)          archive.support
+HRT/nimbus_defaults.hrt.tar       (newer version)          archive.support
+HRT/nimbus_defaults.hrt.tar.dir   (newer version)          archive.support
+HRT/taplog.hrt.161                (reprocess)              archive.support
+LRT/RF*.cdf                       (reprocess)              arch.lrt.161
+ATD/DATA...EPIC2001...LRT*        (reprocess)              atdarch.161
+LRT/RF01.hdr                      (reprocess)              archive.support
+LRT/nimbus.lrt.tar                (newer version)          archive.support
+LRT/nimbus.lrt.tar.dir            (newer version)          archive.support
+LRT/nimbus_defaults.lrt.tar       (newer version)          archive.support
+LRT/nimbus_defaults.lrt.tar.dir   (newer version)          archive.support
+LRT/taplog.lrt.161                (reprocess)              archive.support
+Mail.161                          (newer version)          archive.support
+taplog.hrt.161                    (reprocess)              archive.support
+taplog.lrt.161                    (reprocess)              archive.support
+
+RDMA/RF*?     (No)
+merge files?  (Yes)
+
+Before replacing any support files (other than the ones NIMBUS already has
+changed)
+In ../proj/161/Production, create 1st_Production subdirectory and move the
+original production and support files to it.
+
+Get new example LRT and HRT header files
+Ron Ruth  16 April 2002       
+
+---
+
+Archiving procedures for reprocessed data and support files
+-----------------------------------------------------------
+*Created new TD.png files for the web
+*Got new example HRT header file
+*Got new example LRT header file
+*Got new taplog.hrt.161 file
+*Got new taplog.lrt.161 file
+*Edited tarit.161 for changes
+*Copied new "coupling" amlib.c file into "coupling" subdirectory
+*Edited arch.hrt.161 (move mode)
+*Edited arch.lrt.161 (move mode)
+*Edited atdarch.161 (remove mode)
+*Edited archive.support (move mode)
+*Ran tarit.161
+*Ran tarit.nimbus
+*Copied taplog files to "taplog" directory
+*Created taplog.*.html files for the web
+*Copied header.161
+*Copied Header.161
+*Moved taplog.*.html files to the web site
+*Moved new TD.png files to proper place
+*Updated other HTML files
+  *changes.html
+  *FltMatrix.html
+  *variable lists from netCDF files (LRT and HRT)
+  *new header files
+*Ran arch.hrt.161 (move mode)
+*Ran arch.lrt.161 (move mode, including merge files)
+*Run atdarch.161 (remove mode)
+*Ran archive.support (move mode)
+*Edited arch.hrt.161 (archive mode)
+*Edited arch.lrt.161 (archive mode, including merge files)
+*Edited atdarch.161 (archive mode)
+*Ran arch.hrt.161 (archive mode)
+*Ran arch.lrt.161 (archive mode, including merge files)
+*Ran atdarch.161 (archive mode -- LRT)
+*Ran atdarch.161 (archive mode -- HRT)
+*Ran tarit.docs
+*Edited archive.support (archive mode)
+ *161.documents.tar
+ *161.documents.tar.dir
+ *161.tar
+ *161.tar.dir
+ *HRT/RF03.hdr
+ *HRT/nimbus.hrt.tar
+ *HRT/nimbus.hrt.tar.dir
+ *HRT/nimbus_defaults.hrt.tar
+ *HRT/nimbus_defaults.hrt.tar.dir
+ *HRT/taplog.hrt.161
+ *LRT/RF01.hdr
+ *LRT/nimbus.lrt.tar
+ *LRT/nimbus.lrt.tar.dir
+ *LRT/nimbus_defaults.lrt.tar
+ *LRT/nimbus_defaults.lrt.tar.dir
+ *LRT/taplog.lrt.161
+ *Mail.161
+ *taplog.hrt.161
+ *taplog.lrt.161
+*Ran archive.support (archive mode)
+
+*Got new msls.161 (msls /RAF/2001/161)
+*Got new msraw.RAF.all (mslsraf)
+  Note:  DCS version failed with error:
+         msrawinfo: While fetching entries for mfd chain '/RAF'
+         msrawinfo: received error 'DCE RPC failure - could not talk to mssrv'
+         msrawinfo: Internal DCE RPC Error 'Unknown reject (dce / rpc)'
+Get new msraw.ATD.all (mslsatd)

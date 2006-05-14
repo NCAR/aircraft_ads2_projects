@@ -1,0 +1,51 @@
+;;;  
+;;;  PV-WAVE Point & Click Version 2.20 - Journal file
+;;;  
+;;;  Journaling begun at: Thu Feb 23 15:04:44 1995
+;;;  
+;;;  
+;;;  f_widget_get_widget_ptr: Window list was empty!
+;;;  f_widget_register: wavepoint parent 0 didn't exist!
+;;;  f_widget_register: wavepoint parent 0 didn't exist!
+ 
+RETALL
+!QUIET = 1
+.SIZE 32000 32000
+SYS$TEMP = CHECK_MATH(TRAP=1)
+DELVAR, SYS$TEMP
+SYS$TEMP = ROUTINE_NAMES(/S_FUNCTIONS)
+DELVAR, SYS$TEMP
+CREATE_HOLIDAYS,{!DT}
+;;;  The default help directory is:
+;;;  	'/opt/vni/wavepcm/help'
+;;;  Help Trace: Help initialized.
+;;;  System Colortables - Using /opt/vni/wavepcm/bin/colors.tbl.
+FLP_CT_NAMES, ctfile='/opt/vni/wavepcm/bin/colors.tbl', num_names=16
+;;;  Custom Colortables - Using /opt/vni/wavepcm/custom/.wpt_colors.
+FLP_CT_NAMES, ctfile='/opt/vni/wavepcm/custom/.wpt_colors', num_names=32
+;;;  Loading colortable 0
+FLP_LOADCT, 0, NC=128, PLOTCOLORS=18, /SILENT
+SYS$TRED = bytarr(256)
+SYS$TGREEN = bytarr(256)
+SYS$TBLUE = bytarr(256)
+SYS$TEMP = ROUTINE_NAMES('$MAIN$',/P_VARIABLES)
+delvar,SYS$TEMP
+;;;  Colortable Initialized
+CREATE_WEEKENDS, [ 'Sunday', 'Saturday' ]
+!DAY_NAMES = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ]
+!MONTH_NAMES = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
+!QUARTER_NAMES = [ 'Q1', 'Q2', 'Q3', 'Q4' ]
+;;;  Reading Quick-Load file /opt/vni/wavepcm/custom/.wpt_quick_load
+SET_PLOT, 'X'
+;;;  Custom views file '/home/users/chris/.wpt_views' could not be found
+SYS$TEMP = ROUTINE_NAMES(/FUNCTIONS)
+DELVAR, SYS$TEMP
+SYS$WARP_01 = 0
+DEVICE, PSEUDO_COLOR=8
+;;;  No config file found.
+FLP_SAVE_STATE, '/home/users/chris/.wpt_cl_state'
+;;;  
+;;;  Journal file closed.
+;;;  
+;;;  EOF: wavepoint.jou
+;;;  

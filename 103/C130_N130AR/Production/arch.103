@@ -1,0 +1,34 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1998-103 Solar Corona (MacQueen, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Thu Apr 9 14:49:22 MDT 1998
+#
+date
+#
+set YEAR = 1998
+set PROJ = 103
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+nrnet msput $SDIR/103rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/103rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/103rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/103rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#
+set TURBRT = SAMPLE
+#
+nrnet msput $SDIR/103rf04s.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Thu Apr  9 14:52:16 MDT 1998
+# Sequence number = MI0561 -- LRT/RF01.cdf -- OK @ 9 Apr 1998 14:51:47
+# Sequence number = MI0568 -- LRT/RF02.cdf -- OK @ 9 Apr 1998 14:51:50
+# Sequence number = MI0575 -- LRT/RF03.cdf -- OK @ 9 Apr 1998 14:51:52
+# Sequence number = MI0582 -- LRT/RF04.cdf -- OK @ 9 Apr 1998 14:51:56
+# Sequence number = MI0589 -- SAMPLE/RF04.cdf -- OK @ 9 Apr 1998 14:52:00
+#

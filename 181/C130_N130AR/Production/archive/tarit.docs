@@ -1,0 +1,35 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent documentation files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Adapted from file tarit.803 by Ronald L. Ruth                    20 Mar 2000
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#        having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file $LOCAL/proj/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#   4.  The documentation is in a directory called "docs" in the project's
+#        "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.documents.tar"
+#
+cd $PROJDIR/Production
+tar chvf $OFILE  docs
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.documents.tar" >! $dfile
+echo "  Documentation files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

@@ -1,0 +1,46 @@
+************************************************************************
+DependTable diffs between mistral 181 file (<) and hercules 181 file (>)
+************************************************************************
+1,3d0
+< # Gerber
+< CING	CINF CINB CINCF CINCB
+< CINSIG	CINF CINB
+11,12c8,11
+< PSX 	PSFD
+< PSXC	PSFDC
+---
+> # PSX and PSXC dependencies changed 7/9/01 to PSF
+> # and PSFC, respectively.
+> PSX 	PSF
+> PSXC	PSFC
+18d16
+< ALTX    GALT ALT GSTAT GMODE
+145,152c143,146
+< C2DC    A2DC TASX DT2DC
+< C2DP    A2DP TASX DT2DP
+< C1DC    A1DC TASX DT1DC
+< C1DP    A1DP TASX DT1DP
+< DT1DC	A1DC
+< DT1DP	A1DP
+< DT2DP	A2DP
+< DT2DC	A2DC
+---
+> C2DC    A2DC TASX
+> C2DP    A2DP TASX
+> C1DC    A1DC TASX
+> C1DP    A1DP TASX
+172,173d165
+< CONC1DP C1DP
+< CONC1DC C1DC
+185,186d176
+< DBAR1DP C1DP
+< DBAR1DC C1DC
+196,197d185
+< DISP1DP C1DP
+< DISP1DC C1DC
+209,210d196
+< PLWC1DP C1DP
+< PLWC1DC C1DC
+216,217d201
+< DBZ1DP  C1DP
+< DBZ1DC  C1DC

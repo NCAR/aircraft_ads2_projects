@@ -1,0 +1,90 @@
+#! /bin/csh -f
+#
+#  Archive a project's pertinent NIMBUS support files
+#
+set FY = 1995
+set PROJ = 127
+set PROJNAME = "Marine Stratus Cloud Tops (Telford)"
+#
+#set PROJNAME = `cat ProjName`
+#set FY = `grep FY Production/proj.info | sed -e "s/FY=//"`
+#set PROJ = echo `pwd`
+#
+set PROJDIR = $LOCAL/proj/$PROJ
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+cd $PROJDIR
+#
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+PMSspecs \
+ProjectName \
+VarDB \
+adscmd \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+despike \
+header \
+header.AFT \
+header.CTL \
+header.FORWARD \
+header.PODLW \
+header.PODRW \
+header.save \
+header.works \
+history_file \
+landmarks \
+plot_attr \
+plotspex \
+plotspexNICOLL \
+plotspexanthony \
+plotspexclarke1 \
+plotspexclarke2 \
+plotspexclarke3 \
+plotspexfolder1 \
+plotspexgary \
+plotspexgary-pi \
+plotspexh_ochs \
+plotspexhudson11 \
+plotspexjgc \
+plotspexjulie \
+plotspexklstuff \
+plotspexochs \
+plotspexpi_training \
+plotspextutorial \
+regions \
+stats_selns \
+Production/127rf01.hdr \
+Production/FlightGroups \
+Production/Flight_2 \
+Production/Flight_8 \
+Production/MSCP_out.127 \
+Production/arch.127 \
+Production/archsup.127 \
+Production/ncfixhdr \
+Production/ncfixhdr.c \
+Production/production.log \
+Production/proj.info \
+Production/project_data.notes \
+Production/taplog.127 \
+Production/tarit.127.tar \
+Production/tarit.nimbus.tar \
+Production/tp2ms.summary \
+Production/varlist.127 \
+Production/archive/tapes.127 \
+Production/archive/tp2ms.127job1
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

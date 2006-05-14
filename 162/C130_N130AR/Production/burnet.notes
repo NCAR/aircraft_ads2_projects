@@ -1,0 +1,78 @@
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Notes for Fred Burnet
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+fssp.c
+------
+
+Inputs from data stream:
+AFSSP  = afssp    = Actual FSSP data
+TAS    = tas      = True Air Speed
+ACT    = activity = Activity
+FRNG   = frange   = FSSP-100 range
+FBMFR  = fbmfr    = Beam Fraction
+FRESET = freset   = Fast Resets
+FSTROB = fstrob   = Total Strobes
+         probeNum = Probe identifier
+
+Outputs:
+CFSSP  - Concentrations
+CONCF  - Total concentration
+DISPF  - Dispersion
+DBARF  - Mean diameter
+PLWCF  - Liquid Water Content
+
+SerialNumber = FSSP122
+FirstBin = 1
+LastBin = 15
+DepthOfField = DOF = 2.81f
+BeamDiameter = BEAM_DIAM = 0.19f
+Density = 1.f
+PLWFAC      1.0e-6
+# Before July 25
+TAU1   0.0000190   # Multiplier for STROBRS
+# After July 25
+TAU1        9.0e-6
+TAU2        2.0e-6
+
+  dia = &fssp_csiz[probeNum][(int)frange << 4];
+
+  fact = (fstrob * tau1[varp->ProbeCount] + freset * tau2[varp->ProbeCount])
+
+  for (i = FIRST_BIN[varp->ProbeCount]; i < LAST_BIN[varp->ProbeCount]; ++i)
+    total_actual += afssp[i];
+
+  if (fstrob != 0.0)
+    fbmfr = total_actual / fstrob;
+
+  if (fstrob < 1.0 || total_actual <= 0.0)
+    fbmfr = 0.4;
+
+  if (fbmfr < .2 || fbmfr > 1.0) /* If it's out of range, repeat previous */
+    fbmfr = prev_fbmfr;
+
+  prev_fbmfr = fbmfr;
+
+  sa[probeNum] = DOF * beamDiameter;
+
+  vol = tas * sa[probeNum] * fbmfr * (1.0 - (activity * 0.71));
+  for (i = FIRST_BIN[probeNum]; i < LAST_BIN[probeNum]; ++i)
+    sv[i] = vol;
+
+
+pms1d_cv
+--------
+  plwc[probeNum] = 0.0;
+
+  for (i = FIRST_BIN[probeNum]; i < LAST_BIN[probeNum]; ++i)
+    if (sv[i] == 0.0)
+      concentration[i] = 0.0;
+    else
+      {
+      concentration[i]  = conc = actual[i] / sv[i];
+      plwc[probeNum]    += dia[i]* dia[i]* dia[i]* conc;
+      }
+
+  plwc[probeNum] *= M_PI / 6.0 * DENS[probeNum] * PLWFAC[probeNum];
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

@@ -1,0 +1,58 @@
+#! /bin/csh -f
+#
+#  Rename ADS images for 1998-101 SHEBA
+#         Ron Ruth 980709
+#  This version fixes the misnaming done in the first batch
+#   (An extra equals sign put the files in the wrong place.)
+#
+#  :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set SPATH = /RUTH/=
+#
+set YEAR = 1998
+set PROJ = 101
+#
+date
+#
+#set NNAMES = ( \
+#RF01A/R1258 \
+#RF01B/R1258 \
+#RF01C/R1259 \
+#RF01D/R1260 \
+#RF02A/R1261 \
+#RF02B/R1261 \
+#RF02C/R1262 \
+#RF04A/R1264 \
+#RF04B/R1264 \
+#RF04C/R1265 \
+#)
+#
+set todo = $#NNAMES
+set num = 1
+while ($num <= $todo)
+  set ONAME = $SPATH/RAF/$YEAR/$PROJ/$NNAMES[$num]
+  set NNAME = $NNAMES[$num]
+  echo \
+  nrnet msmv % r flnm=$ONAME \
+    newf=/RAF/$YEAR/$PROJ/$NNAME wpwd=RAFDMG
+  @ num ++
+end
+#
+# Done.
+exit
+#
+# Job(s) submitted on Fri Jul 10 09:55:00 MDT 1998
+# Sequence number = MI2299 -- RF01A/R1258 -- OK @ 10 Jul 1998 09:55:08
+# Sequence number = MI2306 -- RF01B/R1258 -- OK @ 10 Jul 1998 09:55:07
+# Sequence number = MI2313 -- RF01C/R1259 -- OK @ 10 Jul 1998 09:55:09
+# Sequence number = MI2320 -- RF01D/R1260 -- OK @ 10 Jul 1998 09:55:11
+# Sequence number = MI2327 -- RF02A/R1261 -- OK @ 10 Jul 1998 09:55:12
+# Sequence number = MI2334 -- RF02B/R1261 -- OK @ 10 Jul 1998 09:55:10
+# Sequence number = MI2341 -- RF02C/R1262 -- OK @ 10 Jul 1998 09:55:13
+# Sequence number = MI2348 -- RF04A/R1264 -- OK @ 10 Jul 1998 09:59:11
+# Sequence number = MI2355 -- RF04B/R1264 -- OK @ 10 Jul 1998 09:55:13
+# Sequence number = MI2362 -- RF04C/R1265 -- OK @ 10 Jul 1998 09:59:13
+#

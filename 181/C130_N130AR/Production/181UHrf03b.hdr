@@ -1,0 +1,87 @@
+netcdf 181UHrf03b {
+dimensions:
+	Time = UNLIMITED ; // (18000 currently)
+	sps1 = 1 ;
+	sps1000 = 1000 ;
+variables:
+	int base_time ;
+		base_time:long_name = "Seconds since Jan 1, 1970." ;
+	float time_offset(Time) ;
+		time_offset:long_name = "Seconds since base_time." ;
+	float UFTP(Time, sps1000) ;
+		UFTP:units = "Vdc" ;
+		UFTP:long_name = "Polish UFT-F Dynamic Pressure Fluctuations from Venturi or Pitot" ;
+		UFTP:Category = "Non-Standard" ;
+		UFTP:missing_value = -32767.f ;
+		UFTP:SampledRate = 1000 ;
+		UFTP:DataQuality = "Good" ;
+		UFTP:CalibrationCoefficients = 0.f, 1.f ;
+	float UFTT1(Time, sps1000) ;
+		UFTT1:units = "Vdc" ;
+		UFTT1:long_name = "Polish UFT-F Fast Temperature Fluctuations, Sensor 1" ;
+		UFTT1:Category = "Non-Standard" ;
+		UFTT1:missing_value = -32767.f ;
+		UFTT1:SampledRate = 1000 ;
+		UFTT1:DataQuality = "Good" ;
+		UFTT1:CalibrationCoefficients = 0.f, 1.f ;
+	float UFTT2(Time, sps1000) ;
+		UFTT2:units = "Vdc" ;
+		UFTT2:long_name = "Polish UFT-F Fast Temperature Fluctuations, Sensor 2" ;
+		UFTT2:Category = "Non-Standard" ;
+		UFTT2:missing_value = -32767.f ;
+		UFTT2:SampledRate = 1000 ;
+		UFTT2:DataQuality = "Good" ;
+		UFTT2:CalibrationCoefficients = 0.f, 1.f ;
+	float XGLWC(Time, sps1000) ;
+		XGLWC:units = "g/M3" ;
+		XGLWC:long_name = "Gerber PVM-100 Probe Liquid Water Content" ;
+		XGLWC:Category = "Liquid Water" ;
+		XGLWC:missing_value = -32767.f ;
+		XGLWC:SampledRate = 1000 ;
+		XGLWC:DataQuality = "Good" ;
+		XGLWC:CalibrationCoefficients = 0.014f, 1.f ;
+	float XGSFC(Time, sps1000) ;
+		XGSFC:units = "cM2/M3" ;
+		XGSFC:long_name = "Gerber PVM-100 Particle Surface Area (Raw)" ;
+		XGSFC:Category = "Uncorr\'d Raw" ;
+		XGSFC:missing_value = -32767.f ;
+		XGSFC:SampledRate = 1000 ;
+		XGSFC:DataQuality = "Good" ;
+		XGSFC:CalibrationCoefficients = -0.002f, 2980.f ;
+	float HOUR(Time) ;
+		HOUR:units = "hours" ;
+		HOUR:long_name = "Raw Tape Time Component" ;
+		HOUR:Category = "None" ;
+		HOUR:missing_value = -32767.f ;
+		HOUR:SampledRate = 1 ;
+		HOUR:DataQuality = "Good" ;
+	float MINUTE(Time) ;
+		MINUTE:units = "minutes" ;
+		MINUTE:long_name = "Raw Tape Time Component" ;
+		MINUTE:Category = "None" ;
+		MINUTE:missing_value = -32767.f ;
+		MINUTE:SampledRate = 1 ;
+		MINUTE:DataQuality = "Good" ;
+	float SECOND(Time) ;
+		SECOND:units = "s" ;
+		SECOND:long_name = "Raw Tape Time Component" ;
+		SECOND:Category = "None" ;
+		SECOND:missing_value = -32767.f ;
+		SECOND:SampledRate = 1 ;
+		SECOND:DataQuality = "Good" ;
+
+// global attributes:
+		:Source = "NCAR Research Aviation Facility" ;
+		:Address = "P.O. Box 3000, Boulder, CO 80307-3000" ;
+		:Phone = "(303) 497-1030" ;
+		:Conventions = "NCAR-RAF/nimbus" ;
+		:Version = "1.2" ;
+		:DateProcessed = "Nov 30 21:20 UTC 2001" ;
+		:ProjectName = "DYCOMS-II" ;
+		:Aircraft = "N130AR" ;
+		:ProjectNumber = "181" ;
+		:FlightNumber = "rf03" ;
+		:FlightDate = "07/13/2001" ;
+		:TimeInterval = "08:18:23-13:18:22" ;
+		:Categories = "Position,Thermodynamic,Aircraft State,Atmos. State,Liquid Water,Uncorr\'d Raw,Wind,PMS Probe,Housekeeping,Chemistry,Radiation,Non-Standard" ;
+}

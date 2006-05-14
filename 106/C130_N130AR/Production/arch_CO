@@ -1,0 +1,30 @@
+#! /bin/csh -f
+#
+#  archive special CO/CO2 files from  netCDF output files for
+#    1998-106 WiFE (Wild Fires Experiment) (Larry Radke, Terry Clark)
+#
+date
+#
+set YEAR = 1998
+set PROJ = 106
+#
+set TURBRT = CO_CO2
+#
+echo nrnet msput /home/data/migs/campos/106rf02.xtr.cdf r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput /home/data/migs/campos/106rf03.xtr.cdf r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput /home/data/migs/campos/106rf04.xtr.cdf r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput /home/data/migs/campos/106rf05.xtr.cdf r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput /home/data/migs/campos/106rf06.xtr.cdf r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput /home/data/migs/campos/106rf07.xtr.cdf r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Thu Mar  4 08:57:30 MST 1999
+#  Files put in MSS directory /RAF/1998/807/
+# Sequence number = MI5677 -- CO_CO2/RF02.cdf -- OK @ 4 Mar 1999 09:00:31
+# Sequence number = MI5682 -- CO_CO2/RF03.cdf -- OK @ 4 Mar 1999 09:02:31
+# Sequence number = MI5689 -- CO_CO2/RF04.cdf -- OK @ 4 Mar 1999 09:00:31
+# Sequence number = MI5697 -- CO_CO2/RF05.cdf -- OK @ 4 Mar 1999 09:02:30
+# Sequence number = MI5703 -- CO_CO2/RF06.cdf -- OK @ 4 Mar 1999 09:04:29
+# Sequence number = MI5713 -- CO_CO2/RF07.cdf -- OK @ 4 Mar 1999 09:04:28
+#

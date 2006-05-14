@@ -1,0 +1,50 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2000-107 Sea Salinity (Dinardo)
+#
+#  File created by '/usr/local/scripts/genar' Revision  8 on Fri Oct 27 13:37:19 MDT 2000
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /usr/local/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 2000
+set PROJ = 107
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+#  1st wave
+#nrnet msput $SDIR/107rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#nrnet msput $SDIR/107rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  2nd wave
+#nrnet msput $SDIR/107rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  1st wave
+#  Job(s) submitted on Fri Oct 27 14:06:10 MDT 2000
+# Sequence number = LN6485 -- LRT/RF01.cdf -- OK @ 27 Oct 2000 14:06:57
+# Sequence number = LN6493 -- LRT/RF02.cdf -- OK @ 27 Oct 2000 14:07:10
+# Sequence number = LN6503 -- LRT/RF03.cdf -- OK @ 27 Oct 2000 14:07:06
+# Sequence number = LN6512 -- LRT/RF04.cdf -- OK @ 27 Oct 2000 14:07:03
+# Sequence number = LN6522 -- LRT/RF05.cdf -- OK @ 27 Oct 2000 14:10:59
+# Sequence number = LN6535 -- LRT/RF06.cdf -- OK @ 27 Oct 2000 14:11:09
+# Sequence number = LN6543 -- LRT/RF07.cdf -- OK @ 27 Oct 2000 14:10:56
+#
+#  2nd wave
+#  Job(s) submitted on Wed Dec  6 16:16:05 MST 2000
+# Sequence number = LN8205 -- LRT/RF04.cdf -- OK @ 6 Dec 2000 16:16:28
+#

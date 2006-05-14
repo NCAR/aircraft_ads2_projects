@@ -1,0 +1,1968 @@
+#! /bin/csh -f
+#
+#  Archive digital camera photo files for 2005-135 RICO
+#   (Don't forget to archive the movies, too!)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2004, 2005                                                   *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#          "Production" or Production/archive subdirectory.  This script
+#          runs only under the "dmg" login.
+#
+#  Usage:
+#    archcam.ppp [-t] [-i shsmss ehemes] [-v] [-d] [-p]
+#      -t -- if set, create archive files with one hour's worth of data
+#            otherwise, create archive files with a specified maximum size,
+#            presently 600MB) (See internal setting MAXSIZ below.) or the
+#            maximum number of tar files that can be handled (See internal
+#            setting MAXTAR below.), whichever results in the shorter file.
+#      -i -- use time interval (shsmss to ehemes)
+#             Note:  This option is ignored if the -t flag is not used
+#             WARNING:  If present, this flag and its associated times must
+#             appear together
+#      -v -- verbose mode
+#      -d -- debug mode
+#      -p -- production mode (archive the files to the SCD Mass Store System
+#             instead of echoing their names locally)
+#      -a -- use /ATD/DATA/ directory path for archived MSS tar files
+#      -r -- use /RAF/ directory path for archived MSS tar files
+#
+#  For future changes/enhancements, search for this string --> ##########
+#
+##########
+#  Bug fix:  Don't create an archive if the end time is reached before the start time is found
+#  Desired enhancement:  design a way to pick up where I left off in
+#                         case the archiving is aborted for some reason
+#  Desired enhancement:  Automatically archive based on proj.info file which
+#                         would have jpg files' directory path  (This depends
+#                         a lot on how the jpg files are stored on local
+#                         servers and any changes in file-name format.
+##########
+#
+#  This file copied and significantly modified from file
+#    $LOCAL/proj/125/Production/archive/archcpi.125
+#   by Ron Ruth  17 June to 13 August 2004
+#  Revised by RLR (modify for RICO's file-naming convention)        24 Feb 2005
+#  Revised by RLR (choose hourly or maximum-size tar files)         28 Feb 2005
+#  Revised by RLR (choose files by start and end time)               1 Mar 2005
+#  Revised by RLR (choose /RAF/ or /ATD/DATA/ MSS directory)         2 Mar 2005
+#  Revised by RLR (write tar file if @ last file reached)            8 Mar 2005
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#
+#      * * * * * * * * * * * * * * *
+#     *                             *
+#    *  Executable code starts here  *
+#     *                             *
+#      * * * * * * * * * * * * * * *
+#
+onintr abort
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+#set SDIR = "/jnet/win_jef2/cpi/?"
+#set SDIR = "/net/ftp/pub/archive/RAF-projects/$project/CPI"
+#set SDIR = "/scr/jscience/beaton/Acme"
+#  Waves 1, 2, 4 through 24, 32, 33 (flow.atd.ucar.edu)
+#set SDIR = "/mnt/usb1/Camera"
+#  Waves 3, 25 through 31 (flow.atd.ucar.edu)
+#set SDIR = "/data/c130/video"
+#  Note:  flight subdirectories in this path are of the form "135xf##"
+#          file names or of the form c130_fwd_yemoda_homise.jpg
+#           where:  ye == 2-digit year (I'd prefer a 4-digit year)
+#                   mo == month (00-12)
+#                   da == day (00-31)
+#                   ho == hour (00-23)
+#                   mi == minute (00-59)
+#                   se == second (00-59)
+#   Example:    c130_fwd_041221_134807.jpg
+#
+#  Set MSS Read PassWorD if restricted access
+#   (Don't forget to add notation in file $PROJ/archives/msfiles/directory_map)
+set RPWD = ""
+#set RPWD = "-rpwd readonly"
+#
+#  Maximum tar file size (bytes) if archiving by size
+@ MAXSIZ = 600000000     #  to easily fit on a 700MB CD-ROM
+#  Maximum number of tar file arguments
+#   (based on current file name convention's character length)
+#   (This is probably an operating-system-dependent parameter.)
+@ MAXTAR = 4600
+#
+# --------------------------------------------------------------------------
+#
+#  Note:  Sdir is source subdirectory path
+#         DDIR is MSS subdirectory path
+#
+#  1st wave (35114 total files; archived from 10:03:00 to 17:43:00)
+#set Sdir = "135rf19"
+#set DDIR = "RF19"
+#
+#  2nd wave (26142 files archived from 11:53:00 to 20:20:00)
+#set Sdir = "135rf17"
+#set DDIR = "RF17"
+#
+#  3rd wave (24399 files archived from 11:13:00 to 19:12:59)
+#set Sdir = "16"
+#set DDIR = "RF16"
+#
+#  4th wave (27943 files archived from 14:04:00 to 22:17:24)
+#set Sdir = "135rf03"
+#set DDIR = "RF03"
+#
+#  5th wave (25037 files archived from 14:52:00 to 22:04:00)
+#set Sdir = "135rf05"
+#set DDIR = "RF05"
+#
+#  6th wave (26783 + 2030  files archived from 13:59:00 to 21:33:50)
+#set Sdir = "135rf06"
+#set DDIR = "RF06"
+#
+#  7th wave (23628 files archived from 14:25:44 to 22:22:37)
+#set Sdir = "135rf07"
+#set DDIR = "RF07"
+#
+#  8th wave (31380 files archived from 11:11:00 to 19:54:05)
+#set Sdir = "135rf08"
+#set DDIR = "RF08"
+#
+#  9th wave (27094 files archived from 10:58:00 to 19:05:51)
+#set Sdir = "135rf09"
+#set DDIR = "RF09"
+#
+# 10th wave (29192 files archived from 14:52:00 to 22:58:36)
+#set Sdir = "135rf10"
+#set DDIR = "RF10"
+#
+# 11th wave (26094 files archived from 14:02:00 to 22:22:29)
+#set Sdir = "135rf11"
+#set DDIR = "RF11"
+#
+# 12th wave (30269 files archived from 14:23:00 to 22:48:00)
+#set Sdir = "135rf13"
+#set DDIR = "RF13"
+#
+# 13th wave (27571 files archived from 15:02:00 to 22:42:06)
+#set Sdir = "135rf14"
+#set DDIR = "RF14"
+#
+# 14th wave (30324 files archived from 14:02:00 to 22:28:00)
+#set Sdir = "135rf15"
+#set DDIR = "RF15"
+#
+# 15th wave (23371 files archived from 13:49:38 to 20:20:00) (Mistake)
+#set Sdir = "135rf15"
+#set DDIR = "RF15"
+#
+# 16th wave (30613 files archived from 10:03:00 to 18:34:00)
+#set Sdir = "135rf18"
+#set DDIR = "RF18"
+#
+# 17th wave (479 files archived from 11:52:00 to 11:59:59) (Fix mistake -- failed)
+#set Sdir = "135rf17"
+#set DDIR = "RF17"
+#
+# 18th wave (10020 files archived from 18:06:00 to 20:53:00)
+#set Sdir = "135tf01"
+#set DDIR = "TF01"
+#
+# 19th wave (8247 files archived from 19:55:00 to 22:12:30)
+#set Sdir = "135tf02"
+#set DDIR = "TF02"
+#
+# 20th wave (6175 files archived from 20:00:00 to 21:42:59)
+#set Sdir = "135tf03"
+#set DDIR = "TF03"
+#
+# 21st wave (18039 files archived from 14:07:00 to 19:07:54)
+#set Sdir = "135ff03"
+#set DDIR = "FF03"
+#
+# 22nd wave (20119 files archived from 14:31:00 to 20:08:00)
+#set Sdir = "135ff05-blanc"
+#set DDIR = "FF05"
+#
+# 23rd wave (18617 files archived from 15:35:00 to 21:31:15)
+#set Sdir = "135ff06"
+#set DDIR = "FF06"
+#
+# 24th wave (7707 files archived from (14:15:00 to 16:23:38)
+#set Sdir = "135rf02"
+#set DDIR = "RF02"
+#
+# 25th wave (1420 files archived from 19:57:00 to 20:21:09)
+#set Sdir = "135tf04"
+#set DDIR = "TF04"
+#
+# 26th wave (0 files archived from 16:10:00 to 21:52:00)
+#set Sdir = "135rf01"
+#set DDIR = "RF01"
+#
+# 27th wave (0 files archived)
+#set Sdir = "135rf04"
+#set DDIR = "RF04"
+#
+# 28th wave (30609 files archived from 14:03:00 to 22:34:00)
+#set Sdir = "135rf12"
+#set DDIR = "RF12"
+#
+# 29th wave (623 files archived from 15:01:00 to 15:11:23)
+#set Sdir = "135ff01"
+#set DDIR = "FF01"
+#
+# 30th wave (10274 files archived from 13:58:00 to 16:49:21)
+#set Sdir = "135ff02"
+#set DDIR = "FF02"
+#
+# 31st wave (17216 files archived from 15:06:00 to 19:53:00)
+#set Sdir = "135ff04"
+#set DDIR = "FF04"
+#
+# 32nd wave (479 files archived from 11:52:00 11:59:59) (really fix RF17)
+# 32nd wave (12000 files archived from 17:00:00 to 20:20:00)
+#set Sdir = "135rf17"
+#set DDIR = "RF17"
+#
+# 33rd wave (1499 files archived from 15:35:00 to 15:59:59) (finish FF06)
+# 33rd wave (5473 files archived from 15:35:00 to 15:59:59) (finish FF06)
+#set Sdir = "135ff06"
+#set DDIR = "FF06"
+#
+#   th wave (# files archived from 
+#set Sdir = ""
+#set DDIR = ""
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+if ($?USER) then
+  set user = $USER
+else
+  set user = `whoami`
+endif
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script."
+  echo "  Quitting"
+  exit
+endif
+#
+#  Initialize
+#   Temporary file names
+set Flist = "$TMPDIR/archcam_files.$$"
+set Tfile = "$TMPDIR/tarit.archcam.$$"
+set Afile = "$TMPDIR/archcam_$$.tar"
+#
+#   Run-time options (optional command-line arguments)
+#    Tar files in groups of one-hour increments with boundaries on the hour (no)
+@ tartime = 0              #  Default is to save files by size
+#    Tar file no-purge flag
+@ nopurge = 0              #  no == purge tar file after archiving to the MSS
+#    Verbose flag (no)
+@ vb = 0
+#    Debug flag (no)
+@ db = 0
+#    ATD directory path (no)
+@ atdp = 0
+#    RAF directory path (no)  
+@ rafp = 0
+#    Production flag (no)
+@ pd = 0                   #  Default is to echo, not archive the tar files
+#
+#  Get command-line arguments (if any)
+#echo "  $#argv arguments:  $argv"
+@ n = 0
+foreach arg ($argv)
+  @ n ++
+#  echo "  Argument is: $arg"
+  set ar = `echo $arg | sed -e "s/\-//"`
+#   Save files one hour at a time instead of by tar file size?
+  if ($ar == "t") then
+    @ tartime = 1
+    continue
+  endif
+#   Use time interval
+  if ($ar == "i") then
+    @ ti = 1
+    @ nti = $n
+    continue
+  endif
+#   Verbose?
+  if ($ar == "v") then
+    @ vb = 1
+    continue
+  endif
+#   Debug?
+  if ($ar == "d") then
+    @ db = 1
+    continue
+  endif
+#   /ATD/DATA/ directory path?
+  if ($ar == "a") then
+    @ atdp = 1
+    set char = "."
+    continue
+  endif
+#   /RAF/ directory path?
+  if ($ar == "r") then
+    @ rafp = 1
+    set char = "/"
+    continue
+  endif
+#   Production?
+  if ($ar == "p") then
+    @ pd = 1
+    continue
+  endif
+end
+#
+#  Check for a data path
+if (! $?rafp && ! $?atdp) then
+  echo "  No MSS destination path flag chosen"
+  echo "   Must choose either -r (/RAF path) or -a (/ATD/DATA) flag"
+  echo "  Quitting."
+  exit 1
+endif
+#
+#  Check if both data paths were chosen
+if ($rafp && $atdp) then
+  echo "  Found both -r  (/RAF path) and -a (/ATD/DATA) options were chosen"
+  echo "   Must choose either -r (/RAF path) or -a (/ATD/DATA) flag"
+  echo "  Quitting."
+  exit 1
+endif
+#
+#  Decode requested start and end times, if flags are set
+if ($tartime && $ti) then
+  @ nti ++
+  set RStime = $argv[$nti]
+  set RSho = `echo $RStime | sed -e 's/....$//'`
+  set RSmi = `echo $RStime | sed -e 's/..\(..\)../\1/'`
+  set RSse = `echo $RStime | sed -e 's/^....//'`
+  @ RSsec = $RSho * 3600 + $RSmi * 60 + $RSse
+  @ nti ++
+  set REtime = $argv[$nti]
+  set REho = `echo $REtime | sed -e 's/....$//'`
+  set REmi = `echo $REtime | sed -e 's/..\(..\)../\1/'`
+  set REse = `echo $REtime | sed -e 's/^....//'`
+  @ REsec = $REho * 3600 + $REmi * 60 + $REse
+#    Debug start
+  if ($db) then
+    echo " Requested start time = $RStime (${RSho}:${RSmi}:${RSse}) = $RSsec"
+    echo " Requested  end  time = $REtime (${REho}:${REmi}:${REse}) = $REsec"
+  endif
+#    Debug end
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting"
+  exit 1
+endif
+#   Project directory
+set Pdir = "$LOCAL/proj/$PROJ/Production"
+#   Archive directory
+set Adir = "$Pdir/archive"
+#   Project's information file
+set prfile = $Pdir/proj.info
+if (! -r $prfile) then
+  echo "  Cannot access project's $prfile"
+  echo "  Quitting"
+  exit 1
+endif
+#   Project's full name
+set PN = (`grep "Information for Project" $prfile`)
+if ($status == 0 && $#PN > 4) then
+  shift PN
+  shift PN
+  shift PN
+  shift PN
+else
+  echo "  Project Name not found in $prfile -- cannot continue"
+  echo "  Quitting"
+  exit 1
+endif
+#   Fiscal Year for directory path (if /RAF/ path)
+if ($rafp) then
+  set fy = `grep FY $prfile`
+  if ($status == 0) then
+    set YEAR = `echo $fy | sed -e "s/FY=//"`
+  else
+    echo "  Fiscal Year not found in $prfile -- cannot continue"
+    echo "  Quitting"
+    exit 1
+  endif
+endif
+#   Calendar Year for directory path (if /ATD/DATA/ path)
+#     Note:  Changed the code to use first file name's year
+#if ($atdp) then
+#  set cy = `grep CY $prfile`
+#  if ($status == 0) then
+#    set YEAR = `echo $cy | sed -e "s/CY=//"`
+#  else
+#    echo "  Calendar Year not found in $prfile -- cannot continue"
+#    echo "  Quitting"
+#    exit 1
+#  endif
+#
+#   MSS project directory (if /ATD/DATA/ path)
+  set PROJECT = (`grep "MSS Project Directory Name" $prfile`)
+  @ pdresult = $status
+  if ($pdresult == 0 && $#PROJECT > 4) then
+    shift PROJECT
+    shift PROJECT
+    shift PROJECT
+    shift PROJECT
+  else
+    echo "  MSS Project Directory Name not found in $prfile -- cannot continue"
+    echo "  Quitting"
+    exit 1
+  endif
+#
+#   Platform (if /ATD/DATA/ path)
+  @ plat = $PROJ / 100
+  switch ($plat)
+    case [1]
+      set PLATFORM = "C130_N130AR"
+      breaksw
+    case [2]
+      set PLATFORM = "KingAir_N312D"
+      breaksw
+    case [3]
+      set PLATFORM = "NRL_P3"
+      breaksw
+    case [4]
+      set PLATFORM = "QueenAir_N304D"
+      breaksw
+    case [5]
+      set PLATFORM = "Electra_N595KR"
+      breaksw
+    case [6]
+      set PLATFORM = "QueenAir_N306D"
+      breaksw
+    case [7]
+      set PLATFORM = "Sabreliner_N307D"
+      breaksw
+    case [8]
+      set PLATFORM = "Electra_N308D"
+      breaksw
+    case [9]
+      set PLATFORM = "SailPlane_N9929J"
+      breaksw
+    default
+      echo "  Illegal platform detected."
+      goto quit
+  endsw
+endif
+#
+#   File type
+set TYPE = "CAMERA"
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+#  set msrcpMachine = "mistral"
+endif
+#
+if ($pd) then
+  echo " ${0}:  This is a production run."
+  echo "  Tar files WILL be archived to the SCD Mass Store System (MSS)."
+  echo "#   Wave began `date`"
+else
+  echo " ${0}:  This is a checkout run, since the -p option is not set."
+  echo "  Tar files WILL NOT be archived to the SCD Mass Store System (MSS)."
+endif
+#
+#
+#  Get started:
+if ($?SDIR && $?Sdir) then
+  ls $SDIR/$Sdir >! $Flist
+  set result = $status
+  if ($result != 0) then
+    echo "  Error $result when trying to get source file list from"
+    echo "   directory $SDIR/$Sdir"
+    goto quit
+  endif
+else
+  echo "  Error:  source file directory not specified."
+  goto quit
+endif
+#
+#  Get/set indices
+@ nfiles = `wc -l $Flist | awk '{print $1}'` # total number of files to archive
+@ fztotal = 0                                #  size of tar file (bytes)
+@ NN = 0                                     #  total no. of files in directory
+@ N = 0                                      #  total number of files archived
+@ n = 0                                      #  number of files in tar file
+@ f = 0                                      #  number of tar files
+@ new = 1                                    #  flag to start new tar file
+@ firsttime = 1                              #  process-initialization flag
+@ last = 0                                   #  last-file-to-process flag
+set pfile
+set mise
+set pmise
+set ho
+set pho
+set fdate
+set pdate
+set pfsz = 0
+#
+if ($vb) then
+  echo ""
+  echo "  Number of files in directory $Sdir = $nfiles"
+endif
+#
+pushd $SDIR/$Sdir >& /dev/null
+foreach file (`cat $Flist`)
+  @ NN ++
+#
+##########  Add check (and file skip) here in case we are continuing
+##########   a partial save
+#
+  if ($new) then
+#  If creating a new tar script file, write boiler-plate for it
+    echo "#! /bin/csh -f" >! $Tfile
+    set result = $status
+    if ($result != 0) then
+      echo " Could not write temporary tar script file (return status = $result)"
+      goto quit
+    endif
+    echo "#" >> $Tfile
+    echo "#  Prepare tar file for MSS archive" >> $Tfile
+    echo "#  `date`" >> $Tfile
+    echo "set OFILE = $Afile" >> $Tfile
+    echo "#" >> $Tfile
+    echo "cd $SDIR/$Sdir" >> $Tfile
+    echo 'tar chvf $OFILE \' >> $Tfile
+#   Save initial file name (with date/time info)
+    if ( ($tartime) && ($f > 0) ) then
+      set Sfile = $pfile
+    else
+      set Sfile = $file
+    endif
+    @ new = 0
+  endif
+#
+#  Get file's size
+  @ fsz = `/bin/ls -l $file | awk '{print $5}'`
+#    Debug start
+  if ($db) then
+    echo " Current file $file size = $fsz"
+  endif
+#    Debug end
+#  Get and parse date
+  set fdate = `echo $file | awk -F_ '{print $3}'`
+  set ye = `echo $fdate | sed -e 's/....$//'`
+  set ye = "20$ye"                                 #  used a 2-digit year :(
+#
+#  If I am to archive based on tar file's time stamp, parse file name
+  if ($tartime) then
+#    Debug start
+#    if ($db) then
+#      echo  "  Getting date/time info for tar-by-time"
+#    endif
+#    Debug end
+#   Parse date
+    set mo = `echo $fdate | sed -e 's/..\(..\)../\1/'`
+    set da = `echo $fdate | sed -e 's/^....//'`
+#   Get and parse time
+    set ftime = `echo $file | awk -F_ '{print $4}'`
+    set ftime = `echo $ftime | sed -e "s/.jpg//"`
+    set ho = `echo $ftime | sed -e 's/....$//'`
+    set mi = `echo $ftime | sed -e 's/..\(..\)../\1/'`
+    set se = `echo $ftime | sed -e 's/^....//'`
+    set mise = `echo $ftime | sed -e 's/^..//'`
+    @ sec = $ho * 3600 + $mi * 60 + $se
+#    Debug start
+    if ($db) then
+      echo "  file date/time info:  ${ye}/${mo}/${da} ${ho}:${mi}:${se}"
+    endif
+#    Debug end
+#
+#  Set up once-only data
+#   Set year (if /ATD/DATA/ path)
+    if ($firsttime) then
+      if ($atdp) then
+        set YEAR = "$ye"
+      endif
+#   If time interval requested, compare time with requested start time
+      if ($ti) then
+#    If I haven't reached the start time, skip to next file
+        if ($sec < $RSsec ) then
+#    Debug start
+          if ($db) then
+            echo "  Start time not reached; Stime = $RSsec, Time = $sec"
+          endif
+#    Debug end
+          continue
+        endif
+        set Sfile = $file
+#    Debug start
+        if ($db) then
+          echo "  Start time reached; Stime = $RSsec, Time = $sec"
+        endif
+#    Debug end
+      endif
+    endif
+#
+#   If very first file to archive, must write files one in arrears because
+#    the "end" detector is the transition from 59:59 to 00:00
+##########
+#   (I also have to test the case where the last file to be archived
+#    is either a 59:59 or 00:00 to see if it can handle all cases.)
+##########
+    if ($firsttime) then
+      @ pmise = $mise
+      set pho = $ho
+      set pdate = $fdate
+      set pfile = $file
+      @ firsttime = 0
+      continue
+    endif
+#   Increment file counters
+    @ N ++
+    @ n ++
+#   Check file for end of hour
+    if ( ($mise > $pmise) && ($ho == $pho) && ($fdate == $pdate) ) then
+      @ tarit = 0
+    else
+      @ tarit = 1
+    endif
+#
+#   Check file for the end time (if requested)
+    if ($ti) then
+#    Debug start
+      if ($db) then
+        echo  "  Checking time ($sec) for requested end time ($REsec)"
+      endif
+#    Debug end
+      if ($sec >= $REsec ) then
+        @ tarit = 1
+        @ last = 1
+#    Debug start
+        if ($db) then
+          echo  "  Requested end time ($REsec) reached ($sec)"
+        endif
+#    Debug end
+      endif
+    endif
+  else
+#
+#  Archive by size
+#   Increment file counters
+    @ N ++
+    @ n ++
+#   Check for a "full" tar file (size or # of files)
+    if ( ($fztotal < $MAXSIZ) && ($n < $MAXTAR) ) then
+      @ tarit = 0
+    else
+      @ tarit = 1
+    endif
+  endif
+#
+#  Have I reached the last file in the archive?
+  if ( (! $last) && ($NN < $nfiles) ) then
+    @ last = 0
+  else
+    @ last = 1
+    @ tarit = 1
+  endif
+#
+#  Do I archive the files
+  if ($tarit) then
+#   Yes !
+    if ($tartime) then
+      if ($last) then
+        echo "$pfile \" >> $Tfile
+        echo "$file" >> $Tfile
+        set Efile = $file
+      else
+        echo "$pfile" >> $Tfile
+        set Efile = $pfile
+      endif
+    else
+      echo "$file" >> $Tfile
+      set Efile = $file
+    endif
+    if ($vb) then
+      echo "  First file in archive:  $Sfile"
+      echo "  Last  file in archive:  $Efile"
+      echo "  $n files to archive -- Total size = $fztotal"
+    endif
+#    Debug start
+    if ($db) then
+      echo "  Pause to view tar script file:  $Tfile"
+      echo -n "   hit [r] to continue  "
+      set input = "$<"
+    endif
+#    Debug end
+#    Create tar file (using script just generated)
+    echo " Creating tar file $Afile"
+    chmod +x $Tfile
+    $Tfile >& /dev/null
+    set result = $status
+    if ($result != 0) then
+      echo "  Error $result when trying to create tar file"
+      goto quit
+    endif
+#
+#    Get start/end times for archive (based on file's current name format)
+    set Smeta = `echo $Sfile | sed -e "s/.jpg//"`
+    set Smeta = `(echo $Smeta | awk -F_ '{print $1, $2, $3, $4}')`
+    set Sdate = `echo $Smeta[3] | sed -e "s:\(..\)\(..\)\(..\):\2/\3/20\1:"`
+    set Stime = `echo $Smeta[4] | sed -e "s/\(..\)\(..\)\(..\)/\1:\2:\3/"`
+    set Emeta = `echo $Efile | sed -e "s/.jpg//"`
+    set Emeta = `(echo $Emeta | awk -F_ '{print $1, $2, $3, $4}')`
+    set Edate = `echo $Emeta[3] | sed -e "s:\(..\)\(..\)\(..\):\2/\3/20\1:"`
+    set Etime = `echo $Emeta[4] | sed -e "s/\(..\)\(..\)\(..\)/\1:\2:\3/"`
+#    Get camera location
+    set Locn = `echo $Smeta[2] | tr '[a-z]' '[A-Z]'`
+#
+#    Compose archived tar file's MSS bitfile name (using metadata)
+    set OFILE = `echo ${Locn}.20${Smeta[3]}.${Smeta[4]}_${Emeta[4]}.jpg.tar`
+#    Compose full MSS bitfile name
+#     /ATD/DATA/ path
+    if ($atdp) then
+      set bitfile = "/ATD/DATA/$YEAR/$PROJECT/$PLATFORM/$TYPE/$DDIR.$OFILE"
+    endif
+#     /RAF/ path
+    if ($rafp) then
+      set bitfile = "/RAF/$YEAR/$PROJ/$TYPE/$DDIR/$OFILE"
+    endif
+#    Create tar directory-list file (add header with metadata) and save it in
+#     projects's archive subdirectory
+#    Set file's full path name
+    set dfile = "$Adir/$DDIR.$OFILE.dir"
+    echo " Creating tar directory file $Adir/$DDIR.$OFILE.dir"
+    echo " Directory list for MSS bitfile $bitfile" >! $dfile
+    set result = $status
+    if ($result != 0) then
+      echo "  Error $result when trying to create tar file's directory list"
+      echo "  Tar file $Afile will be saved"
+      echo "   If this archive needs to be redone, start with file:  $Sdir/$Sfile"
+      echo "   If continuing on, then use the next file after:  $Sdir/$Efile"
+      set nopurge = 1
+      goto quit
+    endif
+    echo "  C-130Q digital photos (jpg format) from project $PN" >> $dfile
+    echo " " >> $dfile
+    echo "  $TYPE $DDIR $Locn starts:  $Sdate $Stime" >> $dfile
+    echo "  $TYPE $DDIR $Locn   ends:  $Edate $Etime" >> $dfile
+    echo "  Archive created on `date`" >> $dfile
+    echo " " >> $dfile
+    tar tvf $Afile >> $dfile
+    if (-r $Afile) then
+#    Write tar file to MSS if in production mode ($pd == true == 1)
+      if ($pd) then
+        echo "  Archiving $DDIR$char$OFILE to MSS"
+        echo "#  Job submitted on `date`"
+        rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+         $RPWD $Afile mss:${bitfile}
+        set result = $status
+      else
+        set result = 0
+#    Debug start
+        if ($vb || $db) then
+          echo \
+          rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+           $RPWD $Afile mss:${bitfile}
+        endif
+#    Debug end
+      endif
+      if ($result == 0) then
+        echo "#  msrcp job for $DDIR$char$OFILE -- OK -- `date`"
+      else
+        echo "#  msrcp job for $DDIR$char$OFILE -- Failed -- `date`"
+        echo "#                $DDIR$char$OFILE:  error code $result"
+      endif
+    else
+      echo "#  msrcp job for $DDIR$char$OFILE -- Failed -- `date`"
+      echo "#   Cannot access tar file $Afile"
+    endif
+#
+#    Write tar directory-list file to MSS if in production mode ($pd==true==1)
+    if ($pd) then
+      if ($vb) then
+        echo "  Archiving tar directory file $OFILE.dir to MSS"
+      endif
+      echo "#  Job submitted on `date`"
+      rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $dfile mss:${bitfile}.dir
+      set result = $status
+    else
+      set result = 0
+#    Debug start
+      if ($vb || $db) then
+        echo \
+        rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+         $dfile mss:${bitfile}.dir
+      endif
+#    Debug end
+    endif
+    if ($result == 0) then
+      echo "#  msrcp job for $DDIR$char$OFILE.dir -- OK -- `date`"
+    else
+      echo "#  msrcp job for $DDIR$char$OFILE.dir -- Failed -- `date`"
+      echo "#                $DDIR$char$OFILE.dir:  error code $result"
+    endif
+#    Debug start
+    if ($db) then
+      echo "   Number of files archived so far = $N"
+    endif
+#    Debug end
+    if ($vb) then
+      echo "   Number of files in this archive = $n"
+    endif
+#    Debug start
+    if ($db) then
+      echo "   Total number of files in this directory = $nfiles"
+      echo "   List of files in this directory:  $Flist"
+    endif
+#    Debug end
+    if ($vb) then
+      echo "   Tar directory file:  $dfile"
+    endif
+    if (! $pd) then
+      echo "  Since this is a checkout run, pause to view files:"
+      echo "   Tar script file:  $Tfile"
+      echo "   Tar file:  $Afile"
+      echo -n "   hit [r] to continue  "
+      set input = "$<"
+    endif
+#    Reset for next wave
+    \rm $Tfile
+    \rm $Afile
+    @ f ++
+    @ n = 0
+    @ fztotal = 0
+    @ new = 1
+  endif
+#
+#   If by time, save file name and set parameters for next pass
+  if ($tartime) then
+    echo "$pfile \" >> $Tfile
+    @ fztotal = $fztotal + $pfsz
+    set pmise = $mise
+    set pho   = $ho
+    set pdate = $fdate
+    set pfile = $file
+    set pfsz = $fsz
+  else
+    echo "$file \" >> $Tfile
+    @ fztotal = $fztotal + $fsz
+  endif
+#    Debug start
+  if ($db) then
+    echo "   Total tar file size = $fztotal"
+  endif
+#    Debug end
+#
+#  Do I quit before the last known file?
+  if ($tartime && $ti && $last) then
+#   Yes!
+#    Debug start
+    if ($db) then
+      echo  "  Breaking out of foreach loop"
+    endif
+#    Debug end
+    break
+  endif
+end
+#
+#  Done.
+echo "#   Completed on `date`"
+echo "#   Total number of files archived: $N"
+if ($f == 1) then
+  echo -n "#   $f tar file"
+else
+  echo -n "#   $f tar files"
+endif
+if (! $pd) then
+  echo -n " NOT"
+endif
+echo " archived to MSS"
+goto cleanup
+#
+quit:
+echo "  Quitting"
+abort:
+onintr -
+#  Delete tar directory file if abnormal exit
+if ($?dfile) then
+  if (-e $dfile) then
+    \rm $dfile
+  endif
+endif
+cleanup:
+if (-e $Flist) then
+  \rm $Flist
+endif
+if (-e $Tfile) then
+  \rm $Tfile
+endif
+if (-e $Afile) then
+  if (! $nopurge) then
+    \rm $Afile
+  endif
+endif
+exit
+#
+#  MSS paths for the bitfiles listed below:
+#     /ATD/DATA/2004/RICO/C130_N130AR/CAMERA/
+#     /ATD/DATA/2005/RICO/C130_N130AR/CAMERA/
+#
+#  1st wave (archcam.135 -t -i 085200 174300 -a -p) (RF19)
+#   Wave began  Wed Mar  2 16:45:00 MST 2005
+#  Job submitted on Wed Mar  2 16:48:31 MST 2005
+#  msrcp job for RF19.FWD.20050124.085200_085959.jpg.tar -- OK -- Wed Mar  2 16:49:04 MST 2005
+#  Job submitted on Wed Mar  2 16:49:04 MST 2005
+#  msrcp job for RF19.FWD.20050124.085200_085959.jpg.tar.dir -- OK -- Wed Mar  2 16:49:11 MST 2005
+#  Job submitted on Wed Mar  2 16:52:49 MST 2005
+#  msrcp job for RF19.FWD.20050124.090000_095959.jpg.tar -- OK -- Wed Mar  2 16:55:49 MST 2005
+#  Job submitted on Wed Mar  2 16:55:49 MST 2005
+#  msrcp job for RF19.FWD.20050124.090000_095959.jpg.tar.dir -- OK -- Wed Mar  2 16:55:57 MST 2005
+#  Job submitted on Wed Mar  2 16:59:22 MST 2005
+#  msrcp job for RF19.FWD.20050124.100000_105959.jpg.tar -- OK -- Wed Mar  2 17:02:53 MST 2005
+#  Job submitted on Wed Mar  2 17:02:53 MST 2005
+#  msrcp job for RF19.FWD.20050124.100000_105959.jpg.tar.dir -- OK -- Wed Mar  2 17:02:59 MST 2005
+#  Job submitted on Wed Mar  2 17:06:16 MST 2005
+#  msrcp job for RF19.FWD.20050124.110000_115959.jpg.tar -- OK -- Wed Mar  2 17:07:50 MST 2005
+#  Job submitted on Wed Mar  2 17:07:50 MST 2005
+#  msrcp job for RF19.FWD.20050124.110000_115959.jpg.tar.dir -- OK -- Wed Mar  2 17:08:05 MST 2005
+#  Job submitted on Wed Mar  2 17:11:27 MST 2005
+#  msrcp job for RF19.FWD.20050124.120000_125959.jpg.tar -- OK -- Wed Mar  2 17:12:54 MST 2005
+#  Job submitted on Wed Mar  2 17:12:54 MST 2005
+#  msrcp job for RF19.FWD.20050124.120000_125959.jpg.tar.dir -- OK -- Wed Mar  2 17:13:07 MST 2005
+#  Job submitted on Wed Mar  2 17:16:24 MST 2005
+#  msrcp job for RF19.FWD.20050124.130000_135959.jpg.tar -- OK -- Wed Mar  2 17:17:40 MST 2005
+#  Job submitted on Wed Mar  2 17:17:40 MST 2005
+#  msrcp job for RF19.FWD.20050124.130000_135959.jpg.tar.dir -- OK -- Wed Mar  2 17:17:46 MST 2005
+#  Job submitted on Wed Mar  2 17:20:56 MST 2005
+#  msrcp job for RF19.FWD.20050124.140000_145959.jpg.tar -- OK -- Wed Mar  2 17:21:47 MST 2005
+#  Job submitted on Wed Mar  2 17:21:47 MST 2005
+#  msrcp job for RF19.FWD.20050124.140000_145959.jpg.tar.dir -- OK -- Wed Mar  2 17:21:52 MST 2005
+#  Job submitted on Wed Mar  2 17:25:05 MST 2005
+#  msrcp job for RF19.FWD.20050124.150000_155959.jpg.tar -- OK -- Wed Mar  2 17:26:00 MST 2005
+#  Job submitted on Wed Mar  2 17:26:00 MST 2005
+#  msrcp job for RF19.FWD.20050124.150000_155959.jpg.tar.dir -- OK -- Wed Mar  2 17:26:05 MST 2005
+#  Job submitted on Wed Mar  2 17:29:26 MST 2005
+#  msrcp job for RF19.FWD.20050124.160000_165959.jpg.tar -- OK -- Wed Mar  2 17:30:57 MST 2005
+#  Job submitted on Wed Mar  2 17:30:57 MST 2005
+#  msrcp job for RF19.FWD.20050124.160000_165959.jpg.tar.dir -- OK -- Wed Mar  2 17:31:05 MST 2005
+#  Job submitted on Wed Mar  2 17:33:25 MST 2005
+#  msrcp job for RF19.FWD.20050124.170000_174300.jpg.tar -- OK -- Wed Mar  2 17:34:07 MST 2005
+#  Job submitted on Wed Mar  2 17:34:07 MST 2005
+#  msrcp job for RF19.FWD.20050124.170000_174300.jpg.tar.dir -- OK -- Wed Mar  2 17:34:11 MST 2005
+#   Completed on Wed Mar  2 17:34:11 MST 2005
+#   10 tar files archived to MSS
+#  1st wave (continued) (archcam.135 -t -i 100300 105959 -a -p) (RF19)
+#   Wave began Wed Mar  2 18:00:52 MST 2005
+#  Job submitted on Wed Mar  2 18:09:38 MST 2005
+#  msrcp job for RF19.FWD.20050124.100300_105959.jpg.tar -- OK -- Wed Mar  2 18:13:53 MST 2005
+#  Job submitted on Wed Mar  2 18:13:53 MST 2005
+#  msrcp job for RF19.FWD.20050124.100300_105959.jpg.tar.dir -- OK -- Wed Mar  2 18:13:58 MST 2005
+#   Completed on Wed Mar  2 18:13:58 MST 2005
+#   Total number of files archived: 3419
+#   1 tar file archived to MSS
+#
+#  2nd wave (archcam.135 -t -i 100300 174300 -a -p) (RF17, partial)
+#   Wave began Thu Mar  3 11:05:13 MST 2005
+#  Job submitted on Thu Mar  3 11:11:06 MST 2005
+#  msrcp job for RF17.FWD.20050119.100300_105959.jpg.tar -- OK -- Thu Mar  3 11:15:52 MST 2005
+#  Job submitted on Thu Mar  3 11:15:52 MST 2005
+#  msrcp job for RF17.FWD.20050119.100300_105959.jpg.tar.dir -- OK -- Thu Mar  3 11:16:17 MST 2005
+#  Job submitted on Thu Mar  3 11:18:29 MST 2005
+#  msrcp job for RF17.FWD.20050119.110000_115959.jpg.tar -- OK -- Thu Mar  3 11:19:13 MST 2005
+#  Job submitted on Thu Mar  3 11:19:13 MST 2005
+#  msrcp job for RF17.FWD.20050119.110000_115959.jpg.tar.dir -- OK -- Thu Mar  3 11:19:20 MST 2005
+#  Job submitted on Thu Mar  3 11:22:59 MST 2005
+#  msrcp job for RF17.FWD.20050119.120000_125959.jpg.tar -- OK -- Thu Mar  3 11:24:15 MST 2005
+#  Job submitted on Thu Mar  3 11:24:15 MST 2005
+#  msrcp job for RF17.FWD.20050119.120000_125959.jpg.tar.dir -- OK -- Thu Mar  3 11:24:22 MST 2005
+#  Job submitted on Thu Mar  3 11:28:05 MST 2005
+#  msrcp job for RF17.FWD.20050119.130000_135959.jpg.tar -- OK -- Thu Mar  3 11:31:44 MST 2005
+#  Job submitted on Thu Mar  3 11:31:44 MST 2005
+#  msrcp job for RF17.FWD.20050119.130000_135959.jpg.tar.dir -- OK -- Thu Mar  3 11:31:50 MST 2005
+#  Job submitted on Thu Mar  3 11:35:10 MST 2005
+#  msrcp job for RF17.FWD.20050119.140000_145959.jpg.tar -- OK -- Thu Mar  3 11:37:16 MST 2005
+#  Job submitted on Thu Mar  3 11:37:16 MST 2005
+#  msrcp job for RF17.FWD.20050119.140000_145959.jpg.tar.dir -- OK -- Thu Mar  3 11:37:32 MST 2005
+#  Job submitted on Thu Mar  3 11:40:58 MST 2005
+#  msrcp job for RF17.FWD.20050119.150000_155959.jpg.tar -- OK -- Thu Mar  3 11:42:19 MST 2005
+#  Job submitted on Thu Mar  3 11:42:19 MST 2005
+#  msrcp job for RF17.FWD.20050119.150000_155959.jpg.tar.dir -- OK -- Thu Mar  3 11:42:29 MST 2005
+#  Job submitted on Thu Mar  3 11:45:52 MST 2005
+#  msrcp job for RF17.FWD.20050119.160000_165959.jpg.tar -- OK -- Thu Mar  3 11:46:56 MST 2005
+#  Job submitted on Thu Mar  3 11:46:56 MST 2005
+#  msrcp job for RF17.FWD.20050119.160000_165959.jpg.tar.dir -- OK -- Thu Mar  3 11:47:02 MST 2005
+#  Job submitted on Thu Mar  3 11:49:32 MST 2005
+#  msrcp job for RF17.FWD.20050119.170000_174300.jpg.tar -- OK -- Thu Mar  3 11:50:20 MST 2005
+#  Job submitted on Thu Mar  3 11:50:20 MST 2005
+#  msrcp job for RF17.FWD.20050119.170000_174300.jpg.tar.dir -- OK -- Thu Mar  3 11:50:29 MST 2005
+#   Completed on Thu Mar  3 11:50:29 MST 2005
+#   Total number of files archived: 26142
+#   8 tar files archived to MSS
+#
+#  3rd wave (archcam.135 -t -i 111300 191259 -a -p) (RF16)
+#   Wave began Thu Mar  3 11:58:06 MST 2005
+#  Job submitted on Thu Mar  3 12:00:12 MST 2005
+#  msrcp job for RF16.FWD.20050118.111300_115337.jpg.tar -- OK -- Thu Mar  3 12:01:29 MST 2005
+#  Job submitted on Thu Mar  3 12:01:29 MST 2005
+#  msrcp job for RF16.FWD.20050118.111300_115337.jpg.tar.dir -- OK -- Thu Mar  3 12:01:43 MST 2005
+#  Job submitted on Thu Mar  3 12:04:38 MST 2005
+#  msrcp job for RF16.FWD.20050118.130447_135959.jpg.tar -- OK -- Thu Mar  3 12:08:39 MST 2005
+#  Job submitted on Thu Mar  3 12:08:39 MST 2005
+#  msrcp job for RF16.FWD.20050118.130447_135959.jpg.tar.dir -- OK -- Thu Mar  3 12:09:27 MST 2005
+#  Job submitted on Thu Mar  3 12:12:41 MST 2005
+#  msrcp job for RF16.FWD.20050118.140000_145959.jpg.tar -- OK -- Thu Mar  3 12:13:30 MST 2005
+#  Job submitted on Thu Mar  3 12:13:30 MST 2005
+#  msrcp job for RF16.FWD.20050118.140000_145959.jpg.tar.dir -- OK -- Thu Mar  3 12:13:37 MST 2005
+#  Job submitted on Thu Mar  3 12:16:37 MST 2005
+#  msrcp job for RF16.FWD.20050118.150000_155959.jpg.tar -- OK -- Thu Mar  3 12:17:59 MST 2005
+#  Job submitted on Thu Mar  3 12:17:59 MST 2005
+#  msrcp job for RF16.FWD.20050118.150000_155959.jpg.tar.dir -- OK -- Thu Mar  3 12:18:04 MST 2005
+#  Job submitted on Thu Mar  3 12:21:12 MST 2005
+#  msrcp job for RF16.FWD.20050118.160000_165959.jpg.tar -- OK -- Thu Mar  3 12:22:09 MST 2005
+#  Job submitted on Thu Mar  3 12:22:09 MST 2005
+#  msrcp job for RF16.FWD.20050118.160000_165959.jpg.tar.dir -- OK -- Thu Mar  3 12:22:16 MST 2005
+#  Job submitted on Thu Mar  3 12:25:19 MST 2005
+#  msrcp job for RF16.FWD.20050118.170000_175959.jpg.tar -- OK -- Thu Mar  3 12:26:08 MST 2005
+#  Job submitted on Thu Mar  3 12:26:08 MST 2005
+#  msrcp job for RF16.FWD.20050118.170000_175959.jpg.tar.dir -- OK -- Thu Mar  3 12:26:14 MST 2005
+#  Job submitted on Thu Mar  3 12:29:26 MST 2005
+#  msrcp job for RF16.FWD.20050118.180000_185959.jpg.tar -- OK -- Thu Mar  3 12:31:13 MST 2005
+#  Job submitted on Thu Mar  3 12:31:13 MST 2005
+#  msrcp job for RF16.FWD.20050118.180000_185959.jpg.tar.dir -- OK -- Thu Mar  3 12:31:20 MST 2005
+#  Job submitted on Thu Mar  3 12:32:04 MST 2005
+#  msrcp job for RF16.FWD.20050118.190000_191259.jpg.tar -- OK -- Thu Mar  3 12:32:34 MST 2005
+#  Job submitted on Thu Mar  3 12:32:34 MST 2005
+#  msrcp job for RF16.FWD.20050118.190000_191259.jpg.tar.dir -- OK -- Thu Mar  3 12:32:40 MST 2005
+#   Completed on Thu Mar  3 12:32:40 MST 2005
+#   Total number of files archived: 24399
+#   8 tar files archived to MSS
+#
+#  4th wave (archcam.135 -t -i 140400 221724 -a -p) (RF03)
+#   Wave began Thu Mar  3 17:05:21 MST 2005
+#  Job submitted on Thu Mar  3 17:09:15 MST 2005
+#  msrcp job for RF03.FWD.20041209.140400_145959.jpg.tar -- OK -- Thu Mar  3 17:10:10 MST 2005
+#  Job submitted on Thu Mar  3 17:10:10 MST 2005
+#  msrcp job for RF03.FWD.20041209.140400_145959.jpg.tar.dir -- OK -- Thu Mar  3 17:10:15 MST 2005
+#  Job submitted on Thu Mar  3 17:11:58 MST 2005
+#  msrcp job for RF03.FWD.20041209.150000_155959.jpg.tar -- OK -- Thu Mar  3 17:12:31 MST 2005
+#  Job submitted on Thu Mar  3 17:12:31 MST 2005
+#  msrcp job for RF03.FWD.20041209.150000_155959.jpg.tar.dir -- OK -- Thu Mar  3 17:12:35 MST 2005
+#  Job submitted on Thu Mar  3 17:15:45 MST 2005
+#  msrcp job for RF03.FWD.20041209.160000_165959.jpg.tar -- OK -- Thu Mar  3 17:16:40 MST 2005
+#  Job submitted on Thu Mar  3 17:16:40 MST 2005
+#  msrcp job for RF03.FWD.20041209.160000_165959.jpg.tar.dir -- OK -- Thu Mar  3 17:16:45 MST 2005
+#  Job submitted on Thu Mar  3 17:20:00 MST 2005
+#  msrcp job for RF03.FWD.20041209.170000_175959.jpg.tar -- OK -- Thu Mar  3 17:21:04 MST 2005
+#  Job submitted on Thu Mar  3 17:21:04 MST 2005
+#  msrcp job for RF03.FWD.20041209.170000_175959.jpg.tar.dir -- OK -- Thu Mar  3 17:21:09 MST 2005
+#  Job submitted on Thu Mar  3 17:24:24 MST 2005
+#  msrcp job for RF03.FWD.20041209.180000_185959.jpg.tar -- OK -- Thu Mar  3 17:25:59 MST 2005
+#  Job submitted on Thu Mar  3 17:25:59 MST 2005
+#  msrcp job for RF03.FWD.20041209.180000_185959.jpg.tar.dir -- OK -- Thu Mar  3 17:26:03 MST 2005
+#  Job submitted on Thu Mar  3 17:29:15 MST 2005
+#  msrcp job for RF03.FWD.20041209.190000_195959.jpg.tar -- OK -- Thu Mar  3 17:30:07 MST 2005
+#  Job submitted on Thu Mar  3 17:30:07 MST 2005
+#  msrcp job for RF03.FWD.20041209.190000_195959.jpg.tar.dir -- OK -- Thu Mar  3 17:30:11 MST 2005
+#  Job submitted on Thu Mar  3 17:33:25 MST 2005
+#  msrcp job for RF03.FWD.20041209.200000_205959.jpg.tar -- OK -- Thu Mar  3 17:36:06 MST 2005
+#  Job submitted on Thu Mar  3 17:36:06 MST 2005
+#  msrcp job for RF03.FWD.20041209.200000_205959.jpg.tar.dir -- OK -- Thu Mar  3 17:36:10 MST 2005
+#  Job submitted on Thu Mar  3 17:39:26 MST 2005
+#  msrcp job for RF03.FWD.20041209.210000_215959.jpg.tar -- OK -- Thu Mar  3 17:40:41 MST 2005
+#  Job submitted on Thu Mar  3 17:40:41 MST 2005
+#  msrcp job for RF03.FWD.20041209.210000_215959.jpg.tar.dir -- OK -- Thu Mar  3 17:40:46 MST 2005
+#  Job submitted on Thu Mar  3 17:41:46 MST 2005
+#  msrcp job for RF03.FWD.20041209.220000_221724.jpg.tar -- OK -- Thu Mar  3 17:42:25 MST 2005
+#  Job submitted on Thu Mar  3 17:42:25 MST 2005
+#  msrcp job for RF03.FWD.20041209.220000_221724.jpg.tar.dir -- OK -- Thu Mar  3 17:42:29 MST 2005
+#   Completed on Thu Mar  3 17:42:30 MST 2005
+#   Total number of files archived: 27943
+#   9 tar files archived to MSS
+#
+#  5th wave (archcam.135 -t -i 145200 220400 -a -p) (RF05)
+#   Wave began Thu Mar  3 17:47:53 MST 2005
+#  Job submitted on Thu Mar  3 17:48:08 MST 2005
+#  msrcp job for RF05.FWD.20041213.145200_145339.jpg.tar -- OK -- Thu Mar  3 17:48:14 MST 2005
+#  Job submitted on Thu Mar  3 17:48:14 MST 2005
+#  msrcp job for RF05.FWD.20041213.145200_145339.jpg.tar.dir -- OK -- Thu Mar  3 17:48:18 MST 2005
+#
+#  5th wave (archcam.135 -t -i 150000 220400 -a -p) (RF05 continued)
+#   Wave began Thu Mar  3 17:55:54 MST 2005
+#  Job submitted on Thu Mar  3 17:58:52 MST 2005
+#  msrcp job for RF05.FWD.20041213.150630_155959.jpg.tar -- OK -- Thu Mar  3 17:59:42 MST 2005
+#  Job submitted on Thu Mar  3 17:59:42 MST 2005
+#  msrcp job for RF05.FWD.20041213.150630_155959.jpg.tar.dir -- OK -- Thu Mar  3 17:59:46 MST 2005
+#  Job submitted on Thu Mar  3 18:02:51 MST 2005
+#  msrcp job for RF05.FWD.20041213.160000_165959.jpg.tar -- OK -- Thu Mar  3 18:04:24 MST 2005
+#  Job submitted on Thu Mar  3 18:04:24 MST 2005
+#  msrcp job for RF05.FWD.20041213.160000_165959.jpg.tar.dir -- OK -- Thu Mar  3 18:04:28 MST 2005
+#  Job submitted on Thu Mar  3 18:07:47 MST 2005
+#  msrcp job for RF05.FWD.20041213.170000_175959.jpg.tar -- OK -- Thu Mar  3 18:09:07 MST 2005
+#  Job submitted on Thu Mar  3 18:09:07 MST 2005
+#  msrcp job for RF05.FWD.20041213.170000_175959.jpg.tar.dir -- OK -- Thu Mar  3 18:09:12 MST 2005
+#  Job submitted on Thu Mar  3 18:12:30 MST 2005
+#  msrcp job for RF05.FWD.20041213.180000_185959.jpg.tar -- OK -- Thu Mar  3 18:13:46 MST 2005
+#  Job submitted on Thu Mar  3 18:13:46 MST 2005
+#  msrcp job for RF05.FWD.20041213.180000_185959.jpg.tar.dir -- OK -- Thu Mar  3 18:13:51 MST 2005
+#  Job submitted on Thu Mar  3 18:17:06 MST 2005
+#  msrcp job for RF05.FWD.20041213.190000_195959.jpg.tar -- OK -- Thu Mar  3 18:18:35 MST 2005
+#  Job submitted on Thu Mar  3 18:18:35 MST 2005
+#  msrcp job for RF05.FWD.20041213.190000_195959.jpg.tar.dir -- OK -- Thu Mar  3 18:18:40 MST 2005
+#  Job submitted on Thu Mar  3 18:21:53 MST 2005
+#  msrcp job for RF05.FWD.20041213.200000_205959.jpg.tar -- OK -- Thu Mar  3 18:23:20 MST 2005
+#  Job submitted on Thu Mar  3 18:23:20 MST 2005
+#  msrcp job for RF05.FWD.20041213.200000_205959.jpg.tar.dir -- OK -- Thu Mar  3 18:23:24 MST 2005
+#  Job submitted on Thu Mar  3 18:26:47 MST 2005
+#  msrcp job for RF05.FWD.20041213.210000_215959.jpg.tar -- OK -- Thu Mar  3 18:28:45 MST 2005
+#  Job submitted on Thu Mar  3 18:28:46 MST 2005
+#  msrcp job for RF05.FWD.20041213.210000_215959.jpg.tar.dir -- OK -- Thu Mar  3 18:28:50 MST 2005
+#  Job submitted on Thu Mar  3 18:29:05 MST 2005
+#  msrcp job for RF05.FWD.20041213.220000_220400.jpg.tar -- OK -- Thu Mar  3 18:29:18 MST 2005
+#  Job submitted on Thu Mar  3 18:29:18 MST 2005
+#  msrcp job for RF05.FWD.20041213.220000_220400.jpg.tar.dir -- OK -- Thu Mar  3 18:29:23 MST 2005
+#   Completed on Thu Mar  3 18:29:23 MST 2005
+#   Total number of files archived: 25037
+#   8 tar files archived to MSS
+#
+#  6th wave (archcam.135 -t -i 135900 220800 -a -p) (RF06)
+#   Wave began Fri Mar  4 09:15:32 MST 2005
+#  Job submitted on Fri Mar  4 09:16:21 MST 2005
+#  msrcp job for RF06.FWD.20041216.135900_135959.jpg.tar -- OK -- Fri Mar  4 09:16:46 MST 2005
+#  Job submitted on Fri Mar  4 09:16:46 MST 2005
+#  msrcp job for RF06.FWD.20041216.135900_135959.jpg.tar.dir -- OK -- Fri Mar  4 09:16:55 MST 2005
+#  Job submitted on Fri Mar  4 09:19:55 MST 2005
+#  msrcp job for RF06.FWD.20041216.140000_145959.jpg.tar -- OK -- Fri Mar  4 09:20:42 MST 2005
+#  Job submitted on Fri Mar  4 09:20:42 MST 2005
+#  msrcp job for RF06.FWD.20041216.140000_145959.jpg.tar.dir -- OK -- Fri Mar  4 09:20:48 MST 2005
+#  Job submitted on Fri Mar  4 09:23:50 MST 2005
+#  msrcp job for RF06.FWD.20041216.150000_155959.jpg.tar -- OK -- Fri Mar  4 09:24:36 MST 2005
+#  Job submitted on Fri Mar  4 09:24:36 MST 2005
+#  msrcp job for RF06.FWD.20041216.150000_155959.jpg.tar.dir -- OK -- Fri Mar  4 09:24:41 MST 2005
+#  Job submitted on Fri Mar  4 09:27:50 MST 2005
+#  msrcp job for RF06.FWD.20041216.160000_165959.jpg.tar -- OK -- Fri Mar  4 09:28:40 MST 2005
+#  Job submitted on Fri Mar  4 09:28:40 MST 2005
+#  msrcp job for RF06.FWD.20041216.160000_165959.jpg.tar.dir -- OK -- Fri Mar  4 09:28:44 MST 2005
+#  Job submitted on Fri Mar  4 09:32:00 MST 2005
+#  msrcp job for RF06.FWD.20041216.170000_175959.jpg.tar -- OK -- Fri Mar  4 09:32:49 MST 2005
+#  Job submitted on Fri Mar  4 09:32:49 MST 2005
+#  msrcp job for RF06.FWD.20041216.170000_175959.jpg.tar.dir -- OK -- Fri Mar  4 09:32:57 MST 2005
+#  Job submitted on Fri Mar  4 09:36:14 MST 2005
+#  msrcp job for RF06.FWD.20041216.180000_185959.jpg.tar -- OK -- Fri Mar  4 09:37:10 MST 2005
+#  Job submitted on Fri Mar  4 09:37:10 MST 2005
+#  msrcp job for RF06.FWD.20041216.180000_185959.jpg.tar.dir -- OK -- Fri Mar  4 09:37:16 MST 2005
+#  Job submitted on Fri Mar  4 09:40:36 MST 2005
+#  msrcp job for RF06.FWD.20041216.190000_195959.jpg.tar -- OK -- Fri Mar  4 09:41:41 MST 2005
+#  Job submitted on Fri Mar  4 09:41:41 MST 2005
+#  msrcp job for RF06.FWD.20041216.190000_195959.jpg.tar.dir -- OK -- Fri Mar  4 09:41:50 MST 2005
+#  Job submitted on Fri Mar  4 09:45:07 MST 2005
+#  msrcp job for RF06.FWD.20041216.200000_205959.jpg.tar -- OK -- Fri Mar  4 09:47:01 MST 2005
+#  Job submitted on Fri Mar  4 09:47:01 MST 2005
+#  msrcp job for RF06.FWD.20041216.200000_205959.jpg.tar.dir -- OK -- Fri Mar  4 09:47:08 MST 2005
+#   Completed on Fri Mar  4 09:48:56 MST 2005
+#   Total number of files archived: 26783
+#   8 tar files archived to MSS
+#  6th wave (archcam.135 -t -i 210000 213350 -a -p) (RF06 continued)
+#   Wave began Fri Mar  4 10:10:57 MST 2005
+#  Job submitted on Fri Mar  4 10:31:33 MST 2005
+#  msrcp job for RF06.FWD.20041216.210000_213350.jpg.tar -- OK -- Fri Mar  4 10:32:07 MST 2005
+#  Job submitted on Fri Mar  4 10:32:07 MST 2005
+#  msrcp job for RF06.FWD.20041216.210000_213350.jpg.tar.dir -- OK -- Fri Mar  4 10:32:14 MST 2005
+#   Completed on Fri Mar  4 10:32:14 MST 2005
+#   Total number of files archived: 2030
+#   1 tar file archived to MSS
+#
+#  7th wave (archcam.135 -t -i 142544 222237 -a -p) (RF07)
+#   Wave began Fri Mar  4 10:52:44 MST 2005
+#  Job submitted on Fri Mar  4 10:54:29 MST 2005
+#  msrcp job for RF07.FWD.20041217.142544_145939.jpg.tar -- OK -- Fri Mar  4 10:55:04 MST 2005
+#  Job submitted on Fri Mar  4 10:55:04 MST 2005
+#  msrcp job for RF07.FWD.20041217.142544_145939.jpg.tar.dir -- OK -- Fri Mar  4 10:55:09 MST 2005
+#  Job submitted on Fri Mar  4 10:58:21 MST 2005
+#  msrcp job for RF07.FWD.20041217.150026_155959.jpg.tar -- OK -- Fri Mar  4 10:59:30 MST 2005
+#  Job submitted on Fri Mar  4 10:59:30 MST 2005
+#  msrcp job for RF07.FWD.20041217.150026_155959.jpg.tar.dir -- OK -- Fri Mar  4 10:59:36 MST 2005
+#  Job submitted on Fri Mar  4 11:02:10 MST 2005
+#  msrcp job for RF07.FWD.20041217.160000_165959.jpg.tar -- OK -- Fri Mar  4 11:03:05 MST 2005
+#  Job submitted on Fri Mar  4 11:03:05 MST 2005
+#  msrcp job for RF07.FWD.20041217.160000_165959.jpg.tar.dir -- OK -- Fri Mar  4 11:03:13 MST 2005
+#  Job submitted on Fri Mar  4 11:03:55 MST 2005
+#  msrcp job for RF07.FWD.20041217.170000_175959.jpg.tar -- OK -- Fri Mar  4 11:04:11 MST 2005
+#  Job submitted on Fri Mar  4 11:04:11 MST 2005
+#  msrcp job for RF07.FWD.20041217.170000_175959.jpg.tar.dir -- OK -- Fri Mar  4 11:04:18 MST 2005
+#  Job submitted on Fri Mar  4 11:07:07 MST 2005
+#  msrcp job for RF07.FWD.20041217.180000_185959.jpg.tar -- OK -- Fri Mar  4 11:07:52 MST 2005
+#  Job submitted on Fri Mar  4 11:07:52 MST 2005
+#  msrcp job for RF07.FWD.20041217.180000_185959.jpg.tar.dir -- OK -- Fri Mar  4 11:07:57 MST 2005
+#  Job submitted on Fri Mar  4 11:10:14 MST 2005
+#  msrcp job for RF07.FWD.20041217.190000_195959.jpg.tar -- OK -- Fri Mar  4 11:10:51 MST 2005
+#  Job submitted on Fri Mar  4 11:10:51 MST 2005
+#  msrcp job for RF07.FWD.20041217.190000_195959.jpg.tar.dir -- OK -- Fri Mar  4 11:10:57 MST 2005
+#  Job submitted on Fri Mar  4 11:14:11 MST 2005
+#  msrcp job for RF07.FWD.20041217.200000_205959.jpg.tar -- OK -- Fri Mar  4 11:15:41 MST 2005
+#  Job submitted on Fri Mar  4 11:15:41 MST 2005
+#  msrcp job for RF07.FWD.20041217.200000_205959.jpg.tar.dir -- OK -- Fri Mar  4 11:15:51 MST 2005
+#  Job submitted on Fri Mar  4 11:19:08 MST 2005
+#  msrcp job for RF07.FWD.20041217.210000_215959.jpg.tar -- OK -- Fri Mar  4 11:21:12 MST 2005
+#  Job submitted on Fri Mar  4 11:21:12 MST 2005
+#  msrcp job for RF07.FWD.20041217.210000_215959.jpg.tar.dir -- OK -- Fri Mar  4 11:21:21 MST 2005
+#  Job submitted on Fri Mar  4 11:22:36 MST 2005
+#  msrcp job for RF07.FWD.20041217.220000_222237.jpg.tar -- OK -- Fri Mar  4 11:23:22 MST 2005
+#  Job submitted on Fri Mar  4 11:23:22 MST 2005
+#  msrcp job for RF07.FWD.20041217.220000_222237.jpg.tar.dir -- OK -- Fri Mar  4 11:23:32 MST 2005
+#   Completed on Fri Mar  4 11:23:32 MST 2005
+#   Total number of files archived: 23628
+#   9 tar files archived to MSS
+#
+#  8th wave (archcam.135 -t -i 111100 195405 -a -p) (RF08)
+#   Wave began Fri Mar  4 11:35:25 MST 2005
+#  Job submitted on Fri Mar  4 11:41:55 MST 2005
+#  msrcp job for RF08.FWD.20041219.111100_115959.jpg.tar -- OK -- Fri Mar  4 11:42:46 MST 2005
+#  Job submitted on Fri Mar  4 11:42:46 MST 2005
+#  msrcp job for RF08.FWD.20041219.111100_115959.jpg.tar.dir -- OK -- Fri Mar  4 11:42:55 MST 2005
+#  Job submitted on Fri Mar  4 11:46:30 MST 2005
+#  msrcp job for RF08.FWD.20041219.120000_125959.jpg.tar -- OK -- Fri Mar  4 11:50:08 MST 2005
+#  Job submitted on Fri Mar  4 11:50:08 MST 2005
+#  msrcp job for RF08.FWD.20041219.120000_125959.jpg.tar.dir -- OK -- Fri Mar  4 11:50:15 MST 2005
+#  Job submitted on Fri Mar  4 11:53:43 MST 2005
+#  msrcp job for RF08.FWD.20041219.130000_135959.jpg.tar -- OK -- Fri Mar  4 11:55:01 MST 2005
+#  Job submitted on Fri Mar  4 11:55:01 MST 2005
+#  msrcp job for RF08.FWD.20041219.130000_135959.jpg.tar.dir -- OK -- Fri Mar  4 11:55:09 MST 2005
+#  Job submitted on Fri Mar  4 11:58:29 MST 2005
+#  msrcp job for RF08.FWD.20041219.140000_145959.jpg.tar -- OK -- Fri Mar  4 11:59:16 MST 2005
+#  Job submitted on Fri Mar  4 11:59:16 MST 2005
+#  msrcp job for RF08.FWD.20041219.140000_145959.jpg.tar.dir -- OK -- Fri Mar  4 11:59:23 MST 2005
+#  Job submitted on Fri Mar  4 12:02:40 MST 2005
+#  msrcp job for RF08.FWD.20041219.150000_155959.jpg.tar -- OK -- Fri Mar  4 12:03:29 MST 2005
+#  Job submitted on Fri Mar  4 12:03:29 MST 2005
+#  msrcp job for RF08.FWD.20041219.150000_155959.jpg.tar.dir -- OK -- Fri Mar  4 12:03:35 MST 2005
+#  Job submitted on Fri Mar  4 12:07:03 MST 2005
+#  msrcp job for RF08.FWD.20041219.160000_165959.jpg.tar -- OK -- Fri Mar  4 12:07:56 MST 2005
+#  Job submitted on Fri Mar  4 12:07:56 MST 2005
+#  msrcp job for RF08.FWD.20041219.160000_165959.jpg.tar.dir -- OK -- Fri Mar  4 12:08:05 MST 2005
+#  Job submitted on Fri Mar  4 12:11:26 MST 2005
+#  msrcp job for RF08.FWD.20041219.170000_175959.jpg.tar -- OK -- Fri Mar  4 12:12:15 MST 2005
+#  Job submitted on Fri Mar  4 12:12:15 MST 2005
+#  msrcp job for RF08.FWD.20041219.170000_175959.jpg.tar.dir -- OK -- Fri Mar  4 12:12:24 MST 2005
+#  Job submitted on Fri Mar  4 12:15:54 MST 2005
+#  msrcp job for RF08.FWD.20041219.180000_185959.jpg.tar -- OK -- Fri Mar  4 12:18:10 MST 2005
+#  Job submitted on Fri Mar  4 12:18:10 MST 2005
+#  msrcp job for RF08.FWD.20041219.180000_185959.jpg.tar.dir -- OK -- Fri Mar  4 12:18:24 MST 2005
+#  Job submitted on Fri Mar  4 12:21:33 MST 2005
+#  msrcp job for RF08.FWD.20041219.190000_195405.jpg.tar -- OK -- Fri Mar  4 12:24:10 MST 2005
+#  Job submitted on Fri Mar  4 12:24:10 MST 2005
+#  msrcp job for RF08.FWD.20041219.190000_195405.jpg.tar.dir -- OK -- Fri Mar  4 12:24:23 MST 2005
+#   Completed on Fri Mar  4 12:24:23 MST 2005
+#   Total number of files archived: 31380
+#   9 tar files archived to MSS
+#
+#  9th wave (archcam.135 -t -i 105800 190551 -a -p) (RF09)
+#   Wave began Fri Mar  4 13:26:03 MST 2005
+#  Job submitted on Fri Mar  4 13:26:29 MST 2005
+#  msrcp job for RF09.FWD.20041220.105800_105959.jpg.tar -- OK -- Fri Mar  4 13:26:36 MST 2005
+#  Job submitted on Fri Mar  4 13:26:36 MST 2005
+#  msrcp job for RF09.FWD.20041220.105800_105959.jpg.tar.dir -- OK -- Fri Mar  4 13:26:41 MST 2005
+#  Job submitted on Fri Mar  4 13:29:37 MST 2005
+#  msrcp job for RF09.FWD.20041220.110000_115133.jpg.tar -- OK -- Fri Mar  4 13:30:31 MST 2005
+#  Job submitted on Fri Mar  4 13:30:31 MST 2005
+#  msrcp job for RF09.FWD.20041220.110000_115133.jpg.tar.dir -- OK -- Fri Mar  4 13:30:38 MST 2005
+#  Job submitted on Fri Mar  4 13:32:44 MST 2005
+#  msrcp job for RF09.FWD.20041220.122216_125959.jpg.tar -- OK -- Fri Mar  4 13:33:24 MST 2005
+#  Job submitted on Fri Mar  4 13:33:24 MST 2005
+#  msrcp job for RF09.FWD.20041220.122216_125959.jpg.tar.dir -- OK -- Fri Mar  4 13:33:31 MST 2005
+#  Job submitted on Fri Mar  4 13:36:49 MST 2005
+#  msrcp job for RF09.FWD.20041220.130000_135959.jpg.tar -- OK -- Fri Mar  4 13:42:01 MST 2005
+#  Job submitted on Fri Mar  4 13:42:01 MST 2005
+#  msrcp job for RF09.FWD.20041220.130000_135959.jpg.tar.dir -- OK -- Fri Mar  4 13:42:11 MST 2005
+#  Job submitted on Fri Mar  4 13:45:22 MST 2005
+#  msrcp job for RF09.FWD.20041220.140000_145959.jpg.tar -- OK -- Fri Mar  4 13:46:23 MST 2005
+#  Job submitted on Fri Mar  4 13:46:23 MST 2005
+#  msrcp job for RF09.FWD.20041220.140000_145959.jpg.tar.dir -- OK -- Fri Mar  4 13:46:32 MST 2005
+#  Job submitted on Fri Mar  4 13:49:48 MST 2005
+#  msrcp job for RF09.FWD.20041220.150000_155959.jpg.tar -- OK -- Fri Mar  4 13:50:47 MST 2005
+#  Job submitted on Fri Mar  4 13:50:47 MST 2005
+#  msrcp job for RF09.FWD.20041220.150000_155959.jpg.tar.dir -- OK -- Fri Mar  4 13:50:59 MST 2005
+#  Job submitted on Fri Mar  4 13:54:19 MST 2005
+#  msrcp job for RF09.FWD.20041220.160000_165959.jpg.tar -- OK -- Fri Mar  4 13:55:18 MST 2005
+#  Job submitted on Fri Mar  4 13:55:18 MST 2005
+#  msrcp job for RF09.FWD.20041220.160000_165959.jpg.tar.dir -- OK -- Fri Mar  4 13:55:30 MST 2005
+#  Job submitted on Fri Mar  4 13:58:27 MST 2005
+#  msrcp job for RF09.FWD.20041220.170000_175959.jpg.tar -- OK -- Fri Mar  4 13:59:27 MST 2005
+#  Job submitted on Fri Mar  4 13:59:27 MST 2005
+#  msrcp job for RF09.FWD.20041220.170000_175959.jpg.tar.dir -- OK -- Fri Mar  4 13:59:34 MST 2005
+#  Job submitted on Fri Mar  4 14:02:51 MST 2005
+#  msrcp job for RF09.FWD.20041220.180000_185959.jpg.tar -- OK -- Fri Mar  4 14:04:16 MST 2005
+#  Job submitted on Fri Mar  4 14:04:16 MST 2005
+#  msrcp job for RF09.FWD.20041220.180000_185959.jpg.tar.dir -- OK -- Fri Mar  4 14:04:27 MST 2005
+#  Job  submitted on Fri Mar  4 14:04:46 MST 2005
+#  msrcp job for RF09.FWD.20041220.190000_190551.jpg.tar -- OK -- Fri Mar  4 14:05:01 MST 2005
+#  Job submitted on Fri Mar  4 14:05:01 MST 2005
+#  msrcp job for RF09.FWD.20041220.190000_190551.jpg.tar.dir -- OK -- Fri Mar  4 14:05:09 MST 2005
+#   Completed on Fri Mar  4 14:05:09 MST 2005
+#   Total number of files archived: 27094
+#   10 tar files archived to MSS
+#
+# 10th wave (archcam.135 -t -i 145200 225836 -a -p) (RF10)
+#   Wave began Fri Mar  4 14:33:02 MST 2005
+#  Job submitted on Fri Mar  4 14:40:50 MST 2005
+#  msrcp job for RF10.FWD.20050105.145200_145959.jpg.tar -- OK -- Fri Mar  4 14:41:05 MST 2005
+#  Job submitted on Fri Mar  4 14:41:05 MST 2005
+#  msrcp job for RF10.FWD.20050105.145200_145959.jpg.tar.dir -- OK -- Fri Mar  4 14:41:12 MST 2005
+#  Job submitted on Fri Mar  4 14:44:48 MST 2005
+#  msrcp job for RF10.FWD.20050105.150000_155959.jpg.tar -- OK -- Fri Mar  4 14:46:55 MST 2005
+#  Job submitted on Fri Mar  4 14:46:55 MST 2005
+#  msrcp job for RF10.FWD.20050105.150000_155959.jpg.tar.dir -- OK -- Fri Mar  4 14:47:11 MST 2005
+#  Job submitted on Fri Mar  4 14:50:38 MST 2005
+#  msrcp job for RF10.FWD.20050105.160000_165959.jpg.tar -- OK -- Fri Mar  4 14:52:29 MST 2005
+#  Job submitted on Fri Mar  4 14:52:29 MST 2005
+#  msrcp job for RF10.FWD.20050105.160000_165959.jpg.tar.dir -- OK -- Fri Mar  4 14:52:35 MST 2005
+#  Job submitted on Fri Mar  4 14:56:21 MST 2005
+#  msrcp job for RF10.FWD.20050105.170000_175959.jpg.tar -- OK -- Fri Mar  4 14:57:32 MST 2005
+#  Job submitted on Fri Mar  4 14:57:32 MST 2005
+#  msrcp job for RF10.FWD.20050105.170000_175959.jpg.tar.dir -- OK -- Fri Mar  4 14:57:38 MST 2005
+#  Job submitted on Fri Mar  4 15:01:05 MST 2005
+#  msrcp job for RF10.FWD.20050105.180000_185959.jpg.tar -- OK -- Fri Mar  4 15:01:50 MST 2005
+#  Job submitted on Fri Mar  4 15:01:50 MST 2005
+#  msrcp job for RF10.FWD.20050105.180000_185959.jpg.tar.dir -- OK -- Fri Mar  4 15:01:59 MST 2005
+#  Job submitted on Fri Mar  4 15:05:21 MST 2005
+#  msrcp job for RF10.FWD.20050105.190000_195959.jpg.tar -- OK -- Fri Mar  4 15:06:08 MST 2005
+#  Job submitted on Fri Mar  4 15:06:08 MST 2005
+#  msrcp job for RF10.FWD.20050105.190000_195959.jpg.tar.dir -- OK -- Fri Mar  4 15:06:26 MST 2005
+#  Job submitted on Fri Mar  4 15:09:54 MST 2005
+#  msrcp job for RF10.FWD.20050105.200000_205959.jpg.tar -- OK -- Fri Mar  4 15:10:39 MST 2005
+#  Job submitted on Fri Mar  4 15:10:39 MST 2005
+#  msrcp job for RF10.FWD.20050105.200000_205959.jpg.tar.dir -- OK -- Fri Mar  4 15:10:51 MST 2005
+#  Job submitted on Fri Mar  4 15:14:23 MST 2005
+#  msrcp job for RF10.FWD.20050105.210000_215959.jpg.tar -- OK -- Fri Mar  4 15:15:20 MST 2005
+#  Job submitted on Fri Mar  4 15:15:20 MST 2005
+#  msrcp job for RF10.FWD.20050105.210000_215959.jpg.tar.dir -- OK -- Fri Mar  4 15:16:12 MST 2005
+#  Job submitted on Fri Mar  4 15:20:11 MST 2005
+#  msrcp job for RF10.FWD.20050105.220000_225836.jpg.tar -- OK -- Fri Mar  4 15:22:55 MST 2005
+#  Job submitted on Fri Mar  4 15:22:55 MST 2005
+#  msrcp job for RF10.FWD.20050105.220000_225836.jpg.tar.dir -- OK -- Fri Mar  4 15:23:15 MST 2005
+#   Completed on Fri Mar  4 15:23:15 MST 2005
+#   Total number of files archived: 29192
+#   9 tar files archived to MSS
+#
+# 11th wave (archcam.135 -t -i 140200 222229 -a -p) (RF11)
+#   Wave began Fri Mar  4 15:39:28 MST 2005
+#  Job submitted on Fri Mar  4 15:43:06 MST 2005
+#  msrcp job for RF11.FWD.20050107.140200_145959.jpg.tar -- OK -- Fri Mar  4 15:44:33 MST 2005
+#  Job submitted on Fri Mar  4 15:44:33 MST 2005
+#  msrcp job for RF11.FWD.20050107.140200_145959.jpg.tar.dir -- OK -- Fri Mar  4 15:45:20 MST 2005
+#  Job submitted on Fri Mar  4 15:48:45 MST 2005
+#  msrcp job for RF11.FWD.20050107.150000_155959.jpg.tar -- OK -- Fri Mar  4 15:50:07 MST 2005
+#  Job submitted on Fri Mar  4 15:50:07 MST 2005
+#  msrcp job for RF11.FWD.20050107.150000_155959.jpg.tar.dir -- OK -- Fri Mar  4 15:50:27 MST 2005
+#  Job submitted on Fri Mar  4 15:53:27 MST 2005
+#  msrcp job for RF11.FWD.20050107.160000_165959.jpg.tar -- OK -- Fri Mar  4 15:54:18 MST 2005
+#  Job submitted on Fri Mar  4 15:54:18 MST 2005
+#  msrcp job for RF11.FWD.20050107.160000_165959.jpg.tar.dir -- OK -- Fri Mar  4 15:55:12 MST 2005
+#  Job submitted on Fri Mar  4 15:56:35 MST 2005
+#  msrcp job for RF11.FWD.20050107.170000_172747.jpg.tar -- OK -- Fri Mar  4 15:57:04 MST 2005
+#  Job submitted on Fri Mar  4 15:57:04 MST 2005
+#  msrcp job for RF11.FWD.20050107.170000_172747.jpg.tar.dir -- OK -- Fri Mar  4 15:58:08 MST 2005
+#  Job submitted on Fri Mar  4 16:00:31 MST 2005
+#  msrcp job for RF11.FWD.20050107.181200_185959.jpg.tar -- OK -- Fri Mar  4 16:01:22 MST 2005
+#  Job submitted on Fri Mar  4 16:01:22 MST 2005
+#  msrcp job for RF11.FWD.20050107.181200_185959.jpg.tar.dir -- OK -- Fri Mar  4 16:01:53 MST 2005
+#  Job submitted on Fri Mar  4 16:04:45 MST 2005
+#  msrcp job for RF11.FWD.20050107.190000_195342.jpg.tar -- OK -- Fri Mar  4 16:05:28 MST 2005
+#  Job submitted on Fri Mar  4 16:05:28 MST 2005
+#  msrcp job for RF11.FWD.20050107.190000_195342.jpg.tar.dir -- OK -- Fri Mar  4 16:05:55 MST 2005
+#  Job submitted on Fri Mar  4 16:08:42 MST 2005
+#  msrcp job for RF11.FWD.20050107.200641_205959.jpg.tar -- OK -- Fri Mar  4 16:09:33 MST 2005
+#  Job submitted on Fri Mar  4 16:09:33 MST 2005
+#  msrcp job for RF11.FWD.20050107.200641_205959.jpg.tar.dir -- OK -- Fri Mar  4 16:09:48 MST 2005
+#  Job submitted on Fri Mar  4 16:13:02 MST 2005
+#  msrcp job for RF11.FWD.20050107.210000_215959.jpg.tar -- OK -- Fri Mar  4 16:15:17 MST 2005
+#  Job submitted on Fri Mar  4 16:15:17 MST 2005
+#  msrcp job for RF11.FWD.20050107.210000_215959.jpg.tar.dir -- OK -- Fri Mar  4 16:15:28 MST 2005
+#  Job submitted on Fri Mar  4 16:16:40 MST 2005
+#  msrcp job for RF11.FWD.20050107.220000_222229.jpg.tar -- OK -- Fri Mar  4 16:17:19 MST 2005
+#  Job submitted on Fri Mar  4 16:17:19 MST 2005
+#  msrcp job for RF11.FWD.20050107.220000_222229.jpg.tar.dir -- OK -- Fri Mar  4 16:17:37 MST 2005
+#   Completed on Fri Mar  4 16:17:37 MST 2005
+#   Total number of files archived: 26094
+#   9 tar files archived to MSS
+#
+# 12th wave (archcam.135 -t -i 142300 224800 -a -p) (RF13)
+#   Wave began Fri Mar  4 16:57:06 MST 2005
+#  Job submitted on Fri Mar  4 16:59:52 MST 2005
+#  msrcp job for RF13.FWD.20050112.142300_145959.jpg.tar -- OK -- Fri Mar  4 17:00:29 MST 2005
+#  Job submitted on Fri Mar  4 17:00:29 MST 2005
+#  msrcp job for RF13.FWD.20050112.142300_145959.jpg.tar.dir -- OK -- Fri Mar  4 17:00:34 MST 2005
+#  Job submitted on Fri Mar  4 17:04:04 MST 2005
+#  msrcp job for RF13.FWD.20050112.150000_155959.jpg.tar -- OK -- Fri Mar  4 17:06:06 MST 2005
+#  Job submitted on Fri Mar  4 17:06:06 MST 2005
+#  msrcp job for RF13.FWD.20050112.150000_155959.jpg.tar.dir -- OK -- Fri Mar  4 17:06:12 MST 2005
+#  Job submitted on Fri Mar  4 17:09:38 MST 2005
+#  msrcp job for RF13.FWD.20050112.160000_165959.jpg.tar -- OK -- Fri Mar  4 17:10:25 MST 2005
+#  Job submitted on Fri Mar  4 17:10:25 MST 2005
+#  msrcp job for RF13.FWD.20050112.160000_165959.jpg.tar.dir -- OK -- Fri Mar  4 17:10:31 MST 2005
+#  Job submitted on Fri Mar  4 17:13:46 MST 2005
+#  msrcp job for RF13.FWD.20050112.170000_175959.jpg.tar -- OK -- Fri Mar  4 17:14:31 MST 2005
+#  Job submitted on Fri Mar  4 17:14:31 MST 2005
+#  msrcp job for RF13.FWD.20050112.170000_175959.jpg.tar.dir -- OK -- Fri Mar  4 17:14:37 MST 2005
+#  Job submitted on Fri Mar  4 17:17:45 MST 2005
+#  msrcp job for RF13.FWD.20050112.180000_185959.jpg.tar -- OK -- Fri Mar  4 17:18:39 MST 2005
+#  Job submitted on Fri Mar  4 17:18:39 MST 2005
+#  msrcp job for RF13.FWD.20050112.180000_185959.jpg.tar.dir -- OK -- Fri Mar  4 17:18:48 MST 2005
+#  Job submitted on Fri Mar  4 17:22:16 MST 2005
+#  msrcp job for RF13.FWD.20050112.190000_195959.jpg.tar -- OK -- Fri Mar  4 17:23:04 MST 2005
+#  Job submitted on Fri Mar  4 17:23:04 MST 2005
+#  msrcp job for RF13.FWD.20050112.190000_195959.jpg.tar.dir -- OK -- Fri Mar  4 17:23:10 MST 2005
+#  Job submitted on Fri Mar  4 17:26:26 MST 2005
+#  msrcp job for RF13.FWD.20050112.200000_205959.jpg.tar -- OK -- Fri Mar  4 17:27:18 MST 2005
+#  Job submitted on Fri Mar  4 17:27:18 MST 2005
+#  msrcp job for RF13.FWD.20050112.200000_205959.jpg.tar.dir -- OK -- Fri Mar  4 17:27:23 MST 2005
+#  Job submitted on Fri Mar  4 17:30:38 MST 2005
+#  msrcp job for RF13.FWD.20050112.210000_215959.jpg.tar -- OK -- Fri Mar  4 17:33:30 MST 2005
+#  Job submitted on Fri Mar  4 17:33:30 MST 2005
+#  msrcp job for RF13.FWD.20050112.210000_215959.jpg.tar.dir -- OK -- Fri Mar  4 17:33:35 MST 2005
+#  Job submitted on Fri Mar  4 17:36:36 MST 2005
+#  msrcp job for RF13.FWD.20050112.220000_224800.jpg.tar -- OK -- Fri Mar  4 17:38:55 MST 2005
+#  Job submitted on Fri Mar  4 17:38:55 MST 2005
+#  msrcp job for RF13.FWD.20050112.220000_224800.jpg.tar.dir -- OK -- Fri Mar  4 17:39:00 MST 2005
+#   Completed on Fri Mar  4 17:39:00 MST 2005
+#   Total number of files archived: 30269
+#   9 tar files archived to MSS
+#
+# 13th wave (archcam.135 -t -i 150200 224206 -a -p) (RF14)
+#   Wave began Mon Mar  7 10:17:29 MST 2005
+#  Job submitted on Mon Mar  7 10:21:34 MST 2005
+#  msrcp job for RF14.FWD.20050114.150200_155959.jpg.tar -- OK -- Mon Mar  7 10:22:29 MST 2005
+#  Job submitted on Mon Mar  7 10:22:29 MST 2005
+#  msrcp job for RF14.FWD.20050114.150200_155959.jpg.tar.dir -- OK -- Mon Mar  7 10:22:35 MST 2005
+#  Job submitted on Mon Mar  7 10:25:59 MST 2005
+#  msrcp job for RF14.FWD.20050114.160000_165959.jpg.tar -- OK -- Mon Mar  7 10:26:55 MST 2005
+#  Job submitted on Mon Mar  7 10:26:55 MST 2005
+#  msrcp job for RF14.FWD.20050114.160000_165959.jpg.tar.dir -- OK -- Mon Mar  7 10:27:04 MST 2005
+#  Job submitted on Mon Mar  7 10:30:27 MST 2005
+#  msrcp job for RF14.FWD.20050114.170000_175959.jpg.tar -- OK -- Mon Mar  7 10:31:17 MST 2005
+#  Job submitted on Mon Mar  7 10:31:17 MST 2005
+#  msrcp job for RF14.FWD.20050114.170000_175959.jpg.tar.dir -- OK -- Mon Mar  7 10:31:23 MST 2005
+#  Job submitted on Mon Mar  7 10:34:41 MST 2005
+#  msrcp job for RF14.FWD.20050114.180000_185959.jpg.tar -- OK -- Mon Mar  7 10:35:32 MST 2005
+#  Job submitted on Mon Mar  7 10:35:32 MST 2005
+#  msrcp job for RF14.FWD.20050114.180000_185959.jpg.tar.dir -- OK -- Mon Mar  7 10:35:40 MST 2005
+#  Job submitted on Mon Mar  7 10:39:04 MST 2005
+#  msrcp job for RF14.FWD.20050114.190000_195959.jpg.tar -- OK -- Mon Mar  7 10:40:03 MST 2005
+#  Job submitted on Mon Mar  7 10:40:03 MST 2005
+#  msrcp job for RF14.FWD.20050114.190000_195959.jpg.tar.dir -- OK -- Mon Mar  7 10:40:09 MST 2005
+#  Job submitted on Mon Mar  7 10:43:35 MST 2005
+#  msrcp job for RF14.FWD.20050114.200000_205959.jpg.tar -- OK -- Mon Mar  7 10:44:34 MST 2005
+#  Job submitted on Mon Mar  7 10:44:34 MST 2005
+#  msrcp job for RF14.FWD.20050114.200000_205959.jpg.tar.dir -- OK -- Mon Mar  7 10:44:48 MST 2005
+#  Job submitted on Mon Mar  7 10:48:13 MST 2005
+#  msrcp job for RF14.FWD.20050114.210000_215959.jpg.tar -- OK -- Mon Mar  7 10:49:07 MST 2005
+#  Job submitted on Mon Mar  7 10:49:07 MST 2005
+#  msrcp job for RF14.FWD.20050114.210000_215959.jpg.tar.dir -- OK -- Mon Mar  7 10:49:12 MST 2005
+#  Job submitted on Mon Mar  7 10:51:48 MST 2005
+#  msrcp job for RF14.FWD.20050114.220000_224206.jpg.tar -- OK -- Mon Mar  7 10:53:53 MST 2005
+#  Job submitted on Mon Mar  7 10:53:53 MST 2005
+#  msrcp job for RF14.FWD.20050114.220000_224206.jpg.tar.dir -- OK -- Mon Mar  7 10:54:04 MST 2005
+#   Completed on Mon Mar  7 10:54:04 MST 2005
+#   Total number of files archived: 27571
+#   8 tar files archived to MSS
+#
+# 14th wave (archcam.135 -t -i 140200 222800 -a -p) (RF15)
+#   Wave began Mon Mar  7 11:05:19 MST 2005
+#  Job submitted on Mon Mar  7 11:09:09 MST 2005
+#  msrcp job for RF15.FWD.20050116.140200_145959.jpg.tar -- OK -- Mon Mar  7 11:10:06 MST 2005
+#  Job submitted on Mon Mar  7 11:10:06 MST 2005
+#  msrcp job for RF15.FWD.20050116.140200_145959.jpg.tar.dir -- OK -- Mon Mar  7 11:10:13 MST 2005
+#  Job submitted on Mon Mar  7 11:13:36 MST 2005
+#  msrcp job for RF15.FWD.20050116.150000_155959.jpg.tar -- OK -- Mon Mar  7 11:16:08 MST 2005
+#  Job submitted on Mon Mar  7 11:16:08 MST 2005
+#  msrcp job for RF15.FWD.20050116.150000_155959.jpg.tar.dir -- OK -- Mon Mar  7 11:16:13 MST 2005
+#  Job submitted on Mon Mar  7 11:19:36 MST 2005
+#  msrcp job for RF15.FWD.20050116.160000_165959.jpg.tar -- OK -- Mon Mar  7 11:21:21 MST 2005
+#  Job submitted on Mon Mar  7 11:21:21 MST 2005
+#  msrcp job for RF15.FWD.20050116.160000_165959.jpg.tar.dir -- OK -- Mon Mar  7 11:21:29 MST 2005
+#  Job submitted on Mon Mar  7 11:24:58 MST 2005
+#  msrcp job for RF15.FWD.20050116.170000_175959.jpg.tar -- OK -- Mon Mar  7 11:26:44 MST 2005
+#  Job submitted on Mon Mar  7 11:26:44 MST 2005
+#  msrcp job for RF15.FWD.20050116.170000_175959.jpg.tar.dir -- OK -- Mon Mar  7 11:26:54 MST 2005
+#  Job submitted on Mon Mar  7 11:30:26 MST 2005
+#  msrcp job for RF15.FWD.20050116.180000_185959.jpg.tar -- OK -- Mon Mar  7 11:31:44 MST 2005
+#  Job submitted on Mon Mar  7 11:31:44 MST 2005
+#  msrcp job for RF15.FWD.20050116.180000_185959.jpg.tar.dir -- OK -- Mon Mar  7 11:31:52 MST 2005
+#  Job submitted on Mon Mar  7 11:35:16 MST 2005
+#  msrcp job for RF15.FWD.20050116.190000_195959.jpg.tar -- OK -- Mon Mar  7 11:36:15 MST 2005
+#  Job submitted on Mon Mar  7 11:36:15 MST 2005
+#  msrcp job for RF15.FWD.20050116.190000_195959.jpg.tar.dir -- OK -- Mon Mar  7 11:36:22 MST 2005
+#  Job submitted on Mon Mar  7 11:39:51 MST 2005
+#  msrcp job for RF15.FWD.20050116.200000_205959.jpg.tar -- OK -- Mon Mar  7 11:41:32 MST 2005
+#  Job submitted on Mon Mar  7 11:41:32 MST 2005
+#  msrcp job for RF15.FWD.20050116.200000_205959.jpg.tar.dir -- OK -- Mon Mar  7 11:41:37 MST 2005
+#  Job submitted on Mon Mar  7 11:45:02 MST 2005
+#  msrcp job for RF15.FWD.20050116.210000_215959.jpg.tar -- OK -- Mon Mar  7 11:46:37 MST 2005
+#  Job submitted on Mon Mar  7 11:46:37 MST 2005
+#  msrcp job for RF15.FWD.20050116.210000_215959.jpg.tar.dir -- OK -- Mon Mar  7 11:46:44 MST 2005
+#  Job submitted on Mon Mar  7 11:48:25 MST 2005
+#  msrcp job for RF15.FWD.20050116.220000_222800.jpg.tar -- OK -- Mon Mar  7 11:49:28 MST 2005
+#  Job submitted on Mon Mar  7 11:49:28 MST 2005
+#  msrcp job for RF15.FWD.20050116.220000_222800.jpg.tar.dir -- OK -- Mon Mar  7 11:49:39 MST 2005
+#   Completed on Mon Mar  7 11:49:39 MST 2005
+#   Total number of files archived: 30324
+#   9 tar files archived to MSS
+#
+# 15th wave (archcam.135 -t -i 115200 202000 -a -p) (Mistake)
+#   Wave began Mon Mar  7 12:03:14 MST 2005
+#  Job submitted on Mon Mar  7 12:03:49 MST 2005
+#  msrcp job for RF15.FWD.20050116.134938_135959.jpg.tar -- OK -- Mon Mar  7 12:04:08 MST 2005
+#  Job submitted on Mon Mar  7 12:04:08 MST 2005
+#  msrcp job for RF15.FWD.20050116.134938_135959.jpg.tar.dir -- OK -- Mon Mar  7 12:04:14 MST 2005
+#  Job submitted on Mon Mar  7 12:07:29 MST 2005
+#  msrcp job for RF15.FWD.20050116.140000_145959.jpg.tar -- OK -- Mon Mar  7 12:10:45 MST 2005
+#  Job submitted on Mon Mar  7 12:10:45 MST 2005
+#  msrcp job for RF15.FWD.20050116.140000_145959.jpg.tar.dir -- OK -- Mon Mar  7 12:10:52 MST 2005
+#  Job submitted on Mon Mar  7 12:14:14 MST 2005
+#  msrcp job for RF15.FWD.20050116.150000_155959.jpg.tar -- OK -- Mon Mar  7 12:17:31 MST 2005
+#  Job submitted on Mon Mar  7 12:17:31 MST 2005
+#  msrcp job for RF15.FWD.20050116.150000_155959.jpg.tar.dir -- OK -- Mon Mar  7 12:17:40 MST 2005
+#  Job submitted on Mon Mar  7 12:20:57 MST 2005
+#  msrcp job for RF15.FWD.20050116.160000_165959.jpg.tar -- OK -- Mon Mar  7 12:22:47 MST 2005
+#  Job submitted on Mon Mar  7 12:22:47 MST 2005
+#  msrcp job for RF15.FWD.20050116.160000_165959.jpg.tar.dir -- OK -- Mon Mar  7 12:22:53 MST 2005
+#  Job submitted on Mon Mar  7 12:25:59 MST 2005
+#  msrcp job for RF15.FWD.20050116.170000_175959.jpg.tar -- OK -- Mon Mar  7 12:28:23 MST 2005
+#  Job submitted on Mon Mar  7 12:28:23 MST 2005
+#  msrcp job for RF15.FWD.20050116.170000_175959.jpg.tar.dir -- OK -- Mon Mar  7 12:28:29 MST 2005
+#  Job submitted on Mon Mar  7 12:31:46 MST 2005
+#  msrcp job for RF15.FWD.20050116.180000_185959.jpg.tar -- OK -- Mon Mar  7 12:33:47 MST 2005
+#  Job submitted on Mon Mar  7 12:33:47 MST 2005
+#  msrcp job for RF15.FWD.20050116.180000_185959.jpg.tar.dir -- OK -- Mon Mar  7 12:33:54 MST 2005
+#  Job submitted on Mon Mar  7 12:37:07 MST 2005
+#  msrcp job for RF15.FWD.20050116.190000_195959.jpg.tar -- OK -- Mon Mar  7 12:37:52 MST 2005
+#  Job submitted on Mon Mar  7 12:37:52 MST 2005
+#  msrcp job for RF15.FWD.20050116.190000_195959.jpg.tar.dir -- OK -- Mon Mar  7 12:38:12 MST 2005
+#  Job submitted on Mon Mar  7 12:39:15 MST 2005
+#  msrcp job for RF15.FWD.20050116.200000_202000.jpg.tar -- OK -- Mon Mar  7 12:39:37 MST 2005
+#  Job submitted on Mon Mar  7 12:39:37 MST 2005
+#  msrcp job for RF15.FWD.20050116.200000_202000.jpg.tar.dir -- OK -- Mon Mar  7 12:39:42 MST 2005
+#   Completed on Mon Mar  7 12:39:42 MST 2005
+#   Total number of files archived: 23371
+#   8 tar files archived to MSS
+#
+# 16th wave (archcam.135 -t -i 100300 183400 -a -p) (RF18)
+#   Wave began Mon Mar  7 14:12:30 MST 2005
+#  Job submitted on Mon Mar  7 14:16:32 MST 2005
+#  msrcp job for RF18.FWD.20050123.100300_105959.jpg.tar -- OK -- Mon Mar  7 14:19:52 MST 2005
+#  Job submitted on Mon Mar  7 14:19:52 MST 2005
+#  msrcp job for RF18.FWD.20050123.100300_105959.jpg.tar.dir -- OK -- Mon Mar  7 14:19:59 MST 2005
+#  Job submitted on Mon Mar  7 14:31:18 MST 2005
+#  msrcp job for RF18.FWD.20050123.120000_125959.jpg.tar -- OK -- Mon Mar  7 14:35:59 MST 2005
+#  Job submitted on Mon Mar  7 14:35:59 MST 2005
+#  msrcp job for RF18.FWD.20050123.120000_125959.jpg.tar.dir -- OK -- Mon Mar  7 14:36:11 MST 2005
+#  Job submitted on Mon Mar  7 14:39:37 MST 2005
+#  msrcp job for RF18.FWD.20050123.130000_135959.jpg.tar -- OK -- Mon Mar  7 14:40:30 MST 2005
+#  Job submitted on Mon Mar  7 14:40:30 MST 2005
+#  msrcp job for RF18.FWD.20050123.130000_135959.jpg.tar.dir -- OK -- Mon Mar  7 14:40:44 MST 2005
+#  Job submitted on Mon Mar  7 14:44:02 MST 2005
+#  msrcp job for RF18.FWD.20050123.140000_145959.jpg.tar -- OK -- Mon Mar  7 14:45:06 MST 2005
+#  Job submitted on Mon Mar  7 14:45:06 MST 2005
+#  msrcp job for RF18.FWD.20050123.140000_145959.jpg.tar.dir -- OK -- Mon Mar  7 14:45:16 MST 2005
+#  Job submitted on Mon Mar  7 14:48:36 MST 2005
+#  msrcp job for RF18.FWD.20050123.150000_155959.jpg.tar -- OK -- Mon Mar  7 14:50:48 MST 2005
+#  Job submitted on Mon Mar  7 14:50:48 MST 2005
+#  msrcp job for RF18.FWD.20050123.150000_155959.jpg.tar.dir -- OK -- Mon Mar  7 14:51:02 MST 2005
+#  Job submitted on Mon Mar  7 14:54:19 MST 2005
+#  msrcp job for RF18.FWD.20050123.160000_165959.jpg.tar -- OK -- Mon Mar  7 14:55:18 MST 2005
+#  Job submitted on Mon Mar  7 14:55:18 MST 2005
+#  msrcp job for RF18.FWD.20050123.160000_165959.jpg.tar.dir -- OK -- Mon Mar  7 14:55:30 MST 2005
+#  Job submitted on Mon Mar  7 14:58:57 MST 2005
+#  msrcp job for RF18.FWD.20050123.170000_175959.jpg.tar -- OK -- Mon Mar  7 15:02:09 MST 2005
+#  Job submitted on Mon Mar  7 15:02:09 MST 2005
+#  msrcp job for RF18.FWD.20050123.170000_175959.jpg.tar.dir -- OK -- Mon Mar  7 15:02:15 MST 2005
+#  Job submitted on Mon Mar  7 15:04:14 MST 2005
+#  msrcp job for RF18.FWD.20050123.180000_183400.jpg.tar -- OK -- Mon Mar  7 15:04:51 MST 2005
+#  Job submitted on Mon Mar  7 15:04:51 MST 2005
+#  msrcp job for RF18.FWD.20050123.180000_183400.jpg.tar.dir -- OK -- Mon Mar  7 15:05:02 MST 2005
+#   Completed on Mon Mar  7 15:05:02 MST 2005
+#   Total number of files archived: 30613
+#   9 tar files archived to MSS
+#
+# 17th wave (archcam.135 -t -i 115200 115959 -a -p) (fix RF17 -- failed)
+#   Wave began Mon Mar  7 15:46:37 MST 2005
+#  Job submitted on Mon Mar  7 15:53:03 MST 2005
+#  msrcp job for RF18.FWD.20050123.115200_115959.jpg.tar -- OK -- Mon Mar  7 15:53:21 MST 2005
+#  Job submitted on Mon Mar  7 15:53:21 MST 2005
+#  msrcp job for RF18.FWD.20050123.115200_115959.jpg.tar.dir -- OK -- Mon Mar  7 15:53:36 MST 2005
+#   Completed on Mon Mar  7 15:53:36 MST 2005
+#   Total number of files archived: 479
+#   1 tar file archived to MSS
+#
+# 18th wave (archcam.135 -t -i 180600 205300 -a -p) (TF01)
+#   Wave began Mon Mar  7 15:59:55 MST 2005
+#  Job submitted on Mon Mar  7 16:03:54 MST 2005
+#  msrcp job for TF01.FWD.20041117.180600_185959.jpg.tar -- OK -- Mon Mar  7 16:04:27 MST 2005
+#  Job submitted on Mon Mar  7 16:04:27 MST 2005
+#  msrcp job for TF01.FWD.20041117.180600_185959.jpg.tar.dir -- OK -- Mon Mar  7 16:04:33 MST 2005
+#  Job submitted on Mon Mar  7 16:07:23 MST 2005
+#  msrcp job for TF01.FWD.20041117.190000_195959.jpg.tar -- OK -- Mon Mar  7 16:08:02 MST 2005
+#  Job submitted on Mon Mar  7 16:08:02 MST 2005
+#  msrcp job for TF01.FWD.20041117.190000_195959.jpg.tar.dir -- OK -- Mon Mar  7 16:08:07 MST 2005
+#  Job submitted on Mon Mar  7 16:10:46 MST 2005
+#  msrcp job for TF01.FWD.20041117.200000_205300.jpg.tar -- OK -- Mon Mar  7 16:11:25 MST 2005
+#  Job submitted on Mon Mar  7 16:11:25 MST 2005
+#  msrcp job for TF01.FWD.20041117.200000_205300.jpg.tar.dir -- OK -- Mon Mar  7 16:11:31 MST 2005
+#   Completed on Mon Mar  7 16:11:31 MST 2005
+#   Total number of files archived: 10020
+#   3 tar files archived to MSS
+#
+# 19th wave (archcam.135 -t -i 195500 221230 -a -p) (TF02)
+#   Wave began Mon Mar  7 16:47:50 MST 2005
+#  Job submitted on Mon Mar  7 16:48:32 MST 2005
+#  msrcp job for TF02.FWD.20041119.195500_195959.jpg.tar -- OK -- Mon Mar  7 16:48:42 MST 2005
+#  Job submitted on Mon Mar  7 16:48:42 MST 2005
+#  msrcp job for TF02.FWD.20041119.195500_195959.jpg.tar.dir -- OK -- Mon Mar  7 16:48:47 MST 2005
+#  Job submitted on Mon Mar  7 16:51:35 MST 2005
+#  msrcp job for TF02.FWD.20041119.200000_205959.jpg.tar -- OK -- Mon Mar  7 16:52:28 MST 2005
+#  Job submitted on Mon Mar  7 16:52:28 MST 2005
+#  msrcp job for TF02.FWD.20041119.200000_205959.jpg.tar.dir -- OK -- Mon Mar  7 16:52:33 MST 2005
+#  Job submitted on Mon Mar  7 16:55:24 MST 2005
+#  msrcp job for TF02.FWD.20041119.210000_215959.jpg.tar -- OK -- Mon Mar  7 16:56:41 MST 2005
+#  Job submitted on Mon Mar  7 16:56:41 MST 2005
+#  msrcp job for TF02.FWD.20041119.210000_215959.jpg.tar.dir -- OK -- Mon Mar  7 16:56:45 MST 2005
+#  Job submitted on Mon Mar  7 16:57:20 MST 2005
+#  msrcp job for TF02.FWD.20041119.220000_221230.jpg.tar -- OK -- Mon Mar  7 16:57:37 MST 2005
+#  Job submitted on Mon Mar  7 16:57:37 MST 2005
+#  msrcp job for TF02.FWD.20041119.220000_221230.jpg.tar.dir -- OK -- Mon Mar  7 16:57:42 MST 2005
+#   Completed on Mon Mar  7 16:57:42 MST 2005
+#   Total number of files archived: 8247
+#   4 tar files archived to MSS
+#
+# 20th wave (archcam.135 -t -i 200000 214400 -a -p) (TF03)
+#   Wave began Mon Mar  7 17:47:36 MST 2005
+#  Job submitted on Mon Mar  7 17:50:28 MST 2005
+#  msrcp job for TF03.FWD.20041123.200000_205959.jpg.tar -- OK -- Mon Mar  7 17:51:18 MST 2005
+#  Job submitted on Mon Mar  7 17:51:18 MST 2005
+#  msrcp job for TF03.FWD.20041123.200000_205959.jpg.tar.dir -- OK -- Mon Mar  7 17:51:23 MST 2005
+#   Completed on Mon Mar  7 17:53:16 MST 2005
+#   Total number of files archived: 6175
+#   1 tar file archived to MSS
+# 20th wave (archcam.135 -t -i 200000 214400 -a -p) (TF03 continued after script fix)
+#   Wave began Tue Mar  8 15:24:38 MST 2005
+#  Job submitted on Tue Mar  8 15:29:02 MST 2005
+#  msrcp job for TF03.FWD.20041123.210000_214259.jpg.tar -- OK -- Tue Mar  8 15:29:51 MST 2005
+#  Job submitted on Tue Mar  8 15:29:51 MST 2005
+#  msrcp job for TF03.FWD.20041123.210000_214259.jpg.tar.dir -- OK -- Tue Mar  8 15:29:55 MST 2005
+#   Completed on Tue Mar  8 15:29:55 MST 2005
+#   Total number of files archived: 2577
+#   1 tar file archived to MSS
+#
+# 21st wave (archcam.135 -t -i 140700 190754 -a -p) (FF03)
+#   Wave began Wed Mar  9 17:52:23 MST 2005
+#  Job submitted on Wed Mar  9 17:56:00 MST 2005
+#  msrcp job for FF03.FWD.20041221.140700_145959.jpg.tar -- OK -- Wed Mar  9 17:57:00 MST 2005
+#  Job submitted on Wed Mar  9 17:57:00 MST 2005
+#  msrcp job for FF03.FWD.20041221.140700_145959.jpg.tar.dir -- OK -- Wed Mar  9 17:57:19 MST 2005
+#  Job submitted on Wed Mar  9 18:00:36 MST 2005
+#  msrcp job for FF03.FWD.20041221.150000_155959.jpg.tar -- OK -- Wed Mar  9 18:02:20 MST 2005
+#  Job submitted on Wed Mar  9 18:02:20 MST 2005
+#  msrcp job for FF03.FWD.20041221.150000_155959.jpg.tar.dir -- OK -- Wed Mar  9 18:02:32 MST 2005
+#  Job submitted on Wed Mar  9 18:05:36 MST 2005
+#  msrcp job for FF03.FWD.20041221.160000_165959.jpg.tar -- OK -- Wed Mar  9 18:07:13 MST 2005
+#  Job submitted on Wed Mar  9 18:07:13 MST 2005
+#  msrcp job for FF03.FWD.20041221.160000_165959.jpg.tar.dir -- OK -- Wed Mar  9 18:07:33 MST 2005
+#  Job submitted on Wed Mar  9 18:10:46 MST 2005
+#  msrcp job for FF03.FWD.20041221.170000_175959.jpg.tar -- OK -- Wed Mar  9 18:12:38 MST 2005
+#  Job submitted on Wed Mar  9 18:12:38 MST 2005
+#  msrcp job for FF03.FWD.20041221.170000_175959.jpg.tar.dir -- OK -- Wed Mar  9 18:12:55 MST 2005
+#  Job submitted on Wed Mar  9 18:15:56 MST 2005
+#  msrcp job for FF03.FWD.20041221.180000_185959.jpg.tar -- OK -- Wed Mar  9 18:17:41 MST 2005
+#  Job submitted on Wed Mar  9 18:17:41 MST 2005
+#  msrcp job for FF03.FWD.20041221.180000_185959.jpg.tar.dir -- OK -- Wed Mar  9 18:17:55 MST 2005
+#  Job submitted on Wed Mar  9 18:18:20 MST 2005
+#  msrcp job for FF03.FWD.20041221.190000_190754.jpg.tar -- OK -- Wed Mar  9 18:18:43 MST 2005
+#  Job submitted on Wed Mar  9 18:18:43 MST 2005
+#  msrcp job for FF03.FWD.20041221.190000_190754.jpg.tar.dir -- OK -- Wed Mar  9 18:18:56 MST 2005
+#   Completed on Wed Mar  9 18:18:56 MST 2005
+#   Total number of files archived: 18039
+#   6 tar files archived to MSS
+#
+# 22nd wave (archcam.135 -t -i 143100 200800 -a -p) (FF05)
+#   Wave began Thu Mar 10 10:56:39 MST 2005
+#  Job submitted on Thu Mar 10 10:59:35 MST 2005
+#  msrcp job for FF05.FWD.20050126.143100_145959.jpg.tar -- OK -- Thu Mar 10 11:00:05 MST 2005
+#  Job submitted on Thu Mar 10 11:00:05 MST 2005
+#  msrcp job for FF05.FWD.20050126.143100_145959.jpg.tar.dir -- OK -- Thu Mar 10 11:00:10 MST 2005
+#  Job submitted on Thu Mar 10 11:03:17 MST 2005
+#  msrcp job for FF05.FWD.20050126.150000_155959.jpg.tar -- OK -- Thu Mar 10 11:03:57 MST 2005
+#  Job submitted on Thu Mar 10 11:03:57 MST 2005
+#  msrcp job for FF05.FWD.20050126.150000_155959.jpg.tar.dir -- OK -- Thu Mar 10 11:04:03 MST 2005
+#  Job submitted on Thu Mar 10 11:07:13 MST 2005
+#  msrcp job for FF05.FWD.20050126.160000_165959.jpg.tar -- OK -- Thu Mar 10 11:08:04 MST 2005
+#  Job submitted on Thu Mar 10 11:08:04 MST 2005
+#  msrcp job for FF05.FWD.20050126.160000_165959.jpg.tar.dir -- OK -- Thu Mar 10 11:08:09 MST 2005
+#  Job submitted on Thu Mar 10 11:11:29 MST 2005
+#  msrcp job for FF05.FWD.20050126.170000_175959.jpg.tar -- OK -- Thu Mar 10 11:12:19 MST 2005
+#  Job submitted on Thu Mar 10 11:12:19 MST 2005
+#  msrcp job for FF05.FWD.20050126.170000_175959.jpg.tar.dir -- OK -- Thu Mar 10 11:12:25 MST 2005
+#  Job submitted on Thu Mar 10 11:15:49 MST 2005
+#  msrcp job for FF05.FWD.20050126.180000_185959.jpg.tar -- OK -- Thu Mar 10 11:16:37 MST 2005
+#  Job submitted on Thu Mar 10 11:16:37 MST 2005
+#  msrcp job for FF05.FWD.20050126.180000_185959.jpg.tar.dir -- OK -- Thu Mar 10 11:16:42 MST 2005
+#  Job submitted on Thu Mar 10 11:20:03 MST 2005
+#  msrcp job for FF05.FWD.20050126.190000_195959.jpg.tar -- OK -- Thu Mar 10 11:20:53 MST 2005
+#  Job submitted on Thu Mar 10 11:20:53 MST 2005
+#  msrcp job for FF05.FWD.20050126.190000_195959.jpg.tar.dir -- OK -- Thu Mar 10 11:20:58 MST 2005
+#  Job submitted on Thu Mar 10 11:21:24 MST 2005
+#  msrcp job for FF05.FWD.20050126.200000_200800.jpg.tar -- OK -- Thu Mar 10 11:21:35 MST 2005
+#  Job submitted on Thu Mar 10 11:21:35 MST 2005
+#  msrcp job for FF05.FWD.20050126.200000_200800.jpg.tar.dir -- OK -- Thu Mar 10 11:21:41 MST 2005
+#   Completed on Thu Mar 10 11:21:41 MST 2005
+#   Total number of files archived: 20119
+#   7 tar files archived to MSS
+#
+# 23rd wave (archcam.135 -t -i 153500 213115 -a -p) (FF06)
+#   Wave began Thu Mar 10 11:49:28 MST 2005
+#  Job submitted on Thu Mar 10 11:49:38 MST 2005
+#  msrcp job for FF06.FWD.20050127.145650_145959.jpg.tar -- OK -- Thu Mar 10 11:49:49 MST 2005
+#  Job submitted on Thu Mar 10 11:49:49 MST 2005
+#  msrcp job for FF06.FWD.20050127.145650_145959.jpg.tar.dir -- OK -- Thu Mar 10 11:49:53 MST 2005
+#  Job submitted on Thu Mar 10 11:53:06 MST 2005
+#  msrcp job for FF06.FWD.20050127.150000_155959.jpg.tar -- OK -- Thu Mar 10 11:54:29 MST 2005
+#  Job submitted on Thu Mar 10 11:54:29 MST 2005
+#  msrcp job for FF06.FWD.20050127.150000_155959.jpg.tar.dir -- OK -- Thu Mar 10 11:54:34 MST 2005
+#  Job submitted on Thu Mar 10 11:57:52 MST 2005
+#  msrcp job for FF06.FWD.20050127.160000_165959.jpg.tar -- OK -- Thu Mar 10 11:59:25 MST 2005
+#  Job submitted on Thu Mar 10 11:59:25 MST 2005
+#  msrcp job for FF06.FWD.20050127.160000_165959.jpg.tar.dir -- OK -- Thu Mar 10 11:59:30 MST 2005
+#  Job submitted on Thu Mar 10 12:02:39 MST 2005
+#  msrcp job for FF06.FWD.20050127.170000_175959.jpg.tar -- OK -- Thu Mar 10 12:03:29 MST 2005
+#  Job submitted on Thu Mar 10 12:03:29 MST 2005
+#  msrcp job for FF06.FWD.20050127.170000_175959.jpg.tar.dir -- OK -- Thu Mar 10 12:03:35 MST 2005
+#  Job submitted on Thu Mar 10 12:06:38 MST 2005
+#  msrcp job for FF06.FWD.20050127.180000_185959.jpg.tar -- OK -- Thu Mar 10 12:07:19 MST 2005
+#  Job submitted on Thu Mar 10 12:07:19 MST 2005
+#  msrcp job for FF06.FWD.20050127.180000_185959.jpg.tar.dir -- OK -- Thu Mar 10 12:07:24 MST 2005
+#  Job submitted on Thu Mar 10 12:10:41 MST 2005
+#  msrcp job for FF06.FWD.20050127.190000_195959.jpg.tar -- OK -- Thu Mar 10 12:11:15 MST 2005
+#  Job submitted on Thu Mar 10 12:11:15 MST 2005
+#  msrcp job for FF06.FWD.20050127.190000_195959.jpg.tar.dir -- OK -- Thu Mar 10 12:11:22 MST 2005
+#  Job submitted on Thu Mar 10 12:11:47 MST 2005
+#  msrcp job for FF06.FWD.20050127.200000_200800.jpg.tar -- OK -- Thu Mar 10 12:11:58 MST 2005
+#  Job submitted on Thu Mar 10 12:11:58 MST 2005
+#  msrcp job for FF06.FWD.20050127.200000_200800.jpg.tar.dir -- OK -- Thu Mar 10 12:12:04 MST 2005
+#   Completed on Thu Mar 10 12:12:04 MST 2005
+#   Total number of files archived: 18617
+#   7 tar files archived to MSS
+#
+# 24th wave (archcam.135 -t -i 141500 162338 -a -p) (RF02)
+#   Wave began Thu Mar 10 12:42:58 MST 2005
+#  Job submitted on Thu Mar 10 12:46:17 MST 2005
+#  msrcp job for RF02.FWD.20041208.141500_145959.jpg.tar -- OK -- Thu Mar 10 12:46:55 MST 2005
+#  Job submitted on Thu Mar 10 12:46:55 MST 2005
+#  msrcp job for RF02.FWD.20041208.141500_145959.jpg.tar.dir -- OK -- Thu Mar 10 12:47:00 MST 2005
+#  Job submitted on Thu Mar 10 12:50:03 MST 2005
+#  msrcp job for RF02.FWD.20041208.150000_155959.jpg.tar -- OK -- Thu Mar 10 12:51:23 MST 2005
+#  Job submitted on Thu Mar 10 12:51:23 MST 2005
+#  msrcp job for RF02.FWD.20041208.150000_155959.jpg.tar.dir -- OK -- Thu Mar 10 12:51:28 MST 2005
+#  Job submitted on Thu Mar 10 12:52:39 MST 2005
+#  msrcp job for RF02.FWD.20041208.160000_162338.jpg.tar -- OK -- Thu Mar 10 12:53:06 MST 2005
+#  Job submitted on Thu Mar 10 12:53:06 MST 2005
+#  msrcp job for RF02.FWD.20041208.160000_162338.jpg.tar.dir -- OK -- Thu Mar 10 12:53:11 MST 2005
+#   Completed on Thu Mar 10 12:53:11 MST 2005
+#   Total number of files archived: 7707
+#   3 tar files archived to MSS
+#
+# 25th wave (archcam.135 -t -i 195700 202300 -a -p) (TF04)
+#   Wave began Thu Mar 10 12:54:59 MST 2005
+#  Job submitted on Thu Mar 10 12:55:22 MST 2005
+#  msrcp job for TF04.FWD.20041130.195700_195959.jpg.tar -- OK -- Thu Mar 10 12:55:31 MST 2005
+#  Job submitted on Thu Mar 10 12:55:31 MST 2005
+#  msrcp job for TF04.FWD.20041130.195700_195959.jpg.tar.dir -- OK -- Thu Mar 10 12:55:35 MST 2005
+#  Job submitted on Thu Mar 10 12:56:32 MST 2005
+#  msrcp job for TF04.FWD.20041130.200000_202109.jpg.tar -- OK -- Thu Mar 10 12:57:02 MST 2005
+#  Job submitted on Thu Mar 10 12:57:02 MST 2005
+#  msrcp job for TF04.FWD.20041130.200000_202109.jpg.tar.dir -- OK -- Thu Mar 10 12:57:07 MST 2005
+#   Completed on Thu Mar 10 12:57:07 MST 2005
+#   Total number of files archived: 1420
+#   2 tar files archived to MSS
+#
+# 26th wave (archcam.135 -t -i 161000 215200 -a -p) (RF01 -- failed, no files to archive)
+#   Wave began Thu Mar 10 13:08:16 MST 2005
+#  Job submitted on Thu Mar 10 13:11:36 MST 2005
+#  msrcp job for RF01.FWD.20041207.220327_220328.jpg.tar -- OK -- Thu Mar 10 13:11:42 MST 2005
+#  Job submitted on Thu Mar 10 13:11:42 MST 2005
+#  msrcp job for RF01.FWD.20041207.220327_220328.jpg.tar.dir -- OK -- Thu Mar 10 13:11:47 MST 2005
+#   Completed on Thu Mar 10 13:11:47 MST 2005
+#   Total number of files archived: 1
+#   1 tar file archived to MSS
+#
+# 27th wave (RF04 -- no files to archive)
+#  Job(s) submitted on 
+#
+# 28th wave (archcam.135 -t -i 140300 223400 -a -p) (RF12)
+#   Wave began Thu Mar 10 13:22:13 MST 2005
+#  Job submitted on Thu Mar 10 13:26:21 MST 2005
+#  msrcp job for RF12.FWD.20050111.140300_145959.jpg.tar -- OK -- Thu Mar 10 13:27:50 MST 2005
+#  Job submitted on Thu Mar 10 13:27:50 MST 2005
+#  msrcp job for RF12.FWD.20050111.140300_145959.jpg.tar.dir -- OK -- Thu Mar 10 13:27:55 MST 2005
+#  Job submitted on Thu Mar 10 13:31:20 MST 2005
+#  msrcp job for RF12.FWD.20050111.150000_155959.jpg.tar -- OK -- Thu Mar 10 13:33:58 MST 2005
+#  Job submitted on Thu Mar 10 13:33:58 MST 2005
+#  msrcp job for RF12.FWD.20050111.150000_155959.jpg.tar.dir -- OK -- Thu Mar 10 13:34:03 MST 2005
+#  Job submitted on Thu Mar 10 13:37:21 MST 2005
+#  msrcp job for RF12.FWD.20050111.160000_165959.jpg.tar -- OK -- Thu Mar 10 13:38:16 MST 2005
+#  Job submitted on Thu Mar 10 13:38:16 MST 2005
+#  msrcp job for RF12.FWD.20050111.160000_165959.jpg.tar.dir -- OK -- Thu Mar 10 13:38:22 MST 2005
+#  Job submitted on Thu Mar 10 13:41:37 MST 2005
+#  msrcp job for RF12.FWD.20050111.170000_175959.jpg.tar -- OK -- Thu Mar 10 13:44:26 MST 2005
+#  Job submitted on Thu Mar 10 13:44:26 MST 2005
+#  msrcp job for RF12.FWD.20050111.170000_175959.jpg.tar.dir -- OK -- Thu Mar 10 13:44:32 MST 2005
+#  Job submitted on Thu Mar 10 13:47:52 MST 2005
+#  msrcp job for RF12.FWD.20050111.180000_185959.jpg.tar -- OK -- Thu Mar 10 13:49:05 MST 2005
+#  Job submitted on Thu Mar 10 13:49:05 MST 2005
+#  msrcp job for RF12.FWD.20050111.180000_185959.jpg.tar.dir -- OK -- Thu Mar 10 13:49:10 MST 2005
+#  Job submitted on Thu Mar 10 13:52:31 MST 2005
+#  msrcp job for RF12.FWD.20050111.190000_195959.jpg.tar -- OK -- Thu Mar 10 13:53:18 MST 2005
+#  Job submitted on Thu Mar 10 13:53:18 MST 2005
+#  msrcp job for RF12.FWD.20050111.190000_195959.jpg.tar.dir -- OK -- Thu Mar 10 13:53:25 MST 2005
+#  Job submitted on Thu Mar 10 13:56:45 MST 2005
+#  msrcp job for RF12.FWD.20050111.200000_205959.jpg.tar -- OK -- Thu Mar 10 13:58:17 MST 2005
+#  Job submitted on Thu Mar 10 13:58:17 MST 2005
+#  msrcp job for RF12.FWD.20050111.200000_205959.jpg.tar.dir -- OK -- Thu Mar 10 13:58:22 MST 2005
+#  Job submitted on Thu Mar 10 14:01:45 MST 2005
+#  msrcp job for RF12.FWD.20050111.210000_215959.jpg.tar -- OK -- Thu Mar 10 14:06:43 MST 2005
+#  Job submitted on Thu Mar 10 14:06:43 MST 2005
+#  msrcp job for RF12.FWD.20050111.210000_215959.jpg.tar.dir -- OK -- Thu Mar 10 14:06:49 MST 2005
+#  Job submitted on Thu Mar 10 14:08:59 MST 2005
+#  msrcp job for RF12.FWD.20050111.220000_223400.jpg.tar -- OK -- Thu Mar 10 14:10:59 MST 2005
+#  Job submitted on Thu Mar 10 14:10:59 MST 2005
+#  msrcp job for RF12.FWD.20050111.220000_223400.jpg.tar.dir -- OK -- Thu Mar 10 14:11:04 MST 2005
+#   Completed on Thu Mar 10 14:11:04 MST 2005
+#   Total number of files archived: 30609
+#   9 tar files archived to MSS
+#
+# 29th wave (archcam.135 -t -i 150100 200000 -a -p) (FF01)
+#   Wave began Thu Mar 10 14:20:10 MST 2005
+#  Job submitted on Thu Mar 10 14:20:43 MST 2005
+#  msrcp job for FF01.FWD.20041203.150100_151123.jpg.tar -- OK -- Thu Mar 10 14:21:01 MST 2005
+#  Job submitted on Thu Mar 10 14:21:01 MST 2005
+#  msrcp job for FF01.FWD.20041203.150100_151123.jpg.tar.dir -- OK -- Thu Mar 10 14:21:08 MST 2005
+#   Completed on Thu Mar 10 14:21:08 MST 2005
+#   Total number of files archived: 623
+#   1 tar file archived to MSS
+#
+# 30th wave (archcam.135 -t -i 135800 164921 -a -p) (FF02)
+#   Wave began Thu Mar 10 14:50:29 MST 2005
+#  Job submitted on Thu Mar 10 14:50:56 MST 2005
+#  msrcp job for FF02.FWD.20041204.135800_135959.jpg.tar -- OK -- Thu Mar 10 14:51:04 MST 2005
+#  Job submitted on Thu Mar 10 14:51:04 MST 2005
+#  msrcp job for FF02.FWD.20041204.135800_135959.jpg.tar.dir -- OK -- Thu Mar 10 14:51:08 MST 2005
+#  Job submitted on Thu Mar 10 14:54:20 MST 2005
+#  msrcp job for FF02.FWD.20041204.140000_145959.jpg.tar -- OK -- Thu Mar 10 14:55:56 MST 2005
+#  Job submitted on Thu Mar 10 14:55:56 MST 2005
+#  msrcp job for FF02.FWD.20041204.140000_145959.jpg.tar.dir -- OK -- Thu Mar 10 14:56:01 MST 2005
+#  Job submitted on Thu Mar 10 14:59:08 MST 2005
+#  msrcp job for FF02.FWD.20041204.150000_155959.jpg.tar -- OK -- Thu Mar 10 15:01:05 MST 2005
+#  Job submitted on Thu Mar 10 15:01:05 MST 2005
+#  msrcp job for FF02.FWD.20041204.150000_155959.jpg.tar.dir -- OK -- Thu Mar 10 15:01:11 MST 2005
+#  Job submitted on Thu Mar 10 15:03:45 MST 2005
+#  msrcp job for FF02.FWD.20041204.160000_164921.jpg.tar -- OK -- Thu Mar 10 15:04:33 MST 2005
+#  Job submitted on Thu Mar 10 15:04:33 MST 2005
+#  msrcp job for FF02.FWD.20041204.160000_164921.jpg.tar.dir -- OK -- Thu Mar 10 15:04:37 MST 2005
+#   Completed on Thu Mar 10 15:04:38 MST 2005
+#   Total number of files archived: 10274
+#   4 tar files archived to MSS
+#
+# 31st wave (archcam.135 -t -i 150600 195300 -a -p) (FF04)
+#   Wave began Thu Mar 10 15:06:49 MST 2005
+#  Job submitted on Thu Mar 10 15:11:10 MST 2005
+#  msrcp job for FF04.FWD.20050103.150600_155959.jpg.tar -- OK -- Thu Mar 10 15:12:02 MST 2005
+#  Job submitted on Thu Mar 10 15:12:02 MST 2005
+#  msrcp job for FF04.FWD.20050103.150600_155959.jpg.tar.dir -- OK -- Thu Mar 10 15:12:07 MST 2005
+#  Job submitted on Thu Mar 10 15:15:15 MST 2005
+#  msrcp job for FF04.FWD.20050103.160000_165959.jpg.tar -- OK -- Thu Mar 10 15:17:23 MST 2005
+#  Job submitted on Thu Mar 10 15:17:23 MST 2005
+#  msrcp job for FF04.FWD.20050103.160000_165959.jpg.tar.dir -- OK -- Thu Mar 10 15:17:28 MST 2005
+#  Job submitted on Thu Mar 10 15:20:37 MST 2005
+#  msrcp job for FF04.FWD.20050103.170000_175959.jpg.tar -- OK -- Thu Mar 10 15:24:50 MST 2005
+#  Job submitted on Thu Mar 10 15:24:50 MST 2005
+#  msrcp job for FF04.FWD.20050103.170000_175959.jpg.tar.dir -- OK -- Thu Mar 10 15:24:55 MST 2005
+#  Job submitted on Thu Mar 10 15:28:08 MST 2005
+#  msrcp job for FF04.FWD.20050103.180000_185959.jpg.tar -- OK -- Thu Mar 10 15:28:56 MST 2005
+#  Job submitted on Thu Mar 10 15:28:56 MST 2005
+#  msrcp job for FF04.FWD.20050103.180000_185959.jpg.tar.dir -- OK -- Thu Mar 10 15:29:01 MST 2005
+#  Job submitted on Thu Mar 10 15:31:45 MST 2005
+#  msrcp job for FF04.FWD.20050103.190000_195300.jpg.tar -- OK -- Thu Mar 10 15:32:36 MST 2005
+#  Job submitted on Thu Mar 10 15:32:36 MST 2005
+#  msrcp job for FF04.FWD.20050103.190000_195300.jpg.tar.dir -- OK -- Thu Mar 10 15:32:41 MST 2005
+#   Completed on Thu Mar 10 15:32:41 MST 2005
+#   Total number of files archived: 17216
+#   5 tar files archived to MSS
+#
+# 32nd wave (archcam.135 -t -i 115200 115959 -a -p) (really fix RF17)
+#   Wave began Fri Mar 11 09:40:10 MST 2005
+#  Job submitted on Fri Mar 11 09:47:14 MST 2005
+#  msrcp job for RF17.FWD.20050119.115200_115959.jpg.tar -- OK -- Fri Mar 11 09:56:20 MST 2005
+#  Job submitted on Fri Mar 11 09:56:20 MST 2005
+#  msrcp job for RF17.FWD.20050119.115200_115959.jpg.tar.dir -- OK -- Fri Mar 11 09:59:07 MST 2005
+#   Completed on Fri Mar 11 09:59:07 MST 2005
+#   Total number of files archived: 479
+#   1 tar file archived to MSS
+# 32nd wave (archcam.135 -t -i 170000 202000 -a -p) (continue to really fix RF17)
+#   Wave began Fri Mar 11 11:23:02 MST 2005
+#  Job submitted on Fri Mar 11 11:47:52 MST 2005
+#  msrcp job for RF17.FWD.20050119.170000_175959.jpg.tar -- OK -- Fri Mar 11 11:49:07 MST 2005
+#  Job submitted on Fri Mar 11 11:49:07 MST 2005
+#  msrcp job for RF17.FWD.20050119.170000_175959.jpg.tar.dir -- OK -- Fri Mar 11 11:49:13 MST 2005
+#  Job submitted on Fri Mar 11 11:52:50 MST 2005
+#  msrcp job for RF17.FWD.20050119.180000_185959.jpg.tar -- OK -- Fri Mar 11 11:54:37 MST 2005
+#  Job submitted on Fri Mar 11 11:54:37 MST 2005
+#  msrcp job for RF17.FWD.20050119.180000_185959.jpg.tar.dir -- OK -- Fri Mar 11 11:54:42 MST 2005
+#  Job submitted on Fri Mar 11 11:58:30 MST 2005
+#  msrcp job for RF17.FWD.20050119.190000_195959.jpg.tar -- OK -- Fri Mar 11 12:00:47 MST 2005
+#  Job submitted on Fri Mar 11 12:00:47 MST 2005
+#  msrcp job for RF17.FWD.20050119.190000_195959.jpg.tar.dir -- OK -- Fri Mar 11 12:00:55 MST 2005
+#  Job submitted on Fri Mar 11 12:02:05 MST 2005
+#  msrcp job for RF17.FWD.20050119.200000_202000.jpg.tar -- OK -- Fri Mar 11 12:02:26 MST 2005
+#  Job submitted on Fri Mar 11 12:02:26 MST 2005
+#  msrcp job for RF17.FWD.20050119.200000_202000.jpg.tar.dir -- OK -- Fri Mar 11 12:02:33 MST 2005
+#   Completed on Fri Mar 11 12:02:33 MST 2005
+#   Total number of files archived: 12000
+#   4 tar files archived to MSS
+#
+# 33rd wave (archcam.135 -t -i 153500 155959 -a -p) (fix FF06)
+#   Wave began Fri Mar 11 10:04:58 MST 2005
+#  Job submitted on Fri Mar 11 10:08:02 MST 2005
+#  msrcp job for FF06.FWD.20050127.153500_155959.jpg.tar -- OK -- Fri Mar 11 10:08:37 MST 2005
+#  Job submitted on Fri Mar 11 10:08:37 MST 2005
+#  msrcp job for FF06.FWD.20050127.153500_155959.jpg.tar.dir -- OK -- Fri Mar 11 10:08:42 MST 2005
+#   Completed on Fri Mar 11 10:08:42 MST 2005
+#   Total number of files archived: 1499
+#   1 tar file archived to MSS
+# 33rd wave (archcam.135 -t -i 200000 213127 -a -p) (continue to fix FF06)
+#   Wave began Fri Mar 11 12:55:19 MST 2005
+#  Job submitted on Fri Mar 11 13:11:26 MST 2005
+#  msrcp job for FF06.FWD.20050127.200000_205959.jpg.tar -- OK -- Fri Mar 11 13:12:14 MST 2005
+#  Job submitted on Fri Mar 11 13:12:14 MST 2005
+#  msrcp job for FF06.FWD.20050127.200000_205959.jpg.tar.dir -- OK -- Fri Mar 11 13:12:18 MST 2005
+#  Job  submitted on Fri Mar 11 13:13:54 MST 2005
+#  msrcp job for FF06.FWD.20050127.210000_213127.jpg.tar -- OK -- Fri Mar 11 13:14:27 MST 2005
+#  Job submitted on Fri Mar 11 13:14:27 MST 2005
+#  msrcp job for FF06.FWD.20050127.210000_213127.jpg.tar.dir -- OK -- Fri Mar 11 13:14:34 MST 2005
+#   Completed on Fri Mar 11 13:14:34 MST 2005
+#   Total number of files archived: 5473
+#   2 tar files archived to MSS
+#
+#   th wave (archcam.135 -t -i  -a -p)
+#  Job(s) submitted on 
+#

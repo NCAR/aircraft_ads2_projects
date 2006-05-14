@@ -1,0 +1,376 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data files for 2004-125 ACME
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $LOCAL/proj/102/Production/arch_ads.102
+#   by Ron Ruth  28 January 2K
+#  Revised by RLR 19 April 2002 to use DCS "msrcp" instead of MIGS
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+#  set msrcpMachine = "lenny"
+#  set msrcpMachine = "mistral"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#125tf01.ads \
+#125tf02a.ads \
+#125tf02b.ads \
+#)
+#set DFILES = ( \
+#TF01 \
+#TF02A \
+#TF02B \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#125rf01b.ads \
+#125rf02a.ads \
+#)
+#set DFILES = ( \
+#RF01 \
+#RF02 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#125rf03a.ads \
+#125rf04a.ads \
+#)
+#set DFILES = ( \
+#RF03 \
+#RF04 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#125rf05a.ads \
+#125rf05b.ads \
+#)
+#set DFILES = ( \
+#RF05A \
+#RF05B \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#125rf06a.ads \
+#125rf06b.ads \
+#)
+#set DFILES = ( \
+#RF06A \
+#RF06B \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#125rf07b.ads \
+#)
+#set DFILES = ( \
+#RF07 \
+#)
+#
+#  7th wave
+#set SFILES = ( \
+#125rf08a.ads \
+#)
+#set DFILES = ( \
+#RF08 \
+#)
+#
+#  8th wave
+#set SFILES = ( \
+#125rf09a.ads \
+#)
+#set DFILES = ( \
+#RF09 \
+#)
+#
+#  9th wave
+#set SFILES = ( \
+#125rf10a.ads \
+#)
+#set DFILES = ( \
+#RF10 \
+#)
+#
+# 10th wave
+#set SFILES = ( \
+#125rf11a.ads \
+#)
+#set DFILES = ( \
+#RF11 \
+#)
+#
+# 11th wave
+#set SFILES = ( \
+#125rf12a.ads \
+#)
+#set DFILES = ( \
+#RF12 \
+#)
+#
+# 12th wave
+#set SFILES = ( \
+#125rf13a.ads \
+#)
+#set DFILES = ( \
+#RF13 \
+#)
+#
+# 13th wave
+#set SFILES = ( \
+#125tf03a.ads \
+#)
+#set DFILES = ( \
+#TF03 \
+#)
+#
+# 14th wave
+#set SFILES = ( \
+#125rf14a.ads \
+#)
+#set DFILES = ( \
+#RF14 \
+#)
+#
+# 15th wave
+#set SFILES = ( \
+#125rf15a.ads \
+#)
+#set DFILES = ( \
+#RF15 \
+#)
+#
+# 16th wave
+#set SFILES = ( \
+#125rf16a.ads \
+#125rf16b.ads \
+#)
+#set DFILES = ( \
+#RF16A \
+#RF16B \
+#)
+#
+# 17th wave (POLSCAT project data)
+#set SFILES = ( \
+#125tf10b.ads \
+#125tf11a.ads \
+#125tf12a.ads \
+#125tf13a.ads \
+#125tf14a.ads \
+#125tf15a.ads \
+#125tf16a.ads \
+#125tf17b.ads \
+#125tf20a.ads \
+#125tf21a.ads \
+#125tf22a.ads \
+#)
+#set DFILES = ( \
+#TF10 \
+#TF11 \
+#TF12 \
+#TF13 \
+#TF14 \
+#TF15 \
+#TF16 \
+#TF17 \
+#TF20 \
+#TF21 \
+#TF22 \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+      echo "#                $TYPE/$DFILE: error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2004/125/
+#
+#  1st wave
+#  3 Job(s) submitted on Mon May  3 15:44:43 MDT 2004
+#  msrcp job for ADS/TF01 -- OK -- Mon May  3 15:50:09 MDT 2004
+#  msrcp job for ADS/TF02A -- OK -- Mon May  3 15:50:25 MDT 2004
+#  msrcp job for ADS/TF02B -- OK -- Mon May  3 15:53:55 MDT 2004
+#   Completed on Mon May  3 15:53:55 MDT 2004
+#
+#  2nd wave
+#  2 Job(s) submitted on Fri May 14 17:53:16 MDT 2004
+#  msrcp job for ADS/RF01 -- OK -- Fri May 14 17:58:23 MDT 2004
+#  msrcp job for ADS/RF02 -- OK -- Fri May 14 17:59:15 MDT 2004
+#   Completed on Fri May 14 17:59:15 MDT 2004
+#
+#  3rd wave
+#  2 Job(s) submitted on Thu May 20 14:59:50 MDT 2004
+#  msrcp job for ADS/RF03 -- OK -- Thu May 20 15:08:39 MDT 2004
+#  msrcp job for ADS/RF04 -- OK -- Thu May 20 15:11:23 MDT 2004
+#   Completed on Thu May 20 15:11:23 MDT 2004
+#
+#  4th wave
+#  2 Job(s) submitted on Thu May 27 17:25:21 MDT 2004
+#  msrcp job for ADS/RF05A -- OK -- Thu May 27 17:26:00 MDT 2004
+#  msrcp job for ADS/RF05B -- OK -- Thu May 27 17:30:39 MDT 2004
+#   Completed on Thu May 27 17:30:39 MDT 2004
+#
+#  5th wave
+#  2 Job(s) submitted on Mon May 31 11:13:43 MDT 2004
+#  msrcp job for ADS/RF06A -- OK -- Mon May 31 11:14:44 MDT 2004
+#  msrcp job for ADS/RF06B -- OK -- Mon May 31 11:17:43 MDT 2004
+#   Completed on Mon May 31 11:17:43 MDT 2004
+#
+#  6th wave
+#  1 Job(s) submitted on Mon Jul 12 15:25:50 MDT 2004
+#  msrcp job for ADS/RF07 -- OK -- Mon Jul 12 15:35:35 MDT 2004
+#   Completed on Mon Jul 12 15:35:35 MDT 2004
+#
+#  7th wave
+#  1 Job(s) submitted on Tue Jul 13 09:53:05 MDT 2004
+#  msrcp job for ADS/RF08 -- OK -- Tue Jul 13 09:57:22 MDT 2004
+#   Completed on Tue Jul 13 09:57:22 MDT 2004
+#
+#  8th wave
+#  1 Job(s) submitted on Tue Jul 20 15:19:38 MDT 2004
+#  msrcp job for ADS/RF09 -- OK -- Tue Jul 20 15:24:06 MDT 2004
+#   Completed on Tue Jul 20 15:24:06 MDT 2004
+#
+#  9th wave
+#  1 Job(s) submitted on Wed Jul 21 15:01:51 MDT 2004
+#  msrcp job for ADS/RF10 -- OK -- Wed Jul 21 15:14:26 MDT 2004
+#   Completed on Wed Jul 21 15:14:26 MDT 2004
+#
+# 10th wave
+#  1 Job(s) submitted on Fri Jul 23 14:34:26 MDT 2004
+#  msrcp job for ADS/RF11 -- OK -- Fri Jul 23 14:58:09 MDT 2004
+#   Completed on Fri Jul 23 14:58:09 MDT 2004
+#
+# 11th wave
+#  1 Job(s) submitted on Mon Jul 26 11:20:28 MDT 2004
+#  msrcp job for ADS/RF12 -- OK -- Mon Jul 26 11:29:28 MDT 2004
+#   Completed on Mon Jul 26 11:29:28 MDT 2004
+#
+# 12th wave
+#  Job(s) submitted on 
+#  1 Job(s) submitted on Tue Jul 27 13:34:12 MDT 2004
+#  msrcp job for ADS/RF13 -- OK -- Tue Jul 27 13:44:30 MDT 2004
+#   Completed on Tue Jul 27 13:44:30 MDT 2004  (1.874 MB/s)
+#
+# 13th wave
+#  1 Job(s) submitted on Wed Jul 28 17:37:15 MDT 2004
+#  msrcp job for ADS/TF03 -- OK -- Wed Jul 28 17:38:38 MDT 2004
+#   Completed on Wed Jul 28 17:38:38 MDT 2004
+#
+# 14th wave
+#  1 Job(s) submitted on Thu Jul 29 14:18:17 MDT 2004
+#  msrcp job for ADS/RF14 -- OK -- Thu Jul 29 14:29:47 MDT 2004
+#   Completed on Thu Jul 29 14:29:47 MDT 2004
+#
+# 15th wave
+#  1 Job(s) submitted on Fri Jul 30 11:29:45 MDT 2004
+#  msrcp job for ADS/RF15 -- OK -- Fri Jul 30 11:39:46 MDT 2004
+#   Completed on Fri Jul 30 11:39:46 MDT 2004
+#
+# 16th wave
+#  2 Job(s) submitted on Mon Aug  2 16:36:17 MDT 2004
+#  msrcp job for ADS/RF16A -- OK -- Mon Aug  2 16:45:17 MDT 2004
+#  msrcp job for ADS/RF16B -- OK -- Mon Aug  2 16:55:07 MDT 2004
+#   Completed on Mon Aug  2 16:55:07 MDT 2004
+#
+# 17th wave (POLSCAT project data)
+#  11 Job(s) submitted on Tue Aug 31 11:50:52 MDT 2004
+#  msrcp job for ADS/TF10 -- OK -- Tue Aug 31 12:01:39 MDT 2004
+#  msrcp job for ADS/TF11 -- OK -- Tue Aug 31 12:11:37 MDT 2004
+#  msrcp job for ADS/TF12 -- OK -- Tue Aug 31 12:22:38 MDT 2004
+#  msrcp job for ADS/TF13 -- OK -- Tue Aug 31 12:29:21 MDT 2004
+#  msrcp job for ADS/TF14 -- OK -- Tue Aug 31 12:34:36 MDT 2004
+#  msrcp job for ADS/TF15 -- OK -- Tue Aug 31 12:38:31 MDT 2004
+#  msrcp job for ADS/TF16 -- OK -- Tue Aug 31 12:41:39 MDT 2004
+#  msrcp job for ADS/TF17 -- OK -- Tue Aug 31 12:42:08 MDT 2004
+#  msrcp job for ADS/TF20 -- OK -- Tue Aug 31 12:44:06 MDT 2004
+#  msrcp job for ADS/TF21 -- OK -- Tue Aug 31 12:47:30 MDT 2004
+#  msrcp job for ADS/TF22 -- OK -- Tue Aug 31 12:50:11 MDT 2004
+#   Completed on Tue Aug 31 12:50:11 MDT 2004
+#
+#   th wave
+#  Job(s) submitted on 
+#

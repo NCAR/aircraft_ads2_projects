@@ -1,0 +1,63 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1998-101 SHEBA (Surface Heat Budget of the Arctic Ocean) (Judy Curry, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Tue Dec 8 12:40:09 MST 1998
+#
+date
+#
+set YEAR = 1998
+set PROJ = 101
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+#  First wave
+# echo nrnet msput $SDIR/101rf01a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf01b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# echo nrnet msput $SDIR/101rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#  Second wave
+echo nrnet msput $SDIR/101rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/101rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/101rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/101rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/101rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/101rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/101rf15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/101rf16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  MSS path:  /RAF/1998/101/
+#
+#  First wave
+#  Job(s) submitted on Tue Dec  8 12:42:15 MST 1998
+# Sequence number = MI5646 -- LRT/RF01A.cdf -- OK @ 8 Dec 1998 12:46:50
+# Sequence number = MI5653 -- LRT/RF01B.cdf -- OK @ 8 Dec 1998 12:45:53
+# Sequence number = MI5662 -- LRT/RF02.cdf -- OK @ 8 Dec 1998 12:50:03
+# Sequence number = MI5671 -- LRT/RF03.cdf -- OK @ 8 Dec 1998 12:50:39
+# Sequence number = MI5680 -- LRT/RF04.cdf -- OK @ 8 Dec 1998 13:02:01
+# Sequence number = MI5689 -- LRT/RF05.cdf -- OK @ 8 Dec 1998 13:01:40
+# Sequence number = MI5696 -- LRT/RF06.cdf -- OK @ 8 Dec 1998 12:58:17
+# Sequence number = MI5703 -- LRT/RF07.cdf -- OK @ 8 Dec 1998 13:01:14
+# Sequence number = MI5710 -- LRT/RF08.cdf -- OK @ 8 Dec 1998 12:55:44
+#
+#  Second wave
+#  Job(s) submitted on Fri Dec 11 11:24:03 MST 1998
+# Sequence number = MI1329 -- LRT/RF09.cdf -- OK @ 11 Dec 1998 11:33:51
+# Sequence number = MI1337 -- LRT/RF10.cdf -- OK @ 11 Dec 1998 11:33:18
+# Sequence number = MI1345 -- LRT/RF11.cdf -- OK @ 11 Dec 1998 11:33:51
+# Sequence number = MI1353 -- LRT/RF12.cdf -- OK @ 11 Dec 1998 11:33:27
+# Sequence number = MI1361 -- LRT/RF13.cdf -- OK @ 11 Dec 1998 11:46:53
+# Sequence number = MI1370 -- LRT/RF14.cdf -- OK @ 11 Dec 1998 11:47:15
+# Sequence number = MI1382 -- LRT/RF15.cdf -- OK @ 11 Dec 1998 11:46:43
+# Sequence number = MI1399 -- LRT/RF16.cdf -- OK @ 11 Dec 1998 11:47:15
+#

@@ -1,0 +1,2426 @@
+onintr abort
+foreach arg ( 181 )
+@ chars = `echo $arg | wc -m` - 1
+echo 181
+wc -m
+if ( 3 == 3 ) then
+@ chars = `echo  $arg | grep -c "[0-9][0-9][0-9]"`
+echo 181
+grep -c [0-9][0-9][0-9]
+if ( 1 != 1 ) then
+set proj = 181
+continue
+if ( ! 1 ) then
+if ( ! 1 ) then
+set projdir = /jnet/linux/dev/proj/181/Production
+if ( ! -e /jnet/linux/dev/proj/181/Production ) then
+set projdir = /jnet/linux/dev/proj/181/Production/gndproc
+if ( ! -e /jnet/linux/dev/proj/181/Production/gndproc ) then
+if ( 0 ) then
+if ( 0 ) then
+set conf_f = gndproc.conf
+endif
+set conf_f = /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( ! -e /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf ) then
+if ( ! -r /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf ) then
+setenv DISPLAY :0.0
+set ns_msg1 = Setting for
+set ns_msg2 = missing from configuration file /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+set ns_msg3 = Could not find
+set ns_msg4 = in configuration file /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+set OK_flag = yes
+set nimbus_run = no
+set ltrs = ( a b c d e f g h i j k l m n o p q r s t u v w x y z )
+set c_name = msg_f
+set input = `grep "^$c_name *=" $conf_f`
+grep ^msg_f *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo msg_f = /jnet/data/gndproc_msg
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set msg_f = /jnet/data/gndproc_msg
+else
+else
+set msg_f = /jnet/data/gndproc_msg.13865
+echo   Status messages for /jnet/shared/proj/archives/scripts/ngndproc script (created on `date`)
+date
+set result = 0
+if ( 0 != 0 ) then
+set c_name = c_vars
+set input = `grep "^$c_name *=" $conf_f`
+grep ^c_vars *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo c_vars = debug quiet S D mbufr mp e_names lext
+awk -F= {print $2}
+if ( 8 > 0 ) then
+if ( 0 ) then
+set c_vars = ( debug quiet S D mbufr mp e_names lext )
+else
+else
+if ( yes == no ) goto nostart3
+foreach c_name ( debug quiet S D mbufr mp e_names lext )
+set input = `grep "^$c_name *=" $conf_f`
+grep ^debug *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo debug = yes
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set debug = ( yes )
+if ( debug == debug ) then
+if ( 0 ) then
+endif
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for debug:  yes
+echo   Got setting for debug:  yes
+  Got setting for debug:  yes
+endif
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^quiet *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo quiet = yes
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set quiet = ( yes )
+if ( quiet == debug ) then
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for quiet:  yes
+echo   Got setting for quiet:  yes
+  Got setting for quiet:  yes
+endif
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^S *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo S = /jnet/data/migs/ruth
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set S = ( /jnet/data/migs/ruth )
+if ( S == debug ) then
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for S:  /jnet/data/migs/ruth
+echo   Got setting for S:  /jnet/data/migs/ruth
+  Got setting for S:  /jnet/data/migs/ruth
+endif
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^D *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo D = /jnet/data
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set D = ( /jnet/data )
+if ( D == debug ) then
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for D:  /jnet/data
+echo   Got setting for D:  /jnet/data
+  Got setting for D:  /jnet/data
+endif
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^mbufr *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo mbufr = gndproc_log
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set mbufr = ( gndproc_log )
+if ( mbufr == debug ) then
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for mbufr:  gndproc_log
+echo   Got setting for mbufr:  gndproc_log
+  Got setting for mbufr:  gndproc_log
+endif
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^mp *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo mp = /bin/mail
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set mp = ( /bin/mail )
+if ( mp == debug ) then
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for mp:  /bin/mail
+echo   Got setting for mp:  /bin/mail
+  Got setting for mp:  /bin/mail
+endif
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^e_names *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo e_names = ruth@ucar.edu
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set e_names = ( ruth@ucar.edu )
+if ( e_names == debug ) then
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for e_names:  ruth@ucar.edu
+echo   Got setting for e_names:  ruth@ucar.edu
+  Got setting for e_names:  ruth@ucar.edu
+endif
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^lext *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo lext = log
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set lext = ( log )
+if ( lext == debug ) then
+if ( 1 ) then
+if ( yes == yes ) echo   Got setting for lext:  log
+echo   Got setting for lext:  log
+  Got setting for lext:  log
+endif
+else
+else
+end
+if ( 0 ) then
+if ( 1 ) then
+if ( yes == yes ) then
+set debug = 1
+else
+else
+if ( 1 ) then
+set notquiet = 1
+else if ( 0 ) then
+if ( 1 ) then
+echo  /jnet/shared/proj/archives/scripts/ngndproc -- automaticaly copy and process
+ /jnet/shared/proj/archives/scripts/ngndproc -- automaticaly copy and process
+echo   raw aircraft data and send it wherever
+  raw aircraft data and send it wherever
+echo    Revision  3  RLR  30 May 2003
+   Revision  3  RLR  30 May 2003
+echo  Report bugs or give questions about MSS bitfile names to Ron Ruth
+ Report bugs or give questions about MSS bitfile names to Ron Ruth
+echo      (ron@raf.atd.ucar.edu)
+     (ron@raf.atd.ucar.edu)
+echo 
+
+endif
+set c_name = extensions
+set extensions = 
+set input = `grep "^$c_name *=" $conf_f`
+grep ^extensions *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo extensions = rads r2d rmcr next aext gext
+awk -F= {print $2}
+if ( 6 > 0 ) then
+set extensions = ( rads r2d rmcr next aext gext )
+if ( 1 ) echo   Got setting for extensions:  rads r2d rmcr next aext gext
+echo   Got setting for extensions:  rads r2d rmcr next aext gext
+  Got setting for extensions:  rads r2d rmcr next aext gext
+else
+else
+if ( 1 ) echo   6 extensions = rads r2d rmcr next aext gext
+echo   6 extensions = rads r2d rmcr next aext gext
+  6 extensions = rads r2d rmcr next aext gext
+set noglob
+foreach c_name ( rads r2d rmcr next aext gext )
+set input = `grep "^$c_name *=" $conf_f`
+grep ^rads *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo rads = ads
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set rads = ( ads )
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^r2d *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo r2d = 2d
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set r2d = ( 2d )
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^rmcr *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo rmcr = rawMCR?
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set rmcr = ( rawMCR? )
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^next *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo next = nc
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set next = ( nc )
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^aext *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo aext = asc
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set aext = ( asc )
+else
+else
+end
+set input = `grep "^$c_name *=" $conf_f`
+grep ^gext *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo gext = gz
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set gext = ( gz )
+else
+else
+end
+unset noglob
+set c_name = raw_file_types
+set raw_file_types = 
+set input = `grep "^$c_name *=" $conf_f`
+grep ^raw_file_types *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo raw_file_types = rads
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set raw_file_types = ( rads )
+if ( 1 ) echo   Got setting for raw_file_types:  rads
+echo   Got setting for raw_file_types:  rads
+  Got setting for raw_file_types:  rads
+else
+else
+if ( 1 ) echo   1 raw_file_types = rads
+echo   1 raw_file_types = rads
+  1 raw_file_types = rads
+if ( 1 < 1 ) then
+set c_name = job_types
+set job_types = 
+set input = `grep "^$c_name *=" $conf_f`
+grep ^job_types *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo job_types = nimbus n2asc copy
+awk -F= {print $2}
+if ( 3 > 0 ) then
+set job_types = ( nimbus n2asc copy )
+if ( 1 ) echo   Got setting for job_types:  nimbus n2asc copy
+echo   Got setting for job_types:  nimbus n2asc copy
+  Got setting for job_types:  nimbus n2asc copy
+else
+else
+if ( 1 ) then
+echo   3 job_types = nimbus n2asc copy
+  3 job_types = nimbus n2asc copy
+echo   OK_flag = yes
+  OK_flag = yes
+endif
+if ( yes != yes ) goto nostart3
+rm /jnet/data/gndproc_msg.13865
+set c_name = p_vars
+set p_vars = 
+set input = `grep "^$c_name *=" $conf_f`
+grep ^p_vars *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo p_vars = grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+awk -F= {print $2}
+if ( 13 > 0 ) then
+set p_vars = ( grep awk mount umount ls cp df gzip gunzip scp sed rm wc )
+if ( 1 ) echo   Got setting for p_vars:  grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+echo   Got setting for p_vars:  grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+  Got setting for p_vars:  grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+else
+else
+if ( 1 ) echo   13 p_vars = grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+echo   13 p_vars = grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+  13 p_vars = grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+foreach c_name ( grep awk mount umount ls cp df gzip gunzip scp sed rm wc )
+set grep = grep
+set input = `grep "^$c_name *=" $conf_f`
+grep ^grep *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo grep = /bin/grep
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set grep = ( /bin/grep )
+if ( 1 ) echo   Got setting for grep:  /bin/grep
+echo   Got setting for grep:  /bin/grep
+  Got setting for grep:  /bin/grep
+else
+else
+end
+set awk = awk
+set input = `grep "^$c_name *=" $conf_f`
+grep ^awk *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo awk = /bin/awk
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set awk = ( /bin/awk )
+if ( 1 ) echo   Got setting for awk:  /bin/awk
+echo   Got setting for awk:  /bin/awk
+  Got setting for awk:  /bin/awk
+else
+else
+end
+set mount = mount
+set input = `grep "^$c_name *=" $conf_f`
+grep ^mount *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo mount = echo test mount
+awk -F= {print $2}
+if ( 3 > 0 ) then
+set mount = ( echo test mount )
+if ( 1 ) echo   Got setting for mount:  echo test mount
+echo   Got setting for mount:  echo test mount
+  Got setting for mount:  echo test mount
+else
+else
+end
+set umount = umount
+set input = `grep "^$c_name *=" $conf_f`
+grep ^umount *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo umount = echo test umount
+awk -F= {print $2}
+if ( 3 > 0 ) then
+set umount = ( echo test umount )
+if ( 1 ) echo   Got setting for umount:  echo test umount
+echo   Got setting for umount:  echo test umount
+  Got setting for umount:  echo test umount
+else
+else
+end
+set ls = ls
+set input = `grep "^$c_name *=" $conf_f`
+grep ^ls *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo ls = /bin/ls
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set ls = ( /bin/ls )
+if ( 1 ) echo   Got setting for ls:  /bin/ls
+echo   Got setting for ls:  /bin/ls
+  Got setting for ls:  /bin/ls
+else
+else
+end
+set cp = cp
+set input = `grep "^$c_name *=" $conf_f`
+grep ^cp *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo cp = /bin/cp -p
+awk -F= {print $2}
+if ( 2 > 0 ) then
+set cp = ( /bin/cp -p )
+if ( 1 ) echo   Got setting for cp:  /bin/cp -p
+echo   Got setting for cp:  /bin/cp -p
+  Got setting for cp:  /bin/cp -p
+else
+else
+end
+set df = df
+set input = `grep "^$c_name *=" $conf_f`
+grep ^df *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo df = /bin/df -k
+awk -F= {print $2}
+if ( 2 > 0 ) then
+set df = ( /bin/df -k )
+if ( 1 ) echo   Got setting for df:  /bin/df -k
+echo   Got setting for df:  /bin/df -k
+  Got setting for df:  /bin/df -k
+else
+else
+end
+set gzip = gzip
+set input = `grep "^$c_name *=" $conf_f`
+grep ^gzip *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo gzip = /bin/gzip -f
+awk -F= {print $2}
+if ( 2 > 0 ) then
+set gzip = ( /bin/gzip -f )
+if ( 1 ) echo   Got setting for gzip:  /bin/gzip -f
+echo   Got setting for gzip:  /bin/gzip -f
+  Got setting for gzip:  /bin/gzip -f
+else
+else
+end
+set gunzip = gunzip
+set input = `grep "^$c_name *=" $conf_f`
+grep ^gunzip *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo gunzip = /bin/gunzip
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set gunzip = ( /bin/gunzip )
+if ( 1 ) echo   Got setting for gunzip:  /bin/gunzip
+echo   Got setting for gunzip:  /bin/gunzip
+  Got setting for gunzip:  /bin/gunzip
+else
+else
+end
+set scp = scp
+set input = `grep "^$c_name *=" $conf_f`
+grep ^scp *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 1 == 0 ) then
+if ( 1 ) echo    scp set to default = scp
+echo    scp set to default = scp
+   scp set to default = scp
+endif
+end
+set sed = sed
+set input = `grep "^$c_name *=" $conf_f`
+grep ^sed *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo sed = /bin/sed
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set sed = ( /bin/sed )
+if ( 1 ) echo   Got setting for sed:  /bin/sed
+echo   Got setting for sed:  /bin/sed
+  Got setting for sed:  /bin/sed
+else
+else
+end
+set rm = rm
+set input = `grep "^$c_name *=" $conf_f`
+grep ^rm *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo rm = /bin/rm
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set rm = ( /bin/rm )
+if ( 1 ) echo   Got setting for rm:  /bin/rm
+echo   Got setting for rm:  /bin/rm
+  Got setting for rm:  /bin/rm
+else
+else
+end
+set wc = wc
+set input = `grep "^$c_name *=" $conf_f`
+grep ^wc *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo wc = /usr/bin/wc
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set wc = ( /usr/bin/wc )
+if ( 1 ) echo   Got setting for wc:  /usr/bin/wc
+echo   Got setting for wc:  /usr/bin/wc
+  Got setting for wc:  /usr/bin/wc
+else
+else
+end
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+if ( ! 1 ) then
+set mok = no
+set mseparator =  --------------- `date` ---------------
+date
+set mbegin =   /jnet/shared/proj/archives/scripts/ngndproc script started  `date`
+date
+set mbegan =   /jnet/shared/proj/archives/scripts/ngndproc script restarted  `date`
+date
+if ( 1 ) then
+echo debug:  mseparator =  --------------- Tue Jun 3 17:20:09 MDT 2003 ---------------
+debug:  mseparator =  --------------- Tue Jun 3 17:20:09 MDT 2003 ---------------
+echo debug:  mbegin =   /jnet/shared/proj/archives/scripts/ngndproc script started  Tue Jun 3 17:20:09 MDT 2003
+debug:  mbegin =   /jnet/shared/proj/archives/scripts/ngndproc script started  Tue Jun 3 17:20:09 MDT 2003
+echo debug:  mbegan =   /jnet/shared/proj/archives/scripts/ngndproc script restarted  Tue Jun 3 17:20:10 MDT 2003
+debug:  mbegan =   /jnet/shared/proj/archives/scripts/ngndproc script restarted  Tue Jun 3 17:20:10 MDT 2003
+endif
+set mbufr = /jnet/data/gndproc_log.13865
+if ( 1 ) then
+echo debug:  mbufr = /jnet/data/gndproc_log.13865
+debug:  mbufr = /jnet/data/gndproc_log.13865
+echo /jnet/shared/proj/archives/scripts/ngndproc script started Tue Jun 3 17:20:09 MDT 2003
+/jnet/shared/proj/archives/scripts/ngndproc script started Tue Jun 3 17:20:09 MDT 2003
+endif
+echo ----------------------------------------------------
+set result = 0
+if ( 0 != 0 ) then
+if ( ! 0 ) set test = no
+set test = no
+if ( 1 ) echo  Test mode = no
+echo  Test mode = no
+ Test mode = no
+if ( no == no ) then
+echo test umount /jnet/data/migs/ruth
+else
+if ( ! -e /jnet/linux/dev/proj/181/Production/gndproc/Instructions_1 ) then
+cat /jnet/linux/dev/proj/181/Production/gndproc/Instructions_1
+
+
+  Remove "old" disk drive from *TOP* slot of the ZZYZX chassis.
+   - Turn the key clockwise one quarter turn to a vertical position.
+   - Wait for drive to spin down.  (The LED display will indicate "u"
+       when the drive can be removed.)
+   - Pull out the drive by its handle.
+   - Set this drive on top of the ZZYZX chassis.
+     (The LED display should indicate "1" at this time.)
+
+  Insert "new" disk drive into *TOP* slot of the ZZYZX chassis.
+   - Carefully push it all the way in until flush with the front
+     panel.  The last fraction of an inch will be harder to push,
+     since it's making an electrical connection.  (The LED display
+     should indicate "u" if it is properly inserted.)
+
+  Turn key counterclockwise one quarter turn to lock.
+
+  Wait for drive to spin up (LED display will be blinking.)
+
+  Hit [ENTER] key when LED display stops blinking and indicates "1".
+
+endif
+set input = 
+if ( no == yes ) then
+echo test mount /jnet/data/migs/ruth
+set result = 0
+endif
+if ( 0 != 0 ) then
+set files = ( `$ls $S` )
+/bin/ls /jnet/data/migs/ruth
+if ( 11 < 1 ) then
+pushd /jnet/data/migs/ruth
+if ( 1 ) echo    Changed directory to `pwd`
+echo    Changed directory to `pwd`
+pwd
+   Changed directory to /jnet/data/migs/ruth
+set f2do = 
+foreach type ( rads )
+switch ( rads )
+set ext = ads
+breaksw
+if ( 1 ) echo   Searching for files with extension: ads
+echo   Searching for files with extension: ads
+  Searching for files with extension: ads
+/bin/ls 181rf10g.ads 181rf10h.ads 181rf10i.ads
+set result = 0
+if ( 0 == 0 ) then
+set afiles = ( `$ls ${proj}[frt]f*.$ext` )
+/bin/ls 181rf10g.ads 181rf10h.ads 181rf10i.ads
+else
+if ( 1 ) then
+echo /jnet/data/migs/ruth ads files = 181rf10g.ads 181rf10h.ads 181rf10i.ads
+/jnet/data/migs/ruth ads files = 181rf10g.ads 181rf10h.ads 181rf10i.ads
+echo number of ads files = 3
+number of ads files = 3
+endif
+if ( 3 < 1 ) then
+foreach afile ( 181rf10g.ads 181rf10h.ads 181rf10i.ads )
+if ( -e /jnet/data/181rf10g.ads ) then
+set f2do = ( 181rf10g.ads )
+set mesg = Copying 181rf10g.ads to /jnet/data
+if ( 1 ) echo Copying 181rf10g.ads to /jnet/data
+echo Copying 181rf10g.ads to /jnet/data
+Copying 181rf10g.ads to /jnet/data
+echo Copying 181rf10g.ads to /jnet/data
+/bin/cp -p 181rf10g.ads /jnet/data/.
+if ( 0 != 0 ) then
+set mesg =    Copied file from /jnet/data/migs/ruth/181rf10g.ads to /jnet/data/181rf10g.ads
+if ( 1 ) echo Copied file from /jnet/data/migs/ruth/181rf10g.ads to /jnet/data/181rf10g.ads
+echo Copied file from /jnet/data/migs/ruth/181rf10g.ads to /jnet/data/181rf10g.ads
+Copied file from /jnet/data/migs/ruth/181rf10g.ads to /jnet/data/181rf10g.ads
+echo Copied file from /jnet/data/migs/ruth/181rf10g.ads to /jnet/data/181rf10g.ads
+endif
+end
+if ( -e /jnet/data/181rf10h.ads ) then
+set f2do = ( 181rf10g.ads 181rf10h.ads )
+set mesg = Copying 181rf10h.ads to /jnet/data
+if ( 1 ) echo Copying 181rf10h.ads to /jnet/data
+echo Copying 181rf10h.ads to /jnet/data
+Copying 181rf10h.ads to /jnet/data
+echo Copying 181rf10h.ads to /jnet/data
+/bin/cp -p 181rf10h.ads /jnet/data/.
+if ( 0 != 0 ) then
+set mesg =    Copied file from /jnet/data/migs/ruth/181rf10h.ads to /jnet/data/181rf10h.ads
+if ( 1 ) echo Copied file from /jnet/data/migs/ruth/181rf10h.ads to /jnet/data/181rf10h.ads
+echo Copied file from /jnet/data/migs/ruth/181rf10h.ads to /jnet/data/181rf10h.ads
+Copied file from /jnet/data/migs/ruth/181rf10h.ads to /jnet/data/181rf10h.ads
+echo Copied file from /jnet/data/migs/ruth/181rf10h.ads to /jnet/data/181rf10h.ads
+endif
+end
+if ( -e /jnet/data/181rf10i.ads ) then
+set f2do = ( 181rf10g.ads 181rf10h.ads 181rf10i.ads )
+set mesg = Copying 181rf10i.ads to /jnet/data
+if ( 1 ) echo Copying 181rf10i.ads to /jnet/data
+echo Copying 181rf10i.ads to /jnet/data
+Copying 181rf10i.ads to /jnet/data
+echo Copying 181rf10i.ads to /jnet/data
+/bin/cp -p 181rf10i.ads /jnet/data/.
+if ( 0 != 0 ) then
+set mesg =    Copied file from /jnet/data/migs/ruth/181rf10i.ads to /jnet/data/181rf10i.ads
+if ( 1 ) echo Copied file from /jnet/data/migs/ruth/181rf10i.ads to /jnet/data/181rf10i.ads
+echo Copied file from /jnet/data/migs/ruth/181rf10i.ads to /jnet/data/181rf10i.ads
+Copied file from /jnet/data/migs/ruth/181rf10i.ads to /jnet/data/181rf10i.ads
+echo Copied file from /jnet/data/migs/ruth/181rf10i.ads to /jnet/data/181rf10i.ads
+endif
+end
+endif
+end
+popd
+echo test umount /jnet/data/migs/ruth
+set result = 0
+if ( 0 != 0 ) then
+set mesg =   Removable drive (file path /jnet/data/migs/ruth) unmounted.
+if ( 1 ) then
+echo Removable drive (file path /jnet/data/migs/ruth) unmounted.
+Removable drive (file path /jnet/data/migs/ruth) unmounted.
+echo 
+
+endif
+echo Removable drive (file path /jnet/data/migs/ruth) unmounted.
+endif
+set mesg =    New local raw-data file-copy job completed on `date`
+date
+if ( 1 ) then
+echo New local raw-data file-copy job completed on Tue Jun 3 17:22:43 MDT 2003
+New local raw-data file-copy job completed on Tue Jun 3 17:22:43 MDT 2003
+echo 
+
+endif
+echo New local raw-data file-copy job completed on Tue Jun 3 17:22:43 MDT 2003
+if ( ! -e /jnet/linux/dev/proj/181/Production/gndproc/Instructions_2 ) then
+cat /jnet/linux/dev/proj/181/Production/gndproc/Instructions_2
+
+   Leave "new" drive in the chassis, and put the "old" drive (which was
+   put on top of the ZZYZX chassis) in the lunch box for use on the plane."
+
+   The script will now continue to do its work automatically.
+
+endif
+set input = `grep "^e_names *=" $conf_f`
+grep ^e_names *= /jnet/linux/dev/proj/181/Production/gndproc/gndproc.conf
+if ( 3 > 2 ) then
+set elist = `echo $input | $awk -F= '{print $2}'`
+echo e_names = ruth@ucar.edu
+/bin/awk -F= {print $2}
+if ( 1 ) then
+echo    elist = ruth@ucar.edu
+   elist = ruth@ucar.edu
+echo    $#elist = 1
+   $#elist = 1
+endif
+set mok = yes
+else
+@ nf2do = `echo $f2do | wc -m`
+echo 181rf10g.ads 181rf10h.ads 181rf10i.ads
+wc -m
+if ( 39 > 0 ) @ nf2do = 3
+@ nf2do = 3
+if ( 3 < 1 ) goto nofiles
+if ( 1 ) then
+echo 3 files to process after copying
+3 files to process after copying
+echo File(s):  181rf10g.ads 181rf10h.ads 181rf10i.ads
+File(s):  181rf10g.ads 181rf10h.ads 181rf10i.ads
+echo 
+
+endif
+pushd /jnet/linux/dev/proj/181/Production/gndproc
+/bin/ls copy_cdf_raf nimbus_ads_raf
+if ( 0 == 0 ) set jobs = ( `$ls *_*_*` )
+set jobs = ( `$ls *_*_*` )
+/bin/ls copy_cdf_raf nimbus_ads_raf
+popd
+if ( 1 ) then
+if ( 1 ) echo   2 job(s) = copy_cdf_raf nimbus_ads_raf
+echo   2 job(s) = copy_cdf_raf nimbus_ads_raf
+  2 job(s) = copy_cdf_raf nimbus_ads_raf
+endif
+if ( ! 1 ) then
+set ujobs
+foreach job ( copy_cdf_raf nimbus_ads_raf )
+set notfound = 1
+foreach job_type ( nimbus n2asc copy )
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo copy_cdf_raf
+grep -c nimbus
+end
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo copy_cdf_raf
+grep -c n2asc
+end
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo copy_cdf_raf
+grep -c copy
+set ujobs = ( copy_cdf_raf )
+set notfound = 0
+break
+if ( 0 ) then
+end
+set notfound = 1
+foreach job_type ( nimbus n2asc copy )
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo nimbus_ads_raf
+grep -c nimbus
+set ujobs = ( copy_cdf_raf nimbus_ads_raf )
+set notfound = 0
+break
+if ( 0 ) then
+end
+if ( 1 ) echo    Unordered job list: copy_cdf_raf nimbus_ads_raf
+echo    Unordered job list: copy_cdf_raf nimbus_ads_raf
+   Unordered job list: copy_cdf_raf nimbus_ads_raf
+set jobs
+foreach job_type ( nimbus n2asc copy )
+foreach job ( copy_cdf_raf nimbus_ads_raf )
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo copy_cdf_raf
+grep -c nimbus
+end
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo nimbus_ads_raf
+grep -c nimbus
+set jobs = ( nimbus_ads_raf )
+endif
+end
+end
+foreach job ( copy_cdf_raf nimbus_ads_raf )
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo copy_cdf_raf
+grep -c n2asc
+end
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo nimbus_ads_raf
+grep -c n2asc
+end
+end
+foreach job ( copy_cdf_raf nimbus_ads_raf )
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo copy_cdf_raf
+grep -c copy
+set jobs = ( nimbus_ads_raf copy_cdf_raf )
+endif
+end
+if ( `echo $job | grep -c $job_type` > 0 ) then
+echo nimbus_ads_raf
+grep -c copy
+end
+end
+if ( 1 ) echo    Ordered job list: nimbus_ads_raf copy_cdf_raf
+echo    Ordered job list: nimbus_ads_raf copy_cdf_raf
+   Ordered job list: nimbus_ads_raf copy_cdf_raf
+set dot=/jnet/linux/proj/181/Production/gndproc
+chdir /jnet/data
+pwd
+setl chinaco:/jnet/data
+]2;chinaco:/jnet/dataforeach job ( nimbus_ads_raf copy_cdf_raf )
+set mesg =   Starting job nimbus_ads_raf @ `date`.
+date
+if ( 1 ) echo Starting job nimbus_ads_raf @ Tue Jun 3 17:22:44 MDT 2003.
+echo Starting job nimbus_ads_raf @ Tue Jun 3 17:22:44 MDT 2003.
+Starting job nimbus_ads_raf @ Tue Jun 3 17:22:44 MDT 2003.
+echo Starting job nimbus_ads_raf @ Tue Jun 3 17:22:44 MDT 2003.
+set parse = ( `echo $job | $awk -F_ '{print $1} {print $2} {print $3}'` )
+echo nimbus_ads_raf
+/bin/awk -F_ {print $1} {print $2} {print $3}
+if ( 3 != 3 ) then
+set j_type = nimbus
+set f_type = ads
+set user = raf
+if ( 1 ) then
+echo   j_type = nimbus
+  j_type = nimbus
+echo   f_type = ads
+  f_type = ads
+echo   user = raf
+  user = raf
+endif
+switch ( ads )
+breaksw
+if ( 1 ) then
+echo   Job nimbus_ads_raf passed initial tests.
+  Job nimbus_ads_raf passed initial tests.
+echo 
+
+endif
+foreach afile ( 181rf10g.ads 181rf10h.ads 181rf10i.ads )
+set pf = ( `echo $afile | $awk -F. '{print $1} {print $2}'` )
+echo 181rf10g.ads
+/bin/awk -F. {print $1} {print $2}
+switch ( nimbus )
+switch ( ads )
+if ( ads != ads ) then
+breaksw
+if ( no == no ) then
+set nof = 181rf10g
+if ( 1 ) then
+echo   nimbus not yet run.
+  nimbus not yet run.
+echo 
+
+endif
+set skipjob = no
+set nimbus_run = yes
+else
+if ( no == yes ) then
+set c_name = nimbus_set
+set nimbus_set = 
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^nimbus_set *= /jnet/linux/dev/proj/181/Production/gndproc/nimbus_ads_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo nimbus_set = nimbus_p nimbus_sf pr
+awk -F= {print $2}
+if ( 3 > 0 ) then
+set nimbus_set = ( nimbus_p nimbus_sf pr )
+if ( 1 ) echo   Got setting for nimbus_set:  nimbus_p nimbus_sf pr
+echo   Got setting for nimbus_set:  nimbus_p nimbus_sf pr
+  Got setting for nimbus_set:  nimbus_p nimbus_sf pr
+else
+else
+if ( 1 ) echo   3 nimbus_set = nimbus_p nimbus_sf pr
+echo   3 nimbus_set = nimbus_p nimbus_sf pr
+  3 nimbus_set = nimbus_p nimbus_sf pr
+set nimbus_sf = 
+set pr = 1
+set nimbus_p = nimbus
+set next = nc
+set gotem = yes
+foreach c_name ( nimbus_p nimbus_sf pr )
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^nimbus_p *= /jnet/linux/dev/proj/181/Production/gndproc/nimbus_ads_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo nimbus_p = nimbus
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set nimbus_p = ( nimbus )
+if ( 1 ) echo   Got setting for nimbus_p:  nimbus
+echo   Got setting for nimbus_p:  nimbus
+  Got setting for nimbus_p:  nimbus
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^nimbus_sf *= /jnet/linux/dev/proj/181/Production/gndproc/nimbus_ads_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo nimbus_sf = /usr/local/proj/181/Production/gndproc/setup.181
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set nimbus_sf = ( /usr/local/proj/181/Production/gndproc/setup.181 )
+if ( 1 ) echo   Got setting for nimbus_sf:  /usr/local/proj/181/Production/gndproc/setup.181
+echo   Got setting for nimbus_sf:  /usr/local/proj/181/Production/gndproc/setup.181
+  Got setting for nimbus_sf:  /usr/local/proj/181/Production/gndproc/setup.181
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^pr *= /jnet/linux/dev/proj/181/Production/gndproc/nimbus_ads_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo pr = 1
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set pr = ( 1 )
+if ( 1 ) echo   Got setting for pr:  1
+echo   Got setting for pr:  1
+  Got setting for pr:  1
+else
+else
+end
+if ( yes == no ) then
+if ( 0 ) then
+set bfile = 181rf10g.batch
+set ofile = 181rf10g.nc
+endif
+set mesg =    Creating nimbus batch file 181rf10g.batch
+if ( 1 ) echo Creating nimbus batch file 181rf10g.batch
+echo Creating nimbus batch file 181rf10g.batch
+Creating nimbus batch file 181rf10g.batch
+echo Creating nimbus batch file 181rf10g.batch
+echo pr=1
+if ( 0 == 0 ) then
+echo if=/jnet/data/181rf10g.ads
+echo of=/jnet/data/181rf10g.nc
+if ( /usr/local/proj/181/Production/gndproc/setup.181 !=  ) then
+echo sf=/usr/local/proj/181/Production/gndproc/setup.181
+endif
+if ( 1 ) then
+echo   Batch file follows
+  Batch file follows
+cat 181rf10g.batch
+pr=1
+if=/jnet/data/181rf10g.ads
+of=/jnet/data/181rf10g.nc
+sf=/usr/local/proj/181/Production/gndproc/setup.181
+echo   End of batch file
+  End of batch file
+endif
+set mesg =    Running nimbus for raf with command: nimbus -b 181rf10g.batch
+if ( 1 ) echo Running nimbus for raf with command: nimbus -b 181rf10g.batch
+echo Running nimbus for raf with command: nimbus -b 181rf10g.batch
+Running nimbus for raf with command: nimbus -b 181rf10g.batch
+echo Running nimbus for raf with command: nimbus -b 181rf10g.batch
+if ( 1 ) then
+nimbus -b 181rf10g.batch
+Version - 3.3.1
+adsIO: failed to locate /jnet/data/181rf10.2d
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+DPLA has no dependencies, turning off.
+DPLA1 has no dependencies, turning off.
+GALTC has no dependencies, turning off.
+RHLA has no dependencies, turning off.
+RHLA1 has no dependencies, turning off.
+DYCOMS-II - 181, Flight rf10
+Loading setup file: /jnet/linux/dev/proj/181/Production/Flight_rf10
+LoadSetup: can't find ATLH.
+Loading setup file: /usr/local/proj/181/Production/gndproc/setup.181
+XGREFF has no description or units.
+ARDMA_FCR has no description or units.
+TTLH has no description or units.
+CONCR_FCR has no description or units.
+CRDMA_FCR has no description or units.
+DPLA has no description or units.
+DPLA1 has no description or units.
+GALTC has no description or units.
+RHLA has no description or units.
+RHLA1 has no description or units.
+Request for non-existent default, A3.
+Value set to 9.720000e-01 in AMLIB function ophir3Init.
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 23 seconds ending @ 19:50:58, filling in with MISSING_VALUE.
+Version - 3.3.1
+>>>>>>>>>>>>>> Throwing away 6th HVPS housekeeping, dup?
+Checking for 2d file /jnet/data/181rf10g.ads.
+19:48:17
+19:48:18
+19:48:19
+19:48:20
+19:48:21
+19:48:22
+19:48:23
+19:48:24
+cntr=8
+19:48:21
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.00508387, nPoints=2
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = 0.00598561, nPoints=3
+Despike: HGM232, delta 19947.4 - slope=25, point = -0.0161533, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0143084, nPoints=4
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0272228, nPoints=4
+Despike: HGM232, delta 19941.2 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0216881, nPoints=3
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.0336593, nPoints=1
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.0133653, nPoints=3
+Despike: HGM232, delta 30.48 - slope=25, point = -0.00139404, nPoints=7
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.00508387, nPoints=3
+Despike: HGM232, delta 19938.2 - slope=25, point = -0.00692878, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.0299695, nPoints=4
+Despike: HGM232, delta 19970.2 - slope=25, point = 0.0262797, nPoints=3
+Despike: HGM232, delta 19966.2 - slope=25, point = 0.0391941, nPoints=3
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19950.7 - slope=25, point = 0.0244347, nPoints=2
+Despike: HGM232, delta 19941.8 - slope=25, point = 0.0152102, nPoints=4
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0355042, nPoints=2
+Despike: HGM232, delta 19939.4 - slope=25, point = 0.0391941, nPoints=4
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0281246, nPoints=5
+Despike: HGM232, delta 19949.1 - slope=25, point = 0.0502635, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = 0.0447288, nPoints=3
+Despike: HGM232, delta 19973.4 - slope=25, point = 0.0189, nPoints=1
+Despike: HGM232, delta 19966.2 - slope=25, point = -0.00508387, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = -0.00692878, nPoints=3
+Despike: HGM232, delta 19969.9 - slope=25, point = -0.00508387, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta -19972.3 - slope=25, point = -0.00877369, nPoints=3
+Despike: PSFD, delta -1014.9 - slope=20, point = -0.00877369, nPoints=15
+Despike: PSFRD, delta 3.69731e+29 - slope=20, point = -0.00323896, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.0428839, nPoints=3
+Despike: PSFD, delta 1014.9 - slope=20, point = 0.0373491, nPoints=1
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.0521085, nPoints=3
+Despike: HGM232, delta 19962.7 - slope=25, point = 0.0115203, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.0447288, nPoints=3
+Despike: HGM232, delta -19967.4 - slope=25, point = 0.0262797, nPoints=6
+Despike: HGM232, delta -19951.4 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0244347, nPoints=3
+Despike: ACINS, delta -4.89393 - slope=4, point = 0.00598561, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19966.7 - slope=25, point = -0.00139404, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19952 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0207449, nPoints=3
+Despike: HGM232, delta 19955.9 - slope=25, point = 0.0207449, nPoints=2
+Despike: HGM232, delta 19946.7 - slope=25, point = 0.0115203, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00598561, nPoints=5
+Despike: HGM232, delta 19947.9 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.00323896, nPoints=5
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.0391941, nPoints=3
+Despike: HGM232, delta 19952.5 - slope=25, point = 0.0594881, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0207449, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.0189, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.0428839, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19953.8 - slope=25, point = 0.00229578, nPoints=2
+Despike: HGM232, delta 19950.4 - slope=25, point = 0.0115203, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0318144, nPoints=3
+Despike: HGM232, delta 19958.9 - slope=25, point = 0.0299695, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0447288, nPoints=3
+Despike: HGM232, delta 19960.1 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19957.4 - slope=25, point = 0.0465737, nPoints=2
+Despike: HGM232, delta 19954 - slope=25, point = 0.0557983, nPoints=3
+Despike: HGM232, delta 19954 - slope=25, point = 0.00783052, nPoints=4
+Despike: HGM232, delta 19948.9 - slope=25, point = 0.0336593, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.0262797, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19958.9 - slope=25, point = 0.00598561, nPoints=4
+Despike: HGM232, delta 19976 - slope=25, point = -0.0124635, nPoints=1
+Despike: HGM232, delta 19967.4 - slope=25, point = -0.0290677, nPoints=3
+Despike: HGM232, delta 19972.9 - slope=25, point = 0.00783052, nPoints=1
+Despike: HGM232, delta 19965 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19940.6 - slope=25, point = 0.0207449, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0309126, nPoints=3
+Despike: HGM232, delta 19964.3 - slope=25, point = 0.0502635, nPoints=1
+Despike: HGM232, delta 34.1376 - slope=25, point = 0.0336593, nPoints=2
+Despike: HGM232, delta -19950.4 - slope=25, point = 0.0502635, nPoints=1
+Despike: HGM232, delta 31.6992 - slope=25, point = 0.0225898, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.0576432, nPoints=2
+Despike: HGM232, delta -19945.5 - slope=25, point = 0.0355042, nPoints=1
+Despike: HGM232, delta -120.091 - slope=25, point = -0.110244, nPoints=5
+Despike: HGM232, delta -39.0725 - slope=25, point = 0.00967543, nPoints=1
+Despike: HGM232, delta 32.9184 - slope=25, point = 0.0133653, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 36.576 - slope=25, point = -0.0346025, nPoints=4
+Despike: HGM232, delta -19944.3 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.0115203, nPoints=2
+Despike: HGM232, delta 35.3568 - slope=25, point = 0.0502635, nPoints=2
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.0963864, nPoints=2
+Despike: HGM232, delta -19960.1 - slope=25, point = 0.0336593, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = 0.0668678, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0401372, nPoints=2
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.102864, nPoints=3
+Despike: HGM232, delta -19945.9 - slope=25, point = -0.064121, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0696558, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.084415, nPoints=2
+Despike: HGM232, delta 19945.5 - slope=25, point = 0.00414069, nPoints=3
+Despike: HGM232, delta 19970.6 - slope=25, point = 0.00783052, nPoints=1
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.110244, nPoints=3
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0530516, nPoints=3
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.0512067, nPoints=3
+Despike: HGM232, delta -19952.8 - slope=25, point = -0.0512067, nPoints=2
+Despike: HGM232, delta -19946.3 - slope=25, point = -0.113934, nPoints=1
+Despike: HGM232, delta -25.6032 - slope=25, point = -0.0567414, nPoints=4
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.104709, nPoints=1
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.113934, nPoints=3
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.0179983, nPoints=7
+Despike: HGM232, delta -19949.6 - slope=25, point = 0.0318144, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0309126, nPoints=2
+Despike: HGM232, delta -19949.6 - slope=25, point = 0.0484186, nPoints=1
+Despike: HGM232, delta -19957.7 - slope=25, point = 0.063178, nPoints=1
+Despike: HGM232, delta 34.1376 - slope=25, point = -0.0124635, nPoints=4
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.00598561, nPoints=4
+Despike: HGM232, delta 19945.5 - slope=25, point = 0.00967543, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.00783052, nPoints=2
+Despike: HGM232, delta -29.2608 - slope=25, point = 0.00967543, nPoints=4
+Despike: HGM232, delta 31.6992 - slope=25, point = -0.0788803, nPoints=2
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.117623, nPoints=1
+Despike: HGM232, delta -19960.1 - slope=25, point = -0.152677, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0548965, nPoints=1
+Despike: HGM232, delta -19965 - slope=25, point = -0.064121, nPoints=2
+Despike: HGM232, delta -19946.7 - slope=25, point = -0.0567414, nPoints=2
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.152677, nPoints=2
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.139762, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.148987, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.145297, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = -0.0272228, nPoints=2
+Despike: HGM232, delta -19950 - slope=25, point = -0.0143084, nPoints=1
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.177563, nPoints=4
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.477379, nPoints=2
+Despike: HGM232, delta -19962.6 - slope=25, point = 0.280878, nPoints=1
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.143452, nPoints=4
+Despike: HGM232, delta -19950.4 - slope=25, point = -0.0419821, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.117623, nPoints=6
+Despike: HGM232, delta -19970.5 - slope=25, point = -0.0179983, nPoints=1
+Despike: HGM232, delta 30.48 - slope=25, point = -0.0973294, nPoints=4
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.104709, nPoints=2
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.0991743, nPoints=2
+Despike: HGM232, delta 19940.6 - slope=25, point = -0.0475168, nPoints=2
+Despike: HGM232, delta -19972.3 - slope=25, point = -0.023533, nPoints=3
+Despike: HGM232, delta -19965 - slope=25, point = 0.00414069, nPoints=2
+Despike: HGM232, delta -19961.4 - slope=25, point = 0.00229578, nPoints=1
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.0133653, nPoints=1
+Despike: HGM232, delta 31.6992 - slope=25, point = 0.063178, nPoints=1
+Despike: HGM232, delta -26.8224 - slope=25, point = 0.0687127, nPoints=1
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.0428839, nPoints=1
+Despike: HGM232, delta -19949.2 - slope=25, point = 0.061333, nPoints=1
+Despike: HGM232, delta -40.2336 - slope=25, point = 0.0262797, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = 0.0281246, nPoints=1
+Despike: HGM232, delta -19934.5 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta -19958.9 - slope=25, point = 0.0539534, nPoints=2
+Despike: HGM232, delta 56.0832 - slope=25, point = -0.0253779, nPoints=3
+Despike: HGM232, delta 32.9184 - slope=25, point = 0.00783052, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.248612, nPoints=2
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.00323896, nPoints=2
+Despike: HGM232, delta -19958.9 - slope=25, point = 0.0262797, nPoints=2
+Despike: HGM232, delta 19938.2 - slope=25, point = -0.00323896, nPoints=6
+Despike: HGM232, delta 19974.8 - slope=25, point = -0.084415, nPoints=2
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.0318144, nPoints=3
+Despike: HGM232, delta -19975.7 - slope=25, point = -0.0143084, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta -19960.9 - slope=25, point = 0.0447288, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.064121, nPoints=1
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.0456719, nPoints=3
+Despike: HGM232, delta -19979.7 - slope=25, point = -0.0309126, nPoints=2
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.00967543, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0364474, nPoints=2
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.00139404, nPoints=2
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.0548965, nPoints=1
+Despike: HGM232, delta -19960.1 - slope=25, point = -0.0327576, nPoints=2
+Despike: HGM232, delta -19952.8 - slope=25, point = -0.0493618, nPoints=2
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.023533, nPoints=3
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta -19955.3 - slope=25, point = -0.0530516, nPoints=1
+Despike: HGM232, delta -19963.8 - slope=25, point = -0.0917947, nPoints=3
+Despike: HGM232, delta 19957.7 - slope=25, point = -0.0862599, nPoints=5
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0678108, nPoints=3
+Despike: HGM232, delta 19962.6 - slope=25, point = -0.0659659, nPoints=3
+Despike: HGM232, delta 19957.1 - slope=25, point = -0.064121, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0585863, nPoints=3
+Despike: HGM232, delta 19956.2 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00508387, nPoints=4
+Despike: HGM232, delta 19962.6 - slope=25, point = -0.0493618, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.084415, nPoints=5
+Despike: HGM232, delta 19947.6 - slope=25, point = -0.0216881, nPoints=3
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.00598561, nPoints=5
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0346025, nPoints=6
+Despike: HGM232, delta 19973 - slope=25, point = -0.0216881, nPoints=1
+Despike: HGM232, delta -19954 - slope=25, point = -0.0604312, nPoints=5
+Despike: HGM232, delta -19944.8 - slope=25, point = -0.0659659, nPoints=2
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.0512067, nPoints=3
+Despike: HGM232, delta -19953.1 - slope=25, point = -0.0401372, nPoints=1
+Despike: HGM232, delta -19955.3 - slope=25, point = -0.0290677, nPoints=3
+Despike: HGM232, delta -19956.1 - slope=25, point = -0.0346025, nPoints=1
+Despike: HGM232, delta -19960.1 - slope=25, point = -0.0401372, nPoints=4
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.104709, nPoints=3
+Despike: HGM232, delta 19951 - slope=25, point = 0.0133653, nPoints=2
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = -0.0364474, nPoints=2
+Despike: HGM232, delta 19943.1 - slope=25, point = -0.0253779, nPoints=3
+Despike: HGM232, delta 19974.2 - slope=25, point = -0.0198432, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.0346025, nPoints=7
+Despike: HGM232, delta 19953.3 - slope=25, point = -0.0346025, nPoints=2
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.0475168, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.0788803, nPoints=3
+Despike: HGM232, delta 19963.7 - slope=25, point = -0.0493618, nPoints=1
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.0124635, nPoints=4
+Despike: HGM232, delta -19945.5 - slope=25, point = -0.0290677, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0548965, nPoints=2
+Despike: HGM232, delta -19969.1 - slope=25, point = -0.0401372, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta -19962.8 - slope=25, point = -0.0825701, nPoints=2
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.0382923, nPoints=6
+Despike: HGM232, delta -19951.8 - slope=25, point = 0.0152102, nPoints=1
+Despike: HGM232, delta -19951.6 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.043827, nPoints=4
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0364474, nPoints=3
+Despike: HGM232, delta 19968.7 - slope=25, point = -0.0401372, nPoints=4
+Despike: HGM232, delta 19974.8 - slope=25, point = -0.0973294, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0548965, nPoints=4
+Despike: HGM232, delta 19945.5 - slope=25, point = -0.0530516, nPoints=5
+Despike: HGM232, delta 19943.1 - slope=25, point = 0.0281246, nPoints=5
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0355042, nPoints=6
+Despike: HGM232, delta 19967.5 - slope=25, point = 0.0336593, nPoints=1
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0419821, nPoints=5
+Despike: HGM232, delta 19974 - slope=25, point = -0.0807252, nPoints=1
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0253779, nPoints=3
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19966.7 - slope=25, point = -0.00877369, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.00229578, nPoints=4
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0179983, nPoints=5
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.0548965, nPoints=5
+Despike: HGM232, delta -19952.5 - slope=25, point = -0.0290677, nPoints=3
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.00139404, nPoints=5
+Despike: HGM232, delta -19954.6 - slope=25, point = 0.0355042, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.00877369, nPoints=3
+Despike: HGM232, delta 19948.6 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta 19967.4 - slope=25, point = -0.0346025, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0225898, nPoints=5
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0198432, nPoints=3
+Despike: HGM232, delta 19970.4 - slope=25, point = -0.0253779, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0198432, nPoints=6
+Despike: HGM232, delta 19969.4 - slope=25, point = -0.00508387, nPoints=1
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.00877369, nPoints=3
+Despike: HGM232, delta 19950.7 - slope=25, point = 0.0318144, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00229578, nPoints=5
+Despike: HGM232, delta 19964.3 - slope=25, point = -0.0346025, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.0521085, nPoints=3
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta -19957.9 - slope=25, point = 0.000450869, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = 0.00783052, nPoints=3
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.0189, nPoints=4
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19952 - slope=25, point = -0.00877369, nPoints=2
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.000450869, nPoints=4
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0170551, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.041039, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00414069, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0161533, nPoints=5
+Despike: HGM232, delta 19943.1 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta 19967.4 - slope=25, point = -0.00508387, nPoints=6
+Despike: HGM232, delta 19972.4 - slope=25, point = -0.00323896, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19958.6 - slope=25, point = -0.00692878, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.00508387, nPoints=2
+Despike: HGM232, delta 19953.2 - slope=25, point = -0.0346025, nPoints=1
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0678108, nPoints=3
+Despike: HGM232, delta 19973.4 - slope=25, point = -0.0696558, nPoints=1
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0678108, nPoints=3
+Despike: HGM232, delta 19946.4 - slope=25, point = -0.0899498, nPoints=2
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.00783052, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0198432, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0456719, nPoints=3
+Despike: HGM232, delta 19952 - slope=25, point = -0.0973294, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.043827, nPoints=3
+Despike: HGM232, delta 19970.4 - slope=25, point = -0.0788803, nPoints=1
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0807252, nPoints=5
+Despike: HGM232, delta 19971.2 - slope=25, point = -0.0401372, nPoints=1
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0419821, nPoints=3
+Despike: HGM232, delta 19950.7 - slope=25, point = -0.0419821, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0622761, nPoints=3
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0512067, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.023533, nPoints=8
+Despike: HGM232, delta 19945.5 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0419821, nPoints=4
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0382923, nPoints=3
+Despike: HGM232, delta 19974 - slope=25, point = -0.0382923, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.00139404, nPoints=4
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0364474, nPoints=3
+Despike: HGM232, delta 19957.4 - slope=25, point = -0.0715007, nPoints=2
+Despike: HGM232, delta 19968.7 - slope=25, point = -0.0253779, nPoints=4
+Despike: HGM232, delta 19973.5 - slope=25, point = 0.0281246, nPoints=1
+Despike: HGM232, delta -19954 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta -19957.2 - slope=25, point = -0.0364474, nPoints=2
+Despike: HGM232, delta -19951.6 - slope=25, point = -0.0567414, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0512067, nPoints=7
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.101019, nPoints=5
+Despike: HGM232, delta -19963.5 - slope=25, point = -0.0493618, nPoints=2
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.0770354, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.064121, nPoints=2
+Despike: HGM232, delta -19967.4 - slope=25, point = -0.0585863, nPoints=3
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0272228, nPoints=2
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.0788803, nPoints=6
+Despike: HGM232, delta -19946.7 - slope=25, point = -0.023533, nPoints=2
+Despike: HGM232, delta -19955.3 - slope=25, point = -0.0567414, nPoints=2
+Despike: HGM232, delta 19934.5 - slope=25, point = -0.0493618, nPoints=5
+Despike: HGM232, delta 199Time break of 18 seconds ending @ 20:31:15, filling in with MISSING_VALUE.
+44.3 - slope=25, point = -0.0548965, nPoints=3
+Despike: HGM232, delta 32.9184 - slope=25, point = -0.0309126, nPoints=2
+Despike: HGM232, delta -19961.4 - slope=25, point = 0.0244347, nPoints=2
+Despike: HGM232, delta -19967.4 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta -19947.1 - slope=25, point = -0.0309126, nPoints=1
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.0936396, nPoints=3
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.0124635, nPoints=5
+Despike: HGM232, delta -19960 - slope=25, point = -0.0401372, nPoints=2
+Despike: HGM232, delta 19891.9 - slope=25, point = -0.0309126, nPoints=5
+Despike: HGM232, delta 28.0416 - slope=25, point = 0.0281246, nPoints=4
+Despike: HGM232, delta -19941.4 - slope=25, point = 0.0189, nPoints=2
+Despike: HGM232, delta -104.851 - slope=25, point = 0.0447288, nPoints=4
+Despike: HGM232, delta -19956.5 - slope=25, point = 0.0391941, nPoints=1
+Despike: HGM232, delta -19965 - slope=25, point = 0.0576432, nPoints=2
+Despike: HGM232, delta 19943.1 - slope=25, point = 0.0557983, nPoints=5
+Despike: HGM232, delta 19941.8 - slope=25, point = 0.0650229, nPoints=3
+Despike: HGM232, delta -19968.7 - slope=25, point = 0.000450869, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0696558, nPoints=3
+Despike: HGM232, delta -19942.9 - slope=25, point = -0.0991743, nPoints=2
+Despike: HGM232, delta -19945.5 - slope=25, point = -0.0733456, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.348236, nPoints=2
+Despike: HGM232, delta 32.9184 - slope=25, point = -0.492138, nPoints=4
+Despike: HGM232, delta -1008.28 - slope=25, point = -18.692, nPoints=2
+Despike: PSFD, delta -901.629 - slope=20, point = -18.692, nPoints=14
+Despike: PSFRD, delta -902.02 - slope=20, point = -18.692, nPoints=2
+Despike: PSFD, delta 901.731 - slope=20, point = -18.7639, nPoints=1
+Despike: PSFD, delta 793.772 - slope=20, point = -18.5666, nPoints=1
+Despike: PSFD, delta 455.64 - slope=20, point = -17.8787, nPoints=1
+Despike: PSFD, delta 455.843 - slope=20, point = -17.9856, nPoints=1
+Despike: PSFD, delta 455.64 - slope=20, point = -17.9764, nPoints=2
+Despike: PSFD, delta 455.843 - slope=20, point = -17.9838, nPoints=1
+Despike: PSFD, delta 455.674 - slope=20, point = -17.9709, nPoints=1
+Despike: HGM232, delta 2623.11 - slope=25, point = -17.626, nPoints=1
+Despike: HGM232, delta 2621.89 - slope=25, point = -17.39, nPoints=1
+Despike: HGM232, delta -4105.66 - slope=25, point = -17.3771, nPoints=1
+Despike: HGM232, delta 2623.11 - slope=25, point = -17.2664, nPoints=1
+Despike: HGM232, delta 2624.33 - slope=25, point = -17.3752, nPoints=1
+Despike: HGM232, delta -4106.88 - slope=25, point = -17.3328, nPoints=1
+Despike: PSFD, delta 995.432 - slope=20, point = -18.2014, nPoints=1
+Despike: PSFD, delta 995.839 - slope=20, point = -18.0834, nPoints=1
+Despike: PSFD, delta 995.805 - slope=20, point = -18.4522, nPoints=6
+Despike: PSFD, delta 995.737 - slope=20, point = -18.8229, nPoints=1
+Despike: PSFD, delta 995.635 - slope=20, point = -18.4375, nPoints=1
+Despike: PSFD, delta 1004.51 - slope=20, point = -18.1018, nPoints=1
+Despike: PSFD, delta 996.245 - slope=20, point = -20.3387, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -20.4088, nPoints=1
+Despike: PSFD, delta 994.315 - slope=20, point = -17.5726, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -16.7593, nPoints=1
+Despike: HGM232, delta -83.5152 - slope=25, point = -16.6007, nPoints=1
+Despike: HGM232, delta -16522.6 - slope=25, point = -16.5619, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.5546, nPoints=1
+Despike: HGM232, delta -8951.37 - slope=25, point = -17.3365, nPoints=1
+Despike: PSFD, delta 994.857 - slope=20, point = -17.39, nPoints=1
+Despike: HGM232, delta 79.8576 - slope=25, point = -16.2503, nPoints=1
+Despike: PSFD, delta 992.452 - slope=20, point = -15.7763, nPoints=1
+Despike: PSFD, delta 992.486 - slope=20, point = -16.1765, nPoints=1
+Despike: PSFD, delta 992.046 - slope=20, point = -14.749, nPoints=1
+Despike: PSFD, delta 992.622 - slope=20, point = -14.3783, nPoints=2
+Despike: PSFD, delta 992.52 - slope=20, point = -14.4705, nPoints=3
+Despike: PSFD, delta 992.283 - slope=20, point = -16.9474, nPoints=1
+Despike: PSFD, delta 1002.65 - slope=20, point = -16.8939, nPoints=1
+Despike: PSFD, delta 1002.65 - slope=20, point = -16.5785, nPoints=1
+Despike: PSFD, delta 1002.88 - slope=20, point = -17.3236, nPoints=1
+Despike: PSFD, delta 1002.58 - slope=20, point = -16.3978, nPoints=1
+Despike: HGM232, delta 94.488 - slope=25, point = -17.7828, nPoints=1
+Despike: PSFD, delta 991.978 - slope=20, point = -16.4568, nPoints=1
+Despike: HGM232, delta 95.7072 - slope=25, point = -16.7666, nPoints=1
+Despike: HGM232, delta 95.7072 - slope=25, point = -15.2488, nPoints=1
+Despike: HGM232, delta 95.7072 - slope=25, point = -17.851, nPoints=1
+Despike: HGM232, delta 96.9264 - slope=25, point = -16.3425, nPoints=1
+Despike: PSFD, delta -1226.79 - slope=20, point = -15.566, nPoints=1
+Despike: PSFD, delta 991.843 - slope=20, point = -17.6666, nPoints=1
+Despike: PSFD, delta 992.08 - slope=20, point = -17.6316, nPoints=2
+Despike: PSFD, delta 992.114 - slope=20, point = -17.6648, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.1433, nPoints=2
+Despike: HGM232, delta -8928.81 - slope=25, point = -15.9294, nPoints=1
+Despike: HGM232, delta 98.1456 - slope=25, point = -16.6892, nPoints=1
+Despike: HGM232, delta 98.1456 - slope=25, point = -16.3941, nPoints=2
+Despike: PSFD, delta 991.606 - slope=20, point = -16.4421, nPoints=1
+Despike: PSFD, delta 1002.44 - slope=20, point = -16.3148, nPoints=1
+Despike: PSFD, delta 991.707 - slope=20, point = -17.0119, nPoints=1
+Despike: PSFD, delta 990.928 - slope=20, point = -19.3798, nPoints=1
+Despike: PSFD, delta 991.064 - slope=20, point = -18.3766, nPoints=1
+Despike: PSFD, delta 990.962 - slope=20, point = -18.3951, nPoints=3
+Despike: PSFD, delta 990.827 - slope=20, point = -17.5965, nPoints=1
+Despike: PSFD, delta 990.657 - slope=20, point = -17.5762, nPoints=2
+Despike: PSFD, delta 1002.27 - slope=20, point = -17.4342, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -18.0207, nPoints=1
+Despike: HGM232, delta 101.803 - slope=25, point = -18.1996, nPoints=4
+Despike: HGM232, delta 100.584 - slope=25, point = -18.1221, nPoints=1
+Despike: HGM232, delta 100.584 - slope=25, point = -16.4402, nPoints=6
+Despike: PSFD, delta -2219.28 - slope=20, point = -17.674, nPoints=1
+Despike: HGM232, delta 100.584 - slope=25, point = -18.7104, nPoints=3
+Despike: HGM232, delta 100.584 - slope=25, point = -15.6988, nPoints=1
+Despike: HGM232, delta 100.584 - slope=25, point = -20.0787, nPoints=1
+Despike: PSFD, delta 1008.94 - slope=20, point = -17.4803, nPoints=1
+Despike: PSFD, delta 1008.94 - slope=20, point = -16.5287, nPoints=1
+Despike: PSFD, delta 1009.18 - slope=20, point = -16.6836, nPoints=4
+Despike: PSFD, delta 1009.42 - slope=20, point = -16.5343, nPoints=2
+Despike: PSFD, delta 1009.25 - slope=20, point = -17.5449, nPoints=2
+Despike: PSFD, delta 1009.38 - slope=20, point = -17.4877, nPoints=1
+Despike: PSFD, delta 1012.06 - slope=20, point = -17.4582, nPoints=1
+Despike: PSFD, delta 1009.05 - slope=20, point = -17.4564, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.0529, nPoints=1
+Despike: HGM232, delta 27.432 - slope=25, point = -17.1521, nPoints=1
+Despike: HGM232, delta -13602 - slope=25, point = -15.6177, nPoints=1
+Despike: PSFD, delta -1217.75 - slope=20, point = -18.1719, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -16.7869, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -17.4527, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -17.3826, nPoints=1
+Despike: PSFD, delta 1011.96 - slope=20, point = -17.685, nPoints=1
+Despike: HGM232, delta -9079.99 - slope=25, point = -16.1267, nPoints=1
+Despike: PSFD, delta 1008.98 - slope=20, point = -16.75, nPoints=1
+Despike: PSFD, delta 1009.25 - slope=20, point = -16.3222, nPoints=1
+Despike: PSFD, delta 1012.09 - slope=20, point = -16.8828, nPoints=1
+Despike: PSFD, delta 1009.05 - slope=20, point = -17.2037, nPoints=1
+Despike: PSFD, delta 1009.18 - slope=20, point = -17.1115, nPoints=1Switching ADS file to /jnet/data/181rf10h.ads.
+Time break of 153 seconds ending @ 22:03:23, filling in with MISSING_VALUE.
+Switching ADS file to /jnet/data/181rf10i.ads.
+Time break of 45 seconds ending @ 22:07:35, filling in with MISSING_VALUE.
+
+Despike: PSFD, delta 1009.25 - slope=20, point = -17.0746, nPoints=1
+Despike: PSFD, delta 1012.36 - slope=20, point = -17.5486, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -17.3328, nPoints=1
+Despike: PSFD, delta 1009.93 - slope=20, point = -17.6482, nPoints=1
+Despike: PSFD, delta 1008.77 - slope=20, point = -16.1304, nPoints=1
+Despike: PSFD, delta -1217.24 - slope=20, point = -17.0525, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -17.757, nPoints=1
+Despike: HGM232, delta 27.432 - slope=25, point = -17.449, nPoints=1
+Despike: PSFD, delta 1008.57 - slope=20, point = -17.1207, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -16.1654, nPoints=5
+Despike: HGM232, delta 28.6512 - slope=25, point = -17.4305, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -16.7021, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -16.7021, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -15.8593, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -15.9736, nPoints=1
+Despike: PSFD, delta 901.832 - slope=20, point = -16.0142, nPoints=1
+Despike: PSFD, delta 901.764 - slope=20, point = -16.9455, nPoints=1
+Despike: PSFD, delta 901.426 - slope=20, point = -16.6818, nPoints=1
+Despike: PSFD, delta 901.257 - slope=20, point = -16.6615, nPoints=1
+Despike: PSFD, delta 901.29 - slope=20, point = -16.5711, nPoints=1
+Despike: PSFD, delta 901.527 - slope=20, point = -15.815, nPoints=1
+Despike: PSFD, delta 901.426 - slope=20, point = -15.8574, nPoints=3
+Despike: PSFD, delta 901.358 - slope=20, point = -15.7154, nPoints=1
+Despike: PSFD, delta -1272.03 - slope=20, point = -17.2203, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -17.3328, nPoints=1
+Despike: PSFD, delta 958.013 - slope=20, point = -12.7221, nPoints=1
+Despike: PSFD, delta 911.077 - slope=20, point = -15.9128, nPoints=1
+Despike: PSFD, delta 911.653 - slope=20, point = -15.0976, nPoints=1
+Despike: HGM232, delta 452.933 - slope=25, point = -16.3517, nPoints=1
+Despike: HGM232, delta 452.933 - slope=25, point = -14.7619, nPoints=1
+Despike: HGM232, delta 460.248 - slope=25, point = -17.3568, nPoints=1
+Despike: HGM232, delta 462.686 - slope=25, point = -16.2466, nPoints=2
+Despike: HGM232, delta 463.906 - slope=25, point = -17.7072, nPoints=1
+Despike: PSFD, delta 905.219 - slope=20, point = -16.6892, nPoints=6
+Despike: PSFD, delta 958.927 - slope=20, point = -16.6136, nPoints=1
+Despike: PSFD, delta 904.914 - slope=20, point = -15.3115, nPoints=1
+Despike: PSFD, delta 905.015 - slope=20, point = -15.1271, nPoints=2
+Despike: PSFD, delta 905.388 - slope=20, point = -15.1621, nPoints=1
+Despike: PSFD, delta -1259.98 - slope=20, point = -15.2746, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -18.1018, nPoints=1
+Despike: PSFD, delta 905.828 - slope=20, point = -16.1691, nPoints=1
+Despike: PSFD, delta 906.438 - slope=20, point = -16.9492, nPoints=1
+Despike: HGM232, delta 480.365 - slope=25, point = -15.5753, nPoints=2
+Despike: HGM232, delta 481.584 - slope=25, point = -17.0285, nPoints=1
+Despike: PSFD, delta 906.404 - slope=20, point = -16.1175, nPoints=1
+Despike: PSFD, delta 926.316 - slope=20, point = -19.378, nPoints=1
+Despike: PSFD, delta 926.248 - slope=20, point = -19.3835, nPoints=3
+Despike: PSFD, delta 926.079 - slope=20, point = -18.2789, nPoints=3
+Despike: PSFD, delta -2219.24 - slope=20, point = -19.3153, nPoints=1
+Despike: PSFD, delta 926.011 - slope=20, point = -19.129, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -19.5642, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -19.6601, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -20.1506, nPoints=1
+Despike: PSFD, delta 922.828 - slope=20, point = -19.1327, nPoints=1
+Despike: HGM232, delta 409.042 - slope=25, point = -18.0981, nPoints=1
+Despike: PSFD, delta 922.862 - slope=20, point = -18.7104, nPoints=1
+Despike: HGM232, delta -8310.68 - slope=25, point = -19.2433, nPoints=2
+Despike: HGM232, delta -8313.73 - slope=25, point = -19.0405, nPoints=1
+Despike: HGM232, delta 402.946 - slope=25, point = -18.5573, nPoints=1
+Despike: PITCH, delta -0.490952 - slope=0.3, point = -20.6651, nPoints=45
+Despike: ROLL, delta -0.722866 - slope=0.3, point = -20.6651, nPoints=37
+Despike: PSFD, delta -1231.63 - slope=20, point = -16.667, nPoints=1
+Despike: PSFD, delta 960.857 - slope=20, point = -16.656, nPoints=1
+Despike: PSFD, delta 960.62 - slope=20, point = -18.0115, nPoints=1
+Despike: PSFD, delta 960.519 - slope=20, point = -17.6777, nPoints=1
+Despike: PSFD, delta 960.519 - slope=20, point = -17.6482, nPoints=1
+Despike: PSFD, delta 960.756 - slope=20, point = -17.0101, nPoints=1
+Despike: PSFD, delta 960.688 - slope=20, point = -17.023, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.3996, nPoints=1
+Despike: HGM232, delta 237.744 - slope=25, point = -16.1765, nPoints=1
+Despike: HGM232, delta -8653.88 - slope=25, point = -17.0285, nPoints=1
+Despike: HGM232, delta 237.744 - slope=25, point = -16.088, nPoints=1
+Despike: HGM232, delta 238.963 - slope=25, point = -16.0621, nPoints=1
+Despike: PSFD, delta 961.467 - slope=20, point = -16.9345, nPoints=7
+Despike: PSFD, delta 961.907 - slope=20, point = -17.7754, nPoints=1
+Despike: PSFD, delta -2219.21 - slope=20, point = -17.8676, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -17.4029, nPoints=1
+Despike: PSFD, delta 961.196 - slope=20, point = -18.1959, nPoints=1
+Despike: HGM232, delta 237.744 - slope=25, point = -16.6265, nPoints=1
+Despike: HGM232, delta 236.525 - slope=25, point = -18.2143, nPoints=4
+Despike: HGM232, delta 237.744 - slope=25, point = -17.2332, nPoints=1
+Despike: HGM232, delta 235.306 - slope=25, point = -17.6057, nPoints=1
+Despike: PSFD, delta 961.839 - slope=20, point = -17.6555, nPoints=1
+Despike: PSFD, delta 987.644 - slope=20, point = -17.6223, nPoints=1
+Despike: PSFD, delta 963.126 - slope=20, point = -17.757, nPoints=1
+Despike: PSFD, delta 869.221 - slope=20, point = -15.6398, nPoints=1
+Despike: PSFD, delta 870.068 - slope=20, point = -15.7486, nPoints=1
+Despike: PSFD, delta 871.016 - slope=20, point = -16.7482, nPoints=1
+Despike: PSFD, delta 871.287 - slope=20, point = -16.7722, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -16.5619, nPoints=1
+Despike: PSFD, delta 874.098 - slope=20, point = -16.6984, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -17.4084, nPoints=1
+Despike: HGM232, delta 585.216 - slope=25, point = -19.8851, nPoints=1
+Despike: HGM232, delta 590.093 - slope=25, point = -18.301, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -18.384, nPoints=1
+Despike: HGM232, delta 598.627 - slope=25, point = -16.8939, nPoints=1
+Despike: PSFD, delta 900.071 - slope=20, point = -20.6006, nPoints=1
+Despike: PSFD, delta 898.039 - slope=20, point = -19.2157, nPoints=1
+Despike: PSFD, delta 897.667 - slope=20, point = -18.1295, nPoints=3
+Despike: PSFD, delta 897.599 - slope=20, point = -20.4604, nPoints=1
+Despike: PSFD, delta 897.565 - slope=20, point = -20.608, nPoints=1
+Despike: PSFD, delta 896.651 - slope=20, point = -20.6338, nPoints=1
+Despike: PSFD, delta 953.746 - slope=20, point = -18.7196, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -18.0926, nPoints=1
+Despike: HGM232, delta -7976.01 - slope=25, point = -18.0723, nPoints=1
+Despike: PSFD, delta 892.147 - slope=20, point = -20.4254, nPoints=1
+Despike: PSFD, delta 893.603 - slope=20, point = -18.7989, nPoints=1
+Despike: PSFD, delta 894.077 - slope=20, point = -18.561, nPoints=1
+Despike: HGM232, delta 521.818 - slope=25, point = -19.0663, nPoints=2
+Despike: HGM232, delta 516.941 - slope=25, point = -21.3548, nPoints=1
+Despike: PSFD, delta 883.376 - slope=20, point = -21.9228, nPoints=1
+Despike: PSFD, delta 883.952 - slope=20, point = -22.0979, nPoints=1
+Despike: PSFD, delta 884.765 - slope=20, point = -22.0426, nPoints=1
+Despike: PSFD, delta 884.9 - slope=20, point = -21.849, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -21.8177, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -22.8171, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -23.3721, nPoints=1
+Despike: PSFD, delta -2219.38 - slope=2ReadTextFile: can't open /jnet/linux/dev/proj/181/Production/BlankOuts.rf10
+Time interval(s) completed : 19:48:23-00:03:39
+Processing took 1.3 minutes.
+0, point = -23.3961, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -23.3924, nPoints=1
+Despike: PSFD, delta 908.47 - slope=20, point = -24.5135, nPoints=1
+Despike: PSFD, delta 909.113 - slope=20, point = -23.1361, nPoints=1
+Despike: HGM232, delta 451.714 - slope=25, point = -23.7225, nPoints=1
+Despike: PSFD, delta 913.38 - slope=20, point = -24.3181, nPoints=1
+Despike: PSFD, delta 963.126 - slope=20, point = -21.7882, nPoints=1
+Despike: HGM232, delta -8241.18 - slope=25, point = -23.4625, nPoints=1
+Despike: HGM232, delta -5205.98 - slope=25, point = -25.2769, nPoints=1
+Despike: PSFD, delta 869.797 - slope=20, point = -17.1281, nPoints=1
+Despike: PSFD, delta -1289.88 - slope=20, point = -16.667, nPoints=1
+Despike: PSFD, delta 837.694 - slope=20, point = -15.7007, nPoints=1
+Despike: PSFD, delta -1465.7 - slope=20, point = -28.1053, nPoints=1
+Despike: PSFD, delta 491.502 - slope=20, point = -27.8932, nPoints=1
+Despike: PSFD, delta 491.13 - slope=20, point = -27.9043, nPoints=1
+Despike: PSFD, delta 491.028 - slope=20, point = -27.8269, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -27.7937, nPoints=1
+Despike: PSFD, delta 491.908 - slope=20, point = -25.4484, nPoints=1
+Despike: HGM232, delta -2446.93 - slope=25, point = -25.1755, nPoints=1
+Despike: PSFD, delta 798.547 - slope=20, point = -22.6124, nPoints=1
+Despike: PSFD, delta 906.099 - slope=20, point = -22.6106, nPoints=1
+Despike: PSFD, delta 906.133 - slope=20, point = -22.6069, nPoints=3
+Despike: PSFD, delta 798.581 - slope=20, point = -22.4741, nPoints=1
+Despike: PSFD, delta -1323.17 - slope=20, point = -22.4667, nPoints=1
+Despike: PSFD, delta 798.75 - slope=20, point = -22.4631, nPoints=1
+Despike: PSFD, delta 906.099 - slope=20, point = -22.4243, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -22.3745, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -22.345, nPoints=2
+Despike: HGM232, delta -9845.65 - slope=25, point = -20.9399, nPoints=1
+Despike: PSFD, delta 906.302 - slope=20, point = -20.8256, nPoints=1
+Despike: PSFD, delta 906.201 - slope=20, point = -20.868, nPoints=1
+Despike: HGM232, delta 962.558 - slope=25, point = -20.8293, nPoints=3
+Despike: HGM232, delta 962.558 - slope=25, point = -20.6227, nPoints=1
+Despike: PSFD, delta 906.268 - slope=20, point = -20.6172, nPoints=1
+Despike: HGM232, delta 962.558 - slope=25, point = -20.5711, nPoints=1
+Despike: HGM232, delta 963.778 - slope=25, point = -20.3092, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -20.3203, nPoints=1
+Despike: PSFD, delta 798.953 - slope=20, point = -21.0376, nPoints=1
+Despike: PSFD, delta 798.953 - slope=20, point = -21.0432, nPoints=1
+Despike: PSFD, delta 905.93 - slope=20, point = -20.9971, nPoints=2
+Despike: PSFD, delta 798.92 - slope=20, point = -20.9915, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -21.0303, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -21.0321, nPoints=1
+Despike: HGM232, delta 964.997 - slope=25, point = -21.0081, nPoints=1
+Despike: HGM232, delta 964.997 - slope=25, point = -21.0376, nPoints=1
+Despike: PSFD, delta -1323.64 - slope=20, point = -21.0174, nPoints=1
+Despike: PSFD, delta 798.073 - slope=20, point = -21.1391, nPoints=1
+Despike: HGM232, delta 19938.2 - slope=25, point = -1.1895, nPoints=2
+Despike: HGM232, delta 19949.2 - slope=25, point = -1.20795, nPoints=3
+Despike: HGM232, delta 19969.8 - slope=25, point = -1.15998, nPoints=1
+Despike: HGM232, delta -97.536 - slope=25, point = -1.10464, nPoints=7
+Despike: HGM232, delta -19961.4 - slope=25, point = -0.724594, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.619435, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.774406, nPoints=5
+Despike: HGM232, delta -19935.3 - slope=25, point = -0.582538, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.661868, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.519812, nPoints=5
+Despike: HGM232, delta -204.216 - slope=25, point = -0.246767, nPoints=3
+Despike: HGM232, delta -121.31 - slope=25, point = -0.272595, nPoints=4
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.200644, nPoints=2
+Despike: HGM232, delta -19958.9 - slope=25, point = -0.0530516, nPoints=4
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.0336593, nPoints=2
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0216881, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.00877369, nPoints=1
+Despike: HGM232, delta -25.6032 - slope=25, point = -0.00877369, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = 0.168338, nPoints=2
+Despike: HGM232, delta -19952.8 - slope=25, point = 0.0945415, nPoints=5
+Despike: HGM232, delta -19954.7 - slope=25, point = 0.109301, nPoints=3
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.0447288, nPoints=4
+Despike: HGM232, delta -19967 - slope=25, point = 0.142509, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0539534, nPoints=3
+Despike: HGM232, delta 19953.5 - slope=25, point = 0.00229578, nPoints=2
+Despike: HGM232, delta 19957.7 - slope=25, point = 0.0133653, nPoints=3
+Despike: HGM232, delta 19973.4 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.043827, nPoints=6
+Despike: HGM232, delta 19973.5 - slope=25, point = -0.0622761, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.0225898, nPoints=1
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta -19954 - slope=25, point = 0.0318144, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.0225898, nPoints=3
+Despike: HGM232, delta -19940.6 - slope=25, point = 0.0281246, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.0244347, nPoints=3
+Despike: HGM232, delta -19962.8 - slope=25, point = 0.0244347, nPoints=2
+Despike: HGM232, delta -68.2752 - slope=25, point = 0.0133653, nPoints=3
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.0225898, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = 0.00783052, nPoints=5
+Despike: HGM232, delta -19959.3 - slope=25, point = 0.00414069, nPoints=2
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.0106186, nPoints=1
+Despike: HGM232, delta 19911.4 - slope=25, point = -0.00139404, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0216881, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta -19970.2 - slope=25, point = 0.00229578, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta -19956.5 - slope=25, point = 0.0152102, nPoints=4
+Despike: HGM232, delta -19953.3 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta -19968.7 - slope=25, point = 0.00783052, nPoints=4
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.00414069, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta -19952.2 - slope=25, point = -0.0106186, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.00877369, nPoints=2
+Despike: HGM232, delta -19935.7 - slope=25, point = -0.00877369, nPoints=5
+set result = 0
+else
+if ( 0 != 0 ) then
+set mesg =    Nimbus completed successfully and created file 181rf10g.nc for raf
+endif
+if ( 1 ) echo Nimbus completed successfully and created file 181rf10g.nc for raf
+echo Nimbus completed successfully and created file 181rf10g.nc for raf
+Nimbus completed successfully and created file 181rf10g.nc for raf
+echo Nimbus completed successfully and created file 181rf10g.nc for raf
+/bin/rm 181rf10g.batch
+else
+if ( 0 ) unset fmod
+breaksw
+end
+set pf = ( `echo $afile | $awk -F. '{print $1} {print $2}'` )
+echo 181rf10h.ads
+/bin/awk -F. {print $1} {print $2}
+switch ( nimbus )
+switch ( ads )
+if ( ads != ads ) then
+breaksw
+if ( yes == no ) then
+if ( 1 ) then
+echo   nimbus has run at least once.
+  nimbus has run at least once.
+endif
+set of1 = `echo $nof | sed -e "s/\(.......\)./\1/"`
+echo 181rf10g
+sed -e s/\(.......\)./\1/
+set of2 = `echo $nof | sed -e "s/.......\(.\)/\1/"`
+echo 181rf10g
+sed -e s/.......\(.\)/\1/
+set nof = 181rf10h
+set nf1 = `echo $pf[1] | sed -e "s/\(.......\)./\1/"`
+echo 181rf10h
+sed -e s/\(.......\)./\1/
+if ( 181rf10 == 181rf10 ) then
+if ( 1 ) then
+echo   Source file for this job is from same flight.
+  Source file for this job is from same flight.
+endif
+set nf2 = `echo $pf[1] | sed -e "s/.......\(.\)/\1/"`
+echo 181rf10h
+sed -e s/.......\(.\)/\1/
+@ i = 2
+while ( 2 < = 26 )
+if ( h == b ) then
+@ i ++
+end
+while ( 3 < = 26 )
+if ( h == c ) then
+@ i ++
+end
+while ( 4 < = 26 )
+if ( h == d ) then
+@ i ++
+end
+while ( 5 < = 26 )
+if ( h == e ) then
+@ i ++
+end
+while ( 6 < = 26 )
+if ( h == f ) then
+@ i ++
+end
+while ( 7 < = 26 )
+if ( h == g ) then
+@ i ++
+end
+while ( 8 < = 26 )
+if ( h == h ) then
+@ j = 8 - 1
+if ( g == g ) then
+set i = 26
+if ( 1 ) then
+echo   Source file is consecutive; skipping nimbus job.
+  Source file is consecutive; skipping nimbus job.
+echo 
+
+endif
+set skipjob = yes
+else
+endif
+@ i ++
+end
+while ( 27 < = 26 )
+else
+endif
+if ( yes == yes ) then
+breaksw
+end
+set pf = ( `echo $afile | $awk -F. '{print $1} {print $2}'` )
+echo 181rf10i.ads
+/bin/awk -F. {print $1} {print $2}
+switch ( nimbus )
+switch ( ads )
+if ( ads != ads ) then
+breaksw
+if ( yes == no ) then
+if ( 1 ) then
+echo   nimbus has run at least once.
+  nimbus has run at least once.
+endif
+set of1 = `echo $nof | sed -e "s/\(.......\)./\1/"`
+echo 181rf10h
+sed -e s/\(.......\)./\1/
+set of2 = `echo $nof | sed -e "s/.......\(.\)/\1/"`
+echo 181rf10h
+sed -e s/.......\(.\)/\1/
+set nof = 181rf10i
+set nf1 = `echo $pf[1] | sed -e "s/\(.......\)./\1/"`
+echo 181rf10i
+sed -e s/\(.......\)./\1/
+if ( 181rf10 == 181rf10 ) then
+if ( 1 ) then
+echo   Source file for this job is from same flight.
+  Source file for this job is from same flight.
+endif
+set nf2 = `echo $pf[1] | sed -e "s/.......\(.\)/\1/"`
+echo 181rf10i
+sed -e s/.......\(.\)/\1/
+@ i = 2
+while ( 2 < = 26 )
+if ( i == b ) then
+@ i ++
+end
+while ( 3 < = 26 )
+if ( i == c ) then
+@ i ++
+end
+while ( 4 < = 26 )
+if ( i == d ) then
+@ i ++
+end
+while ( 5 < = 26 )
+if ( i == e ) then
+@ i ++
+end
+while ( 6 < = 26 )
+if ( i == f ) then
+@ i ++
+end
+while ( 7 < = 26 )
+if ( i == g ) then
+@ i ++
+end
+while ( 8 < = 26 )
+if ( i == h ) then
+@ i ++
+end
+while ( 9 < = 26 )
+if ( i == i ) then
+@ j = 9 - 1
+if ( h == h ) then
+set i = 26
+if ( 1 ) then
+echo   Source file is consecutive; skipping nimbus job.
+  Source file is consecutive; skipping nimbus job.
+echo 
+
+endif
+set skipjob = yes
+else
+endif
+@ i ++
+end
+while ( 27 < = 26 )
+else
+endif
+if ( yes == yes ) then
+breaksw
+end
+end
+set mesg =   Starting job copy_cdf_raf @ `date`.
+date
+if ( 1 ) echo Starting job copy_cdf_raf @ Tue Jun 3 17:24:11 MDT 2003.
+echo Starting job copy_cdf_raf @ Tue Jun 3 17:24:11 MDT 2003.
+Starting job copy_cdf_raf @ Tue Jun 3 17:24:11 MDT 2003.
+echo Starting job copy_cdf_raf @ Tue Jun 3 17:24:11 MDT 2003.
+set parse = ( `echo $job | $awk -F_ '{print $1} {print $2} {print $3}'` )
+echo copy_cdf_raf
+/bin/awk -F_ {print $1} {print $2} {print $3}
+if ( 3 != 3 ) then
+set j_type = copy
+set f_type = cdf
+set user = raf
+if ( 1 ) then
+echo   j_type = copy
+  j_type = copy
+echo   f_type = cdf
+  f_type = cdf
+echo   user = raf
+  user = raf
+endif
+switch ( cdf )
+breaksw
+if ( 1 ) then
+echo   Job copy_cdf_raf passed initial tests.
+  Job copy_cdf_raf passed initial tests.
+echo 
+
+endif
+foreach afile ( 181rf10g.ads 181rf10h.ads 181rf10i.ads )
+set pf = ( `echo $afile | $awk -F. '{print $1} {print $2}'` )
+echo 181rf10g.ads
+/bin/awk -F. {print $1} {print $2}
+switch ( copy )
+set raw = 1
+switch ( cdf )
+case asc
+set raw = 0
+if ( ads != ads ) continue
+breaksw
+set c_name = copy_set
+set copy_set = 
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_set *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_set = copy_type copy_p zip login dest ddp
+awk -F= {print $2}
+if ( 6 > 0 ) then
+set copy_set = ( copy_type copy_p zip login dest ddp )
+if ( 1 ) echo   Got setting for copy_set:  copy_type copy_p zip login dest ddp
+echo   Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+else
+else
+if ( 1 ) echo   6 copy_set = copy_type copy_p zip login dest ddp
+echo   6 copy_set = copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+set zip = no
+set gotem = yes
+foreach c_name ( copy_type copy_p zip login dest ddp )
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_type *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_type = scp
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set copy_type = ( scp )
+if ( 1 ) echo   Got setting for copy_type:  scp
+echo   Got setting for copy_type:  scp
+  Got setting for copy_type:  scp
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_p *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_p = /usr/bin/scp
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set copy_p = ( /usr/bin/scp )
+if ( 1 ) echo   Got setting for copy_p:  /usr/bin/scp
+echo   Got setting for copy_p:  /usr/bin/scp
+  Got setting for copy_p:  /usr/bin/scp
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^zip *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo zip = yes
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set zip = ( yes )
+if ( 1 ) echo   Got setting for zip:  yes
+echo   Got setting for zip:  yes
+  Got setting for zip:  yes
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^login *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo login = ruth
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set login = ( ruth )
+if ( 1 ) echo   Got setting for login:  ruth
+echo   Got setting for login:  ruth
+  Got setting for login:  ruth
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^dest *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo dest = vivaldi.atd.ucar.edu
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set dest = ( vivaldi.atd.ucar.edu )
+if ( 1 ) echo   Got setting for dest:  vivaldi.atd.ucar.edu
+echo   Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for dest:  vivaldi.atd.ucar.edu
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^ddp *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo ddp = /jnet/data/migs/ruth
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set ddp = ( /jnet/data/migs/ruth )
+if ( 1 ) echo   Got setting for ddp:  /jnet/data/migs/ruth
+echo   Got setting for ddp:  /jnet/data/migs/ruth
+  Got setting for ddp:  /jnet/data/migs/ruth
+else
+else
+end
+if ( yes == no ) then
+if ( 0 ) then
+if ( cdf == cdf ) then
+if ( 0 ) then
+set cfile = 181rf10g.nc
+endif
+else if ( cdf == asc ) then
+if ( ! -e 181rf10g.nc ) then
+else
+if ( 1 ) then
+if ( yes == yes ) then
+if ( 1 ) echo    gzipping /jnet/data/181rf10g.nc
+echo    gzipping /jnet/data/181rf10g.nc
+   gzipping /jnet/data/181rf10g.nc
+/bin/gzip -f /jnet/data/181rf10g.nc
+set result = 0
+if ( 0 != 0 ) then
+set ext = .gz
+if ( 1 ) echo    gzipped /jnet/data/181rf10g.nc
+echo    gzipped /jnet/data/181rf10g.nc
+   gzipped /jnet/data/181rf10g.nc
+endif
+endif
+switch ( scp )
+set mesg =    Beginning scp /jnet/data/181rf10g.nc.gz to raf
+if ( 1 ) echo Beginning scp /jnet/data/181rf10g.nc.gz to raf
+echo Beginning scp /jnet/data/181rf10g.nc.gz to raf
+Beginning scp /jnet/data/181rf10g.nc.gz to raf
+echo Beginning scp /jnet/data/181rf10g.nc.gz to raf
+if ( 1 ) echo    /usr/bin/scp /jnet/data/181rf10g.nc.gz ruth@vivaldi.atd.ucar.edu:/jnet/data/migs/ruth/181rf10g.nc.gz
+echo    /usr/bin/scp /jnet/data/181rf10g.nc.gz ruth@vivaldi.atd.ucar.edu:/jnet/data/migs/ruth/181rf10g.nc.gz
+   /usr/bin/scp /jnet/data/181rf10g.nc.gz ruth@vivaldi.atd.ucar.edu:/jnet/data/migs/ruth/181rf10g.nc.gz
+/usr/bin/scp /jnet/data/181rf10g.nc.gz ruth@vivaldi.atd.ucar.edu:/jnet/data/migs/ruth/181rf10g.nc.gz
+set result = 1
+breaksw
+if ( 1 != 0 ) then
+set mesg =    scp failed on file 181rf10g.nc.gz with error 1.
+else
+if ( 1 ) echo scp failed on file 181rf10g.nc.gz with error 1.
+echo scp failed on file 181rf10g.nc.gz with error 1.
+scp failed on file 181rf10g.nc.gz with error 1.
+echo scp failed on file 181rf10g.nc.gz with error 1.
+if ( .gz == .gz ) then
+/bin/gunzip /jnet/data/181rf10g.nc.gz
+if ( 0 != 0 ) then
+if ( 1 ) echo    Gunzipped file /jnet/data/181rf10g.nc.gz
+echo    Gunzipped file /jnet/data/181rf10g.nc.gz
+   Gunzipped file /jnet/data/181rf10g.nc.gz
+endif
+endif
+else
+if ( 0 ) unset fmod
+breaksw
+end
+set pf = ( `echo $afile | $awk -F. '{print $1} {print $2}'` )
+echo 181rf10h.ads
+/bin/awk -F. {print $1} {print $2}
+switch ( copy )
+set raw = 1
+switch ( cdf )
+case asc
+set raw = 0
+if ( ads != ads ) continue
+breaksw
+set c_name = copy_set
+set copy_set = 
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_set *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_set = copy_type copy_p zip login dest ddp
+awk -F= {print $2}
+if ( 6 > 0 ) then
+set copy_set = ( copy_type copy_p zip login dest ddp )
+if ( 1 ) echo   Got setting for copy_set:  copy_type copy_p zip login dest ddp
+echo   Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+else
+else
+if ( 1 ) echo   6 copy_set = copy_type copy_p zip login dest ddp
+echo   6 copy_set = copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+set zip = no
+set gotem = yes
+foreach c_name ( copy_type copy_p zip login dest ddp )
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_type *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_type = scp
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set copy_type = ( scp )
+if ( 1 ) echo   Got setting for copy_type:  scp
+echo   Got setting for copy_type:  scp
+  Got setting for copy_type:  scp
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_p *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_p = /usr/bin/scp
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set copy_p = ( /usr/bin/scp )
+if ( 1 ) echo   Got setting for copy_p:  /usr/bin/scp
+echo   Got setting for copy_p:  /usr/bin/scp
+  Got setting for copy_p:  /usr/bin/scp
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^zip *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo zip = yes
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set zip = ( yes )
+if ( 1 ) echo   Got setting for zip:  yes
+echo   Got setting for zip:  yes
+  Got setting for zip:  yes
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^login *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo login = ruth
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set login = ( ruth )
+if ( 1 ) echo   Got setting for login:  ruth
+echo   Got setting for login:  ruth
+  Got setting for login:  ruth
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^dest *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo dest = vivaldi.atd.ucar.edu
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set dest = ( vivaldi.atd.ucar.edu )
+if ( 1 ) echo   Got setting for dest:  vivaldi.atd.ucar.edu
+echo   Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for dest:  vivaldi.atd.ucar.edu
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^ddp *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo ddp = /jnet/data/migs/ruth
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set ddp = ( /jnet/data/migs/ruth )
+if ( 1 ) echo   Got setting for ddp:  /jnet/data/migs/ruth
+echo   Got setting for ddp:  /jnet/data/migs/ruth
+  Got setting for ddp:  /jnet/data/migs/ruth
+else
+else
+end
+if ( yes == no ) then
+if ( 0 ) then
+if ( cdf == cdf ) then
+if ( 0 ) then
+set cfile = 181rf10h.nc
+endif
+else if ( cdf == asc ) then
+if ( ! -e 181rf10h.nc ) then
+set mesg =    Cannot find file 181rf10h.nc for raf.  Skipping to next job.
+if ( 1 ) echo Cannot find file 181rf10h.nc for raf. Skipping to next job.
+echo Cannot find file 181rf10h.nc for raf. Skipping to next job.
+Cannot find file 181rf10h.nc for raf. Skipping to next job.
+echo Cannot find file 181rf10h.nc for raf. Skipping to next job.
+continue
+set pf = ( `echo $afile | $awk -F. '{print $1} {print $2}'` )
+echo 181rf10i.ads
+/bin/awk -F. {print $1} {print $2}
+switch ( copy )
+set raw = 1
+switch ( cdf )
+case asc
+set raw = 0
+if ( ads != ads ) continue
+breaksw
+set c_name = copy_set
+set copy_set = 
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_set *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_set = copy_type copy_p zip login dest ddp
+awk -F= {print $2}
+if ( 6 > 0 ) then
+set copy_set = ( copy_type copy_p zip login dest ddp )
+if ( 1 ) echo   Got setting for copy_set:  copy_type copy_p zip login dest ddp
+echo   Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+else
+else
+if ( 1 ) echo   6 copy_set = copy_type copy_p zip login dest ddp
+echo   6 copy_set = copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+set zip = no
+set gotem = yes
+foreach c_name ( copy_type copy_p zip login dest ddp )
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_type *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_type = scp
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set copy_type = ( scp )
+if ( 1 ) echo   Got setting for copy_type:  scp
+echo   Got setting for copy_type:  scp
+  Got setting for copy_type:  scp
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^copy_p *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo copy_p = /usr/bin/scp
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set copy_p = ( /usr/bin/scp )
+if ( 1 ) echo   Got setting for copy_p:  /usr/bin/scp
+echo   Got setting for copy_p:  /usr/bin/scp
+  Got setting for copy_p:  /usr/bin/scp
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^zip *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo zip = yes
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set zip = ( yes )
+if ( 1 ) echo   Got setting for zip:  yes
+echo   Got setting for zip:  yes
+  Got setting for zip:  yes
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^login *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo login = ruth
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set login = ( ruth )
+if ( 1 ) echo   Got setting for login:  ruth
+echo   Got setting for login:  ruth
+  Got setting for login:  ruth
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^dest *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo dest = vivaldi.atd.ucar.edu
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set dest = ( vivaldi.atd.ucar.edu )
+if ( 1 ) echo   Got setting for dest:  vivaldi.atd.ucar.edu
+echo   Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for dest:  vivaldi.atd.ucar.edu
+else
+else
+end
+set input = `grep "^$c_name *=" $projdir/$job`
+grep ^ddp *= /jnet/linux/dev/proj/181/Production/gndproc/copy_cdf_raf
+if ( 0 == 0 ) then
+set temp = `echo $input | awk -F= '{print $2}'`
+echo ddp = /jnet/data/migs/ruth
+awk -F= {print $2}
+if ( 1 > 0 ) then
+set ddp = ( /jnet/data/migs/ruth )
+if ( 1 ) echo   Got setting for ddp:  /jnet/data/migs/ruth
+echo   Got setting for ddp:  /jnet/data/migs/ruth
+  Got setting for ddp:  /jnet/data/migs/ruth
+else
+else
+end
+if ( yes == no ) then
+if ( 0 ) then
+if ( cdf == cdf ) then
+if ( 0 ) then
+set cfile = 181rf10i.nc
+endif
+else if ( cdf == asc ) then
+if ( ! -e 181rf10i.nc ) then
+set mesg =    Cannot find file 181rf10i.nc for raf.  Skipping to next job.
+if ( 1 ) echo Cannot find file 181rf10i.nc for raf. Skipping to next job.
+echo Cannot find file 181rf10i.nc for raf. Skipping to next job.
+Cannot find file 181rf10i.nc for raf. Skipping to next job.
+echo Cannot find file 181rf10i.nc for raf. Skipping to next job.
+continue
+end
+set mesg =    Finished processing all jobs
+goto done
+echo 
+
+echo Finished processing all jobs
+Finished processing all jobs
+echo Finished processing all jobs
+echo 
+
+set logname = `echo $D/$f2do[1] | $sed -e "s/\..*//"`.log
+echo /jnet/data/181rf10g.ads
+/bin/sed -e s/\..*//
+if ( 1 ) echo   Logfile name is /jnet/data/181rf10g.log
+echo   Logfile name is /jnet/data/181rf10g.log
+  Logfile name is /jnet/data/181rf10g.log
+if ( -e /jnet/data/181rf10g.log ) then
+echo /jnet/shared/proj/archives/scripts/ngndproc script started Tue Jun 3 17:20:09 MDT 2003
+if ( 0 != 0 ) then
+cat /jnet/data/gndproc_log.13865
+/bin/rm /jnet/data/gndproc_log.13865
+endif
+endif
+set mesg =    Log file for this job is /jnet/data/181rf10g.log
+echo Log file for this job is /jnet/data/181rf10g.log
+Log file for this job is /jnet/data/181rf10g.log
+echo Log file for this job is /jnet/data/181rf10g.log
+set mesg =    /jnet/shared/proj/archives/scripts/ngndproc script completed @ `date`
+date
+echo /jnet/shared/proj/archives/scripts/ngndproc script completed @ Tue Jun 3 17:29:23 MDT 2003
+/jnet/shared/proj/archives/scripts/ngndproc script completed @ Tue Jun 3 17:29:23 MDT 2003
+echo /jnet/shared/proj/archives/scripts/ngndproc script completed @ Tue Jun 3 17:29:23 MDT 2003
+if ( yes == yes ) /bin/mail -s /jnet/shared/proj/archives/scripts/ngndproc job completed ruth@ucar.edu
+/bin/mail -s /jnet/shared/proj/archives/scripts/ngndproc job completed ruth@ucar.edu
+set mok = no
+abort:
+onintr -
+if ( ! -e /jnet/data/gndproc_msg.13865 ) then
+echo 
+else
+if ( ! -e /jnet/data/gndproc_log.13865 ) then
+echo 
+else
+if ( no == yes ) goto done
+if ( 1 ) then
+if ( ! -e 181rf10g.batch ) then
+echo 
+else
+endif
+if ( ! -e /jnet/data/gndproc_log.13865 ) then
+echo 
+else
+exit

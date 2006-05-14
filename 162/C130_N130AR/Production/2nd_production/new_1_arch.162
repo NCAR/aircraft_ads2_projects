@@ -1,0 +1,60 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 5-162 SCMS (Small Cumulus Microphysics Study) (Charlie Knight, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Thu May 21 10:38:47 MDT 1998
+#
+date
+#
+set YEAR = 1995
+set PROJ = 162
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = NEW/LRT
+#
+echo nrnet msput $SDIR/162rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#
+set TURBRT = NEW/HRT
+#
+echo nrnet msput $SDIR/162rf01h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf03h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf12h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Thu May 21 10:42:29 MDT 1998
+# Sequence number = MI5979 -- NEW/LRT/RF01.cdf -- OK @ 21 May 1998 10:44:34
+# Sequence number = MI5986 -- NEW/LRT/RF02.cdf -- OK @ 21 May 1998 10:44:14
+# Sequence number = MI5993 -- NEW/LRT/RF03.cdf -- OK @ 21 May 1998 10:45:12
+# Sequence number = MI6000 -- NEW/LRT/RF04.cdf -- OK @ 21 May 1998 10:44:43
+# Sequence number = MI6007 -- NEW/LRT/RF05.cdf -- OK @ 21 May 1998 10:48:57
+# Sequence number = MI6014 -- NEW/LRT/RF06.cdf -- OK @ 21 May 1998 10:48:30
+# Sequence number = MI6021 -- NEW/LRT/RF07.cdf -- OK @ 21 May 1998 10:47:44
+# Sequence number = MI6028 -- NEW/LRT/RF08.cdf -- OK @ 21 May 1998 10:48:16
+# Sequence number = MI6035 -- NEW/LRT/RF12.cdf -- OK @ 21 May 1998 10:54:16
+# Sequence number = MI6042 -- NEW/HRT/RF01.cdf -- OK @ 21 May 1998 11:22:20
+# Sequence number = MI6049 -- NEW/HRT/RF02.cdf -- OK @ 21 May 1998 11:21:32
+# Sequence number = MI6056 -- NEW/HRT/RF03.cdf -- OK @ 21 May 1998 11:20:54
+# Sequence number = MI6063 -- NEW/HRT/RF04.cdf -- OK @ 21 May 1998 11:47:40
+# Sequence number = MI6070 -- NEW/HRT/RF05.cdf -- OK @ 21 May 1998 11:53:44
+# Sequence number = MI6077 -- NEW/HRT/RF06.cdf -- OK @ 21 May 1998 11:46:42
+# Sequence number = MI6084 -- NEW/HRT/RF07.cdf -- OK @ 21 May 1998 11:29:28
+# Sequence number = MI6091 -- NEW/HRT/RF08.cdf -- OK @ 21 May 1998 11:48:47
+# Sequence number = MI6098 -- NEW/HRT/RF12.cdf -- OK @ 21 May 1998 11:19:48
+#

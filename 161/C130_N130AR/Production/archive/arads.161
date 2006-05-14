@@ -1,0 +1,217 @@
+#! /bin/csh -f
+#
+#goto rename
+#
+#  Archive stripped raw ADS data files for 2001-161 EPIC2001
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file /home/local/proj/102/Production/arch_ads.102
+#    by Ron Ruth  28 January 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#161ff02a.ads \
+#161gndtst.ads \
+#161rf02a.ads \
+#161rf10a.ads \
+#161rf17a.ads \
+#161rf19a.ads \
+#161tf01a.ads \
+#161tf02a.ads \
+#161tf03a.ads \
+#)
+#set DFILES = ( \
+#FF02 \
+#GNDTST \
+#RF02 \
+#RF10 \
+#RF17 \
+#RF19 \
+#TF01 \
+#TF02 \
+#TF03 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#161ff01a.ads \
+#161rf01a.ads \
+#161rf03a.ads \
+#161rf03b.ads \
+#161rf04a.ads \
+#161rf05a.ads \
+#161rf06a.ads \
+#)
+#set DFILES = ( \
+#FF01 \
+#RF01 \
+#RF03A \
+#RF03B \
+#RF04 \
+#RF05 \
+#RF06 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#161rf07a.ads \
+#161rf08a.ads \
+#161rf09a.ads \
+#161rf11a.ads \
+#161rf12a.ads \
+#161rf13a.ads \
+#161rf14a.ads \
+#161rf15a.ads \
+#161rf15b.ads \
+#161rf16a.ads \
+#161rf18a.ads \
+#161rf18b.ads \
+#161tf02b.ads \
+#161tf04a.ads \
+#161tf04b.ads \
+#161tf05a.ads \
+#)
+#set DFILES = ( \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15A \
+#RF15B \
+#RF16 \
+#RF18A \
+#RF18B \
+#TF02B \
+#TF04A \
+#TF04B \
+#TF05 \
+#)
+#
+#  4th wave  (rename misnamed bitfiles--see below)
+#
+#  5th wave (Replace with versions that have corrected flight date)
+#set SFILES = ( \
+#161rf13a.ads \
+#161rf16a.ads \
+#)
+#set DFILES = ( \
+#RF13 \
+#RF16 \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TYPE/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/161/
+#
+#  1st wave
+#  Job(s) submitted on Tue Oct 16 12:12:05 MDT 2001
+# Sequence number = LN7931 -- ADS/FF02 -- OK @ 16 Oct 2001 12:43:06
+# Sequence number = LN7939 -- ADS/GNDTST -- OK @ 16 Oct 2001 12:20:16
+# Sequence number = LN7947 -- ADS/RF02 -- OK @ 16 Oct 2001 12:46:38
+# Sequence number = LN7955 -- ADS/RF10 -- OK @ 16 Oct 2001 12:48:52
+# Sequence number = LN7965 -- ADS/RF17 -- OK @ 16 Oct 2001 12:54:10
+# Sequence number = LN7975 -- ADS/RF19 -- OK @ 16 Oct 2001 13:05:33
+# Sequence number = LN7985 -- ADS/TF01 -- OK @ 16 Oct 2001 12:56:00
+# Sequence number = LN7995 -- ADS/TF02 -- OK @ 16 Oct 2001 12:49:00
+# Sequence number = LN8003 -- ADS/TF03 -- OK @ 16 Oct 2001 12:59:51
+#
+#  2nd wave
+#  Job(s) submitted on Tue Oct 16 15:14:15 MDT 2001
+# Sequence number = LN1957 -- ADS/FF01 -- OK @ 16 Oct 2001 15:42:42
+# Sequence number = LN1965 -- ADS/RF01 -- OK @ 16 Oct 2001 15:48:35
+# Sequence number = LN1973 -- ADS/RF03A -- OK @ 16 Oct 2001 15:14:47
+# Sequence number = LN1981 -- ADS/RF03B -- OK @ 16 Oct 2001 15:51:31
+# Sequence number = LN1991 -- ADS/RF04 -- OK @ 16 Oct 2001 15:52:31
+# Sequence number = LN2001 -- ADS/RF05 -- OK @ 16 Oct 2001 16:02:28
+# Sequence number = LN2011 -- ADS/RF06 -- OK @ 16 Oct 2001 16:09:06
+#
+#  3rd wave
+#  Job(s) submitted on Wed Oct 17 11:40:26 MDT 2001
+# Sequence number = LN8539 -- ADS/RF07 -- OK @ 17 Oct 2001 12:13:24
+# Sequence number = LN8547 -- ADS/RF08 -- OK @ 17 Oct 2001 12:20:44
+# Sequence number = LN8555 -- ADS/RF09 -- OK @ 17 Oct 2001 12:17:48
+# Sequence number = LN8563 -- ADS/RF11 -- OK @ 17 Oct 2001 12:22:04
+# Sequence number = LN8573 -- ADS/RF12 -- OK @ 17 Oct 2001 12:39:32
+# Sequence number = LN8583 -- ADS/RF13 -- OK @ 17 Oct 2001 12:50:18
+# Sequence number = LN8593 -- ADS/RF14 -- OK @ 17 Oct 2001 12:57:59
+# Sequence number = LN8603 -- ADS/RF15A -- OK @ 17 Oct 2001 12:44:57
+# Sequence number = LN8611 -- ADS/RF15B -- OK @ 17 Oct 2001 12:54:09
+# Sequence number = LN8619 -- ADS/RF16 -- OK @ 17 Oct 2001 13:18:35
+# Sequence number = LN8627 -- ADS/RF18A -- OK @ 17 Oct 2001 12:49:14
+# Sequence number = LN8635 -- ADS/RF18B -- OK @ 17 Oct 2001 13:15:43
+# Sequence number = LN8643 -- ADS/TF02B -- OK @ 17 Oct 2001 12:52:39
+# Sequence number = LN8651 -- ADS/TF04A -- OK @ 17 Oct 2001 13:00:56
+# Sequence number = LN8659 -- ADS/TF04B -- OK @ 17 Oct 2001 13:09:41
+# Sequence number = LN8667 -- ADS/TF05 -- OK @ 17 Oct 2001 12:56:53
+#
+#rename:
+#  4th wave  (rename misnamed bitfiles)
+#date
+#nrnet msmv % r flnm=/RAF/2001/161/ADS/TF02 newf=/RAF/2001/161/ADS/TF02A wpwd=RAFDMG
+#  Job(s) submitted on Thu Oct 18 09:30:24 MDT 2001
+# Sequence number = LN8674 -- ADS/TF02A -- OK @ 18 Oct 2001 09:30:28
+#
+#  5th wave
+#  Job(s) submitted on Fri Feb  1 16:07:43 MST 2002
+# Sequence number = LN2100 -- ADS/RF13 -- OK @ 1 Feb 2002 16:27:28
+# Sequence number = LN2108 -- ADS/RF16 -- OK @ 1 Feb 2002 16:29:55
+#
+#   th wave
+#  Job(s) submitted on 
+#

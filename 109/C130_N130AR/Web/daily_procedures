@@ -1,0 +1,22 @@
+From the IDEAS-3 project:
+
+Prior to flight
+ - open chat room (with logging)
+ - get surface and upper air charts
+
+During flight
+ - get surface charts every half hour
+
+one hour after flight
+ - get satellite loops (vis and IR) to encompass entire flight time
+ unpack loops (goes.proc script) to prepare for web display
+
+after data available
+ - archive raw ads, 2d, CPI and MCR
+ - update tapes.ppp
+ - post netCDF, 2d (and other requested) files to FTP site (gzipped)
+ - update "data_access.html" file
+ - update "flights.html" file
+ - create whole-flight plots using ncplot
+ - update FltMatrix.html
+ - edit (if necessary) and post xchat log

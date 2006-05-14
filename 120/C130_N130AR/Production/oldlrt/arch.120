@@ -1,0 +1,123 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 4-120 BASE (Judy Curry, et al.)
+#
+#  File created by '/home/users/ron/nimbus/tools/genar' Revision 3 on Fri Apr 14 13:39:07 MDT 1995
+#
+#goto rename
+#
+date
+#
+set YEAR = 1994
+set PROJ = 120
+#
+#
+set TURBRT = LRT
+#
+nrnet msput $PROD_DATA/120RF04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF17.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+nrnet msput $PROD_DATA/120RF03A.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03A.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF03B.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03B.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF03C.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03C.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF18A.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18A.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $PROD_DATA/120RF18B.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18B.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Preliminary data (before rename)
+#  Job(s) submitted on Fri Apr 14 13:55:52 MDT 1995
+# Sequence number = MI4170 -- LRT/RF04.cdf -- OK @ 14:02:34
+# Sequence number = MI4177 -- LRT/RF05.cdf -- OK @ 13:59:06
+# Sequence number = MI4184 -- LRT/RF06.cdf -- OK @ 14:00:06
+# Sequence number = MI4193 -- LRT/RF07.cdf -- OK @ 14:03:09
+# Sequence number = MI4202 -- LRT/RF10.cdf -- OK @ 14:01:25
+# Sequence number = MI4209 -- LRT/RF11.cdf -- OK @ 14:04:34
+# Sequence number = MI4220 -- LRT/RF12.cdf -- OK @ 14:04:04
+# Sequence number = MI4233 -- LRT/RF13.cdf -- OK @ 14:10:34
+# Sequence number = MI4245 -- LRT/RF14.cdf -- OK @ 14:14:56
+# Sequence number = MI4255 -- LRT/RF15.cdf -- OK @ 14:09:24
+# Sequence number = MI4262 -- LRT/RF16.cdf -- OK @ 14:09:57
+# Sequence number = MI4271 -- LRT/RF17.cdf -- OK @ 14:08:54
+# Sequence number = MI4278 -- LRT/RF03A.cdf -- OK @ 14:13:00
+# Sequence number = MI4285 -- LRT/RF03B.cdf -- OK @ 14:13:12
+# Sequence number = MI4292 -- LRT/RF03C.cdf -- OK @ 14:15:10
+# Sequence number = MI4299 -- LRT/RF18A.cdf -- OK @ 14:10:42
+# Sequence number = MI4306 -- LRT/RF18B.cdf -- OK @ 14:15:24
+#
+#
+#  Rename preliminary NIMBUS netCDF output files for 4-120 BASE
+rename:
+#
+date
+#
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF03A.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF03A.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF03B.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF03B.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF03C.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF03C.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF04.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF04.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF05.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF05.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF06.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF06.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF07.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF07.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF10.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF10.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF11.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF11.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF12.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF12.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF13.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF13.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF14.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF14.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF15.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF15.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF16.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF16.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF17.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF17.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF18A.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF18A.cdf w=RAFDMG
+nrnet msmv % r flnm=/RAF/1994/120/LRT/RF18B.cdf npdn=/RAF/1994/120/PRELIM/LRT/RF18B.cdf w=RAFDMG
+#
+exit
+#
+#  Job(s) submitted on Tue Jun  6 14:49:16 MDT 1995
+# Sequence number = MI2095 -- PRELIM/LRT/RF03A.cdf -- OK @ 14:49
+# Sequence number = MI2102 -- PRELIM/LRT/RF03B.cdf -- OK @ 14:49
+# Sequence number = MI2109 -- PRELIM/LRT/RF03C.cdf -- OK @ 14:49
+# Sequence number = MI2116 -- PRELIM/LRT/RF04.cdf -- OK @ 14:51
+# Sequence number = MI2123 -- PRELIM/LRT/RF05.cdf -- OK @ 14:51
+# Sequence number = MI2130 -- PRELIM/LRT/RF06.cdf -- OK @ 14:51
+# Sequence number = MI2137 -- PRELIM/LRT/RF07.cdf -- OK @ 14:52
+# Sequence number = MI2144 -- PRELIM/LRT/RF10.cdf -- OK @ 14:52
+# Sequence number = MI2151 -- PRELIM/LRT/RF11.cdf -- OK @ 14:52
+# Sequence number = MI2158 -- PRELIM/LRT/RF12.cdf -- OK @ 14:52
+# Sequence number = MI2165 -- PRELIM/LRT/RF13.cdf -- OK @ 14:52
+# Sequence number = MI2172 -- PRELIM/LRT/RF14.cdf -- OK @ 14:52
+# Sequence number = MI2179 -- PRELIM/LRT/RF15.cdf -- OK @ 14:52
+# Sequence number = MI2186 -- PRELIM/LRT/RF16.cdf -- OK @ 14:52
+# Sequence number = MI2193 -- PRELIM/LRT/RF17.cdf -- OK @ 14:52
+# Sequence number = MI2200 -- PRELIM/LRT/RF18A.cdf -- OK @ 14:52
+# Sequence number = MI2207 -- PRELIM/LRT/RF18B.cdf -- OK @ 14:50
+#
+#
+#  Resubmission after dates were corrected.
+#  Job(s) submitted on Tue Jun  6 15:09:19 MDT 1995
+# Sequence number = MI2234 -- LRT/RF04.cdf -- OK @ 15:16:49
+# Sequence number = MI2241 -- LRT/RF05.cdf -- OK @ 15:14:09
+# Sequence number = MI2248 -- LRT/RF06.cdf -- OK @ 15:15:24
+# Sequence number = MI2255 -- LRT/RF07.cdf -- OK @ 15:17:25
+# Sequence number = MI2262 -- LRT/RF10.cdf -- OK @ 15:18:28
+# Sequence number = MI2269 -- LRT/RF11.cdf -- OK @ 15:23:48
+# Sequence number = MI2279 -- LRT/RF12.cdf -- OK @ 15:23:13
+# Sequence number = MI2288 -- LRT/RF13.cdf -- OK @ 15:24:32
+# Sequence number = MI2299 -- LRT/RF14.cdf -- OK @ 15:25:09
+# Sequence number = MI2309 -- LRT/RF15.cdf -- OK @ 15:26:04
+# Sequence number = MI2319 -- LRT/RF16.cdf -- OK @ 15:28:27
+# Sequence number = MI2328 -- LRT/RF17.cdf -- OK @ 15:27:59
+# Sequence number = MI2338 -- LRT/RF03A.cdf -- OK @ 15:26:17
+# Sequence number = MI2345 -- LRT/RF03B.cdf -- OK @ 15:26:24
+# Sequence number = MI2352 -- LRT/RF03C.cdf -- OK @ 15:32:25
+# Sequence number = MI2359 -- LRT/RF18A.cdf -- OK @ 15:32:08
+# Sequence number = MI2366 -- LRT/RF18B.cdf -- OK @ 15:33:03
+#

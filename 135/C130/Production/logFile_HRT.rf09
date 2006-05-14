@@ -1,0 +1,119 @@
+RICO - 135, Flight rf09
+Revision: 2160
+Analog TEO3C being renamed to TEO3.
+Loading setup file: /jnet/local/proj/135/Production/Flight_rf04
+LHLO has no description or units.
+XPH has no description or units.
+REFF2DC_LWO1 has no description or units.
+REFF6_RWI has no description or units.
+TTWHC has no description or units.
+XCIM has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Processed on: 2005-06-09 15:54:36 -0600
+Flight Date: 12/20/2004
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for PLWC enabled, with lag of -40 milliseconds.
+Time lag for PLWC1 enabled, with lag of -40 milliseconds.
+Time lag for XGLWC enabled, with lag of 20 milliseconds.
+Time lag for XGREFF enabled, with lag of 20 milliseconds.
+Time lag for XGSFC enabled, with lag of 20 milliseconds.
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for AS100_LPC enabled, with lag of 200 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -550 milliseconds.
+Time lag for GGTRK enabled, with lag of -550 milliseconds.
+Time lag for GGVEW enabled, with lag of -550 milliseconds.
+Time lag for GGVNS enabled, with lag of -550 milliseconds.
+Time lag for OVFLW_LPC enabled, with lag of 200 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for REJAT_LPC enabled, with lag of 200 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+Blanking VLA1 from 10:56:00 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking XCINB from 10:56:00 to 19:05:39.
+Blanking XCINCB from 10:56:00 to 19:05:39.
+Blanking XCINCF from 10:56:00 to 19:05:39.
+Blanking XCINF from 10:56:00 to 19:05:39.
+Blanking DPLA1 from 10:56:00 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA1 from 10:56:00 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA1 from 10:56:00 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHOLA1 from 10:56:00 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking HGM232 from 10:56:00 to 10:59:04.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 10:56:00 to 10:59:04.
+Blanking PLWCC1 from 10:56:00 to 10:59:04.
+Blanking HGM232 from 19:04:57 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 19:02:30 to 19:05:39.
+Blanking PLWCC1 from 19:02:30 to 19:05:39.
+Blanking DPLA from 18:58:40 to 19:03:00.
+Blanking RHOLA from 18:58:40 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking MRLA from 18:58:40 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHLA from 18:58:40 to 19:05:39.
+ The following variables depend upon this variable:
+ 
+
+Blanking OAT from 11:21:11 to 11:21:20.
+Blanking DPT from 12:02:00 to 12:07:30.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 12:02:00 to 12:07:30.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking XUFCT from 12:12:47 to 12:12:53.
+Blanking XUFCT from 12:53:42 to 12:53:45.
+Blanking XUFCT from 18:34:50 to 18:34:52.
+Time interval(s) completed : 
+10:56:00-19:05:39
+
+ACINS: 83 spikes removed with slope exceeding 4.000000
+LAT: 5 spikes removed with slope exceeding 0.200000
+LON: 4 spikes removed with slope exceeding 0.200000
+PITCH: 90 spikes removed with slope exceeding 1.300000
+ROLL: 80 spikes removed with slope exceeding 1.300000
+THDG: 34 spikes removed with slope exceeding 1.500000
+VEW: 15 spikes removed with slope exceeding 20.000000
+VNS: 15 spikes removed with slope exceeding 20.000000
+VSPD: 38 spikes removed with slope exceeding 1.600000
+IRS Error report: Latitude had 4 values of 0 (zero).
+IRS Error report: Longitude had 4 values of 0 (zero).
+IRS Error report: True Heading had 32 values of 0 (zero).
+IRS Error report: Pitch had 85 values of 0 (zero).
+IRS Error report: Roll had 75 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 77 values of 0 (zero).
+IRS Error report: Vertical Speed had 36 values of 0 (zero).
+IRS Error report: NS Velocity had 28494 values of 0 (zero).
+IRS Error report: EW Velocity had 28494 values of 0 (zero).
+Processing took 4.2 minutes.

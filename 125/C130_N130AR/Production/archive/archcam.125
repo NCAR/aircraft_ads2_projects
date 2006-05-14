@@ -1,0 +1,724 @@
+#! /bin/csh -f
+#
+#  Archive digital camera photo files for 2004-125 ACME
+#   (Don't forget to archive the movies, too!)
+#
+#  Move files from /RAF path to /ATD/DATA path
+#goto movem
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2004                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  For future changes/enhancements, search for this string --> ##########
+#
+##########
+#  Enhancement requirement:  design a way to pick up where it left off in
+#                            case the archiving is aborted for some reason
+#  Desired enhancement:  Automatically archive based on proj.info file which
+#                         would have jpg files' directory path
+#                        This depends a lot on how the jpg files are stored
+#                         on local servers and any changes in file-name format.
+##########
+#
+#  This file copied and significantly modified from file
+#    $LOCAL/proj/125/Production/archive/archcpi.125
+#   by Ron Ruth  17 June to 13 August 2004
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#
+#      * * * * * * * * * * * * * * *
+#     *                             *
+#    *  Executable code starts here  *
+#     *                             *
+#      * * * * * * * * * * * * * * *
+#
+onintr abort
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+#set SDIR = "/jnet/win_jef2/cpi/?"
+#set SDIR = "/net/ftp/pub/archive/RAF-projects/$project/CPI"
+set SDIR = "/scr/jscience/beaton/Acme"
+#
+#  Set MSS Read PassWorD if restricted access
+#   (Don't forget to add notation in file $PROJ/archives/msfiles/directory_map)
+set RPWD = ""
+#set RPWD = "-rpwd readonly"
+#
+#   Maximum tar file size (bytes)
+@ MAXSIZ = 600000000     #  to easily fit on a 700MB CD-ROM
+#   Maximum number of tar file arguments
+#    (based on current file name convention's character length)
+#    (This is probably an operating-system-dependent parameter.)
+@ MAXTAR = 4600
+#
+#
+#  Note:  Sdir is source subdirectory path
+#         DDIR is MSS subdirectory path
+#         At present they are both the same but could change if file-naming
+#          format changes
+#
+#  1st wave (4,902 files)
+#set Sdir = "TF01"
+#set DDIR = "TF01"
+#
+#  2nd wave (402 files)
+#set Sdir = "RF01"
+#set DDIR = "RF01"
+#
+#  3rd wave (2,310 files)
+#set Sdir = "RF02"
+#set DDIR = "RF02"
+#
+#  4th wave (9,407 files)
+#set Sdir = "RF03"
+#set DDIR = "RF03"
+#
+#  5th wave (2,132 files)
+#set Sdir = "RF05"
+#set DDIR = "RF05"
+#
+#  6th wave (7,271 files)
+#set Sdir = "RF06"
+#set DDIR = "RF06"
+#
+#  7th wave (12,600 files)
+#set Sdir = "RF07"
+#set DDIR = "RF07"
+#
+#  8th wave (9,057 files)
+#set Sdir = "RF08"
+#set DDIR = "RF08"
+#
+#  9th wave (12,140 files)
+#set Sdir = "RF09"
+#set DDIR = "RF09"
+#
+# 10th wave (8,563 files)
+#set Sdir = "RF10"
+#set DDIR = "RF10"
+#
+# 11th wave (13,240 files)
+#set Sdir = "RF11"
+#set DDIR = "RF11"
+#
+# 12th wave (11,710 files)
+#set Sdir = "RF12"
+#set DDIR = "RF12"
+#
+# 13th wave (7,800 files)
+#set Sdir = "RF13"
+#set DDIR = "RF13"
+#
+# 14th wave (19,004 files)
+#set Sdir = "RF14"
+#set DDIR = "RF14"
+#
+# 15th wave (4,820 files)
+#set Sdir = "RF15"
+#set DDIR = "RF15"
+#
+# 16th wave (16,117 files)
+#set Sdir = "RF16"
+#set DDIR = "RF16"
+#
+# 17th wave (move files from /RAF path to /ATD/DATA path)
+#movem:
+#echo "#  Rename job submitted on `date`"
+#msmv -wpwd RAFDMG /RAF/2004/125/CAMERA /ATD/DATA/2004/ACME/C130_N130AR/CAMERA 
+#echo "#   Successfully moved all camera bitfiles from MSS directory:"
+#echo "#    /RAF/2004/125/CAMERA to /ATD/DATA/2004/ACME/C130_N130AR/CAMERA"
+#echo "#    on `date`"
+#exit
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script."
+  echo "  Quitting"
+  exit
+endif
+#
+#  Initialize
+#   Temporary file names
+set Flist = "$TMPDIR/archcam_files.$$"
+set Tfile = "$TMPDIR/tarit.archcam.$$"
+set Afile = "$TMPDIR/archcam_$$.tar"
+#   Tar file no-purge flag
+set nopurge = 0
+#   Verbose flag (no)
+set vb = 0
+#   Debug flag (no)
+set db = 0
+#   Production flag (no)
+set pd = 0                #  Default is to echo, not archive the tar files
+#
+#  Get command-line arguments (if any)
+#echo "  $#argv arguments:  $argv"
+foreach arg ($argv)
+#  echo "  Argument is: $arg"
+  set ar = `echo $arg | sed -e "s/\-//"`
+#   Verbose?
+  if ($ar == "v") then
+    set vb = 1
+    continue
+  endif
+#   Debug?
+  if ($ar == "d") then
+    set db = 1
+    continue
+  endif
+#   Production?
+  if ($ar == "p") then
+    set pd = 1
+    continue
+  endif
+end
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set PROJ = `pwd`
+#set PROJ = `echo $PROJ | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting"
+  exit 1
+endif
+#   Project directory
+set Pdir = "$LOCAL/proj/$PROJ/Production"
+#   archive directory
+set Adir = "$Pdir/archive"
+#   Project's information file
+set pfile = $Pdir/proj.info
+if (! -r $pfile) then
+  echo "  Cannot access project's $pfile"
+  echo "  Quitting"
+  exit 1
+endif
+#   Get project information
+#    full project name
+set PN = (`grep "Information for Project" $pfile`)
+if ($status == 0 && $#PN > 4) then
+  shift PN
+  shift PN
+  shift PN
+  shift PN
+else
+  set PN = "Unknown"
+  echo "  Project Name not found in $pfile -- edit directory file(s) to insert"
+  @ presult = 1
+endif
+#    fiscal year for directory path
+##########  Change this to calendar year if one uses /ATD/DATA path
+#            (See file /jnet/shared/proj/archives/scripts/gentl for example.)
+set YEAR = `grep FY $pfile | sed -e "s/FY=//"`
+set TYPE = "CAMERA"
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+#  set msrcpMachine = "lenny"
+#  set msrcpMachine = "mistral"
+endif
+#
+if ($pd != 1) then
+  echo " ${0}:  This is a checkout run, since the -p option not set."
+  echo "  No files will be archived to the Mass Store."
+else
+  echo " ${0}:  This is a production run."
+  echo "  Tar files will be archived to the Mass Store."
+endif
+#
+#
+#  Get started:
+if ($?SDIR && $?Sdir) then
+  ls $SDIR/$Sdir >! $Flist
+  set result = $status
+  if ($result != 0) then
+    echo "  Error $result when trying to get source file list from"
+    echo "   directory $SDIR/$Sdir"
+    goto quit
+  endif
+else
+  echo "  Error:  source file directory not specified."
+  goto quit
+endif
+#
+#  Get/set indices
+@ nfiles = `wc -l $Flist | awk '{print $1}'`
+@ fztotal = 0
+@ N = 0
+@ n = 0
+@ f = 0
+set new = "yes"
+#
+if ($vb == 1) then
+  echo ""
+  echo "  Number of files in directory $Sdir = $nfiles"
+endif
+#
+pushd $SDIR/$Sdir >& /dev/null
+foreach file (`cat $Flist`)
+  @ N ++
+  @ n ++
+#
+##########  Add check here in case we are continuing a partial save
+#
+  if ($new == "yes") then
+#   If new start, write boiler-plate for a tar command file
+    echo "#! /bin/csh -f" >! $Tfile
+    set result = $status
+    if ($result != 0) then
+      echo " Could not write temporary tar script file"
+      goto quit
+    endif
+    echo "#" >> $Tfile
+    echo "#  Prepare tar file for MSS archive" >> $Tfile
+    echo "#  `date`" >> $Tfile
+    echo "set OFILE = $Afile" >> $Tfile
+    echo "#" >> $Tfile
+    echo "cd $SDIR/$Sdir" >> $Tfile
+    echo 'tar chvf $OFILE \' >> $Tfile
+#   Save initial file name (with date/time info)
+    set Sfile = $file
+    set new = "no"
+  endif
+#  Get file's size
+  @ fsz = `/bin/ls -l $file | awk '{print $5}'`
+  @ fztotal = $fztotal + $fsz
+#    Debug start
+  if ($db == 1) then
+    echo " File $file size = $fsz -- Total size = $fztotal"
+  endif
+#    Debug end
+#  Check for a "full" tar file (size or # of files) or the end of archive list)
+  if ( ($fztotal < $MAXSIZ) && ($n < $MAXTAR) && ($N != $nfiles) ) then
+    echo "$file \" >> $Tfile
+  else
+#  Must now archive the files
+    echo "$file" >> $Tfile
+    set Efile = $file
+#    Debug start
+    if ($vb == 1) then
+      echo "  First file in archive:  $Sfile"
+      echo "  Last  file in archive:  $Efile"
+      echo "  $n files to archive -- Total size = $fztotal"
+    endif
+#    Debug end
+    chmod +x $Tfile
+    echo "  Creating tar file $Afile"
+#    Debug start
+    if ($db == 1) then
+      echo "  Pause to view tar script file:  $Tfile"
+      echo -n "   hit [r] to continue  "
+      set input = "$<"
+    endif
+#    Debug end
+#  Create tar file (using script just generated)
+    $Tfile >& /dev/null
+    set result = $status
+    if ($result != 0) then
+      echo "  Error $result when trying to create tar file"
+      goto quit
+    endif
+#
+#  Get start/end times for archive (based on file's current name format)
+    set Smeta = `echo $Sfile | sed -e "s/.jpg//"`
+    set Smeta = `(echo $Smeta | awk -F_ '{print $1, $2, $3, $4}')`
+    set Sdate = `echo $Smeta[3] | sed -e "s:\(..\)\(..\)\(..\):\2/\3/20\1:"`
+    set Stime = `echo $Smeta[4] | sed -e "s/\(..\)\(..\)\(..\)/\1:\2:\3/"`
+    set Emeta = `echo $Efile | sed -e "s/.jpg//"`
+    set Emeta = `(echo $Emeta | awk -F_ '{print $1, $2, $3, $4}')`
+    set Edate = `echo $Emeta[3] | sed -e "s:\(..\)\(..\)\(..\):\2/\3/20\1:"`
+    set Etime = `echo $Emeta[4] | sed -e "s/\(..\)\(..\)\(..\)/\1:\2:\3/"`
+#  Get camera location
+    set Locn = `echo $Smeta[2] | tr '[a-z]' '[A-Z]'`
+#  Compose archived tar file's MSS bitfile name (using metadata)
+    set OFILE = `echo ${Locn}.20${Smeta[3]}.${Smeta[4]}_${Emeta[4]}.jpg.tar`
+#  Create tar directory-list file (add header with metadata) and save it in
+#   projects's archive subdirectory
+#  Set file's full path name
+    set dfile = "$Adir/$DDIR.$OFILE.dir"
+    echo "  Creating tar directory file $Adir/$DDIR.$OFILE.dir"
+    echo " Directory list for MSS bitfile /RAF/$YEAR/$PROJ/$TYPE/$DDIR/$OFILE" >! $dfile
+    set result = $status
+    if ($result != 0) then
+      echo "  Error $result when trying to create tar file's directory list"
+      echo "  Tar file $Afile will be saved"
+      echo "   If this archive needs to be redone, start with file:  $Sdir/$Sfile"
+      echo "   If continuing on, then use the next file after:  $Sdir/$Efile"
+      set nopurge = 1
+      goto quit
+    endif
+    echo "  C-130Q digital photos (jpg format) from project $PN" >> $dfile
+    echo " " >> $dfile
+    echo "  $TYPE $DDIR $Locn starts:  $Sdate $Stime" >> $dfile
+    echo "  $TYPE $DDIR $Locn ends:  $Edate $Etime" >> $dfile
+    echo "  Archive created on `date`" >> $dfile
+    echo " " >> $dfile
+    tar tvf $Afile >> $dfile
+#
+#  Write tar file to MSS if in production mode ($pd == 1)
+    if (-r $Afile) then
+      if ($pd == 1) then
+        echo "  Archiving tar file $DDIR/$OFILE to MSS"
+        echo "#  Job submitted on `date`"
+        rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+         $Afile mss:/RAF/$YEAR/$PROJ/$TYPE/$DDIR/$OFILE
+        set result = $status
+      else
+        echo \
+        rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+         $Afile mss:/RAF/$YEAR/$PROJ/$TYPE/$DDIR/$OFILE
+        set result = $status
+      endif
+      if ($result == 0) then
+        echo "#  msrcp job for $DDIR/$OFILE -- OK -- `date`"
+      else
+        echo "#  msrcp job for $DDIR/$OFILE -- Failed -- `date`"
+        echo "#                $DDIR/$OFILE:  error code $result"
+      endif
+    else
+      echo "#  msrcp job for $DDIR/$OFILE -- Failed -- `date`"
+      echo "#   Cannot access tar file $Afile"
+    endif
+#  Write tar directory-list file to MSS if in production mode ($pd == 1)
+    if ($pd == 1) then
+      echo "  Archiving tar directory file $OFILE.dir to MSS"
+      echo "#  Job submitted on `date`"
+      rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $dfile mss:/RAF/$YEAR/$PROJ/$TYPE/$DDIR/$OFILE.dir
+      set result = $status
+    else
+      echo \
+      rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $dfile mss:/RAF/$YEAR/$PROJ/$TYPE/$DDIR/$OFILE.dir
+      set result = $status
+    endif
+    if ($result == 0) then
+        echo "#  msrcp job for $DDIR/$OFILE.dir -- OK -- `date`"
+    else
+        echo "#  msrcp job for $DDIR/$OFILE.dir -- Failed -- `date`"
+        echo "#                $DDIR/$OFILE.dir:  error code $result"
+    endif
+#    Debug start
+    if ($pd != 1) then
+      echo "  Number of files archived so far = $N"
+      echo "  Number of files in this archive = $n"
+      echo "  Total number of files to archive = $nfiles"
+      echo "  Since this is a checkout run, pause to view files:"
+      echo "   list of files to archive:  $Flist"
+      echo "   tar script file:  $Tfile"
+      echo "   tar file:  $Afile"
+      echo "   tar directory file:  $dfile"
+      echo -n "   hit [r] to continue  "
+      set input = "$<"
+    endif
+#    Debug end
+#  Reset for next wave
+    \rm $Tfile
+    \rm $Afile
+    @ f ++
+    @ n = 0
+    @ fztotal = 0
+    set new = "yes"
+  endif
+end
+#
+#  Done.
+echo "#   Completed on `date`"
+if ($f == 1) then
+  echo -n "#   $f tar file"
+else
+  echo -n "#   $f tar files"
+endif
+if ($pd != 1) then
+  echo -n " NOT"
+endif
+echo " archived to MSS"
+goto cleanup
+#
+quit:
+echo "  Quitting"
+abort:
+onintr -
+#  Delete tar directory file if abnormal exit
+if ($?dfile) then
+  if (-e $dfile) then
+    \rm $dfile
+  endif
+endif
+cleanup:
+if (-e $Flist) then
+  \rm $Flist
+endif
+if (-e $Tfile) then
+  \rm $Tfile
+endif
+if (-e $Afile) then
+  if ($nopurge != 1) then
+    \rm $Afile
+  endif
+endif
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2004/125/CAMERA/
+#
+#  1st wave
+#  Job submitted on Fri Aug 13 15:30:20 MDT 2004
+#  msrcp job for TF01/DOWN.20040428.180230_191919.jpg.tar -- OK -- Fri Aug 13 15:41:07 MDT 2004
+#  Job submitted on Fri Aug 13 15:41:07 MDT 2004
+#  msrcp job for TF01/DOWN.20040428.180230_191919.jpg.tar.dir -- OK -- Fri Aug 13 15:41:12 MDT 2004
+#  Job submitted on Fri Aug 13 15:41:24 MDT 2004
+#  msrcp job for TF01/DOWN.20040428.191920_192421.jpg.tar -- OK -- Fri Aug 13 15:41:47 MDT 2004
+#  Job submitted on Fri Aug 13 15:41:47 MDT 2004
+#  msrcp job for TF01/DOWN.20040428.191920_192421.jpg.tar.dir -- OK -- Fri Aug 13 15:41:53 MDT 2004
+#   Completed on Fri Aug 13 15:41:53 MDT 2004
+#   2 tar files archived to MSS
+#
+#  2nd wave
+#  Job submitted on Thu Aug 12 14:34:24 MDT 2004
+#  msrcp job for RF01/DOWN.20040514.130125_130830.jpg.tar.dir -- OK -- Thu Aug 12 14:43:13 MDT 2004
+#   Completed on Thu Aug 12 14:43:13 MDT 2004
+#   1 tar file archived to MSS
+#
+#  3rd wave
+#  Job submitted on Fri Aug 13 15:47:34 MDT 2004
+#  msrcp job for RF02/DOWN.20040514.194830_201659.jpg.tar -- OK -- Fri Aug 13 15:58:43 MDT 2004
+#  Job submitted on Fri Aug 13 15:58:43 MDT 2004
+#  msrcp job for RF02/DOWN.20040514.194830_201659.jpg.tar.dir -- OK -- Fri Aug 13 15:58:51 MDT 2004
+#  Job submitted on Fri Aug 13 16:00:24 MDT 2004
+#  msrcp job for RF02/DOWN.20040514.201700_202938.jpg.tar -- OK -- Fri Aug 13 16:09:52 MDT 2004
+#  Job submitted on Fri Aug 13 16:09:52 MDT 2004
+#  msrcp job for RF02/DOWN.20040514.201700_202938.jpg.tar.dir -- OK -- Fri Aug 13 16:10:01 MDT 2004
+#   Completed on Fri Aug 13 16:10:02 MDT 2004
+#   2 tar files archived to MSS
+#
+#  4th wave
+#  Job submitted on Fri Aug 13 16:24:13 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.122930_130027.jpg.tar -- OK -- Fri Aug 13 16:35:05 MDT 2004
+#  Job submitted on Fri Aug 13 16:35:05 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.122930_130027.jpg.tar.dir -- OK -- Fri Aug 13 16:35:15 MDT 2004
+#  Job submitted on Fri Aug 13 16:38:56 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.130028_132943.jpg.tar -- OK -- Fri Aug 13 16:52:09 MDT 2004
+#  Job submitted on Fri Aug 13 16:52:09 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.130028_132943.jpg.tar.dir -- OK -- Fri Aug 13 16:52:14 MDT 2004
+#  Job submitted on Fri Aug 13 16:55:49 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.132944_135337.jpg.tar -- OK -- Fri Aug 13 17:05:15 MDT 2004
+#  Job submitted on Fri Aug 13 17:05:15 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.132944_135337.jpg.tar.dir -- OK -- Fri Aug 13 17:05:23 MDT 2004
+#  Job submitted on Fri Aug 13 17:09:01 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.135338_141744.jpg.tar -- OK -- Fri Aug 13 17:18:51 MDT 2004
+#  Job submitted on Fri Aug 13 17:18:51 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.135338_141744.jpg.tar.dir -- OK -- Fri Aug 13 17:18:57 MDT 2004
+#  Job submitted on Fri Aug 13 17:22:34 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.141745_144502.jpg.tar -- OK -- Fri Aug 13 17:38:10 MDT 2004
+#  Job submitted on Fri Aug 13 17:38:10 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.141745_144502.jpg.tar.dir -- OK -- Fri Aug 13 17:38:14 MDT 2004
+#  Job submitted on Fri Aug 13 17:41:47 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.144503_151252.jpg.tar -- OK -- Fri Aug 13 17:52:50 MDT 2004
+#  Job submitted on Fri Aug 13 17:52:50 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.144503_151252.jpg.tar.dir -- OK -- Fri Aug 13 17:52:56 MDT 2004
+#  Job submitted on Fri Aug 13 17:53:36 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.151253_151757.jpg.tar -- OK -- Fri Aug 13 18:01:22 MDT 2004
+#  Job submitted on Fri Aug 13 18:01:22 MDT 2004
+#  msrcp job for RF03/DOWN.20040520.151253_151757.jpg.tar.dir -- OK -- Fri Aug 13 18:01:29 MDT 2004
+#   Completed on Fri Aug 13 18:01:29 MDT 2004
+#   7 tar files archived to MSS
+#
+#  5th wave
+#  Job submitted on Mon Aug 16 10:28:32 MDT 2004
+#  msrcp job for RF05/DOWN.20040527.123035_130606.jpg.tar -- OK -- Mon Aug 16 10:36:03 MDT 2004
+#  Job submitted on Mon Aug 16 10:36:03 MDT 2004
+#  msrcp job for RF05/DOWN.20040527.123035_130606.jpg.tar.dir -- OK -- Mon Aug 16 10:36:11 MDT 2004
+#   Completed on Mon Aug 16 10:36:11 MDT 2004
+#   1 tar file archived to MSS
+#
+#  6th wave
+#  Job submitted on Mon Aug 16 11:15:35 MDT 2004
+#  msrcp job for RF06/DOWN.20040528.200013_211716.jpg.tar -- OK -- Mon Aug 16 11:22:03 MDT 2004
+#  Job submitted on Mon Aug 16 11:22:03 MDT 2004
+#  msrcp job for RF06/DOWN.20040528.200013_211716.jpg.tar.dir -- OK -- Mon Aug 16 11:22:08 MDT 2004
+#  Job submitted on Mon Aug 16 11:23:35 MDT 2004
+#  msrcp job for RF06/DOWN.20040528.211717_220159.jpg.tar -- OK -- Mon Aug 16 11:30:48 MDT 2004
+#  Job submitted on Mon Aug 16 11:30:48 MDT 2004
+#  msrcp job for RF06/DOWN.20040528.211717_220159.jpg.tar.dir -- OK -- Mon Aug 16 11:30:53 MDT 2004
+#   Completed on Mon Aug 16 11:30:54 MDT 2004
+#   2 tar files archived to MSS
+#
+#  7th wave
+#  Job submitted on Mon Aug 16 11:43:36 MDT 2004
+#  msrcp job for RF07/DOWN.20040712.123100_134739.jpg.tar -- OK -- Mon Aug 16 11:53:30 MDT 2004
+#  Job submitted on Mon Aug 16 11:53:30 MDT 2004
+#  msrcp job for RF07/DOWN.20040712.123100_134739.jpg.tar.dir -- OK -- Mon Aug 16 11:53:40 MDT 2004
+#  Job submitted on Mon Aug 16 11:56:36 MDT 2004
+#  msrcp job for RF07/DOWN.20040712.134740_150419.jpg.tar -- OK -- Mon Aug 16 12:06:24 MDT 2004
+#  Job submitted on Mon Aug 16 12:06:24 MDT 2004
+#  msrcp job for RF07/DOWN.20040712.134740_150419.jpg.tar.dir -- OK -- Mon Aug 16 12:06:29 MDT 2004
+#  Job submitted on Mon Aug 16 12:08:24 MDT 2004
+#  msrcp job for RF07/DOWN.20040712.150420_160059.jpg.tar -- OK -- Mon Aug 16 12:12:28 MDT 2004
+#  Job submitted on Mon Aug 16 12:12:28 MDT 2004
+#  msrcp job for RF07/DOWN.20040712.150420_160059.jpg.tar.dir -- OK -- Mon Aug 16 12:12:33 MDT 2004
+#   Completed on Mon Aug 16 12:12:33 MDT 2004
+#   3 tar files archived to MSS
+#
+#  8th wave
+#  Job submitted on Mon Aug 16 12:16:30 MDT 2004
+#  msrcp job for RF08/DOWN.20040712.193304_204943.jpg.tar -- OK -- Mon Aug 16 12:21:24 MDT 2004
+#  Job submitted on Mon Aug 16 12:21:24 MDT 2004
+#  msrcp job for RF08/DOWN.20040712.193304_204943.jpg.tar.dir -- OK -- Mon Aug 16 12:21:30 MDT 2004
+#  Job submitted on Mon Aug 16 12:24:01 MDT 2004
+#  msrcp job for RF08/DOWN.20040712.204944_220400.jpg.tar -- OK -- Mon Aug 16 12:31:34 MDT 2004
+#  Job submitted on Mon Aug 16 12:31:34 MDT 2004
+#  msrcp job for RF08/DOWN.20040712.204944_220400.jpg.tar.dir -- OK -- Mon Aug 16 12:31:41 MDT 2004
+#   Completed on Mon Aug 16 12:31:41 MDT 2004
+#   2 tar files archived to MSS
+#
+#  9th wave
+#  Job submitted on Mon Aug 16 12:40:00 MDT 2004
+#  msrcp job for RF09/DOWN.20040720.123300_134939.jpg.tar -- OK -- Mon Aug 16 12:45:52 MDT 2004
+#  Job submitted on Mon Aug 16 12:45:52 MDT 2004
+#  msrcp job for RF09/DOWN.20040720.123300_134939.jpg.tar.dir -- OK -- Mon Aug 16 12:45:58 MDT 2004
+#  Job submitted on Mon Aug 16 12:48:55 MDT 2004
+#  msrcp job for RF09/DOWN.20040720.134940_150619.jpg.tar -- OK -- Mon Aug 16 12:59:05 MDT 2004
+#  Job submitted on Mon Aug 16 12:59:05 MDT 2004
+#  msrcp job for RF09/DOWN.20040720.134940_150619.jpg.tar.dir -- OK -- Mon Aug 16 12:59:22 MDT 2004
+#  Job submitted on Mon Aug 16 13:01:02 MDT 2004
+#  msrcp job for RF09/DOWN.20040720.150620_155519.jpg.tar -- OK -- Mon Aug 16 13:07:34 MDT 2004
+#  Job submitted on Mon Aug 16 13:07:34 MDT 2004
+#  msrcp job for RF09/DOWN.20040720.150620_155519.jpg.tar.dir -- OK -- Mon Aug 16 13:07:40 MDT 2004
+#   Completed on Mon Aug 16 13:07:40 MDT 2004
+#   3 tar files archived to MSS
+#
+# 10th wave
+#  Job submitted on Mon Aug 16 13:36:39 MDT 2004
+#  msrcp job for RF10/DOWN.20040720.193407_205046.jpg.tar -- OK -- Mon Aug 16 13:42:32 MDT 2004
+#  Job submitted on Mon Aug 16 13:42:32 MDT 2004
+#  msrcp job for RF10/DOWN.20040720.193407_205046.jpg.tar.dir -- OK -- Mon Aug 16 13:42:36 MDT 2004
+#  Job submitted on Mon Aug 16 13:44:34 MDT 2004
+#  msrcp job for RF10/DOWN.20040720.205047_215649.jpg.tar -- OK -- Mon Aug 16 13:51:21 MDT 2004
+#  Job submitted on Mon Aug 16 13:51:21 MDT 2004
+#  msrcp job for RF10/DOWN.20040720.205047_215649.jpg.tar.dir -- OK -- Mon Aug 16 13:51:33 MDT 2004
+#   Completed on Mon Aug 16 13:51:33 MDT 2004
+#   2 tar files archived to MSS
+#
+# 11th wave
+#  Job submitted on Mon Aug 16 14:13:46 MDT 2004
+#  msrcp job for RF11/DOWN.20040722.123650_135329.jpg.tar -- OK -- Mon Aug 16 14:20:52 MDT 2004
+#  Job submitted on Mon Aug 16 14:20:52 MDT 2004
+#  msrcp job for RF11/DOWN.20040722.123650_135329.jpg.tar.dir -- OK -- Mon Aug 16 14:20:57 MDT 2004
+#  Job submitted on Mon Aug 16 14:23:51 MDT 2004
+#  msrcp job for RF11/DOWN.20040722.135330_151009.jpg.tar -- OK -- Mon Aug 16 14:31:44 MDT 2004
+#  Job submitted on Mon Aug 16 14:31:44 MDT 2004
+#  msrcp job for RF11/DOWN.20040722.135330_151009.jpg.tar.dir -- OK -- Mon Aug 16 14:31:50 MDT 2004
+#  Job submitted on Mon Aug 16 14:33:48 MDT 2004
+#  msrcp job for RF11/DOWN.20040722.151010_161729.jpg.tar -- OK -- Mon Aug 16 14:38:32 MDT 2004
+#  Job submitted on Mon Aug 16 14:38:32 MDT 2004
+#  msrcp job for RF11/DOWN.20040722.151010_161729.jpg.tar.dir -- OK -- Mon Aug 16 14:38:37 MDT 2004
+#   Completed on Mon Aug 16 14:38:37 MDT 2004
+#   3 tar files archived to MSS
+#
+# 12th wave
+#  Job submitted on Mon Aug 16 15:07:45 MDT 2004
+#  msrcp job for RF12/DOWN.20040726.123940_135619.jpg.tar -- OK -- Mon Aug 16 15:13:43 MDT 2004
+#  Job submitted on Mon Aug 16 15:13:43 MDT 2004
+#  msrcp job for RF12/DOWN.20040726.123940_135619.jpg.tar.dir -- OK -- Mon Aug 16 15:13:48 MDT 2004
+#  Job submitted on Mon Aug 16 15:15:22 MDT 2004
+#  msrcp job for RF12/DOWN.20040726.135620_151259.jpg.tar -- OK -- Mon Aug 16 15:25:24 MDT 2004
+#  Job submitted on Mon Aug 16 15:25:24 MDT 2004
+#  msrcp job for RF12/DOWN.20040726.135620_151259.jpg.tar.dir -- OK -- Mon Aug 16 15:25:29 MDT 2004
+#  Job submitted on Mon Aug 16 15:26:20 MDT 2004
+#  msrcp job for RF12/DOWN.20040726.151300_155449.jpg.tar -- OK -- Mon Aug 16 15:37:13 MDT 2004
+#  Job submitted on Mon Aug 16 15:37:13 MDT 2004
+#  msrcp job for RF12/DOWN.20040726.151300_155449.jpg.tar.dir -- OK -- Mon Aug 16 15:37:19 MDT 2004
+#   Completed on Mon Aug 16 15:37:19 MDT 2004
+#   3 tar files archived to MSS
+#
+# 13th wave
+#  Job submitted on Mon Aug 16 15:41:29 MDT 2004
+#  msrcp job for RF13/DOWN.20040726.193000_204639.jpg.tar -- OK -- Mon Aug 16 15:45:48 MDT 2004
+#  Job submitted on Mon Aug 16 15:45:48 MDT 2004
+#  msrcp job for RF13/DOWN.20040726.193000_204639.jpg.tar.dir -- OK -- Mon Aug 16 15:45:54 MDT 2004
+#  Job submitted on Mon Aug 16 15:46:53 MDT 2004
+#  msrcp job for RF13/DOWN.20040726.204640_213959.jpg.tar -- OK -- Mon Aug 16 15:56:15 MDT 2004
+#  Job submitted on Mon Aug 16 15:56:15 MDT 2004
+#  msrcp job for RF13/DOWN.20040726.204640_213959.jpg.tar.dir -- OK -- Mon Aug 16 15:56:21 MDT 2004
+#   Completed on Mon Aug 16 15:56:21 MDT 2004
+#   2 tar files archived to MSS
+#
+# 14th wave
+#  Job submitted on Mon Aug 16 16:00:04 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.124956_140635.jpg.tar -- OK -- Mon Aug 16 16:05:22 MDT 2004
+#  Job submitted on Mon Aug 16 16:05:22 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.124956_140635.jpg.tar.dir -- OK -- Mon Aug 16 16:05:31 MDT 2004
+#  Job submitted on Mon Aug 16 16:06:57 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.140636_152315.jpg.tar -- OK -- Mon Aug 16 16:14:52 MDT 2004
+#  Job submitted on Mon Aug 16 16:14:52 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.140636_152315.jpg.tar.dir -- OK -- Mon Aug 16 16:14:57 MDT 2004
+#  Job submitted on Mon Aug 16 16:16:28 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.152316_163955.jpg.tar -- OK -- Mon Aug 16 16:24:10 MDT 2004
+#  Job submitted on Mon Aug 16 16:24:10 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.152316_163955.jpg.tar.dir -- OK -- Mon Aug 16 16:24:18 MDT 2004
+#  Job submitted on Mon Aug 16 16:25:52 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.163956_175635.jpg.tar -- OK -- Mon Aug 16 16:32:06 MDT 2004
+#  Job submitted on Mon Aug 16 16:32:06 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.163956_175635.jpg.tar.dir -- OK -- Mon Aug 16 16:32:15 MDT 2004
+#  Job submitted on Mon Aug 16 16:32:28 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.175636_180639.jpg.tar -- OK -- Mon Aug 16 16:33:03 MDT 2004
+#  Job submitted on Mon Aug 16 16:33:03 MDT 2004
+#  msrcp job for RF14/DOWN.20040729.175636_180639.jpg.tar.dir -- OK -- Mon Aug 16 16:33:13 MDT 2004
+#   Completed on Mon Aug 16 16:33:13 MDT 2004
+#   5 tar files archived to MSS
+#
+# 15th wave
+#  Job submitted on Tue Aug 17 11:53:53 MDT 2004
+#  msrcp job for RF15/DOWN.20040729.200040_211719.jpg.tar -- OK -- Tue Aug 17 12:03:16 MDT 2004
+#  Job submitted on Tue Aug 17 12:03:16 MDT 2004
+#  msrcp job for RF15/DOWN.20040729.200040_211719.jpg.tar.dir -- OK -- Tue Aug 17 12:03:27 MDT 2004
+#  Job submitted on Tue Aug 17 12:03:31 MDT 2004
+#  msrcp job for RF15/DOWN.20040729.211720_212059.jpg.tar -- OK -- Tue Aug 17 12:03:44 MDT 2004
+#  Job submitted on Tue Aug 17 12:03:44 MDT 2004
+#  msrcp job for RF15/DOWN.20040729.211720_212059.jpg.tar.dir -- OK -- Tue Aug 17 12:03:49 MDT 2004
+#   Completed on Tue Aug 17 12:03:49 MDT 2004
+#   2 tar files archived to MSS
+#
+# 16th wave
+#  Job submitted on Tue Aug 17 12:16:55 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.150823_162502.jpg.tar -- OK -- Tue Aug 17 12:24:40 MDT 2004
+#  Job submitted on Tue Aug 17 12:24:40 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.150823_162502.jpg.tar.dir -- OK -- Tue Aug 17 12:24:43 MDT 2004
+#  Job submitted on Tue Aug 17 12:26:15 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.162503_174142.jpg.tar -- OK -- Tue Aug 17 12:40:58 MDT 2004
+#  Job submitted on Tue Aug 17 12:40:58 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.162503_174142.jpg.tar.dir -- OK -- Tue Aug 17 12:41:02 MDT 2004
+#  Job submitted on Tue Aug 17 12:42:37 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.174143_185822.jpg.tar -- OK -- Tue Aug 17 12:55:21 MDT 2004
+#  Job submitted on Tue Aug 17 12:55:21 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.174143_185822.jpg.tar.dir -- OK -- Tue Aug 17 12:55:59 MDT 2004
+#  Job submitted on Tue Aug 17 12:56:50 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.185823_193659.jpg.tar -- OK -- Tue Aug 17 13:04:13 MDT 2004
+#  Job submitted on Tue Aug 17 13:04:13 MDT 2004
+#  msrcp job for RF16/DOWN.20040802.185823_193659.jpg.tar.dir -- OK -- Tue Aug 17 13:04:24 MDT 2004
+#   Completed on Tue Aug 17 13:04:25 MDT 2004
+#   4 tar files archived to MSS
+#
+# 17th wave (move files from /RAF path to /ATD/DATA path)
+#  Rename job submitted on Thu Apr  7 12:03:36 MDT 2005
+#   Successfully moved all camera bitfiles from MSS directory:
+#    /RAF/2004/125/CAMERA to /ATD/DATA/2004/ACME/C130_N130AR/CAMERA
+#    on Thu Apr  7 12:04:23 MDT 2005
+#

@@ -1,0 +1,25 @@
+#! /bin/csh -f
+#
+#   Save present version of the NIMBUS processor for archiving
+#
+set FY = 1995
+set PROJ = 127
+set PROJNAME = "Marine Stratus Cloud Tops (Telford)"
+#
+set PROJDIR = $LOCAL/proj/$PROJ
+set OFILE = "$PROJDIR/Production/nimbus.tar"
+#
+#
+cd $LOCAL
+tar chlvf $OFILE nimbus
+#
+#  Get tar directory list for archiving
+set dfile = $PROJDIR/Production/nimbus.tar.dir
+echo " Directory list for file nimbus.tar" >! $dfile
+echo "  NIMBUS processor for project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

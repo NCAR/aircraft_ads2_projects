@@ -1,0 +1,258 @@
+#! /bin/csh -f
+#
+#  Archive MCR data files for 2001-181 DYCOMS-II
+#   (Done one file at a time to keep from overloading the network)
+#
+#  This script must be run from a project's Production/archive directory
+#
+#  File adapted from file /$LOCAL/proj/102/Production/arch_mcr.102
+#    by Ron Ruth  12 April 1999
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Set initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = $DATA_DIR/mcr/DYCOMS
+set TURBRT = RAW_MCR
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "lenny"
+#
+#  Special DYCOMS-II modification for RESTRICTED ACCESS
+#set RPWD = ""
+set RPWD = "-rpwd DYCONLY"
+#
+#
+#  1st wave
+#set SFILES = ( \
+#181ff02a.rawMCRa \
+#181ff02a.rawMCRb \
+#181rf06a.rawMCRa \
+#181rf06b.rawMCRa \
+#181rf06b.rawMCRb \
+#181rf06b.rawMCRc \
+#181rf07a.rawMCRa \
+#181rf07b.rawMCRa \
+#181rf07b.rawMCRb \
+#181rf07b.rawMCRc \
+#181rf08a.rawMCRa \
+#181rf08b.rawMCRa \
+#181rf08c.rawMCRa \
+#181rf08c.rawMCRb \
+#181rf08c.rawMCRc \
+#181rf09a.rawMCRa \
+#181rf09b.rawMCRa \
+#181rf09b.rawMCRb \
+#181rf09b.rawMCRc \
+#181rf10a.rawMCRa \
+#181rf10a.rawMCRb \
+#181rf10a.rawMCRc \
+#181tf02a.rawMCRa \
+#181tf03a.rawMCRa \
+#)
+#set DFILES = ( \
+#FF02A \
+#FF02B \
+#RF06A \
+#RF06B \
+#RF06C \
+#RF06D \
+#RF07A \
+#RF07B \
+#RF07C \
+#RF07D \
+#RF08A \
+#RF08B \
+#RF08C \
+#RF08D \
+#RF08E \
+#RF09A \
+#RF09B \
+#RF09C \
+#RF09D \
+#RF10A \
+#RF10B \
+#RF10C \
+#TF02 \
+#TF03 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#181rf01a.rawMCRa \
+#181rf01a.rawMCRb \
+#181rf01a.rawMCRc \
+#181rf02a.rawMCRa \
+#181rf02a.rawMCRb \
+#181rf02a.rawMCRc \
+#181rf03a.rawMCRa \
+#181rf03a.rawMCRb \
+#181rf03a.rawMCRc \
+#181rf04a.rawMCRa \
+#181rf04a.rawMCRb \
+#181rf04a.rawMCRc \
+#)
+#set DFILES = ( \
+#RF01A \
+#RF01B \
+#RF01C \
+#RF02A \
+#RF02B \
+#RF02C \
+#RF03A \
+#RF03B \
+#RF03C \
+#RF04A \
+#RF04B \
+#RF04C \
+#)
+#
+#  3rd wave
+set SFILES = ( \
+181rf05a.rawMCRa \
+181rf05a.rawMCRb \
+181rf05a.rawMCRc \
+)
+set DFILES = ( \
+RF05A \
+RF05B \
+RF05C \
+)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$DFILE
+    echo "  Completed `date`"
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/181/RAW_MCR/
+#
+#  1st wave
+#  Job(s) submitted on Tue Aug 28 17:10:47 MDT 2001
+#   FF02A Completed Tue Aug 28 17:34:27 MDT 2001
+#   FF02B Completed Tue Aug 28 17:44:56 MDT 2001
+#   RF06A Completed Tue Aug 28 17:46:14 MDT 2001
+#   RF06B Completed Tue Aug 28 18:12:23 MDT 2001
+#   RF06C Completed Tue Aug 28 18:35:47 MDT 2001
+#   RF06D Completed Tue Aug 28 18:43:02 MDT 2001
+#   RF07A Completed Tue Aug 28 18:45:44 MDT 2001
+#   RF07B Completed Tue Aug 28 19:08:05 MDT 2001
+#   RF07C Completed Tue Aug 28 19:29:38 MDT 2001
+#   RF07D Completed Tue Aug 28 19:37:28 MDT 2001
+#   RF08A Completed Tue Aug 28 19:37:51 MDT 2001
+#   RF08B Completed Tue Aug 28 19:38:07 MDT 2001
+#   RF08C Completed Tue Aug 28 19:59:43 MDT 2001
+#   RF08D Completed Tue Aug 28 20:22:26 MDT 2001
+#   RF08E Completed Tue Aug 28 20:30:29 MDT 2001
+#   RF09A Completed Tue Aug 28 20:33:28 MDT 2001
+#   RF09B Completed Tue Aug 28 20:56:20 MDT 2001
+#   RF09C Completed Tue Aug 28 21:19:10 MDT 2001
+#   RF09D Completed Tue Aug 28 21:22:19 MDT 2001
+#   RF10A Completed Tue Aug 28 21:34:17 MDT 2001
+#   RF10B Completed Tue Aug 28 21:34:44 MDT 2001
+#   RF10C Completed Tue Aug 28 21:46:13 MDT 2001
+#   TF02  Completed Tue Aug 28 22:03:53 MDT 2001
+#   TF03  Completed Tue Aug 28 22:21:48 MDT 2001
+#
+#  2nd wave
+#  Job(s) submitted on Wed Aug 29 13:55:39 MDT 2001
+#   RF01A Completed Wed Aug 29 14:21:27 MDT 2001
+#   RF01B Completed Wed Aug 29 14:46:44 MDT 2001
+#   RF01C Completed Wed Aug 29 14:53:53 MDT 2001
+#   RF02A Completed Wed Aug 29 15:16:52 MDT 2001
+#   RF02B Completed Wed Aug 29 15:41:01 MDT 2001
+#   RF02C Completed Wed Aug 29 15:49:12 MDT 2001
+#   RF03A Completed Wed Aug 29 16:13:11 MDT 2001
+#   RF03B Completed Wed Aug 29 16:37:27 MDT 2001
+#   RF03C Completed Wed Aug 29 16:45:55 MDT 2001
+#   RF04A Completed Wed Aug 29 17:08:51 MDT 2001
+#   RF04B Completed Wed Aug 29 17:33:45 MDT 2001
+#   RF04C Completed Wed Aug 29 17:43:06 MDT 2001
+#
+#  3rd wave
+#  Job(s) submitted on 
+#   RF05A Completed Thu Aug 30 09:57:41 MDT 2001
+#   RF05B Completed Thu Aug 30 10:25:41 MDT 2001
+#   RF05C Completed Thu Aug 30 10:34:38 MDT 2001
+#
+#  4th wave
+#  Job(s) submitted on 
+#
+#  5th wave
+#  Job(s) submitted on 
+#
+#  6th wave
+#  Job(s) submitted on 
+#
+#  7th wave
+#  Job(s) submitted on 
+#
+#  8th wave
+#  Job(s) submitted on 
+#
+#  9th wave
+#  Job(s) submitted on 
+#
+# 10th wave
+#  Job(s) submitted on 
+#
+# 11th wave
+#  Job(s) submitted on 
+#
+# 12th wave
+#  Job(s) submitted on 
+#
+# 13th wave
+#  Job(s) submitted on 
+#
+#   th wave
+#  Job(s) submitted on 
+#

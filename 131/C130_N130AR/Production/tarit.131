@@ -1,0 +1,250 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#  Incremental archive due to additional HRT processing
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+Categories  \
+Defaults  \
+DependTable  \
+DependTable.orig  \
+Despike  \
+HeaderChangeLog  \
+Lags  \
+LowRateVars  \
+LowRateVars.orig  \
+PMSspecs  \
+ProjectName  \
+UserNames  \
+VarDB  \
+VarDB.orig  \
+config  \
+header  \
+header.Mar21.0415  \
+header.bak  \
+ophir3.names  \
+proj131_field_Apr23.tar.gz  \
+Production/BlankOuts.ff03  \
+Production/BlankOuts.rf04  \
+Production/BlankOuts.rf12  \
+Production/BlankOuts.rf19  \
+Production/FlightGroups  \
+Production/Flight_rf01  \
+Production/Flight_rf02  \
+Production/Flight_rf03  \
+Production/Flight_rf04  \
+Production/Flight_rf06  \
+Production/Flight_rf07  \
+Production/Flight_rf08  \
+Production/Flight_rf09  \
+Production/Flight_rf10  \
+Production/Flight_rf11  \
+Production/Flight_rf12  \
+Production/Flight_rf13  \
+Production/Flight_rf14  \
+Production/Flight_rf15  \
+Production/Flight_rf16  \
+Production/Flight_rf17  \
+Production/Flight_rf18  \
+Production/Flight_rf19  \
+Production/MSCP_out.131  \
+Production/Mail.131  \
+Production/arch.131  \
+Production/arch_prelim.131  \
+Production/archive.support  \
+Production/atdarch.131  \
+Production/logFile_HRT.rf03  \
+Production/logFile_HRT.rf09  \
+Production/logFile_HRT.rf13  \
+Production/logFile_HRT.rf14  \
+Production/logFile_HRT.rf16  \
+Production/logFile_HRT.rf18  \
+Production/logFile_LRT.ff03  \
+Production/logFile_LRT.rf01  \
+Production/logFile_LRT.rf02  \
+Production/logFile_LRT.rf03  \
+Production/logFile_LRT.rf04  \
+Production/logFile_LRT.rf05  \
+Production/logFile_LRT.rf06  \
+Production/logFile_LRT.rf07  \
+Production/logFile_LRT.rf08  \
+Production/logFile_LRT.rf09  \
+Production/logFile_LRT.rf10  \
+Production/logFile_LRT.rf11  \
+Production/logFile_LRT.rf12  \
+Production/logFile_LRT.rf13  \
+Production/logFile_LRT.rf14  \
+Production/logFile_LRT.rf15  \
+Production/logFile_LRT.rf16  \
+Production/logFile_LRT.rf17  \
+Production/logFile_LRT.rf18  \
+Production/logFile_LRT.rf19  \
+Production/notes.ron  \
+Production/orig_131.documents.tar.dir  \
+Production/orig_tarit.131  \
+Production/proj.info  \
+Production/setup_HRT  \
+Production/taplog.hrt.131  \
+Production/taplog.lrt.131  \
+Production/taplog.prelim.131  \
+Production/tarit.131  \
+Production/tp2ms.summary  \
+Production/varlist.long  \
+Production/varlist.short  \
+Production/archive/arads.131  \
+Production/archive/return_tapes_from_opns.mo  \
+Production/archive/send_tapes_to_opns.mo  \
+Production/archive/tapes.131  \
+Production/archive/tp2ms.job  \
+Production/altxskel/Makefile  \
+Production/altxskel/README  \
+Production/altxskel/XmSkeleton  \
+Production/altxskel/Xwin.c  \
+Production/altxskel/amlib.c  \
+Production/altxskel/amlib.h  \
+Production/altxskel/amlibProto.h  \
+Production/altxskel/cb_main.c  \
+Production/altxskel/cb_pause.c  \
+Production/altxskel/cb_time.c  \
+Production/altxskel/compute.c  \
+Production/altxskel/define.h  \
+Production/altxskel/error.c  \
+Production/altxskel/galt.1  \
+Production/altxskel/galt.2  \
+Production/altxskel/galt.notes  \
+Production/altxskel/globals.c  \
+Production/altxskel/init.c  \
+Production/altxskel/lrloop.c  \
+Production/altxskel/netcdf.c  \
+Production/altxskel/nimbus.h  \
+Production/altxskel/search.c  \
+Production/altxskel/skel  \
+Production/altxskel/skel.c  \
+Production/altxskel/sort.c  \
+Production/altxskel/timeseg.c  \
+Production/coupling/Makefile  \
+Production/coupling/README  \
+Production/coupling/XmSkeleton  \
+Production/coupling/Xwin.c  \
+Production/coupling/amlib.altc  \
+Production/coupling/amlib.archive  \
+Production/coupling/amlib.c  \
+Production/coupling/amlib.save  \
+Production/coupling/amlib.src  \
+Production/coupling/cb_main.c  \
+Production/coupling/cb_pause.c  \
+Production/coupling/cb_time.c  \
+Production/coupling/compute.c  \
+Production/coupling/define.h  \
+Production/coupling/error.c  \
+Production/coupling/globals.c  \
+Production/coupling/init.c  \
+Production/coupling/lrloop.c  \
+Production/coupling/netcdf.c  \
+Production/coupling/oldamlib.c  \
+Production/coupling/search.c  \
+Production/coupling/skel  \
+Production/coupling/skel.c  \
+Production/coupling/sort.c  \
+Production/coupling/timeseg.c  \
+Production/dplaskel/Makefile  \
+Production/dplaskel/README  \
+Production/dplaskel/XmSkeleton  \
+Production/dplaskel/Xwin.c  \
+Production/dplaskel/amlib.c  \
+Production/dplaskel/amlib.h  \
+Production/dplaskel/amlibProto.h  \
+Production/dplaskel/cb_main.c  \
+Production/dplaskel/cb_pause.c  \
+Production/dplaskel/cb_time.c  \
+Production/dplaskel/compute.c  \
+Production/dplaskel/define.h  \
+Production/dplaskel/dpla.f  \
+Production/dplaskel/error.c  \
+Production/dplaskel/globals.c  \
+Production/dplaskel/init.c  \
+Production/dplaskel/lrloop.c  \
+Production/dplaskel/mergem  \
+Production/dplaskel/netcdf.c  \
+Production/dplaskel/nimbus.h  \
+Production/dplaskel/oamlib.c  \
+Production/dplaskel/rhla.f  \
+Production/dplaskel/search.c  \
+Production/dplaskel/sewic.f  \
+Production/dplaskel/skel  \
+Production/dplaskel/skel.c  \
+Production/dplaskel/sort.c  \
+Production/dplaskel/timeseg.c  \
+Production/gpsskel/131amlib.c  \
+Production/gpsskel/Makefile  \
+Production/gpsskel/README  \
+Production/gpsskel/XmSkeleton  \
+Production/gpsskel/Xwin.c  \
+Production/gpsskel/amlib.c  \
+Production/gpsskel/amlib.h  \
+Production/gpsskel/amlibProto.h  \
+Production/gpsskel/cb_main.c  \
+Production/gpsskel/cb_pause.c  \
+Production/gpsskel/cb_time.c  \
+Production/gpsskel/compute.c  \
+Production/gpsskel/define.h  \
+Production/gpsskel/error.c  \
+Production/gpsskel/globals.c  \
+Production/gpsskel/gpsc.c  \
+Production/gpsskel/init.c  \
+Production/gpsskel/lrloop.c  \
+Production/gpsskel/n1amlib.c  \
+Production/gpsskel/netcdf.c  \
+Production/gpsskel/nfix_ins1.f  \
+Production/gpsskel/nimbus.h  \
+Production/gpsskel/oamlib.c  \
+Production/gpsskel/search.c  \
+Production/gpsskel/skel  \
+Production/gpsskel/skel.c  \
+Production/gpsskel/sort.c  \
+Production/gpsskel/timeseg.c
+#
+#   filter out undesired files
+#   prepend appropriate subdirectory to affected file names
+#   Add backslash at end of each line (except last)
+#   Save and exit
+#
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

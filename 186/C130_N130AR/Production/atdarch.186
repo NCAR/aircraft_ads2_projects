@@ -1,0 +1,322 @@
+#! /bin/csh -f
+#
+#  Archive production netCDF data files for 2000-186 PELTI
+#    using the new ATD directory path
+#
+#   Must be run from a project's Production subdirectory
+#
+#  File adapted from file /jnet/local/proj/143/Production/archive/narch.143
+#    by Ron Ruth   5 September 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+# Remove incorrectly-named bitfiles
+#goto remove
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+@ plat = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+@ plat /= 100
+if ($plat == 1) set PLATFORM = N130AR
+if ($plat == 8) set PLATFORM = N308D
+set YEAR = `grep CY proj.info | sed -e "s/CY=//"`
+set PROJ = `cat ../ProjectName`
+#set TYPE = LRT
+set TYPE = HRT
+#  set extent for Production NIMBUS netCDF file
+set EXT = PNI.nc
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave, 2nd wave and HRT wave
+#set SFILES = ( \
+#186ff01.cdf \
+#186ff02.cdf \
+#186rf01.cdf \
+#186rf02.cdf \
+#186rf03.cdf \
+#186rf04.cdf \
+#186rf05.cdf \
+#186rf06.cdf \
+#186rf07.cdf \
+#186rf08.cdf \
+#186rf09.cdf \
+#186tf01.cdf \
+#186tf02.cdf \
+#)
+set SFILES = ( \
+186ff01h.cdf \
+186ff02h.cdf \
+186rf01h.cdf \
+186rf02h.cdf \
+186rf03h.cdf \
+186rf04h.cdf \
+186rf05h.cdf \
+186rf06h.cdf \
+186rf07h.cdf \
+186rf08h.cdf \
+186rf09h.cdf \
+186tf01h.cdf \
+186tf02h.cdf \
+)
+set DFILES = ( \
+FF01 \
+FF02 \
+RF01 \
+RF02 \
+RF03 \
+RF04 \
+RF05 \
+RF06 \
+RF07 \
+RF08 \
+RF09 \
+TF01 \
+TF02 \
+)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#
+# Compose extended bitfile name
+#  get flight date
+    set line = `ncdump -h $SDIR/$SFILE | grep FlightDate`
+    if ($status != 0) then
+      echo Could not find FlightDate in netCDF file $file
+      goto quit
+    endif
+#   Get rid of double quotes
+    set line = `echo $line  | sed -e 's/\"//g'`
+#   Get rid of time zone in date field, if extant
+    set line = `echo $line | sed -e 's/UTC//'`
+#   Test for styles #1 & 2
+    if ($#line == 4) then
+      set incnt1 = `echo $line[3] | wc -c`
+      if ($incnt1 == 11) then
+#   Style #1 (mm/dd/yyyy)
+        set fltdate = `echo $line[3]`
+      else if ($incnt1 == 10) then
+#   Style #2 (" m/dd/yyyy)
+        set fltdate = 0$line[3]
+      else
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else if ($#line == 5) then
+      set incnt1 = `echo $line[3] | wc -c`
+      set incnt2 = `echo $line[4] | wc -c`
+      if ($incnt1 == 3 && $incnt2 == 7) then
+#   Style #3, ( m/ d/yyyy)
+        set fltdate = `echo 0$line[3]0$line[4]`
+#   Style #4 (mm/ d/yyyy)
+      else if ($incnt1 == 4 && $incnt2 == 7) then
+        set fltdate = `echo $line[3]0$line[4]`
+      else
+#   Unknown date style
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else
+#   Unknown date style
+      echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+      goto quit
+    endif
+    set DATE = `echo $fltdate | awk -F/ '{print $3$1$2}'`
+#
+#  Get time interval
+    set tline = `ncdump -h $SDIR/$SFILE | grep TimeInterval`
+    if ($status != 0) then
+      echo Could not find TimeInterval in netCDF file $file
+      goto quit
+    endif
+    shift tline
+    shift tline
+    @ pass = 1
+newtime1:
+    echo $tline | grep , >& /dev/null
+#   Check for multiple time intervals
+    if ($status == 0) then
+      set multtime = "yes"
+    else
+      set multtime = "no"
+    endif
+#  Set time interval
+    set flttime = `echo $tline[1] | sed -e 's/\"//g'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    set flttime = `echo $flttime | sed -e 's/-/\ /'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    if ($multtime == "yes") then
+      set flttime = `echo $flttime | sed -e 's/\,//'`
+      if ($status != 0) then
+        echo Could not decode multiple TimeInterval in netCDF file $file
+        goto quit
+      endif
+    endif
+    set ST = `echo $flttime[1] | awk -F: '{print $1$2$3}'`
+    set ET = `echo $flttime[2] | awk -F: '{print $1$2$3}'`
+#
+#  Archive the file
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r \
+      flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}_$ET.$EXT \
+      rtpd=32767 name=RAF proj=41113009 w=RAFDMG
+#  Incorrect naming convention
+#     flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}-$ET.$EXT \
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#  1st wave (with incorrect naming convention)
+#  Job(s) submitted on Tue Sep  5 11:03:24 MDT 2000
+# Sequence number = LN3408 -- FF01.20000705.152930-214416.PNI.nc -- OK @ 5 Sep 2000 11:07:26
+# Sequence number = LN3439 -- FF02.20000723.125913-185905.PNI.nc -- OK @ 5 Sep 2000 11:07:20
+# Sequence number = LN3472 -- RF01.20000706.143233-194425.PNI.nc -- OK @ 5 Sep 2000 11:07:09
+# Sequence number = LN3507 -- RF02.20000709.143803-180255.PNI.nc -- OK @ 5 Sep 2000 11:06:05
+# Sequence number = LN3544 -- RF03.20000711.161454-215825.PNI.nc -- OK @ 5 Sep 2000 11:11:57
+# Sequence number = LN3577 -- RF04.20000715.150016-212249.PNI.nc -- OK @ 5 Sep 2000 11:12:10
+# Sequence number = LN3608 -- RF05.20000716.144309-194207.PNI.nc -- OK @ 5 Sep 2000 11:12:55
+# Sequence number = LN3639 -- RF06.20000716.215313-223721.PNI.nc -- OK @ 5 Sep 2000 11:08:09
+# Sequence number = LN3676 -- RF07.20000719.144536-200702.PNI.nc -- OK @ 5 Sep 2000 11:17:41
+# Sequence number = LN3707 -- RF08.20000721.140145-193044.PNI.nc -- OK @ 5 Sep 2000 11:18:31
+# Sequence number = LN3738 -- RF09.20000722.173219-215902.PNI.nc -- OK @ 5 Sep 2000 11:18:04
+# Sequence number = LN3769 -- TF01.20000629.144524-172742.PNI.nc -- OK @ 5 Sep 2000 11:17:57
+# Sequence number = LN3800 -- TF02.20000630.145318-173416.PNI.nc -- OK @ 5 Sep 2000 11:20:40
+#
+#  2nd wave (with correct naming convention)
+#  Job(s) submitted on Tue Sep  5 12:13:57 MDT 2000
+# Sequence number = LN7836 -- /PELTI/N130AR/LRT/FF01.20000705.152930_214416.PNI.nc -- OK @ 5 Sep 2000 12:27:15
+# Sequence number = LN7867 -- /PELTI/N130AR/LRT/FF02.20000723.125913_185905.PNI.nc -- OK @ 5 Sep 2000 12:28:03
+# Sequence number = LN7900 -- /PELTI/N130AR/LRT/RF01.20000706.143233_194425.PNI.nc -- OK @ 5 Sep 2000 12:27:21
+# Sequence number = LN7935 -- /PELTI/N130AR/LRT/RF02.20000709.143803_180255.PNI.nc -- OK @ 5 Sep 2000 12:29:02
+# Sequence number = LN7968 -- /PELTI/N130AR/LRT/RF03.20000711.161454_215825.PNI.nc -- OK @ 5 Sep 2000 12:36:07
+# Sequence number = LN8001 -- /PELTI/N130AR/LRT/RF04.20000715.150016_212249.PNI.nc -- OK @ 5 Sep 2000 12:35:47
+# Sequence number = LN8032 -- /PELTI/N130AR/LRT/RF05.20000716.144309_194207.PNI.nc -- OK @ 5 Sep 2000 12:33:43
+# Sequence number = LN8063 -- /PELTI/N130AR/LRT/RF06.20000716.215313_223721.PNI.nc -- OK @ 5 Sep 2000 12:30:42
+# Sequence number = LN8100 -- /PELTI/N130AR/LRT/RF07.20000719.144536_200702.PNI.nc -- OK @ 5 Sep 2000 12:36:49
+# Sequence number = LN8131 -- /PELTI/N130AR/LRT/RF08.20000721.140145_193044.PNI.nc -- OK @ 5 Sep 2000 12:37:03
+# Sequence number = LN8162 -- /PELTI/N130AR/LRT/RF09.20000722.173219_215902.PNI.nc -- OK @ 5 Sep 2000 12:40:46
+# Sequence number = LN8193 -- /PELTI/N130AR/LRT/TF01.20000629.144524_172742.PNI.nc -- OK @ 5 Sep 2000 12:40:47
+# Sequence number = LN8224 -- /PELTI/N130AR/LRT/TF02.20000630.145318_173416.PNI.nc -- OK @ 5 Sep 2000 12:39:51
+#
+remove:
+#
+#  Remove bitfiles with incorrect names (1st wave)
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/FF01.20000705.152930-214416.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/FF02.20000723.125913-185905.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF01.20000706.143233-194425.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF02.20000709.143803-180255.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF03.20000711.161454-215825.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF04.20000715.150016-212249.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF05.20000716.144309-194207.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF06.20000716.215313-223721.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF07.20000719.144536-200702.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF08.20000721.140145-193044.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/RF09.20000722.173219-215902.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/TF01.20000629.144524-172742.PNI.nc wpwd=RAFDMG
+# nrnet msrm % r flnm=/ATD/DATA/2000/PELTI/N130AR/LRT/TF02.20000630.145318-173416.PNI.nc wpwd=RAFDMG
+#
+#  Job(s) submitted on Tue Sep  5 14:07:57 MDT 2000
+# Sequence number = LN7889 -- /PELTI/N130AR/LRT/FF01.20000705.152930-214416.PNI.nc -- OK @ 5 Sep 2000 14:07:55
+# Sequence number = LN7897 -- /PELTI/N130AR/LRT/FF02.20000723.125913-185905.PNI.nc -- OK @ 5 Sep 2000 14:07:56
+# Sequence number = LN7905 -- /PELTI/N130AR/LRT/RF01.20000706.143233-194425.PNI.nc -- OK @ 5 Sep 2000 14:09:56
+# Sequence number = LN7913 -- /PELTI/N130AR/LRT/RF02.20000709.143803-180255.PNI.nc -- OK @ 5 Sep 2000 14:09:57
+# Sequence number = LN7921 -- /PELTI/N130AR/LRT/RF03.20000711.161454-215825.PNI.nc -- OK @ 5 Sep 2000 14:11:56
+# Sequence number = LN7929 -- /PELTI/N130AR/LRT/RF04.20000715.150016-212249.PNI.nc -- OK @ 5 Sep 2000 14:11:56
+# Sequence number = LN7937 -- /PELTI/N130AR/LRT/RF05.20000716.144309-194207.PNI.nc -- OK @ 5 Sep 2000 14:11:57
+# Sequence number = LN7945 -- /PELTI/N130AR/LRT/RF06.20000716.215313-223721.PNI.nc -- OK @ 5 Sep 2000 14:07:58
+# Sequence number = LN7953 -- /PELTI/N130AR/LRT/RF07.20000719.144536-200702.PNI.nc -- OK @ 5 Sep 2000 14:09:59
+# Sequence number = LN7961 -- /PELTI/N130AR/LRT/RF08.20000721.140145-193044.PNI.nc -- OK @ 5 Sep 2000 14:07:59
+# Sequence number = LN7969 -- /PELTI/N130AR/LRT/RF09.20000722.173219-215902.PNI.nc -- OK @ 5 Sep 2000 14:11:57
+# Sequence number = LN7977 -- /PELTI/N130AR/LRT/TF01.20000629.144524-172742.PNI.nc -- OK @ 5 Sep 2000 14:11:58
+# Sequence number = LN7991 -- /PELTI/N130AR/LRT/TF02.20000630.145318-173416.PNI.nc -- OK @ 5 Sep 2000 14:11:59
+#
+#  After reprocessing
+#  Job(s) submitted on Mon Sep 18 17:57:38 MDT 2000
+# Sequence number = LN6060 -- /PELTI/N130AR/LRT/FF01.20000705.152930_214416.PNI.nc -- OK @ 18 Sep 2000 18:06:29
+# Sequence number = LN6091 -- /PELTI/N130AR/LRT/FF02.20000723.125913_185905.PNI.nc -- OK @ 18 Sep 2000 18:06:19
+# Sequence number = LN6124 -- /PELTI/N130AR/LRT/RF01.20000706.143233_194425.PNI.nc -- OK @ 18 Sep 2000 18:06:01
+# Sequence number = LN6157 -- /PELTI/N130AR/LRT/RF02.20000709.143803_180255.PNI.nc -- OK @ 18 Sep 2000 18:01:25
+# Sequence number = LN6196 -- /PELTI/N130AR/LRT/RF03.20000711.161454_215825.PNI.nc -- OK @ 18 Sep 2000 18:05:08
+# Sequence number = LN6229 -- /PELTI/N130AR/LRT/RF04.20000715.150016_212249.PNI.nc -- OK @ 18 Sep 2000 18:07:47
+# Sequence number = LN6262 -- /PELTI/N130AR/LRT/RF05.20000716.144309_194207.PNI.nc -- OK @ 18 Sep 2000 18:13:06
+# Sequence number = LN6293 -- /PELTI/N130AR/LRT/RF06.20000716.215313_223721.PNI.nc -- OK @ 18 Sep 2000 18:10:20
+# Sequence number = LN6324 -- /PELTI/N130AR/LRT/RF07.20000719.144536_200702.PNI.nc -- OK @ 18 Sep 2000 18:14:06
+# Sequence number = LN6355 -- /PELTI/N130AR/LRT/RF08.20000721.140145_193044.PNI.nc -- OK @ 18 Sep 2000 18:14:13
+# Sequence number = LN6386 -- /PELTI/N130AR/LRT/RF09.20000722.173219_215902.PNI.nc -- OK @ 18 Sep 2000 18:15:57
+# Sequence number = LN6418 -- /PELTI/N130AR/LRT/TF01.20000629.144524_172742.PNI.nc -- OK @ 18 Sep 2000 18:15:31
+# Sequence number = LN6449 -- /PELTI/N130AR/LRT/TF02.20000630.145318_173416.PNI.nc -- OK @ 18 Sep 2000 18:19:22
+#
+#  MSS path for all bitfiles listed above:  /ATD/DATA/2000/PELTI/N130AR/LRT/
+#
+#  MSS path for all bitfiles listed below:  /ATD/DATA/2000/PELTI/N130AR/HRT/
+#
+#  Job(s) submitted on Wed Nov  1 16:58:14 MST 2000
+# Sequence number = LN8128 -- FF01.20000705.152942_214328.PNI.nc -- OK @ 1 Nov 2000 17:45:57
+# Sequence number = LN8159 -- FF02.20000723.125925_185817.PNI.nc -- OK @ 1 Nov 2000 17:44:45
+# Sequence number = LN8192 -- RF01.20000706.143245_194337.PNI.nc -- OK @ 1 Nov 2000 17:39:20
+# Sequence number = LN8225 -- RF02.20000709.143815_180207.PNI.nc -- OK @ 1 Nov 2000 17:25:51
+# Sequence number = LN8258 -- RF03.20000711.161529_215737.PNI.nc -- OK @ 1 Nov 2000 18:02:47
+# Sequence number = LN8291 -- RF04.20000715.150028_212201.PNI.nc -- OK @ 1 Nov 2000 18:25:58
+# Sequence number = LN8322 -- RF05.20000716.144321_194119.PNI.nc -- OK @ 1 Nov 2000 18:22:26
+# Sequence number = LN8354 -- RF06.20000716.215325_223633.PNI.nc -- OK @ 1 Nov 2000 17:52:10
+# Sequence number = LN8385 -- RF07.20000719.144548_200614.PNI.nc -- OK @ 1 Nov 2000 18:43:47
+# Sequence number = LN8416 -- RF08.20000721.140157_192956.PNI.nc -- OK @ 1 Nov 2000 18:31:43
+# Sequence number = LN8448 -- RF09.20000722.173231_215814.PNI.nc -- OK @ 1 Nov 2000 18:50:14
+# Sequence number = LN8480 -- TF01.20000629.144536_172654.PNI.nc -- OK @ 1 Nov 2000 18:49:16
+# Sequence number = LN8511 -- TF02.20000630.145330_173328.PNI.nc -- OK @ 1 Nov 2000 18:41:30
+#
+#  Job(s) submitted on 
+#

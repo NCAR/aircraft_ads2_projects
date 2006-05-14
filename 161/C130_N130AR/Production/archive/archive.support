@@ -1,0 +1,974 @@
+#! /bin/csh -f
+#
+#   Archive support files for project 2001-161 EPIC2001 (Raymond, et al.)
+#   (Customizing this script for each project is rather labor intensive.
+#   It may make more sense to just save everything in the project's
+#   directory rather than filter out stuff that apparently isn't needed.
+#   If one saves everything, this script could be generic and would be
+#   much simpler.)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (debug)                                           16 Apr 1996
+#  Revised by RLR (add some comment lines)                           1 Jul 1997
+#  Revised by RLR (streamline the way things are set up)            11 Aug 1997
+#  Revised by RLR (minor changes and more template examples)        20 Aug 1998
+#  Revised by RLR (change the way $PROJ is determined)              20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#           "Production" subdirectory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#         having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file
+#         $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#   4.  Script is run from affected project's "Production" subdirectory
+#
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set PDIR = $LOCAL/proj/$PROJ
+set PRDIR = $PDIR/Production
+set PROJNAME = `cat $PDIR/ProjectName`
+set SDIR = $PROD_DATA
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#
+echo "#  Job(s) submitted on `date`"
+#
+#
+#  This file modified on 10 September 2003 to begin conversion from
+#     MIGS to msrcp.
+#   Earlier submissions used MIGS.
+#
+#  Current archive (nrnet or msrcp) commands go here
+#  -------------------------------------------------
+#
+#
+# Done.
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+#
+#  1st archive below this line
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+161.documents.tar \
+161.documents.tar.dir \
+161.tar \
+161.tar.dir \
+Mail.161 \
+MSCP_out.161 \
+taplog.hrt.161 \
+taplog.lrt.161 \
+tp2ms.summary \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR/archive
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+tapes.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+#
+set FILES = ( \
+nimbus.lrt.tar \
+nimbus.lrt.tar.dir \
+nimbus_defaults.lrt.tar \
+nimbus_defaults.lrt.tar.dir \
+taplog.lrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+#
+set FILES = ( \
+nimbus.hrt.tar \
+nimbus.hrt.tar.dir \
+nimbus_defaults.hrt.tar \
+nimbus_defaults.hrt.tar.dir \
+taplog.hrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+set FILES = ( \
+161rf01.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+set FILES = ( \
+161rf03h.hdr \
+)
+set OFILES = ( \
+RF03.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  2nd archive below this line
+#
+#  Rearchive after documents added
+#
+#  Files to go to main MSS directory (not renamed) (rearchive)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+161.documents.tar \
+161.documents.tar.dir \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  3rd archive below this line
+#  Update following processing and archive of HRT RF15
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+161.documents.tar \
+161.documents.tar.dir \
+161.tar \
+161.tar.dir \
+Mail.161 \
+taplog.hrt.161 \
+taplog.lrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+#
+set FILES = ( \
+taplog.hrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+#
+set FILES = ( \
+taplog.lrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  Move original archive to 1ST_PRODUCTION subdirectory
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/161.documents.tar newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/161.documents.tar wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/161.documents.tar.dir newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/161.documents.tar.dir wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/161.tar newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/161.tar wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/161.tar.dir newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/161.tar.dir wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/HRT/RF03.hdr newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/HRT/RF03.hdr wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/HRT/nimbus.hrt.tar newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/HRT/nimbus.hrt.tar wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/HRT/nimbus.hrt.tar.dir newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/HRT/nimbus.hrt.tar.dir wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/HRT/nimbus_defaults.hrt.tar newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/HRT/nimbus_defaults.hrt.tar wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/HRT/nimbus_defaults.hrt.tar.dir newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/HRT/nimbus_defaults.hrt.tar.dir wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/HRT/taplog.hrt.161 newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/HRT/taplog.lrt.161 wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/RF01.hdr newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/LRT/RF01.hdr wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/nimbus.lrt.tar newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/LRT/nimbus.lrt.tar wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/nimbus.lrt.tar.dir newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/LRT/nimbus.lrt.tar.dir wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/nimbus_defaults.lrt.tar newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/LRT/nimbus_defaults.lrt.tar wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/nimbus_defaults.lrt.tar.dir newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/LRT/nimbus_defaults.lrt.tar.dir wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/LRT/taplog.lrt.161 newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/LRT/taplog.lrt.161 wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/Mail.161 newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/Mail.161 wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/taplog.hrt.161 newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/taplog.hrt.161 wpwd=RAFDMG
+#echo nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/taplog.lrt.161 newf=/RAF/$YEAR/$PROJ/1ST_PRODUCTION/taplog.lrt.161 wpwd=RAFDMG
+#
+#  When the above is done, archive the current versions
+#
+#  Reprocess archive below this line
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+161.documents.tar \
+161.documents.tar.dir \
+161.tar \
+161.tar.dir \
+Mail.161 \
+taplog.hrt.161 \
+taplog.lrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+#
+set FILES = ( \
+nimbus.lrt.tar \
+nimbus.lrt.tar.dir \
+nimbus_defaults.lrt.tar \
+nimbus_defaults.lrt.tar.dir \
+taplog.lrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+#
+set FILES = ( \
+nimbus.hrt.tar \
+nimbus.hrt.tar.dir \
+nimbus_defaults.hrt.tar \
+nimbus_defaults.hrt.tar.dir \
+taplog.hrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+set FILES = ( \
+161rf01.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+set FILES = ( \
+161rf03h.hdr \
+)
+set OFILES = ( \
+RF03.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  4th archive below this line (Added rest of HRT data)
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR/archive
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+tapes.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+161.documents_Jul_2003.tar \
+161.documents_Jul_2003.tar.dir \
+161_Jul_2003.tar \
+161_Jul_2003.tar.dir \
+Mail.161 \
+MSCP_out.161 \
+taplog.hrt.161 \
+tp2ms.summary \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+#
+set FILES = ( \
+nimbus.hrt_Jul_2003.tar \
+nimbus.hrt_Jul_2003.tar.dir \
+nimbus_defaults.hrt_Jul_2003.tar \
+nimbus_defaults.hrt_Jul_2003.tar.dir \
+taplog.hrt.161 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+# -----------------------------------------------------------------------------
+#
+#
+#  -------------------------------------------------------------
+#   T E M P L A T E S   ( e d i t ,   a s   n e c e s s a r y )
+#  -------------------------------------------------------------
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = 
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = 
+set TURBRT = 
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (renamed)
+#
+set DIR = 
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = 
+set TURBRT = 
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  -------------------------------------------------------------
+#   T E M P L A T E S   ( b r u t e - f o r c e   m e t h o d )
+#  -------------------------------------------------------------
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's `Production' directory
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+#
+#  Set turbulence rate (LRT or HRT) here
+set TURBRT = 
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's `Production' directory
+set FILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+  name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG
+#
+# -----------------------------------------------------------------------------
+#
+#  Files archived to the MSS directory  /RAF/2001/161/
+#
+#  Job(s) submitted on Tue Feb 26 14:29:15 MST 2002
+# Sequence number = LN3919 -- 161.documents.tar -- OK @ 26 Feb 2002 14:29:37
+# Sequence number = LN3926 -- 161.documents.tar.dir -- OK @ 26 Feb 2002 14:29:34
+# Sequence number = LN3932 -- 161.tar -- OK @ 26 Feb 2002 14:29:34
+# Sequence number = LN3942 -- 161.tar.dir -- OK @ 26 Feb 2002 14:29:34
+# Sequence number = LN3950 -- Mail.161 -- OK @ 26 Feb 2002 14:33:31
+# Sequence number = LN3956 -- MSCP_out.161 -- OK @ 26 Feb 2002 14:33:23
+# Sequence number = LN3964 -- taplog.hrt.161 -- OK @ 26 Feb 2002 14:33:31
+# Sequence number = LN3971 -- taplog.lrt.161 -- OK @ 26 Feb 2002 14:37:33
+# Sequence number = LN3980 -- tp2ms.summary -- OK @ 26 Feb 2002 14:41:30
+# Sequence number = LN3990 -- tapes.161 -- OK @ 26 Feb 2002 14:45:28
+# Sequence number = LN3998 -- LRT/nimbus.lrt.tar -- OK @ 26 Feb 2002 14:45:56
+# Sequence number = LN4006 -- LRT/nimbus.lrt.tar.dir -- OK @ 26 Feb 2002 14:45:31
+# Sequence number = LN4012 -- LRT/nimbus_defaults.lrt.tar -- OK @ 26 Feb 2002 14:51:22
+# Sequence number = LN4022 -- LRT/nimbus_defaults.lrt.tar.dir -- OK @ 26 Feb 2002 14:45:31
+# Sequence number = LN4030 -- LRT/taplog.lrt.161 -- OK @ 26 Feb 2002 14:51:32
+# Sequence number = LN4038 -- HRT/nimbus.hrt.tar -- OK @ 26 Feb 2002 14:41:55
+# Sequence number = LN4046 -- HRT/nimbus.hrt.tar.dir -- OK @ 26 Feb 2002 14:33:32
+# Sequence number = LN4054 -- HRT/nimbus_defaults.hrt.tar -- OK @ 26 Feb 2002 14:37:33
+# Sequence number = LN4062 -- HRT/nimbus_defaults.hrt.tar.dir -- OK @ 26 Feb 2002 14:37:29
+# Sequence number = LN4070 -- HRT/taplog.hrt.161 -- OK @ 26 Feb 2002 14:37:33
+# Sequence number = LN4078 -- LRT/RF01.hdr -- OK @ 26 Feb 2002 14:41:30
+# Sequence number = LN4086 -- HRT/RF03.hdr -- OK @ 26 Feb 2002 14:41:30
+#
+#  Job(s) submitted on Mon Mar  4 14:18:51 MST 2002
+# Sequence number = LN4745 -- 161.documents.tar -- OK @ 4 Mar 2002 14:19:29
+# Sequence number = LN4750 -- 161.documents.tar.dir -- OK @ 4 Mar 2002 14:19:29
+#
+#  Update following processing and archive of HRT RF15
+#  Job(s) submitted on Fri Mar 29 16:00:18 MST 2002
+# Sequence number = LN9803
+# Sequence number = LN9733 -- 161.documents.tar -- OK @ 29 Mar 2002 16:00:57
+# Sequence number = LN9741 -- 161.documents.tar.dir -- OK @ 29 Mar 2002 16:00:50
+# Sequence number = LN9749 -- 161.tar -- OK @ 29 Mar 2002 16:00:50
+# Sequence number = LN9757 -- 161.tar.dir -- OK @ 29 Mar 2002 16:00:50
+# Sequence number = LN9767 -- Mail.161 -- OK @ 29 Mar 2002 16:04:50
+# Sequence number = LN9777 -- taplog.hrt.161 -- OK @ 29 Mar 2002 16:04:57
+# Sequence number = LN9787 -- taplog.lrt.161 -- OK @ 29 Mar 2002 16:04:56
+# Sequence number = LN9795 -- HRT/taplog.hrt.161 -- OK @ 29 Mar 2002 16:04:57
+# Sequence number = LN9803 -- LRT/taplog.lrt.161 -- OK @ 29 Mar 2002 16:08:56
+#
+#
+#  Move original archive to MSS path:  /RAF/2001/161/1ST_PRODUCTION/
+#  Job(s) submitted on Mon Apr 22 16:08:27 MDT 2002
+# Sequence number = LN6811 -- LRT/RF01.hdr -- Failed @ 22 Apr 2002 17:00:42
+#   No such file or directory (previously moved by script arch.lrt.161)
+# Sequence number = LN6738 -- 161.documents.tar -- OK @ 22 Apr 2002 16:16:42
+# Sequence number = LN6743 -- 161.documents.tar.dir -- OK @ 22 Apr 2002 16:20:40
+# Sequence number = LN6749 -- 161.tar -- OK @ 22 Apr 2002 16:40:37
+# Sequence number = LN6755 -- 161.tar.dir -- OK @ 22 Apr 2002 16:12:33
+# Sequence number = LN6763 -- HRT/RF03.hdr -- OK @ 22 Apr 2002 17:04:44
+# Sequence number = LN6770 -- HRT/nimbus.hrt.tar -- OK @ 22 Apr 2002 17:04:43
+# Sequence number = LN6781 -- HRT/nimbus.hrt.tar.dir -- OK @ 22 Apr 2002 17:16:41
+# Sequence number = LN6789 -- HRT/nimbus_defaults.hrt.tar -- OK @ 22 Apr 2002 17:24:42
+# Sequence number = LN6797 -- HRT/nimbus_defaults.hrt.tar.dir -- OK @ 22 Apr 2002 16:12:36
+# Sequence number = LN6805 -- HRT/taplog.hrt.161 -- OK @ 22 Apr 2002 17:08:42
+# Sequence number = LN6821 -- LRT/nimbus.lrt.tar -- OK @ 22 Apr 2002 17:04:44
+# Sequence number = LN6829 -- LRT/nimbus.lrt.tar.dir -- OK @ 22 Apr 2002 17:08:42
+# Sequence number = LN6837 -- LRT/nimbus_defaults.lrt.tar -- OK @ 22 Apr 2002 17:12:40
+# Sequence number = LN6843 -- LRT/nimbus_defaults.lrt.tar.dir -- OK @ 22 Apr 2002 17:12:40
+# Sequence number = LN6851 -- LRT/taplog.lrt.161 -- OK @ 22 Apr 2002 17:20:43
+# Sequence number = LN6859 -- Mail.161 -- OK @ 22 Apr 2002 17:20:43
+# Sequence number = LN6866 -- taplog.hrt.161 -- OK @ 22 Apr 2002 17:16:41
+# Sequence number = LN6875 -- taplog.lrt.161 -- OK @ 22 Apr 2002 17:24:43
+#
+#  Archive after reprocessing
+#  Job(s) submitted on Tue Apr 23 10:07:29 MDT 2002
+# Sequence number = LN9720 -- 161.documents.tar -- OK @ 23 Apr 2002 10:08:32
+# Sequence number = LN9725 -- 161.documents.tar.dir -- OK @ 23 Apr 2002 10:08:35
+# Sequence number = LN9732 -- 161.tar -- OK @ 23 Apr 2002 10:19:54
+# Sequence number = LN9739 -- 161.tar.dir -- OK @ 23 Apr 2002 10:17:52
+# Sequence number = LN9745 -- Mail.161 -- OK @ 23 Apr 2002 10:08:46
+# Sequence number = LN9754 -- taplog.hrt.161 -- OK @ 23 Apr 2002 10:08:49
+# Sequence number = LN9763 -- taplog.lrt.161 -- OK @ 23 Apr 2002 10:18:00
+# Sequence number = LN9771 -- LRT/nimbus.lrt.tar -- OK @ 23 Apr 2002 10:12:55
+# Sequence number = LN9779 -- LRT/nimbus.lrt.tar.dir -- OK @ 23 Apr 2002 10:13:01
+# Sequence number = LN9786 -- LRT/nimbus_defaults.lrt.tar -- OK @ 23 Apr 2002 10:12:58
+# Sequence number = LN9795 -- LRT/nimbus_defaults.lrt.tar.dir -- OK @ 23 Apr 2002 10:23:52
+# Sequence number = LN9803 -- LRT/taplog.lrt.161 -- OK @ 23 Apr 2002 10:18:00
+# Sequence number = LN9808 -- HRT/nimbus.hrt.tar -- OK @ 23 Apr 2002 10:12:50
+# Sequence number = LN9814 -- HRT/nimbus.hrt.tar.dir -- OK @ 23 Apr 2002 10:17:17
+# Sequence number = LN9828 -- HRT/nimbus_defaults.hrt.tar -- OK @ 23 Apr 2002 10:19:54
+# Sequence number = LN9833 -- HRT/nimbus_defaults.hrt.tar.dir -- OK @ 23 Apr 2002 10:18:03
+# Sequence number = LN9839 -- HRT/taplog.hrt.161 -- OK @ 23 Apr 2002 10:20:01
+# Sequence number = LN9853 -- LRT/RF01.hdr -- OK @ 23 Apr 2002 10:17:32
+# Sequence number = LN9861 -- HRT/RF03.hdr -- OK @ 23 Apr 2002 10:19:59
+#
+#  4th archive (After processing remaining HRT data)
+#  Job(s) submitted on Tue Sep  9 15:54:18 MDT 2003
+#  Sequence number = LN3552 -- dead (mahler doesn't send email)
+#  Sequence number = LN3557 -- dead (mahler doesn't send email)
+#  Sequence number = LN3562 -- dead (mahler doesn't send email)
+#  Sequence number = LN3567 -- dead (mahler doesn't send email)
+#  Sequence number = LN3572 -- dead (mahler doesn't send email)
+#  Sequence number = LN3577 -- dead (mahler doesn't send email)
+#  Sequence number = LN3582 -- dead (mahler doesn't send email)
+#  Sequence number = LN3587 -- dead (mahler doesn't send email)
+#  Sequence number = LN3600 -- dead (mahler doesn't send email)
+#  Sequence number = LN3606 -- dead (mahler doesn't send email)
+#  Sequence number = LN3612 -- dead (mahler doesn't send email)
+#  Sequence number = LN3618 -- dead (mahler doesn't send email)
+#  Sequence number = LN3624 -- dead (mahler doesn't send email)
+#  Sequence number = LN3630 -- dead (mahler doesn't send email)
+#
+#  Job(s) submitted on Wed Sep 10 10:39:15 MDT 2003 via vivaldi
+#  Sequence number = LN0687 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0692 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0697 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0702 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0712 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0718 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0724 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0730 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0737 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0742 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0749 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0754 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0761 -- failed (MYOS echoed in .cshrc script)
+#  Sequence number = LN0767 -- failed (MYOS echoed in .cshrc script)
+#
+#  Job(s) submitted on Wed Sep 10 11:53:31 MDT 2003
+#  Sequence number = LN1722 -- tapes.161 -- OK @ 10 Sep 2003 11:53:38
+#  Sequence number = LN1727 -- 161.documents_Jul_2003.tar -- OK @ 10 Sep 2003 11:53:47
+#  Sequence number = LN1734 -- 161.documents_Jul_2003.tar.dir -- OK @ 10 Sep 2003 11:53:38
+#  Sequence number = LN1740 -- 161_Jul_2003.tar -- OK @ 10 Sep 2003 11:53:41
+#  Sequence number = LN1746 -- 161_Jul_2003.tar.dir -- OK @ 10 Sep 2003 11:57:38
+#  Sequence number = LN1751 -- Mail.161 -- OK @ 10 Sep 2003 11:57:40
+#  Sequence number = LN1758 -- MSCP_out.161 -- OK @ 10 Sep 2003 11:57:40
+#  Sequence number = LN1763 -- taplog.hrt.161 -- OK @ 10 Sep 2003 12:01:39
+#  Sequence number = LN1770 -- tp2ms.summary -- OK @ 10 Sep 2003 12:01:38
+#  Sequence number = LN1776 -- HRT/nimbus.hrt_Jul_2003.tar -- OK @ 10 Sep 2003 12:02:09
+#  Sequence number = LN1782 -- HRT/nimbus.hrt_Jul_2003.tar.dir -- OK @ 10 Sep 2003 12:01:38
+#  Sequence number = LN1787 -- HRT/nimbus_defaults.hrt_Jul_2003.tar -- OK @ 10 Sep 2003 11:57:41
+#  Sequence number = LN1794 -- HRT/nimbus_defaults.hrt_Jul_2003.tar.dir -- OK @ 10 Sep 2003 12:05:41
+#  Sequence number = LN1800 -- HRT/taplog.hrt.161 -- OK @ 10 Sep 2003 12:05:40
+#
+#  Job(s) submitted on 
+#

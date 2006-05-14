@@ -1,0 +1,176 @@
+#! /bin/csh -f
+#  Move files associated with the second production run to a new directory
+#   (preparation for documenting the newly-reprocessed production data)
+#     Ron Ruth  14 March 2001
+#
+# move following files
+#   in the directory:  /home/local/proj/162/Production/
+#   to the directory:  /home/local/proj/162/Production/2nd_production/
+mv 162.tar.dir 2nd_production/.
+mv 162rf12.hdr 2nd_production/.
+mv 162rf12h.hdr 2nd_production/.
+mv batch.rf06 2nd_production/.
+mv logFile_HRT.1 2nd_production/.
+mv logFile_HRT.10 2nd_production/.
+mv logFile_HRT.11 2nd_production/.
+mv logFile_HRT.12 2nd_production/.
+mv logFile_HRT.13 2nd_production/.
+mv logFile_HRT.14 2nd_production/.
+mv logFile_HRT.15 2nd_production/.
+mv logFile_HRT.16 2nd_production/.
+mv logFile_HRT.17 2nd_production/.
+mv logFile_HRT.18 2nd_production/.
+mv logFile_HRT.19 2nd_production/.
+mv logFile_HRT.2 2nd_production/.
+mv logFile_HRT.20 2nd_production/.
+mv logFile_HRT.3 2nd_production/.
+mv logFile_HRT.4 2nd_production/.
+mv logFile_HRT.5 2nd_production/.
+mv logFile_HRT.6 2nd_production/.
+mv logFile_HRT.7 2nd_production/.
+mv logFile_HRT.8 2nd_production/.
+mv logFile_HRT.9 2nd_production/.
+mv logFile_LRT.1 2nd_production/.
+mv logFile_LRT.10 2nd_production/.
+mv logFile_LRT.11 2nd_production/.
+mv logFile_LRT.12 2nd_production/.
+mv logFile_LRT.13 2nd_production/.
+mv logFile_LRT.14 2nd_production/.
+mv logFile_LRT.15 2nd_production/.
+mv logFile_LRT.16 2nd_production/.
+mv logFile_LRT.17 2nd_production/.
+mv logFile_LRT.18 2nd_production/.
+mv logFile_LRT.19 2nd_production/.
+mv logFile_LRT.2 2nd_production/.
+mv logFile_LRT.20 2nd_production/.
+mv logFile_LRT.3 2nd_production/.
+mv logFile_LRT.4 2nd_production/.
+mv logFile_LRT.5 2nd_production/.
+mv logFile_LRT.7 2nd_production/.
+mv logFile_LRT.8 2nd_production/.
+mv logFile_LRT.9 2nd_production/.
+mv logFile_LRT.ff01a 2nd_production/.
+mv logFile_LRT.ff01b 2nd_production/.
+mv logFile_LRT.ff04 2nd_production/.
+mv log_scrn.1 2nd_production/.
+mv log_scrn.10 2nd_production/.
+mv log_scrn.11 2nd_production/.
+mv log_scrn.12 2nd_production/.
+mv log_scrn.13 2nd_production/.
+mv log_scrn.14 2nd_production/.
+mv log_scrn.15 2nd_production/.
+mv log_scrn.16 2nd_production/.
+mv log_scrn.17 2nd_production/.
+mv log_scrn.18 2nd_production/.
+mv log_scrn.19 2nd_production/.
+mv log_scrn.2 2nd_production/.
+mv log_scrn.20 2nd_production/.
+mv log_scrn.3 2nd_production/.
+mv log_scrn.4 2nd_production/.
+mv log_scrn.5 2nd_production/.
+mv log_scrn.6 2nd_production/.
+mv log_scrn.7 2nd_production/.
+mv log_scrn.8 2nd_production/.
+mv log_scrn.9 2nd_production/.
+mv log_scrn.ff01a 2nd_production/.
+mv log_scrn.ff01b 2nd_production/.
+mv log_scrn.ff04 2nd_production/.
+mv msmove 2nd_production/.
+mv new_1_arch.162 2nd_production/.
+mv new_2_arch.162 2nd_production/.
+mv new_3_arch.162 2nd_production/.
+mv new_4_arch.162 2nd_production/.
+mv nimbus1-5.tar.dir 2nd_production/.
+mv nimbus6-20.tar.dir 2nd_production/.
+mv nimbus_defaults.tar.dir 2nd_production/.
+mv production.logFile_LRT.6 2nd_production/logFile_LRT.6
+mv renameit 2nd_production/.
+mv reprocess.mo 2nd_production/.
+#mv taplog.162 2nd_production/.
+mv tarit.162 2nd_production/.
+mv test.logFile_LRT.6 2nd_production/.
+#-------
+#
+exit
+#
+# Keep here:
+# FlightGroups
+# Flight_1
+# Flight_10
+# Flight_11
+# Flight_12
+# Flight_13
+# Flight_14
+# Flight_15
+# Flight_16
+# Flight_17
+# Flight_18
+# Flight_19
+# Flight_2
+# Flight_20
+# Flight_3
+# Flight_4
+# Flight_5
+# Flight_6
+# Flight_8
+# Flight_9
+# HRT.convert
+# MSCP_out.162
+# Mail.162
+# SCMS_chronology (update)
+# arch_support.162
+# archive/
+# burnet1.ps
+# burnet2.ps
+# fred.notes
+# genar
+# genars
+# logFile_HRT.RF1
+# logFile_HRT.RF10
+# logFile_HRT.RF11
+# logFile_HRT.RF12
+# logFile_HRT.RF13
+# logFile_HRT.RF14
+# logFile_HRT.RF15
+# logFile_HRT.RF16
+# logFile_HRT.RF17
+# logFile_HRT.RF18
+# logFile_HRT.RF19
+# logFile_HRT.RF2
+# logFile_HRT.RF20
+# logFile_HRT.RF3
+# logFile_HRT.RF4
+# logFile_HRT.RF5
+# logFile_HRT.RF6
+# logFile_HRT.RF7
+# logFile_HRT.RF8
+# logFile_HRT.RF9
+# logFile_LRT.RF1
+# logFile_LRT.RF10
+# logFile_LRT.RF11
+# logFile_LRT.RF12
+# logFile_LRT.RF13
+# logFile_LRT.RF14
+# logFile_LRT.RF15
+# logFile_LRT.RF16
+# logFile_LRT.RF17
+# logFile_LRT.RF18
+# logFile_LRT.RF19
+# logFile_LRT.RF2
+# logFile_LRT.RF20
+# logFile_LRT.RF3
+# logFile_LRT.RF4
+# logFile_LRT.RF5
+# logFile_LRT.RF6
+# logFile_LRT.RF7
+# logFile_LRT.RF8
+# logFile_LRT.RF9
+# logFile_LRT.6
+# proj.info
+# recipients
+# renameit2
+# reprocess.notes
+# taplog.ads.162
+# taplog.pms2d.162
+# tarit.162
+# tp2ms.summary

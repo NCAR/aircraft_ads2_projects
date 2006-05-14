@@ -1,0 +1,182 @@
+Research Flights
+----------------
+Original processing of the research flights produced netCDF files that needed
+modification.  A series of skeleton programs produced netCDF files to be
+merged into this original one:
+   1)  CVI measurements from Dr. Cynthia Twohy, including:
+        CVINFLAG, CVRAD, CVCWC, CVN, CVFACT, CVFX0C, CVFX1C, CVFX2C, CVFCN2C
+         and CVEMSW
+        File name format:  cvrfXX.cdf, where XX is flight number
+       The routines used to make these netCDF files can be found in the
+        subdirectory "CVI."
+   2)  Ozone corrections from Teresa Campos, including:
+        TEO3C
+        File name format:  o3rfXX.cdf, where XX is flight number
+       The "amlib" files (for the NIMBUS skeleton program) that were used
+        to make these netCDF files can be found in the subdirectory "O3."
+   3)  Corrections to PVM-100 and PMS Liquid Water Content probes and other
+        miscellaneous changes, including:
+        ATX, HGM232, OAT, PLWCC, PLWCC1, PLWCF_RPC/PLWCF_LPI, RSTB1, XGLWC
+         and XTSURF (ATX, HGM232, PLWCF_RPC/PLWCF_LPI and RSTB1 were passed
+         through unaltered.)
+        The skeleton program for this procedure can be found in the "coupling"
+         subdirectory.  Its main purpose is to remove long-term drifts
+         for certain measurements by subtracting from them a long-term
+         difference (with a 250-second time constant) from a reference
+         measurement.  Affected measurements include:  OAT, PLWCC, PLWCC1,
+         XGLWC.  A second purpose is to create an estimated radiomentric
+         surface temperature (from RSTB1) which accounts for the moisture
+         attenuation in the atmosphere between the aircraft and the surface.
+        File name format:  couprfXX.cdf where XX is flight number
+   4)  FSSP-100 data were reprocessed to incorporate the changes recommended
+        by Darrel Baumgardner.  A Depth-of-field value of 2.81 mm and a Beam
+        Diameter of 0.19 mm have been used for both probes for all flights.
+        A new set of bin sizes also has been used.  Due to the lack of
+        houskeeping variables, the original NIMBUS processor was modified
+        by Chris Webster to implement an empirical correction and then used
+        to produce limited-variable netCDF files.  It can be found in the
+        tar file "nimbus_indo.tar."
+        
+The four sub-files then were merged into their corresponding original
+nimbus-processed netCDF files using "ncmerge" to produce the final
+production netCDF files.  Note:  As of this writing, the netCDF merge program,
+ncmerge, only moves the data values, not the netCDF attributes.  As a result,
+new and/or revised attributes for the merged variables were not put into
+the production netCDF file.  This can be confusing for such things as PMS-1D
+cell sizes, depth-of-field, calibration coefficients, etc.  (Perhaps these
+attributes can be updated at a later time.)
+
+Ronald L. Ruth
+RAF Data Manager
+17 September 1999
+----------------
+
+When the special netCDF data files from CVI, O3, COUPLED and FSSP were merged
+into their appropriate production netCDF files, the attributes for the new
+and replaced variables were not transferred into the netCDF header.  If those
+attributes are needed, one will have to retrieve the special netCDF files
+and extract the attributes from them.  This may only make sense for the
+reprocessed FSSP data.
+
+Ronald L. Ruth
+RAF Data Manager
+13 January 2000
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Ferry Flights
+-------------
+Prior to processing the Ferry Flights for this project, many extant files had
+to be renamed temporarily, since the NIMBUS software does not yet recognize
+the difference between flight types (Research, Ferry, Test, etc.).  The
+specific file types which had to be renamed to preserve the data and logs
+for the Research Flights are:
+  NIMBUS production output netCDF files:  /home/productiondata/102rfxx.cdf
+  NIMBUS production log files:  /home/local/proj/102/Production/logFile_LRT.XX
+  NIMBUS production group file:  /home/local/proj/102/Production/FlightGroups
+  NIMBUS production setup files:  /home/local/proj/102/Production/Flight_XX
+Also, a newer version of the NIMBUS software was used to process these data.
+The support files unique to the Ferry Flight processing will be archived to
+the SCD Mass Store System (MSS) with special names.
+
+Ronald L. Ruth
+RAF Data Manager
+15 December 1999
+----------------
+
+
+NIMBUS has been bailing out of the processing for Ferry Flights:  FF01,
+FF06B, FF07, FF08, FF09 and FF10 with the following error:
+     ncattput: ncid 7: Operation not allowed in data mode
+     [1]    Exit 3               nimbus
+
+In each case, the file being read is the original tape image brought
+down from the Mass Store (COS-block stripped).  It may be prudent to
+see whether the COS-blocked file would work better.  (It didn't.)
+
+Ronald L. Ruth
+RAF Data Manager
+17 December 1999
+----------------
+
+
+NIMBUS still has not been fixed to handle the error reported on 17 December,
+but Chris is working on it.  In the meantime, I archived the following ferry
+flights whose processing did complete successfully:  FF03, FF04, FF05A, FF05B
+and FF06A.
+
+Archiving the raw data for FF10 and FF11 is awaiting an SCD software fix
+to handle skipping a large number of records.  When the tapes were archived
+originally, the new "mss4" machine was used, and it produced segments too
+large to retrieve to Jeffco via MIGS.  When I tried rearchiving them with
+fewer records per segment, the number of records to skip overflowed an
+internal counter in SCD's import software.
+
+Ronald L. Ruth
+RAF Data Manager
+30 December 1999
+----------------
+
+
+Chris "fixed the special version of the NIMBUS processor (in the directory
+/home/local/nimbus_indo).  I was able to process all but one of the
+problematic ferry flights successfully.  FF08 still failed; it has some
+serious problems.  I will try to use the COS-blocked version of the ADS
+file to see whether that helps.
+
+When I originally processed the Ferry flights, I used the standard release
+of NIMBUS.  It did not have the special FSSP corrections found in the version
+in the nimbus_indo directory.  Therefore, I reprocessed all the Ferry flights
+today to get the best FSSP concentrations.  These files need to be rearchived
+to the MSS.
+
+Ronald L. Ruth
+RAF Data Manager
+7 January 2000
+----------------
+
+
+Today I tried processing FF08 using the COS-blocked versions of the files
+brought down from the MSS.  The INDOEX version of NIMBUS ran to successful
+conclusion, so it looks like that is a good alternative for some of the
+problematic files that have garbaged time stamps.
+
+I discovered that the setup file used for FF07-FF11 (Flight_16) was not
+properly written.  Therefore, I need to reprocess these flights after fixing
+this problem.  FF11 is still awaiting a successful archive to the MSS from
+tape.
+
+Ronald L. Ruth
+RAF Data Manager
+10 January 2000
+----------------
+
+
+Yesterday, I reprocessed FF07 through FF10 using the processor in the
+"nimbus_indo" directory and a revised Flight_16 setup file (restricts
+the variable list to those requested.)  Today I archived these new files
+to the MSS.  (I'm still waiting for FF11 raw tape archive completion.)
+
+Ronald L. Ruth
+RAF Data Manager
+11 January 2000
+----------------
+
+
+Today I processed FF11 and archived it to the MSS after the raw data
+finished archiving.
+
+The file names in this directory that are unique to processing the Ferry
+Flights (and reprocessing the FSSP) have special naming conventions.  They
+were renamed following the processing to not conflict with the research
+flight names.  ("x" represents the flight number in all the examples below.)
+  - setup files (FSSP reprocess) from Flight_x           to setup.102FSSP_x
+  - setup files (Ferry)          from Flight_x           to FFlight_x
+                                 from Flight_Groups file to FFlight_Groups
+  - nimbus log files (Ferry)     from logFile_LRT.x      to logFile_LRT.FFx
+  - nimbus log files (FSSP)      from logFile_LRT.x      to logFile_FSSP.x
+
+Ronald L. Ruth
+RAF Data Manager
+13 January 2000
+----------------

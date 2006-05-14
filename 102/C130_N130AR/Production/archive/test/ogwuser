@@ -1,0 +1,1944 @@
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:47 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16345
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:47 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:46 -0700 (MST)
+Message-Id: <200003211757.KAA07739@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07739
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:46 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6251 Failure
+Content-Length: 472
+Status: O
+
+LN6251: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1311
+flnm=/RAF/TEST/1999/102/FF02A/R1311
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1311 /RAF/TEST/1999/102/FF02A/R1311
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:48 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16347
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:47 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:46 -0700 (MST)
+Message-Id: <200003211757.KAA07741@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07741
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:46 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6243 Failure
+Content-Length: 472
+Status: O
+
+LN6243: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1310
+flnm=/RAF/TEST/1999/102/FF01A/R1310
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1310 /RAF/TEST/1999/102/FF01A/R1310
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:48 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16349
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:47 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:47 -0700 (MST)
+Message-Id: <200003211757.KAA07744@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07744
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:47 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6259 Failure
+Content-Length: 472
+Status: O
+
+LN6259: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1312
+flnm=/RAF/TEST/1999/102/FF03A/R1312
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1312 /RAF/TEST/1999/102/FF03A/R1312
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:48 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16354
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:48 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:47 -0700 (MST)
+Message-Id: <200003211757.KAA07751@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07751
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:47 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6267 Failure
+Content-Length: 472
+Status: O
+
+LN6267: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1313
+flnm=/RAF/TEST/1999/102/FF04A/R1313
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1313 /RAF/TEST/1999/102/FF04A/R1313
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:49 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16373
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:48 -0700 (MST)
+Message-Id: <200003211757.KAA07786@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07786
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:48 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6291 Failure
+Content-Length: 462
+Status: O
+
+LN6291: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 F*1 eotp-end
+vol=R1316
+flnm=/RAF/TEST/1999/102/FF06A/R1316
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1316 /RAF/TEST/1999/102/FF06A/R1316
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:49 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16378
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:48 -0700 (MST)
+Message-Id: <200003211757.KAA07801@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07801
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:48 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6299 Failure
+Content-Length: 462
+Status: O
+
+LN6299: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 F*1 eotp-end
+vol=R1317
+flnm=/RAF/TEST/1999/102/FF06B/R1317
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1317 /RAF/TEST/1999/102/FF06B/R1317
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:50 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16381
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+Message-Id: <200003211757.KAA07807@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07807
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6307 Failure
+Content-Length: 472
+Status: O
+
+LN6307: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1345
+flnm=/RAF/TEST/1999/102/FF07A/R1345
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1345 /RAF/TEST/1999/102/FF07A/R1345
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:50 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16390
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:50 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+Message-Id: <200003211757.KAA07825@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07825
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6315 Failure
+Content-Length: 472
+Status: O
+
+LN6315: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1346
+flnm=/RAF/TEST/1999/102/FF08A/R1346
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1346 /RAF/TEST/1999/102/FF08A/R1346
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:50 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16394
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:50 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+Message-Id: <200003211757.KAA07827@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07827
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:49 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6323 Failure
+Content-Length: 472
+Status: O
+
+LN6323: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1347
+flnm=/RAF/TEST/1999/102/FF09A/R1347
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1347 /RAF/TEST/1999/102/FF09A/R1347
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:51 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16412
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:51 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:50 -0700 (MST)
+Message-Id: <200003211757.KAA07837@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07837
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:50 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6339 Failure
+Content-Length: 472
+Status: O
+
+LN6339: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1349
+flnm=/RAF/TEST/1999/102/FF11A/R1349
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1349 /RAF/TEST/1999/102/FF11A/R1349
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:57:51 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16399
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:57:50 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:57:50 -0700 (MST)
+Message-Id: <200003211757.KAA07833@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07833
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:57:50 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6331 Failure
+Content-Length: 472
+Status: O
+
+LN6331: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1348
+flnm=/RAF/TEST/1999/102/FF10A/R1348
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1348 /RAF/TEST/1999/102/FF10A/R1348
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:05 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16496
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:05 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:04 -0700 (MST)
+Message-Id: <200003211759.KAA07905@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07905
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:04 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6434 Success
+Content-Length: 413
+Status: O
+
+LN6434: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 B*100000 eotp-end
+vol=R1311
+flnm=/RAF/TEST/1999/102/FF02B/R1311
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1311 /RAF/TEST/1999/102/FF02B/R1311
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:06 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16508
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:05 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:05 -0700 (MST)
+Message-Id: <200003211759.KAA07919@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07919
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:05 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6442 Success
+Content-Length: 403
+Status: O
+
+LN6442: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 F*1 eotp-end
+vol=R1312
+flnm=/RAF/TEST/1999/102/FF03B/R1312
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1312 /RAF/TEST/1999/102/FF03B/R1312
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:06 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16514
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:06 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:05 -0700 (MST)
+Message-Id: <200003211759.KAA07925@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07925
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:05 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6450 Success
+Content-Length: 403
+Status: O
+
+LN6450: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 F*1 eotp-end
+vol=R1313
+flnm=/RAF/TEST/1999/102/FF04B/R1313
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1313 /RAF/TEST/1999/102/FF04B/R1313
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:06 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16524
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:06 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:06 -0700 (MST)
+Message-Id: <200003211759.KAA07939@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07939
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:06 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6458 Success
+Content-Length: 403
+Status: O
+
+LN6458: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 F*1 eotp-end
+vol=R1314
+flnm=/RAF/TEST/1999/102/FF05B/R1314
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1314 /RAF/TEST/1999/102/FF05B/R1314
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:07 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16531
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:07 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:06 -0700 (MST)
+Message-Id: <200003211759.KAA07955@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07955
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:06 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6466 Success
+Content-Length: 413
+Status: O
+
+LN6466: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 B*100000 eotp-end
+vol=R1345
+flnm=/RAF/TEST/1999/102/FF07B/R1345
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1345 /RAF/TEST/1999/102/FF07B/R1345
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:07 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16538
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:07 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:07 -0700 (MST)
+Message-Id: <200003211759.KAA07970@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07970
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:07 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6474 Success
+Content-Length: 413
+Status: O
+
+LN6474: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 B*100000 eotp-end
+vol=R1346
+flnm=/RAF/TEST/1999/102/FF08B/R1346
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1346 /RAF/TEST/1999/102/FF08B/R1346
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:08 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16543
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:07 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:07 -0700 (MST)
+Message-Id: <200003211759.KAA07981@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07981
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:07 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6482 Success
+Content-Length: 403
+Status: O
+
+LN6482: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 F*1 eotp-end
+vol=R1347
+flnm=/RAF/TEST/1999/102/FF09B/R1347
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1347 /RAF/TEST/1999/102/FF09B/R1347
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:08 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16550
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:08 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:08 -0700 (MST)
+Message-Id: <200003211759.KAA07991@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07991
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:08 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6491 Success
+Content-Length: 403
+Status: O
+
+LN6491: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 F*1 eotp-end
+vol=R1348
+flnm=/RAF/TEST/1999/102/FF10B/R1348
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1348 /RAF/TEST/1999/102/FF10B/R1348
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:09 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16556
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:08 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:08 -0700 (MST)
+Message-Id: <200003211759.KAA07996@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA07996
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:08 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6504 Success
+Content-Length: 411
+Status: O
+
+LN6504: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 B*60000 eotp-end
+vol=R1349
+flnm=/RAF/TEST/1999/102/FF11B/R1349
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 B*60000 eotp-end -wpwd RAFDMG -type 8500 -volume R1349 /RAF/TEST/1999/102/FF11B/R1349
+
+From scdemail@migs.ucar.edu Tue Mar 21 10:59:09 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id KAA16562
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 10:59:09 -0700 (MST)
+Date: Tue, 21 Mar 2000 10:59:09 -0700 (MST)
+Message-Id: <200003211759.KAA08000@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id KAA08000
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 10:59:09 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6426 Success
+Content-Length: 403
+Status: O
+
+LN6426: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*100000 F*1 eotp-end
+vol=R1310
+flnm=/RAF/TEST/1999/102/FF01B/R1310
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*100000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1310 /RAF/TEST/1999/102/FF01B/R1310
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:01:47 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16735
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:01:46 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:01:46 -0700 (MST)
+Message-Id: <200003211801.LAA08130@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08130
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:01:46 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6275 Failure
+Content-Length: 472
+Status: O
+
+LN6275: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1314
+flnm=/RAF/TEST/1999/102/FF05A/R1314
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1314 /RAF/TEST/1999/102/FF05A/R1314
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:01:47 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16737
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:01:46 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:01:46 -0700 (MST)
+Message-Id: <200003211801.LAA08131@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08131
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:01:46 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6283 Failure
+Content-Length: 462
+Status: O
+
+LN6283: FAILED NETF failed
+
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*0 F*1 eotp-end
+vol=R1315
+flnm=/RAF/TEST/1999/102/FF05C/R1315
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*0 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1315 /RAF/TEST/1999/102/FF05C/R1315
+keepTmpFiles 1
+msimp: ERROR: from MSCP: Password mismatch
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:01:53 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16787
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:01:53 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:01:52 -0700 (MST)
+Message-Id: <200003211801.LAA08154@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08154
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:01:52 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6754 Success
+Content-Length: 403
+Status: O
+
+LN6754: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*200000 F*1 eotp-end
+vol=R1311
+flnm=/RAF/TEST/1999/102/FF02C/R1311
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*200000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1311 /RAF/TEST/1999/102/FF02C/R1311
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:01:54 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16793
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+Message-Id: <200003211801.LAA08182@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08182
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6762 Success
+Content-Length: 403
+Status: O
+
+LN6762: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*200000 F*1 eotp-end
+vol=R1345
+flnm=/RAF/TEST/1999/102/FF07C/R1345
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*200000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1345 /RAF/TEST/1999/102/FF07C/R1345
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:01:55 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16799
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+Message-Id: <200003211801.LAA08187@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08187
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6770 Success
+Content-Length: 403
+Status: O
+
+LN6770: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*200000 F*1 eotp-end
+vol=R1346
+flnm=/RAF/TEST/1999/102/FF08C/R1346
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*200000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1346 /RAF/TEST/1999/102/FF08C/R1346
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:01:55 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16805
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:01:55 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+Message-Id: <200003211801.LAA08190@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08190
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:01:54 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6778 Success
+Content-Length: 411
+Status: O
+
+LN6778: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*160000 B*60000 eotp-end
+vol=R1349
+flnm=/RAF/TEST/1999/102/FF11C/R1349
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*160000 B*60000 eotp-end -wpwd RAFDMG -type 8500 -volume R1349 /RAF/TEST/1999/102/FF11C/R1349
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:02:53 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16852
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:02:53 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:02:53 -0700 (MST)
+Message-Id: <200003211802.LAA08225@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08225
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:02:53 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6843 Success
+Content-Length: 411
+Status: O
+
+LN6843: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*220000 B*60000 eotp-end
+vol=R1349
+flnm=/RAF/TEST/1999/102/FF11D/R1349
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*220000 B*60000 eotp-end -wpwd RAFDMG -type 8500 -volume R1349 /RAF/TEST/1999/102/FF11D/R1349
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:03:35 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7])
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA16883
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:03:35 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:03:35 -0700 (MST)
+Message-Id: <200003211803.LAA08257@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA08257
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:03:35 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN6874 Success
+Content-Length: 403
+Status: O
+
+LN6874: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=4096
+wpwd=RAFDMG
+type=8500
+sub=^B*280000 F*1 eotp-end
+vol=R1349
+flnm=/RAF/TEST/1999/102/FF11E/R1349
+
+
+msimp -keep -blocked binary -format U -period 4096 -server mss4 -subset ^B*280000 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1349 /RAF/TEST/1999/102/FF11E/R1349
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:54 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17452
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:53 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:52 -0700 (MST)
+Message-Id: <200003211846.LAA11312@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11312
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:52 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7406 Success
+Content-Length: 200
+Status: O
+
+LN7406: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF01A/R1310
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF01A/R1310
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:54 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17454
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:53 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:53 -0700 (MST)
+Message-Id: <200003211846.LAA11324@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11324
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:53 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7414 Success
+Content-Length: 200
+Status: O
+
+LN7414: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF02A/R1311
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF02A/R1311
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:55 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17473
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:54 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:53 -0700 (MST)
+Message-Id: <200003211846.LAA11334@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11334
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:53 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7422 Success
+Content-Length: 200
+Status: O
+
+LN7422: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF03A/R1312
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF03A/R1312
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:55 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17482
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:54 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:54 -0700 (MST)
+Message-Id: <200003211846.LAA11348@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11348
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:54 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7430 Success
+Content-Length: 200
+Status: O
+
+LN7430: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF04A/R1313
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF04A/R1313
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:56 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17491
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:55 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:54 -0700 (MST)
+Message-Id: <200003211846.LAA11359@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11359
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:54 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7438 Success
+Content-Length: 200
+Status: O
+
+LN7438: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF05A/R1314
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF05A/R1314
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:56 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17503
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:55 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:55 -0700 (MST)
+Message-Id: <200003211846.LAA11365@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11365
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:55 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7446 Success
+Content-Length: 200
+Status: O
+
+LN7446: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF05C/R1315
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF05C/R1315
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:56 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17520
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:56 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:56 -0700 (MST)
+Message-Id: <200003211846.LAA11379@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11379
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:56 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7462 Success
+Content-Length: 200
+Status: O
+
+LN7462: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF06A/R1316
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF06A/R1316
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:57 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17533
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:57 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:56 -0700 (MST)
+Message-Id: <200003211846.LAA11388@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11388
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:56 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7477 Success
+Content-Length: 200
+Status: O
+
+LN7477: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF06B/R1317
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF06B/R1317
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:58 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17549
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:58 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:57 -0700 (MST)
+Message-Id: <200003211846.LAA11401@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11401
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:57 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7496 Success
+Content-Length: 200
+Status: O
+
+LN7496: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF07A/R1345
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF07A/R1345
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:59 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17563
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:58 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:58 -0700 (MST)
+Message-Id: <200003211846.LAA11418@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11418
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:58 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7513 Success
+Content-Length: 200
+Status: O
+
+LN7513: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF08A/R1346
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF08A/R1346
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:46:59 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17572
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:59 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:59 -0700 (MST)
+Message-Id: <200003211846.LAA11431@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11431
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:59 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7530 Success
+Content-Length: 200
+Status: O
+
+LN7530: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF09A/R1347
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF09A/R1347
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:47:00 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17578
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:46:59 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:46:59 -0700 (MST)
+Message-Id: <200003211846.LAA11438@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11438
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:46:59 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7542 Success
+Content-Length: 200
+Status: O
+
+LN7542: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF10A/R1348
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF10A/R1348
+
+From scdemail@migs.ucar.edu Tue Mar 21 11:47:00 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id LAA17584
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 11:47:00 -0700 (MST)
+Date: Tue, 21 Mar 2000 11:47:00 -0700 (MST)
+Message-Id: <200003211847.LAA11446@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id LAA11446
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 11:47:00 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN7553 Success
+Content-Length: 200
+Status: O
+
+LN7553: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=mspasswd
+r
+flnm=/RAF/TEST/1999/102/FF11A/R1349
+wpwd=RAFTEST
+neww=RAFDMG
+
+
+mspasswd -neww RAFDMG -wpwd RAFTEST /RAF/TEST/1999/102/FF11A/R1349
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:00 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21568
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:00 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:12:59 -0700 (MST)
+Message-Id: <200003211912.MAA12252@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12252
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:12:59 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1506 Success
+Content-Length: 399
+Status: O
+
+LN1506: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1310
+flnm=/RAF/TEST/1999/102/FF01A/R1310
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1310 /RAF/TEST/1999/102/FF01A/R1310
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:01 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21576
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:00 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:12:59 -0700 (MST)
+Message-Id: <200003211912.MAA12257@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12257
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:12:59 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1514 Success
+Content-Length: 399
+Status: O
+
+LN1514: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1311
+flnm=/RAF/TEST/1999/102/FF02A/R1311
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1311 /RAF/TEST/1999/102/FF02A/R1311
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:01 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21588
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:01 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:00 -0700 (MST)
+Message-Id: <200003211913.MAA12271@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12271
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:00 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1522 Success
+Content-Length: 399
+Status: O
+
+LN1522: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1312
+flnm=/RAF/TEST/1999/102/FF03A/R1312
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1312 /RAF/TEST/1999/102/FF03A/R1312
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:02 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21598
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:01 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:01 -0700 (MST)
+Message-Id: <200003211913.MAA12288@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12288
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:01 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1530 Success
+Content-Length: 399
+Status: O
+
+LN1530: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1313
+flnm=/RAF/TEST/1999/102/FF04A/R1313
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1313 /RAF/TEST/1999/102/FF04A/R1313
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:02 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21608
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:02 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:01 -0700 (MST)
+Message-Id: <200003211913.MAA12303@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12303
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:01 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1538 Success
+Content-Length: 399
+Status: O
+
+LN1538: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1314
+flnm=/RAF/TEST/1999/102/FF05A/R1314
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1314 /RAF/TEST/1999/102/FF05A/R1314
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:03 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21622
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:02 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:02 -0700 (MST)
+Message-Id: <200003211913.MAA12320@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12320
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:02 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1546 Success
+Content-Length: 389
+Status: O
+
+LN1546: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 F*1 eotp-end
+vol=R1315
+flnm=/RAF/TEST/1999/102/FF05C/R1315
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1315 /RAF/TEST/1999/102/FF05C/R1315
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:03 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21636
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:03 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:02 -0700 (MST)
+Message-Id: <200003211913.MAA12331@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12331
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:02 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1554 Success
+Content-Length: 389
+Status: O
+
+LN1554: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 F*1 eotp-end
+vol=R1316
+flnm=/RAF/TEST/1999/102/FF06A/R1316
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1316 /RAF/TEST/1999/102/FF06A/R1316
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:04 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21639
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:03 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:03 -0700 (MST)
+Message-Id: <200003211913.MAA12340@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12340
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:03 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1562 Success
+Content-Length: 389
+Status: O
+
+LN1562: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 F*1 eotp-end
+vol=R1317
+flnm=/RAF/TEST/1999/102/FF06B/R1317
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 F*1 eotp-end -wpwd RAFDMG -type 8500 -volume R1317 /RAF/TEST/1999/102/FF06B/R1317
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:04 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21656
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:04 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:03 -0700 (MST)
+Message-Id: <200003211913.MAA12351@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12351
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:03 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1577 Success
+Content-Length: 399
+Status: O
+
+LN1577: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1345
+flnm=/RAF/TEST/1999/102/FF07A/R1345
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1345 /RAF/TEST/1999/102/FF07A/R1345
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:05 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21665
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:04 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:04 -0700 (MST)
+Message-Id: <200003211913.MAA12362@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12362
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:04 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1593 Success
+Content-Length: 399
+Status: O
+
+LN1593: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1346
+flnm=/RAF/TEST/1999/102/FF08A/R1346
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1346 /RAF/TEST/1999/102/FF08A/R1346
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:05 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21672
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:05 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:05 -0700 (MST)
+Message-Id: <200003211913.MAA12376@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12376
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:05 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1613 Success
+Content-Length: 399
+Status: O
+
+LN1613: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1347
+flnm=/RAF/TEST/1999/102/FF09A/R1347
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1347 /RAF/TEST/1999/102/FF09A/R1347
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:06 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21678
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:05 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:05 -0700 (MST)
+Message-Id: <200003211913.MAA12385@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12385
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:05 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1627 Success
+Content-Length: 399
+Status: O
+
+LN1627: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1348
+flnm=/RAF/TEST/1999/102/FF10A/R1348
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1348 /RAF/TEST/1999/102/FF10A/R1348
+
+From scdemail@migs.ucar.edu Tue Mar 21 12:13:06 2000
+Received: from migs.UCAR.EDU (migs.ucar.edu [128.117.3.7] (may be forged))
+	by mistral.atd.ucar.edu (8.8.8+Sun/8.8.8) with ESMTP id MAA21684
+	for <dmg@raf.atd.ucar.edu>; Tue, 21 Mar 2000 12:13:06 -0700 (MST)
+Date: Tue, 21 Mar 2000 12:13:06 -0700 (MST)
+Message-Id: <200003211913.MAA12389@migs.ucar.EDU>
+Received: (from masgw@localhost)
+        by migs.UCAR.EDU (8.9.1a/) id MAA12389
+        for dmg@raf.atd.ucar.edu; Tue, 21 Mar 2000 12:13:06 -0700 (MST)
+From: gwuser@migs.ucar.edu (MASnet Gateway)
+To: dmg@raf.atd.ucar.edu
+Subject: MIGS Request LN1645 Success
+Content-Length: 399
+Status: O
+
+LN1645: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msimp
+l
+proj=41113009
+sci=9008
+r
+opts=-keep
+server=mss4
+fmt=U
+cos=binary
+rtpd=90
+wpwd=RAFDMG
+type=8500
+sub=^B*0 B*100000 eotp-end
+vol=R1349
+flnm=/RAF/TEST/1999/102/FF11A/R1349
+
+
+msimp -keep -blocked binary -format U -period 90 -server mss4 -subset ^B*0 B*100000 eotp-end -wpwd RAFDMG -type 8500 -volume R1349 /RAF/TEST/1999/102/FF11A/R1349
+

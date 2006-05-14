@@ -1,0 +1,547 @@
+#! /bin/csh -f
+#
+#  Move MSS bitfiles associated with the original processing for the project
+#   SCMS to the new directory:  /RAF/1995/162/1ST_PRODUCTION/
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+#
+#  1st set, 1st wave -- these files to be moved on 22 May 1998
+#   Move bitfiles from the reference directory to the 1ST_PRODUCTION directory.
+#set SDIR
+#set DDIR = 1ST_PRODUCTION/
+#set FILES = ( \
+#162.tar \
+#162.tar.dir \
+#nimbus.tar \
+#nimbus.tar.dir \
+#nimbus_defaults.tar \
+#nimbus_defaults.tar.dir \
+#)
+#
+#  1st set, 2nd wave -- these files to be moved on 22 June 1998
+#   Move bitfiles from the reference directory to the 1ST_PRODUCTION directory.
+#set SDIR = HRT/
+#set DDIR = 1ST_PRODUCTION/HRT/
+#set RPW
+#set FILES = ( \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05A.cdf \
+#RF05B.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13A.cdf \
+#RF13B.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#taplog.162 \
+#)
+#
+#  1st set, 3rd wave -- these files to be moved on 22 June 1998
+#   Move bitfiles from the reference directory to the 1ST_PRODUCTION directory.
+#set SDIR = LRT/
+#set DDIR = 1ST_PRODUCTION/LRT/
+#set RPW
+#set FILES = ( \
+#FF01A.cdf \
+#FF01B.cdf \
+#FF04.cdf \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#taplog.162 \
+#)
+#
+#  1st set, 4th wave -- these files to be moved on 22 June 1998
+#   Move bitfiles from the reference directory to the 1ST_PRODUCTION directory.
+#   These bitfiles have a read password.
+#set SDIR = HRT/PMS-1D/
+#set DDIR = 1ST_PRODUCTION/HRT/PMS-1D/
+#set RPW = "rpwd=xINANEx newr=OFF"
+#set FILES = ( \
+#RF06.cdf \
+#RF07.cdf \
+#)
+#set RPW = "rpwd=INANE newr=OFF"
+#set FILES = ( \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05A.cdf \
+#RF05B.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13A.cdf \
+#RF13B.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#)
+#
+#  1st set, 5th wave -- these files to be moved on 22 June 1998
+#   Move bitfiles from the reference directory to the 1ST_PRODUCTION directory.
+#   These bitfiles have a read password.
+#set SDIR = LRT/PMS-1D/
+#set DDIR = 1ST_PRODUCTION/LRT/PMS-1D/
+#set RPW = "rpwd=INANE newr=OFF"
+#set FILES = ( \
+#FF01A.cdf \
+#FF01B.cdf \
+#FF04.cdf \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#)
+#
+#  1st set, 6th wave -- these files to be moved on 22 June 1998
+#   move bitfiles from the reference directory to the 1ST_PRODUCTION directory
+#   These bitfiles have a read password.
+#set SDIR = ORIGINAL/HRT/
+#set DDIR = 1ST_PRODUCTION/ORIGINAL/HRT/
+#set RPW = "rpwd=INANE newr=OFF"
+#set FILES = ( \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05A.cdf \
+#RF05B.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13A.cdf \
+#RF13B.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#)
+#
+#  1st set, 7th wave -- these files to be moved on 22 June 1998
+#   move bitfiles from the reference directory to the 1ST_PRODUCTION directory
+#   These bitfiles have a read password.
+#set SDIR = ORIGINAL/LRT/
+#set DDIR = 1ST_PRODUCTION/ORIGINAL/LRT/
+#set RPW = "rpwd=INANE newr=OFF"
+#set FILES = ( \
+#FF01A.cdf \
+#FF01B.cdf \
+#FF04.cdf \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#)
+#
+#  1st set, 8th wave -- these files to be moved on 22 June 1998
+#   move bitfiles from the reference directory to the 1ST_PRODUCTION directory
+#set SDIR
+#set DDIR = 1ST_PRODUCTION/
+#set RPW
+#set FILES = ( \
+#HRT/RF12.hdr \
+#LRT/RF12.hdr \
+#)
+#
+#  2nd set, 1st wave -- these files to be moved on 22 June 1998 after 1st set
+#   move bitfiles from the "NEW" directory to the reference directory
+##set SDIR = NEW/HRT/
+##set DDIR = HRT/
+##set RPW
+##set FILES = ( \
+##RF01.cdf \
+##RF02.cdf \
+##RF03.cdf \
+##RF04.cdf \
+##RF05.cdf \
+##RF06.cdf \
+##RF07.cdf \
+##RF08.cdf \
+##RF09.cdf \
+##RF10.cdf \
+##RF11.cdf \
+##RF12.cdf \
+##RF13.cdf \
+##RF14.cdf \
+##RF15.cdf \
+##RF16.cdf \
+##RF17.cdf \
+##RF18.cdf \
+##RF19.cdf \
+##RF20.cdf \
+##)
+#
+#  2nd set, 2nd wave -- these files to be moved on 22 June 1998 after 1st set
+#   move bitfiles from the "NEW" directory to the reference directory
+##set SDIR = NEW/LRT/
+##set DDIR = LRT/
+##set RPW
+##set FILES = ( \
+##FF01A.cdf \
+##FF01B.cdf \
+##FF04.cdf \
+##RF01.cdf \
+##RF02.cdf \
+##RF03.cdf \
+##RF04.cdf \
+##RF05.cdf \
+##RF06.cdf \
+##RF07.cdf \
+##RF08.cdf \
+##RF09.cdf \
+##RF10.cdf \
+##RF11.cdf \
+##RF12.cdf \
+##RF13.cdf \
+##RF14.cdf \
+##RF15.cdf \
+##RF16.cdf \
+##RF17.cdf \
+##RF18.cdf \
+##RF19.cdf \
+##RF20.cdf \
+##)
+#
+#
+#  Get started:
+date
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/1995/162/${SDIR}$FILE \
+   newf=/RAF/1995/162/${DDIR}$FILE wpwd=RAFDMG $RPW proj=41113009
+  @ num ++
+end
+#
+# Done.
+exit
+#
+------------------------------------------------------------------------------
+#
+# 1st set, 1st wave
+#   Move files in directory:  /RAF/1995/162
+#                          to /RAF/1995/162/1ST_PRODUCTION/
+#  Job(s) submitted on Fri May 22 15:10:12 MDT 1998
+# Sequence number = MI2014 -- 162.tar -- OK @ 22 May 1998 15:10:34
+# Sequence number = MI2021 -- 162.tar.dir -- OK @ 22 May 1998 15:10:36
+# Sequence number = MI2028 -- nimbus.tar -- OK @ 22 May 1998 15:10:38
+# Sequence number = MI2035 -- nimbus.tar.dir -- OK @ 22 May 1998 15:10:40
+# Sequence number = MI2042 -- nimbus_defaults.tar -- OK @ 22 May 1998 15:10:43
+# Sequence number = MI2049 -- nimbus_defaults.tar.dir -- OK @ 22 May 1998 15:10:45
+#
+# 1st set, 2nd wave
+#   Move files in:  /RAF/1995/162/HRT/
+#                to /RAF/1995/162/1ST_PRODUCTION/HRT/
+#  23 Job(s) submitted on Mon Jun 22 13:54:53 MDT 1998
+# Sequence number = MI1692 -- HRT/RF01.cdf -- OK @ 22 Jun 1998 13:55:04
+# Sequence number = MI1699 -- HRT/RF02.cdf -- OK @ 22 Jun 1998 13:55:07
+# Sequence number = MI1706 -- HRT/RF03.cdf -- OK @ 22 Jun 1998 13:55:09
+# Sequence number = MI1713 -- HRT/RF04.cdf -- OK @ 22 Jun 1998 13:55:14
+# Sequence number = MI1722 -- HRT/RF05A.cdf -- OK @ 22 Jun 1998 13:55:16
+# Sequence number = MI1729 -- HRT/RF05B.cdf -- OK @ 22 Jun 1998 13:55:18
+# Sequence number = MI1737 -- HRT/RF06.cdf -- OK @ 22 Jun 1998 13:55:21
+# Sequence number = MI1744 -- HRT/RF07.cdf -- OK @ 22 Jun 1998 13:55:23
+# Sequence number = MI1751 -- HRT/RF08.cdf -- OK @ 22 Jun 1998 13:55:26
+# Sequence number = MI1758 -- HRT/RF09.cdf -- OK @ 22 Jun 1998 13:55:27
+# Sequence number = MI1765 -- HRT/RF10.cdf -- OK @ 22 Jun 1998 13:55:30
+# Sequence number = MI1772 -- HRT/RF11.cdf -- OK @ 22 Jun 1998 13:55:32
+# Sequence number = MI1779 -- HRT/RF12.cdf -- OK @ 22 Jun 1998 13:55:35
+# Sequence number = MI1786 -- HRT/RF13A.cdf -- OK @ 22 Jun 1998 13:55:37
+# Sequence number = MI1793 -- HRT/RF13B.cdf -- OK @ 22 Jun 1998 13:55:40
+# Sequence number = MI1800 -- HRT/RF14.cdf -- OK @ 22 Jun 1998 13:55:41
+# Sequence number = MI1807 -- HRT/RF15.cdf -- OK @ 22 Jun 1998 13:55:44
+# Sequence number = MI1814 -- HRT/RF16.cdf -- OK @ 22 Jun 1998 13:55:46
+# Sequence number = MI1821 -- HRT/RF17.cdf -- OK @ 22 Jun 1998 13:55:48
+# Sequence number = MI1828 -- HRT/RF18.cdf -- OK @ 22 Jun 1998 13:55:51
+# Sequence number = MI1835 -- HRT/RF19.cdf -- OK @ 22 Jun 1998 13:55:53
+# Sequence number = MI1842 -- HRT/RF20.cdf -- OK @ 22 Jun 1998 13:55:56
+# Sequence number = MI1849 -- HRT/taplog.162 -- OK @ 22 Jun 1998 13:55:57
+#
+# 1st set, 3rd wave
+#   Move files in:  /RAF/1995/162/LRT/
+#                to /RAF/1995/162/1ST_PRODUCTION/LRT/
+#  24 Job(s) submitted on Mon Jun 22 14:03:53 MDT 1998
+# Sequence number = MI1865 -- LRT/FF01A.cdf -- OK @ 22 Jun 1998 14:04:01
+# Sequence number = MI1872 -- LRT/FF01B.cdf -- OK @ 22 Jun 1998 14:04:04
+# Sequence number = MI1879 -- LRT/FF04.cdf -- OK @ 22 Jun 1998 14:04:06
+# Sequence number = MI1886 -- LRT/RF01.cdf -- OK @ 22 Jun 1998 14:04:08
+# Sequence number = MI1893 -- LRT/RF02.cdf -- OK @ 22 Jun 1998 14:04:10
+# Sequence number = MI1900 -- LRT/RF03.cdf -- OK @ 22 Jun 1998 14:04:12
+# Sequence number = MI1907 -- LRT/RF04.cdf -- OK @ 22 Jun 1998 14:04:15
+# Sequence number = MI1914 -- LRT/RF05.cdf -- OK @ 22 Jun 1998 14:04:17
+# Sequence number = MI1921 -- LRT/RF06.cdf -- OK @ 22 Jun 1998 14:04:20
+# Sequence number = MI1928 -- LRT/RF07.cdf -- OK @ 22 Jun 1998 14:04:22
+# Sequence number = MI1935 -- LRT/RF08.cdf -- OK @ 22 Jun 1998 14:04:25
+# Sequence number = MI1942 -- LRT/RF09.cdf -- OK @ 22 Jun 1998 14:04:27
+# Sequence number = MI1949 -- LRT/RF10.cdf -- OK @ 22 Jun 1998 14:04:29
+# Sequence number = MI1956 -- LRT/RF11.cdf -- OK @ 22 Jun 1998 14:04:31
+# Sequence number = MI1963 -- LRT/RF12.cdf -- OK @ 22 Jun 1998 14:04:34
+# Sequence number = MI1970 -- LRT/RF13.cdf -- OK @ 22 Jun 1998 14:04:37
+# Sequence number = MI1977 -- LRT/RF14.cdf -- OK @ 22 Jun 1998 14:04:38
+# Sequence number = MI1984 -- LRT/RF15.cdf -- OK @ 22 Jun 1998 14:04:41
+# Sequence number = MI1991 -- LRT/RF16.cdf -- OK @ 22 Jun 1998 14:04:43
+# Sequence number = MI1998 -- LRT/RF17.cdf -- OK @ 22 Jun 1998 14:04:46
+# Sequence number = MI2005 -- LRT/RF18.cdf -- OK @ 22 Jun 1998 14:04:48
+# Sequence number = MI2012 -- LRT/RF19.cdf -- OK @ 22 Jun 1998 14:04:50
+# Sequence number = MI2019 -- LRT/RF20.cdf -- OK @ 22 Jun 1998 14:04:53
+# Sequence number = MI2026 -- LRT/taplog.162 -- OK @ 22 Jun 1998 14:04:55
+#
+# 1st set, 4th wave
+#   Move files in:  /RAF/1995/162/HRT/PMS-1D
+#                to /RAF/1995/162/1ST_PRODUCTION/HRT/PMS-1D
+#  22 Job(s) submitted on Mon Jun 22 14:17:03 MDT 1998
+# Sequence number = MI2039 -- HRT/PMS-1D/RF01.cdf -- OK @ 22 Jun 1998 14:17:13
+# Sequence number = MI2046 -- HRT/PMS-1D/RF02.cdf -- OK @ 22 Jun 1998 14:17:16
+# Sequence number = MI2053 -- HRT/PMS-1D/RF03.cdf -- OK @ 22 Jun 1998 14:17:18
+# Sequence number = MI2060 -- HRT/PMS-1D/RF04.cdf -- OK @ 22 Jun 1998 14:17:20
+# Sequence number = MI2067 -- HRT/PMS-1D/RF05A.cdf -- OK @ 22 Jun 1998 14:17:23
+# Sequence number = MI2074 -- HRT/PMS-1D/RF05B.cdf -- OK @ 22 Jun 1998 14:17:26
+# Sequence number = MI2081 -- HRT/PMS-1D/RF06.cdf -- Failed @ 22 Jun 1998 14:17:27 #  password mismatch
+# Sequence number = MI2088 -- HRT/PMS-1D/RF07.cdf -- Failed @ 22 Jun 1998 14:17:29 #  password mismatch
+# Sequence number = MI2095 -- HRT/PMS-1D/RF08.cdf -- OK @ 22 Jun 1998 14:17:32
+# Sequence number = MI2102 -- HRT/PMS-1D/RF09.cdf -- OK @ 22 Jun 1998 14:17:34
+# Sequence number = MI2109 -- HRT/PMS-1D/RF10.cdf -- OK @ 22 Jun 1998 14:17:36
+# Sequence number = MI2116 -- HRT/PMS-1D/RF11.cdf -- OK @ 22 Jun 1998 14:17:38
+# Sequence number = MI2123 -- HRT/PMS-1D/RF12.cdf -- OK @ 22 Jun 1998 14:17:41
+# Sequence number = MI2130 -- HRT/PMS-1D/RF13A.cdf -- OK @ 22 Jun 1998 14:17:43
+# Sequence number = MI2137 -- HRT/PMS-1D/RF13B.cdf -- OK @ 22 Jun 1998 14:17:46
+# Sequence number = MI2144 -- HRT/PMS-1D/RF14.cdf -- OK @ 22 Jun 1998 14:17:48
+# Sequence number = MI2151 -- HRT/PMS-1D/RF15.cdf -- OK @ 22 Jun 1998 14:17:50
+# Sequence number = MI2158 -- HRT/PMS-1D/RF16.cdf -- OK @ 22 Jun 1998 14:17:52
+# Sequence number = MI2165 -- HRT/PMS-1D/RF17.cdf -- OK @ 22 Jun 1998 14:17:55
+# Sequence number = MI2172 -- HRT/PMS-1D/RF18.cdf -- OK @ 22 Jun 1998 14:17:56
+# Sequence number = MI2179 -- HRT/PMS-1D/RF19.cdf -- OK @ 22 Jun 1998 14:17:59
+# Sequence number = MI2186 -- HRT/PMS-1D/RF20.cdf -- OK @ 22 Jun 1998 14:18:01
+#   2 Job(s) resubmitted (change write password) on Mon Jun 22 14:29:37 MDT 1998
+# Sequence number = MI2312 -- HRT/PMS-1D/RF06.cdf -- OK @ 22 Jun 1998 14:29:44
+# Sequence number = MI2319 -- HRT/PMS-1D/RF07.cdf -- OK @ 22 Jun 1998 14:29:47
+#
+# 1st set, 5th wave
+#   Move files in:  /RAF/1995/162//LRT/PMS-1D
+#                to /RAF/1995/162/1ST_PRODUCTION/LRT/PMS-1D
+#  23 Job(s) submitted on Mon Jun 22 14:32:43 MDT 1998
+# Sequence number = MI2339 -- LRT/PMS-1D/FF01A.cdf -- OK @ 22 Jun 1998 14:32:50
+# Sequence number = MI2346 -- LRT/PMS-1D/FF01B.cdf -- OK @ 22 Jun 1998 14:32:52
+# Sequence number = MI2353 -- LRT/PMS-1D/FF04.cdf -- OK @ 22 Jun 1998 14:32:56
+# Sequence number = MI2360 -- LRT/PMS-1D/RF01.cdf -- OK @ 22 Jun 1998 14:32:59
+# Sequence number = MI2367 -- LRT/PMS-1D/RF02.cdf -- OK @ 22 Jun 1998 14:33:00
+# Sequence number = MI2374 -- LRT/PMS-1D/RF03.cdf -- OK @ 22 Jun 1998 14:33:04
+# Sequence number = MI2381 -- LRT/PMS-1D/RF04.cdf -- OK @ 22 Jun 1998 14:33:07
+# Sequence number = MI2388 -- LRT/PMS-1D/RF05.cdf -- OK @ 22 Jun 1998 14:33:10
+# Sequence number = MI2395 -- LRT/PMS-1D/RF06.cdf -- OK @ 22 Jun 1998 14:33:13
+# Sequence number = MI2402 -- LRT/PMS-1D/RF07.cdf -- OK @ 22 Jun 1998 14:33:14
+# Sequence number = MI2409 -- LRT/PMS-1D/RF08.cdf -- OK @ 22 Jun 1998 14:33:18
+# Sequence number = MI2416 -- LRT/PMS-1D/RF09.cdf -- OK @ 22 Jun 1998 14:33:19
+# Sequence number = MI2423 -- LRT/PMS-1D/RF10.cdf -- OK @ 22 Jun 1998 14:33:20
+# Sequence number = MI2430 -- LRT/PMS-1D/RF11.cdf -- OK @ 22 Jun 1998 14:33:24
+# Sequence number = MI2437 -- LRT/PMS-1D/RF12.cdf -- OK @ 22 Jun 1998 14:33:26
+# Sequence number = MI2444 -- LRT/PMS-1D/RF13.cdf -- OK @ 22 Jun 1998 14:33:28
+# Sequence number = MI2451 -- LRT/PMS-1D/RF14.cdf -- OK @ 22 Jun 1998 14:33:31
+# Sequence number = MI2458 -- LRT/PMS-1D/RF15.cdf -- OK @ 22 Jun 1998 14:33:33
+# Sequence number = MI2465 -- LRT/PMS-1D/RF16.cdf -- OK @ 22 Jun 1998 14:33:36
+# Sequence number = MI2472 -- LRT/PMS-1D/RF17.cdf -- OK @ 22 Jun 1998 14:33:38
+# Sequence number = MI2479 -- LRT/PMS-1D/RF18.cdf -- OK @ 22 Jun 1998 14:33:40
+# Sequence number = MI2486 -- LRT/PMS-1D/RF19.cdf -- OK @ 22 Jun 1998 14:33:41
+# Sequence number = MI2493 -- LRT/PMS-1D/RF20.cdf -- OK @ 22 Jun 1998 14:33:44
+#
+# 1st set, 6th wave
+#   Move files in:  /RAF/1995/162/ORIGINAL/HRT/
+#                to /RAF/1995/162/1ST_PRODUCTION/ORIGINAL/HRT/
+#  22 Job(s) submitted on Mon Jun 22 14:57:34 MDT 1998
+# Sequence number = MI2507 -- ORIGINAL/HRT/RF01.cdf -- OK @ 22 Jun 1998 14:57:41
+# Sequence number = MI2514 -- ORIGINAL/HRT/RF02.cdf -- OK @ 22 Jun 1998 14:57:43
+# Sequence number = MI2521 -- ORIGINAL/HRT/RF03.cdf -- OK @ 22 Jun 1998 14:57:46
+# Sequence number = MI2528 -- ORIGINAL/HRT/RF04.cdf -- OK @ 22 Jun 1998 14:57:48
+# Sequence number = MI2535 -- ORIGINAL/HRT/RF05A.cdf --OK @ 22 Jun 1998 14:57:50
+# Sequence number = MI2542 -- ORIGINAL/HRT/RF05B.cdf --OK @ 22 Jun 1998 14:57:53
+# Sequence number = MI2549 -- ORIGINAL/HRT/RF06.cdf -- OK @ 22 Jun 1998 14:57:54
+# Sequence number = MI2556 -- ORIGINAL/HRT/RF07.cdf -- OK @ 22 Jun 1998 14:57:57
+# Sequence number = MI2563 -- ORIGINAL/HRT/RF08.cdf -- OK @ 22 Jun 1998 14:57:59
+# Sequence number = MI2570 -- ORIGINAL/HRT/RF09.cdf -- OK @ 22 Jun 1998 14:58:01
+# Sequence number = MI2577 -- ORIGINAL/HRT/RF10.cdf -- OK @ 22 Jun 1998 14:58:04
+# Sequence number = MI2584 -- ORIGINAL/HRT/RF11.cdf -- OK @ 22 Jun 1998 14:58:06
+# Sequence number = MI2591 -- ORIGINAL/HRT/RF12.cdf -- OK @ 22 Jun 1998 14:58:09
+# Sequence number = MI2598 -- ORIGINAL/HRT/RF13A.cdf --OK @ 22 Jun 1998 14:58:11
+# Sequence number = MI2605 -- ORIGINAL/HRT/RF13B.cdf --OK @ 22 Jun 1998 14:58:13
+# Sequence number = MI2612 -- ORIGINAL/HRT/RF14.cdf -- OK @ 22 Jun 1998 14:58:15
+# Sequence number = MI2619 -- ORIGINAL/HRT/RF15.cdf -- OK @ 22 Jun 1998 14:58:18
+# Sequence number = MI2626 -- ORIGINAL/HRT/RF16.cdf -- OK @ 22 Jun 1998 14:58:19
+# Sequence number = MI2633 -- ORIGINAL/HRT/RF17.cdf -- OK @ 22 Jun 1998 14:58:22
+# Sequence number = MI2640 -- ORIGINAL/HRT/RF18.cdf -- OK @ 22 Jun 1998 14:58:24
+# Sequence number = MI2647 -- ORIGINAL/HRT/RF19.cdf -- OK @ 22 Jun 1998 14:58:27
+# Sequence number = MI2654 -- ORIGINAL/HRT/RF20.cdf -- OK @ 22 Jun 1998 14:58:29
+#
+# 1st set, 7th wave
+#   Move files in:  /RAF/1995/162/ORIGINAL/LRT/
+#                to /RAF/1995/162/1ST_PRODUCTION/ORIGINAL/LRT/
+#  23 Job(s) submitted on Mon Jun 22 15:06:13 MDT 1998
+# Sequence number = MI2685 -- ORIGINAL/LRT/FF01A.cdf --OK @ 22 Jun 1998 15:06:20
+# Sequence number = MI2692 -- ORIGINAL/LRT/FF01B.cdf --OK @ 22 Jun 1998 15:06:23
+# Sequence number = MI2699 -- ORIGINAL/LRT/FF04.cdf -- OK @ 22 Jun 1998 15:06:26
+# Sequence number = MI2706 -- ORIGINAL/LRT/RF01.cdf -- OK @ 22 Jun 1998 15:06:28
+# Sequence number = MI2713 -- ORIGINAL/LRT/RF02.cdf -- OK @ 22 Jun 1998 15:06:30
+# Sequence number = MI2720 -- ORIGINAL/LRT/RF03.cdf -- OK @ 22 Jun 1998 15:06:34
+# Sequence number = MI2727 -- ORIGINAL/LRT/RF04.cdf -- OK @ 22 Jun 1998 15:06:35
+# Sequence number = MI2734 -- ORIGINAL/LRT/RF05.cdf -- OK @ 22 Jun 1998 15:06:39
+# Sequence number = MI2741 -- ORIGINAL/LRT/RF06.cdf -- OK @ 22 Jun 1998 15:06:41
+# Sequence number = MI2748 -- ORIGINAL/LRT/RF07.cdf -- OK @ 22 Jun 1998 15:06:44
+# Sequence number = MI2755 -- ORIGINAL/LRT/RF08.cdf -- OK @ 22 Jun 1998 15:06:46
+# Sequence number = MI2762 -- ORIGINAL/LRT/RF09.cdf -- OK @ 22 Jun 1998 15:06:50
+# Sequence number = MI2769 -- ORIGINAL/LRT/RF10.cdf -- OK @ 22 Jun 1998 15:06:52
+# Sequence number = MI2776 -- ORIGINAL/LRT/RF11.cdf -- OK @ 22 Jun 1998 15:06:54
+# Sequence number = MI2783 -- ORIGINAL/LRT/RF12.cdf -- OK @ 22 Jun 1998 15:06:58
+# Sequence number = MI2790 -- ORIGINAL/LRT/RF13.cdf -- OK @ 22 Jun 1998 15:06:59
+# Sequence number = MI2797 -- ORIGINAL/LRT/RF14.cdf -- OK @ 22 Jun 1998 15:07:01
+# Sequence number = MI2804 -- ORIGINAL/LRT/RF15.cdf -- OK @ 22 Jun 1998 15:07:04
+# Sequence number = MI2811 -- ORIGINAL/LRT/RF16.cdf -- OK @ 22 Jun 1998 15:07:05
+# Sequence number = MI2818 -- ORIGINAL/LRT/RF17.cdf -- OK @ 22 Jun 1998 15:07:08
+# Sequence number = MI2825 -- ORIGINAL/LRT/RF18.cdf -- OK @ 22 Jun 1998 15:07:11
+# Sequence number = MI2832 -- ORIGINAL/LRT/RF19.cdf -- OK @ 22 Jun 1998 15:07:13
+# Sequence number = MI2839 -- ORIGINAL/LRT/RF20.cdf -- OK @ 22 Jun 1998 15:07:16
+#
+# 1st set, 8th wave
+#   Move files in:  /RAF/1995/162/
+#                to /RAF/1995/162/1ST_PRODUCTION/
+#   2 Job(s) submitted on Mon Jun 22 15:25:48 MDT 1998
+# Sequence number = MI2913 -- HRT/RF12.hdr -- OK @ 22 Jun 1998 15:25:56
+# Sequence number = MI2920 -- LRT/RF12.hdr -- OK @ 22 Jun 1998 15:25:58
+#
+# 2nd set, 1st wave
+#   Move files in:  /RAF/1995/162/NEW/HRT/
+#                to /RAF/1995/162/HRT/
+#  20 Job(s) submitted on Mon Jun 22 15:33:15 MDT 1998
+# Sequence number = MI3002 -- NEW/HRT/RF01.cdf -- OK @ 22 Jun 1998 15:33:23
+# Sequence number = MI3009 -- NEW/HRT/RF02.cdf -- OK @ 22 Jun 1998 15:33:26
+# Sequence number = MI3016 -- NEW/HRT/RF03.cdf -- OK @ 22 Jun 1998 15:33:28
+# Sequence number = MI3023 -- NEW/HRT/RF04.cdf -- OK @ 22 Jun 1998 15:33:30
+# Sequence number = MI3030 -- NEW/HRT/RF05.cdf -- OK @ 22 Jun 1998 15:33:33
+# Sequence number = MI3037 -- NEW/HRT/RF06.cdf -- OK @ 22 Jun 1998 15:33:35
+# Sequence number = MI3044 -- NEW/HRT/RF07.cdf -- OK @ 22 Jun 1998 15:33:37
+# Sequence number = MI3051 -- NEW/HRT/RF08.cdf -- OK @ 22 Jun 1998 15:33:40
+# Sequence number = MI3058 -- NEW/HRT/RF09.cdf -- OK @ 22 Jun 1998 15:33:42
+# Sequence number = MI3065 -- NEW/HRT/RF10.cdf -- OK @ 22 Jun 1998 15:33:45
+# Sequence number = MI3072 -- NEW/HRT/RF11.cdf -- OK @ 22 Jun 1998 15:33:47
+# Sequence number = MI3079 -- NEW/HRT/RF12.cdf -- OK @ 22 Jun 1998 15:33:49
+# Sequence number = MI3086 -- NEW/HRT/RF13.cdf -- OK @ 22 Jun 1998 15:33:52
+# Sequence number = MI3093 -- NEW/HRT/RF14.cdf -- OK @ 22 Jun 1998 15:33:54
+# Sequence number = MI3100 -- NEW/HRT/RF15.cdf -- OK @ 22 Jun 1998 15:33:56
+# Sequence number = MI3107 -- NEW/HRT/RF16.cdf -- OK @ 22 Jun 1998 15:33:58
+# Sequence number = MI3114 -- NEW/HRT/RF17.cdf -- OK @ 22 Jun 1998 15:34:01
+# Sequence number = MI3121 -- NEW/HRT/RF18.cdf -- OK @ 22 Jun 1998 15:34:03
+# Sequence number = MI3128 -- NEW/HRT/RF19.cdf -- OK @ 22 Jun 1998 15:34:05
+# Sequence number = MI3135 -- NEW/HRT/RF20.cdf -- OK @ 22 Jun 1998 15:34:07
+#
+# 2nd set, 2nd wave
+#   Move files in:  /RAF/1995/162/NEW/LRT/
+#                to /RAF/1995/162/LRT/
+#  Job(s) submitted on Mon Jun 22 15:39:47 MDT 1998
+# Sequence number = MI3149 -- NEW/LRT/FF01A.cdf -- OK @ 22 Jun 1998 15:39:55
+# Sequence number = MI3156 -- NEW/LRT/FF01B.cdf -- OK @ 22 Jun 1998 15:39:58
+# Sequence number = MI3163 -- NEW/LRT/FF04.cdf -- OK @ 22 Jun 1998 15:40:00
+# Sequence number = MI3170 -- NEW/LRT/RF01.cdf -- OK @ 22 Jun 1998 15:40:04
+# Sequence number = MI3177 -- NEW/LRT/RF02.cdf -- OK @ 22 Jun 1998 15:40:05
+# Sequence number = MI3184 -- NEW/LRT/RF03.cdf -- OK @ 22 Jun 1998 15:40:08
+# Sequence number = MI3191 -- NEW/LRT/RF04.cdf -- OK @ 22 Jun 1998 15:40:11
+# Sequence number = MI3198 -- NEW/LRT/RF05.cdf -- OK @ 22 Jun 1998 15:40:13
+# Sequence number = MI3205 -- NEW/LRT/RF06.cdf -- OK @ 22 Jun 1998 15:40:14
+# Sequence number = MI3212 -- NEW/LRT/RF07.cdf -- OK @ 22 Jun 1998 15:40:17
+# Sequence number = MI3219 -- NEW/LRT/RF08.cdf -- OK @ 22 Jun 1998 15:40:19
+# Sequence number = MI3226 -- NEW/LRT/RF09.cdf -- OK @ 22 Jun 1998 15:40:21
+# Sequence number = MI3233 -- NEW/LRT/RF10.cdf -- OK @ 22 Jun 1998 15:40:23
+# Sequence number = MI3240 -- NEW/LRT/RF11.cdf -- OK @ 22 Jun 1998 15:40:26
+# Sequence number = MI3247 -- NEW/LRT/RF12.cdf -- OK @ 22 Jun 1998 15:40:28
+# Sequence number = MI3254 -- NEW/LRT/RF13.cdf -- OK @ 22 Jun 1998 15:40:30
+# Sequence number = MI3261 -- NEW/LRT/RF14.cdf -- OK @ 22 Jun 1998 15:40:33
+# Sequence number = MI3268 -- NEW/LRT/RF15.cdf -- OK @ 22 Jun 1998 15:40:35
+# Sequence number = MI3275 -- NEW/LRT/RF16.cdf -- OK @ 22 Jun 1998 15:40:38
+# Sequence number = MI3282 -- NEW/LRT/RF17.cdf -- OK @ 22 Jun 1998 15:40:40
+# Sequence number = MI3289 -- NEW/LRT/RF18.cdf -- OK @ 22 Jun 1998 15:40:42
+# Sequence number = MI3296 -- NEW/LRT/RF19.cdf -- OK @ 22 Jun 1998 15:40:45
+# Sequence number = MI3303 -- NEW/LRT/RF20.cdf -- OK @ 22 Jun 1998 15:40:47
+#

@@ -1,0 +1,156 @@
+#! /bin/csh -f
+#
+#  Archive files of raw PMS-2D data records for 1995-162 SCMS (Knight, Smith)
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+set YEAR = 1995
+set PROJ = 162
+#
+# First set
+#set SDIR = /home/data
+#set IFILES = ( \
+#162rf01.2d \
+#162rf02.2d \
+#162rf03.2d \
+#162rf04.2d \
+#162rf05.2d \
+#)
+#set OFILES = ( \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#)
+#
+# Second set
+#set SDIR = /home/data
+#set IFILES = ( \
+#162rf05.2d \
+#162rf06.2d \
+#162rf07.2d \
+#162rf08.2d \
+#162rf09.2d \
+#162rf10.2d \
+#)
+#set OFILES = ( \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#)
+#
+# Third set
+#set SDIR = /home/data
+#set IFILES = ( \
+#162rf11.2d \
+#162rf12.2d \
+#162rf13.2d \
+#162rf14.2d \
+#162rf15.2d \
+#162rf16.2d \
+#162rf17.2d \
+#162rf18.2d \
+#162rf19.2d \
+#162rf20.2d \
+#)
+#set OFILES = ( \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15 \
+#RF16 \
+#RF17 \
+#RF18 \
+#RF19 \
+#RF20 \
+#)
+#
+# Fourth set
+#set SDIR = /home/productiondata
+#set IFILES = ( \
+#162ff01a1.2d \
+#162ff01a2.2d \
+#162ff01b.2d \
+#)
+#set OFILES = ( \
+#FF01A \
+#FF01B \
+#FF01C \
+#)
+#
+# Fifth set
+#set SDIR = /home/productiondata
+#set IFILES = ( \
+#162ff04a.2d \
+#162ff04b.2d \
+#)
+#set OFILES = ( \
+#FF04A \
+#FF04B \
+#)
+#
+#  Get started.
+date
+set todo = $#IFILES
+set num = 1
+while ($num <= $todo)
+  set IFILE = $IFILES[$num]
+  set fltno = $OFILES[$num]
+  echo \
+  nrnet msput $SDIR/$IFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/PMS2D/$fltno \
+   mvn=CTRAFDMG w=RAFDMG rtpd=4095 name=RAF proj=41113009 
+  @ num ++
+end
+#
+# Done.
+exit
+#
+# First set
+#  Job(s) submitted on Tue Feb  6 11:46:38 MST 1996
+# Sequence number = MI5330 -- PMS2D/RF01 -- OK @ 6 Feb 1996 12:26:27
+# Sequence number = MI5337 -- PMS2D/RF02 -- OK @ 6 Feb 1996 12:29:06
+# Sequence number = MI5344 -- PMS2D/RF03 -- OK @ 6 Feb 1996 12:04:04
+# Sequence number = MI5351 -- PMS2D/RF04 -- OK @ 6 Feb 1996 13:30:40
+# Sequence number = MI5358 -- PMS2D/RF05 -- Incomplete @ 6 Feb 1996 13:45:51
+#
+# Second set
+#  Job(s) submitted on Tue Feb  6 15:13:16 MST 1996
+# Sequence number = MI2598 -- PMS2D/RF05 -- OK @ 6 Feb 1996 15:49:34
+# Sequence number = MI2605 -- PMS2D/RF06 -- OK @ 6 Feb 1996 15:28:28
+# Sequence number = MI2612 -- PMS2D/RF07 -- OK @ 6 Feb 1996 15:28:29
+# Sequence number = MI2619 -- PMS2D/RF08 -- OK @ 6 Feb 1996 15:37:53
+# Sequence number = MI2626 -- PMS2D/RF09 -- OK @ 6 Feb 1996 15:59:57
+# Sequence number = MI2633 -- PMS2D/RF10 -- OK @ 6 Feb 1996 16:02:15
+#
+# Third set
+#  Job(s) submitted on Wed Feb  7 11:56:30 MST 1996
+# Sequence number = MI6435 -- PMS2D/RF11 -- OK @ 7 Feb 1996 12:00:20
+# Sequence number = MI6442 -- PMS2D/RF12 -- OK @ 7 Feb 1996 11:57:39
+# Sequence number = MI6449 -- PMS2D/RF13 -- OK @ 7 Feb 1996 11:59:43
+# Sequence number = MI6456 -- PMS2D/RF14 -- OK @ 7 Feb 1996 11:57:36
+# Sequence number = MI6463 -- PMS2D/RF15 -- OK @ 7 Feb 1996 12:01:31
+# Sequence number = MI6470 -- PMS2D/RF16 -- OK @ 7 Feb 1996 12:01:41
+# Sequence number = MI6477 -- PMS2D/RF17 -- OK @ 7 Feb 1996 12:01:49
+# Sequence number = MI6484 -- PMS2D/RF18 -- OK @ 7 Feb 1996 12:03:23
+# Sequence number = MI6491 -- PMS2D/RF19 -- OK @ 7 Feb 1996 12:20:38
+# Sequence number = MI6498 -- PMS2D/RF20 -- OK @ 7 Feb 1996 11:58:41
+#
+# Fourth set
+#  Job(s) submitted on Wed Feb  7 17:20:43 MST 1996
+# Sequence number = MI5894 -- PMS2D/FF01A -- OK @ 7 Feb 1996 17:52:21
+# Sequence number = MI5901 -- PMS2D/FF01B -- OK @ 7 Feb 1996 17:44:30
+# Sequence number = MI5908 -- PMS2D/FF01C -- OK @ 7 Feb 1996 17:21:36
+#
+# Fifth set
+#  Job(s) submitted on Fri Feb  9 16:50:24 MST 1996
+# Sequence number = MI3104 -- PMS2D/FF04A -- OK @ 9 Feb 1996 17:11:16
+# Sequence number = MI3111 -- PMS2D/FF04B -- OK @ 9 Feb 1996 16:57:56
+#

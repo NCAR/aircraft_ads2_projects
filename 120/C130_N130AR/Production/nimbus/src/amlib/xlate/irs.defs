@@ -1,0 +1,9 @@
+#define PIRAD   9.54e-7*360     /* converted from radians to degrees    */
+#define VKTS    0.0039*0.51449  /* converted from kts to m/s            */
+#define SKTS    2.44e-4*0.51449 /* converted from kts to m/s            */
+#define FTMIN   0.03125/(60.*3.2808) /* converted from ft/min to meters/sec */
+#define FTSEC   2.44e-4/3.2808  /* converted from ft/sec to meters/sec  */
+#define METERS  0.125/3.2808    /* converted from feet to meters        */
+#define DEG     57.29578        /* conversion from radians to degrees   */
+#define MPS2    9.7959/8192.0   /* G's to meters/s2 * resolution factor */
+

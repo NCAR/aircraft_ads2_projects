@@ -1,0 +1,40 @@
+DYCOMS-II - 181, Flight rf03
+Version - 3.1.2
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+DPLA has no dependencies, turning off.
+DPLA1 has no dependencies, turning off.
+RHLA has no dependencies, turning off.
+RHLA1 has no dependencies, turning off.
+Loading setup file: /usr/local/proj/181/Production/Flight_rf03
+XGREFF has no description or units.
+DPLA has no description or units.
+DPLA1 has no description or units.
+RHLA has no description or units.
+RHLA1 has no description or units.
+Processed on: Nov 29 23:40 UTC 2001
+Flight Date: 07/13/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 24 seconds ending @ 06:19:38, filling in with MISSING_VALUE.
+Blanking DPB from 06:18:23 to 08:32:03.
+ The following variables depend upon this variable:
+  DPBC
+Blanking DPBC from 06:18:23 to 08:32:03.
+Blanking XGLWC from 11:00:00 to 11:54:00.
+ The following variables depend upon this variable:
+  CING XGRFF
+Blanking XGRFF from 11:00:00 to 11:54:00.
+Blanking CING from 11:00:00 to 11:54:00.
+Time interval(s) completed : 06:18:23-15:46:03
+Processing took 10.5 minutes.

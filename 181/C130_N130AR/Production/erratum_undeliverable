@@ -1,0 +1,3779 @@
+From MAILER-DAEMON Mon Jan 14 14:04:22 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07409
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:21 -0700 (MST)
+Date: Mon, 14 Jan 2002 14:04:36 -0700 (MST)
+From: MAILER-DAEMON@ncar.UCAR.EDU (Mail Delivery Subsystem)
+Subject: Returned mail: User unknown
+Message-Id: <200201142104.OAA20383@ncar.ucar.EDU>
+Received: from localhost (localhost)
+        by ncar.UCAR.EDU (8.9.1a/) with internal id OAA20383;
+        Mon, 14 Jan 2002 14:04:36 -0700 (MST)
+To: <ron@mistral.atd.ucar.edu>
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3056
+Status: O
+
+The original message was received at Mon, 14 Jan 2002 14:04:34 -0700 (MST)
+from mailbox.ucsd.edu [132.239.1.53]
+
+   ----- The following addresses had permanent fatal errors -----
+ragni@raf.atd.ucar.edu
+    (expanded from: <ragni@ncar.ucar.edu>)
+
+   ----- Transcript of session follows -----
+... while talking to mistral.atd.ucar.edu.:
+>>> RCPT To:<ragni@raf.atd.ucar.edu>
+<<< 550 <ragni@raf.atd.ucar.edu>... User unknown
+550 ragni@raf.atd.ucar.edu... User unknown
+
+   ----- Original message follows -----
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20382;
+        Mon, 14 Jan 2002 14:04:34 -0700 (MST)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9F002595;
+	Mon, 14 Jan 2002 13:03:31 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:04:25 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07416
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:25 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20403
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:39 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL4O9B002679;
+	Mon, 14 Jan 2002 13:04:24 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:04:24 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142104.g0EL4O9B002679@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL4O9B002679.1011042264/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 4014
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL4O9B002679.1011042264/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:31 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:reiner@mpch-mainz.mpg.de>
+    (reason: 550 5.1.1 <reiner@mpch-mainz.mpg.de>... User unknown)
+<@ucsd.edu:peter@nike.mpch-mainz.mpg.de>
+    (reason: 550 Host unknown)
+
+   ----- Transcript of session follows -----
+... while talking to mailserver.mpch-mainz.mpg.de.:
+>>> RCPT To:<reiner@mpch-mainz.mpg.de>
+<<< 550 5.1.1 <reiner@mpch-mainz.mpg.de>... User unknown
+550 5.1.1 <@ucsd.edu:reiner@mpch-mainz.mpg.de>... User unknown
+550 5.1.2 <@ucsd.edu:peter@nike.mpch-mainz.mpg.de>... Host unknown (Name server: nike.mpch-mainz.mpg.de: host not found)
+
+--g0EL4O9B002679.1011042264/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:31 -0800 (PST)
+
+Final-Recipient: RFC822; reiner@mpch-mainz.mpg.de
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mailserver.mpch-mainz.mpg.de
+Diagnostic-Code: SMTP; 550 5.1.1 <reiner@mpch-mainz.mpg.de>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:17 -0800 (PST)
+
+Final-Recipient: RFC822; peter@nike.mpch-mainz.mpg.de
+Action: failed
+Status: 5.1.2
+Remote-MTA: DNS; nike.mpch-mainz.mpg.de
+Diagnostic-Code: SMTP; 550 Host unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:20 -0800 (PST)
+
+--g0EL4O9B002679.1011042264/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9F002595;
+	Mon, 14 Jan 2002 13:03:31 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL4O9B002679.1011042264/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:04:27 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07427
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:26 -0700 (MST)
+Received: from baudot.cnes.fr (baudot.cnes.fr [132.149.22.3])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20404
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:39 -0700 (MST)
+Received: from cnes.fr by baudot.cnes.fr id g0EL4Nq18552;
+	Mon, 14 Jan 2002 22:04:23 +0100 (MET)
+Message-Id: <200201142104.g0EL4Nq18552@cnes.fr>
+Date: Mon, 14 Jan 2002 22:04:08 +0100
+From: Postmaster@mailhub.cnes.fr
+To: ron@mistral.atd.ucar.edu
+Cc: Postmaster@mailhub.cnes.fr
+Subject: Undeliverable mail
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+              boundary="=_mh.ndn.014b.3c4347c8_="
+X-Loop-Check:  
+Content-Length: 3344
+Status: O
+
+--=_mh.ndn.014b.3c4347c8_=
+Content-Type: text/plain; charset=us-ascii
+
+Your message was not delivered to the following recipients:
+
+          francois.dulac@cnes.fr: User unknown
+
+--=_mh.ndn.014b.3c4347c8_=
+Content-Type: message/delivery-status
+Content-Transfer-Encoding: 7bit
+
+Reporting-MTA: dns;mailhub.cnes.fr
+
+Final-Recipient: rfc822;francois.dulac@cnes.fr
+Action: failed
+Status: 5.1.1
+
+--=_mh.ndn.014b.3c4347c8_=
+Content-Type: message/rfc822
+
+Received: from curie.cnes.fr by mailhub.cnes.fr with ESMTP for francois.dulac@cnes.fr; Mon, 14 Jan 2002 22:04:08 +0100
+Received: from baudot.cnes.fr (unverified) by curie.cst.cnes.fr
+ (Content Technologies SMTPRS 2.0.15) with ESMTP id <B0007320610@curie.cst.cnes.fr> for <francois.dulac@cnes.fr>;
+ Mon, 14 Jan 2002 22:04:02 +0100
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by baudot.cnes.fr (8.11.6/8.11.2) with ESMTP id g0EL41q18534
+	for <francois.dulac@cnes.fr>; Mon, 14 Jan 2002 22:04:01 +0100 (MET)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9F002723;
+	Mon, 14 Jan 2002 13:03:55 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--=_mh.ndn.014b.3c4347c8_=--
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:04:32 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07434
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:32 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20430
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:46 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL4V9B002752;
+	Mon, 14 Jan 2002 13:04:31 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:04:31 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142104.g0EL4V9B002752@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL4V9B002752.1011042271/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 4198
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL4V9B002752.1011042271/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:bdavis@ucar.edu>
+    (reason: 550 <bdavis@ucar.edu>... User unknown)
+<@ucsd.edu:devaux@univ-lille1.fr>
+    (reason: 553 5.3.0 <devaux@univ-lille1.fr>... Bad address[devaux@univ-lille1.fr])
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:correa@escape.met.fsu.edu>... Deferred: Connection refused by escape.met.fsu.edu.
+... while talking to ncar.ucar.edu.:
+>>> RCPT To:<bdavis@ucar.edu>
+<<< 550 <bdavis@ucar.edu>... User unknown
+550 5.1.1 <@ucsd.edu:bdavis@ucar.edu>... User unknown
+... while talking to reserv4.univ-lille1.fr.:
+>>> DATA
+<<< 553 5.3.0 <devaux@univ-lille1.fr>... Bad address[devaux@univ-lille1.fr]
+550 5.1.1 <@ucsd.edu:devaux@univ-lille1.fr>... User unknown
+<<< 503 5.0.0 Need RCPT (recipient)
+
+--g0EL4V9B002752.1011042271/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+
+Final-Recipient: RFC822; bdavis@ucar.edu
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; ncar.ucar.edu
+Diagnostic-Code: SMTP; 550 <bdavis@ucar.edu>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:08 -0800 (PST)
+
+Final-Recipient: RFC822; devaux@univ-lille1.fr
+Action: failed
+Status: 5.3.0
+Remote-MTA: DNS; reserv4.univ-lille1.fr
+Diagnostic-Code: SMTP; 553 5.3.0 <devaux@univ-lille1.fr>... Bad address[devaux@univ-lille1.fr]
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:26 -0800 (PST)
+
+--g0EL4V9B002752.1011042271/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9H002723;
+	Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL4V9B002752.1011042271/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:04:34 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07446
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:33 -0700 (MST)
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20436
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:46 -0700 (MST)
+Received: from muguet.saclay.cea.fr (muguet.saclay.cea.fr [132.166.192.6])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id WAA27025
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 22:05:24 +0100 (MET)
+Received: from cincidele.saclay.cea.fr (cincidele.saclay.cea.fr [132.166.192.109])
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with ESMTP id WAA04420
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 22:04:30 +0100 (MET)
+To: ron@mistral.atd.ucar.edu
+Subject: Delivery failure (hamonou@lsce.saclay.cea.fr)
+From: postmaster@cincidele.saclay.cea.fr
+Message-Id: <T58737071c884a6c06d083@cincidele.saclay.cea.fr>
+Date: Mon, 14 Jan 2002 22:04:31 +0100
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status; boundary="3174/131/1011042271/MAILsweeper/cincidele.saclay.cea.fr"
+Content-Length: 4025
+Status: O
+
+--3174/131/1011042271/MAILsweeper/cincidele.saclay.cea.fr
+Content-Type: text/plain
+
+Your message has encountered delivery problems
+to the following recipient(s):
+
+hamonou@lsce.saclay.cea.fr
+Delivery failed
+550 <hamonou@lsce.saclay.cea.fr>... User unknown
+
+
+No recipients were successfully delivered to.
+
+
+
+--3174/131/1011042271/MAILsweeper/cincidele.saclay.cea.fr
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; cincidele.saclay.cea.fr
+Received-From-MTA: dns; muguet.saclay.cea.fr (unverified [132.166.192.6])
+Arrival-Date: Mon, 14 Jan 2002 22:04:30 +0100
+
+Final-Recipient: rfc822; hamonou@lsce.saclay.cea.fr
+Action: failed
+Status: 5.0.0 (Permanent failure - no additional status information available)
+Remote-MTA: dns; lsce.saclay.cea.fr
+Diagnostic-Code: smtp; 550 <hamonou@lsce.saclay.cea.fr>... User unknown
+
+--3174/131/1011042271/MAILsweeper/cincidele.saclay.cea.fr
+Content-Type: message/rfc822
+
+Received: from muguet.saclay.cea.fr (unverified) by cincidele.saclay.cea.fr
+ (Content Technologies SMTPRS 4.2.5) with ESMTP id <T5873706e1e84a6c06d11a@cincidele.saclay.cea.fr> for <hamonou@lsce.saclay.cea.fr>;
+ Mon, 14 Jan 2002 22:04:30 +0100
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with ESMTP id WAA04412
+	for <hamonou@lsce.saclay.cea.fr>; Mon, 14 Jan 2002 22:04:29 +0100 (MET)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id WAA27012
+	for <hamonou@lsce.saclay.cea.fr>; Mon, 14 Jan 2002 22:05:21 +0100 (MET)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9D002723;
+	Mon, 14 Jan 2002 13:03:53 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone: (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--3174/131/1011042271/MAILsweeper/cincidele.saclay.cea.fr--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:04:40 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07453
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:40 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20451
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:53 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL4d9B002726;
+	Mon, 14 Jan 2002 13:04:39 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:04:39 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142104.g0EL4d9B002726@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL4d9B002726.1011042279/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3528
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL4d9B002726.1011042279/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:52 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:L.A.Lange@phys.uu.nl>
+    (reason: 550 <L.A.Lange@phys.uu.nl>... User unknown)
+
+   ----- Transcript of session follows -----
+... while talking to mail.phys.uu.nl.:
+>>> RCPT To:<L.A.Lange@phys.uu.nl>
+<<< 550 <L.A.Lange@phys.uu.nl>... User unknown
+550 5.1.1 <@ucsd.edu:L.A.Lange@phys.uu.nl>... User unknown
+
+--g0EL4d9B002726.1011042279/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:52 -0800 (PST)
+
+Final-Recipient: RFC822; L.A.Lange@phys.uu.nl
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mail.phys.uu.nl
+Diagnostic-Code: SMTP; 550 <L.A.Lange@phys.uu.nl>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:14 -0800 (PST)
+
+--g0EL4d9B002726.1011042279/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9B002723;
+	Mon, 14 Jan 2002 13:03:52 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL4d9B002726.1011042279/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:04:49 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07461
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:04:49 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20462
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:03 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL4m9B002741;
+	Mon, 14 Jan 2002 13:04:48 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:04:48 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142104.g0EL4m9B002741@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL4m9B002741.1011042288/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3538
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL4m9B002741.1011042288/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:53 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:lara@cco.caltech.edu>
+    (reason: 550 <lara@cco.caltech.edu>... User unknown)
+
+   ----- Transcript of session follows -----
+... while talking to mail.its.caltech.edu.:
+>>> RCPT To:<lara@cco.caltech.edu>
+<<< 550 <lara@cco.caltech.edu>... User unknown
+550 5.1.1 <@ucsd.edu:lara@cco.caltech.edu>... User unknown
+
+--g0EL4m9B002741.1011042288/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:53 -0800 (PST)
+
+Final-Recipient: RFC822; lara@cco.caltech.edu
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mail.its.caltech.edu
+Diagnostic-Code: SMTP; 550 <lara@cco.caltech.edu>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:00 -0800 (PST)
+
+--g0EL4m9B002741.1011042288/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9D002723;
+	Mon, 14 Jan 2002 13:03:53 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL4m9B002741.1011042288/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:05:10 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07474
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:10 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20504
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:23 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL599B002751;
+	Mon, 14 Jan 2002 13:05:09 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:05:09 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142105.g0EL599B002751@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL599B002751.1011042309/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3959
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL599B002751.1011042309/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:55 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:goofa@dove.uom.ac.mu>
+    (reason: 550 Host unknown)
+<@ucsd.edu:jsfoot@meto.govt.uk>
+    (reason: 550 5.7.1 Relaying not permitted: jsfoot@meto.govt.uk)
+
+   ----- Transcript of session follows -----
+550 5.1.2 <@ucsd.edu:goofa@dove.uom.ac.mu>... Host unknown (Name server: dove.uom.ac.mu: host not found)
+... while talking to email.meto.gov.uk.:
+>>> DATA
+<<< 550 5.7.1 Relaying not permitted: jsfoot@meto.govt.uk
+550 5.1.1 <@ucsd.edu:jsfoot@meto.govt.uk>... User unknown
+<<< 554 5.5.0 No recipients have been specified.
+
+--g0EL599B002751.1011042309/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:55 -0800 (PST)
+
+Final-Recipient: RFC822; goofa@dove.uom.ac.mu
+Action: failed
+Status: 5.1.2
+Remote-MTA: DNS; dove.uom.ac.mu
+Diagnostic-Code: SMTP; 550 Host unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:04 -0800 (PST)
+
+Final-Recipient: RFC822; jsfoot@meto.govt.uk
+Action: failed
+Status: 5.7.1
+Remote-MTA: DNS; email.meto.gov.uk
+Diagnostic-Code: SMTP; 550 5.7.1 Relaying not permitted: jsfoot@meto.govt.uk
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:35 -0800 (PST)
+
+--g0EL599B002751.1011042309/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9F002723;
+	Mon, 14 Jan 2002 13:03:55 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL599B002751.1011042309/mailbox1.ucsd.edu--
+
+
+From nobody@knmi.nl Mon Jan 14 14:05:27 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07483
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:26 -0700 (MST)
+Received: from gate2.knmi.nl (gate2p2.knmi.nl [145.23.254.152])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20534
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:39 -0700 (MST)
+Received: (from fwmaster@localhost) by gate2.knmi.nl (8.9.1a/8.6.12) id WAA11752 for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 22:05:25 +0100 (MET)
+Received: by gate2p2.knmi.nl via smap (V1.3)
+	id sma011643; Mon, 14 Jan 02 22:04:57 +0100
+Received: by bcsxcs.knmi.nl with Internet Mail Service (5.5.2650.21)
+	id <XMMFGJS0>; Mon, 14 Jan 2002 22:05:03 +0100
+Message-ID: <D1EE42BB29B5D211A2290008C70551BC05F07A0F@bcsxcs.knmi.nl>
+From: Postmaster@knmi.nl
+To: ron@mistral.atd.ucar.edu
+Subject: Undeliverable: Erratum Notice -- RAF EC-130Q Hercules
+Date: Mon, 14 Jan 2002 22:05:02 +0100
+MIME-Version: 1.0
+X-Mailer: Internet Mail Service (5.5.2650.21)
+Content-Type: multipart/mixed;
+	boundary="----_=_NextPart_000_01C19D3F.224C9A5C"
+Content-Length: 2264
+Status: O
+
+This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+------_=_NextPart_000_01C19D3F.224C9A5C
+Content-Type: text/plain;
+	charset="iso-8859-1"
+
+Your message
+
+  To:      indoexlist@fiji.ucsd.edu
+  Subject: Erratum Notice -- RAF EC-130Q Hercules
+  Sent:    Mon, 14 Jan 2002 21:55:05 +0100
+
+did not reach the following recipient(s):
+
+holtslag@knmi.nl on Mon, 14 Jan 2002 22:05:01 +0100
+    The recipient name is not recognized
+	The MTS-ID of the original message is: c=US;a=
+;p=KNMI;l=BCSXCS0201142105XMMFGJS8
+    MSEXCH:IMS:KNMI:De Bilt:BCSXCS 0 (000C05A6) Unknown Recipient
+
+
+
+------_=_NextPart_000_01C19D3F.224C9A5C
+Content-Type: message/rfc822
+
+Message-ID: <200201142055.NAA07146@mistral.atd.ucar.edu>
+From: ron@raf.atd.ucar.edu
+To: indoexlist@fiji.ucsd.edu
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+Date: Mon, 14 Jan 2002 21:55:05 +0100
+MIME-Version: 1.0
+X-Mailer: Internet Mail Service (5.5.2650.21)
+X-MS-Embedded-Report: 
+Content-Type: text/plain;
+	charset="iso-8859-1"
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one
+needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+------_=_NextPart_000_01C19D3F.224C9A5C--
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:05:29 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07489
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:29 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20539
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:43 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL5S9B002754;
+	Mon, 14 Jan 2002 13:05:28 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:05:28 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142105.g0EL5S9B002754@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL5S9B002754.1011042328/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 4682
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL5S9B002754.1011042328/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:57 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:carslaw@mpch-mainz.mpg.de>
+    (reason: 550 5.1.1 <carslaw@mpch-mainz.mpg.de>... User unknown)
+<@ucsd.edu:boucher@mpch-mainz.mpg.de>
+    (reason: 550 5.1.1 <boucher@mpch-mainz.mpg.de>... User unknown)
+<@ucsd.edu:t.canas@ic.ac.uk>
+    (reason: 550 Unknown local part t.canas in <t.canas@ic.ac.uk>)
+
+   ----- Transcript of session follows -----
+... while talking to mailserver.mpch-mainz.mpg.de.:
+>>> RCPT To:<boucher@mpch-mainz.mpg.de>
+<<< 550 5.1.1 <boucher@mpch-mainz.mpg.de>... User unknown
+550 5.1.1 <@ucsd.edu:boucher@mpch-mainz.mpg.de>... User unknown
+>>> RCPT To:<carslaw@mpch-mainz.mpg.de>
+<<< 550 5.1.1 <carslaw@mpch-mainz.mpg.de>... User unknown
+550 5.1.1 <@ucsd.edu:carslaw@mpch-mainz.mpg.de>... User unknown
+... while talking to mr2.cc.ic.ac.uk.:
+>>> DATA
+<<< 550 Unknown local part t.canas in <t.canas@ic.ac.uk>
+550 5.1.1 <@ucsd.edu:t.canas@ic.ac.uk>... User unknown
+<<< 503 Valid RCPT TO <recipient> must precede DATA
+
+--g0EL5S9B002754.1011042328/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:57 -0800 (PST)
+
+Final-Recipient: RFC822; carslaw@mpch-mainz.mpg.de
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mailserver.mpch-mainz.mpg.de
+Diagnostic-Code: SMTP; 550 5.1.1 <carslaw@mpch-mainz.mpg.de>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:15 -0800 (PST)
+
+Final-Recipient: RFC822; boucher@mpch-mainz.mpg.de
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mailserver.mpch-mainz.mpg.de
+Diagnostic-Code: SMTP; 550 5.1.1 <boucher@mpch-mainz.mpg.de>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:15 -0800 (PST)
+
+Final-Recipient: RFC822; t.canas@ic.ac.uk
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mr2.cc.ic.ac.uk
+Diagnostic-Code: SMTP; 550 Unknown local part t.canas in <t.canas@ic.ac.uk>
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:17 -0800 (PST)
+
+--g0EL5S9B002754.1011042328/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9J002723;
+	Mon, 14 Jan 2002 13:03:57 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL5S9B002754.1011042328/mailbox1.ucsd.edu--
+
+
+From Mailer-Daemon@chaos.noaa.gov Mon Jan 14 14:05:45 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07502
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:45 -0700 (MST)
+Received: from hugo.aoml.noaa.gov (hugo.aoml.noaa.gov [192.111.123.247])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20569
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:05:59 -0700 (MST)
+Received: by hugo.aoml.noaa.gov; id QAA20692; Mon, 14 Jan 2002 16:01:05 -0500 (EST)
+Received: from unknown(10.16.100.2) by hugo.aoml.noaa.gov via smap (V5.5)
+	id xma020683; Mon, 14 Jan 02 16:00:09 -0500
+Received: from chaos.aoml.noaa.gov ([172.16.100.2]) by
+          ms-nems.aoml.noaa.gov (Netscape Messaging Server 4.15) with SMTP
+          id GPY51F00.JCZ for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002
+          16:00:51 -0500 
+Received: from localhost by chaos.aoml.noaa.gov (SMI-8.6/SMI-SVR4)
+	id LAA11117; Mon, 14 Jan 2002 11:04:36 -0500
+Date: Mon, 14 Jan 2002 11:04:36 -0500
+From: Mailer-Daemon@hugo.aoml.noaa.gov (Mail Delivery Subsystem)
+Subject: Returned mail: User unknown
+Message-Id: <200201141604.LAA11117@chaos.aoml.noaa.gov>
+To: <ron@mistral.atd.ucar.edu>
+Content-Length: 3126
+Status: O
+
+The original message was received at Mon, 14 Jan 2002 11:04:33 -0500
+from hugo [172.16.100.247]
+
+   ----- The following addresses had delivery problems -----
+\thomas.p.carsey  (unrecoverable error)
+    (expanded from: <carsey@aoml.noaa.gov>)
+
+   ----- Transcript of session follows -----
+550 /home/ocd/carsey/.forward: line 1: \thomas.p.carsey... User unknown
+
+   ----- Original message follows -----
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from hugo.aoml.noaa.gov by chaos.aoml.noaa.gov (SMI-8.6/SMI-SVR4)
+	id LAA11112; Mon, 14 Jan 2002 11:04:33 -0500
+Received: by hugo.aoml.noaa.gov; id QAA20669; Mon, 14 Jan 2002 16:00:05 -0500 (EST)
+Received: from unknown(132.239.1.53) by hugo.aoml.noaa.gov via smap (V5.5)
+	id xma020655; Mon, 14 Jan 02 15:59:30 -0500
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9J002723;
+	Mon, 14 Jan 2002 13:03:57 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+content-length: 1158
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:06:17 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07589
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:15 -0700 (MST)
+Received: from uscapf04.epri.com (uscapf04.epri.com [144.58.161.155] (may be forged))
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20655
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:29 -0700 (MST)
+Received: by USCAPF04 with Internet Mail Service (5.5.2653.19)
+	id <XV4NNDLN>; Mon, 14 Jan 2002 13:06:12 -0800
+Message-ID: <5DF815FE443AD51180080002A5096982016E439F@uscabh01.epri.com>
+From: System Administrator <postmaster@epri.com>
+To: ron@mistral.atd.ucar.edu
+Subject: Undeliverable: Erratum Notice -- RAF EC-130Q Hercules
+Date: Mon, 14 Jan 2002 13:06:10 -0800
+MIME-Version: 1.0
+X-Mailer: Internet Mail Service (5.5.2653.19)
+Content-Type: multipart/mixed;
+	boundary="----_=_NextPart_000_01C19D3F.4AB93680"
+Content-Length: 2280
+Status: O
+
+This message is in MIME format. Since your mail reader does not understand
+this format, some or all of this message may not be legible.
+
+------_=_NextPart_000_01C19D3F.4AB93680
+Content-Type: text/plain;
+	charset="iso-8859-1"
+
+Your message
+
+  To:      indoexlist@fiji.ucsd.edu
+  Subject: Erratum Notice -- RAF EC-130Q Hercules
+  Sent:    Mon, 14 Jan 2002 12:55:05 -0800
+
+did not reach the following recipient(s):
+
+psaxena@epri.com on Mon, 14 Jan 2002 13:05:42 -0800
+    The recipient name is not recognized
+	The MTS-ID of the original message is: c=us;a=
+;p=epri;l=USCABH010201142105CVYVCQTJ
+    MSEXCH:IMS:EPRI:USCAEPRI:USCABH01 0 (000C05A6) Unknown Recipient
+
+
+
+------_=_NextPart_000_01C19D3F.4AB93680
+Content-Type: message/rfc822
+
+Message-ID: <200201142055.NAA07146@mistral.atd.ucar.edu>
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+To: indoexlist@fiji.ucsd.edu
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+Date: Mon, 14 Jan 2002 12:55:05 -0800
+MIME-Version: 1.0
+X-Mailer: Internet Mail Service (5.5.2653.19)
+X-MS-Embedded-Report: 
+Content-Type: text/plain;
+	charset="iso-8859-1"
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one
+needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+------_=_NextPart_000_01C19D3F.4AB93680--
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:06:32 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07608
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:32 -0700 (MST)
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20721
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:45 -0700 (MST)
+Received: from muguet.saclay.cea.fr (muguet.saclay.cea.fr [132.166.192.6])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id WAA27190
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 22:07:23 +0100 (MET)
+Received: from cincidele.saclay.cea.fr (cincidele.saclay.cea.fr [132.166.192.109])
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with ESMTP id WAA04722
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 22:06:29 +0100 (MET)
+To: ron@mistral.atd.ucar.edu
+Subject: Delivery failure (kasia@lsce.saclay.cea.fr)
+From: postmaster@cincidele.saclay.cea.fr
+Message-Id: <T587372448484a6c06d083@cincidele.saclay.cea.fr>
+Date: Mon, 14 Jan 2002 22:06:30 +0100
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status; boundary="3175/131/1011042390/MAILsweeper/cincidele.saclay.cea.fr"
+Content-Length: 3951
+Status: O
+
+--3175/131/1011042390/MAILsweeper/cincidele.saclay.cea.fr
+Content-Type: text/plain
+
+Delivery status report re your message
+to the following recipient(s):
+
+kasia@lsce.saclay.cea.fr
+Delivery failed
+550 <kasia@lsce.saclay.cea.fr>... User unknown
+
+
+The message was successfully delivered to 1 recipient(s)
+at domain lsce.saclay.cea.fr.
+
+
+
+--3175/131/1011042390/MAILsweeper/cincidele.saclay.cea.fr
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; cincidele.saclay.cea.fr
+Received-From-MTA: dns; muguet.saclay.cea.fr (unverified [132.166.192.6])
+Arrival-Date: Mon, 14 Jan 2002 22:06:29 +0100
+
+Final-Recipient: rfc822; kasia@lsce.saclay.cea.fr
+Action: failed
+Status: 5.0.0 (Permanent failure - no additional status information available)
+Remote-MTA: dns; lsce.saclay.cea.fr
+Diagnostic-Code: smtp; 550 <kasia@lsce.saclay.cea.fr>... User unknown
+
+--3175/131/1011042390/MAILsweeper/cincidele.saclay.cea.fr
+Content-Type: message/rfc822
+
+Received: from muguet.saclay.cea.fr (unverified) by cincidele.saclay.cea.fr
+ (Content Technologies SMTPRS 4.2.5) with ESMTP id <T587372417784a6c06d11a@cincidele.saclay.cea.fr>;
+ Mon, 14 Jan 2002 22:06:29 +0100
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with ESMTP id WAA04716;
+	Mon, 14 Jan 2002 22:06:28 +0100 (MET)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id WAA27186;
+	Mon, 14 Jan 2002 22:07:20 +0100 (MET)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9J002595;
+	Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone: (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--3175/131/1011042390/MAILsweeper/cincidele.saclay.cea.fr--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:06:33 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07614
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:33 -0700 (MST)
+Received: from femail18.sdc1.sfba.home.com (femail18.sdc1.sfba.home.com [24.0.95.145])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20725
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:46 -0700 (MST)
+To: ron@mistral.atd.ucar.edu
+From: Mail Administrator <Postmaster@mail.ftclns1.co.home.com>
+Reply-To: Mail Administrator <Postmaster@mail.ftclns1.co.home.com>
+Subject: Mail System Error - Returned Mail
+Date: Mon, 14 Jan 2002 13:06:32 -0800
+Message-ID: <20020114210632.FPOB6480.femail18.sdc1.sfba.home.com@femail18.sdc1.sfba.home.com>
+MIME-Version: 1.0
+Content-Type: multipart/report;
+		report-type=delivery-status;
+		Boundary="===========================_ _= 4939880(6480)1011042392"
+Content-Length: 4032
+Status: O
+
+
+--===========================_ _= 4939880(6480)1011042392
+Content-Type: text/plain
+
+This Message was undeliverable due to the following reason:
+
+Account inactive
+
+<gamage3@mail.ftclns1.co.home.com>
+
+Please reply to Postmaster@mail.ftclns1.co.home.com
+if you feel this message to be in error.
+
+--===========================_ _= 4939880(6480)1011042392
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; femail18.home.com
+Arrival-Date: Mon, 14 Jan 2002 13:06:32 -0800
+Received-From-MTA: dns; mh8-sfba.mail.home.com (24.0.95.237)
+
+Final-Recipient: RFC822; <gamage3@mail.ftclns1.co.home.com>
+Action: failed
+Status: 5.2.1
+
+--===========================_ _= 4939880(6480)1011042392
+Content-Type: message/rfc822
+
+Received: from mh8-sfba.mail.home.com ([24.0.95.237])
+          by femail18.sdc1.sfba.home.com
+          (InterMail vM.4.01.03.20 201-229-121-120-20010223) with ESMTP
+          id <20020114210632.FPNY6480.femail18.sdc1.sfba.home.com@mh8-sfba.mail.home.com>
+          for <gamage3@mail.ftclns1.co.home.com>;
+          Mon, 14 Jan 2002 13:06:32 -0800
+Received: from mx8-sfba.mail.home.com (mx8-sfba.mail.home.com [24.0.95.233])
+	by mh8-sfba.mail.home.com (8.9.3/8.9.0) with ESMTP id NAA04102
+	for <gamage3@home.com>; Mon, 14 Jan 2002 13:06:32 -0800 (PST)
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [192.52.106.6])
+	by mx8-sfba.mail.home.com (8.11.1/8.11.1) with ESMTP id g0EL6V010053
+	for <gamage3@home.com>; Mon, 14 Jan 2002 13:06:31 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20715;
+        Mon, 14 Jan 2002 14:06:45 -0700 (MST)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9H002595;
+	Mon, 14 Jan 2002 13:03:39 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--===========================_ _= 4939880(6480)1011042392--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:06:42 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07636
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:42 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20859
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:56 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL6f9B002721;
+	Mon, 14 Jan 2002 13:06:41 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:06:41 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142106.g0EL6f9B002721@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL6f9B002721.1011042401/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 4741
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL6f9B002721.1011042401/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:werner.lindinger@uibk.ac.at>
+    (reason: 550 5.1.1 <werner.lindinger@uibk.ac.at>... User unknown)
+<@ucsd.edu:majeed1@un.org>
+    (reason: 550 5.1.1 <majeed1@un.org>... User unknown)
+<@ucsd.edu:marticorena@univ-paris12.fr>
+    (reason: 550 5.1.1 <marticorena@univ-paris12.fr>... User unknown)
+
+   ----- Transcript of session follows -----
+... while talking to ms2.uibk.ac.at.:
+>>> RCPT To:<werner.lindinger@uibk.ac.at>
+<<< 550 5.1.1 <werner.lindinger@uibk.ac.at>... User unknown
+550 5.1.1 <@ucsd.edu:werner.lindinger@uibk.ac.at>... User unknown
+... while talking to mx1.un.org.:
+>>> RCPT To:<majeed1@un.org>
+<<< 550 5.1.1 <majeed1@un.org>... User unknown
+550 5.1.1 <@ucsd.edu:majeed1@un.org>... User unknown
+... while talking to proxya.univ-paris12.fr.:
+>>> DATA
+<<< 550 5.1.1 <marticorena@univ-paris12.fr>... User unknown
+550 5.1.1 <@ucsd.edu:marticorena@univ-paris12.fr>... User unknown
+<<< 503 Need RCPT (recipient)
+<@ucsd.edu:kmark@stratus.igf.fuw.edu.pl>... Deferred: Connection refused by stratus.igf.fuw.edu.pl.
+
+--g0EL6f9B002721.1011042401/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+
+Final-Recipient: RFC822; werner.lindinger@uibk.ac.at
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; ms2.uibk.ac.at
+Diagnostic-Code: SMTP; 550 5.1.1 <werner.lindinger@uibk.ac.at>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:06:21 -0800 (PST)
+
+Final-Recipient: RFC822; majeed1@un.org
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mx1.un.org
+Diagnostic-Code: SMTP; 550 5.1.1 <majeed1@un.org>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:06:25 -0800 (PST)
+
+Final-Recipient: RFC822; marticorena@univ-paris12.fr
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; proxya.univ-paris12.fr
+Diagnostic-Code: SMTP; 550 5.1.1 <marticorena@univ-paris12.fr>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:06:37 -0800 (PST)
+
+--g0EL6f9B002721.1011042401/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9J002595;
+	Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL6f9B002721.1011042401/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:06:44 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07642
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:43 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20875
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:57 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL6h9B002760;
+	Mon, 14 Jan 2002 13:06:43 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:06:43 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142106.g0EL6h9B002760@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL6h9B002760.1011042403/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3413
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL6h9B002760.1011042403/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:58 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:harald@mohp.dwd.d400.de>
+    (reason: 550 Host unknown)
+
+   ----- Transcript of session follows -----
+550 5.1.2 <@ucsd.edu:harald@mohp.dwd.d400.de>... Host unknown (Name server: mohp.dwd.d400.de: host not found)
+
+--g0EL6h9B002760.1011042403/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:58 -0800 (PST)
+
+Final-Recipient: RFC822; harald@mohp.dwd.d400.de
+Action: failed
+Status: 5.1.2
+Remote-MTA: DNS; mohp.dwd.d400.de
+Diagnostic-Code: SMTP; 550 Host unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:06:32 -0800 (PST)
+
+--g0EL6h9B002760.1011042403/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9L002723;
+	Mon, 14 Jan 2002 13:03:58 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL6h9B002760.1011042403/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:06:47 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07648
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:45 -0700 (MST)
+Received: from shiva.jussieu.fr (shiva.jussieu.fr [134.157.0.129])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20900
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:59 -0700 (MST)
+Received: from localhost (localhost)
+          by shiva.jussieu.fr (8.12.1/jtpda-5.4) id g0EL6iYD096854
+          ; Mon, 14 Jan 2002 22:06:44 +0100 (CET)
+Date: Mon, 14 Jan 2002 22:06:44 +0100 (CET)
+From: Mailer-Daemon@jussieu.fr (Mail Delivery Subsystem)
+Subject: Returned mail: see transcript for details
+Message-Id: <200201142106.g0EL6iYD096854@shiva.jussieu.fr>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL6iYD096854.1011042404/shiva.jussieu.fr"
+Auto-Submitted: auto-generated (failure)
+Content-Length: 4851
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL6iYD096854.1011042404/shiva.jussieu.fr
+
+The original message was received at Mon, 14 Jan 2002 22:06:41 +0100 (CET)
+from blakey.lmd.jussieu.fr [134.157.47.99]
+
+   ----- The following addresses had permanent fatal errors -----
+<mbonaz@yahoo.fr>
+    (reason: 554 delivery error: dd Sorry, your message to mbonaz@yahoo.fr cannot be delivered.  This account is over quota. - mta550.mail.yahoo.com)
+
+   ----- Transcript of session follows -----
+... while talking to mx1.mail.yahoo.com.:
+>>> DATA
+<<< 554 delivery error: dd Sorry, your message to mbonaz@yahoo.fr cannot be delivered.  This account is over quota. - mta550.mail.yahoo.com
+554 5.0.0 Service unavailable
+
+--g0EL6iYD096854.1011042404/shiva.jussieu.fr
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; shiva.jussieu.fr
+Received-From-MTA: dns; blakey.lmd.jussieu.fr
+Arrival-Date: Mon, 14 Jan 2002 22:06:41 +0100 (CET)
+
+Final-Recipient: rfc822; mbonaz@yahoo.fr
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; mx1.mail.yahoo.com
+Diagnostic-Code: smtp; 554 delivery error: dd Sorry, your message to mbonaz@yahoo.fr cannot be delivered.  This account is over quota. - mta550.mail.yahoo.com
+Last-Attempt-Date: Mon, 14 Jan 2002 22:06:44 +0100 (CET)
+
+--g0EL6iYD096854.1011042404/shiva.jussieu.fr
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from blakey.lmd.jussieu.fr (blakey.lmd.jussieu.fr [134.157.47.99])
+          by shiva.jussieu.fr (8.12.1/jtpda-5.4) with ESMTP id g0EL6fYD096852
+          ; Mon, 14 Jan 2002 22:06:41 +0100 (CET)
+Received: from shiva.jussieu.fr (shiva.jussieu.fr [134.157.0.129])
+          by blakey.lmd.jussieu.fr (8.9.1a/jtpda-5.3.3) with ESMTP id WAA23649
+          ; Mon, 14 Jan 2002 22:06:37 +0100 (MET)
+Received: from nef.ens.fr (nef.ens.fr [129.199.96.32])
+          by shiva.jussieu.fr (8.12.1/jtpda-5.4) with ESMTP id g0EL6eYD096839
+          ; Mon, 14 Jan 2002 22:06:40 +0100 (CET)
+Received: from ravel.ens.fr (ravel.ens.fr [129.199.72.17])
+          by nef.ens.fr (8.10.1/1.01.28121999) with ESMTP id g0EL6dX90240
+          ; Mon, 14 Jan 2002 22:06:39 +0100 (CET)
+Received: from nef.ens.fr (nef.ens.fr [129.199.96.32]) by ravel.ens.fr (8.10.1/jb-1.1)
+	id g0EL6am24593 ; Mon, 14 Jan 2002 22:06:36 +0100 (MET)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+          by nef.ens.fr (8.10.1/1.01.28121999) with ESMTP id g0EL6aX90229
+          ; Mon, 14 Jan 2002 22:06:36 +0100 (CET)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9L002723;
+	Mon, 14 Jan 2002 13:03:58 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL6iYD096854.1011042404/shiva.jussieu.fr--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:06:54 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07654
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:06:54 -0700 (MST)
+Received: from x-mailer.polytechnique.fr (x-mailer.polytechnique.fr [129.104.35.1])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20923
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:07 -0700 (MST)
+Received: from localhost (localhost)
+	by x-mailer.polytechnique.fr (x.y.z/x.y.z) with internal id WAA26130;
+	Mon, 14 Jan 2002 22:07:10 +0100 (MET)
+Date: Mon, 14 Jan 2002 22:07:10 +0100 (MET)
+From: Mail Delivery Subsystem <MAILER-DAEMON@x-mailer.polytechnique.fr>
+Message-Id: <200201142107.WAA26130@x-mailer.polytechnique.fr>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="WAA26130.1011042430/x-mailer.polytechnique.fr"
+Subject: Returned mail: User unknown
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3722
+Status: O
+
+This is a MIME-encapsulated message
+
+--WAA26130.1011042430/x-mailer.polytechnique.fr
+
+The original message was received at Mon, 14 Jan 2002 22:07:02 +0100 (MET)
+from mailbox1.ucsd.edu [132.239.1.53]
+
+   ----- The following addresses had permanent fatal errors -----
+<pawlowska@lmd.polytechnique.fr>
+
+   ----- Transcript of session follows -----
+... while talking to lmd.polytechnique.fr.:
+>>> RCPT To:<pawlowska@lmd.polytechnique.fr>
+<<< 550 <pawlowska@lmd.polytechnique.fr>... Addressee unknown
+550 <pawlowska@lmd.polytechnique.fr>... User unknown
+
+--WAA26130.1011042430/x-mailer.polytechnique.fr
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; x-mailer.polytechnique.fr
+Received-From-MTA: DNS; mailbox1.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 22:07:02 +0100 (MET)
+
+Final-Recipient: RFC822; pawlowska@lmd.polytechnique.fr
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; lmd.polytechnique.fr
+Diagnostic-Code: SMTP; 550 <pawlowska@lmd.polytechnique.fr>... Addressee unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 22:07:09 +0100 (MET)
+
+--WAA26130.1011042430/x-mailer.polytechnique.fr
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by x-mailer.polytechnique.fr (x.y.z/x.y.z) with ESMTP id WAA26125;
+	Mon, 14 Jan 2002 22:07:02 +0100 (MET)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9H002595;
+	Mon, 14 Jan 2002 13:03:39 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--WAA26130.1011042430/x-mailer.polytechnique.fr--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:07:10 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07663
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:09 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA20971
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:23 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL799B002593;
+	Mon, 14 Jan 2002 13:07:09 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:07:09 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142107.g0EL799B002593@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL799B002593.1011042429/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3555
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL799B002593.1011042429/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:12 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:geevee@hotmail.com>
+    (reason: 552 Requested mail action aborted: exceeded storage allocation)
+
+   ----- Transcript of session follows -----
+... while talking to mx09.hotmail.com.:
+>>> RCPT To:<geevee@hotmail.com>
+<<< 552 Requested mail action aborted: exceeded storage allocation
+554 5.0.0 Service unavailable
+
+--g0EL799B002593.1011042429/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:12 -0800 (PST)
+
+Final-Recipient: RFC822; geevee@hotmail.com
+Action: failed
+Status: 5.2.2
+Remote-MTA: DNS; mx09.hotmail.com
+Diagnostic-Code: SMTP; 552 Requested mail action aborted: exceeded storage allocation
+Last-Attempt-Date: Mon, 14 Jan 2002 13:06:51 -0800 (PST)
+
+--g0EL799B002593.1011042429/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3C9B002569;
+	Mon, 14 Jan 2002 13:03:12 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL799B002593.1011042429/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@nems.noaa.gov Mon Jan 14 14:07:27 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07677
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:27 -0700 (MST)
+Received: from nems.noaa.gov (gummo-out.nems.noaa.gov [205.156.4.217])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA21011
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:40 -0700 (MST)
+Received: by nems.noaa.gov; id QAA22800; Mon, 14 Jan 2002 16:07:26 -0500 (EST)
+Date: Mon, 14 Jan 2002 16:07:26 -0500 (EST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@nems.noaa.gov>
+Subject: Returned mail: User unknown
+Message-Id: <200201142107.QAA22800@nems.noaa.gov>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="QAA22800.1011042446/nems.noaa.gov"
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3594
+Status: O
+
+This is a MIME-encapsulated message
+
+--QAA22800.1011042446/nems.noaa.gov
+
+The original message was received at Mon, 14 Jan 2002 16:07:26 -0500 (EST)
+from uucp@localhost
+
+   ----- The following addresses had permanent fatal errors -----
+<Pieter.I.Tans@noaa.gov>
+
+   ----- Transcript of session follows -----
+... while talking to relay-east.nems.noaa.gov:
+>>> RCPT To:<Pieter.I.Tans@noaa.gov>
+<<< 550 Invalid recipient <Pieter.I.Tans@noaa.gov>
+550 <Pieter.I.Tans@noaa.gov>... User unknown
+
+--QAA22800.1011042446/nems.noaa.gov
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; nems.noaa.gov
+Arrival-Date: Mon, 14 Jan 2002 16:07:26 -0500 (EST)
+
+Final-Recipient: rfc822; Pieter.I.Tans@noaa.gov
+Action: failed
+Status: 5.1.1
+Remote-MTA: dns; relay-east.nems.noaa.gov
+Diagnostic-Code: smtp; 550 Invalid recipient <Pieter.I.Tans@noaa.gov>
+Last-Attempt-Date: Mon, 14 Jan 2002 16:07:26 -0500 (EST)
+
+--QAA22800.1011042446/nems.noaa.gov
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: by nems.noaa.gov; id QAA22798; Mon, 14 Jan 2002 16:07:26 -0500 (EST)
+Received: from mailbox1.ucsd.edu(132.239.1.53) by gummo.nems.noaa.gov via csmap (V4.1)
+	id srcAAAULayHS; Mon, 14 Jan 02 16:07:25 -0500
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9B002595;
+	Mon, 14 Jan 2002 13:03:16 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--QAA22800.1011042446/nems.noaa.gov--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:07:32 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07683
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:32 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA21020
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:46 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL7V9B002610;
+	Mon, 14 Jan 2002 13:07:31 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:07:31 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142107.g0EL7V9B002610@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL7V9B002610.1011042451/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 4147
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL7V9B002610.1011042451/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:16 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:Jaimy@soest.hawaii.edu>
+    (reason: 550 <Jaimy@soest.hawaii.edu>... User unknown)
+<@ucsd.edu:R.M.vanHees@fys.ruu.nl>
+    (reason: 550 <R.M.vanHees@fys.ruu.nl>... User unknown)
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:jayes@mecheng.iisc.ernet.in>... Deferred: Interrupted system call
+... while talking to leka.soest.hawaii.edu.:
+>>> RCPT To:<Jaimy@soest.hawaii.edu>
+<<< 550 <Jaimy@soest.hawaii.edu>... User unknown
+550 5.1.1 <@ucsd.edu:Jaimy@soest.hawaii.edu>... User unknown
+... while talking to mail.fys.ruu.nl.:
+>>> RCPT To:<R.M.vanHees@fys.ruu.nl>
+<<< 550 <R.M.vanHees@fys.ruu.nl>... User unknown
+550 5.1.1 <@ucsd.edu:R.M.vanHees@fys.ruu.nl>... User unknown
+
+--g0EL7V9B002610.1011042451/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:16 -0800 (PST)
+
+Final-Recipient: RFC822; Jaimy@soest.hawaii.edu
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; leka.soest.hawaii.edu
+Diagnostic-Code: SMTP; 550 <Jaimy@soest.hawaii.edu>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:07:11 -0800 (PST)
+
+Final-Recipient: RFC822; R.M.vanHees@fys.ruu.nl
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mail.fys.ruu.nl
+Diagnostic-Code: SMTP; 550 <R.M.vanHees@fys.ruu.nl>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:07:13 -0800 (PST)
+
+--g0EL7V9B002610.1011042451/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9B002595;
+	Mon, 14 Jan 2002 13:03:16 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL7V9B002610.1011042451/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 14:08:20 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07698
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:08:20 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA21086
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:08:33 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0EL8J9B002766;
+	Mon, 14 Jan 2002 13:08:19 -0800 (PST)
+Date: Mon, 14 Jan 2002 13:08:19 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201142108.g0EL8J9B002766@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0EL8J9B002766.1011042499/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 4721
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0EL8J9B002766.1011042499/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:59 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:hans.altmeyer@florian.physik.uni-bremen.de>
+    (reason: 550 5.1.1 <hans.altmeyer@florian.physik.uni-bremen.de>... User unknown)
+<@ucsd.edu:A.T.J.Laat@phys.uu.nl>
+    (reason: 550 <A.T.J.Laat@phys.uu.nl>... User unknown)
+<@ucsd.edu:vka@sac.ernet.in>
+    (reason: 550 5.1.1 <vka@sac.ernet.in>... User unknown)
+
+   ----- Transcript of session follows -----
+... while talking to florian.physik.uni-bremen.de.:
+>>> RCPT To:<hans.altmeyer@florian.physik.uni-bremen.de>
+<<< 550 5.1.1 <hans.altmeyer@florian.physik.uni-bremen.de>... User unknown
+550 5.1.1 <@ucsd.edu:hans.altmeyer@florian.physik.uni-bremen.de>... User unknown
+... while talking to mail.phys.uu.nl.:
+>>> RCPT To:<A.T.J.Laat@phys.uu.nl>
+<<< 550 <A.T.J.Laat@phys.uu.nl>... User unknown
+550 5.1.1 <@ucsd.edu:A.T.J.Laat@phys.uu.nl>... User unknown
+... while talking to sac.ernet.in.:
+>>> RCPT To:<vka@sac.ernet.in>
+<<< 550 5.1.1 <vka@sac.ernet.in>... User unknown
+550 5.1.1 <@ucsd.edu:vka@sac.ernet.in>... User unknown
+
+--g0EL8J9B002766.1011042499/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Received-From-MTA: DNS; fiji.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:59 -0800 (PST)
+
+Final-Recipient: RFC822; hans.altmeyer@florian.physik.uni-bremen.de
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; florian.physik.uni-bremen.de
+Diagnostic-Code: SMTP; 550 5.1.1 <hans.altmeyer@florian.physik.uni-bremen.de>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:04:22 -0800 (PST)
+
+Final-Recipient: RFC822; A.T.J.Laat@phys.uu.nl
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mail.phys.uu.nl
+Diagnostic-Code: SMTP; 550 <A.T.J.Laat@phys.uu.nl>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:06:04 -0800 (PST)
+
+Final-Recipient: RFC822; vka@sac.ernet.in
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; sac.ernet.in
+Diagnostic-Code: SMTP; 550 5.1.1 <vka@sac.ernet.in>... User unknown
+Last-Attempt-Date: Mon, 14 Jan 2002 13:06:55 -0800 (PST)
+
+--g0EL8J9B002766.1011042499/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9N002723;
+	Mon, 14 Jan 2002 13:03:59 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0EL8J9B002766.1011042499/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@malus.nsf.gov Mon Jan 14 14:08:58 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07750
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:08:58 -0700 (MST)
+Received: from malus.nsf.gov (malus.nsf.gov [198.181.231.37])
+        by ncar.UCAR.EDU (8.9.1a/) with SMTP id OAA21125
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 14:09:11 -0700 (MST)
+Received: by malus.nsf.gov; id QAA06664; Mon, 14 Jan 2002 16:08:57 -0500
+Date: Mon, 14 Jan 2002 16:08:57 -0500
+From: Mail Delivery Subsystem <MAILER-DAEMON@malus.nsf.gov>
+Subject: Returned mail: User unknown
+Message-Id: <200201142108.QAA06664@malus.nsf.gov>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="QAA06664.1011042537/malus.nsf.gov"
+Content-Length: 3208
+Status: O
+
+This is a MIME-encapsulated message
+
+--QAA06664.1011042537/malus.nsf.gov
+
+The original message was received at Mon, 14 Jan 2002 16:08:55 -0500
+from uucp@localhost
+
+   ----- The following addresses had delivery problems -----
+<esaltzma@nsf.gov>  (unrecoverable error)
+
+   ----- Transcript of session follows -----
+... while talking to mailman.nsf.gov.:
+>>> RCPT To:<esaltzma@nsf.gov>
+<<< 550 <esaltzma@nsf.gov>... User unknown
+550 <esaltzma@nsf.gov>... User unknown
+
+   ----- Original message follows -----
+
+--QAA06664.1011042537/malus.nsf.gov
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: by malus.nsf.gov; id QAA06655; Mon, 14 Jan 2002 16:08:55 -0500
+Received: from mailbox.ucsd.edu(132.239.1.53) by malus.nsf.gov via smap (V5.5)
+	id xma006411; Mon, 14 Jan 02 16:07:38 -0500
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9D002595;
+	Mon, 14 Jan 2002 13:03:19 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+content-length: 1158
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--QAA06664.1011042537/malus.nsf.gov--
+
+
+From MAILER-DAEMON@malus.nsf.gov Mon Jan 14 14:07:22 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07671
+	for <ron@raf.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:21 -0700 (MST)
+Received: from malus.nsf.gov (malus.nsf.gov [198.181.231.37])
+        by ncar.UCAR.EDU (8.9.1a/) with SMTP id OAA20992
+        for <ron@raf.atd.ucar.edu>; Mon, 14 Jan 2002 14:07:35 -0700 (MST)
+Received: by malus.nsf.gov; id QAA06216; Mon, 14 Jan 2002 16:07:21 -0500
+Received: from note1.nsf.gov(128.150.11.1) by malus.nsf.gov via smap (V5.5)
+	id xmaa06090; Mon, 14 Jan 02 16:06:14 -0500
+Received: from nsfmail04.nsf.gov (nsfmail04.nsf.gov [128.150.130.43])
+	by note1.nsf.gov (8.8.8/8.8.8) with ESMTP id QAA23404
+	for <ron@raf.atd.ucar.edu>; Mon, 14 Jan 2002 16:06:14 -0500
+Received: by nsfmail04.nsf.gov with Internet Mail Service (5.5.2653.19)
+	id <C893212H>; Mon, 14 Jan 2002 16:06:14 -0500
+Message-ID: <4C37F04B2C2FD411B0B9009027CCC7B960B130@nsfmail04.nsf.gov>
+From: "Fein, Jay S." <jfein@nsf.gov>
+To: Ron Ruth <ron@raf.atd.ucar.edu>
+Subject: Out of Office AutoReply: Erratum Notice -- RAF EC-130Q Hercules
+Date: Mon, 14 Jan 2002 16:06:13 -0500
+MIME-Version: 1.0
+X-Mailer: Internet Mail Service (5.5.2653.19)
+Content-Type: text/plain
+Content-Length: 255
+Status: O
+
+I will be out of town at the AMS annual meeting until Friday, January 18,
+2002 and will  be reading email, but infrequently.   If the message is
+urgent, please contact  Joyce Muir (jmuir@nsf.gov)  at 703 292 8527, or
+leave me a message at AMS.        Jay
+
+From MAILER-DAEMON@malus.nsf.gov Mon Jan 14 14:09:04 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA07756
+	for <ron@raf.atd.ucar.edu>; Mon, 14 Jan 2002 14:09:03 -0700 (MST)
+Received: from malus.nsf.gov (malus.nsf.gov [198.181.231.37])
+        by ncar.UCAR.EDU (8.9.1a/) with SMTP id OAA21129
+        for <ron@raf.atd.ucar.edu>; Mon, 14 Jan 2002 14:09:17 -0700 (MST)
+Received: by malus.nsf.gov; id QAA06715; Mon, 14 Jan 2002 16:09:02 -0500
+Received: from note1.nsf.gov(128.150.11.1) by malus.nsf.gov via smap (V5.5)
+	id xma006518; Mon, 14 Jan 02 16:07:51 -0500
+Received: from nsfmail07.nsf.gov (nsfmail07.nsf.gov [128.150.130.46])
+	by note1.nsf.gov (8.8.8/8.8.8) with ESMTP id QAA21802
+	for <ron@raf.atd.ucar.edu>; Mon, 14 Jan 2002 16:07:50 -0500
+Received: by nsfmail07.nsf.gov with Internet Mail Service (5.5.2653.19)
+	id <Y0WM1MC0>; Mon, 14 Jan 2002 16:07:50 -0500
+Message-ID: <CEFFE0DC683FD411B57A009027FC993202A1307C@nsfmail07.nsf.gov>
+From: "Stephens, Pamela L." <pstephen@nsf.gov>
+To: Ron Ruth <ron@raf.atd.ucar.edu>
+Subject: Out of Office AutoReply: Erratum Notice -- RAF EC-130Q Hercules
+Date: Mon, 14 Jan 2002 16:07:50 -0500
+MIME-Version: 1.0
+X-Mailer: Internet Mail Service (5.5.2653.19)
+Content-Type: text/plain;
+	charset="iso-8859-1"
+Content-Length: 145
+Status: O
+
+I will be out of the office January 14-17.   If you need immediate
+assistance, please contact Ms. Ruth Joel at 703-292-8522 or rjoel@nsf.gov.
+  
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 18:23:56 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA14961
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:23:56 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id SAA20409
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:24:10 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0F1K0vu027098;
+	Mon, 14 Jan 2002 17:23:55 -0800 (PST)
+Date: Mon, 14 Jan 2002 17:23:55 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201150123.g0F1K0vu027098@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0F1K0vu027098.1011057835/mailbox1.ucsd.edu"
+Subject: Warning: could not send message for past 4 hours
+Auto-Submitted: auto-generated (warning-timeout)
+Content-Length: 3551
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0F1K0vu027098.1011057835/mailbox1.ucsd.edu
+
+    **********************************************
+    **      THIS IS A WARNING MESSAGE ONLY      **
+    **  YOU DO NOT NEED TO RESEND YOUR MESSAGE  **
+    **********************************************
+
+The original message was received at Mon, 14 Jan 2002 13:03:16 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:jayes@mecheng.iisc.ernet.in>... Deferred: Operation timed out with mail.iisc.ernet.in.
+Warning: message still undelivered after 4 hours
+Will keep trying until message is 5 days old
+
+--g0F1K0vu027098.1011057835/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:16 -0800 (PST)
+
+Final-Recipient: RFC822; jayes@mecheng.iisc.ernet.in
+Action: delayed
+Status: 4.4.1
+Remote-MTA: DNS; mail.iisc.ernet.in
+Last-Attempt-Date: Mon, 14 Jan 2002 17:23:55 -0800 (PST)
+Will-Retry-Until: Sat, 19 Jan 2002 13:03:16 -0800 (PST)
+
+--g0F1K0vu027098.1011057835/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9B002595;
+	Mon, 14 Jan 2002 13:03:16 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0F1K0vu027098.1011057835/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 18:23:58 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA14967
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:23:57 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id SAA20412
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:24:12 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0F1K0vv027098;
+	Mon, 14 Jan 2002 17:23:57 -0800 (PST)
+Date: Mon, 14 Jan 2002 17:23:57 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201150123.g0F1K0vv027098@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0F1K0vv027098.1011057837/mailbox1.ucsd.edu"
+Subject: Warning: could not send message for past 4 hours
+Auto-Submitted: auto-generated (warning-timeout)
+Content-Length: 3551
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0F1K0vv027098.1011057837/mailbox1.ucsd.edu
+
+    **********************************************
+    **      THIS IS A WARNING MESSAGE ONLY      **
+    **  YOU DO NOT NEED TO RESEND YOUR MESSAGE  **
+    **********************************************
+
+The original message was received at Mon, 14 Jan 2002 13:03:19 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:satheesh@caos.iisc.ernet.in>... Deferred: Operation timed out with mail.iisc.ernet.in.
+Warning: message still undelivered after 4 hours
+Will keep trying until message is 5 days old
+
+--g0F1K0vv027098.1011057837/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:19 -0800 (PST)
+
+Final-Recipient: RFC822; satheesh@caos.iisc.ernet.in
+Action: delayed
+Status: 4.4.1
+Remote-MTA: DNS; mail.iisc.ernet.in
+Last-Attempt-Date: Mon, 14 Jan 2002 17:23:57 -0800 (PST)
+Will-Retry-Until: Sat, 19 Jan 2002 13:03:19 -0800 (PST)
+
+--g0F1K0vv027098.1011057837/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9D002595;
+	Mon, 14 Jan 2002 13:03:19 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0F1K0vv027098.1011057837/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 18:35:01 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA15078
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:35:01 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id SAA21191
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:35:15 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0F1Z0JJ028849;
+	Mon, 14 Jan 2002 17:35:00 -0800 (PST)
+Date: Mon, 14 Jan 2002 17:35:00 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201150135.g0F1Z0JJ028849@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0F1Z0JJ028849.1011058500/mailbox1.ucsd.edu"
+Subject: Warning: could not send message for past 4 hours
+Auto-Submitted: auto-generated (warning-timeout)
+Content-Length: 3558
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0F1Z0JJ028849.1011058500/mailbox1.ucsd.edu
+
+    **********************************************
+    **      THIS IS A WARNING MESSAGE ONLY      **
+    **  YOU DO NOT NEED TO RESEND YOUR MESSAGE  **
+    **********************************************
+
+The original message was received at Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:kmark@stratus.igf.fuw.edu.pl>... Deferred: Connection refused by stratus.igf.fuw.edu.pl.
+Warning: message still undelivered after 4 hours
+Will keep trying until message is 5 days old
+
+--g0F1Z0JJ028849.1011058500/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+
+Final-Recipient: RFC822; kmark@stratus.igf.fuw.edu.pl
+Action: delayed
+Status: 4.4.1
+Remote-MTA: DNS; stratus.igf.fuw.edu.pl
+Last-Attempt-Date: Mon, 14 Jan 2002 17:35:00 -0800 (PST)
+Will-Retry-Until: Sat, 19 Jan 2002 13:03:50 -0800 (PST)
+
+--g0F1Z0JJ028849.1011058500/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9J002595;
+	Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0F1Z0JJ028849.1011058500/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 18:38:47 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA15112
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:38:46 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id SAA21577
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:39:01 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0F1Z0JK028849;
+	Mon, 14 Jan 2002 17:38:46 -0800 (PST)
+Date: Mon, 14 Jan 2002 17:38:46 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201150138.g0F1Z0JK028849@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0F1Z0JK028849.1011058726/mailbox1.ucsd.edu"
+Subject: Warning: could not send message for past 4 hours
+Auto-Submitted: auto-generated (warning-timeout)
+Content-Length: 3544
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0F1Z0JK028849.1011058726/mailbox1.ucsd.edu
+
+    **********************************************
+    **      THIS IS A WARNING MESSAGE ONLY      **
+    **  YOU DO NOT NEED TO RESEND YOUR MESSAGE  **
+    **********************************************
+
+The original message was received at Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:correa@escape.met.fsu.edu>... Deferred: Connection refused by escape.met.fsu.edu.
+Warning: message still undelivered after 4 hours
+Will keep trying until message is 5 days old
+
+--g0F1Z0JK028849.1011058726/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+
+Final-Recipient: RFC822; correa@escape.met.fsu.edu
+Action: delayed
+Status: 4.4.1
+Remote-MTA: DNS; escape.met.fsu.edu
+Last-Attempt-Date: Mon, 14 Jan 2002 17:38:46 -0800 (PST)
+Will-Retry-Until: Sat, 19 Jan 2002 13:03:56 -0800 (PST)
+
+--g0F1Z0JK028849.1011058726/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9H002723;
+	Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0F1Z0JK028849.1011058726/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 18:39:49 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA15123
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:39:48 -0700 (MST)
+Received: from mail-relay-vsat.ernet.in ([202.41.99.3])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id SAA21607
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:40:00 -0700 (MST)
+Received: from localhost (localhost)
+	by mail-relay-vsat.ernet.in (8.9.3/8.9.3) with internal id GCQ21695;
+	Tue, 15 Jan 2002 07:07:00 +0530
+Date: Tue, 15 Jan 2002 07:07:00 +0530
+From: Mail Delivery Subsystem <MAILER-DAEMON@mail-relay-vsat.ernet.in>
+Message-Id: <200201150137.GCQ21695@mail-relay-vsat.ernet.in>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="GCQ21695.1011058620/mail-relay-vsat.ernet.in"
+Subject: Warning: could not send message for past 4 hours
+Auto-Submitted: auto-generated (warning-timeout)
+Content-Length: 3824
+Status: O
+
+This is a MIME-encapsulated message
+
+--GCQ21695.1011058620/mail-relay-vsat.ernet.in
+
+    **********************************************
+    **      THIS IS A WARNING MESSAGE ONLY      **
+    **  YOU DO NOT NEED TO RESEND YOUR MESSAGE  **
+    **********************************************
+
+The original message was received at Tue, 15 Jan 2002 02:35:30 +0530
+from mailbox1.ucsd.edu [132.239.1.53]
+
+   ----- The following addresses had transient non-fatal errors -----
+<geevee@istrac.ernet.in>
+
+   ----- Transcript of session follows -----
+<geevee@istrac.ernet.in>... Deferred: Connection timed out with mail-relay-blr.ernet.in.
+Warning: message still undelivered after 4 hours
+Will keep trying until message is 5 days old
+
+--GCQ21695.1011058620/mail-relay-vsat.ernet.in
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mail-relay-vsat.ernet.in
+Arrival-Date: Tue, 15 Jan 2002 02:35:30 +0530
+
+Final-Recipient: RFC822; geevee@istrac.ernet.in
+Action: delayed
+Status: 4.4.1
+Remote-MTA: DNS; mail-relay-blr.ernet.in
+Last-Attempt-Date: Tue, 15 Jan 2002 07:07:00 +0530
+Will-Retry-Until: Sun, 20 Jan 2002 02:35:30 +0530
+
+--GCQ21695.1011058620/mail-relay-vsat.ernet.in
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by mail-relay-vsat.ernet.in (8.9.3/8.9.3) with ESMTP id CAA23913
+	for <geevee@istrac.ernet.in>; Tue, 15 Jan 2002 02:35:30 +0530
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3C9B002569;
+	Mon, 14 Jan 2002 13:03:12 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--GCQ21695.1011058620/mail-relay-vsat.ernet.in--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 14 18:39:52 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA15129
+	for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:39:51 -0700 (MST)
+Received: from mail-relay-vsat.ernet.in ([202.41.99.3])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id SAA21613
+        for <ron@mistral.atd.ucar.edu>; Mon, 14 Jan 2002 18:40:04 -0700 (MST)
+Received: from localhost (localhost)
+	by mail-relay-vsat.ernet.in (8.9.3/8.9.3) with internal id GCR21695;
+	Tue, 15 Jan 2002 07:08:20 +0530
+Date: Tue, 15 Jan 2002 07:08:20 +0530
+From: Mail Delivery Subsystem <MAILER-DAEMON@mail-relay-vsat.ernet.in>
+Message-Id: <200201150138.GCR21695@mail-relay-vsat.ernet.in>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="GCR21695.1011058700/mail-relay-vsat.ernet.in"
+Subject: Warning: could not send message for past 4 hours
+Auto-Submitted: auto-generated (warning-timeout)
+Content-Length: 3804
+Status: O
+
+This is a MIME-encapsulated message
+
+--GCR21695.1011058700/mail-relay-vsat.ernet.in
+
+    **********************************************
+    **      THIS IS A WARNING MESSAGE ONLY      **
+    **  YOU DO NOT NEED TO RESEND YOUR MESSAGE  **
+    **********************************************
+
+The original message was received at Tue, 15 Jan 2002 02:33:57 +0530
+from mailbox1.ucsd.edu [132.239.1.53]
+
+   ----- The following addresses had transient non-fatal errors -----
+<scc@isro.ernet.in>
+
+   ----- Transcript of session follows -----
+<scc@isro.ernet.in>... Deferred: Connection timed out with mail-relay-blr.ernet.in.
+Warning: message still undelivered after 4 hours
+Will keep trying until message is 5 days old
+
+--GCR21695.1011058700/mail-relay-vsat.ernet.in
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mail-relay-vsat.ernet.in
+Arrival-Date: Tue, 15 Jan 2002 02:33:57 +0530
+
+Final-Recipient: RFC822; scc@isro.ernet.in
+Action: delayed
+Status: 4.4.1
+Remote-MTA: DNS; mail-relay-blr.ernet.in
+Last-Attempt-Date: Tue, 15 Jan 2002 07:08:20 +0530
+Will-Retry-Until: Sun, 20 Jan 2002 02:33:57 +0530
+
+--GCR21695.1011058700/mail-relay-vsat.ernet.in
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by mail-relay-vsat.ernet.in (8.9.3/8.9.3) with ESMTP id CAA23871
+	for <scc@isro.ernet.in>; Tue, 15 Jan 2002 02:33:57 +0530
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9J002723;
+	Mon, 14 Jan 2002 13:03:57 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--GCR21695.1011058700/mail-relay-vsat.ernet.in--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Thu Jan 17 15:07:52 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id PAA02356
+	for <ron@mistral.atd.ucar.edu>; Thu, 17 Jan 2002 15:07:46 -0700 (MST)
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id PAA13358
+        for <ron@mistral.atd.ucar.edu>; Thu, 17 Jan 2002 15:08:08 -0700 (MST)
+Received: from muguet.saclay.cea.fr (muguet.saclay.cea.fr [132.166.192.6])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id XAA00607
+	for <ron@mistral.atd.ucar.edu>; Thu, 17 Jan 2002 23:08:37 +0100 (MET)
+Received: from localhost (localhost)
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with internal id XAK18885;
+	Thu, 17 Jan 2002 23:07:43 +0100 (MET)
+Date: Thu, 17 Jan 2002 23:07:43 +0100 (MET)
+From: Mail Delivery Subsystem <MAILER-DAEMON@muguet.saclay.cea.fr>
+Message-Id: <200201172207.XAK18885@muguet.saclay.cea.fr>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="XAK18885.1011305263/muguet.saclay.cea.fr"
+Subject: Returned mail: Cannot send message within 3 days
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3839
+Status: O
+
+This is a MIME-encapsulated message
+
+--XAK18885.1011305263/muguet.saclay.cea.fr
+
+The original message was received at Mon, 14 Jan 2002 22:04:27 +0100 (MET)
+from nenuphar.saclay.cea.fr [132.166.192.7]
+
+   ----- The following addresses had permanent fatal errors -----
+<mariak@asterix.saclay.cea.fr>
+
+   ----- Transcript of session follows -----
+<mariak@asterix.saclay.cea.fr>... Deferred: Connection refused by asterix.saclay.cea.fr.
+Message could not be delivered for 3 days
+Message will be deleted from queue
+
+--XAK18885.1011305263/muguet.saclay.cea.fr
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; muguet.saclay.cea.fr
+Arrival-Date: Mon, 14 Jan 2002 22:04:27 +0100 (MET)
+
+Final-Recipient: RFC822; mariak@asterix.saclay.cea.fr
+Action: failed
+Status: 4.4.7
+Remote-MTA: DNS; asterix.saclay.cea.fr
+Last-Attempt-Date: Thu, 17 Jan 2002 23:07:43 +0100 (MET)
+
+--XAK18885.1011305263/muguet.saclay.cea.fr
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with ESMTP id WAA04408
+	for <mariak@asterix.saclay.cea.fr>; Mon, 14 Jan 2002 22:04:27 +0100 (MET)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id WAA27008
+	for <mariak@asterix.saclay.cea.fr>; Mon, 14 Jan 2002 22:05:20 +0100 (MET)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9B002723;
+	Mon, 14 Jan 2002 13:03:52 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--XAK18885.1011305263/muguet.saclay.cea.fr--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Thu Jan 17 15:07:52 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id PAA02357
+	for <ron@mistral.atd.ucar.edu>; Thu, 17 Jan 2002 15:07:46 -0700 (MST)
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id PAA13359
+        for <ron@mistral.atd.ucar.edu>; Thu, 17 Jan 2002 15:08:08 -0700 (MST)
+Received: from muguet.saclay.cea.fr (muguet.saclay.cea.fr [132.166.192.6])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id XAA00610
+	for <ron@mistral.atd.ucar.edu>; Thu, 17 Jan 2002 23:08:38 +0100 (MET)
+Received: from localhost (localhost)
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with internal id XAL18885;
+	Thu, 17 Jan 2002 23:07:44 +0100 (MET)
+Date: Thu, 17 Jan 2002 23:07:44 +0100 (MET)
+From: Mail Delivery Subsystem <MAILER-DAEMON@muguet.saclay.cea.fr>
+Message-Id: <200201172207.XAL18885@muguet.saclay.cea.fr>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="XAL18885.1011305264/muguet.saclay.cea.fr"
+Subject: Returned mail: Cannot send message within 3 days
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3844
+Status: O
+
+This is a MIME-encapsulated message
+
+--XAL18885.1011305264/muguet.saclay.cea.fr
+
+The original message was received at Mon, 14 Jan 2002 22:06:42 +0100 (MET)
+from nenuphar.saclay.cea.fr [132.166.192.7]
+
+   ----- The following addresses had permanent fatal errors -----
+<balkany@asterix.saclay.cea.fr>
+
+   ----- Transcript of session follows -----
+<balkany@asterix.saclay.cea.fr>... Deferred: Connection refused by asterix.saclay.cea.fr.
+Message could not be delivered for 3 days
+Message will be deleted from queue
+
+--XAL18885.1011305264/muguet.saclay.cea.fr
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; muguet.saclay.cea.fr
+Arrival-Date: Mon, 14 Jan 2002 22:06:42 +0100 (MET)
+
+Final-Recipient: RFC822; balkany@asterix.saclay.cea.fr
+Action: failed
+Status: 4.4.7
+Remote-MTA: DNS; asterix.saclay.cea.fr
+Last-Attempt-Date: Thu, 17 Jan 2002 23:07:44 +0100 (MET)
+
+--XAL18885.1011305264/muguet.saclay.cea.fr
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from nenuphar.saclay.cea.fr (nenuphar.saclay.cea.fr [132.166.192.7])
+	by muguet.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.2.D20+Y2K) with ESMTP id WAA04750
+	for <balkany@asterix.saclay.cea.fr>; Mon, 14 Jan 2002 22:06:42 +0100 (MET)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+	by nenuphar.saclay.cea.fr (8.9.1a/8.9.1/CEAnet-relay-5.0.D20+Y2K) with ESMTP id WAA27213
+	for <balkany@asterix.saclay.cea.fr>; Mon, 14 Jan 2002 22:07:34 +0100 (MET)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9L002723;
+	Mon, 14 Jan 2002 13:03:58 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--XAL18885.1011305264/muguet.saclay.cea.fr--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Sat Jan 19 14:16:31 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA19721
+	for <ron@mistral.atd.ucar.edu>; Sat, 19 Jan 2002 14:16:31 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA04373
+        for <ron@mistral.atd.ucar.edu>; Sat, 19 Jan 2002 14:16:57 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0JI70vv016804;
+	Sat, 19 Jan 2002 13:16:30 -0800 (PST)
+Date: Sat, 19 Jan 2002 13:16:30 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201192116.g0JI70vv016804@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0JI70vv016804.1011474990/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3370
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0JI70vv016804.1011474990/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:correa@escape.met.fsu.edu>
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:correa@escape.met.fsu.edu>... Deferred: Connection refused by escape.met.fsu.edu.
+Message could not be delivered for 5 days
+Message will be deleted from queue
+
+--g0JI70vv016804.1011474990/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+
+Final-Recipient: RFC822; correa@escape.met.fsu.edu
+Action: failed
+Status: 4.4.7
+Remote-MTA: DNS; escape.met.fsu.edu
+Last-Attempt-Date: Sat, 19 Jan 2002 13:16:30 -0800 (PST)
+
+--g0JI70vv016804.1011474990/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3q9H002723;
+	Mon, 14 Jan 2002 13:03:56 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0JI70vv016804.1011474990/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Sat Jan 19 14:20:34 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA19860
+	for <ron@mistral.atd.ucar.edu>; Sat, 19 Jan 2002 14:20:34 -0700 (MST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA04676
+        for <ron@mistral.atd.ucar.edu>; Sat, 19 Jan 2002 14:21:01 -0700 (MST)
+Received: from localhost (localhost)
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) id g0JL707q026901;
+	Sat, 19 Jan 2002 13:20:33 -0800 (PST)
+Date: Sat, 19 Jan 2002 13:20:33 -0800 (PST)
+From: Mail Delivery Subsystem <MAILER-DAEMON@mailbox1.ucsd.edu>
+Message-Id: <200201192120.g0JL707q026901@mailbox1.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+MIME-Version: 1.0
+Content-Type: multipart/report; report-type=delivery-status;
+	boundary="g0JL707q026901.1011475233/mailbox1.ucsd.edu"
+Subject: Returned mail: see transcript for details
+Auto-Submitted: auto-generated (failure)
+Content-Length: 3387
+Status: O
+
+This is a MIME-encapsulated message
+
+--g0JL707q026901.1011475233/mailbox1.ucsd.edu
+
+The original message was received at Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+from fiji.ucsd.edu [132.239.115.80]
+
+   ----- The following addresses had permanent fatal errors -----
+<@ucsd.edu:kmark@stratus.igf.fuw.edu.pl>
+
+   ----- Transcript of session follows -----
+<@ucsd.edu:kmark@stratus.igf.fuw.edu.pl>... Deferred: Connection refused by stratus.igf.fuw.edu.pl.
+Message could not be delivered for 5 days
+Message will be deleted from queue
+
+--g0JL707q026901.1011475233/mailbox1.ucsd.edu
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; mailbox1.ucsd.edu
+Arrival-Date: Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+
+Final-Recipient: RFC822; kmark@stratus.igf.fuw.edu.pl
+Action: failed
+Status: 4.4.7
+Remote-MTA: DNS; stratus.igf.fuw.edu.pl
+Last-Attempt-Date: Sat, 19 Jan 2002 13:20:33 -0800 (PST)
+
+--g0JL707q026901.1011475233/mailbox1.ucsd.edu
+Content-Type: message/rfc822
+
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EL3G9J002595;
+	Mon, 14 Jan 2002 13:03:50 -0800 (PST)
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+--g0JL707q026901.1011475233/mailbox1.ucsd.edu--
+
+
+From MAILER-DAEMON@ncar.UCAR.EDU Mon Jan 21 14:06:54 2002
+Received: from ncar.UCAR.EDU (ncar.ucar.edu [128.117.64.4])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA23494
+	for <ron@mistral.atd.ucar.edu>; Mon, 21 Jan 2002 14:06:54 -0700 (MST)
+Received: from mailbox3.ucsd.edu (mailbox3.ucsd.edu [132.239.1.55])
+        by ncar.UCAR.EDU (8.9.1a/) with ESMTP id OAA15555
+        for <ron@mistral.atd.ucar.edu>; Mon, 21 Jan 2002 14:07:25 -0700 (MST)
+Received: from fiji.ucsd.edu (fiji.ucsd.edu [132.239.115.80])
+	by mailbox3.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0LL6rfe023611
+	for <@ucsd.edu:ron@mistral.atd.ucar.edu>; Mon, 21 Jan 2002 13:06:53 -0800 (PST)
+Received: from localhost (localhost) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via internal id NAA79943; Mon, 21 Jan 2002 13:06:53 -0800 (PST)
+Date: Mon, 21 Jan 2002 13:06:53 -0800 (PST)
+From: MAILER-DAEMON@fiji.ucsd.edu (Mail Delivery Subsystem)
+Subject: Returned mail: Cannot send message within 1 week
+Message-Id: <200201212106.NAA79943@fiji.ucsd.edu>
+To: <ron@mistral.atd.ucar.edu>
+Auto-Submitted: auto-generated (failure)
+Content-Length: 2793
+Status: O
+
+The original message was received at Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+from mailbox1.ucsd.edu [132.239.1.53]
+
+   ----- The following addresses had permanent fatal errors -----
+kamra@tropmet.ernet.in
+    (expanded from: kamra)
+devara@tropmet.ernet.in
+    (expanded from: devara)
+
+   ----- Transcript of session follows -----
+451 kamra@tropmet.ernet.in... tropmet.ernet.in: Name server timeout
+451 devara@tropmet.ernet.in... tropmet.ernet.in: Name server timeout
+Message could not be delivered for 1 week
+Message will be deleted from queue
+
+   ----- Original message follows -----
+
+Received: from mailbox1.ucsd.edu (mailbox1.ucsd.edu [132.239.1.53]) by fiji.ucsd.edu (980427.SGI.8.8.8/980728.SGI.AUTOCF) via ESMTP id MAA06276 for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:07 -0800 (PST)
+Return-Path: <ron@mistral.atd.ucar.edu>
+Received: from mistral.atd.ucar.edu (mistral.atd.ucar.edu [128.117.84.100])
+	by mailbox1.ucsd.edu (8.12.1/8.12.1) with ESMTP id g0EKu6q7000996
+	for <indoexlist@fiji.ucsd.edu>; Mon, 14 Jan 2002 12:56:06 -0800 (PST)
+Received: (from ron@localhost)
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) id NAA07146;
+	Mon, 14 Jan 2002 13:55:06 -0700 (MST)
+From: Ron Ruth <ron@raf.atd.ucar.edu>
+Message-Id: <200201142055.NAA07146@mistral.atd.ucar.edu>
+Subject: Erratum Notice -- RAF EC-130Q Hercules
+To: indoexlist@fiji.ucsd.edu
+Date: Mon, 14 Jan 2002 13:55:05 -0700 (MST)
+Organization: NCAR/ATD Research Aviation Facility, 10802 Airport Ct., Broomfield, CO  80021
+Phone:  (303)497-1030
+X-Mailer: ELM [version 2.5 PL2]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+To all,
+
+This memo has been sent to alert users of the final production flight-level
+netCDF data for the NCAR/RAF EC-130Q Hercules aircraft of an error in one
+of the measurements.
+
+In December 2001,  Cynthia Twohy (Oregon State U) discovered differences
+between CONCF_LPI, FSSP-100 Concentration (all cells), and CFSSP_LPI,
+FSSP-100 Concentration (per cell).  By totaling all the bin values in
+CFSSP_LPI, one should get the same total as CONCF_LPI.  Such is not the
+case with this data set; instead CONCF_LPI is generally less--up to about
+8% at the highest concentrations.
+
+Upon analyzing this descrepancy, RAF found that a correction equation from
+Darrel Baumgardner was applied to the CFSSP_LPI calculation but omitted from
+the CONCF_LPI calculation.  To obtain a correct value for CONCF_LPI, one needs
+to sum up all the values in CFSSP_LPI and use that total instead.
+
+Because the data are recoverable within the data files, RAF is not planning
+to reissue a "corrected" data set at this time.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+

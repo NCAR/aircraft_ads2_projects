@@ -1,0 +1,157 @@
+#! /bin/csh -f
+#
+#  Archive C-130Q differential GPS data files (ASCII format)
+#    2005-135 RICO (Rain In Cumulus over the Ocean) (Bob Rauber, Harry Ochs, et al.)
+#   using the new ATD directory path
+#
+#  File created by Ron Ruth (adapted from file archprodnc_L.135) on 23 Jan 2006
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/local/proj/archives/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#
+#goto save_orig
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+# set msrcpMachine = "vivaldi"
+# set msrcpMachine = "mahler"
+# set msrcpMachine = "mistral"
+endif
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/data/pr_work/rico_final_dgps
+#
+#  1st wave
+#set SFILES = ( \
+#RICO_DGPS_RF01.dat \
+#RICO_DGPS_RF02.dat \
+#RICO_DGPS_RF03.dat \
+#RICO_DGPS_RF04.dat \
+#RICO_DGPS_RF05.dat \
+#RICO_DGPS_RF06.dat \
+#RICO_DGPS_RF07.dat \
+#RICO_DGPS_RF08.dat \
+#RICO_DGPS_RF09.dat \
+#RICO_DGPS_RF10.dat \
+#RICO_DGPS_RF11.dat \
+#RICO_DGPS_RF12.dat \
+#RICO_DGPS_RF13.dat \
+#RICO_DGPS_RF14.dat \
+#RICO_DGPS_RF15.dat \
+#RICO_DGPS_RF16.dat \
+#RICO_DGPS_RF17.dat \
+#RICO_DGPS_RF18.dat \
+#RICO_DGPS_RF19.dat \
+#)
+#set DFILES = ( \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF01.20041207.160956_215115.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF02.20041208.141500_162400.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF03.20041209.140100_221930.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF04.20041210.140400_223150.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF05.20041213.144700_221340.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF06.20041216.135500_220800.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF07.20041217.134900_222215.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF08.20041219.111000_195400.asc \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/RF09.20041220.105600_190540.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF10.20050105.144400_231825.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF11.20050107.135500_222100.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF12.20050111.135800_223130.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF13.20050112.141700_224630.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF14.20050114.145700_232555.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF15.20050116.141210_222700.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF16.20050118.112844_191157.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF17.20050119.114700_201900.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF18.20050123.100000_183100.asc \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/RF19.20050124.100000_174200.asc \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#readme.txt \
+#readme.txt \
+#)
+#set DFILES = ( \
+#/ATD/DATA/2004/RICO/C130_N130AR/DGPS/README.txt \
+#/ATD/DATA/2005/RICO/C130_N130AR/DGPS/README.txt \
+#)
+#
+#
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  File(s) archived to MSS directory:  /ATD/DATA/yyyy/RICO/C130_N130AR/"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    ssh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE mss:$DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  1st wave
+#  19 job(s) submitted on Mon Jan 23 16:03:33 MST 2006
+#  File(s) archived to MSS directory:  /ATD/DATA/200[56]/RICO/C130_N130AR/
+#   DGPS/RF01.20041207.160956_215115.asc -- OK -- Mon Jan 23 16:03:42 MST 2006
+#   DGPS/RF02.20041208.141500_162400.asc -- OK -- Mon Jan 23 16:03:51 MST 2006
+#   DGPS/RF03.20041209.140100_221930.asc -- OK -- Mon Jan 23 16:04:06 MST 2006
+#   DGPS/RF04.20041210.140400_223150.asc -- OK -- Mon Jan 23 16:04:14 MST 2006
+#   DGPS/RF05.20041213.144700_221340.asc -- OK -- Mon Jan 23 16:04:22 MST 2006
+#   DGPS/RF06.20041216.135500_220800.asc -- OK -- Mon Jan 23 16:04:30 MST 2006
+#   DGPS/RF07.20041217.134900_222215.asc -- OK -- Mon Jan 23 16:04:38 MST 2006
+#   DGPS/RF08.20041219.111000_195400.asc -- OK -- Mon Jan 23 16:04:48 MST 2006
+#   DGPS/RF09.20041220.105600_190540.asc -- OK -- Mon Jan 23 16:04:59 MST 2006
+#   DGPS/RF10.20050105.144400_231825.asc -- OK -- Mon Jan 23 16:05:11 MST 2006
+#   DGPS/RF11.20050107.135500_222100.asc -- OK -- Mon Jan 23 16:05:21 MST 2006
+#   DGPS/RF12.20050111.135800_223130.asc -- OK -- Mon Jan 23 16:05:30 MST 2006
+#   DGPS/RF13.20050112.141700_224630.asc -- OK -- Mon Jan 23 16:05:40 MST 2006
+#   DGPS/RF14.20050114.145700_232555.asc -- OK -- Mon Jan 23 16:05:49 MST 2006
+#   DGPS/RF15.20050116.141210_222700.asc -- OK -- Mon Jan 23 16:06:00 MST 2006
+#   DGPS/RF16.20050118.112844_191157.asc -- OK -- Mon Jan 23 16:06:10 MST 2006
+#   DGPS/RF17.20050119.114700_201900.asc -- OK -- Mon Jan 23 16:06:19 MST 2006
+#   DGPS/RF18.20050123.100000_183100.asc -- OK -- Mon Jan 23 16:06:29 MST 2006
+#   DGPS/RF19.20050124.100000_174200.asc -- OK -- Mon Jan 23 16:06:36 MST 2006
+#   Completed on Mon Jan 23 16:06:36 MST 2006
+#
+#  2nd wave
+#  2 job(s) submitted on Mon Jan 23 16:29:35 MST 2006
+#  File(s) archived to MSS directory:  /ATD/DATA/200[56]/RICO/C130_N130AR/
+#   DGPS/README.txt -- OK -- Mon Jan 23 16:29:43 MST 2006
+#   DGPS/README.txt -- OK -- Mon Jan 23 16:29:52 MST 2006
+#   Completed on Mon Jan 23 16:29:52 MST 2006
+#

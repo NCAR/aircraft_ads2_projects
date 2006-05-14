@@ -1,0 +1,105 @@
+Raw Data naming discrepancies that possibly can affect NIMBUS processing
+ Prepared by Ron Ruth on Thu Oct  2 11:34:55 MDT 2003
+
+RF01 (OK)
+  original files:  113rf01a.ads 113rf01b.ads 113rf01c.ads
+  renamed files:      deleted      deleted   113rf01a.ads
+  original files:  113rf01a.2d  113rf01b.2d  113rf01c.2d
+  renamed files:      deleted      deleted   113rf01a.2d
+
+RF02 (MSS)
+  original files:  113rf02a.ads 113rf02b.ads
+  renamed files:   
+  original files:     none      113rf02b.2d
+  renamed files:   
+
+RF03 (OK)
+  original files:  113rf03a.ads  113rf03b.ads  113rf03c.ads 113rf03d.ads
+  renamed files:      deleted       deleted       deleted  (113rf03d.ads)
+  original files:  113rf03a.2d   113rf03b.2d   113rf03c.2d  113rf03d.2d
+  renamed files:      deleted       deleted       deleted  (113rf03d.2d)  
+
+RF04 (OK)
+  original files:  113rf04a.ads  113rf04b.ads
+  renamed files:      deleted   (113rf04b.ads)
+  original files:  113rf04a.2d  113rf04b.2d
+  renamed files:      deleted   (113rf04b.2d)
+
+RF05 (OK)
+  original files:  113rf05a.ads
+  renamed files:   
+  original files:  113rf05a.2d
+  renamed files:   
+
+RF06 (OK)
+  original files:  113rf06a.ads  113rf06b.ads
+  renamed files:      deleted   (113rf06b.ads)
+  original files:  none
+  renamed files:   
+
+RF07 (OK)
+  original files:  113rf07a.ads  113rf07b.ads
+  original files:  113rf07a.2d   113rf07b.2d
+
+RF08 (OK)
+  original files:  113rf08a.ads
+  original files:  113rf08a.2d
+
+RF09 (OK)
+  original files:  113rf09a.ads  113rf09b.ads
+  renamed files:      deleted   (113rf09b.ads)
+  original files:  113rf09a.2d   113rf09b.2d
+  renamed files:      deleted   (113rf09b.2d)
+
+RF10 (OK)
+  original files:  113rf10a.ads
+  original files:  113rf10a.2d
+
+RF11 (OK)
+  original files:  113rf11a.ads  113rf11b.ads  113rf11c.ads  113rf11d.ads  113rf11e.ads  113rf11f.ads  113rf11g.ads  113rf11h.ads  113rf11i.ads  113rf11j.ads  113rf11k.ads  113rf11l.ads  
+  renamed files:   113rf11ga.ads    deleted    113rf11gb.ads 113rf11gc.ads 113rf11a.ads     deleted       deleted       deleted       deleted    113rf11b.ads     deleted    113rf11c.ads
+  original files:  113rf11a.2d   113rf11b.2d   113rf11c.2d   113rf11d.2d   113rf11e.2d   113rf11f.2d   113rf11g.2d   113rf11h.2d   113rf11i.2d   113rf11j.2d   113rf11k.2d   113rf11l.2d
+  renamed files:      deleted       deleted       deleted       deleted    113rf11a.2d      deleted       deleted       deleted       deleted    113rf11b.2d      deleted    113rf11c.2d
+
+TF01 (OK)
+  original files:  113tf01a.ads  113tf01b.ads  113tf01c.ads
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+original name to MSS bitfile name map
+
+113rf01c.ads --> /RAF/2003/113/ADS/RF01
+113rf02a.ads --> /RAF/2003/113/ADS/RF02A
+113rf02b.ads --> /RAF/2003/113/ADS/RF02B
+113rf03d.ads --> /RAF/2003/113/ADS/RF03
+113rf04b.ads --> /RAF/2003/113/ADS/RF04
+113rf05a.ads --> /RAF/2003/113/ADS/RF05
+113rf06b.ads --> /RAF/2003/113/ADS/RF06
+113rf07a.ads --> /RAF/2003/113/ADS/RF07A
+113rf07b.ads --> /RAF/2003/113/ADS/RF07B
+113rf08a.ads --> /RAF/2003/113/ADS/RF08
+113rf09b.ads --> /RAF/2003/113/ADS/RF09
+113rf10a.ads --> /RAF/2003/113/ADS/RF10
+113rf11a.ads --> 113rf11ga.ads --> /RAF/2003/113/ADS/GROUND/RF11A
+113rf11c.ads --> 113rf11gb.ads --> /RAF/2003/113/ADS/GROUND/RF11B
+113rf11d.ads --> 113rf11gc.ads --> /RAF/2003/113/ADS/GROUND/RF11C
+113rf11i.ads --> 113rf11a.ads --> /RAF/2003/113/ADS/RF11A
+113rf11j.ads --> 113rf11b.ads --> /RAF/2003/113/ADS/RF11B
+113rf11l.ads --> 113rf11c.ads --> /RAF/2003/113/ADS/RF11C
+113tf01a.ads --> /RAF/2003/113/ADS/TF01A
+113tf01b.ads --> /RAF/2003/113/ADS/TF01B
+113tf01c.ads --> /RAF/2003/113/ADS/TF01C
+
+113rf01c.2d  --> /RAF/2003/113/PMS2D/RF01
+113rf02b.2d  --> /RAF/2003/113/PMS2D/RF02
+113rf03d.2d  --> /RAF/2003/113/PMS2D/RF03
+113rf04b.2d  --> /RAF/2003/113/PMS2D/RF04
+113rf05a.2d  --> /RAF/2003/113/PMS2D/RF05
+113rf07a.2d  --> /RAF/2003/113/PMS2D/RF07A
+113rf07b.2d  --> /RAF/2003/113/PMS2D/RF07B
+113rf08a.2d  --> /RAF/2003/113/PMS2D/RF08
+113rf09b.2d  --> /RAF/2003/113/PMS2D/RF09
+113rf10a.2d  --> /RAF/2003/113/PMS2D/RF10
+113rf11i.2d  --> 113rf11a.2d  --> /RAF/2003/113/PMS2D/RF11A
+113rf11j.2d  --> 113rf11b.2d  --> /RAF/2003/113/PMS2D/RF11B
+113rf11l.2d  --> 113rf11c.2d  --> /RAF/2003/113/PMS2D/RF11C

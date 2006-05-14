@@ -1,0 +1,50 @@
+ACME - 125, Flight rf02
+Loading setup file: /jnet/local/proj/125/Production/Flight_rf02
+LHHI has no description or units.
+LHLO has no description or units.
+PCONE has no description or units.
+XFO315 has no description or units.
+XPTRMS has no description or units.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, TEO3CAL.
+Value set to 0,1,0 in AMLIB function TEO3CAL.
+Processed on: 2005-06-03 12:58:53 -0600
+Flight Date: 05/14/2004
+PCORS:  AIRS-II and later pcors().
+Despiking enabled.
+Time-shifting enabled.
+Time lag for ACINS enabled, with lag of -80 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -550 milliseconds.
+Time lag for GGTRK enabled, with lag of -550 milliseconds.
+Time lag for GGVEW enabled, with lag of -550 milliseconds.
+Time lag for GGVNS enabled, with lag of -550 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+Blanking HGM232 from 19:39:00 to 19:48:13.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 19:39:00 to 19:48:13.
+Blanking times (20:39:40 to 20:29:55) not valid for HGM232.
+Blanking times (20:39:40 to 20:29:55) not valid for PLWCC.
+Blanking times (20:39:40 to 20:29:55) not valid for PLWCC.
+Time interval(s) completed : 
+19:39:00-20:30:37
+
+ACINS: 24 spikes removed with slope exceeding 4.000000
+PITCH: 24 spikes removed with slope exceeding 0.300000
+PSFRD: 1 spikes removed with slope exceeding 20.000000
+ROLL: 24 spikes removed with slope exceeding 0.300000
+IRS Error report: Pitch had 24 values of 0 (zero).
+IRS Error report: Roll had 24 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 24 values of 0 (zero).
+Processing took 0.3 minutes.

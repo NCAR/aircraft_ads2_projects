@@ -1,0 +1,51 @@
+Machine:  syrah.atd.ucar.edu
+
+Cloning PostNuke for AIRS2 from IDEAS3
+ - Create AIRS2 directory (/var/www/html/AIRS2/)
+ - Copy all of IDEAS3 directory into AIRS2
+ - Create AIRS2 MySQL database (empty) via mysql command
+ - Save IDEAS3 database using mysqldump
+ - Import IDEAS3 database into AIRS2 via mysql command
+
+Customizing for AIRS2
+ - /var/www/html/AIRS2/config.php
+    change database name
+ - made configuration changes as described in the "Settings" file in
+    Admin_Menu directory
+ - changed settings in the "Permissions" page
+    added new settings
+    format extremely important for things to take effect!
+     Group     = Users
+     Component = Menublock::
+     Instance  = Main Menu:(Submit News|Add Calendar Event|Update C-130Q|Online Chat|Discussion Forums|File Exchange):
+
+Machine:  linus.atd.ucar.edu
+ - Create AIRS2 directory for chat (/etc/httpd/cgi-bin/AIRS2)
+ - Edit file "cgiirc.config" to customize for this project
+  - line 20:  image_path = http://raf.atd.ucar.edu/AIRS2/images/cgiirc
+Machine:  syrah.atd.ucar.edu
+ - In /var/www/html/AIRS2/modules/pnCGIIRC/pnConfig directory, edit file
+    config.inc.php to reflect chat room name
+  - line 71:
+     $url2cgi =  'http://linus.atd.ucar.edu/cgi-bin/AIRS2/'; // The url to the directory that contains irc.cgi
+  - line 79:
+     $channel = '#C130Q';                     // The default channel
+  - line 80:
+     $server  = 'syrah.atd.ucar.edu';         // The default server hostname
+  - line 83:
+     $port    = '6667';                      // The default server port
+     $server  = 'syrah.atd.ucar.edu';         // The default server hostname
+
+C-130 update:
+  http://www3.atd.ucar.edu/cgi-bin/C130_status.pl
+  modules.php?op=modload&name=PostWrap&file=index&page=http://www3.atd.ucar.edu/cgi-bin/C130_status.pl
+On 6 November @ 2:55 p.m. I moved the update script to Linus:
+  modules.php?op=modload&name=PostWrap&file=index&page=http://www.atd.ucar.edu/AIRS2/cgi-bin/C130_status.pl
+  http://www.atd.ucar.edu/cgi-bin/AIRS2_C130_status.pl
+ 
+Problems:
+ 1)  Because the site is proxied, some calendar buttons don't work.  They want
+     to point to www3.atd.ucar.edu instead of the proxied location.  Because
+     this is an internal-to-ATD web URL, it doesn't work outside of the
+     security perimeter.
+

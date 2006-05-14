@@ -1,0 +1,231 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 1995-162 SCMS
+#    (For 2nd reprocessing done in early 2001)   RLR
+#  For a list of files that were archived in the first production
+#   run, see the file ./1st_production/arch_support.162
+#  For a list of files that were archived in the second production
+#   run, see the file ./2nd_production/arch_support.162
+#
+#  Adapted by Ronald L. Ruth (from 2nd_production/arch_support.162)    Mar 2001
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PDIR = $LOCAL/proj/$PROJ
+set PRDIR = $PDIR/Production
+cd $PDIR
+#
+set YEAR = `grep FY Production/proj.info | sed -e "s/FY=//"`
+#set PROJNAME = `cat ProjectName`
+#
+date
+#
+#  Current archive (nrnet) commands go here
+#  ----------------------------------------
+#
+#   Files to be put in the project's MSS home directory with the same name
+#
+set DIR = $PRDIR
+#
+set FILES = ( \
+162.tar \
+162.tar.dir \
+Mail.162 \
+nimbus_defaults.tar \
+nimbus_defaults.tar.dir \
+nimbus_scms1-5.tar \
+nimbus_scms1-5.tar.dir \
+nimbus_scms6-20.tar \
+nimbus_scms6-20.tar.dir \
+reprocess.notes \
+taplog.162 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  LRT files in the local Production directory (different names)
+#
+set TURBRT = LRT
+set DIR = $PRDIR
+set FILES = ( \
+162rf01.hdr \
+162rf12.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+RF12.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  HRT files in the local Production directory (same names)
+#
+set TURBRT = HRT
+set DIR = $PRDIR
+set FILES = ( \
+162rf01h.hdr \
+162rf12h.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+RF12.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    nrnet msput $DIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+     rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+exit
+#
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+# -----------------------------------------------------------------------------
+#
+#  -------------------
+#   T E M P L A T E S
+#  -------------------
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's `Production' directory
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  Set turbulence rate (LRT or HRT) here
+set TURBRT = 
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's `Production' directory
+set FILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$FILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ nrnet msput $PRDIR/$FILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$OFILE \
+ name=RAF proj=41113009 rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+# -----------------------------------------------------------------------------
+#
+# Directory:  /RAF/1995/162
+#  Job(s) submitted on Thu Mar 15 16:31:42 MST 2001
+# Sequence number = LN5667 -- 162.tar -- OK @ 15 Mar 2001 16:35:02
+# Sequence number = LN5675 -- 162.tar.dir -- OK @ 15 Mar 2001 16:31:49
+# Sequence number = LN5683 -- Mail.162 -- OK @ 15 Mar 2001 16:31:56
+# Sequence number = LN5693 -- nimbus_defaults.tar -- OK @ 15 Mar 2001 16:31:57
+# Sequence number = LN5701 -- nimbus_defaults.tar.dir -- OK @ 15 Mar 2001 16:35:58
+# Sequence number = LN5711 -- nimbus_scms1-5.tar -- OK @ 15 Mar 2001 16:36:03
+# Sequence number = LN5719 -- nimbus_scms1-5.tar.dir -- OK @ 15 Mar 2001 16:35:58
+# Sequence number = LN5727 -- nimbus_scms6-20.tar -- OK @ 15 Mar 2001 16:36:07
+# Sequence number = LN5735 -- nimbus_scms6-20.tar.dir -- OK @ 15 Mar 2001 16:42:16
+# Sequence number = LN5747 -- reprocess.notes -- OK @ 15 Mar 2001 16:39:58
+# Sequence number = LN5755 -- taplog.162 -- OK @ 15 Mar 2001 16:42:16
+# Sequence number = LN5763 -- LRT/RF01.hdr -- OK @ 15 Mar 2001 16:43:59
+# Sequence number = LN5772 -- LRT/RF12.hdr -- OK @ 15 Mar 2001 16:31:56
+# Sequence number = LN5780 -- HRT/RF01.hdr -- OK @ 15 Mar 2001 16:36:08
+# Sequence number = LN5788 -- HRT/RF12.hdr -- OK @ 15 Mar 2001 16:38:04
+#

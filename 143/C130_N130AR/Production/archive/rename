@@ -1,0 +1,130 @@
+#! /bin/csh -f
+#
+#   Rename SCD Mass Store System bitfiles for project TOPSE
+#
+#  To be run only by the DMG login.
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+date
+#
+#echo nrnet msmv % r flnm= newf= wpwd=RAFDMG
+#
+#  Job(s) submitted on 
+#
+#  Rename bitfiles that had a tape-numbering mixup
+echo nrnet msmv % r flnm=/RAF/2000/143/RF20/R1463 newf=/RAF/2000/143/RF21/R1463 wpwd=RAFDMG
+echo nrnet msmv % r flnm=/RAF/2000/143/RF21/R1466 newf=/RAF/2000/143/RF20/R1466 wpwd=RAFDMG
+#
+#  Job(s) submitted on 
+#
+#
+exit
+#
+#
+#  Remove files that were misnamed
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/RF17 wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/RF18A wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/RF18B wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/RF19 wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/RF20A wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/RF20B wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/RF22 wpwd=RAFDMG
+#  Rename a segment
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF16 newf=/RAF/2000/143/ADS/RF16A wpwd=RAFDMG
+#
+#  Job(s) submitted on Fri Apr 21 15:45:14 MDT 2000
+# Sequence number = LN7922 -- ADS/RF17 -- OK @ 21 Apr 2000 15:45:17
+# Sequence number = LN7930 -- ADS/RF18A -- OK @ 21 Apr 2000 15:53:18
+# Sequence number = LN7938 -- ADS/RF18B -- OK @ 21 Apr 2000 15:57:17
+# Sequence number = LN7946 -- ADS/RF19 -- OK @ 21 Apr 2000 15:45:19
+# Sequence number = LN7954 -- ADS/RF20A -- OK @ 21 Apr 2000 15:49:20
+# Sequence number = LN7962 -- ADS/RF20B -- OK @ 21 Apr 2000 15:53:19
+# Sequence number = LN7970 -- ADS/RF22 -- OK @ 21 Apr 2000 15:45:19
+# Sequence number = LN7980 -- ADS/RF16A -- OK @ 21 Apr 2000 15:53:21
+#
+#
+#  ADS images, moved to the TAPE directory, that really are disk images:
+#   RF01B, RF05, RF08A, RF08B, RF08C, RF08D, RF08E, RF08F, RF08G, TF01, TF02.
+#  Remove them.
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF01B wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF05 wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF08A wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF08B wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF08C wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF08D wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF08E wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF08F wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/RF08G wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/TF01 wpwd=RAFDMG
+#nrnet msrm % r flnm=/RAF/2000/143/ADS/TAPE/TF02 wpwd=RAFDMG
+#
+#  Job(s) submitted on Wed Apr 19 17:04:44 MDT 2000
+# Sequence number = LN5641 -- ADS/TAPE/RF01B -- OK @ 19 Apr 2000 17:04:47
+# Sequence number = LN5650 -- ADS/TAPE/RF05 -- OK @ 19 Apr 2000 17:04:48
+# Sequence number = LN5658 -- ADS/TAPE/RF08A -- OK @ 19 Apr 2000 17:04:48
+# Sequence number = LN5666 -- ADS/TAPE/RF08B -- OK @ 19 Apr 2000 17:04:49
+# Sequence number = LN5674 -- ADS/TAPE/RF08C -- OK @ 19 Apr 2000 17:08:49
+# Sequence number = LN5682 -- ADS/TAPE/RF08D -- OK @ 19 Apr 2000 17:04:50
+# Sequence number = LN5690 -- ADS/TAPE/RF08E -- OK @ 19 Apr 2000 17:08:49
+# Sequence number = LN5698 -- ADS/TAPE/RF08F -- OK @ 19 Apr 2000 17:04:50
+# Sequence number = LN5707 -- ADS/TAPE/RF08G -- OK @ 19 Apr 2000 17:04:51
+# Sequence number = LN5721 -- ADS/TAPE/TF01 -- OK @ 19 Apr 2000 17:04:51
+# Sequence number = LN5739 -- ADS/TAPE/TF02 -- OK @ 19 Apr 2000 17:04:52
+#
+#
+#  The ADS disk images will be stored in the ADS directory.
+#  Before archiving all of them to the MSS, move the extant ones
+#   to a "TAPE" subdirectory, since I don't know whether they were
+#   copied from tape or disk.  (I can sort that out later.)
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF01A newf=/RAF/2000/143/ADS/TAPE/RF01A wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF01B newf=/RAF/2000/143/ADS/TAPE/RF01B wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF02 newf=/RAF/2000/143/ADS/TAPE/RF02 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF03 newf=/RAF/2000/143/ADS/TAPE/RF03 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF04 newf=/RAF/2000/143/ADS/TAPE/RF04 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF05 newf=/RAF/2000/143/ADS/TAPE/RF05 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF06 newf=/RAF/2000/143/ADS/TAPE/RF06 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF07 newf=/RAF/2000/143/ADS/TAPE/RF07 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF08A newf=/RAF/2000/143/ADS/TAPE/RF08A wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF08B newf=/RAF/2000/143/ADS/TAPE/RF08B wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF08C newf=/RAF/2000/143/ADS/TAPE/RF08C wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF08D newf=/RAF/2000/143/ADS/TAPE/RF08D wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF08E newf=/RAF/2000/143/ADS/TAPE/RF08E wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF08F newf=/RAF/2000/143/ADS/TAPE/RF08F wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF08G newf=/RAF/2000/143/ADS/TAPE/RF08G wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/TF01 newf=/RAF/2000/143/ADS/TAPE/TF01 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/TF02 newf=/RAF/2000/143/ADS/TAPE/TF02 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/TF03 newf=/RAF/2000/143/ADS/TAPE/TF03 wpwd=RAFDMG
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/TF04 newf=/RAF/2000/143/ADS/TAPE/TF04 wpwd=RAFDMG
+#
+#  Job(s) submitted on Wed Apr 19 10:21:53 MDT 2000
+# Sequence number = LN1750 -- /ADS/TAPE/RF01A -- OK @ 19 Apr 2000 10:21:55
+# Sequence number = LN1758 -- /ADS/TAPE/RF01B -- OK @ 19 Apr 2000 10:21:57
+# Sequence number = LN1766 -- /ADS/TAPE/RF02 -- OK @ 19 Apr 2000 10:21:57
+# Sequence number = LN1774 -- /ADS/TAPE/RF03 -- OK @ 19 Apr 2000 10:21:58
+# Sequence number = LN1782 -- /ADS/TAPE/RF04 -- OK @ 19 Apr 2000 10:21:58
+# Sequence number = LN1790 -- /ADS/TAPE/RF05 -- OK @ 19 Apr 2000 10:25:58
+# Sequence number = LN1798 -- /ADS/TAPE/RF06 -- OK @ 19 Apr 2000 10:21:59
+# Sequence number = LN1806 -- /ADS/TAPE/RF07 -- OK @ 19 Apr 2000 10:21:59
+# Sequence number = LN1817 -- /ADS/TAPE/RF08A -- OK @ 19 Apr 2000 10:22:00
+# Sequence number = LN1831 -- /ADS/TAPE/RF08B -- OK @ 19 Apr 2000 10:22:01
+# Sequence number = LN1839 -- /ADS/TAPE/RF08C -- OK @ 19 Apr 2000 10:25:59
+# Sequence number = LN1847 -- /ADS/TAPE/RF08D -- OK @ 19 Apr 2000 10:26:00
+# Sequence number = LN1863 -- /ADS/TAPE/RF08E -- OK @ 19 Apr 2000 10:22:02
+# Sequence number = LN1879 -- /ADS/TAPE/RF08F -- OK @ 19 Apr 2000 10:22:02
+# Sequence number = LN1903 -- /ADS/TAPE/RF08G -- OK @ 19 Apr 2000 10:22:03
+# Sequence number = LN1914 -- /ADS/TAPE/TF01 -- OK @ 19 Apr 2000 10:22:03
+# Sequence number = LN1935 -- /ADS/TAPE/TF02 -- OK @ 19 Apr 2000 10:22:04
+# Sequence number = LN1953 -- /ADS/TAPE/TF03 -- OK @ 19 Apr 2000 10:22:04
+# Sequence number = LN1968 -- /ADS/TAPE/TF04 -- OK @ 19 Apr 2000 10:22:05
+#
+#
+#  I discovered that there were two parts to RF01 after archiving the first.
+#nrnet msmv % r flnm=/RAF/2000/143/ADS/RF01 newf=/RAF/2000/143/ADS/RF01A wpwd=RAFDMG
+#
+#  Job(s) submitted on Fri Feb 11 15:59:40 MST 2000
+# Sequence number = LN5856 -- ADS/RF01A -- OK @ 11 Feb 2000 15:59:43
+#

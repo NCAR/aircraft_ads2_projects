@@ -1,0 +1,141 @@
+# Greg Kok's cal coe's
+
+o3fsm_cal	40.7
+xnoym_cal[2]	-20.0, 5.2
+xnom_cal[2]	-10.0, 43.0
+xno2c_cal	958.0
+
+# LI-COR 6262 CO2
+
+c2t	309.45
+co2_cal	0.15207, 1.032e-5, 7.2522e-9, -9.8728e-13, 6.5812e-17
+
+h2t	314.65
+h2o_cal	7.1352e-3, 3.6484e-6, -3.8355e-11
+
+
+# Ophir radiometer 
+
+MAXCNT		62500
+THERM_BIAS	5.0
+THERM_RZ	36.4
+THERM_COEFF	-2700.0
+DFLT_GAIN	-4.4913167e-5
+DFLT_OFFSET	31515.0
+# Digital signal coefficients
+A1              -5.4756e-5
+A2               6.5405e-5
+
+
+# King Probe wire temperatures - PMS version
+
+# For SCMS flights 1-5, TWIRE_PMS=132.0; for flights
+# 6-20, TWIRE_PMS=168.0
+
+TWIRE_PMS	132.0
+TWIRE_PMS1	42.0
+
+
+# King Probe wire temperatures - RAF version
+
+TWIRE_RAF	127.0
+
+
+# IRS - Primary unit pitch and heading biases
+
+PITCH_BIAS_1	0.0
+HEADING_BIAS_1	0.0
+
+# IRS - Secondary unit pitch and heading biases (IRS right on 308)
+
+PITCH_BIAS_2	0.0
+HEADING_BIAS_2	0.0
+
+
+# PMS2D Effective Area Width
+
+C1_EAW	0.8
+C2_EAW	0.8
+
+P1_EAW	6.4
+P2_EAW	6.4
+
+
+# Lyman-Alpha constants - unit 1
+
+XC_1    0.51
+THRSH_1	900.0
+CX_1[4] 9.77, 1.2974, 0.04102, 0.0009787
+
+# Lyman-Alpha constants - unit 2
+
+XC_2	0.50
+THRSH_2	900.0
+CX_2[4]	4.2, 0.8712, -0.0045, -0.0056
+
+#
+# CVI
+#
+CVTBL	7.62
+CVTBR	0.3
+CVOFF	0.0
+CVDIV	1.0
+
+
+# FSSP constants
+
+DOF	2.81		# Depth of field for FSSP
+bdia	0.19		# Beam diameter for FSSP
+# Before July 25
+# tau1    0.0000190       # Multiplier for STROBES for FSSP
+# After July 25
+tau1    0.0000090       # Multiplier for STROBES for FSSP
+tau2    0.0000020       # Multiplier for RESETS for FSSP
+
+dens	1.0		# particle density default
+
+FSSP_CSIZ[64]   0.0,3.7,7.1,11.4,14.7,17.4,20.2,24.3,28.6,
+                 31.7,36.1,40.7,43.5,46.9,49.0,50.5,            # range 0
+        0.0,3.0,5.0,7.0,9.0,11.0,13.0,15.0,17.0,19.0,
+                 21.0,23.0,25.0,27.0,29.0,31.0,                 # range 1
+        0.0,1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15., # range 2
+        0.0,.5,1.,1.5,2.,2.5,3.,3.5,4.,4.5,5.,5.5,6.,6.5,7.,7.5 # range 3
+
+
+
+ASAS_CSIZ[16]	0.0, 0.132, 0.170, 0.233, 0.320, 0.433, 0.570, 0.733,
+		0.920, 1.133, 1.370, 1.632, 1.920, 2.233, 2.570, 2.932
+
+F300_CSIZ[33]	0.0, 0.370,0.420,0.468,0.510,0.550,0.594,0.641,0.692,0.806,
+		0.850,0.891,0.926,1.033,1.105,1.406,2.178,2.271,2.360,2.493,
+		2.654,3.986,4.149,5.296,7.043,8.365,9.872,11.307,13.249,13.540,
+		15.380,15.506,18.544
+
+# CN Counter
+
+DIV	1		# counter card prescale factor
+
+#
+# Flux run length for averaging (in seconds).
+#
+FLUX_RUN	120
+
+
+# DNI/DEI start lat and lon
+
+DENI_START_LAT	28.7544
+DENI_START_LON	-80.7747
+
+# Start lat and lon for fixed position item.  (amlib/user/raz.c)
+ 
+RAZ_START_LAT   28.7544
+RAZ_START_LON   -80.7747
+ 
+ 
+# Parcel Tracking Interval for Averaging winds.  Lagrangian method only.
+ 
+PRCLTRK_INTRVL  10
+ 
+# Parcel Tracking Magnetic/True north declination.  Dead Reckoning method only.
+ 
+DECLINATION     3.25            # Patrick AirForce Base

@@ -1,0 +1,389 @@
+#! /bin/csh -f
+#
+#goto rename
+#
+#  Archive preliminary netCDF data files for 2001-181 DYCOMS-II
+#    using the new ATD directory path
+#
+#####################################################################
+#   Preliminary files also archived under the old naming convention
+#   See file /jnet/shared/proj/181/Production/archive/arch_prelim.181
+#      Ronald L. Ruth  10 August 2001
+#####################################################################
+#
+#   Must be run from a project's Production subdirectory
+#
+#  File adapted from file /jnet/local/proj/186/Production/atdarch.186
+#    by Ron Ruth   13 October 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user == "dmg") then
+   set dmg = "yes"
+else
+#  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+#  exit
+   set dmg = "no"
+endif
+#
+#  Get setup information for this project
+@ plat = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+@ plat /= 100
+if ($plat == 1) set PLATFORM = C130_N130AR
+if ($plat == 8) set PLATFORM = Electra_N308D
+set YEAR = `grep CY proj.info | sed -e "s/CY=//"`
+set PROJ = `cat ../ProjectName`
+#
+#  replace any <SPACE> characters in ProjectName with <UNDERSCORE>
+chk:
+@ spaces = `echo $PROJ | grep -c ' '`
+if ($spaces > 0) then
+  set PROJ = `echo $PROJ | sed -e "s/ /_/"`
+  goto chk
+endif
+#
+#  set extent for Interim (Preliminary) NIMBUS netCDF file
+#set EXT = INI.nc
+set EXT = PNI.nc
+#
+# Set correct turbulence type
+set TYPE = LRT/PRELIMINARY
+#set TYPE = LRT
+#set TYPE = HRT
+#
+#  set source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+goto old
+#
+############################################################################
+#  Automatically generate file list (adapted from "gentl")
+#
+#  Following code is untested.
+#  One needs a way to combine the four cases into a single group with
+#   flags, so some code doesn't need to be duplicated 4 times.
+#  It probably belongs down near the nrnet command, since one
+#  can then set the turbulence rate "on the fly" for each file.
+#
+pushd $DIR >& /dev/null
+#
+#  Find the netCDF data files
+ls ${proj}?f??.cdf >& /dev/null
+set result1 = $status
+if ($result1 == 0) set files1 = `ls ${proj}?f??.cdf`
+ls ${proj}?f??[a-gi-z].cdf >& /dev/null
+set result2 = $status
+if ($result2 == 0) set files2 = (`ls ${proj}?f??[a-z].cdf`)
+ls ${proj}?f??h.cdf >& /dev/null
+set result3 = $status
+if ($result3 == 0) set files3 = (`ls ${proj}?f??h.cdf`)
+ls ${proj}?f??[a-z]h.cdf >& /dev/null
+set result4 = $status
+if ($result4 == 0) set files4 = (`ls ${proj}?f??[a-z]h.cdf`)
+#  Check results of search
+if ( $result1 != 0 && $result2 != 0 && $result3 != 0 && $result4 != 0 ) then
+  echo No netCDF files match the standard naming conventions for this project.
+  goto quit
+endif
+popd >& /dev/null
+#
+#  Case #1, LRT without segments
+if ($result1 == 0) then
+  if ($debug == "yes") echo 'Case #1'
+  set files = ($files1)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+set SFILES = ($files)
+set DFILES = ($fltnos)
+#
+#  Case #2, LRT with segments (skip HRT without segments)
+if ($result2 == 0) then
+  if ($debug == "yes") echo 'Case #2'
+  set files = ($files2)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+  @ num = 0
+  foreach file ($files)
+    @ num ++
+#  Test file for HRT
+    set test = `echo $file | grep -c 'h.cdf'`
+    if ($test == 1) then
+      set line = `ncdump -h $DIR/$file | grep -c "OutputRate = $HRT"`
+      if ($line != 0) continue
+    endif
+#####################  code goes here   ###########
+
+#
+#  Case #3, HRT without segments (skip LRT with segment "H")
+if ($result3 == 0) then
+  if ($debug == "yes") echo 'Case #3'
+  set files = ($files3)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\h.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+  @ num = 0
+  foreach file ($files)
+    @ num ++
+#  Test file for HRT
+    set line = `ncdump -h $DIR/$file | grep -c "OutputRate = $HRT"`
+    if ($line == 0) continue
+    endif
+#####################  code goes here   ###########
+
+#
+#  Case #4, HRT with segments
+if ($result4 == 0) then
+  if ($debug == "yes") echo 'Case #4'
+  set files = ($files4)
+  set line = `echo $files | sed -e "s/$proj//g"`
+  set fltnos = (`echo $line | sed -e "s/\h.cdf//g"`)
+  set fltnos = (`echo $fltnos | tr '[a-z]' '[A-Z]'`)
+
+#
+############################################################################
+#
+old:
+#
+#  1st wave
+set SFILES = ( \
+181ff01.cdf \
+181ff02.cdf \
+181rf01.cdf \
+181rf02.cdf \
+181rf03.cdf \
+181rf04.cdf \
+181rf05.cdf \
+181rf06.cdf \
+181rf07.cdf \
+181rf08.cdf \
+181rf09.cdf \
+181rf10.cdf \
+181tf01.cdf \
+181tf02.cdf \
+181tf03.cdf \
+)
+set DFILES = ( \
+FF01 \
+FF02 \
+RF01 \
+RF02 \
+RF03 \
+RF04 \
+RF05 \
+RF06 \
+RF07 \
+RF08 \
+RF09 \
+RF10 \
+TF01 \
+TF02 \
+TF03 \
+)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#
+# Compose extended bitfile name
+#  get flight date
+    set line = `ncdump -h $SDIR/$SFILE | grep FlightDate`
+    if ($status != 0) then
+      echo Could not find FlightDate in netCDF file $file
+      goto quit
+    endif
+#   Get rid of double quotes
+    set line = `echo $line  | sed -e 's/\"//g'`
+#   Get rid of time zone in date field, if extant
+    set line = `echo $line | sed -e 's/UTC//'`
+#   Test for styles #1 & 2
+    if ($#line == 4) then
+      set incnt1 = `echo $line[3] | wc -c`
+      if ($incnt1 == 11) then
+#   Style #1 (mm/dd/yyyy)
+        set fltdate = `echo $line[3]`
+      else if ($incnt1 == 10) then
+#   Style #2 (" m/dd/yyyy)
+        set fltdate = 0$line[3]
+      else
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else if ($#line == 5) then
+      set incnt1 = `echo $line[3] | wc -c`
+      set incnt2 = `echo $line[4] | wc -c`
+      if ($incnt1 == 3 && $incnt2 == 7) then
+#   Style #3, ( m/ d/yyyy)
+        set fltdate = `echo 0$line[3]0$line[4]`
+#   Style #4 (mm/ d/yyyy)
+      else if ($incnt1 == 4 && $incnt2 == 7) then
+        set fltdate = `echo $line[3]0$line[4]`
+      else
+#   Unknown date style
+        echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+        goto quit
+      endif
+    else
+#   Unknown date style
+      echo "Bug in script $0 decoding Case #1 flight date.  Notify author."
+      goto quit
+    endif
+    set DATE = `echo $fltdate | awk -F/ '{print $3$1$2}'`
+#
+#  Get time interval
+    set tline = `ncdump -h $SDIR/$SFILE | grep TimeInterval`
+    if ($status != 0) then
+      echo Could not find TimeInterval in netCDF file $file
+      goto quit
+    endif
+    shift tline
+    shift tline
+    @ pass = 1
+newtime1:
+    echo $tline | grep , >& /dev/null
+#   Check for multiple time intervals
+    if ($status == 0) then
+      set multtime = "yes"
+    else
+      set multtime = "no"
+    endif
+#  Set time interval
+    set flttime = `echo $tline[1] | sed -e 's/\"//g'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    set flttime = `echo $flttime | sed -e 's/-/\ /'`
+    if ($status != 0) then
+      echo Could not decode TimeInterval in netCDF file $file
+      goto quit
+    endif
+    if ($multtime == "yes") then
+      set flttime = `echo $flttime | sed -e 's/\,//'`
+      if ($status != 0) then
+        echo Could not decode multiple TimeInterval in netCDF file $file
+        goto quit
+      endif
+    endif
+    set ST = `echo $flttime[1] | awk -F: '{print $1$2$3}'`
+    set ET = `echo $flttime[2] | awk -F: '{print $1$2$3}'`
+#
+#  Archive the file (if the "dmg" login)
+    if ($dmg == "yes") then
+      echo \
+      nrnet msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}_$ET.$EXT \
+        rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=DYCONLY
+    else
+      echo msput $SDIR/$SFILE l df=tr r \
+        flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$DATE.${ST}_$ET.$EXT \
+        rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG rpwd=DYCONLY
+    endif
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#  MSS path for all bitfiles listed below:  ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/
+#
+#  1st wave
+#  Job(s) submitted on Tue Aug 14 11:25:13 MDT 2001
+# Sequence number = LN0079 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/FF01.20010705.164630_200440.PNI.nc -- OK @ 14 Aug 2001 11:29:01
+# Sequence number = LN0114 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/FF02.20010730.170839_224026.PNI.nc -- OK @ 14 Aug 2001 11:29:33
+# Sequence number = LN0148 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF01.20010710.060059_151813.PNI.nc -- OK @ 14 Aug 2001 11:32:19
+# Sequence number = LN0181 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF02.20010711.062440_155235.PNI.nc -- OK @ 14 Aug 2001 11:32:32
+# Sequence number = LN0215 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF03.20010713.061823_154603.PNI.nc -- OK @ 14 Aug 2001 11:33:49
+# Sequence number = LN0246 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF04.20010717.062238_153130.PNI.nc -- OK @ 14 Aug 2001 11:39:37
+# Sequence number = LN0277 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF05.20010718.061847_154057.PNI.nc -- OK @ 14 Aug 2001 11:41:35
+# Sequence number = LN0308 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF06.20010720.053944_151300.PNI.nc -- OK @ 14 Aug 2001 11:33:57
+# Sequence number = LN0341 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF07.20010724.055322_154919.PNI.nc -- OK @ 14 Aug 2001 11:45:37
+# Sequence number = LN0372 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF08.20010725.194522_052034.PNI.nc -- OK @ 14 Aug 2001 11:44:51
+# Sequence number = LN0403 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF09.20010727.181558_034515.PNI.nc -- OK @ 14 Aug 2001 11:45:11
+# Sequence number = LN0434 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF10.20010728.194819_000339.PNI.nc -- OK @ 14 Aug 2001 11:45:52
+# Sequence number = LN0465 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF01.20010626.153710_172457.PNI.nc -- OK @ 14 Aug 2001 11:46:41
+# Sequence number = LN0498 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF02.20010629.164521_195413.PNI.nc -- OK @ 14 Aug 2001 11:35:34
+# Sequence number = LN0529 -- /DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF03.20010707.184947_215900.PNI.nc -- OK @ 14 Aug 2001 11:47:11
+#
+#rename:
+#  Rename files from ...PNI.nc to ...INI.nc
+#date
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/FF01.20010705.164630_200440.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/FF01.20010705.164630_200440.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/FF02.20010730.170839_224026.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/FF02.20010730.170839_224026.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF01.20010710.060059_151813.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF01.20010710.060059_151813.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF02.20010711.062440_155235.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF02.20010711.062440_155235.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF03.20010713.061823_154603.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF03.20010713.061823_154603.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF04.20010717.062238_153130.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF04.20010717.062238_153130.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF05.20010718.061847_154057.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF05.20010718.061847_154057.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF06.20010720.053944_151300.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF06.20010720.053944_151300.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF07.20010724.055322_154919.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF07.20010724.055322_154919.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF08.20010725.194522_052034.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF08.20010725.194522_052034.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF09.20010727.181558_034515.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF09.20010727.181558_034515.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF10.20010728.194819_000339.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/RF10.20010728.194819_000339.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF01.20010626.153710_172457.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF01.20010626.153710_172457.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF02.20010629.164521_195413.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF02.20010629.164521_195413.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#nrnet msmv %  r flnm=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF03.20010707.184947_215900.PNI.nc  newf=/ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/TF03.20010707.184947_215900.INI.nc  wpwd=RAFDMG rpwd=DYCONLY
+#exit
+#
+#  MSS path for all bitfiles listed below:  /ATD/DATA/2001/DYCOMS-II/C130_N130AR/LRT/PRELIMINARY/
+#
+# Jobs submitted on Tue Aug 14 12:13:23 MDT 2001
+# Sequence number = LN2776 -- /FF01.20010705.164630_200440.INI.nc -- OK @ 14 Aug 2001 12:13:25
+# Sequence number = LN2784 -- /FF02.20010730.170839_224026.INI.nc -- OK @ 14 Aug 2001 12:13:26
+# Sequence number = LN2792 -- /RF01.20010710.060059_151813.INI.nc -- OK @ 14 Aug 2001 12:13:26
+# Sequence number = LN2802 -- /RF02.20010711.062440_155235.INI.nc -- OK @ 14 Aug 2001 12:13:28
+# Sequence number = LN2810 -- /RF03.20010713.061823_154603.INI.nc -- OK @ 14 Aug 2001 12:13:28
+# Sequence number = LN2820 -- /RF04.20010717.062238_153130.INI.nc -- OK @ 14 Aug 2001 12:13:29
+# Sequence number = LN2829 -- /RF05.20010718.061847_154057.INI.nc -- OK @ 14 Aug 2001 12:13:29
+# Sequence number = LN2842 -- /RF06.20010720.053944_151300.INI.nc -- OK @ 14 Aug 2001 12:13:30
+# Sequence number = LN2853 -- /RF07.20010724.055322_154919.INI.nc -- OK @ 14 Aug 2001 12:13:30
+# Sequence number = LN2871 -- /RF08.20010725.194522_052034.INI.nc -- OK @ 14 Aug 2001 12:13:31
+# Sequence number = LN2885 -- /RF09.20010727.181558_034515.INI.nc -- OK @ 14 Aug 2001 12:13:32
+# Sequence number = LN2901 -- /RF10.20010728.194819_000339.INI.nc -- OK @ 14 Aug 2001 12:13:33
+# Sequence number = LN2913 -- /TF01.20010626.153710_172457.INI.nc -- OK @ 14 Aug 2001 12:13:33
+# Sequence number = LN2925 -- /TF02.20010629.164521_195413.INI.nc -- OK @ 14 Aug 2001 12:13:34
+# Sequence number = LN2948 -- /TF03.20010707.184947_215900.INI.nc -- OK @ 14 Aug 2001 12:13:34
+#

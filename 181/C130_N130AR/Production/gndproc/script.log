@@ -1,0 +1,1869 @@
+  Got setting for debug:  yes
+  Got setting for quiet:  yes
+  Got setting for S:  /jnet/data/migs/ruth
+  Got setting for D:  /jnet/data
+  Got setting for mbufr:  gndproc_log
+  Got setting for mp:  /bin/mail
+  Got setting for e_names:  ruth@ucar.edu
+  Got setting for lext:  log
+ /jnet/solaris/proj/archives/scripts/ngndproc -- automaticaly copy and process
+  raw aircraft data and send it wherever
+   Revision  5  RLR   4 June 2003
+ Report bugs or give questions about MSS bitfile names to Ron Ruth
+     (ron@raf.atd.ucar.edu)
+
+  Got setting for extensions:  rads r2d rmcr next aext gext
+  6 extensions = rads r2d rmcr next aext gext
+  Got setting for raw_file_types:  rads
+  1 raw_file_types = rads
+  Got setting for job_types:  nimbus n2asc copy
+  3 job_types = nimbus n2asc copy
+  OK_flag = yes
+  Got setting for p_vars:  grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+  13 p_vars = grep awk mount umount ls cp df gzip gunzip scp sed rm wc
+  Got setting for grep:  /bin/grep
+  Got setting for awk:  /bin/awk
+  Got setting for mount:  echo test mount
+  Got setting for umount:  echo test umount
+  Got setting for ls:  /bin/ls
+  Got setting for cp:  /bin/cp -p
+  Got setting for df:  /bin/df -k
+  Got setting for gzip:  /bin/gzip -f
+  Got setting for gunzip:  /bin/gunzip
+   scp set to default = scp
+  Got setting for sed:  /bin/sed
+  Got setting for rm:  /bin/rm
+  Got setting for wc:  /usr/bin/wc
+  mv set to default = mv
+debug:  mseparator =  --------------- Fri Jun 6 13:11:18 MDT 2003 ---------------
+debug:  mbegin =   /jnet/solaris/proj/archives/scripts/ngndproc script started  Fri Jun 6 13:11:18 MDT 2003
+debug:  mbegan =   /jnet/solaris/proj/archives/scripts/ngndproc script restarted  Fri Jun 6 13:11:18 MDT 2003
+debug:  mbufr = /jnet/data/gndproc_log.10923
+/jnet/solaris/proj/archives/scripts/ngndproc script started Fri Jun 6 13:11:18 MDT 2003
+ Test mode = no
+
+
+  Remove "old" disk drive from *TOP* slot of the ZZYZX chassis.
+   - Turn the key clockwise one quarter turn to a vertical position.
+   - Wait for drive to spin down.  (The LED display will indicate "u"
+       when the drive can be removed.)
+   - Pull out the drive by its handle.
+   - Set this drive on top of the ZZYZX chassis.
+     (The LED display should indicate "1" at this time.)
+
+  Insert "new" disk drive into *TOP* slot of the ZZYZX chassis.
+   - Carefully push it all the way in until flush with the front
+     panel.  The last fraction of an inch will be harder to push,
+     since it's making an electrical connection.  (The LED display
+     should indicate "u" if it is properly inserted.)
+
+  Turn key counterclockwise one quarter turn to lock.
+
+  Wait for drive to spin up (LED display will be blinking.)
+
+  Hit [ENTER] key when LED display stops blinking and indicates "1".
+
+   Changed directory to /jnet/data/migs/ruth
+  Searching for files with extension: ads
+/jnet/data/migs/ruth ads files = 181rf06e.ads 181rf06f.ads 181rf10g.ads 181rf10h.ads 181rf10i.ads
+number of ads files = 5
+Copying 181rf06e.ads to /jnet/data
+Copied file from /jnet/data/migs/ruth/181rf06e.ads to /jnet/data/181rf06e.ads
+Copying 181rf06f.ads to /jnet/data
+Copied file from /jnet/data/migs/ruth/181rf06f.ads to /jnet/data/181rf06f.ads
+Copying 181rf10g.ads to /jnet/data
+Copied file from /jnet/data/migs/ruth/181rf10g.ads to /jnet/data/181rf10g.ads
+Copying 181rf10h.ads to /jnet/data
+Copied file from /jnet/data/migs/ruth/181rf10h.ads to /jnet/data/181rf10h.ads
+Copying 181rf10i.ads to /jnet/data
+Copied file from /jnet/data/migs/ruth/181rf10i.ads to /jnet/data/181rf10i.ads
+Removable drive (file path /jnet/data/migs/ruth) unmounted.
+New local raw-data file-copy job completed on Fri Jun 6 13:16:19 MDT 2003
+
+   Leave "new" drive in the chassis, and put the "old" drive (which was
+   put on top of the ZZYZX chassis) in the lunch box for use on the plane."
+
+   The script will now continue to do its work automatically.
+
+   elist = ruth@ucar.edu
+   $#elist = 1
+5 files to process after copying
+File(s):  181rf06e.ads 181rf06f.ads 181rf10g.ads 181rf10h.ads 181rf10i.ads
+
+  3 job(s) = copy_cdf_joss copy_cdf_raf nimbus_ads_raf
+   Unordered job list: copy_cdf_joss copy_cdf_raf nimbus_ads_raf
+   Ordered job list: nimbus_ads_raf copy_cdf_joss copy_cdf_raf
+Starting job nimbus_ads_raf @ Fri Jun 6 13:16:19 MDT 2003.
+  j_type = nimbus
+  f_type = ads
+  user = raf
+  Job nimbus_ads_raf passed initial tests.
+
+  nimbus not yet run.
+
+  Got setting for nimbus_set:  nimbus_p nimbus_sf pr
+  3 nimbus_set = nimbus_p nimbus_sf pr
+  Got setting for nimbus_p:  nimbus
+  Got setting for nimbus_sf:  /usr/local/proj/181/Production/gndproc/setup.181
+  Got setting for pr:  1
+Creating nimbus batch file 181rf06e.batch
+  Batch file follows
+pr=1
+if=/jnet/data/181rf06e.ads
+of=/jnet/data/181rf06e.nc
+sf=/usr/local/proj/181/Production/gndproc/setup.181
+  End of batch file
+Running nimbus for raf with command: nimbus -b 181rf06e.batch
+Version - 3.3.1
+ReadTextFile: can't open /jnet/solaris/proj/defaults/260x.names
+adsIO: failed to locate /jnet/data/181rf06.2d
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+C260X is depending on non-existent variable A260X_RWO, turning off.
+DPLA has no dependencies, turning off.
+DPLA1 has no dependencies, turning off.
+GALTC has no dependencies, turning off.
+RHLA has no dependencies, turning off.
+RHLA1 has no dependencies, turning off.
+DYCOMS-II - 181, Flight rf06
+Loading setup file: /jnet/solaris/proj/181/Production/Flight_rf06
+LoadSetup: can't find ATLH.
+Loading setup file: /usr/local/proj/181/Production/gndproc/setup.181
+XGREFF has no description or units.
+ARDMA_FCR has no description or units.
+TTLH has no description or units.
+CONCR_FCR has no description or units.
+CRDMA_FCR has no description or units.
+DPLA has no description or units.
+DPLA1 has no description or units.
+GALTC has no description or units.
+RHLA has no description or units.
+RHLA1 has no description or units.
+Request for non-existent default, A3.
+Value set to 9.720000e-01 in AMLIB function ophir3Init.
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Switching ADS file to /jnet/data/181rf06f.ads.
+Max lag of |1000| ms exceeded, setting to -1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to -1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to -1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to -1000 ms and continuing.
+Max lag of |1000| ms exceeded, setting to -1000 ms and continuing.
+Time break of 600 seconds ending @ 05:54:50, filling in with MISSING_VALUE.
+Time break of 22 seconds ending @ 05:58:51, filling in with MISSING_VALUE.
+Version - 3.3.1
+>>>>>>>>>>>>>> Throwing away 6th HVPS housekeeping, dup?
+Checking for 2d file /jnet/data/181rf06e.ads.
+5:39:42
+5:39:43
+5:39:44
+5:39:45
+5:39:46
+5:39:47
+5:39:48
+5:39:49
+cntr=8
+5:39:46
+Despike: HGM232, delta 19950.4 - slope=25, point = 0.00967543, nPoints=2
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.00783052, nPoints=2
+Despike: HGM232, delta 19969.9 - slope=25, point = 0.00598561, nPoints=1
+Despike: ALT, delta 35892.8 - slope=1.2, point = 0.969041, nPoints=25
+Despike: HGM232, delta -11148.4 - slope=25, point = 0.969041, nPoints=1
+Despike: PITCH, delta 162.772 - slope=0.3, point = 0.969041, nPoints=50
+Despike: PSFD, delta -1216.94 - slope=20, point = 0.969041, nPoints=23
+Despike: ROLL, delta 160.311 - slope=0.3, point = 0.969041, nPoints=50
+Despike: THDG, delta -197.756 - slope=0.3, point = 0.969041, nPoints=25
+Despike: VNS, delta -1830.54 - slope=20, point = 0.969041, nPoints=10
+Despike: VSPD, delta 147.765 - slope=0.6, point = 0.969041, nPoints=25
+Despike: HGM232, delta -19972.3 - slope=25, point = -0.00323896, nPoints=2
+Despike: PSFD, delta 186.184 - slope=20, point = -0.00323896, nPoints=12
+Despike: PSFRD, delta -4.15831e+22 - slope=20, point = -0.00323896, nPoints=3
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.00229578, nPoints=8
+Despike: PSFD, delta 1013.01 - slope=20, point = 0.000450869, nPoints=1
+Despike: HGM232, delta -19961.4 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19972.2 - slope=25, point = 0.000450869, nPoints=1
+Despike: HGM232, delta 19960.1 - slope=25, point = 0.00783052, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.0115203, nPoints=3
+Despike: HGM232, delta 19970.5 - slope=25, point = 0.00967543, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0115203, nPoints=2
+Despike: HGM232, delta 19959.3 - slope=25, point = 0.00967543, nPoints=1
+Despike: HGM232, delta 19960.1 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta 19960.5 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.00598561, nPoints=3
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.00508387, nPoints=4
+Despike: HGM232, delta 19952.4 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.00598561, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.00783052, nPoints=3
+Despike: HGM232, delta 19972.9 - slope=25, point = 0.00967543, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0106186, nPoints=2
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19960.1 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19974.2 - slope=25, point = 0.000450869, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.00229578, nPoints=3
+Despike: PSFD, delta -1013.04 - slope=20, point = 0.00229578, nPoints=15
+Despike: PSFRD, delta 3.69731e+29 - slope=20, point = 0.000450869, nPoints=2
+Despike: PSFD, delta 1013.04 - slope=20, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19952 - slope=25, point = -0.00877369, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.00508387, nPoints=3
+Despike: HGM232, delta 19967.9 - slope=25, point = -0.00323896, nPoints=1
+Despike: ACINS, delta -4.8772 - slope=4, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.00692878, nPoints=3
+Despike: HGM232, delta 19955.9 - slope=25, point = -0.00508387, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19955.9 - slope=25, point = -0.00323896, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19973.5 - slope=25, point = -0.00139404, nPoints=1
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = -0.0106186, nPoints=2
+Despike: HGM232, delta 19971.5 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 19943.1 - slope=25, point = -0.00508387, nPoints=2
+Despike: HGM232, delta 19954 - slope=25, point = -0.00877369, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19953.5 - slope=25, point = -0.0106186, nPoints=2
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19949.6 - slope=25, point = -0.0143084, nPoints=2
+Despike: HGM232, delta 19974.8 - slope=25, point = -0.00877369, nPoints=1
+Despike: HGM232, delta -19974.8 - slope=25, point = -0.0216881, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0216881, nPoints=3
+Despike: HGM232, delta -19974.8 - slope=25, point = -0.0161533, nPoints=4
+Despike: HGM232, delta -19974.8 - slope=25, point = -0.0143084, nPoints=1
+Despike: HGM232, delta 64.6176 - slope=25, point = -0.0161533, nPoints=8
+Despike: HGM232, delta 167.64 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.00508387, nPoints=1
+Despike: HGM232, delta -98.7552 - slope=25, point = -0.0124635, nPoints=1
+Despike: HGM232, delta -185.928 - slope=25, point = -0.0124635, nPoints=2
+Despike: HGM232, delta -98.1456 - slope=25, point = -0.0124635, nPoints=4
+Despike: HGM232, delta -256.642 - slope=25, point = -0.0106186, nPoints=2
+Despike: HGM232, delta -184.709 - slope=25, point = -0.00692878, nPoints=4
+Despike: HGM232, delta -43.1597 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 19934.5 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19939.7 - slope=25, point = -0.0124635, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = -0.0106186, nPoints=1
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta 19924.8 - slope=25, point = -0.0179983, nPoints=4
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19945.5 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = -0.00508387, nPoints=3
+Despike: HGM232, delta 19945.5 - slope=25, point = -0.0143084, nPoints=5
+Despike: HGM232, delta 19973.6 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 39.0144 - slope=25, point = -0.00139404, nPoints=2
+Despike: HGM232, delta -19947.9 - slope=25, point = -0.00323896, nPoints=1
+Despike: HGM232, delta -58.5216 - slope=25, point = -0.0124635, nPoints=2
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.0161533, nPoints=1
+Despike: HGM232, delta -19963.8 - slope=25, point = -0.0179983, nPoints=5
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0309126, nPoints=4
+Despike: HGM232, delta -19947.9 - slope=25, point = -0.0346025, nPoints=2
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.0419821, nPoints=3
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.0290677, nPoints=2
+Despike: HGM232, delta -19951.6 - slope=25, point = -0.0290677, nPoints=6
+Despike: HGM232, delta 19969.9 - slope=25, point = -0.0364474, nPoints=2
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0346025, nPoints=3
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0493618, nPoints=1
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.0124635, nPoints=4
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0678108, nPoints=1
+Despike: HGM232, delta -209.093 - slope=25, point = -0.00692878, nPoints=4
+Despike: HGM232, delta -172.842 - slope=25, point = -0.0346025, nPoints=3
+Despike: HGM232, delta 34.1376 - slope=25, point = -0.0346025, nPoints=5
+Despike: HGM232, delta -19940.5 - slope=25, point = -0.0456719, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.043827, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0401372, nPoints=1
+Despike: HGM232, delta 32.9184 - slope=25, point = -0.0253779, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = -0.0585863, nPoints=2
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0327576, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0604312, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0512067, nPoints=3
+Despike: HGM232, delta -19946.4 - slope=25, point = -0.0991743, nPoints=1
+Despike: HGM232, delta -103.632 - slope=25, point = -0.0807252, nPoints=5
+Despike: HGM232, delta -36.2277 - slope=25, point = -0.0696558, nPoints=1
+Despike: HGM232, delta -102.413 - slope=25, point = -0.0862599, nPoints=8
+Despike: HGM232, delta -51.2064 - slope=25, point = -0.0290677, nPoints=3
+Despike: HGM232, delta -171.298 - slope=25, point = -0.0733456, nPoints=3
+Despike: HGM232, delta -143.134 - slope=25, point = -0.0696558, nPoints=1
+Despike: HGM232, delta -57.3024 - slope=25, point = 0.118525, nPoints=1
+Despike: HGM232, delta 48.768 - slope=25, point = -0.582538, nPoints=1
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.273499, nPoints=2
+Despike: HGM232, delta -103.632 - slope=25, point = 0.242135, nPoints=3
+Despike: PSFD, delta 1012.77 - slope=20, point = -0.0862599, nPoints=1
+Despike: PSFD, delta -1206.03 - slope=20, point = -0.0124635, nPoints=2
+Despike: PSFD, delta -1206.1 - slope=20, point = 0.197857, nPoints=1
+Despike: PSFD, delta -1206.2 - slope=20, point = -0.326097, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -0.337167, nPoints=3
+Despike: PSFD, delta -2219.38 - slope=20, point = -0.136072, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -0.0309126, nPoints=1
+Despike: HGM232, delta -165.202 - slope=25, point = -0.023533, nPoints=5
+Despike: HGM232, delta -151.965 - slope=25, point = -0.0493618, nPoints=3
+Despike: HGM232, delta -19963.8 - slope=25, point = -0.0309126, nPoints=1
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.043827, nPoints=3
+Despike: HGM232, delta -19925.4 - slope=25, point = -0.0346025, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0179983, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0585863, nPoints=1
+Despike: HGM232, delta -31.6992 - slope=25, point = -0.0548965, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0512067, nPoints=2
+Despike: PSFD, delta 1013.14 - slope=20, point = -0.00877369, nPoints=1
+Despike: HGM232, delta 19971.7 - slope=25, point = -0.0143084, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -0.0143084, nPoints=1
+Despike: HGM232, delta 2737.71 - slope=25, point = -0.0419821, nPoints=1
+Despike: HGM232, delta 19971.7 - slope=25, point = -0.0382923, nPoints=1
+Despike: HGM232, delta 10852.7 - slope=25, point = -0.0143084, nPoints=1
+Despike: PSFD, delta -1205.86 - slope=20, point = -0.0382923, nPoints=1
+Despike: HGM232, delta 19970.5 - slope=25, point = -0.0309126, nPoints=1
+Despike: PSFD, delta 534.746 - slope=20, point = -11.8165, nPoints=1
+Despike: PSFD, delta 779.007 - slope=20, point = -11.8958, nPoints=1
+Despike: PSFD, delta 534.137 - slope=20, point = -11.8884, nPoints=3
+Despike: PSFD, delta 778.737 - slope=20, point = -11.8276, nPoints=1
+Despike: PSFD, delta 533.46 - slope=20, point = -11.8386, nPoints=4
+Despike: PSFD, delta 533.189 - slope=20, point = -11.8202, nPoints=1
+Despike: PSFD, delta 533.358 - slope=20, point = -11.8349, nPoints=3
+Despike: PSFD, delta 778.466 - slope=20, point = -11.7482, nPoints=1
+Despike: PSFD, delta 532.715 - slope=20, point = -11.7446, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -11.8552, nPoints=1
+Despike: PSFD, delta 776.603 - slope=20, point = -11.4826, nPoints=1
+Despike: HGM232, delta 2343.3 - slope=25, point = -11.49, nPoints=1
+Despike: HGM232, delta 2362.81 - slope=25, point = -11.3517, nPoints=1
+Despike: PSFD, delta 501.255 - slope=20, point = -11.4421, nPoints=1
+Despike: HGM232, delta 2368.91 - slope=25, point = -11.5675, nPoints=3
+Despike: PSFD, delta -2219.31 - slope=20, point = -11.5656, nPoints=1
+Despike: HGM232, delta 2373.78 - slope=25, point = -11.6874, nPoints=1
+Despike: HGM232, delta 2379.88 - slope=25, point = -11.5878, nPoints=1
+Despike: PSFD, delta -1474.81 - slope=20, point = -16.431, nPoints=1
+Despike: PSFD, delta 456.317 - slope=20, point = -16.5472, nPoints=1
+Despike: PSFD, delta 744.534 - slope=20, point = -16.5361, nPoints=3
+Despike: PSFD, delta 456.216 - slope=20, point = -16.5306, nPoints=1
+Despike: PSFD, delta 456.622 - slope=20, point = -16.5416, nPoints=1
+Despike: PSFD, delta 744.466 - slope=20, point = -16.5435, nPoints=3
+Despike: PSFD, delta -2219.35 - slope=20, point = -16.5306, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.4734, nPoints=1
+Despike: PSFD, delta 456.25 - slope=20, point = -16.3517, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.3259, nPoints=1
+Despike: PSFD, delta -2219.35 - slope=20, point = -16.2982, nPoints=1
+Despike: PSFD, delta 744.297 - slope=20, point = -16.5324, nPoints=1
+Despike: PSFD, delta -2219.35 - slope=20, point = -16.5435, nPoints=1
+Despike: PSFD, delta 456.08 - slope=20, point = -16.4716, nPoints=1
+Despike: PSFD, delta 744.263 - slope=20, point = -16.4457, nPoints=1
+Despike: HGM232, delta 2595.07 - slope=25, point = -16.597, nPoints=3
+Despike: PSFD, delta 455.945 - slope=20, point = -16.5785, nPoints=1
+Despike: HGM232, delta 2595.07 - slope=25, point = -16.549, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -16.549, nPoints=1
+Despike: PSFD, delta 455.877 - slope=20, point = -17.3328, nPoints=1
+Despike: PSFD, delta 455.809 - slope=20, point = -17.3439, nPoints=3
+Despike: PSFD, delta 744.331 - slope=20, point = -17.3512, nPoints=1
+Despike: PSFD, delta 455.708 - slope=20, point = -17.3531, nPoints=3
+Despike: PSFD, delta -2219.28 - slope=20, point = -17.3771, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -17.3789, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -17.3678, nPoints=3
+Despike: PSFD, delta -2219.31 - slope=20, point = -17.3605, nPoints=1
+Despike: HGM232, delta 2595.07 - slope=25, point = -17.6021, nPoints=1
+Despike: PSFD, delta -1474.95 - slope=20, point = -17.6666, nPoints=1
+Despike: HGM232, delta 2598.72 - slope=25, point = -17.6039, nPoints=1
+Despike: HGM232, delta 2595.07 - slope=25, point = -17.5891, nPoints=1
+Despike: HGM232, delta 2598.72 - slope=25, point = -17.3771, nPoints=2
+Despike: PSFD, delta 455.674 - slope=20, point = -17.6223, nPoints=1
+Despike: HGM232, delta 2598.72 - slope=25, point = -17.5228, nPoints=1
+Despike: PSFD, delta 744.568 - slope=20, point = -17.8805, nPoints=1
+Despike: PSFD, delta 456.351 - slope=20, point = -17.8861, nPoints=1
+Despike: PSFD, delta 456.351 - slope=20, point = -17.8953, nPoints=1
+Despike: PSFD, delta 456.351 - slope=20, point = -17.9119, nPoints=1
+Despike: PSFD, delta 456.216 - slope=20, point = -17.8879, nPoints=2
+Despike: PSFD, delta 744.466 - slope=20, point = -17.9119, nPoints=2
+Despike: PSFD, delta 744.534 - slope=20, point = -17.9359, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -17.8916, nPoints=1
+Despike: HGM232, delta 2596.29 - slope=25, point = -17.5891, nPoints=1
+Despike: HGM232, delta 2593.85 - slope=25, point = -17.4066, nPoints=1
+Despike: HGM232, delta 2593.85 - slope=25, point = -17.4361, nPoints=2
+Despike: HGM232, delta 2593.85 - slope=25, point = -17.331, nPoints=1
+Despike: PSFD, delta 456.114 - slope=20, point = -17.1263, nPoints=1
+Despike: PSFD, delta 456.148 - slope=20, point = -17.1355, nPoints=1
+Despike: PSFD, delta 455.505 - slope=20, point = -16.431, nPoints=1
+Despike: PSFD, delta 744.195 - slope=20, point = -16.4291, nPoints=1
+Despike: PSFD, delta 744.229 - slope=20, point = -16.4052, nPoints=1
+Despike: PSFD, delta 455.471 - slope=20, point = -16.3996, nPoints=1
+Despike: PSFD, delta 455.403 - slope=20, point = -16.4199, nPoints=1
+Despike: PSFD, delta 455.64 - slope=20, point = -16.4052, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.4439, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -16.4144, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -16.4033, nPoints=1
+Despike: HGM232, delta 2596.29 - slope=25, point = -16.3628, nPoints=1
+Despike: HGM232, delta 2596.29 - slope=25, point = -16.383, nPoints=1
+Despike: PSFD, delta 455.809 - slope=20, point = -16.2613, nPoints=1
+Despike: HGM232, delta 2593.85 - slope=25, point = -16.206, nPoints=4
+Despike: HGM232, delta -4103.83 - slope=25, point = -16.3019, nPoints=2
+Despike: HGM232, delta 2599.94 - slope=25, point = -16.407, nPoints=1
+Despike: PSFD, delta 860.179 - slope=20, point = -14.6955, nPoints=1
+Despike: PSFD, delta 859.976 - slope=20, point = -10.2192, nPoints=1
+Despike: PSFD, delta 935.662 - slope=20, point = -9.97572, nPoints=3
+Despike: PSFD, delta 860.552 - slope=20, point = -10.1104, nPoints=1
+Despike: PSFD, delta 860.62 - slope=20, point = -15.033, nPoints=1
+Despike: PSFD, delta -2219.35 - slope=20, point = -16.0843, nPoints=2
+Despike: PSFD, delta 860.484 - slope=20, point = -13.4838, nPoints=1
+Despike: PSFD, delta 860.958 - slope=20, point = -9.80233, nPoints=1
+Despike: PSFD, delta -2219.38 - slope=20, point = -13.7346, nPoints=1
+Despike: HGM232, delta 672.389 - slope=25, point = -11.6874, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -11.348, nPoints=1
+Despike: HGM232, delta 672.389 - slope=25, point = -6.93772, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -6.81782, nPoints=1
+Despike: PSFD, delta 934.172 - slope=20, point = -8.2769, nPoints=1
+Despike: PSFD, delta 857.064 - slope=20, point = -7.79731, nPoints=1
+Despike: HGM232, delta -11368.4 - slope=25, point = -7.41363, nPoints=1
+Despike: HGM232, delta 696.773 - slope=25, point = -7.32878, nPoints=1
+Despike: PSFD, delta -2219.35 - slope=20, point = -5.57821, nPoints=1
+Despike: HGM232, delta 701.65 - slope=25, point = -8.06477, nPoints=1
+Despike: PSFD, delta 932.818 - slope=20, point = -7.93196, nPoints=1
+Despike: PSFD, delta 846.498 - slope=20, point = -10.7559, nPoints=1
+Despike: PSFD, delta 837.287 - slope=20, point = -11.4384, nPoints=1
+Despike: PSFD, delta 833.258 - slope=20, point = -11.4937, nPoints=1
+Despike: PSFD, delta 825.638 - slope=20, point = -11.3867, nPoints=1
+Despike: PSFD, delta 917.647 - slope=20, point = -11.4144, nPoints=1
+Despike: PSFD, delta -1301.77 - slope=20, point = -11.407, nPoints=1
+Despike: PSFD, delta 824.317 - slope=20, point = -11.3591, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -11.2023, nPoints=1
+Despike: HGM232, delta -7306.06 - slope=25, point = -11.1894, nPoints=1
+Despike: PSFD, delta 808.909 - slope=20, point = -11.0105, nPoints=1
+Despike: PSFD, delta 909.079 - slope=20, point = -11.431, nPoints=1
+Despike: HGM232, delta 929.03 - slope=25, point = -11.9862, nPoints=1
+Despike: HGM232, delta 935.126 - slope=25, point = -12.8715, nPoints=1
+Despike: HGM232, delta 939.394 - slope=25, point = -12.5801, nPoints=1
+Despike: HGM232, delta 933.907 - slope=25, point = -12.7959, nPoints=1
+Despike: HGM232, delta 924.154 - slope=25, point = -14.4392, nPoints=1
+Despike: PSFD, delta 807.047 - slope=20, point = -13.2108, nPoints=1
+Despike: PSFD, delta 806.878 - slope=20, point = -13.1961, nPoints=1
+Despike: PSFD, delta 909.113 - slope=20, point = -13.2072, nPoints=1
+Despike: PSFD, delta 806.911 - slope=20, point = -13.4174, nPoints=1
+Despike: PSFD, delta 909.113 - slope=20, point = -13.4285, nPoints=1
+Despike: PSFD, delta 807.047 - slope=20, point = -13.4193, nPoints=3
+Despike: PSFD, delta -2219.38 - slope=20, point = -13.4045, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -13.2865, nPoints=1
+Despike: PSFD, delta 807.115 - slope=20, point = -13.3473, nPoints=1
+Despike: HGM232, delta 919.277 - slope=25, point = -13.3602, nPoints=1
+Despike: HGM232, delta 919.277 - slope=25, point = -13.4543, nPoints=1
+Despike: HGM232, delta 919.277 - slope=25, point = -13.4266, nPoints=1
+Despike: HGM232, delta 918.058 - slope=25, point = -13.0744, nPoints=1
+Despike: PSFD, delta 806.776 - slope=20, point = -13.0283, nPoints=1
+Despike: HGM232, delta 919.277 - slope=25, point = -13.292, nPoints=1
+Despike: PSFD, delta 914.328 - slope=20, point = -9.8134, nPoints=1
+Despike: PSFD, delta 914.362 - slope=20, point = -9.80787, nPoints=1
+Despike: PSFD, delta 818.29 - slope=20, point = -9.78389, nPoints=3
+Despike: PSFD, delta 818.324 - slope=20, point = -9.67137, nPoints=1
+Despike: PSFD, delta 914.768 - slope=20, point = -9.67322, nPoints=1
+Despike: PSFD, delta 818.594 - slope=20, point = -9.66768, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -8.92065, nPoints=1
+Despike: HGM232, delta 743.102 - slope=25, point = -8.07953, nPoints=1
+Despike: PSFD, delta 846.16 - slope=20, point = -7.79362, nPoints=1
+Despike: HGM232, delta 735.787 - slope=25, point = -7.6645, nPoints=1
+Despike: PSFD, delta 851.307 - slope=20, point = -7.66819, nPoints=1
+Despike: PSFD, delta 851.849 - slope=20, point = -7.6313, nPoints=1
+Despike: HGM232, delta -7669.38 - slope=25, point = -7.54091, nPoints=5
+Despike: HGM232, delta 711.403 - slope=25, point = -7.64052, nPoints=1
+Despike: HGM232, delta 708.965 - slope=25, point = -7.65528, nPoints=1
+Despike: HGM232, delta 706.526 - slope=25, point = -7.82498, nPoints=1
+Despike: PSFD, delta 931.903 - slope=20, point = -7.82313, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -10.1546, nPoints=1
+Despike: PSFD, delta 939.387 - slope=20, point = -10.7652, nPoints=1
+Despike: PSFD, delta 939.353 - slope=20, point = -10.7375, nPoints=1
+Despike: PSFD, delta 868.442 - slope=20, point = -10.3723, nPoints=1
+Despike: PSFD, delta 939.387 - slope=20, point = -10.3667, nPoints=2
+Despike: PSFD, delta 868.476 - slope=20, point = -10.3649, nPoints=1
+Despike: PSFD, delta 868.51 - slope=20, point = -10.3667, nPoints=4
+Despike: PSFD, delta 868.51 - slope=20, point = -10.8426, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -10.8445, nPoints=1
+Despike: PSFD, delta 868.273 - slope=20, point = -11.3498, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -11.3296, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -11.3037, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -11.1396, nPoints=1
+Despike: HGM232, delta 640.69 - slope=25, point = -9.34674, nPoints=1
+Despike: HGM232, delta 640.69 - slope=25, point = -9.98678, nPoints=1
+Despike: HGM232, delta -5938.72 - slope=25, point = -10.4737, nPoints=1
+Despike: HGM232, delta -5625.39 - slope=25, point = -9.86505, nPoints=1
+Despike: PSFD, delta 868.544 - slope=20, point = -10.0698, nPoints=1
+Despike: HGM232, delta -7830.92 - slope=25, point = -11.0861, nPoints=1
+Despike: PSFD, delta 942.537 - slope=20, point = -10.8002, nPoints=1
+Despike: HGM232, delta 609.6 - slope=25, point = -11.1304, nPoints=3
+Despike: PSFD, delta 956.523 - slope=20, point = -12.7313, nPoints=1
+Despike: PSFD, delta 956.726 - slope=20, point = -12.5542, nPoints=1
+Despike: PSFD, delta 984.054 - slope=20, point = -13.8287, nPoints=1
+Despike: PSFD, delta 956.556 - slope=20, point = -13.3436, nPoints=1
+Despike: PSFD, delta 956.692 - slope=20, point = -9.64739, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -11.4365, nPoints=1
+Despike: HGM232, delta 241.402 - slope=25, point = -12.3255, nPoints=1
+Despike: PSFD, delta 958.148 - slope=20, point = -11.407, nPoints=1
+Despike: HGM232, delta 241.402 - slope=25, point = -13.2625, nPoints=1
+Despike: HGM232, delta 240.182 - slope=25, point = -10.6748, nPoints=1
+Despike: HGM232, delta -13075.9 - slope=25, point = -10.898, nPoints=1
+Despike: PSFD, delta 958.283 - slope=20, point = -10.968, nPoints=1
+Despike: PSFD, delta 965.259 - slope=20, point = -14.1275, nPoints=1
+Despike: PSFD, delta 965.226 - slope=20, point = -13.9467, nPoints=1
+Despike: PSFD, delta -1240.3 - slope=20, point = -14.2677, nPoints=4
+Despike: PSFD, delta 965.53 - slope=20, point = -15.4794, nPoints=1
+Despike: PSFD, delta 988.829 - slope=20, point = -15.6269, nPoints=1
+Despike: PSFD, delta 965.293 - slope=20, point = -15.1105, nPoints=1
+Despike: PSFD, delta 965.801 - slope=20, point = -14.3027, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -15.5255, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -14.9888, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -15.4203, nPoints=1
+Despike: HGM232, delta 206.045 - slope=25, point = -14.0851, nPoints=1
+Despike: HGM232, delta 204.826 - slope=25, point = -12.2444, nPoints=1
+Despike: HGM232, delta -8697.77 - slope=25, point = -11.6505, nPoints=2
+Despike: HGM232, delta 204.826 - slope=25, point = -11.7501, nPoints=1
+Despike: HGM232, delta 204.826 - slope=25, point = -14.714, nPoints=1
+Despike: PSFD, delta 966.309 - slope=20, point = -13.9154, nPoints=1
+Despike: PSFD, delta 945.551 - slope=20, point = -14.3064, nPoints=1
+Despike: PSFD, delta 978.636 - slope=20, point = -14.489, nPoints=1
+Despike: PSFD, delta 978.5 - slope=20, point = -15.2322, nPoints=3
+Despike: PSFD, delta 978.5 - slope=20, point = -13.6646, nPoints=1
+Despike: PSFD, delta 945.584 - slope=20, point = -13.5668, nPoints=1
+Despike: PSFD, delta 978.703 - slope=20, point = -13.4414, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -13.209, nPoints=1
+Despike: PSFD, delta 945.957 - slope=20, point = -15.4941, nPoints=3
+Despike: PSFD, delta -2219.31 - slope=20, point = -13.2551, nPoints=1
+Despike: HGM232, delta 296.266 - slope=25, point = -10.4627, nPoints=1
+Despike: HGM232, delta 299.923 - slope=25, point = -13.8305, nPoints=1
+Despike: PSFD, delta 944.602 - slope=20, point = -13.327, nPoints=1
+Despike: HGM232, delta -8502.7 - slope=25, point = -13.3141, nPoints=2
+Despike: HGM232, delta 301.142 - slope=25, point = -14.1054, nPoints=1
+Despike: HGM232, delta 302.362 - slope=25, point = -14.1883, nPoints=1
+Despike: PSFD, delta 944.569 - slope=20, point = -12.3403, nPoints=1
+Despike: PSFD, delta 944.501 - slope=20, point = -13.8637, nPoints=2
+Despike: PSFD, delta 977.789 - slope=20, point = -13.8988, nPoints=1
+Despike: PSFD, delta 977.721 - slope=20, point = -13.9338, nPoints=1
+Despike: PSFD, delta 977.789 - slope=20, point = -12.5745, nPoints=1
+Despike: PSFD, delta 978.636 - slope=20, point = -9.97387, nPoints=1
+Despike: HGM232, delta 293.827 - slope=25, point = -11.8755, nPoints=1
+Despike: HGM232, delta 293.827 - slope=25, point = -12.4362, nPoints=1
+Despike: HGM232, delta 293.827 - slope=25, point = -11.2244, nPoints=1
+Despike: PSFD, delta 945.72 - slope=20, point = -14.465, nPoints=1
+Despike: HGM232, delta 296.266 - slope=25, point = -11.0252, nPoints=3
+Despike: HGM232, delta -8508.8 - slope=25, point = -11.6708, nPoints=1
+Despike: PSFD, delta 862.008 - slope=20, point = -15.9773, nPoints=1
+Despike: PSFD, delta 861.805 - slope=20, point = -16.1248, nPoints=1
+Despike: PSFD, delta 861.534 - slope=20, point = -16.1433, nPoints=3
+Despike: PSFD, delta 860.992 - slope=20, point = -13.8896, nPoints=1
+Despike: PSFD, delta 860.654 - slope=20, point = -13.8988, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -13.5336, nPoints=1
+Despike: PSFD, delta 839.929 - slope=20, point = -8.19389, nPoints=1
+Despike: HGM232, delta 772.363 - slope=25, point = -7.72537, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -7.67926, nPoints=1
+Despike: HGM232, delta 778.459 - slope=25, point = -7.79547, nPoints=1
+Despike: PSFD, delta 922.862 - slope=20, point = -7.42101, nPoints=1
+Despike: PSFD, delta 834.612 - slope=20, point = -7.21811, nPoints=1
+Despike: HGM232, delta 793.699 - slope=25, point = -7.57227, nPoints=1
+Despike: PSFD, delta 922.354 - slope=20, point = -7.89876, nPoints=1
+Despike: HGM232, delta -7348.73 - slope=25, point = -9.34305, nPoints=1
+Despike: PSFD, delta 833.901 - slope=20, point = -10.4553, nPoints=1
+Despike: HGM232, delta 793.699 - slope=25, point = -11.2502, nPoints=1
+Despike: PSFD, delta 857.538 - slope=20, point = -14.2511, nPoints=1
+gpsTans: GSTAT = 0
+Despike: PSFD, delta 860.146 - slope=20, point = -13.8361, nPoints=1
+Despike: PSFD, delta 864.65 - slope=20, point = -17.3752, nPoints=1
+Despike: PSFD, delta 831.564 - slope=20, point = -7.4579, nPoints=1
+Despike: PSFD, delta 831.463 - slope=20, point = -11.3701, nPoints=1
+Despike: PSFD, delta 921.236 - slope=20, point = -11.3812, nPoints=1
+Despike: PSFD, delta 921.236 - slope=20, point = -11.4144, nPoints=1
+Despike: PSFD, delta 831.463 - slope=20, point = -11.4273, nPoints=1
+Despike: PSFD, delta 831.429 - slope=20, point = -11.4808, nPoints=3
+Despike: PSFD, delta 831.395 - slope=20, point = -11.5712, nPoints=1
+Despike: PSFD, delta 831.564 - slope=20, point = -11.5675, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -11.8239, nPoints=1
+Despike: PSFD, delta 852.154 - slope=20, point = -12.4694, nPoints=1
+Despike: HGM232, delta 710.184 - slope=25, point = -15.5089, nPoints=1
+Despike: HGM232, delta 707.746 - slope=25, point = -13.7568, nPoints=1
+Despike: HGM232, delta 689.458 - slope=25, point = -13.0338, nPoints=1
+Despike: HGM232, delta 687.019 - slope=25, point = -14.299, nPoints=1
+Despike: PSFD, delta 790.961 - slope=20, point = -14.6402, nPoints=1
+Despike: PSFD, delta 791.063 - slope=20, point = -14.6402, nPoints=1
+Despike: PSFD, delta 791.097 - slope=20, point = -14.4521, nPoints=1
+Despike: PSFD, delta 791.029 - slope=20, point = -14.4724, nPoints=1
+Despike: PSFD, delta 791.165 - slope=20, point = -14.4798, nPoints=3
+Despike: PSFD, delta 791.131 - slope=20, point = -14.4908, nPoints=1
+Despike: PSFD, delta 790.995 - slope=20, point = -14.6052, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -14.5941, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -14.489, nPoints=1
+Despike: HGM232, delta 993.038 - slope=25, point = -14.4373, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -14.441, nPoints=1
+Despike: HGM232, delta 993.038 - slope=25, point = -14.489, nPoints=2
+Despike: PSFD, delta 790.894 - slope=20, point = -14.4871, nPoints=1
+Despike: HGM232, delta 993.038 - slope=25, point = -14.5923, nPoints=1
+Despike: PSFD, delta 790.928 - slope=20, point = -14.6476, nPoints=1
+Despike: HGM232, delta 994.258 - slope=25, point = -14.524, nPoints=2
+Despike: PSFD, delta -1318.12 - slope=20, point = -14.5148, nPoints=1
+Despike: HGM232, delta 994.258 - slope=25, point = -14.3211, nPoints=1
+Despike: HGM232, delta -7118.3 - slope=25, point = -14.0869, nPoints=1
+Despike: PSFD, delta 939.116 - slope=20, point = -15.6712, nPoints=1
+Despike: PSFD, delta 939.184 - slope=20, point = -15.7486, nPoints=1
+Despike: PSFD, delta 939.218 - slope=20, point = -16.8017, nPoints=1
+Despike: PSFD, delta 867.359 - slope=20, point = -16.9566, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -15.0515, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -15.6287, nPoints=1
+Despike: HGM232, delta 643.128 - slope=25, point = -19.0774, nPoints=1
+Despike: HGM232, delta 645.566 - slope=25, point = -17.8031, nPoints=1
+Despike: HGM232, delta 645.566 - slope=25, point = -17.1558, nPoints=2
+Despike: HGM232, delta -7810.2 - slope=25, point = -19.0534, nPoints=1
+Despike: HGM232, delta 645.566 - slope=25, point = -16.099, nPoints=2
+Despike: PSFD, delta 910.467 - slope=20, point = -12.1854, nPoints=1
+Despike: PSFD, delta 813.041 - slope=20, point = -12.7073, nPoints=1
+Despike: PSFD, delta 819.915 - slope=20, point = -16.206, nPoints=1
+Despike: PSFD, delta 819.814 - slope=20, point = -16.147, nPoints=1
+Despike: PSFD, delta 819.847 - slope=20, point = -16.064, nPoints=1
+Despike: PSFD, delta 915.547 - slope=20, point = -16.0658, nPoints=1
+Despike: PSFD, delta 819.814 - slope=20, point = -15.9478, nPoints=1
+Despike: HGM232, delta 860.755 - slope=25, point = -15.9238, nPoints=1
+Despike: PSFD, delta 915.412 - slope=20, point = -15.8832, nPoints=1
+Despike: HGM232, delta -7376.77 - slope=25, point = -16.0013, nPoints=1
+Despike: HGM232, delta 861.974 - slope=25, point = -15.9423, nPoints=2
+Despike: PSFD, delta 819.576 - slope=20, point = -16.1636, nPoints=1
+Despike: HGM232, delta 861.974 - slope=25, point = -15.9238, nPoints=1
+Despike: PSFD, delta 867.697 - slope=20, point = -14.6236, nPoints=1
+Despike: PSFD, delta 939.252 - slope=20, point = -15.981, nPoints=1
+Despike: PSFD, delta 939.353 - slope=20, point = -15.9441, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -16.0308, nPoints=1
+Despike: PSFD, delta -1290.12 - slope=20, point = -16.0308, nPoints=1
+Despike: PSFD, delta 867.697 - slope=20, point = -16.0289, nPoints=1
+Despike: PSFD, delta 939.218 - slope=20, point = -15.9994, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -15.9367, nPoints=1
+Despike: HGM232, delta 641.909 - slope=25, point = -15.496, nPoints=1
+Despike: HGM232, delta 640.69 - slope=25, point = -14.5701, nPoints=1
+Despike: PSFD, delta 868.476 - slope=20, point = -15.9164, nPoints=1
+Despike: PSFD, delta 868.375 - slope=20, point = -15.2064, nPoints=1
+Despike: HGM232, delta 638.251 - slope=25, point = -15.9423, nPoints=3
+Despike: HGM232, delta 638.251 - slope=25, point = -14.1847, nPoints=1
+Despike: HGM232, delta 639.47 - slope=25, point = -14.7951, nPoints=1
+Despike: PSFD, delta 871.321 - slope=20, point = -16.5398, nPoints=1
+Despike: PSFD, delta 941.284 - slope=20, point = -16.5933, nPoints=1
+Despike: PSFD, delta 871.185 - slope=20, point = -16.514, nPoints=1
+Despike: PSFD, delta 871.151 - slope=20, point = -16.8238, nPoints=1
+Despike: PSFD, delta 940.979 - slope=20, point = -15.4462, nPoints=1
+Despike: HGM232, delta 632.155 - slope=25, point = -12.8069, nPoints=1
+Despike: PSFD, delta 864.92 - slope=20, point = -14.2843, nPoints=1
+Despike: PSFD, delta 864.379 - slope=20, point = -13.3455, nPoints=1
+Despike: HGM232, delta 660.197 - slope=25, point = -13.7678, nPoints=1
+Despike: PSFD, delta 861.67 - slope=20, point = -9.79495, nPoints=1
+Despike: HGM232, delta 676.046 - slope=25, point = -11.9862, nPoints=1
+Despike: PSFD, delta 803.897 - slope=20, point = -10.4497, nPoints=1
+Despike: PSFD, delta -1321.61 - slope=20, point = -10.6268, nPoints=1
+Despike: PSFD, delta 807.521 - slope=20, point = -12.1153, nPoints=1
+Despike: PSFD, delta 808.368 - slope=20, point = -13.1574, nPoints=1
+Despike: PSFD, delta -1291.67 - slope=20, point = -16.088, nPoints=1
+Despike: PSFD, delta 863.6 - slope=20, point = -14.5904, nPoints=1
+Despike: PSFD, delta 863.329 - slope=20, point = -13.0504, nPoints=1
+Despike: PSFD, delta 863.43 - slope=20, point = -13.2145, nPoints=1
+Despike: PSFD, delta 863.532 - slope=20, point = -15.6583, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -15.5605, nPoints=3
+Despike: PSFD, delta 862.076 - slope=20, point = -12.7811, nPoints=1
+Despike: PSFD, delta 861.907 - slope=20, point = -12.4251, nPoints=1
+Despike: HGM232, delta 671.17 - slope=25, point = -9.75806, nPoints=1
+Despike: HGM232, delta -7687.06 - slope=25, point = -13.1703, nPoints=1
+Despike: PSFD, delta 932.716 - slope=20, point = -13.008, nPoints=1
+Despike: HGM232, delta 706.526 - slope=25, point = -12.5321, nPoints=1
+Despike: HGM232, delta 721.157 - slope=25, point = -11.5841, nPoints=1
+Despike: PSFD, delta 862.618 - slope=20, point = -15.9828, nPoints=3
+Despike: PSFD, delta 936.577 - slope=20, point = -16.3351, nPoints=4
+Despike: PSFD, delta 862.516 - slope=20, point = -14.8707, nPoints=1
+Despike: PSFD, delta -2219.38 - slope=20, point = -15.721, nPoints=2
+Despike: PSFD, delta 878.263 - slope=20, point = -10.2837, nPoints=1
+Despike: HGM232, delta 592.531 - slope=25, point = -12.3495, nPoints=1
+Despike: HGM232, delta 576.682 - slope=25, point = -12.1503, nPoints=4
+Despike: HGM232, delta 574.243 - slope=25, point = -13.1168, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -13.0319, nPoints=1
+Despike: PSFD, delta 948.26 - slope=20, point = -12.1429, nPoints=1
+Despike: HGM232, delta 560.832 - slope=25, point = -12.6262, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -12.6262, nPoints=1
+Despike: PSFD, delta 848.666 - slope=20, point = -13.0301, nPoints=3
+Despike: PSFD, delta 849.038 - slope=20, point = -15.7265, nPoints=4
+Despike: PSFD, delta 848.767 - slope=20, point = -15.3373, nPoints=1
+Despike: PSFD, delta 848.835 - slope=20, point = -11.905, nPoints=1
+Despike: PSFD, delta 929.702 - slope=20, point = -12.1854, nPoints=1
+Despike: PSFD, delta 849.208 - slope=20, point = -12.6944, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -12.9526, nPoints=1
+Despike: PSFD, delta 847.48 - slope=20, point = -16.4716, nPoints=1
+Despike: HGM232, delta 740.664 - slope=25, point = -14.6918, nPoints=4
+Despike: HGM232, delta 740.664 - slope=25, point = -11.977, nPoints=1
+Despike: HGM232, delta 735.787 - slope=25, point = -14.5812, nPoints=2
+Despike: PSFD, delta -2219.34 - slope=20, point = -14.5849, nPoints=1
+Despike: HGM232, delta 734.568 - slope=25, point = -16.2281, nPoints=1
+Despike: HGM232, delta -7627.93 - slope=25, point = -14.2105, nPoints=1
+Despike: HGM232, delta 734.568 - slope=25, point = -14.3341, nPoints=1
+Despike: PSFD, delta 928.72 - slope=20, point = -17.9193, nPoints=1
+Despike: PSFD, delta 847.04 - slope=20, point = -14.7877, nPoints=1
+Despike: PSFD, delta 847.142 - slope=20, point = -14.7748, nPoints=2
+Despike: PSFD, delta 928.822 - slope=20, point = -14.8707, nPoints=1
+Despike: PSFD, delta -2219.38 - slope=20, point = -16.7464, nPoints=1
+Despike: PSFD, delta -2219.45 - slope=20, point = -16.5121, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -14.2787, nPoints=1
+Despike: HGM232, delta 724.814 - slope=25, point = -17.4582, nPoints=1
+Despike: HGM232, delta 724.814 - slope=25, point = -12.8659, nPoints=1
+Despike: HGM232, delta 726.034 - slope=25, point = -14.8855, nPoints=1
+Despike: PSFD, delta 849.411 - slope=20, point = -16.7611, nPoints=1
+Despike: HGM232, delta 726.034 - slope=25, point = -14.0685, nPoints=1
+Despike: PSFD, delta 928.957 - slope=20, point = -16.3683, nPoints=1
+Despike: PSFD, delta 847.379 - slope=20, point = -15.5126, nPoints=1
+Despike: PSFD, delta -1290.42 - slope=20, point = -15.3982, nPoints=2
+Despike: PSFD, delta 928.686 - slope=20, point = -15.3761, nPoints=1
+Despike: PSFD, delta 847.074 - slope=20, point = -15.2636, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -14.5978, nPoints=1
+Despike: PSFD, delta 846.6 - slope=20, point = -12.1725, nPoints=1
+Despike: HGM232, delta 734.568 - slope=25, point = -13.8914, nPoints=1
+Despike: HGM232, delta 734.568 - slope=25, point = -16.4716, nPoints=1
+Despike: PSFD, delta -2219.18 - slope=20, point = -16.7574, nPoints=1
+Despike: PSFD, delta 846.566 - slope=20, point = -11.6505, nPoints=1
+Despike: HGM232, delta 739.445 - slope=25, point = -11.9069, nPoints=1
+Despike: HGM232, delta 740.664 - slope=25, point = -11.8257, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -11.7888, nPoints=1
+Despike: HGM232, delta -7600.49 - slope=25, point = -12.5616, nPoints=2
+Despike: PSFD, delta 844.06 - slope=20, point = -11.929, nPoints=1
+Despike: HGM232, delta 754.075 - slope=25, point = -11.5915, nPoints=1
+Despike: PSFD, delta 778.838 - slope=20, point = -15.472, nPoints=1
+Despike: PSFD, delta 778.804 - slope=20, point = -15.4978, nPoints=1
+Despike: PSFD, delta 778.77 - slope=20, point = -15.413, nPoints=2
+Despike: PSFD, delta 778.669 - slope=20, point = -15.4037, nPoints=5
+Despike: PSFD, delta 778.77 - slope=20, point = -15.4093, nPoints=1
+Despike: PSFD, delta 779.075 - slope=20, point = -15.2654, nPoints=1
+Despike: HGM232, delta 1046.68 - slope=25, point = -15.3152, nPoints=1
+Despike: HGM232, delta 1046.68 - slope=25, point = -15.3207, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -15.3171, nPoints=1
+Despike: PSFD, delta 779.007 - slope=20, point = -15.3632, nPoints=1
+Despike: PSFD, delta 779.041 - slope=20, point = -15.4388, nPoints=1
+Despike: PSFD, delta 779.007 - slope=20, point = -17.5855, nPoints=1
+Despike: PSFD, delta 895.296 - slope=20, point = -17.5523, nPoints=1
+Despike: PSFD, delta 779.041 - slope=20, point = -18.834, nPoints=1
+Despike: PSFD, delta 967.63 - slope=20, point = -20.064, nPoints=1
+Despike: PSFD, delta 967.562 - slope=20, point = -20.5158, nPoints=1
+Despike: PSFD, delta 967.732 - slope=20, point = -15.9957, nPoints=3
+Despike: PSFD, delta 968.273 - slope=20, point = -15.3429, nPoints=1
+Despike: PSFD, delta 968.341 - slope=20, point = -19.2802, nPoints=3
+Despike: PSFD, delta -2219.24 - slope=20, point = -19.2009, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -19.0645, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -20.3129, nPoints=1
+Despike: HGM232, delta 196.291 - slope=25, point = -16.2226, nPoints=1
+Despike: PSFD, delta 968.781 - slope=20, point = -16.2945, nPoints=1
+Despike: HGM232, delta 196.291 - slope=25, point = -16.04, nPoints=3
+Despike: HGM232, delta -8722.77 - slope=25, point = -17.9746, nPoints=3
+Despike: PSFD, delta 991.301 - slope=20, point = -18.7012, nPoints=1
+Despike: HGM232, delta 195.072 - slope=25, point = -15.7689, nPoints=1
+Despike: PSFD, delta 941.826 - slope=20, point = -12.1964, nPoints=1
+Despike: PSFD, delta 873.488 - slope=20, point = -12.261, nPoints=1
+Despike: PSFD, delta 874.098 - slope=20, point = -15.8371, nPoints=2
+Despike: PSFD, delta 874.233 - slope=20, point = -16.1046, nPoints=1
+Despike: PSFD, delta -2219.38 - slope=20, point = -16.1617, nPoints=1
+Despike: PSFD, delta 875.418 - slope=20, point = -18.5389, nPoints=1
+Despike: HGM232, delta 505.968 - slope=25, point = -16.8515, nPoints=1
+Despike: PSFD, delta 904.169 - slope=20, point = -17.7219, nPoints=1
+Despike: PSFD, delta 904.203 - slope=20, point = -16.1138, nPoints=1
+Despike: PSFD, delta 957.606 - slope=20, point = -15.8943, nPoints=1
+Despike: HGM232, delta 475.488 - slope=25, point = -14.2234, nPoints=1
+Despike: PSFD, delta 904.948 - slope=20, point = -14.216, nPoints=1
+Despike: HGM232, delta 471.83 - slope=25, point = -17.1023, nPoints=1
+Despike: HGM232, delta 461.467 - slope=25, point = -16.691, nPoints=1
+Despike: PSFD, delta 893.434 - slope=20, point = -16.8533, nPoints=1
+Despike: PSFD, delta 893.163 - slope=20, point = -14.6918, nPoints=1
+Despike: PSFD, delta 893.569 - slope=20, point = -17.556, nPoints=1
+Despike: PSFD, delta 893.231 - slope=20, point = -17.5984, nPoints=1
+Despike: PSFD, delta 892.994 - slope=20, point = -18.2051, nPoints=1
+Despike: PSFD, delta 893.061 - slope=20, point = -16.7722, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -16.7408, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.9326, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -15.2433, nPoints=1
+Despike: PSFD, delta -1274.71 - slope=20, point = -17.4398, nPoints=1
+Despike: PSFD, delta 896.99 - slope=20, point = -16.2687, nPoints=1
+Despike: HGM232, delta 514.502 - slope=25, point = -17.3623, nPoints=3
+Despike: PSFD, delta -2219.21 - slope=20, point = -17.7275, nPoints=1
+Despike: HGM232, delta 514.502 - slope=25, point = -17.4896, nPoints=2
+Despike: PSFD, delta 897.768 - slope=20, point = -16.9418, nPoints=1
+Despike: PSFD, delta 897.972 - slope=20, point = -17.1853, nPoints=3
+Despike: PSFD, delta 897.904 - slope=20, point = -17.4084, nPoints=1
+Despike: PSFD, delta 897.972 - slope=20, point = -17.5246, nPoints=2
+Despike: PSFD, delta -2219.28 - slope=20, point = -18.301, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -18.5315, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -17.9506, nPoints=1
+Despike: HGM232, delta 513.283 - slope=25, point = -19.4056, nPoints=1
+Despike: HGM232, delta 512.064 - slope=25, point = -17.7902, nPoints=1
+Despike: HGM232, delta 513.283 - slope=25, point = -18.1313, nPoints=3
+Despike: HGM232, delta -8080.25 - slope=25, point = -18.7971, nPoints=1
+Despike: PSFD, delta 954.829 - slope=20, point = -19.1475, nPoints=1
+Despike: PSFD, delta 777.077 - slope=20, point = -14.8025, nPoints=1
+Despike: PSFD, delta 777.28 - slope=20, point = -14.891, nPoints=1
+Despike: PSFD, delta 777.077 - slope=20, point = -14.9334, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -14.9298, nPoints=2
+Despike: PSFD, delta 894.484 - slope=20, point = -14.7914, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -14.7859, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -14.749, nPoints=1
+Despike: PSFD, delta 894.687 - slope=20, point = -14.9334, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -15.0238, nPoints=1
+Despike: HGM232, delta -1054 - slope=25, point = -14.9888, nPoints=1
+Despike: HGM232, delta -3018.74 - slope=25, point = -14.9777, nPoints=1
+Despike: HGM232, delta -6998.82 - slope=25, point = -14.9777, nPoints=1
+Despike: PSFD, delta 777.551 - slope=20, point = -14.9666, nPoints=1
+gpsTans: GSTAT = 0
+Despike: PSFD, delta 934.172 - slope=20, point = -18.1166, nPoints=1
+Despike: PSFD, delta 857.132 - slope=20, point = -18.5094, nPoints=1
+Despike: PSFD, delta 857.132 - slope=20, point = -18.4282, nPoints=1
+Despike: PSFD, delta 933.868 - slope=20, point = -19.3558, nPoints=1
+Despike: PSFD, delta 856.861 - slope=20, point = -18.2844, nPoints=1
+Despike: PSFD, delta 856.522 - slope=20, point = -18.3748, nPoints=1
+Despike: PSFD, delta -2219.35 - slope=20, point = -18.2346, nPoints=3
+Despike: PSFD, delta 933.935 - slope=20, point = -18.6053, nPoints=1
+Despike: PSFD, delta 856.827 - slope=20, point = -17.6592, nPoints=1
+Despike: HGM232, delta 693.115 - slope=25, point = -18.5112, nPoints=1
+Despike: HGM232, delta 693.115 - slope=25, point = -17.023, nPoints=1
+Despike: HGM232, delta 691.896 - slope=25, point = -20.0713, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -19.7781, nPoints=1
+Despike: HGM232, delta 691.896 - slope=25, point = -14.8505, nPoints=1
+Despike: HGM232, delta 690.677 - slope=25, point = -19.2526, nPoints=1
+Despike: PSFD, delta 854.727 - slope=20, point = -17.2074, nPoints=1
+Despike: PSFD, delta 953.136 - slope=20, point = -20.5379, nPoints=1
+Despike: PSFD, delta 898.751 - slope=20, point = -15.9017, nPoints=1
+Despike: PSFD, delta 899.089 - slope=20, point = -15.1751, nPoints=1
+Despike: PSFD, delta 899.225 - slope=20, point = -15.2617, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -14.3746, nPoints=1
+Despike: PSFD, delta 954.965 - slope=20, point = -12.6686, nPoints=1
+Despike: PSFD, delta 894.111 - slope=20, point = -15.1308, nPoints=1
+Despike: HGM232, delta 529.133 - slope=25, point = -16.5564, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -16.2373, nPoints=1
+Despike: PSFD, delta 894.721 - slope=20, point = -16.0492, nPoints=1
+Despike: HGM232, delta 525.475 - slope=25, point = -16.1691, nPoints=1
+Despike: PSFD, delta 894.958 - slope=20, point = -16.6726, nPoints=1
+Despike: HGM232, delta -8058.3 - slope=25, point = -14.3728, nPoints=1
+Despike: PSFD, delta 962.347 - slope=20, point = -17.1023, nPoints=1
+Despike: PSFD, delta 962.923 - slope=20, point = -18.0686, nPoints=3
+Despike: PSFD, delta 987.982 - slope=20, point = -17.8178, nPoints=1
+Despike: PSFD, delta 988.321 - slope=20, point = -17.5301, nPoints=2
+Despike: PSFD, delta 988.084 - slope=20, point = -16.0603, nPoints=2
+Despike: PSFD, delta 963.702 - slope=20, point = -16.3462, nPoints=1
+Despike: HGM232, delta 208.483 - slope=25, point = -17.1355, nPoints=1
+Despike: HGM232, delta 214.579 - slope=25, point = -16.2613, nPoints=1
+Despike: HGM232, delta 214.579 - slope=25, point = -18.2881, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -18.4891, nPoints=1
+Despike: HGM232, delta 214.579 - slope=25, point = -17.5117, nPoints=1
+Despike: PSFD, delta 965.124 - slope=20, point = -16.3203, nPoints=1
+Despike: HGM232, delta 214.579 - slope=25, point = -16.8588, nPoints=1
+Despike: PSFD, delta 990.657 - slope=20, point = -18.5573, nPoints=1
+Despike: PSFD, delta 968.307 - slope=20, point = -17.9488, nPoints=3
+Despike: PSFD, delta 990.657 - slope=20, point = -18.36, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -19.1475, nPoints=1
+Despike: PSFD, delta -2219.38 - slope=20, point = -19.5329, nPoints=1
+Despike: HGM232, delta 206.045 - slope=25, point = -18.2862, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -18.526, nPoints=1
+Despike: HGM232, delta 206.045 - slope=25, point = -17.3918, nPoints=1
+Despike: HGM232, delta 208.483 - slope=25, point = -19.6767, nPoints=3
+Despike: HGM232, delta 207.264 - slope=25, point = -18.7823, nPoints=1
+Despike: PSFD, delta 967.427 - slope=20, point = -18.6311, nPoints=1
+Despike: HGM232, delta 207.264 - slope=25, point = -18.6569, nPoints=3
+Despike: HGM232, delta 204.826 - slope=25, point = -18.8008, nPoints=1
+Despike: HGM232, delta 40.2339 - slope=25, point = -19.8833, nPoints=1
+Despike: HGM232, delta 19966.2 - slope=25, point = -1.18581, nPoints=5
+Despike: HGM232, delta 19972.3 - slope=25, point = -2.5Blanking DPT from 07:25:38 to 07:44:47.
+ The following variables depend upon this variable:
+ 
+Blanking DPTC from 07:25:38 to 07:44:47.
+ The following variables depend upon this variable:
+ 
+Blanking DPT from 08:16:01 to 09:36:25.
+ The following variables depend upon this variable:
+ 
+Blanking DPTC from 08:16:01 to 09:36:25.
+ The following variables depend upon this variable:
+ 
+Blanking DPT from 10:05:08 to 10:09:00.
+ The following variables depend upon this variable:
+ 
+Blanking DPTC from 10:05:08 to 10:09:00.
+ The following variables depend upon this variable:
+ 
+Blanking DPT from 10:40:52 to 10:44:32.
+ The following variables depend upon this variable:
+ 
+Blanking DPTC from 10:40:52 to 10:44:32.
+ The following variables depend upon this variable:
+ 
+Blanking DPT from 10:53:15 to 10:57:32.
+ The following variables depend upon this variable:
+ 
+Blanking DPTC from 10:53:15 to 10:57:32.
+ The following variables depend upon this variable:
+ 
+Blanking DPT from 11:21:21 to 11:45:49.
+ The following variables depend upon this variable:
+ 
+Blanking DPTC from 11:21:21 to 11:45:49.
+ The following variables depend upon this variable:
+ 
+Time interval(s) completed : 05:39:48-15:13:00
+Processing took 4.0 minutes.
+0856, nPoints=1
+Despike: HGM232, delta 19945.5 - slope=25, point = -2.81664, nPoints=3
+Despike: HGM232, delta 19951.1 - slope=25, point = -1.92929, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = -2.15251, nPoints=3
+Despike: HGM232, delta 19945.5 - slope=25, point = -1.70791, nPoints=3
+Despike: HGM232, delta 19957.7 - slope=25, point = -1.55663, nPoints=3
+Despike: HGM232, delta 19962.6 - slope=25, point = -1.30204, nPoints=1
+Despike: HGM232, delta -19951.6 - slope=25, point = -1.12678, nPoints=1
+Despike: HGM232, delta -19972.3 - slope=25, point = -0.667403, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = -0.165591, nPoints=4
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0216881, nPoints=3
+Despike: HGM232, delta -193.243 - slope=25, point = 0.0225898, nPoints=6
+Despike: HGM232, delta -32.2217 - slope=25, point = 0.114836, nPoints=1
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.133285, nPoints=2
+Nimbus completed successfully and created file 181rf06e.nc for raf
+  nimbus has run at least once.
+  Source file for this job is from same flight.
+  Source file is consecutive; skipping nimbus job.
+
+  nimbus has run at least once.
+file is from different flight.
+  Got setting for nimbus_set:  nimbus_p nimbus_sf pr
+  3 nimbus_set = nimbus_p nimbus_sf pr
+  Got setting for nimbus_p:  nimbus
+  Got setting for nimbus_sf:  /usr/local/proj/181/Production/gndproc/setup.181
+  Got setting for pr:  1
+Creating nimbus batch file 181rf10g.batch
+  Batch file follows
+pr=1
+if=/jnet/data/181rf10g.ads
+of=/jnet/data/181rf10g.nc
+sf=/usr/local/proj/181/Production/gndproc/setup.181
+  End of batch file
+Running nimbus for raf with command: nimbus -b 181rf10g.batch
+Version - 3.3.1
+ReadTextFile: can't open /jnet/solaris/proj/defaults/260x.names
+adsIO: failed to locate /jnet/data/181rf10.2d
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+C260X is depending on non-existent variable A260X_RWO, turning off.
+DPLA has no dependencies, turning off.
+DPLA1 has no dependencies, turning off.
+GALTC has no dependencies, turning off.
+RHLA has no dependencies, turning off.
+RHLA1 has no dependencies, turning off.
+DYCOMS-II - 181, Flight rf10
+Loading setup file: /jnet/solaris/proj/181/Production/Flight_rf10
+LoadSetup: can't find ATLH.
+Loading setup file: /usr/local/proj/181/Production/gndproc/setup.181
+XGREFF has no description or units.
+ARDMA_FCR has no description or units.
+TTLH has no description or units.
+CONCR_FCR has no description or units.
+CRDMA_FCR has no description or units.
+DPLA has no description or units.
+DPLA1 has no description or units.
+GALTC has no description or units.
+RHLA has no description or units.
+RHLA1 has no description or units.
+Request for non-existent default, A3.
+Value set to 9.720000e-01 in AMLIB function ophir3Init.
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 23 seconds ending @ 19:50:58, filling in with MISSING_VALUE.
+Version - 3.3.1
+>>>>>>>>>>>>>> Throwing away 6th HVPS housekeeping, dup?
+Checking for 2d file /jnet/data/181rf10g.ads.
+19:48:17
+19:48:18
+19:48:19
+19:48:20
+19:48:21
+19:48:22
+19:48:23
+19:48:24
+cntr=8
+19:48:21
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.00508387, nPoints=2
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = 0.00598561, nPoints=3
+Despike: HGM232, delta 19947.4 - slope=25, point = -0.0161533, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0143084, nPoints=4
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0272228, nPoints=4
+Despike: HGM232, delta 19941.2 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0216881, nPoints=3
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.0336593, nPoints=1
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.0133653, nPoints=3
+Despike: HGM232, delta 30.48 - slope=25, point = -0.00139404, nPoints=7
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.00508387, nPoints=3
+Despike: HGM232, delta 19938.2 - slope=25, point = -0.00692878, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.0299695, nPoints=4
+Despike: HGM232, delta 19970.2 - slope=25, point = 0.0262797, nPoints=3
+Despike: HGM232, delta 19966.2 - slope=25, point = 0.0391941, nPoints=3
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19950.7 - slope=25, point = 0.0244347, nPoints=2
+Despike: HGM232, delta 19941.8 - slope=25, point = 0.0152102, nPoints=4
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0355042, nPoints=2
+Despike: HGM232, delta 19939.4 - slope=25, point = 0.0391941, nPoints=4
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0281246, nPoints=5
+Despike: HGM232, delta 19949.1 - slope=25, point = 0.0502635, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = 0.0447288, nPoints=3
+Despike: HGM232, delta 19973.4 - slope=25, point = 0.0189, nPoints=1
+Despike: HGM232, delta 19966.2 - slope=25, point = -0.00508387, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = -0.00692878, nPoints=3
+Despike: HGM232, delta 19969.9 - slope=25, point = -0.00508387, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0106186, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta -19972.3 - slope=25, point = -0.00877369, nPoints=3
+Despike: PSFD, delta -1014.9 - slope=20, point = -0.00877369, nPoints=15
+Despike: PSFRD, delta 3.69731e+29 - slope=20, point = -0.00323896, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.0428839, nPoints=3
+Despike: PSFD, delta 1014.9 - slope=20, point = 0.0373491, nPoints=1
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.0521085, nPoints=3
+Despike: HGM232, delta 19962.7 - slope=25, point = 0.0115203, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.0447288, nPoints=3
+Despike: HGM232, delta -19967.4 - slope=25, point = 0.0262797, nPoints=6
+Despike: HGM232, delta -19951.4 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0244347, nPoints=3
+Despike: ACINS, delta -4.89393 - slope=4, point = 0.00598561, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19966.7 - slope=25, point = -0.00139404, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19952 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0207449, nPoints=3
+Despike: HGM232, delta 19955.9 - slope=25, point = 0.0207449, nPoints=2
+Despike: HGM232, delta 19946.7 - slope=25, point = 0.0115203, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00598561, nPoints=5
+Despike: HGM232, delta 19947.9 - slope=25, point = 0.00229578, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.00323896, nPoints=5
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.0391941, nPoints=3
+Despike: HGM232, delta 19952.5 - slope=25, point = 0.0594881, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0207449, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.0189, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.0428839, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19953.8 - slope=25, point = 0.00229578, nPoints=2
+Despike: HGM232, delta 19950.4 - slope=25, point = 0.0115203, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0318144, nPoints=3
+Despike: HGM232, delta 19958.9 - slope=25, point = 0.0299695, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0447288, nPoints=3
+Despike: HGM232, delta 19960.1 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19957.4 - slope=25, point = 0.0465737, nPoints=2
+Despike: HGM232, delta 19954 - slope=25, point = 0.0557983, nPoints=3
+Despike: HGM232, delta 19954 - slope=25, point = 0.00783052, nPoints=4
+Despike: HGM232, delta 19948.9 - slope=25, point = 0.0336593, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.0262797, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta 19958.9 - slope=25, point = 0.00598561, nPoints=4
+Despike: HGM232, delta 19976 - slope=25, point = -0.0124635, nPoints=1
+Despike: HGM232, delta 19967.4 - slope=25, point = -0.0290677, nPoints=3
+Despike: HGM232, delta 19972.9 - slope=25, point = 0.00783052, nPoints=1
+Despike: HGM232, delta 19965 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19940.6 - slope=25, point = 0.0207449, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0309126, nPoints=3
+Despike: HGM232, delta 19964.3 - slope=25, point = 0.0502635, nPoints=1
+Despike: HGM232, delta 34.1376 - slope=25, point = 0.0336593, nPoints=2
+Despike: HGM232, delta -19950.4 - slope=25, point = 0.0502635, nPoints=1
+Despike: HGM232, delta 31.6992 - slope=25, point = 0.0225898, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.0576432, nPoints=2
+Despike: HGM232, delta -19945.5 - slope=25, point = 0.0355042, nPoints=1
+Despike: HGM232, delta -120.091 - slope=25, point = -0.110244, nPoints=5
+Despike: HGM232, delta -39.0725 - slope=25, point = 0.00967543, nPoints=1
+Despike: HGM232, delta 32.9184 - slope=25, point = 0.0133653, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 36.576 - slope=25, point = -0.0346025, nPoints=4
+Despike: HGM232, delta -19944.3 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.0115203, nPoints=2
+Despike: HGM232, delta 35.3568 - slope=25, point = 0.0502635, nPoints=2
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.0963864, nPoints=2
+Despike: HGM232, delta -19960.1 - slope=25, point = 0.0336593, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = 0.0668678, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0401372, nPoints=2
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.102864, nPoints=3
+Despike: HGM232, delta -19945.9 - slope=25, point = -0.064121, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0696558, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.084415, nPoints=2
+Despike: HGM232, delta 19945.5 - slope=25, point = 0.00414069, nPoints=3
+Despike: HGM232, delta 19970.6 - slope=25, point = 0.00783052, nPoints=1
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.110244, nPoints=3
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0530516, nPoints=3
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.0512067, nPoints=3
+Despike: HGM232, delta -19952.8 - slope=25, point = -0.0512067, nPoints=2
+Despike: HGM232, delta -19946.3 - slope=25, point = -0.113934, nPoints=1
+Despike: HGM232, delta -25.6032 - slope=25, point = -0.0567414, nPoints=4
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.104709, nPoints=1
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.113934, nPoints=3
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.0179983, nPoints=7
+Despike: HGM232, delta -19949.6 - slope=25, point = 0.0318144, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0309126, nPoints=2
+Despike: HGM232, delta -19949.6 - slope=25, point = 0.0484186, nPoints=1
+Despike: HGM232, delta -19957.7 - slope=25, point = 0.063178, nPoints=1
+Despike: HGM232, delta 34.1376 - slope=25, point = -0.0124635, nPoints=4
+Despike: HGM232, delta 19949.2 - slope=25, point = 0.00598561, nPoints=4
+Despike: HGM232, delta 19945.5 - slope=25, point = 0.00967543, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.00783052, nPoints=2
+Despike: HGM232, delta -29.2608 - slope=25, point = 0.00967543, nPoints=4
+Despike: HGM232, delta 31.6992 - slope=25, point = -0.0788803, nPoints=2
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.117623, nPoints=1
+Despike: HGM232, delta -19960.1 - slope=25, point = -0.152677, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0548965, nPoints=1
+Despike: HGM232, delta -19965 - slope=25, point = -0.064121, nPoints=2
+Despike: HGM232, delta -19946.7 - slope=25, point = -0.0567414, nPoints=2
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.152677, nPoints=2
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.139762, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.148987, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.145297, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = -0.0272228, nPoints=2
+Despike: HGM232, delta -19950 - slope=25, point = -0.0143084, nPoints=1
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.177563, nPoints=4
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.477379, nPoints=2
+Despike: HGM232, delta -19962.6 - slope=25, point = 0.280878, nPoints=1
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.143452, nPoints=4
+Despike: HGM232, delta -19950.4 - slope=25, point = -0.0419821, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.117623, nPoints=6
+Despike: HGM232, delta -19970.5 - slope=25, point = -0.0179983, nPoints=1
+Despike: HGM232, delta 30.48 - slope=25, point = -0.0973294, nPoints=4
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.104709, nPoints=2
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.0991743, nPoints=2
+Despike: HGM232, delta 19940.6 - slope=25, point = -0.0475168, nPoints=2
+Despike: HGM232, delta -19972.3 - slope=25, point = -0.023533, nPoints=3
+Despike: HGM232, delta -19965 - slope=25, point = 0.00414069, nPoints=2
+Despike: HGM232, delta -19961.4 - slope=25, point = 0.00229578, nPoints=1
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.0133653, nPoints=1
+Despike: HGM232, delta 31.6992 - slope=25, point = 0.063178, nPoints=1
+Despike: HGM232, delta -26.8224 - slope=25, point = 0.0687127, nPoints=1
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.0428839, nPoints=1
+Despike: HGM232, delta -19949.2 - slope=25, point = 0.061333, nPoints=1
+Despike: HGM232, delta -40.2336 - slope=25, point = 0.0262797, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = 0.0281246, nPoints=1
+Despike: HGM232, delta -19934.5 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta -19958.9 - slope=25, point = 0.0539534, nPoints=2
+Despike: HGM232, delta 56.0832 - slope=25, point = -0.0253779, nPoints=3
+Despike: HGM232, delta 32.9184 - slope=25, point = 0.00783052, nPoints=2
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.248612, nPoints=2
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.00323896, nPoints=2
+Despike: HGM232, delta -19958.9 - slope=25, point = 0.0262797, nPoints=2
+Despike: HGM232, delta 19938.2 - slope=25, point = -0.00323896, nPoints=6
+Despike: HGM232, delta 19974.8 - slope=25, point = -0.084415, nPoints=2
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.0318144, nPoints=3
+Despike: HGM232, delta -19975.7 - slope=25, point = -0.0143084, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta -19960.9 - slope=25, point = 0.0447288, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.064121, nPoints=1
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.0456719, nPoints=3
+Despike: HGM232, delta -19979.7 - slope=25, point = -0.0309126, nPoints=2
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.00967543, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0364474, nPoints=2
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.00139404, nPoints=2
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.0548965, nPoints=1
+Despike: HGM232, delta -19960.1 - slope=25, point = -0.0327576, nPoints=2
+Despike: HGM232, delta -19952.8 - slope=25, point = -0.0493618, nPoints=2
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.023533, nPoints=3
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta -19955.3 - slope=25, point = -0.0530516, nPoints=1
+Despike: HGM232, delta -19963.8 - slope=25, point = -0.0917947, nPoints=3
+Despike: HGM232, delta 19957.7 - slope=25, point = -0.0862599, nPoints=5
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0678108, nPoints=3
+Despike: HGM232, delta 19962.6 - slope=25, point = -0.0659659, nPoints=3
+Despike: HGM232, delta 19957.1 - slope=25, point = -0.064121, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0585863, nPoints=3
+Despike: HGM232, delta 19956.2 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.00508387, nPoints=4
+Despike: HGM232, delta 19962.6 - slope=25, point = -0.0493618, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.084415, nPoints=5
+Despike: HGM232, delta 19947.6 - slope=25, point = -0.0216881, nPoints=3
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta 19967.4 - slope=25, point = 0.00598561, nPoints=5
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0346025, nPoints=6
+Despike: HGM232, delta 19973 - slope=25, point = -0.0216881, nPoints=1
+Despike: HGM232, delta -19954 - slope=25, point = -0.0604312, nPoints=5
+Despike: HGM232, delta -19944.8 - slope=25, point = -0.0659659, nPoints=2
+Despike: HGM232, delta -19957.7 - slope=25, point = -0.0512067, nPoints=3
+Despike: HGM232, delta -19953.1 - slope=25, point = -0.0401372, nPoints=1
+Despike: HGM232, delta -19955.3 - slope=25, point = -0.0290677, nPoints=3
+Despike: HGM232, delta -19956.1 - slope=25, point = -0.0346025, nPoints=1
+Despike: HGM232, delta -19960.1 - slope=25, point = -0.0401372, nPoints=4
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.104709, nPoints=3
+Despike: HGM232, delta 19951 - slope=25, point = 0.0133653, nPoints=2
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19946.7 - slope=25, point = -0.0364474, nPoints=2
+Despike: HGM232, delta 19943.1 - slope=25, point = -0.0253779, nPoints=3
+Despike: HGM232, delta 19974.2 - slope=25, point = -0.0198432, nPoints=1
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.0346025, nPoints=7
+Despike: HGM232, delta 19953.3 - slope=25, point = -0.0346025, nPoints=2
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.0475168, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.0788803, nPoints=3
+Despike: HGM232, delta 19963.7 - slope=25, point = -0.0493618, nPoints=1
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.0124635, nPoints=4
+Despike: HGM232, delta -19945.5 - slope=25, point = -0.0290677, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0548965, nPoints=2
+Despike: HGM232, delta -19969.1 - slope=25, point = -0.0401372, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta -19962.8 - slope=25, point = -0.0825701, nPoints=2
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.0382923, nPoints=6
+Despike: HGM232, delta -19951.8 - slope=25, point = 0.0152102, nPoints=1
+Despike: HGM232, delta -19951.6 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.043827, nPoints=4
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0364474, nPoints=3
+Despike: HGM232, delta 19968.7 - slope=25, point = -0.0401372, nPoints=4
+Despike: HGM232, delta 19974.8 - slope=25, point = -0.0973294, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0548965, nPoints=4
+Despike: HGM232, delta 19945.5 - slope=25, point = -0.0530516, nPoints=5
+Despike: HGM232, delta 19943.1 - slope=25, point = 0.0281246, nPoints=5
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0355042, nPoints=6
+Despike: HGM232, delta 19967.5 - slope=25, point = 0.0336593, nPoints=1
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0419821, nPoints=5
+Despike: HGM232, delta 19974 - slope=25, point = -0.0807252, nPoints=1
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0253779, nPoints=3
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta 19966.7 - slope=25, point = -0.00877369, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.00229578, nPoints=4
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0179983, nPoints=5
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.00323896, nPoints=3
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.0548965, nPoints=5
+Despike: HGM232, delta -19952.5 - slope=25, point = -0.0290677, nPoints=3
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.00139404, nPoints=5
+Despike: HGM232, delta -19954.6 - slope=25, point = 0.0355042, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.00877369, nPoints=3
+Despike: HGM232, delta 19948.6 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta 19967.4 - slope=25, point = -0.0346025, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.00967543, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0225898, nPoints=5
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0198432, nPoints=3
+Despike: HGM232, delta 19970.4 - slope=25, point = -0.0253779, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0198432, nPoints=6
+Despike: HGM232, delta 19969.4 - slope=25, point = -0.00508387, nPoints=1
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.00877369, nPoints=3
+Despike: HGM232, delta 19950.7 - slope=25, point = 0.0318144, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00229578, nPoints=5
+Despike: HGM232, delta 19964.3 - slope=25, point = -0.0346025, nPoints=1
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.0521085, nPoints=3
+Despike: HGM232, delta -19968.7 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta -19957.9 - slope=25, point = 0.000450869, nPoints=2
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = 0.00783052, nPoints=3
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.0189, nPoints=4
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19952 - slope=25, point = -0.00877369, nPoints=2
+Despike: HGM232, delta 19968.7 - slope=25, point = 0.000450869, nPoints=4
+Despike: HGM232, delta 19952.8 - slope=25, point = 0.0170551, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.041039, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = 0.00414069, nPoints=3
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0161533, nPoints=5
+Despike: HGM232, delta 19943.1 - slope=25, point = -0.0216881, nPoints=2
+Despike: HGM232, delta 19967.4 - slope=25, point = -0.00508387, nPoints=6
+Despike: HGM232, delta 19972.4 - slope=25, point = -0.00323896, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19958.6 - slope=25, point = -0.00692878, nPoints=2
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.00508387, nPoints=2
+Despike: HGM232, delta 19953.2 - slope=25, point = -0.0346025, nPoints=1
+Despike: HGM232, delta 19947.9 - slope=25, point = -0.0678108, nPoints=3
+Despike: HGM232, delta 19973.4 - slope=25, point = -0.0696558, nPoints=1
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0678108, nPoints=3
+Despike: HGM232, delta 19946.4 - slope=25, point = -0.0899498, nPoints=2
+Despike: HGM232, delta 19961.4 - slope=25, point = 0.00783052, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0272228, nPoints=3
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0198432, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0456719, nPoints=3
+Despike: HGM232, delta 19952 - slope=25, point = -0.0973294, nPoints=2
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta 19949.2 - slope=25, point = -0.043827, nPoints=3
+Despike: HGM232, delta 19970.4 - slope=25, point = -0.0788803, nPoints=1
+Despike: HGM232, delta 19951.6 - slope=25, point = -0.0807252, nPoints=5
+Despike: HGM232, delta 19971.2 - slope=25, point = -0.0401372, nPoints=1
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0419821, nPoints=3
+Despike: HGM232, delta 19950.7 - slope=25, point = -0.0419821, nPoints=2
+Despike: HGM232, delta 19960.1 - slope=25, point = -0.0622761, nPoints=3
+Despike: HGM232, delta 19950.4 - slope=25, point = -0.0401372, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0512067, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.023533, nPoints=8
+Despike: HGM232, delta 19945.5 - slope=25, point = 0.0152102, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = -0.0419821, nPoints=4
+Despike: HGM232, delta 19944.3 - slope=25, point = -0.0382923, nPoints=3
+Despike: HGM232, delta 19974 - slope=25, point = -0.0382923, nPoints=1
+Despike: HGM232, delta 19952.8 - slope=25, point = -0.0124635, nPoints=3
+Despike: HGM232, delta 19955.3 - slope=25, point = 0.000450869, nPoints=3
+Despike: HGM232, delta 19961.4 - slope=25, point = -0.00139404, nPoints=4
+Despike: HGM232, delta 29.2608 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.0364474, nPoints=3
+Despike: HGM232, delta 19957.4 - slope=25, point = -0.0715007, nPoints=2
+Despike: HGM232, delta 19968.7 - slope=25, point = -0.0253779, nPoints=4
+Despike: HGM232, delta 19973.5 - slope=25, point = 0.0281246, nPoints=1
+Despike: HGM232, delta -19954 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta -19957.2 - slope=25, point = -0.0364474, nPoints=2
+Despike: HGM232, delta -19951.6 - slope=25, point = -0.0567414, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0512067, nPoints=7
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.101019, nPoints=5
+Despike: HGM232, delta -19963.5 - slope=25, point = -0.0493618, nPoints=2
+Despike: HGM232, delta -19956.5 - slope=25, point = -0.0770354, nPoints=2
+Despike: HGM232, delta 30.48 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.064121, nPoints=2
+Despike: HGM232, delta -19967.4 - slope=25, point = -0.0585863, nPoints=3
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.0272228, nPoints=2
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.0788803, nPoints=6
+Despike: HGM232, delta -19946.7 - slope=25, point = -0.023533, nPoints=2
+Despike: HGM232, delta -19955.3 - slope=25, point = -0.0567414, nPoints=2
+Despike: HGM232, delta 19934.5 - slope=25, point = -0.0493618, nPoints=5
+Despike: HGM232, delta 199Time break of 18 seconds ending @ 20:31:15, filling in with MISSING_VALUE.
+44.3 - slope=25, point = -0.0548965, nPoints=3
+Despike: HGM232, delta 32.9184 - slope=25, point = -0.0309126, nPoints=2
+Despike: HGM232, delta -19961.4 - slope=25, point = 0.0244347, nPoints=2
+Despike: HGM232, delta -19967.4 - slope=25, point = -0.0143084, nPoints=3
+Despike: HGM232, delta -19947.1 - slope=25, point = -0.0309126, nPoints=1
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.0936396, nPoints=3
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.0124635, nPoints=5
+Despike: HGM232, delta -19960 - slope=25, point = -0.0401372, nPoints=2
+Despike: HGM232, delta 19891.9 - slope=25, point = -0.0309126, nPoints=5
+Despike: HGM232, delta 28.0416 - slope=25, point = 0.0281246, nPoints=4
+Despike: HGM232, delta -19941.4 - slope=25, point = 0.0189, nPoints=2
+Despike: HGM232, delta -104.851 - slope=25, point = 0.0447288, nPoints=4
+Despike: HGM232, delta -19956.5 - slope=25, point = 0.0391941, nPoints=1
+Despike: HGM232, delta -19965 - slope=25, point = 0.0576432, nPoints=2
+Despike: HGM232, delta 19943.1 - slope=25, point = 0.0557983, nPoints=5
+Despike: HGM232, delta 19941.8 - slope=25, point = 0.0650229, nPoints=3
+Despike: HGM232, delta -19968.7 - slope=25, point = 0.000450869, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0696558, nPoints=3
+Despike: HGM232, delta -19942.9 - slope=25, point = -0.0991743, nPoints=2
+Despike: HGM232, delta -19945.5 - slope=25, point = -0.0733456, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.348236, nPoints=2
+Despike: HGM232, delta 32.9184 - slope=25, point = -0.492138, nPoints=4
+Despike: HGM232, delta -1008.28 - slope=25, point = -18.692, nPoints=2
+Despike: PSFD, delta -901.629 - slope=20, point = -18.692, nPoints=14
+Despike: PSFRD, delta -902.02 - slope=20, point = -18.692, nPoints=2
+Despike: PSFD, delta 901.731 - slope=20, point = -18.7639, nPoints=1
+Despike: PSFD, delta 793.772 - slope=20, point = -18.5666, nPoints=1
+Despike: PSFD, delta 455.64 - slope=20, point = -17.8787, nPoints=1
+Despike: PSFD, delta 455.843 - slope=20, point = -17.9856, nPoints=1
+Despike: PSFD, delta 455.64 - slope=20, point = -17.9764, nPoints=2
+Despike: PSFD, delta 455.843 - slope=20, point = -17.9838, nPoints=1
+Despike: PSFD, delta 455.674 - slope=20, point = -17.9709, nPoints=1
+Despike: HGM232, delta 2623.11 - slope=25, point = -17.626, nPoints=1
+Despike: HGM232, delta 2621.89 - slope=25, point = -17.39, nPoints=1
+Despike: HGM232, delta -4105.66 - slope=25, point = -17.3771, nPoints=1
+Despike: HGM232, delta 2623.11 - slope=25, point = -17.2664, nPoints=1
+Despike: HGM232, delta 2624.33 - slope=25, point = -17.3752, nPoints=1
+Despike: HGM232, delta -4106.88 - slope=25, point = -17.3328, nPoints=1
+Despike: PSFD, delta 995.432 - slope=20, point = -18.2014, nPoints=1
+Despike: PSFD, delta 995.839 - slope=20, point = -18.0834, nPoints=1
+Despike: PSFD, delta 995.805 - slope=20, point = -18.4522, nPoints=6
+Despike: PSFD, delta 995.737 - slope=20, point = -18.8229, nPoints=1
+Despike: PSFD, delta 995.635 - slope=20, point = -18.4375, nPoints=1
+Despike: PSFD, delta 1004.51 - slope=20, point = -18.1018, nPoints=1
+Despike: PSFD, delta 996.245 - slope=20, point = -20.3387, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -20.4088, nPoints=1
+Despike: PSFD, delta 994.315 - slope=20, point = -17.5726, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -16.7593, nPoints=1
+Despike: HGM232, delta -83.5152 - slope=25, point = -16.6007, nPoints=1
+Despike: HGM232, delta -16522.6 - slope=25, point = -16.5619, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.5546, nPoints=1
+Despike: HGM232, delta -8951.37 - slope=25, point = -17.3365, nPoints=1
+Despike: PSFD, delta 994.857 - slope=20, point = -17.39, nPoints=1
+Despike: HGM232, delta 79.8576 - slope=25, point = -16.2503, nPoints=1
+Despike: PSFD, delta 992.452 - slope=20, point = -15.7763, nPoints=1
+Despike: PSFD, delta 992.486 - slope=20, point = -16.1765, nPoints=1
+Despike: PSFD, delta 992.046 - slope=20, point = -14.749, nPoints=1
+Despike: PSFD, delta 992.622 - slope=20, point = -14.3783, nPoints=2
+Despike: PSFD, delta 992.52 - slope=20, point = -14.4705, nPoints=3
+Despike: PSFD, delta 992.283 - slope=20, point = -16.9474, nPoints=1
+Despike: PSFD, delta 1002.65 - slope=20, point = -16.8939, nPoints=1
+Despike: PSFD, delta 1002.65 - slope=20, point = -16.5785, nPoints=1
+Despike: PSFD, delta 1002.88 - slope=20, point = -17.3236, nPoints=1
+Despike: PSFD, delta 1002.58 - slope=20, point = -16.3978, nPoints=1
+Despike: HGM232, delta 94.488 - slope=25, point = -17.7828, nPoints=1
+Despike: PSFD, delta 991.978 - slope=20, point = -16.4568, nPoints=1
+Despike: HGM232, delta 95.7072 - slope=25, point = -16.7666, nPoints=1
+Despike: HGM232, delta 95.7072 - slope=25, point = -15.2488, nPoints=1
+Despike: HGM232, delta 95.7072 - slope=25, point = -17.851, nPoints=1
+Despike: HGM232, delta 96.9264 - slope=25, point = -16.3425, nPoints=1
+Despike: PSFD, delta -1226.79 - slope=20, point = -15.566, nPoints=1
+Despike: PSFD, delta 991.843 - slope=20, point = -17.6666, nPoints=1
+Despike: PSFD, delta 992.08 - slope=20, point = -17.6316, nPoints=2
+Despike: PSFD, delta 992.114 - slope=20, point = -17.6648, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.1433, nPoints=2
+Despike: HGM232, delta -8928.81 - slope=25, point = -15.9294, nPoints=1
+Despike: HGM232, delta 98.1456 - slope=25, point = -16.6892, nPoints=1
+Despike: HGM232, delta 98.1456 - slope=25, point = -16.3941, nPoints=2
+Despike: PSFD, delta 991.606 - slope=20, point = -16.4421, nPoints=1
+Despike: PSFD, delta 1002.44 - slope=20, point = -16.3148, nPoints=1
+Despike: PSFD, delta 991.707 - slope=20, point = -17.0119, nPoints=1
+Despike: PSFD, delta 990.928 - slope=20, point = -19.3798, nPoints=1
+Despike: PSFD, delta 991.064 - slope=20, point = -18.3766, nPoints=1
+Despike: PSFD, delta 990.962 - slope=20, point = -18.3951, nPoints=3
+Despike: PSFD, delta 990.827 - slope=20, point = -17.5965, nPoints=1
+Despike: PSFD, delta 990.657 - slope=20, point = -17.5762, nPoints=2
+Despike: PSFD, delta 1002.27 - slope=20, point = -17.4342, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -18.0207, nPoints=1
+Despike: HGM232, delta 101.803 - slope=25, point = -18.1996, nPoints=4
+Despike: HGM232, delta 100.584 - slope=25, point = -18.1221, nPoints=1
+Despike: HGM232, delta 100.584 - slope=25, point = -16.4402, nPoints=6
+Despike: PSFD, delta -2219.28 - slope=20, point = -17.674, nPoints=1
+Despike: HGM232, delta 100.584 - slope=25, point = -18.7104, nPoints=3
+Despike: HGM232, delta 100.584 - slope=25, point = -15.6988, nPoints=1
+Despike: HGM232, delta 100.584 - slope=25, point = -20.0787, nPoints=1
+Despike: PSFD, delta 1008.94 - slope=20, point = -17.4803, nPoints=1
+Despike: PSFD, delta 1008.94 - slope=20, point = -16.5287, nPoints=1
+Despike: PSFD, delta 1009.18 - slope=20, point = -16.6836, nPoints=4
+Despike: PSFD, delta 1009.42 - slope=20, point = -16.5343, nPoints=2
+Despike: PSFD, delta 1009.25 - slope=20, point = -17.5449, nPoints=2
+Despike: PSFD, delta 1009.38 - slope=20, point = -17.4877, nPoints=1
+Despike: PSFD, delta 1012.06 - slope=20, point = -17.4582, nPoints=1
+Despike: PSFD, delta 1009.05 - slope=20, point = -17.4564, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.0529, nPoints=1
+Despike: HGM232, delta 27.432 - slope=25, point = -17.1521, nPoints=1
+Despike: HGM232, delta -13602 - slope=25, point = -15.6177, nPoints=1
+Despike: PSFD, delta -1217.75 - slope=20, point = -18.1719, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -16.7869, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -17.4527, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -17.3826, nPoints=1
+Despike: PSFD, delta 1011.96 - slope=20, point = -17.685, nPoints=1
+Despike: HGM232, delta -9079.99 - slope=25, point = -16.1267, nPoints=1
+Despike: PSFD, delta 1008.98 - slope=20, point = -16.75, nPoints=1
+Despike: PSFD, delta 1009.25 - slope=20, point = -16.3222, nPoints=1
+Despike: PSFD, delta 1012.09 - slope=20, point = -16.8828, nPoints=1
+Despike: PSFD, delta 1009.05 - slope=20, point = -17.2037, nPoints=1
+Despike: PSFD, delta 1009.18 - slope=20, point = -17.1115, nPoints=1Switching ADS file to /jnet/data/181rf10h.ads.
+Time break of 153 seconds ending @ 22:03:23, filling in with MISSING_VALUE.
+Switching ADS file to /jnet/data/181rf10i.ads.
+Time break of 45 seconds ending @ 22:07:35, filling in with MISSING_VALUE.
+
+Despike: PSFD, delta 1009.25 - slope=20, point = -17.0746, nPoints=1
+Despike: PSFD, delta 1012.36 - slope=20, point = -17.5486, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -17.3328, nPoints=1
+Despike: PSFD, delta 1009.93 - slope=20, point = -17.6482, nPoints=1
+Despike: PSFD, delta 1008.77 - slope=20, point = -16.1304, nPoints=1
+Despike: PSFD, delta -1217.24 - slope=20, point = -17.0525, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -17.757, nPoints=1
+Despike: HGM232, delta 27.432 - slope=25, point = -17.449, nPoints=1
+Despike: PSFD, delta 1008.57 - slope=20, point = -17.1207, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -16.1654, nPoints=5
+Despike: HGM232, delta 28.6512 - slope=25, point = -17.4305, nPoints=1
+Despike: HGM232, delta 29.8704 - slope=25, point = -16.7021, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -16.7021, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -15.8593, nPoints=1
+Despike: HGM232, delta 28.6512 - slope=25, point = -15.9736, nPoints=1
+Despike: PSFD, delta 901.832 - slope=20, point = -16.0142, nPoints=1
+Despike: PSFD, delta 901.764 - slope=20, point = -16.9455, nPoints=1
+Despike: PSFD, delta 901.426 - slope=20, point = -16.6818, nPoints=1
+Despike: PSFD, delta 901.257 - slope=20, point = -16.6615, nPoints=1
+Despike: PSFD, delta 901.29 - slope=20, point = -16.5711, nPoints=1
+Despike: PSFD, delta 901.527 - slope=20, point = -15.815, nPoints=1
+Despike: PSFD, delta 901.426 - slope=20, point = -15.8574, nPoints=3
+Despike: PSFD, delta 901.358 - slope=20, point = -15.7154, nPoints=1
+Despike: PSFD, delta -1272.03 - slope=20, point = -17.2203, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -17.3328, nPoints=1
+Despike: PSFD, delta 958.013 - slope=20, point = -12.7221, nPoints=1
+Despike: PSFD, delta 911.077 - slope=20, point = -15.9128, nPoints=1
+Despike: PSFD, delta 911.653 - slope=20, point = -15.0976, nPoints=1
+Despike: HGM232, delta 452.933 - slope=25, point = -16.3517, nPoints=1
+Despike: HGM232, delta 452.933 - slope=25, point = -14.7619, nPoints=1
+Despike: HGM232, delta 460.248 - slope=25, point = -17.3568, nPoints=1
+Despike: HGM232, delta 462.686 - slope=25, point = -16.2466, nPoints=2
+Despike: HGM232, delta 463.906 - slope=25, point = -17.7072, nPoints=1
+Despike: PSFD, delta 905.219 - slope=20, point = -16.6892, nPoints=6
+Despike: PSFD, delta 958.927 - slope=20, point = -16.6136, nPoints=1
+Despike: PSFD, delta 904.914 - slope=20, point = -15.3115, nPoints=1
+Despike: PSFD, delta 905.015 - slope=20, point = -15.1271, nPoints=2
+Despike: PSFD, delta 905.388 - slope=20, point = -15.1621, nPoints=1
+Despike: PSFD, delta -1259.98 - slope=20, point = -15.2746, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -18.1018, nPoints=1
+Despike: PSFD, delta 905.828 - slope=20, point = -16.1691, nPoints=1
+Despike: PSFD, delta 906.438 - slope=20, point = -16.9492, nPoints=1
+Despike: HGM232, delta 480.365 - slope=25, point = -15.5753, nPoints=2
+Despike: HGM232, delta 481.584 - slope=25, point = -17.0285, nPoints=1
+Despike: PSFD, delta 906.404 - slope=20, point = -16.1175, nPoints=1
+Despike: PSFD, delta 926.316 - slope=20, point = -19.378, nPoints=1
+Despike: PSFD, delta 926.248 - slope=20, point = -19.3835, nPoints=3
+Despike: PSFD, delta 926.079 - slope=20, point = -18.2789, nPoints=3
+Despike: PSFD, delta -2219.24 - slope=20, point = -19.3153, nPoints=1
+Despike: PSFD, delta 926.011 - slope=20, point = -19.129, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -19.5642, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -19.6601, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -20.1506, nPoints=1
+Despike: PSFD, delta 922.828 - slope=20, point = -19.1327, nPoints=1
+Despike: HGM232, delta 409.042 - slope=25, point = -18.0981, nPoints=1
+Despike: PSFD, delta 922.862 - slope=20, point = -18.7104, nPoints=1
+Despike: HGM232, delta -8310.68 - slope=25, point = -19.2433, nPoints=2
+Despike: HGM232, delta -8313.73 - slope=25, point = -19.0405, nPoints=1
+Despike: HGM232, delta 402.946 - slope=25, point = -18.5573, nPoints=1
+Despike: PITCH, delta -0.490952 - slope=0.3, point = -20.6651, nPoints=45
+Despike: ROLL, delta -0.722866 - slope=0.3, point = -20.6651, nPoints=37
+Despike: PSFD, delta -1231.63 - slope=20, point = -16.667, nPoints=1
+Despike: PSFD, delta 960.857 - slope=20, point = -16.656, nPoints=1
+Despike: PSFD, delta 960.62 - slope=20, point = -18.0115, nPoints=1
+Despike: PSFD, delta 960.519 - slope=20, point = -17.6777, nPoints=1
+Despike: PSFD, delta 960.519 - slope=20, point = -17.6482, nPoints=1
+Despike: PSFD, delta 960.756 - slope=20, point = -17.0101, nPoints=1
+Despike: PSFD, delta 960.688 - slope=20, point = -17.023, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -16.3996, nPoints=1
+Despike: HGM232, delta 237.744 - slope=25, point = -16.1765, nPoints=1
+Despike: HGM232, delta -8653.88 - slope=25, point = -17.0285, nPoints=1
+Despike: HGM232, delta 237.744 - slope=25, point = -16.088, nPoints=1
+Despike: HGM232, delta 238.963 - slope=25, point = -16.0621, nPoints=1
+Despike: PSFD, delta 961.467 - slope=20, point = -16.9345, nPoints=7
+Despike: PSFD, delta 961.907 - slope=20, point = -17.7754, nPoints=1
+Despike: PSFD, delta -2219.21 - slope=20, point = -17.8676, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -17.4029, nPoints=1
+Despike: PSFD, delta 961.196 - slope=20, point = -18.1959, nPoints=1
+Despike: HGM232, delta 237.744 - slope=25, point = -16.6265, nPoints=1
+Despike: HGM232, delta 236.525 - slope=25, point = -18.2143, nPoints=4
+Despike: HGM232, delta 237.744 - slope=25, point = -17.2332, nPoints=1
+Despike: HGM232, delta 235.306 - slope=25, point = -17.6057, nPoints=1
+Despike: PSFD, delta 961.839 - slope=20, point = -17.6555, nPoints=1
+Despike: PSFD, delta 987.644 - slope=20, point = -17.6223, nPoints=1
+Despike: PSFD, delta 963.126 - slope=20, point = -17.757, nPoints=1
+Despike: PSFD, delta 869.221 - slope=20, point = -15.6398, nPoints=1
+Despike: PSFD, delta 870.068 - slope=20, point = -15.7486, nPoints=1
+Despike: PSFD, delta 871.016 - slope=20, point = -16.7482, nPoints=1
+Despike: PSFD, delta 871.287 - slope=20, point = -16.7722, nPoints=1
+Despike: PSFD, delta -2219.28 - slope=20, point = -16.5619, nPoints=1
+Despike: PSFD, delta 874.098 - slope=20, point = -16.6984, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -17.4084, nPoints=1
+Despike: HGM232, delta 585.216 - slope=25, point = -19.8851, nPoints=1
+Despike: HGM232, delta 590.093 - slope=25, point = -18.301, nPoints=1
+Despike: PSFD, delta -2219.24 - slope=20, point = -18.384, nPoints=1
+Despike: HGM232, delta 598.627 - slope=25, point = -16.8939, nPoints=1
+Despike: PSFD, delta 900.071 - slope=20, point = -20.6006, nPoints=1
+Despike: PSFD, delta 898.039 - slope=20, point = -19.2157, nPoints=1
+Despike: PSFD, delta 897.667 - slope=20, point = -18.1295, nPoints=3
+Despike: PSFD, delta 897.599 - slope=20, point = -20.4604, nPoints=1
+Despike: PSFD, delta 897.565 - slope=20, point = -20.608, nPoints=1
+Despike: PSFD, delta 896.651 - slope=20, point = -20.6338, nPoints=1
+Despike: PSFD, delta 953.746 - slope=20, point = -18.7196, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -18.0926, nPoints=1
+Despike: HGM232, delta -7976.01 - slope=25, point = -18.0723, nPoints=1
+Despike: PSFD, delta 892.147 - slope=20, point = -20.4254, nPoints=1
+Despike: PSFD, delta 893.603 - slope=20, point = -18.7989, nPoints=1
+Despike: PSFD, delta 894.077 - slope=20, point = -18.561, nPoints=1
+Despike: HGM232, delta 521.818 - slope=25, point = -19.0663, nPoints=2
+Despike: HGM232, delta 516.941 - slope=25, point = -21.3548, nPoints=1
+Despike: PSFD, delta 883.376 - slope=20, point = -21.9228, nPoints=1
+Despike: PSFD, delta 883.952 - slope=20, point = -22.0979, nPoints=1
+Despike: PSFD, delta 884.765 - slope=20, point = -22.0426, nPoints=1
+Despike: PSFD, delta 884.9 - slope=20, point = -21.849, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -21.8177, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -22.8171, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -23.3721, nPoints=1
+Despike: PSFD, delta -2219.38 - slope=2ReadTextFile: can't open /jnet/solaris/proj/181/Production/BlankOuts.rf10
+Time interval(s) completed : 19:48:23-00:03:39
+Processing took 1.5 minutes.
+0, point = -23.3961, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -23.3924, nPoints=1
+Despike: PSFD, delta 908.47 - slope=20, point = -24.5135, nPoints=1
+Despike: PSFD, delta 909.113 - slope=20, point = -23.1361, nPoints=1
+Despike: HGM232, delta 451.714 - slope=25, point = -23.7225, nPoints=1
+Despike: PSFD, delta 913.38 - slope=20, point = -24.3181, nPoints=1
+Despike: PSFD, delta 963.126 - slope=20, point = -21.7882, nPoints=1
+Despike: HGM232, delta -8241.18 - slope=25, point = -23.4625, nPoints=1
+Despike: HGM232, delta -5205.98 - slope=25, point = -25.2769, nPoints=1
+Despike: PSFD, delta 869.797 - slope=20, point = -17.1281, nPoints=1
+Despike: PSFD, delta -1289.88 - slope=20, point = -16.667, nPoints=1
+Despike: PSFD, delta 837.694 - slope=20, point = -15.7007, nPoints=1
+Despike: PSFD, delta -1465.7 - slope=20, point = -28.1053, nPoints=1
+Despike: PSFD, delta 491.502 - slope=20, point = -27.8932, nPoints=1
+Despike: PSFD, delta 491.13 - slope=20, point = -27.9043, nPoints=1
+Despike: PSFD, delta 491.028 - slope=20, point = -27.8269, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -27.7937, nPoints=1
+Despike: PSFD, delta 491.908 - slope=20, point = -25.4484, nPoints=1
+Despike: HGM232, delta -2446.93 - slope=25, point = -25.1755, nPoints=1
+Despike: PSFD, delta 798.547 - slope=20, point = -22.6124, nPoints=1
+Despike: PSFD, delta 906.099 - slope=20, point = -22.6106, nPoints=1
+Despike: PSFD, delta 906.133 - slope=20, point = -22.6069, nPoints=3
+Despike: PSFD, delta 798.581 - slope=20, point = -22.4741, nPoints=1
+Despike: PSFD, delta -1323.17 - slope=20, point = -22.4667, nPoints=1
+Despike: PSFD, delta 798.75 - slope=20, point = -22.4631, nPoints=1
+Despike: PSFD, delta 906.099 - slope=20, point = -22.4243, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -22.3745, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -22.345, nPoints=2
+Despike: HGM232, delta -9845.65 - slope=25, point = -20.9399, nPoints=1
+Despike: PSFD, delta 906.302 - slope=20, point = -20.8256, nPoints=1
+Despike: PSFD, delta 906.201 - slope=20, point = -20.868, nPoints=1
+Despike: HGM232, delta 962.558 - slope=25, point = -20.8293, nPoints=3
+Despike: HGM232, delta 962.558 - slope=25, point = -20.6227, nPoints=1
+Despike: PSFD, delta 906.268 - slope=20, point = -20.6172, nPoints=1
+Despike: HGM232, delta 962.558 - slope=25, point = -20.5711, nPoints=1
+Despike: HGM232, delta 963.778 - slope=25, point = -20.3092, nPoints=1
+Despike: PSFD, delta -2219.34 - slope=20, point = -20.3203, nPoints=1
+Despike: PSFD, delta 798.953 - slope=20, point = -21.0376, nPoints=1
+Despike: PSFD, delta 798.953 - slope=20, point = -21.0432, nPoints=1
+Despike: PSFD, delta 905.93 - slope=20, point = -20.9971, nPoints=2
+Despike: PSFD, delta 798.92 - slope=20, point = -20.9915, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -21.0303, nPoints=1
+Despike: PSFD, delta -2219.31 - slope=20, point = -21.0321, nPoints=1
+Despike: HGM232, delta 964.997 - slope=25, point = -21.0081, nPoints=1
+Despike: HGM232, delta 964.997 - slope=25, point = -21.0376, nPoints=1
+Despike: PSFD, delta -1323.64 - slope=20, point = -21.0174, nPoints=1
+Despike: PSFD, delta 798.073 - slope=20, point = -21.1391, nPoints=1
+Despike: HGM232, delta 19938.2 - slope=25, point = -1.1895, nPoints=2
+Despike: HGM232, delta 19949.2 - slope=25, point = -1.20795, nPoints=3
+Despike: HGM232, delta 19969.8 - slope=25, point = -1.15998, nPoints=1
+Despike: HGM232, delta -97.536 - slope=25, point = -1.10464, nPoints=7
+Despike: HGM232, delta -19961.4 - slope=25, point = -0.724594, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.619435, nPoints=1
+Despike: HGM232, delta 26.8224 - slope=25, point = -0.774406, nPoints=5
+Despike: HGM232, delta -19935.3 - slope=25, point = -0.582538, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.661868, nPoints=1
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.519812, nPoints=5
+Despike: HGM232, delta -204.216 - slope=25, point = -0.246767, nPoints=3
+Despike: HGM232, delta -121.31 - slope=25, point = -0.272595, nPoints=4
+Despike: HGM232, delta -19962.6 - slope=25, point = -0.200644, nPoints=2
+Despike: HGM232, delta -19958.9 - slope=25, point = -0.0530516, nPoints=4
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.0336593, nPoints=2
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.0216881, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = -0.00877369, nPoints=1
+Despike: HGM232, delta -25.6032 - slope=25, point = -0.00877369, nPoints=1
+Despike: HGM232, delta 28.0416 - slope=25, point = 0.168338, nPoints=2
+Despike: HGM232, delta -19952.8 - slope=25, point = 0.0945415, nPoints=5
+Despike: HGM232, delta -19954.7 - slope=25, point = 0.109301, nPoints=3
+Despike: HGM232, delta 26.8224 - slope=25, point = 0.0447288, nPoints=4
+Despike: HGM232, delta -19967 - slope=25, point = 0.142509, nPoints=2
+Despike: HGM232, delta 19956.5 - slope=25, point = 0.0539534, nPoints=3
+Despike: HGM232, delta 19953.5 - slope=25, point = 0.00229578, nPoints=2
+Despike: HGM232, delta 19957.7 - slope=25, point = 0.0133653, nPoints=3
+Despike: HGM232, delta 19973.4 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta 19956.5 - slope=25, point = -0.043827, nPoints=6
+Despike: HGM232, delta 19973.5 - slope=25, point = -0.0622761, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.0225898, nPoints=1
+Despike: HGM232, delta -19972.3 - slope=25, point = 0.00414069, nPoints=1
+Despike: HGM232, delta -19954 - slope=25, point = 0.0318144, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = 0.0225898, nPoints=3
+Despike: HGM232, delta -19940.6 - slope=25, point = 0.0281246, nPoints=1
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.0244347, nPoints=3
+Despike: HGM232, delta -19962.8 - slope=25, point = 0.0244347, nPoints=2
+Despike: HGM232, delta -68.2752 - slope=25, point = 0.0133653, nPoints=3
+Despike: HGM232, delta 29.2608 - slope=25, point = 0.0225898, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = 0.00783052, nPoints=5
+Despike: HGM232, delta -19959.3 - slope=25, point = 0.00414069, nPoints=2
+Despike: HGM232, delta -19969.9 - slope=25, point = -0.0106186, nPoints=1
+Despike: HGM232, delta 19911.4 - slope=25, point = -0.00139404, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.0216881, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.0161533, nPoints=3
+Despike: HGM232, delta -19970.2 - slope=25, point = 0.00229578, nPoints=2
+Despike: HGM232, delta -19971.1 - slope=25, point = -0.00692878, nPoints=1
+Despike: HGM232, delta -19956.5 - slope=25, point = 0.0152102, nPoints=4
+Despike: HGM232, delta -19953.3 - slope=25, point = 0.00598561, nPoints=2
+Despike: HGM232, delta -19968.7 - slope=25, point = 0.00783052, nPoints=4
+Despike: HGM232, delta -19973.5 - slope=25, point = 0.00414069, nPoints=2
+Despike: HGM232, delta 25.6032 - slope=25, point = -0.00139404, nPoints=3
+Despike: HGM232, delta -19952.2 - slope=25, point = -0.0106186, nPoints=1
+Despike: HGM232, delta -19966.2 - slope=25, point = -0.00877369, nPoints=2
+Despike: HGM232, delta -19935.7 - slope=25, point = -0.00877369, nPoints=5
+Nimbus completed successfully and created file 181rf10g.nc for raf
+  nimbus has run at least once.
+  Source file for this job is from same flight.
+  Source file is consecutive; skipping nimbus job.
+
+  nimbus has run at least once.
+  Source file for this job is from same flight.
+  Source file is consecutive; skipping nimbus job.
+
+Starting job copy_cdf_joss @ Fri Jun 6 13:22:07 MDT 2003.
+  j_type = copy
+  f_type = cdf
+  user = joss
+  Job copy_cdf_joss passed initial tests.
+
+  Got setting for copy_set:  copy_type copy_p zip login pwd dest ddp
+  7 copy_set = copy_type copy_p zip login pwd dest ddp
+  Got setting for copy_type:  ftp
+  Got setting for copy_p:  /usr/bin/ftp
+  Got setting for zip:  no
+  Got setting for login:  raf-bamex
+  Got setting for pwd:  303xfr2J
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Creating ftp command file /h/9/ruth/.netrc
+  ftp command file follows
+machine vivaldi.atd.ucar.edu
+login raf-bamex
+password 303xfr2J
+macdef init
+bi
+cd /jnet/data/migs/ruth
+put /jnet/data/181rf06e.nc
+quit
+
+  End of command file
+   Running ftp vivaldi.atd.ucar.edu
+Connected to vivaldi.atd.ucar.edu (128.117.84.8).
+220 vivaldi.atd.ucar.edu FTP server (Version wu-2.6.1-18) ready.
+331 Password required for raf-bamex.
+230 User raf-bamex logged in.
+bi
+200 Type set to I.
+cd /jnet/data/migs/ruth
+250 CWD command successful.
+put /jnet/data/181rf06e.nc
+local: /jnet/data/181rf06e.nc remote: /jnet/data/181rf06e.nc
+227 Entering Passive Mode (128,117,84,8,132,172)
+150 Opening BINARY mode data connection for /jnet/data/181rf06e.nc.
+226 Transfer complete.
+4096 bytes sent in 0.00763 secs (5.2e+02 Kbytes/sec)
+quit
+221-You have transferred 4096 bytes in 1 files.
+221-Total traffic for this session was 4560 bytes in 1 transfers.
+221 Thank you for using the FTP service on vivaldi.atd.ucar.edu.
+Copied file 181rf06e.nc to joss via ftp
+  Got setting for copy_set:  copy_type copy_p zip login pwd dest ddp
+  7 copy_set = copy_type copy_p zip login pwd dest ddp
+  Got setting for copy_type:  ftp
+  Got setting for copy_p:  /usr/bin/ftp
+  Got setting for zip:  no
+  Got setting for login:  raf-bamex
+  Got setting for pwd:  303xfr2J
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Cannot find file 181rf06f.nc for joss. Skipping to next job.
+  Got setting for copy_set:  copy_type copy_p zip login pwd dest ddp
+  7 copy_set = copy_type copy_p zip login pwd dest ddp
+  Got setting for copy_type:  ftp
+  Got setting for copy_p:  /usr/bin/ftp
+  Got setting for zip:  no
+  Got setting for login:  raf-bamex
+  Got setting for pwd:  303xfr2J
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Creating ftp command file /h/9/ruth/.netrc
+  ftp command file follows
+machine vivaldi.atd.ucar.edu
+login raf-bamex
+password 303xfr2J
+macdef init
+bi
+cd /jnet/data/migs/ruth
+put /jnet/data/181rf10g.nc
+quit
+
+  End of command file
+   Running ftp vivaldi.atd.ucar.edu
+Connected to vivaldi.atd.ucar.edu (128.117.84.8).
+220 vivaldi.atd.ucar.edu FTP server (Version wu-2.6.1-18) ready.
+331 Password required for raf-bamex.
+230 User raf-bamex logged in.
+bi
+200 Type set to I.
+cd /jnet/data/migs/ruth
+250 CWD command successful.
+put /jnet/data/181rf10g.nc
+local: /jnet/data/181rf10g.nc remote: /jnet/data/181rf10g.nc
+227 Entering Passive Mode (128,117,84,8,97,128)
+150 Opening BINARY mode data connection for /jnet/data/181rf10g.nc.
+226 Transfer complete.
+167936 bytes sent in 0.0183 secs (9e+03 Kbytes/sec)
+quit
+221-You have transferred 167936 bytes in 1 files.
+221-Total traffic for this session was 168401 bytes in 1 transfers.
+221 Thank you for using the FTP service on vivaldi.atd.ucar.edu.
+Copied file 181rf10g.nc to joss via ftp
+  Got setting for copy_set:  copy_type copy_p zip login pwd dest ddp
+  7 copy_set = copy_type copy_p zip login pwd dest ddp
+  Got setting for copy_type:  ftp
+  Got setting for copy_p:  /usr/bin/ftp
+  Got setting for zip:  no
+  Got setting for login:  raf-bamex
+  Got setting for pwd:  303xfr2J
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Cannot find file 181rf10h.nc for joss. Skipping to next job.
+  Got setting for copy_set:  copy_type copy_p zip login pwd dest ddp
+  7 copy_set = copy_type copy_p zip login pwd dest ddp
+  Got setting for copy_type:  ftp
+  Got setting for copy_p:  /usr/bin/ftp
+  Got setting for zip:  no
+  Got setting for login:  raf-bamex
+  Got setting for pwd:  303xfr2J
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Cannot find file 181rf10i.nc for joss. Skipping to next job.
+Starting job copy_cdf_raf @ Fri Jun 6 13:22:09 MDT 2003.
+  j_type = copy
+  f_type = cdf
+  user = raf
+  Job copy_cdf_raf passed initial tests.
+
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+  Got setting for copy_type:  scp
+  Got setting for copy_p:  /usr/bin/scp
+  Got setting for zip:  yes
+  Got setting for login:  ruth
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+   gzipping /jnet/data/181rf06e.nc
+   gzipped /jnet/data/181rf06e.nc
+Beginning scp /jnet/data/181rf06e.nc.gz to raf
+   /usr/bin/scp /jnet/data/181rf06e.nc.gz ruth@vivaldi.atd.ucar.edu:/jnet/data/migs/ruth/181rf06e.nc.gz
+Copied file 181rf06e.nc.gz to raf via scp
+   Gunzipped file /jnet/data/181rf06e.nc.gz
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+  Got setting for copy_type:  scp
+  Got setting for copy_p:  /usr/bin/scp
+  Got setting for zip:  yes
+  Got setting for login:  ruth
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Cannot find file 181rf06f.nc for raf. Skipping to next job.
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+  Got setting for copy_type:  scp
+  Got setting for copy_p:  /usr/bin/scp
+  Got setting for zip:  yes
+  Got setting for login:  ruth
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+   gzipping /jnet/data/181rf10g.nc
+   gzipped /jnet/data/181rf10g.nc
+Beginning scp /jnet/data/181rf10g.nc.gz to raf
+   /usr/bin/scp /jnet/data/181rf10g.nc.gz ruth@vivaldi.atd.ucar.edu:/jnet/data/migs/ruth/181rf10g.nc.gz
+Copied file 181rf10g.nc.gz to raf via scp
+   Gunzipped file /jnet/data/181rf10g.nc.gz
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+  Got setting for copy_type:  scp
+  Got setting for copy_p:  /usr/bin/scp
+  Got setting for zip:  yes
+  Got setting for login:  ruth
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Cannot find file 181rf10h.nc for raf. Skipping to next job.
+  Got setting for copy_set:  copy_type copy_p zip login dest ddp
+  6 copy_set = copy_type copy_p zip login dest ddp
+  Got setting for copy_type:  scp
+  Got setting for copy_p:  /usr/bin/scp
+  Got setting for zip:  yes
+  Got setting for login:  ruth
+  Got setting for dest:  vivaldi.atd.ucar.edu
+  Got setting for ddp:  /jnet/data/migs/ruth
+Cannot find file 181rf10i.nc for raf. Skipping to next job.
+
+Finished processing all jobs
+
+  Logfile name is /jnet/data/181rf06e.log
+Log file for this job is /jnet/data/181rf06e.log
+/jnet/solaris/proj/archives/scripts/ngndproc script completed @ Fri Jun 6 13:22:12 MDT 2003

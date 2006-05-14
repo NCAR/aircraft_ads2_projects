@@ -1,0 +1,38 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 1998-106 WiFE (Wild Fires Experiment) (Larry Radke, Terry Clark)
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Fri Oct 30 16:13:17 MST 1998
+#
+date
+#
+set YEAR = 1998
+set PROJ = 106
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = LRT
+#
+echo nrnet msput $SDIR/106ff02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106ff06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/106rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Mon Nov  9 13:55:01 MST 1998
+# Sequence number = MI0082 -- LRT/FF02.cdf -- OK @ 9 Nov 1998 13:57:29
+# Sequence number = MI0087 -- LRT/FF06.cdf -- OK @ 9 Nov 1998 13:57:36
+# Sequence number = MI0094 -- LRT/RF01.cdf -- OK @ 9 Nov 1998 13:57:32
+# Sequence number = MI0102 -- LRT/RF02.cdf -- OK @ 9 Nov 1998 14:02:06
+# Sequence number = MI0110 -- LRT/RF03.cdf -- OK @ 9 Nov 1998 13:57:48
+# Sequence number = MI0118 -- LRT/RF04.cdf -- OK @ 9 Nov 1998 14:01:23
+# Sequence number = MI0125 -- LRT/RF05.cdf -- OK @ 9 Nov 1998 14:05:07
+# Sequence number = MI0132 -- LRT/RF06.cdf -- OK @ 9 Nov 1998 14:01:37
+# Sequence number = MI0139 -- LRT/RF07.cdf -- OK @ 9 Nov 1998 14:01:47
+#

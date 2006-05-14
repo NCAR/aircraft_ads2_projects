@@ -1,0 +1,97 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1996-110 Coastally Trapped Waves (Rogers)
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+#  Get initialization info
+#set YEAR = 1996
+#set PROJ = 110
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+#
+set SKIPS = "skpr=0"
+#set SKIPS = "skpr=15000"
+#set SKIPS = "skpr=30000"
+#set SKIPS = "skpr=45000"
+#set SKIPS = "nrec=15000"
+set RECS = "nfile=1"
+#
+#
+# 1st set, 1st try
+#set TAPES   = ( R1078 R1079 R1080 R1081 R1082 R1083 R1084 R1085 R1086 \
+#                R1088 R1089 R1090 )
+#set FLIGHTS = ( RF01  RF02  RF03  RF04A RF04B RF05  RF06  RF07A RF07B \
+#                RF09  RF10  RF11 )
+#
+# 1st set, 2nd try
+#set TAPES   = ( R1078 R1079 )
+#set FLIGHTS = ( RF01  RF02  )
+#
+# 2nd set, 1st try
+set TAPES   = ( R1087 )
+set FLIGHTS = ( RF08  )
+#
+#  Get started:
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $SKIP $REC \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+# 1st set, 1st try
+#  Job(s) submitted on Mon Jul 22 12:34:57 MDT 1996
+# Sequence number = MI6004 -- RF01/R1078 -- Failed* @ 22 Jul 1996 13:25:07
+# Sequence number = MI6012 -- RF02/R1079 -- Failed* @ 22 Jul 1996 12:51:22
+# Sequence number = MI6019 -- RF03/R1080 -- OK @ 22 Jul 1996 12:46:19
+# Sequence number = MI6026 -- RF04A/R1081 -- OK @ 22 Jul 1996 13:17:26
+# Sequence number = MI6033 -- RF04B/R1082 -- OK @ 22 Jul 1996 13:30:58
+# Sequence number = MI6040 -- RF05/R1083 -- OK @ 22 Jul 1996 13:08:51
+# Sequence number = MI6047 -- RF06/R1084 -- OK @ 22 Jul 1996 13:42:39
+# Sequence number = MI6054 -- RF07A/R1085 -- OK @ 22 Jul 1996 13:48:01
+# Sequence number = MI6061 -- RF07B/R1086 -- OK @ 22 Jul 1996 14:56:13
+# Sequence number = MI6068 -- RF09/R1088 -- OK @ 22 Jul 1996 14:12:42
+# Sequence number = MI6075 -- RF10/R1089 -- OK @ 22 Jul 1996 14:29:40
+# Sequence number = MI6082 -- RF11/R1090 -- OK @ 22 Jul 1996 14:00:02
+#                   *Failure mode:  DATA CHECK ENCOUNTERED. RCODE=        20
+#
+# 1st set, 2nd try
+#  Job(s) submitted on Mon Jul 22 15:03:59 MDT 1996
+# Sequence number = MI7130 -- RF01/R1078 -- OK @ 22 Jul 1996 15:20:04
+# Sequence number = MI7138 -- RF02/R1079 -- OK @ 22 Jul 1996 15:41:38
+#
+# 2nd set, 1st try
+#  Job(s) submitted on Wed Jul 24 10:44:44 MDT 1996
+# Sequence number = MI0972 -- RF08/R1087 -- OK @ 24 Jul 1996 11:07:17
+#

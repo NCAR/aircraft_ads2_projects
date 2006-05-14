@@ -1,0 +1,49 @@
+#! /bin/csh -f
+#
+#  Rename production netCDF header file from 106rf01.hdr to RF01.hdr
+#
+#
+#  :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+set YEAR = 1998
+set PROJ = 106
+set TURBRT = LRT
+#
+#  Get started
+#
+date
+#
+set ONAMES = ( \
+106rf01.hdr \
+)
+#
+set NNAMES = ( \
+RF01.hdr \
+)
+#
+if ($#ONAMES != $#NNAMES) then
+  echo "Need same number of source and destination names.  Quitting"
+  exit 1
+endif
+set todo = $#ONAMES
+set num = 1
+while ($num <= $todo)
+  set ONAME = $ONAMES[$num]
+  set NNAME = $NNAMES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$ONAME \
+    newf=/RAF/$YEAR/$PROJ/$TURBRT/$NNAME wpwd=RAFDMG
+  @ num ++
+end
+#
+# Done.
+exit
+#
+# Job(s) submitted onMon Nov  9 16:41:13 MST 1998
+# Sequence number = MI0634 -- LRT/RF01.hdr -- OK @ 9 Nov 1998 16:42:53
+# Sequence number = MI0697 -- LRT/RF01.hdr -- OK @ 9 Nov 1998 16:58:57
+#  The latter one actually gave the file the correct full path name.  RLR
+#

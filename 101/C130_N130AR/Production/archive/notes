@@ -1,0 +1,43 @@
+Archive notes -- Project 1998-101 SHEBA
+---------------------------------------
+
+10 July 1998  Ron Ruth
+----------------------
+This project created the largest-ever raw ADS files for any RAF project.
+Because of the current limitation of the `msimport' command on the SCD Mass
+Store System (MSS), these files had to be split up into segments much as was
+done when the MSS had a much smaller capacity.
+
+The tape for RF06 staged incorrectly at first but produced the bogus bitfile:
+  /RAF/1998/101/RF06/R1267.  It was removed on 10 July 1998.
+# chinook/ron % nrnet msrm % r flnm=/RAF/1998/101/RF06/R1267 wpwd=RAFDMG
+# Sequence number = MI5845
+# chinook/ron % date
+# Fri Jul 10 15:45:28 MDT 1998
+#  From SCD email message, bitfile removed @ 10 Jul 1998 15:45:29
+
+10 August 1998  Ron Ruth
+------------------------
+I began archiving the raw ADS tapes for SHEBA Phase II.
+
+13 August 1998  Ron Ruth
+------------------------
+Archiving is progressing slowly.  To date the average wall-clock time to
+complete a job has been about 151 minutes.  There have been two failures
+(apparently caused by jobs hanging).  In one case it was restarted by the
+operator and rerun to successful completion; in the other, the operator
+dropped the job.  In the latter case the job seems to have written a complete
+bitfile, but it will have to be redone to make sure.  The number of jobs per
+day also has been disappointing; for the Phase II jobs so far (3 days), only
+12 jobs have completed (9 successfully).
+
+18 August 1998  Ron Ruth
+------------------------
+Archiving of the raw ADS tapes for Phase II is now complete.  In general
+operator error was responsible for most of the tape-archive failures, but
+things would be eased if the source tapes were split into manageable files
+in the first place.
+
+---------------------------------------
+See the file "tapes.101" in this directory and "tp2ms.summary" in the
+parent directory for a complete list of raw ADS tapes and MSS bitfiles.

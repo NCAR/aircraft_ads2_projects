@@ -1,0 +1,86 @@
+This directory contains templates and instructions for generating on-line
+status reports for "real-time" web sites.  This software was originally
+developed for the IDEAS-3 and AIRS-2 projects in 2003.  This file has been
+updated with a few specifics for RICO.
+
+The original perl script, written by Steve Roberts (JOSS) was adapted for
+RAF by Ron Ruth in October 2003.
+
+The template perl script for the status reports is:
+  ~rafwww/Instrument_Status/C130Q_status.pl
+(A copy now resides in this directory as C130Q_status.pl_orig.)
+
+Operationally, the customized perl script resides here:
+  atd-gw:/etc/httpd/cgi-bin/RICO/C130_status.pl
+
+Project customization of the perl script is accomplished by the C-shell
+script:  ~rafwww/bin/gen_inst_list
+When run, it generates two "insertion" files that are used to modify
+the template script with the customized instrument list for a given project.
+
+Usage:  gen_inst_list [projno]
+  where:  [projno] is the 3-digit project number
+(Note:  the script expects the "C130Q_instrument_list.txt" file to be in the
+Web subdirectory, not this one.  Move things temporarily.)
+
+The text file:
+    $LOCAL/proj/135/Web/C130Q_instrument_list.txt
+is used as an instrument-list source file for the script.
+(Use the file:
+    ~rafwww/Instrument_Status/C130Q_instrument_list.txt
+as an example.)
+
+The script, when run, creates/overwrites two files:
+    $LOCAL/proj/[projno]/Web/C130Q_list_in.[projno]
+    $LOCAL/proj/[projno]/Web/C130Q_list_out.[projno]
+
+These files are to be inserted into the template "C130_status.pl" file
+where indicated to create the customized version for a given project.
+(It is best to first insert the "out" file, replacing lines 588 through
+592, then the "in" file, replacing lines 394 through 398.  These files
+should replace the "comment" lines between the HTML table-definition
+tags.)
+
+Next, the new perl script file must be modified to add the proper
+directory paths and environment.  These are located after line 33.
+ $DOCROOT     --  This may be a temporary file directory.  The current
+                   one works, so perhaps it's best to leave this alone.
+ $REAL_DOCDIR --  This points to the "home directory" of the project's
+                   real-time web site.  Example:
+                    /net/www/docs/raf/Field/RICO
+ $DOCDIR      --  The only place this variable is used in the code has
+                   been commented out, so this can be left alone.
+ $PASSWORD    --  The ability to update instrument status is governed
+                   by this password.  Obviously, choose one that is
+                   unique but fewer than 9 (nine) characters.
+ $PLATFORM    --  At present this script is set up only for the C-130Q,
+                   so this also can be left alone.
+
+Next create the proper directories for the form generator to use.  These
+will be subdirectories off of the $REAL_DOCDIR directory:
+   $REAL_DOCDIR/status/NCAR_C-130Q/  --  Current instrument status and
+                                          dated status history files
+   $REAL_DOCDIR/state/NCAR_C-130Q/   --  Saved version of status (used
+                                          as a working file before posting)
+To protect the directories from being seen by web browsers, I recommend
+executing the command:
+  touch index.html
+in each of these directories:
+   $REAL_DOCDIR/status/
+   $REAL_DOCDIR/status/NCAR_C-130Q/
+   $REAL_DOCDIR/state/
+   $REAL_DOCDIR/state/NCAR_C-130Q/
+(When a null "index.html" file is present, a browser will display a blank
+page instead of a file list if one of these directories is selected as a URL.)
+
+The "real-time" web page will have two URL references for instrument status.
+The first one is used by the page administrator (password protected) to
+update the status page:
+  http://www.atd.ucar.edu/cgi-bin/RICO/C130_status.pl
+The second one can be used (by anyone) to display the current status:
+  http://raf.atd.ucar.edu/Field/RICO/status/NCAR_C-130Q/status.NCAR_C-130Q.html
+
+Hope this isn't too confusing.
+
+Ron
+Fri Nov 12 16:07:10 MST 2004

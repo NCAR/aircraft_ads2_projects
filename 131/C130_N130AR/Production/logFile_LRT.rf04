@@ -1,0 +1,42 @@
+ACE-Asia - 131, Flight rf04
+Version - 3.0.1
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /usr/local/proj/131/Production/Flight_rf04
+BOSSBI has no description or units.
+BOSSBY has no description or units.
+BOSSIDE has no description or units.
+BOSSSMP has no description or units.
+BSPHUM has no description or units.
+BSPRR has no description or units.
+TFILTF has no description or units.
+FREF3_RPO has no description or units.
+FTMP3_RPO has no description or units.
+Processed on: Aug 15 17:50 UTC 2001
+Flight Date: 04/06/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+FREF3_RPO has no entry in the VarDB.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Blanking VLA from 06:20:00 to 09:44:00.
+ The following variables depend upon this variable:
+  MRLA RHOLA
+Blanking RHOLA from 06:20:00 to 09:44:00.
+ The following variables depend upon this variable:
+  MRLA
+Blanking MRLA from 06:20:00 to 09:44:00.
+Blanking times (30:20:00 to 33:44:00) not valid for VLA.
+Blanking times (30:20:00 to 33:44:00) not valid for RHOLA.
+Blanking times (30:20:00 to 33:44:00) not valid for MRLA.
+Time interval(s) completed : 00:31:01-09:44:02
+THDG: 1 spikes removed with slope exceeding 0.300000
+Processing took 3.0 minutes.

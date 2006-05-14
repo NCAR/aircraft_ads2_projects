@@ -1,0 +1,141 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output LRT files for 5-162 SCMS (Small Cumulus Microphysics Study) (Charlie Knight, et al.)
+#
+#  File created by '/home/local/scripts/genar' Revision 4 on Tue Feb 20 09:29:19 MST 1996
+#   Modified by Ronald L. Ruth to accomodate the other file types and to set
+#    appropriate READ passwords where necessary.
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#
+date
+#
+set YEAR = 1995
+set PROJ = 162
+set SDIR = $PROD_DATA
+#
+#  When originally archived, none of the bitfiles had a READ password.
+#   The script "lrt_change.162" was used to add them.
+#
+#  Set proper directory depending on file type to be archived.
+#   Final production output (public access)
+#set TURBRT = LRT
+#   Std Original LRT files (protected)
+set TURBRT = ORIGINAL/LRT
+#   Std Original LRT/PMS-1D files (protected)
+#set TURBRT = LRT/PMS-1D
+#
+set rpw  = (See SCMS project notebook for proper READ password)
+#
+#  This "nrnet" section of code was executed once for each file type.
+echo nrnet msput $SDIR/162ff04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF01.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF03.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf15.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF15.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf16.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF16.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf17.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF17.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf18.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF18.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf19.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF19.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162rf20.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF20.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+echo nrnet msput $SDIR/162ff01a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01A.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+echo nrnet msput $SDIR/162ff01b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01B.cdf rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Original data (before merge with PMS update) (protected)
+#  Job(s) submitted on Tue Feb 20 09:47:41 MST 1996
+# Sequence number = MI9310 -- ORIGINAL/LRT/FF04.cdf - OK @ 20 Feb 1996 09:52:44
+# Sequence number = MI9317 -- ORIGINAL/LRT/RF01.cdf - OK @ 20 Feb 1996 09:51:13
+# Sequence number = MI9334 -- ORIGINAL/LRT/RF02.cdf - OK @ 20 Feb 1996 09:51:25
+# Sequence number = MI9347 -- ORIGINAL/LRT/RF03.cdf - OK @ 20 Feb 1996 09:53:12
+# Sequence number = MI9361 -- ORIGINAL/LRT/RF04.cdf - OK @ 20 Feb 1996 10:07:28
+# Sequence number = MI9368 -- ORIGINAL/LRT/RF05.cdf - OK @ 20 Feb 1996 10:15:24
+# Sequence number = MI9381 -- ORIGINAL/LRT/RF06.cdf - OK @ 20 Feb 1996 10:14:50
+# Sequence number = MI9405 -- ORIGINAL/LRT/RF07.cdf - OK @ 20 Feb 1996 10:07:39
+# Sequence number = MI9418 -- ORIGINAL/LRT/RF08.cdf - OK @ 20 Feb 1996 09:53:21
+# Sequence number = MI9496 -- ORIGINAL/LRT/RF09.cdf - OK @ 20 Feb 1996 10:09:02
+# Sequence number = MI9516 -- ORIGINAL/LRT/RF10.cdf - OK @ 20 Feb 1996 09:54:06
+# Sequence number = MI9525 -- ORIGINAL/LRT/RF11.cdf - OK @ 20 Feb 1996 09:55:53
+# Sequence number = MI9549 -- ORIGINAL/LRT/RF12.cdf - OK @ 20 Feb 1996 09:56:13
+# Sequence number = MI9563 -- ORIGINAL/LRT/RF13.cdf - OK @ 20 Feb 1996 09:56:51
+# Sequence number = MI9596 -- ORIGINAL/LRT/RF14.cdf - OK @ 20 Feb 1996 10:16:35
+# Sequence number = MI9623 -- ORIGINAL/LRT/RF15.cdf - OK @ 20 Feb 1996 10:12:09
+# Sequence number = MI9645 -- ORIGINAL/LRT/RF16.cdf - OK @ 20 Feb 1996 10:01:36
+# Sequence number = MI9652 -- ORIGINAL/LRT/RF17.cdf - OK @ 20 Feb 1996 09:57:57
+# Sequence number = MI9662 -- ORIGINAL/LRT/RF18.cdf - OK @ 20 Feb 1996 09:57:19
+# Sequence number = MI9673 -- ORIGINAL/LRT/RF19.cdf - OK @ 20 Feb 1996 09:59:20
+# Sequence number = MI9698 -- ORIGINAL/LRT/RF20.cdf - OK @ 20 Feb 1996 10:07:44
+# Sequence number = MI9719 -- ORIGINAL/LRT/FF01A.cdf - OK @ 20 Feb 1996 10:05:35
+# Sequence number = MI9729 -- ORIGINAL/LRT/FF01B.cdf - OK @ 20 Feb 1996 10:07:47
+#
+#  Production output (after merging PMS skeleton data) (public access)
+#  Job(s) submitted on Mon Feb 26 10:47:44 MST 1996
+# Sequence number = MI8452 -- LRT/FF04.cdf -- OK @ 26 Feb 1996 10:57:08
+# Sequence number = MI8459 -- LRT/RF01.cdf -- OK @ 26 Feb 1996 11:16:20
+# Sequence number = MI8466 -- LRT/RF02.cdf -- OK @ 26 Feb 1996 10:57:37
+# Sequence number = MI8473 -- LRT/RF03.cdf -- OK @ 26 Feb 1996 10:56:26
+# Sequence number = MI8480 -- LRT/RF04.cdf -- OK @ 26 Feb 1996 11:10:05
+# Sequence number = MI8487 -- LRT/RF05.cdf -- OK @ 26 Feb 1996 11:08:12
+# Sequence number = MI8494 -- LRT/RF06.cdf -- OK @ 26 Feb 1996 11:06:45
+# Sequence number = MI8501 -- LRT/RF07.cdf -- OK @ 26 Feb 1996 11:29:24
+# Sequence number = MI8508 -- LRT/RF08.cdf -- OK @ 26 Feb 1996 11:25:40
+# Sequence number = MI8515 -- LRT/RF09.cdf -- OK @ 26 Feb 1996 10:58:17
+# Sequence number = MI8522 -- LRT/RF10.cdf -- OK @ 26 Feb 1996 11:33:53
+# Sequence number = MI8529 -- LRT/RF11.cdf -- OK @ 26 Feb 1996 11:38:30
+# Sequence number = MI8536 -- LRT/RF12.cdf -- OK @ 26 Feb 1996 11:32:50
+# Sequence number = MI8543 -- LRT/RF13.cdf -- OK @ 26 Feb 1996 11:39:02
+# Sequence number = MI8550 -- LRT/RF14.cdf -- OK @ 26 Feb 1996 11:24:22
+# Sequence number = MI8557 -- LRT/RF15.cdf -- OK @ 26 Feb 1996 11:38:37
+# Sequence number = MI8564 -- LRT/RF16.cdf -- OK @ 26 Feb 1996 11:45:22
+# Sequence number = MI8571 -- LRT/RF17.cdf -- OK @ 26 Feb 1996 11:46:13
+# Sequence number = MI8578 -- LRT/RF18.cdf -- OK @ 26 Feb 1996 11:34:39
+# Sequence number = MI8585 -- LRT/RF19.cdf -- OK @ 26 Feb 1996 11:24:48
+# Sequence number = MI8592 -- LRT/RF20.cdf -- OK @ 26 Feb 1996 11:26:31
+# Sequence number = MI8599 -- LRT/FF01A.cdf -- OK @ 26 Feb 1996 11:28:24
+# Sequence number = MI8606 -- LRT/FF01B.cdf -- OK @ 26 Feb 1996 11:42:37
+#
+#  PMS-1D skeleton output files (source names of the form 162yfxxprb.cdf) (protected)
+#  Job(s) submitted on Mon Feb 26 11:04:15 MST 1996
+# Sequence number = MI8635 -- LRT/PMS-1D/FF04.cdf -- OK @ 26 Feb 1996 11:08:39
+# Sequence number = MI8642 -- LRT/PMS-1D/RF01.cdf -- OK @ 26 Feb 1996 11:14:43
+# Sequence number = MI8649 -- LRT/PMS-1D/RF02.cdf -- OK @ 26 Feb 1996 11:16:48
+# Sequence number = MI8656 -- LRT/PMS-1D/RF03.cdf -- OK @ 26 Feb 1996 11:08:54
+# Sequence number = MI8663 -- LRT/PMS-1D/RF04.cdf -- OK @ 26 Feb 1996 11:25:01
+# Sequence number = MI8670 -- LRT/PMS-1D/RF05.cdf -- OK @ 26 Feb 1996 11:25:06
+# Sequence number = MI8677 -- LRT/PMS-1D/RF06.cdf -- OK @ 26 Feb 1996 11:09:04
+# Sequence number = MI8684 -- LRT/PMS-1D/RF07.cdf -- OK @ 26 Feb 1996 11:29:21
+# Sequence number = MI8692 -- LRT/PMS-1D/RF08.cdf -- OK @ 26 Feb 1996 11:33:13
+# Sequence number = MI8699 -- LRT/PMS-1D/RF09.cdf -- OK @ 26 Feb 1996 11:09:16
+# Sequence number = MI8706 -- LRT/PMS-1D/RF10.cdf -- OK @ 26 Feb 1996 11:33:22
+# Sequence number = MI8713 -- LRT/PMS-1D/RF11.cdf -- OK @ 26 Feb 1996 11:09:31
+# Sequence number = MI8720 -- LRT/PMS-1D/RF12.cdf -- OK @ 26 Feb 1996 11:29:38
+# Sequence number = MI8727 -- LRT/PMS-1D/RF13.cdf -- OK @ 26 Feb 1996 11:33:57
+# Sequence number = MI8734 -- LRT/PMS-1D/RF14.cdf -- OK @ 26 Feb 1996 11:10:07
+# Sequence number = MI8741 -- LRT/PMS-1D/RF15.cdf -- OK @ 26 Feb 1996 11:29:50
+# Sequence number = MI8748 -- LRT/PMS-1D/RF16.cdf -- OK @ 26 Feb 1996 11:25:57
+# Sequence number = MI8755 -- LRT/PMS-1D/RF17.cdf -- OK @ 26 Feb 1996 11:42:04
+# Sequence number = MI8762 -- LRT/PMS-1D/RF18.cdf -- OK @ 26 Feb 1996 11:30:04
+# Sequence number = MI8769 -- LRT/PMS-1D/RF19.cdf -- OK @ 26 Feb 1996 11:26:09
+# Sequence number = MI8776 -- LRT/PMS-1D/RF20.cdf -- OK @ 26 Feb 1996 11:42:29
+# Sequence number = MI8783 -- LRT/PMS-1D/FF01A.cdf -- OK @ 26 Feb 1996 11:10:34
+# Sequence number = MI8790 -- LRT/PMS-1D/FF01B.cdf -- OK @ 26 Feb 1996 11:30:30
+#

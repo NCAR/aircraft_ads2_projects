@@ -1,0 +1,183 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Adapted by Ronald L. Ruth (from 2nd_production/tarit.162)       March 2001
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file $LOCAL/proj/ProjName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+#
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+Lags \
+LowRateVars \
+PMSspecs \
+ProjectName \
+README.DOCS \
+README.FIRST \
+README.processing \
+UserNames \
+VarDB \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+flat_panel_parms \
+header \
+landmarks \
+ophir3.names \
+plot_attr \
+plotspex \
+regions \
+scmsdocs/162hrtdump.asc \
+scmsdocs/162lrtdump.asc \
+scmsdocs/162rf02.mrcomp.ps \
+scmsdocs/README.DOCS \
+scmsdocs/README.FIRST \
+scmsdocs/acfltnotes.ps \
+scmsdocs/cnspike.ps \
+scmsdocs/dataqual.ps \
+scmsdocs/dbfltnotes.txt \
+scmsdocs/gerber.dat \
+scmsdocs/gerberinfo.ps \
+scmsdocs/lwcstruct.ps \
+scmsdocs/mruvsat.ps \
+scmsdocs/rfinoise.ps \
+scmsdocs/spdatinfo.ps \
+scmsdocs/spnoise.ps \
+scmsdocs/tempsat.ps \
+scmsdocs/tsismps.ps \
+scmsdocs/variables.scms \
+scmsdocs/mrcompfiles/162rf01.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf02.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf03.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf04.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf05.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf06.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf07.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf08.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf09.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf10.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf11.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf12.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf13.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf14.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf15.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf16.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf17.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf18.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf19.mrcomp.ps \
+scmsdocs/mrcompfiles/162rf20.mrcomp.ps \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_12 \
+Production/Flight_13 \
+Production/Flight_14 \
+Production/Flight_15 \
+Production/Flight_16 \
+Production/Flight_17 \
+Production/Flight_18 \
+Production/Flight_19 \
+Production/Flight_2 \
+Production/Flight_20 \
+Production/Flight_3 \
+Production/Flight_4 \
+Production/Flight_5 \
+Production/Flight_6 \
+Production/Flight_8 \
+Production/Flight_9 \
+Production/HRT.convert \
+Production/MSCP_out.162 \
+Production/Mail.162 \
+Production/SCMS_chronology \
+Production/arch_support.162 \
+Production/archnew \
+Production/logFile_HRT.RF1 \
+Production/logFile_HRT.RF10 \
+Production/logFile_HRT.RF11 \
+Production/logFile_HRT.RF12 \
+Production/logFile_HRT.RF13 \
+Production/logFile_HRT.RF14 \
+Production/logFile_HRT.RF15 \
+Production/logFile_HRT.RF16 \
+Production/logFile_HRT.RF17 \
+Production/logFile_HRT.RF18 \
+Production/logFile_HRT.RF19 \
+Production/logFile_HRT.RF2 \
+Production/logFile_HRT.RF20 \
+Production/logFile_HRT.RF3 \
+Production/logFile_HRT.RF4 \
+Production/logFile_HRT.RF5 \
+Production/logFile_HRT.RF6 \
+Production/logFile_HRT.RF7 \
+Production/logFile_HRT.RF8 \
+Production/logFile_HRT.RF9 \
+Production/logFile_LRT.6 \
+Production/logFile_LRT.RF1 \
+Production/logFile_LRT.RF10 \
+Production/logFile_LRT.RF11 \
+Production/logFile_LRT.RF12 \
+Production/logFile_LRT.RF13 \
+Production/logFile_LRT.RF14 \
+Production/logFile_LRT.RF15 \
+Production/logFile_LRT.RF16 \
+Production/logFile_LRT.RF17 \
+Production/logFile_LRT.RF18 \
+Production/logFile_LRT.RF19 \
+Production/logFile_LRT.RF2 \
+Production/logFile_LRT.RF20 \
+Production/logFile_LRT.RF3 \
+Production/logFile_LRT.RF4 \
+Production/logFile_LRT.RF5 \
+Production/logFile_LRT.RF6 \
+Production/logFile_LRT.RF7 \
+Production/logFile_LRT.RF8 \
+Production/logFile_LRT.RF9 \
+Production/msmove \
+Production/nimbus_defaults.tar.dir \
+Production/nimbus_scms1-5.tar.dir \
+Production/nimbus_scms6-20.tar.dir \
+Production/proj.info \
+Production/recipients \
+Production/renameit2 \
+Production/taplog.162 \
+Production/taplog.ads.162 \
+Production/taplog.pms2d.162 \
+Production/tarit.nimbus_scms1-5 \
+Production/tarit.nimbus_scms6-20 \
+Production/tarit.162 \
+Production/tp2ms.summary \
+Production/archive/2d2ms.job \
+Production/archive/rename2 \
+Production/archive/tape.log \
+Production/archive/tapes.162 \
+Production/archive/tp2ms.job1 \
+Production/archive/old/tp2ms.summary
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

@@ -1,0 +1,777 @@
+%!PS-Adobe
+%%BeginProlog
+/wpdict 300 dict def
+wpdict begin
+/d{bind def}bind def/l{load def}d/ec{exec def}d/cp/closepath l/cup/currentpoint l/cs/currentscreen l
+/cv/curveto l/drx{dtransform round x round x}d/f/eofill l/g/setgray l/gr/grestore l
+/gs/gsave l/ife{ifelse}d/ix/index l/li/lineto l/lc/setlinecap l
+/lj/setlinejoin l/m/moveto l/mx/matrix l/mcm{mx currentmatrix}d/sm/setmatrix l
+/np/newpath l/p/pop l/re/rotate l/rh/readhexstring l/rl/rlineto l/rm/rmoveto l/rs/restore l
+/setfl{dup 1 le{p 1 setflat}{setflat}ife}def/languagelevel where{p languagelevel}{1}ife
+2 lt{/sf{bzcnt 70 div setfl}d/fpath{bzcnt 4 div setflat}d}{/sf{}d/fpath{}d}ife
+/cf currentflat def/s{fpath flattenpath stroke}d/sc/scale l
+/sd/setdash l/ss/setscreen l/sv/save l/tr/translate l
+/w/setlinewidth l/x/exch l/xd{x def}d/c{3{255 div 3 1 roll}repeat setrgbcolor}d
+/bF false def/bF2 false def/bf 0 def/ds{gs 1 lc s gr}d/gd{255 div g}d
+/h{0 rm}d
+/lp{px li}d/mp{px m}d/nb 50 string def/osv 0 def/icl/initclip l/pf{gs f gr}def
+/pff{gs fill gr}def/pl{{px li}repeat}d/ps{gs s gr}def/plen 0 def/pwid 0 def
+/px{transform .25 sub round .25 add x .25 sub round .25 add x itransform}d
+/pxd{drx idtransform}d/rlp{pxd rl}d/rmp{pxd rm}d/_g{g}d/_lr{rlp}d/_s{s}d
+/_w{w}d/_m{mp}d/_rmxy{rmp}d/bzcnt 0 def/bzct{/bzcnt xd}def
+/bzcl{/bzcnt 0 def cf setflat}def/rF false def/sF false def/pth 0 def/ptw 0 def/pths 0 def/ptws 0 def/PColor 0 def
+/instpat 0 def/cm 0 def/slan 0 def/hscl 0 def/psz 0 def/xres 0 def/yres 0 def/pstr 0 def/lutb 0 def
+/rot 0 def/mir 0 def/HTd 0 def/WDd 0 def/ury 0 def/llx 0 def/lly 0 def/exstr 0 def/HTs 0 def/WDs 0 def
+/Hs 0 def/Ws 0 def/imc 0 def/Bdep 0 def/clu 0 def/curx 0 def/cury 0 def/Sx 0 def/Sy 0 def/xpos 0 def
+/ypos 0 def/lw 0 def/DUy 0 def/DUx 0 def/Ux 0 def/Uy 0 def/cml 0 def
+/cp3{3 copy}d/cp4{4 copy}d/cp6{6 copy}d/aosh{cp3 -4 -4 rm gs ashow gr
+cp3 4 0 rm gs ashow gr cp3 4 0 rm gs ashow gr cp3 0 4 rm gs ashow gr
+cp3 0 4 rm gs ashow gr cp3 -4 0 rm gs ashow gr cp3 -4 0 rm gs ashow gr
+cp3 0 -4 rm gs ashow gr currentrgbcolor 6 3 roll 1 g 4 0 rm ashow setrgbcolor}d
+/wosh{cp4 -4 -4 rm gs widthshow gr
+cp4 4 0 rm gs widthshow gr cp4 4 0 rm gs widthshow gr cp4 0 4 rm gs widthshow gr
+cp4 0 4 rm gs widthshow gr cp4 -4 0 rm gs widthshow gr cp4 -4 0 rm gs widthshow gr
+cp4 0 -4 rm gs widthshow gr currentrgbcolor 7 3 roll 1 g 4 0 rm widthshow setrgbcolor}d
+/awosh{cp6 -4 -4 rm gs awidthshow gr
+cp6 4 0 rm gs awidthshow gr cp6 4 0 rm gs awidthshow gr cp6 0 4 rm gs awidthshow gr
+cp6 0 4 rm gs awidthshow gr cp6 -4 0 rm gs awidthshow gr cp6 -4 0 rm gs awidthshow gr
+cp6 0 -4 rm gs awidthshow gr currentrgbcolor 9 3 roll 1 g 4 0 rm awidthshow setrgbcolor}d
+/assh{sv gs psz 20 div dup neg rm 4 1 roll cp3 ashow 4 -1 roll gr cp3 sv x currentfont/PaintType known
+{bf setfont}if 1 g ashow rs currentfont/PaintType known{currentfont mo setfont ashow}{aosh}ife cup 3 -1 roll rs m}d
+/wssh{sv gs psz 20 div dup neg rm 5 1 roll cp4 widthshow gr cp4 sv currentfont/PaintType known{bf setfont}if
+1 g 5 1 roll widthshow rs currentfont/PaintType known{currentfont mo setfont widthshow}{wosh}ife cup 3 -1 roll rs m}d
+/awssh{sv gs psz 20 div dup neg rm 7 1 roll cp6 awidthshow gr cp6 sv x currentfont/PaintType known{bf setfont}if
+1 g 7 1 roll awidthshow rs currentfont/PaintType known{currentfont mo setfont awidthshow}{awosh}ife cup 3 -1 roll rs m}d
+/B{/bF true def sF not{/S/bsh l/bF2 true def}if}d
+/b{/bF false def bF2{/S/show l/bF2 false def}if}d
+/bd{sv}d/bp{sv .06 .06 sc 0 0 m}d/bsh{gs psz 30 div 0 rm dup show gr show}d
+/clr{rF{6 3 roll p p p}{eq3{p p gd}{c}ife}ife}d/co{/pwid xd/plen xd
+osv 1 eq{0 pwid tr -90 re}if osv 2 eq{pwid plen tr 180 re}if
+osv 3 eq{plen 0 tr 90 re}if dup 1 eq{pwid 0 tr 90 re}if
+dup 2 eq{pwid plen tr 180 re}if dup 3 eq{0 plen tr -90 re}if/osv xd}d
+/cw{s initclip m 0 2 ix rl 0 rl 0 x neg rl clip np}d
+/DU{cup/DUy xd/DUx xd}d/du{gs sv 12 w cup -24 add m DUx DUy -24 add li s rs
+12 w cup -48 add m DUx DUy -48 add li s gr}d/ed{rs}d/ep{rs showpage 0 0 m}d
+/eq3{3 copy 2 ix eq{eq{true}{false}ife}{p p false}ife}d
+/ff{x rc x 3 div dup/psz xd scalefont dup/bf xd setfont}d
+/ffs{/slan x 10 div def/hscl x 1000 div def/psz x 3 div def
+[psz hscl mul 0 slan dup sin x cos div psz mul psz 0 0]
+x rc x makefont dup/bf xd setfont}d/fr{72 0 rmtx defaultmatrix dtransform
+/yres xd/xres xd xres dup mul yres dup mul add sqrt}d
+/is{sv 4 1 roll dup/pstr x 7 add 8 idiv string def
+3 1 roll tr dup 1 sc dup 1 1[5 -1 roll 0 0 1 0 0]{currentfile pstr rh p}
+cml 0 eq{image}{false 3 colorimage}ife rs}d/cexp{exstr 0 lutb 3 copy 7 -1 roll
+{get putinterval x 3 add x 3 copy}forall p p p p p}d/bwexp{dup 0 lutb 3 copy 7 -1 roll
+{get put x 1 add x 3 copy}forall p p p p p}d/NOM 0 def/INX 1 def/INY 2 def
+/p1x 0 def/p1y 0 def/p2x 0 def/p2y 0 def/p3x 0 def/p3y 0 def
+/idef{/p3y xd/p3x xd/p2y xd/p2x xd/p1y xd/p1x xd
+/rot xd/mir xd p3x p1x sub 1 add dup mul p1y p3y sub 1 add
+dup mul add sqrt/HTd xd p2y p1y sub 1 add dup mul p2x p1x
+sub 1 add dup mul add sqrt/WDd xd}def
+/mirror{mir NOM eq{Ws Hs sc}{mir INX eq{Ws neg Hs sc}
+{mir INY eq{Ws Hs neg sc}{Ws neg Hs neg sc}ife}ife}ife}def
+/ic{sv 6 1 roll tr 2 ix 2 ix sc[3 ix 0 0 5 ix neg 0 7 ix]
+2 1 roll true 3 1 roll imagemask rs}d/ieps{/ury xd/urx xd/lly xd/llx xd idef
+ury lly sub/HTs xd urx llx sub/WDs xd
+WDd WDs div/Ws xd HTd HTs div/Hs xd
+p3x p3y tr rot re mirror llx neg lly neg tr}def
+/im{sv 15 1 roll dup/pstr x string def/exstr x 3 mul string def
+/HTs xd/WDs xd/imc xd/Bdep xd/clu xd
+idef p1x p1y m cup transform/cury xd/curx xd rot re
+/Ws WDd def/Hs HTd def mirror curx cury itransform tr WDs HTs Bdep
+[WDs 0 0 HTs neg 0 0]{currentfile pstr rh p
+clu 1 eq{cexp}if clu 2 eq{bwexp}if}
+imc 0 eq{image}{false 3 colorimage}ife rs}d
+/kp{initclip clip np}d/l1{cup osv plen pwid 6 -1 roll rs sv}d
+/l2{bp 7 2 roll co m}d/osh{dup -4 -4 rm gs show gr
+dup 4 0 rm gs show gr dup 4 0 rm gs show gr dup 0 4 rm gs show gr
+dup 0 4 rm gs show gr dup -4 0 rm gs show gr dup -4 0 rm gs show gr
+dup 0 -4 rm gs show gr currentrgbcolor 4 3 roll 1 g 4 0 rm show setrgbcolor}d
+/mo{dup/OutlineFlag known not{dup dup length 2 add dict begin
+{1 ix/FID ne{def}{p p}ife}forall/UniqueID known{/UniqueID UniqueID 10000 add def}if
+/PaintType PaintType 0 eq{2}{PaintType}ife def/StrokeWidth 15 def/OutlineFlag true def
+/OutlineFont currentdict end definefont}if}d/O{currentfont/PaintType known{currentfont mo setfont}{/S/osh l}ife}d
+/o{currentfont/PaintType known{bf setfont}{/S/show l}ife}d/R{/rF true def currentrgbcolor 1 .25 .25 setrgbcolor}d
+/r{/rF false def eq3{1 sub neg gd p p}{setrgbcolor}ife}d/rc{dup FontDirectory x known{findfont}
+{dup nb cvs dup length 1 sub get 82 eq{dup nb cvs dup length 1 sub 0 x getinterval
+findfont begin currentdict dup length dict begin
+{1 ix/FID ne{def}{p p}ife}forall/FontName xd/Encoding WPen def
+currentdict dup end end/FontName get x definefont}
+{findfont}ife}ife}d/rmtx mx def/S/show l/A/ashow l/W/widthshow l/AW/awidthshow l/sg{neg 100 add 100 div g}d/SH{bF2{/bF2 false def}if/S/ssh l/A/assh l/W/wssh l/AW/awssh l/sF true def}d
+/sh{/S/show l/A/ashow l/W/widthshow l/AW/awidthshow l/sF false def bF{B}if}d/sp{gs s gr}d/ssh{sv x gs psz 20 div dup neg rm dup show gr dup sv x
+currentfont/PaintType known{bf setfont}if 1 g show rs currentfont/PaintType known{currentfont mo setfont show}{osh}ife
+cup 3 -1 roll rs m}d/ST{cup/Sy xd/Sx xd}d
+/st{gs cup psz 4 div add mp Sx Sy psz 4 div add lp 10 w s gr}d
+/U{cup/Uy xd/Ux xd}d/u{gs cup -24 add m Ux Uy -24 add li 12 w s gr}d
+/ul{cup osv plen pwid 7 -2 roll rs rs bp 6 1 roll co m}d/WPen StandardEncoding 256 array copy def 0
+[127/Aacute/Acircumflex/Adieresis/Agrave/Aring/Atilde/Ccedilla
+/Delta/Eacute/Ecircumflex/Edieresis/Egrave/Eth/Gamma/Iacute/Icircumflex/Idieresis/Igrave/Lambda/Ntilde/Oacute
+/Ocircumflex/Odieresis/Ograve/Omega/Otilde/Phi/Pi/Psi/Scaron/Sigma/TeXtext32/Theta/Thorn
+176/Pts
+181/dbar
+190/Hbar
+192/hbar
+201/Ldot
+204/ldot
+209/Uacute/Ucircumflex/Udieresis/Ugrave/Upsilon/Xi/Yacute
+/Ydieresis/Zcaron/aacute/acircumflex/adieresis/agrave/aring/atilde/brokenbar
+226/approxequal
+228/ccedilla/copyright/degree/divide
+236/dotlessj/eacute/ecircumflex/edieresis/egrave
+242/eth/ff/ffi
+246/ffl/iacute
+252/icircumflex/idieresis/igrave/logicalnot
+1/minus/mu/multiply/ntilde/oacute/ocircumflex/odieresis/ograve/onehalf/onequarter/onesuperior/otilde/plusminus
+/registered/scaron/thorn/threequarters/threesuperior/trademark/twosuperior/uacute/ucircumflex/udieresis
+/ugrave/yacute/ydieresis/zcaron/IJ/ij/Eng/eng
+]{dup type/nametype eq{WPen 2 ix 2 ix put p 1 add}{x
+p}ife}forall p/URy 0 def/URx	0 def/LLy 0 def/LLx	0 def/dxcg 0 def/dx1 0 def/dx2 0 def/dx3 0 def
+/cgray	0 def/curstep -1 def/dis 0 def/steps 0 def/gsteps 0 def/grot 0 def/gtype 0 def/ry 0 def
+/rx 0 def/botg	0 def/topg 0 def/bgc 0 def/tgc	0 def/cgc 0 def
+/extents{fpath flattenpath pathbbox/URy xd/URx xd/LLy xd/LLx xd}def
+/dxcolor{cml 0 eq{cgray dxcg sub dup/cgray xd curstep -1 eq{g}
+{/curstep curstep 1 sub def curstep 1 eq{p botg gd}{g}ife}ife}
+{cgc aload p dx3 sub 3 1 roll dx2 sub 3 1 roll
+dx1 sub 3 1 roll 3 array astore/cgc xd
+cgc aload p setrgbcolor}ife}d/box{LLx LLy m URx LLy li URx URy li LLx URy li cp s}def
+/calcdx{sub gsteps 1 sub div 255 div}def
+/computegdx{topg botg calcdx/dxcg xd}def/computeRGBdx{mark tgc aload p bgc aload p
+3 ix 1 ix calcdx/dx3 xd 4 ix 2 ix calcdx/dx2 xd
+5 ix 3 ix calcdx/dx1 xd cleartomark}def
+/ccdx{cml 0 eq{computegdx}{computeRGBdx}ife}def/stclr{cml 0 eq{topg gd/cgray currentgray def}
+{tgc aload p c currentrgbcolor 3 array astore/cgc xd}ife}def/lgf{/steps gsteps def
+ry 1 ne{stclr/gf{add}def/top URy LLy sub ry mul LLy add def
+/lw URy top sub steps .5 sub div def lgfdo}if
+stclr/gf{sub}def
+ry 1 ne{/lw top LLy sub steps .5 sub div def}if lgfdo}def
+/lgfdo{ry 1 ne{/center top def lw 2 div w
+LLx center lw 4 div gf m URx center lw 4 div gf li s
+/center center lw gf def LLx center m dxcolor}
+{/lw URy LLy sub steps div def/top URy lw 2 div sub def
+/center top def LLx top m/steps steps 1 add def}ife
+lw w steps 1 sub dup/curstep xd{URx center li s center lw gf/center xd
+LLx center m dxcolor}repeat/curstep -1 def}def/sgf{/steps gsteps .5 sub def
+/midx URx LLx sub 1 rx sub mul def/midy URy LLy sub ry mul def
+/width URx LLx sub def/dx width midx sub steps div def
+/height URy LLy sub def/dy height midy sub steps div def
+/dw width steps div def/dl height steps div def
+width w stclr/xpos LLx def/ypos URy def/lw width def/lh height def
+gsteps{xpos lw 2 div add ypos m xpos lw 2 div add ypos
+lh sub li s/lw lw dw sub def/lh lh dl sub def/xpos xpos dx add def/ypos ypos dy sub def
+lw w dxcolor}repeat/curstep -1 def}def
+/dfc{dup mul x dup mul add sqrt dup dis gt{/dis xd}{p}ife}def
+/fdis{URx LLx sub rx mul LLx add/midx xd
+URy LLy sub ry mul LLy add/midy xd
+/width URx LLx sub def/gcx width rx mul def/height URy LLy sub def/gcy height ry mul def
+gcx gcy dfc width gcx sub gcy dfc
+width gcx sub height gcy sub dfc gcx height gcy sub dfc}def/rgf{/steps gsteps def
+fdis/lw dis steps .5 sub div def/radius lw def lw 2 div w stclr
+midx lw 2 div sub midy m midx midy radius 2 div 0 361 arc s lw w
+steps 1 sub
+dup/curstep xd/curstep curstep 1 add def
+{dxcolor midx midy radius 0 361 arc s/radius radius lw add def}repeat/curstep -1 def}def
+/gf{fpath flattenpath/gsteps xd/grot xd/gtype xd/ry x 100 div def/rx x 100 div def
+cml 0 eq{gtype 1 eq{x}if/botg xd/topg xd}{gtype 1 eq{6 3 roll}if
+3 array astore/bgc xd
+3 array astore/tgc xd}ife
+sv[]0 sd eoclip gsteps 1 eq
+{stclr f}{mcm 3 get 0 gt{/grot grot 180 add def}if grot re extents
+gsteps 0 eq{csteps}if
+ccdx gtype 0 eq
+{lgf}{gtype 1 eq{sgf}{rgf}ife}ife}ife rs}d/csteps{fdis dis 72 div fr mul	cs p p dup xres
+eq{p p/gsteps xres def}{div/gsteps x round cvi dup 1 le{p 2}if def}ife}def
+/ssf{dup 0 eq{p}{cs 3 ix 3 1 roll ss p p}ife}d/ssa{cs 4 1 roll p 1 ix 4 -1 roll ss p}d
+/invalidcolortable? true def
+/PATsc{aload length dup 1 eq{p dup null eq{p}{gd}ife}{p c}ife}d
+/PATtcalc{gs x concat mcm x 2 ne{dup 4 get x dup 5 get x
+XStep 0 drx XStep div x XStep div x 0 YStep drx YStep div x YStep div x
+7 -3 roll astore}if gr}d
+/PATmp{x dup length 7 add dict copy begin TilingType PATtcalc
+/cm xd currentdict/Multi known not{/Multi 1 def}if/FontType 3 def/Encoding 256 array def
+3 string 0 1 255{Encoding x dup 3 ix cvs cvn put}for p
+/FontMatrix mx def/FontBBox BBox def/BuildChar{mark 3 1 roll x begin
+Multi 1 ne{PaintData x get}{p}ife PaintType 2 eq Multi 1 ne or
+{XStep 0 FontBBox aload p setcachedevice}{XStep 0 setcharwidth}ife currentdict/PaintProc load
+end gs false PATredef exec true PATredef gr
+cleartomark}d currentdict end/foo x definefont}d
+/PATpcalc{PATDict/CurrentPattern get begin gs
+cm sm BBox aload p p p tr pathbbox
+gr YStep div ceiling 4 1 roll XStep div ceiling 4 1 roll
+YStep div floor 4 1 roll XStep div floor 4 1 roll
+2 ix sub cvi abs x 3 ix sub cvi abs x
+4 2 roll YStep mul x XStep mul x end}d/PATfill{sv 5 1 roll PATDict/CurrentPattern get dup begin
+setfont cm sm PaintType 2 eq{PATDict/PColor get PATsc}if
+3 ix string 0 1 Multi 1 sub{3 ix 3 ix m
+Multi 1 ne{dup PaintColors x get PATsc}if
+0 1 7 ix 1 sub{2 ix x 2 ix put}for p
+3 ix{cup 2 ix show YStep add m}repeat}for
+5{p}repeat end rs}d/oldeofill/eofill l
+/oldfill/fill l/oldstroke/stroke l/oldshow/show l/oldwidthshow/widthshow l/PATredef{userdict begin
+{/eofill{/eoclip load PATdraw np}d/fill{/clip load PATdraw np}d
+/stroke{PATstroke}d/show{0 0 null 0 0 6 -1 roll PATawidthshow}d
+/widthshow{0 0 3 -1 roll PATawidthshow}d}{/eofill{oldeofill}d
+/fill{oldfill}d/stroke{oldstroke}d/show{oldshow}d/widthshow{oldwidthshow}d}ife end}d
+false PATredef
+/PATdraw{PATpcalc gs 5 -1 roll exec np PATfill gr}d
+/PATstroke{{cup strokepath m PATpcalc gs clip np PATfill gr np}stopped
+{0.1 g oldstroke (Path is too complex, filling with light gray)=}if}d
+/PATsstr 1 string def/PATawidthshow{{dup PATsstr dup 0 4 -1 roll put
+false charpath/clip load PATdraw cup np m
+3 ix eq{4 ix 4 ix rm}if 2 copy rm}forall
+p p p p p cup np m}d/PATDict 3 dict def/PATsp{true PATredef PATDict begin/CurrentPattern xd
+CurrentPattern/PaintType get 2 eq{/PColor xd}if/CColor[currentrgbcolor]def end}d
+/PATusp{false PATredef PATDict begin CColor aload p c end p}d
+/pdictt 20 dict def
+pdictt begin/dummy null def/PaintType 1 def/PatternType 1 def/TilingType 2 def/BBox[0 0 1 1]def
+/XStep 1 def/YStep 1 def/Multi 2 def/PaintData[{0 0 m 0 1 rl 1 0 rl 0 -1 rl cp
+PaintColors 0 get aload p null ne{f}if p p}
+{ptw pth true[ptw 0 0 pth neg 0 ptw]{Bitmap}imagemask}]def
+/PaintProc{begin exec end}d end/makedict{pdictt 20 dict copy dup begin
+x/Bitmap xd x/PaintColors xd gs initmatrix 1 1 drx idtransform sc
+[ptws 0 0 pths 0 0]PATmp gr end}d
+/setpat{/pth xd/ptw xd/pths xd/ptws xd makedict/instpat xd instpat PATsp}d/unsetpat{instpat PATusp}d
+/snl{{/noload sv def}if}d/enl{{noload rs}if}d/nc 1 def
+/colorimage where{p true}{false}ife{/nc 0
+statusdict begin/processcolors where{p p processcolors}
+{/deviceinfo where{p deviceinfo/Colors known
+{p{deviceinfo/Colors get}}if}if}ife end def
+nc 0 ne{systemdict/colorimage known
+systemdict/setcolortransfer known
+systemdict/currentcolortransfer known
+systemdict/currentcmykcolor known
+and and and not{/nc 0 def}if}if}if
+nc dup 1 ne x dup 3 ne x 4 ne and and{/nc 0 def}if
+nc 1 eq dup dup not snl{
+/expandbw{expandfactor mul round cvi bwclut x get 255 div}d
+/doclutimage{p/bwclut xd bpc dup 8 eq{p 255}{4 eq{15}{3}ife}ife
+/expandfactor xd[/expandbw load/exec load dup currenttransfer x]
+cvx bind settransfer
+iw ih bpc[1 0 0 -1 0 ih]setupimageproc
+image}d}if
+not enl
+nc dup 3 eq x 4 eq or
+dup dup not snl{/nullproc{{}}def
+/concatutil{/exec load 7 -1 roll/exec load}d/defsubclut{1 add getinterval def}d
+/spconcattransfer{/Dclut x def/Cclut x def/Bclut x def/Aclut x def/ncompute x l
+currentcolortransfer[{Aclut ncompute}concatutil]cvx[{Bclut ncompute}concatutil]cvx
+[{Cclut ncompute}concatutil]cvx[{Dclut ncompute}concatutil]cvx
+setcolortransfer}d/setuprgbcluts{/bit3x rgbclut length 3 sub def
+/bit1x bit3x 3 idiv def/rclut rgbclut def/gclut rclut 1 bit3x defsubclut
+/bclut rclut 2 bit3x defsubclut}d}if not enl
+nc 3 eq dup dup not snl{/3compute{x bit3x mul round cvi get 255 div}d
+/doclutimage{/rgbclut xd p setuprgbcluts/3compute rclut gclut bclut dup
+spconcattransfer iw ih bpc[1 0 0 -1 0 ih][setupimageproc/exec load/dup load dup]cvx
+nullproc nullproc true 3 colorimage}d}if not enl
+nc 4 eq
+dup dup not snl{/stuffclut{cmykindex 3 -1 roll put}d
+/ftoint{1 x sub 255 mul round cvi}d/4compute{x bit4x mul round cvi get 255 div}d
+/computecmykclut{setuprgbcluts/bit4x rgbclut length 3 idiv 4 mul 4 sub def
+/cmykclut bit4x 4 add string def/cclut cmykclut def
+/mclut cclut 1 bit4x defsubclut/yclut cclut 2 bit4x defsubclut
+/kclut cclut 3 bit4x defsubclut/cmykindex 0 def
+0 1 bit1x{dup/cmykindex x
+bit1x x sub 4 mul def 3 mul dup rclut x get 255 div
+x dup gclut x get 255 div x bclut x get 255 div
+setrgbcolor currentcmykcolor ftoint kclut stuffclut
+ftoint yclut stuffclut ftoint mclut stuffclut
+ftoint cclut stuffclut}for}d/doclutimage{/rgbclut xd p invalidcolortable?
+{computecmykclut}if/4compute cclut mclut yclut kclut spconcattransfer
+iw ih bpc[1 0 0 -1 0 ih][setupimageproc/exec load/dup load dup dup]cvx
+nullproc nullproc nullproc true 4 colorimage}d}if not enl
+nc 0 eq dup dup not
+snl{/las{3 mul 3 getinterval putinterval x
+3 add x 3 copy}d/8lookup/las l/4lookup{/byte 1 ix def -4 bitshift
+las byte 15 and las}d
+/2lookup{/byte 1 ix def -6 bitshift las
+byte -4 bitshift 3 and las byte -2 bitshift
+3 and las byte 3 and las}d/colorexpand{mystringexp 0 rgbclut
+3 copy 7 -1 roll/mylookup load forall p p p p p}d
+/createexpandstr{/mystringexp x mystring length mul string def}d
+/doclutimage{/rgbclut xd p/mylookup bpc 8 eq
+{3 createexpandstr/8lookup}{bpc 4 eq{6 createexpandstr/4lookup}{12 createexpandstr
+/2lookup}ife}ife l iw ih bpc[1 0 0 -1 0 ih]
+[setupimageproc/exec load/colorexpand load/exec load]cvx
+false 3 colorimage}d}if not enl
+/colorimage where{p true}{false}ife dup{/do24image{iw ih 8[1 0 0 -1 0 ih]
+setupimageproc false 3 colorimage}d}if
+dup dup snl not{/rgbtogray{/str xd/len str length def/smlen len 3 idiv def
+/rstr str def/gstr str 1 len 1 sub getinterval def/bstr str 2 len 2 sub getinterval def
+str dup 0 1 smlen 1 sub{dup 3 mul rstr 1 ix get .3 mul
+gstr 2 ix get .59 mul add bstr 3 -1 roll get .11 mul add
+round cvi put dup}for p 0 smlen getinterval}d/do24image{iw ih 8[1 0 0 -1 0 ih]
+[setupimageproc/exec load/rgbtogray load/exec load]cvx bind
+image}d}if enl/doimage{iw ih 8[1 0 0 -1 0 ih]setupimageproc image}d
+/setup1asciiproc{[currentfile mystring/rh cvx/p cvx]cvx bind}d
+/setup1binaryproc{[currentfile mystring/readstring cvx/p cvx]cvx bind}d
+/iw 0 def/ih 0 def/im_save 0 def/setupimageproc 0 def/polarity 0 def
+/smoothflag 0 def/mystring 0 def/bpc 0 def/beginimage{/im_save sv def dup 0 eq
+{p/setup1binaryproc}{1 eq{/setup1asciiproc}
+{(error, can't use level2 data acquisition procs for level1)print flush}ife}ife
+/setupimageproc x l/polarity xd/smoothflag xd tr sc/mystring x string def/bpc xd/ih xd/iw xd}d
+/endimage{im_save rs np}d/1bitbwcopyimage{1 g 0 0 m 0 1 rl 1 0 rl 0 -1 rl cp fill
+0 g iw ih polarity[1 0 0 -1 0 ih]setupimageproc imagemask}d/1bitcopyimage{setrgbcolor
+0 0 m 0 1 rl 1 0 rl 0 -1 rl cp fill
+setrgbcolor iw ih polarity[1 0 0 -1 0 ih]setupimageproc
+imagemask}d/1bitmaskimage{setrgbcolor
+iw ih polarity[1 0 0 -1 0 ih]setupimageproc
+imagemask}d
+/BeginEPSF{end
+userdict begin/showpage{}def
+/b4 sv def/d_cnt countdictstack def/op_cnt count 1 sub def
+0 setgray 0 setlinecap 1 setlinewidth 0 setlinejoin
+10 setmiterlimit[]0 setdash newpath/languagelevel where{p languagelevel 1 ne
+{false setstrokeadjust false setoverprint}if}if}d
+end
+userdict begin/EndEPSF{count op_cnt sub{pop}repeat
+countdictstack d_cnt sub{end}repeat b4 end restore wpdict begin}bind def end
+%%EndProlog
+ /#copies 1 def wpdict begin
+bd
+/cml 1 def
+letter 
+%%Page: 1 1 
+
+bp
+0 13200 10200 co
+/CourierR 600 ff
+0 13200 10200 co
+mcm
+2000 11104 tr
+1 -1 sc np 0 0 m
+2097 0 li 2097 13 li 0 13 li cp
+0 255 div g
+[] 0 sd 13 w 0 lj 0 lc fill np 0 600 m
+2097 600 li 2097 613 li 0 613 li cp
+0 255 div g
+fill 0 w 0 lc sm
+icl
+mcm
+4100 11104 tr
+1 -1 sc np 0 0 m
+1497 0 li 1497 13 li 0 13 li cp
+0 255 div g
+13 w 0 lc fill np 0 600 m
+1497 600 li 1497 613 li 0 613 li cp
+0 255 div g
+fill 0 w 0 lc sm
+icl
+mcm
+5600 11104 tr
+1 -1 sc np 0 0 m
+2597 0 li 2597 13 li 0 13 li cp
+0 255 div g
+13 w 0 lc fill np 0 600 m
+2597 600 li 2597 613 li 0 613 li cp
+0 255 div g
+fill 0 w 0 lc sm
+icl
+mcm
+2000 10488 tr
+1 -1 sc sm
+icl
+mcm
+4100 10488 tr
+1 -1 sc sm
+icl
+mcm
+5600 10488 tr
+1 -1 sc sm
+icl
+mcm
+2000 9876 tr
+1 -1 sc sm
+icl
+mcm
+4100 9876 tr
+1 -1 sc sm
+icl
+mcm
+5600 9876 tr
+1 -1 sc sm
+icl
+mcm
+2000 9496 tr
+1 -1 sc sm
+icl
+mcm
+4100 9496 tr
+1 -1 sc sm
+icl
+mcm
+5600 9496 tr
+1 -1 sc sm
+icl
+mcm
+2000 9112 tr
+1 -1 sc sm
+icl
+mcm
+4100 9112 tr
+1 -1 sc sm
+icl
+mcm
+5600 9112 tr
+1 -1 sc sm
+icl
+mcm
+2000 8732 tr
+1 -1 sc sm
+icl
+mcm
+4100 8732 tr
+1 -1 sc sm
+icl
+mcm
+5600 8732 tr
+1 -1 sc sm
+icl
+mcm
+2000 8352 tr
+1 -1 sc sm
+icl
+mcm
+4100 8352 tr
+1 -1 sc sm
+icl
+mcm
+5600 8352 tr
+1 -1 sc sm
+icl
+mcm
+2000 7972 tr
+1 -1 sc sm
+icl
+mcm
+4100 7972 tr
+1 -1 sc sm
+icl
+mcm
+5600 7972 tr
+1 -1 sc sm
+icl
+mcm
+2000 7588 tr
+1 -1 sc sm
+icl
+mcm
+4100 7588 tr
+1 -1 sc sm
+icl
+mcm
+5600 7588 tr
+1 -1 sc sm
+icl
+mcm
+2000 7208 tr
+1 -1 sc sm
+icl
+mcm
+4100 7208 tr
+1 -1 sc sm
+icl
+mcm
+5600 7208 tr
+1 -1 sc sm
+icl
+mcm
+2000 6828 tr
+1 -1 sc sm
+icl
+mcm
+4100 6828 tr
+1 -1 sc sm
+icl
+mcm
+5600 6828 tr
+1 -1 sc sm
+icl
+mcm
+2000 6448 tr
+1 -1 sc sm
+icl
+mcm
+4100 6448 tr
+1 -1 sc sm
+icl
+mcm
+5600 6448 tr
+1 -1 sc sm
+icl
+mcm
+2000 6064 tr
+1 -1 sc sm
+icl
+mcm
+4100 6064 tr
+1 -1 sc sm
+icl
+mcm
+5600 6064 tr
+1 -1 sc sm
+icl
+mcm
+2000 5684 tr
+1 -1 sc sm
+icl
+mcm
+4100 5684 tr
+1 -1 sc sm
+icl
+mcm
+5600 5684 tr
+1 -1 sc sm
+icl
+mcm
+2000 5304 tr
+1 -1 sc sm
+icl
+mcm
+4100 5304 tr
+1 -1 sc sm
+icl
+mcm
+5600 5304 tr
+1 -1 sc sm
+icl
+mcm
+2000 4924 tr
+1 -1 sc sm
+icl
+mcm
+4100 4924 tr
+1 -1 sc sm
+icl
+mcm
+5600 4924 tr
+1 -1 sc sm
+icl
+mcm
+2000 4540 tr
+1 -1 sc sm
+icl
+mcm
+4100 4540 tr
+1 -1 sc sm
+icl
+mcm
+5600 4540 tr
+1 -1 sc sm
+icl
+mcm
+2000 4160 tr
+1 -1 sc sm
+icl
+mcm
+4100 4160 tr
+1 -1 sc sm
+icl
+mcm
+5600 4160 tr
+1 -1 sc sm
+icl
+mcm
+2000 3780 tr
+1 -1 sc sm
+icl
+mcm
+4100 3780 tr
+1 -1 sc sm
+icl
+mcm
+5600 3780 tr
+1 -1 sc sm
+icl
+mcm
+2000 3400 tr
+1 -1 sc sm
+icl
+mcm
+4100 3400 tr
+1 -1 sc sm
+icl
+mcm
+5600 3400 tr
+1 -1 sc sm
+icl
+mcm
+2000 3016 tr
+1 -1 sc np 0 596 m
+2097 596 li 2097 609 li 0 609 li cp
+0 255 div g
+13 w 0 lc fill 0 w 0 lc sm
+icl
+mcm
+4100 3016 tr
+1 -1 sc np 0 596 m
+1497 596 li 1497 609 li 0 609 li cp
+0 255 div g
+13 w 0 lc fill 0 w 0 lc sm
+icl
+mcm
+5600 3016 tr
+1 -1 sc np 0 596 m
+2597 596 li 2597 609 li 0 609 li cp
+0 255 div g
+13 w 0 lc fill 0 w 0 lc sm
+icl
+1200 11806 m
+/Times-BoldR 798 ff
+0 255 div g
+22  0 32 (Table 1.)W
+2400 11806 m
+1800 11806 m
+2400 11806 m
+22  0 32 (SCMS \(5-162\) UV Hygrometer Mixing Ratio Saturation)W
+2400 11507 m
+(Values*)S
+2479 10858 m
+/Times-RomanR 600 ff
+17  0 32 (Flight Number)W
+4260 10858 m
+17  0 32 (    Date)W
+5939 10858 m
+17  0 32 (Mixing Ratio Saturation)W
+6383 10625 m
+17  0 32 (Value \(g/kg\))W
+2858 10011 m
+(RF01)S
+4260 10244 m
+17  0 32 (   )W
+4260 10011 m
+17  0 32 (   7/19/95)W
+6755 10011 m
+(11.5)S
+2858 9630 m
+(RF02)S
+4260 9630 m
+17  0 32 (   7/20/95)W
+6755 9630 m
+(11.4)S
+2858 9249 m
+(RF03)S
+4260 9249 m
+17  0 32 (   7/21/95)W
+6755 9249 m
+(11.4)S
+2858 8868 m
+(RF04)S
+4260 8868 m
+17  0 32 (   7/22/95)W
+6755 8868 m
+(11.4)S
+2858 8487 m
+(RF05)S
+4260 8487 m
+17  0 32 (   7/24/95)W
+6755 8487 m
+(11.1)S
+2858 8106 m
+(RF06)S
+4260 8106 m
+17  0 32 (   7/26/95)W
+6755 8106 m
+(10.9)S
+2858 7725 m
+(RF07)S
+4260 7725 m
+17  0 32 (   7/27/95)W
+6755 7725 m
+(11.3)S
+2858 7344 m
+(RF08)S
+4260 7344 m
+17  0 32 (   7/28/95)W
+6755 7344 m
+(11.4)S
+2858 6963 m
+(RF09)S
+4260 6963 m
+17  0 32 (   7/29/95)W
+6755 6963 m
+(10.0)S
+2858 6582 m
+(RF10)S
+4260 6582 m
+17  0 32 (   7/31/95)W
+6755 6582 m
+(10.9)S
+2858 6201 m
+(RF11)S
+4260 6201 m
+17  0 32 (   8/4/95)W
+6805 6201 m
+(5.4)S
+2858 5820 m
+(RF12)S
+4260 5820 m
+17  0 32 (   8/5/95)W
+6805 5820 m
+(2.8)S
+2858 5439 m
+(RF13)S
+4260 5439 m
+17  0 32 (   8/6/95)W
+6805 5439 m
+(2.8)S
+2858 5058 m
+(RF14)S
+4260 5058 m
+17  0 32 (   8/7/95)W
+6805 5058 m
+(3.5)S
+2858 4677 m
+(RF15)S
+4260 4677 m
+17  0 32 (   8/8/95)W
+6805 4677 m
+(5.8)S
+2858 4296 m
+(RF16)S
+4260 4296 m
+17  0 32 (   8/10/95)W
+6805 4296 m
+(5.2)S
+2858 3915 m
+(RF17)S
+4260 3915 m
+17  0 32 (   8/11/95)W
+6805 3915 m
+(6.2)S
+2858 3534 m
+(RF18)S
+4260 3534 m
+17  0 32 (   8/12/95)W
+6805 3534 m
+(7.2)S
+2858 3153 m
+(RF19)S
+4260 3153 m
+17  0 32 (   8/13/95)W
+6805 3153 m
+(6.5)S
+/Times-BoldR 600 ff
+2858 2772 m
+/Times-RomanR 600 ff
+(RF20)S
+4260 2772 m
+17  0 32 (   8/13/95)W
+6805 2772 m
+(5.4)S
+/Times-BoldR 600 ff
+1260 2058 m
+/Times-RomanR 600 ff
+(*)S
+1500 2058 m
+1200 2058 m
+1500 2058 m
+17  0 32 (The saturation values listed correspond to the ambient mixing ratio value up to which the)W
+1500 1825 m
+17  0 32 (UV hygrometer data are reliable.  Past the saturation value, either the dewpoint or Lyman-)W
+1500 1592 m
+17  0 32 (Alpha measurements of mixing ratio \(MR or MRLA, respectively\) should be used for)W
+1500 1359 m
+17  0 32 (accurate measurements of the atmospheric mixing ratio.)W
+/CourierR 600 ff
+ep
+ed end
+

@@ -1,0 +1,149 @@
+<center><img src="images/RDCC4RICO.jpg">
+<h1>RDCC Chat Client Configuration Instructions</h1>
+(for the RICO project)</center>
+<br>
+<h3>Overview</h3>
+The RDCC chat system is running a standard IRC server.&nbsp; There are
+many IRC chat clients, including
+<a href="http://www.mozilla.org">mozilla.org</a>'s
+<b>Chatzilla</b> that will work with this server.&nbsp; Once you have properly
+configured Chatzilla, you can simply enter in the URL
+<a href="irc://rdcc.guest.ucar.edu/%26RICO?pass=60kw60E08p">irc://rdcc.guest.ucar.edu/&amp;RICO?pass=60kw60E08p</a>
+to access the main RICO chatroom, for example.&nbsp; We have found that
+<b>xchat</b> is also a good multi-platform chat client which offers enhanced
+features such as logging, timestamps, etc.&nbsp; Since xchat running on a
+Windows platform has been the most popular method, we have included more
+detailed instructions for that type of installation here.&nbsp; There could
+be slight changes to what you see here due to version number differences,
+etc.&nbsp; but you should also be able to configure your particular choice
+of chat client by extracting configuration information presented on this page
+and entering it appropriately.&nbsp; Please pay particular attention to the
+chat server name, the chat server password and the conventions for chatroom
+names and nicknames.&nbsp;
+<br>
+<br>
+<h2><center>To Download and Install XChat on a Windows machine:</center></h2>
+<ol type="1">
+ <li>)&nbsp; With the browser of your choice, go to
+  <a href="http://www.xchat.org/">www.xchat.org</a></p></li>
+ <br><li>)&nbsp; On the left side of the page, click on Download</p></li>
+ <br><li>)&nbsp; Choose the Windows version under Precompiled Binaries</p></li>
+ <br><li>)&nbsp; Save to pc</p></li>
+ <br><li>)&nbsp; Open the .exe that was just saved to your pc</p></li>
+ <br><li>)&nbsp; Use all the defaults by clicking Next and then Install</p></li>
+ <br><li>)&nbsp; At the end it will ask you to click Next, and then Finish</p> 
+ </li>
+ <br><li>)&nbsp; XChat is now installed and needs to be setup</p></li>
+ <br><li>)&nbsp; It should create an Xchat icon on your desktop</p></li>
+</ol>
+<br>
+<br>
+<h2><center>To Setup XChat</center></h2>
+<ol type="1">
+ <li>)&nbsp; Open Xchat</li>
+ <br><li>)&nbsp; The first screen to display is the &quot;XChat: Server
+  List&quot;</li>
+ <br><li>)&nbsp; We recommend that your Nickname will be the same as your
+  Wiki/Discussion Forum login name, including the location you are currently
+  chatting from, for example:
+  <blockquote><b>
+   BrandonSlaten-ncar
+   <br>SusanStringer-c130
+   <br>MikeDaniels-spol
+   <br>HarryOchs-ops
+   <br>BjornStevens-ucla
+  </b></blockquote>
+ </li>
+ <br><li>&nbsp;) Also uncheck &quot;Skip server list on startup&quot; at the bottom
+  of the screen</li>
+ <br><li>)&nbsp; Type in RDCC, case sensitive, so please use all caps</li>
+ <br><li>)&nbsp; RDCC should now show up in the Server list</li>
+ <br><li>)&nbsp; Click on Edit</li>
+ <br><li>)&nbsp; Edit default
+  <br>
+  <br><img src="images/image004.jpg">
+  <br>
+  <br>
+</li>
+ <br><li>)&nbsp; It will probably default to &quot;newserver&quot; of some sort.
+ </li>
+ <br><li>)&nbsp; Replace &quot;newserver&quot; with
+  <b>&quot;rdcc.guest.ucar.edu&quot;</b></li>
+ <br><li>)&nbsp; Check &quot;Connect to selected server only &quot;</li>
+ <br><li>)&nbsp; Check &quot;Use global user information&quot;</li>
+ <br><li>)&nbsp; Check &quot;Auto connect to this network at startup&quot;</li>
+ <br><li>)&nbsp; Check &quot;Use proxy server&quot;</li>
+ <br><li>)&nbsp; Leave &quot;ssl&quot; choices unchecked
+  <br>
+  <br><img src="images/image006.jpg">
+  <br>
+  <br>
+ </li>
+ <br><li>)&nbsp; You will also need to put in the channels you wish to join.  It
+  is best to only use those you will really need.</li>
+ <br><li>)&nbsp; These are the established channels for RICO (more can always
+  be added):
+  <blockquote>
+       <b>&amp;C130Q</b>:&nbsp; C-130 specific discussion
+    (instrumentation issues, etc.)
+   <br>
+   <br><b>&amp;SABL</b>:&nbsp; &amp;C130Q SABL specific discussions
+   <br>
+   <br><b>&amp;Spol</b>:&nbsp; S-Pol specific discussions
+   <br>
+   <br><b>&amp;dropsonde</b>:&nbsp; dropsonde coordination
+   <br>
+   <br><b>&amp;BAE146</b>:&nbsp; UK BAE-146 specific discussions
+   <br>
+   <br><b>&amp;Kingair</b>:&nbsp; UWyo KingAir specific discussions
+   <br>
+   <br><b>&amp;SewardJohnson</b>:&nbsp; Seward Johnson ship specific
+    discussions
+   <br>
+   <br><b>&amp;PAM</b>:&nbsp; PAM station discussions
+   <br>
+   <br><b>&amp;GAUS</b>:&nbsp; GAUS discussions
+   <br>
+   <br><b>&amp;RICO</b>:&nbsp; RICO general discussion, aircraft and project
+    coordination
+  </blockquote>
+ </li>
+ <br><li>)&nbsp; No matter how many you choose, we recommend that you list
+  &quot;<b>&amp;RICO&quot;</b> as the last one.</li>
+ <br><li>)&nbsp; The Server password is <b>60kw60E08p</b></li>
+ <br><li>)&nbsp; All of the previous are case sensitive.</li>
+ <br><li>)&nbsp; Now click on close.  <br>
+  <br><img src="images/image008.jpg">
+  <br>
+  <br>
+ </li>
+ <br><li>)&nbsp; You will be back at the &quot;X-Chat: Server list&quot;;
+  click on connect to join the channels.
+  <br>
+  <br><img src="images/image010.jpg">
+  <br>
+  <br>
+ </li>
+ <br><li>)&nbsp; The following commands will be very useful in the rooms:
+  <blockquote></b>
+   <u>Join a channel:</u>
+   <br>/JOIN &lt;channel-name&gt;
+   <br><u>Change your nickname:</u>
+   <br>/NICK &lt;new nickname&gt;
+   <br><u>Start a private chat with someone:</u>
+   <br>/QUERY &lt;nickname&gt;
+   <br><u>Leave a channel:</u>
+   <br>/LEAVE &lt;channel-name&gt;
+   <br><u>Quit altogether:</u>
+   <br>/QUIT &lt;optional message&gt;
+  </b></blockquote>
+ </li>
+ <br><li>)&nbsp; Please use the <b>/JOIN</b> command at the beginning to get
+  into any of the rooms.</li>
+ <br><li>)&nbsp; You should now be able to chat!
+  <br>
+  <br><img src="images/image012.jpg">
+  <br>
+  <br>
+ </li>
+</ol>

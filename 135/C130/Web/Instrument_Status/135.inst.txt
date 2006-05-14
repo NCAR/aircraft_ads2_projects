@@ -1,0 +1,177 @@
+                                                        10/07/04
+	Aircraft Research Instrumentation
+	C-130 - Basic RAF RICO Configuration
+	Project #5-135
+	Rauber/Ochs et al
+
+RAF-Supplied Instrumentation:
+
+I.  Airborne Data System.
+     A. Acquisition.  C-130 ADS2 (Motorola 68040 based). 
+         NCAR Distributed Sampling Modules (4 units), one in
+         each wing pod and two in cabin.
+      
+      B. Operator Station. Intel L440GX+ Motherboard with 
+         2 Pentium III-500 CPU?s, 512 MB Memory, Redhat
+         Linux 6.2 OS.  9GB Disk Storage with RAID-1.
+         General Digital 17 inch 1280x1024 TFT Flat Panel
+         Color Monitor.  IBM-DRHS36D 36GB Removable Disk Drives
+         In Kingston Carriers (2 units). UPS.
+       
+      C. Aft User Displays(4): 
+*	Dell Latitude Pentium III-850 Laptop (1), Linux OS, 15?
+ 	 Display ? Clyde
+*	Dell Latitude Pentium II-300 Laptop (1), Linux OS, 13?
+    Display ? Grendel
+* Dell Latitude Pentium MMX-266 Laptop (1), Linux OS, 13?
+    Display ? Agave
+* Dell Latitude Pentium MMX-233 Laptop (1), Linux OS, 13?
+    Display ? Nuvola
+*	Lexmark Optra Color 45 Inkjet Printer
+
+D. Flight Deck Display
+*	Dell Latitude Pentium III-850 Laptop, Linux OS, 15?      Display ? Bonnie
+*	Lexmark Optra Color 45 Inkjet Printer
+
+II. Aircraft Position, Velocity and Attitude
+      A. Honeywell Model HG1095-AC03 Laseref SM Inertial
+         Reference System . (Research).
+     B. Garmin GPS16 Global Positioning System. (GPS).
+
+III.Static Pressures.
+  	A. Rosemount Model 1501 Digital Pressure Transducer -
+         Fuselage Port (PSFD). 
+      B. Ruska Model 7885 Digital Pressure Transducer -
+         Fuselage Port (PSFRD, PSFC).
+      C. Rosemount Model 1201F1 Pressure Transducer ? Cabin (PCAB).
+
+C-130 RAF RICO
+Page 2
+
+IV. Dynamic Pressures.
+     A. Rosemount Model 1221F1VL - Radome (QCR). 
+      B. Rosemount Model 1221F1VL ? Left Fuselage Pitot (QCF). 
+      C. Rosemount Model 1221F1VL ? Right Fuselage Pitot (QCFR).
+
+V.  Temperatures.
+     A. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Starboard Radome Mount (TTRR). 
+     B. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Port Radome Mount (TTRL). 
+      C. Rosemount Type 102E Deiced Sensor -- Rosemount Model
+        510BF Amplifier - Left Inboard Wing Access Plate (TTWH).
+	D. OPHIR-III Radiometric Near-field Temperature Sensor --
+   Starboard Wing Pod Mount (OAT).
+
+VI. Flow Angle Sensors, Radome.
+     A. Attack - Rosemount Model 1221F1VL Differential Pressure
+        Transducer (ADIFR). 
+     B. Sideslip - Rosemount Model 1221F1VL Differential 
+        Pressure Transducer (BDIFR). 
+
+VII. Dew Point and Humidity.
+      A. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPT). 
+      B. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPB). 
+      C. SpectraSensors Open Path TDL Hygrometer ?
+         Starboard Wing Pod Mount (MRLH).
+      D. NCAR Model LA-3 Crossflow Lyman-alpha Hygrometer ? Port
+         Radome Mount (VLA).  
+     E. NCAR Model LA-3 Crossflow Lyman-alpha Hygrometer - Port
+         Radome Mount (VLA1).  
+ 
+VIII.   Radiation Fluxes.
+     A. Visible Radiation.  RAF Modified Eppley Model PSP
+        Pyranometers - 2 units: Upward looking (SWT), Downward
+        looking (SWB). Multipurpose Radiometer Housings.
+      B. Ultraviolet Radiation.  RAF Modified Eppley Model TUVR
+         Pyranometers - 2 units: Upward looking (UVT), Downward
+          looking (UVB). Multipurpose Radiometer Housings. 
+     C. Infrared Radiation.  RAF Modified Eppley Model PIR
+        Pyrgeometers - 2 units: Upward looking (IRT), Downward
+        looking (IRB). Multipurpose Radiometer Housings.
+     D. Remote Surface Temperature.  Heiman Model KT19.85 
+         Radiometer - 2 units: Down looking (RSTB,RSTB1).
+      E. Remote Sky Temperature.  Heiman Model KT19.85 Radiometer.
+   Up looking (RSTT). 
+
+C-130 RAF RICO
+Page 3
+
+IX.  Basic Cloud Physics.
+      A. Rosemount Model 871FA Icing Rate Detector - Right
+          Inboard Wing Access Plate (RICE). 
+      B. PMS Liquid Water Sensor (King Probe) -
+          Left Outboard Wing Access Plate (PLWC).
+      C. PMS Liquid Water Sensor (King Probe) -
+          Right Outboard Wing Access Plate (PLWC1).
+       D. TSI Model 3760 CN Counter - Belly Inlet (CONCN).
+    	    Size Distribution, 0.01 to 3 um.
+
+X.	Wing Stores
+       A. RAF - Particle Measuring Systems Model SPP-200
+          Size Distribution, 0.12 to 3.12 um. RWO.
+       B. RAF - Particle Measuring Systems Model SSP-100
+          Size Distribution, 3 - 45 um. LPC.
+       C. RAF - Particle Measuring Systems Model 2D-C
+          Size Distribution, 25 to 800 um. LWO. 
+       D. RAF - Particle Measuring Systems Model 2D-P
+          Size Distribution, 100 to 3200 um. LWI.
+       E. RAF - Particle Measuring Systems Model 260X 
+ 	    Size Distribution, 50 to 640 um. RWI
+       F. RAF - PVM-100 Liquid Water Probe - Left wing
+          Pod mount (XGLWC). LPO.
+       G. SPEC ? Model 2D-S Dual Particle Imager
+          Size Distribution, 25 to 800 um. RPC.
+H. SPEC ? Cloud Particle Imager (CPI)
+   Size Distribution, 2.5 to 2,000 um. RPI.
+I. Brenguier ? Fast FSSP
+   Size Distribution, 3 to 50 um. LPI.
+J. CIRPAS ? Phase Doppler Cloud Droplet Analyzer
+   Size Distribution, 3 to 250 um. RPO.
+
+XI.  Geometric Altitude. 
+       A. Steward-Warner Model APN-232(v) - Fuselage Mount,
+          0 to 1,500 m AGL (HGM); 0 to 15,000 m AGL (HGM232). 
+
+XII. Photography.
+       A. Sony XC-999 $VH$ Color Camera with JVC Model HR-S4700U
+          Super VHS Recorder (2 pairs), Horita GPS Video Titler,
+          Forward facing Cockpit Mount, Side Looking.
+
+XIII.RAF Chemistry (T.Campos).
+      A. TECO Slow Response Ozone Analyzer (TEO3C).
+B. Aero-Laser Fast Response Carbon Monoxide Analyzer
+          (UV resonance fluorescence - CO).
+       C. RAF Fast Response Ozone Analyzer (O3FSC). 
+
+C-130 RAF RICO
+Page 4
+
+XIV. NCAR Special Request Instruments.
+     A. ATD SABL Up/Down looking Lidar - 2 wavelength backscatter
+        system.  Left Wing Pod Mount. 
+      B. ATD GPS Dropsonde System.  Cabin Mount. Aft ramp chute.
+     C. RAF Aerosol Rack w RDMA Radial Differential Mobility 
+        Analyzer and wet/dry nephelometers. Belly inlet.
+     D. RAF Counter-flow Virtual Impactor. Specialty inlet takes 
+	   entire aperture plate (L-1).
+     E. CSIRO/RAF Giant Aerosol Impactor. Aperture plate (R-1).
+
+XV. User Supplied Cabin Mounted Instrumentation.
+A. Hudson CCN ? 3 User supplied specialty racks / 
+     2 inlets on starboard bulkhead fittings + CVI feed.
+B. Bandy SO2 - Std C-130 rack / 1 belly inlet / window venturi.
+C. Bandy DMS - Std C-130 rack / 1 belly inlet / window venturi.
+D. Heikes In-Situ Peroxides ?  Specialty inlet takes entire aperture plate (L-2) + CVI feed.
+E. Anderson Filter pack ? space in CVI rack / 1 inlet to share 
+    part of Std Aperture plate + CVI feed.
+	F.  Univ. of Hawaii Total Air Sampler ? ? Std C-130 rack for 
+	    Pump / Specialty inlet takes entire aperture plate (L-3).
+G.   SPEC Data Systems for 2D-S and CPI wing probes.
+	H.  CIRPAS Data System for Phase Doppler Analyzer.
+	I.  Brenguier Laptop Computer for Fast FSSP Probe.
+
+XVI. Provisional User Equipment.
+A. Gerber ? Cloud Integrating Nephelometer / Wing Store
+B. PH Meter / Special CAI hard-point plate (R-2).
+C. CSIRO ? Wet and Dry Bulb Temperature / share part of Std Aperture plate (R-3).

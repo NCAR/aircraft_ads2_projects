@@ -1,0 +1,61 @@
+#! /bin/csh -f
+#
+# Rename MSS bitfiles to follow normal convention (necessary after
+#  archiving with assumed names)
+#
+date
+#
+#nrnet msmv % r flnm=/RAF/1994/120/RF01/R0914 npdn=/RAF/1994/120/RF01A/R0914 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF02/R0915 npdn=/RAF/1994/120/RF02A/R0915 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF04/R0921 npdn=/RAF/1994/120/RF04A/R0921 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF05/R0923 npdn=/RAF/1994/120/RF05A/R0923 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF06/R0924 npdn=/RAF/1994/120/RF06A/R0924 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF07/R0925 npdn=/RAF/1994/120/RF07A/R0925 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF08/R0926 npdn=/RAF/1994/120/RF08A/R0926 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF09/R0928 npdn=/RAF/1994/120/RF09A/R0928 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF10/R0929 npdn=/RAF/1994/120/RF10A/R0929 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF11/R0930 npdn=/RAF/1994/120/RF11A/R0930 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF12/R0931 npdn=/RAF/1994/120/RF12A/R0931 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF13/R0932 npdn=/RAF/1994/120/RF13A/R0932 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF14/R0933 npdn=/RAF/1994/120/RF14A/R0933 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF15/R0934 npdn=/RAF/1994/120/RF15A/R0934 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF16/R0935 npdn=/RAF/1994/120/RF16A/R0935 w=RAFDMG
+#nrnet msmv % r flnm=/RAF/1994/120/RF17/R0936 npdn=/RAF/1994/120/RF17A/R0936 w=RAFDMG
+#
+#  Rename files that Kathy Fryberger staged for me
+nrnet msmv % r flnm=/KATHYF/R0930 npdn=/RAF/TEMP1
+nrnet msmv % r flnm=/KATHYF/R0937 npdn=/RAF/TEMP2
+nrnet msmv % r flnm=/KATHYF/R0940 npdn=/RAF/TEMP3
+nrnet msmv % r flnm=/KATHYF/R0938 npdn=/RAF/1994/120/RF18C/R0938 wpass=RAFDMG
+#
+#  Template:
+#nrnet msmv % r flnm=/RAF/1994/120/ npdn=/RAF/1994/120/ w=RAFDMG
+#  Template (to set a write password)
+#nrnet msmv % r flnm=/RAF/1994/120/ npdn=/RAF/1994/120/ wpass=RAFDMG
+#
+#  Jobs submitted Mon Nov 28 14:01:36 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1668 -- RF01A -- OK
+# Sequence number = CK1675 -- RF02A -- OK
+# Sequence number = CK1682 -- RF04A -- OK
+# Sequence number = CK1689 -- RF05A -- OK
+# Sequence number = CK1696 -- RF06A -- OK
+# Sequence number = CK1703 -- RF07A -- OK
+# Sequence number = CK1710 -- RF08A -- OK
+# Sequence number = CK1717 -- RF09A -- OK
+# Sequence number = CK1724 -- RF10A -- OK
+# Sequence number = CK1731 -- RF11A -- OK
+# Sequence number = CK1738 -- RF12A -- OK
+# Sequence number = CK1745 -- RF13A -- OK
+# Sequence number = CK1752 -- RF14A -- OK
+# Sequence number = CK1759 -- RF15A -- OK
+# Sequence number = CK1766 -- RF16A -- OK
+# Sequence number = CK1773 -- RF17A -- OK
+#
+#  Jobs submitted Wed Jan 11 11:03:57 MST 1995
+Sequence number = CK3415 -- TEMP1 -- OK
+Sequence number = CK3422 -- TEMP2 -- OK
+Sequence number = CK3429 -- TEMP3 -- OK
+Sequence number = CK3436 -- RF18C -- OK
+#
+exit

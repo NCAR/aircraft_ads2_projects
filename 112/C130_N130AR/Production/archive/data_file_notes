@@ -1,0 +1,38 @@
+According to Chris Webster (with partial corroboration from Dave Rogers),
+the following files are bogus and should not remain in the
+SCD Mass Store System archive:
+
+112rf01.2d    (something about a TAS cable not connected or loose)
+  /ATD/DATA/2002/IDEAS-2/C130_N130AR/PMS2D/RF01
+
+112rf03a.2d   (something about a TAS cable not connected or loose)
+  /ATD/DATA/2002/IDEAS-2/C130_N130AR/PMS2D/RF03
+
+112rf04a.2d   (something about a TAS cable not connected or loose)
+  /ATD/DATA/2002/IDEAS-2/C130_N130AR/PMS2D/RF04
+
+112rf04a.rawMCRa  (MCR not mounted on the aircraft)
+  /RAF/2002/112/RAW_MCR/RF04
+
+Fri Oct 18 17:14:26 MDT 2002
+Ron Ruth
+
+-------
+
+RF05 had some on-the-ground transients for the first couple minutes.
+I recommend using a start time of 20:52:30 instead of 20:51:35.
+
+Fri Oct 25 17:11:15 MDT 2002
+Ron Ruth
+
+-------
+
+RF06 had a serial feed problem which rendered all the RDMA data useless
+after the system was restarted in flight.  In the first section was a
+data gap while the aircraft was still on the ground.  I recommend using
+a start time of 20:19:27 instead of 12:20:21.
+
+Thu Oct 31 11:00:54 MST 2002
+Ron Ruth
+
+-------

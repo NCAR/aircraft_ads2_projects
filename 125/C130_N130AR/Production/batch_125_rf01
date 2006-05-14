@@ -1,0 +1,7 @@
+nimbus -b cmd_125_rf01
+echo "Ready to move 125rf01.nc into temp.nc"
+mv /jnet/productiondata/125rf01.nc /jnet/productiondata/temp.nc
+echo "Ready to reorder temp.nc and to create 125rf01.nc"
+ncReorder /jnet/productiondata/temp.nc /jnet/productiondata/125rf01.nc
+echo "Ready to remove temp.nc"
+rm /jnet/productiondata/temp.nc

@@ -1,0 +1,36 @@
+#! /bin/csh -f
+#
+#  Special one-time cshell script to copy IDEAS-1 raw CVI files and
+#   rename them to agree with ATD's SCD Mass Store System (MSS) file-naming
+#   convention.  This allows the group of files to be tarred into one large
+#   file while preserving their names.
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2005                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Written by Ron Ruth on 9 September 2005
+#
+mkdir /net/ftp/pub/archive/RAF-projects/IDEAS/CVI
+#
+cd /net/ftp/pub/archive/RAF-projects/IDEAS/cvi
+set files = (`ls */*`)
+foreach file ($files)
+  set name = `echo $file | sed "s/\(..\)\(.\).\(......\)\(..\).\(..\)\(.*\)/\10\2.20\3.\4\500.\6.asc/"`
+  set name = `echo $name | sed "s/rf/RF/"`
+  cp $file ../CVI/$name
+end
+#
+cd /net/ftp/pub/archive/RAF-projects/IDEAS/CVI
+tar -cvf All_data.tar .
+tar -tvf All_data.tar > All_data.tar.dir
+gzip All_data.tar
+#
+# Done
+exit
+#
+#  Job completed on Fri Sep  9 13:36:00 MDT 2005
+#
+#  Redo job to add *q.asc and *l.asc data format description files
+#  Job completed on Fri Oct  7 16:38:17 MDT 2005

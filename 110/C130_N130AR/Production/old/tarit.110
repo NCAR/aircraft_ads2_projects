@@ -1,0 +1,117 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file $LOCAL/proj/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+LowRateVars \
+PMSspecs \
+ProjectName \
+UserNames \
+VarDB \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+despike \
+header \
+header.AFT \
+header.CTL \
+header.FORWARD \
+header.PODLW \
+header.PODRW \
+landmarks \
+ophir3.names \
+plot_attr \
+plotspex \
+Production/110_QA.txt \
+Production/110_cals.txt \
+Production/110_covlet.txt \
+Production/110_inst.txt \
+Production/110_params.txt \
+Production/110_tape_sum.txt \
+Production/110_video_log.txt \
+Production/110rf01.hdr \
+Production/110rf01h.hdr \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_3 \
+Production/Flight_4 \
+Production/Flight_5 \
+Production/Flight_6 \
+Production/Flight_7 \
+Production/Flight_9 \
+Production/MSCP_out.110 \
+Production/arch.110 \
+Production/logFile.1 \
+Production/logFile.10 \
+Production/logFile.11 \
+Production/logFile.2 \
+Production/logFile.3 \
+Production/logFile.4 \
+Production/logFile.5 \
+Production/logFile.6 \
+Production/logFile.7 \
+Production/logFile.9 \
+Production/nimbus.tar.dir \
+Production/nimbus_defaults.tar.dir \
+Production/proj.info \
+Production/taplog.110 \
+Production/archive/tapes.110 \
+Production/archive/tcopy.RF08.log \
+Production/archive/tp2ms.job1 \
+Production/archive/tp2ms.summary
+#
+#  At this point one needs a list of files immediately under the above "tar
+#   command.  As a starting point, one can use the `vi' command:   !!ls ..
+#   to get a list of files in the project's directory and edit out the
+#   unneeded ones.  For subdirectories, one can repeat this, e.g.,
+#                       !!ls 
+#                       !!ls archive
+#                       !!ls <directory>
+#   (Execute these commands starting with the first "#" line below the
+#    `tar' command.  The `vi' command `!!ls' replaces the current line
+#    with its output.)
+#  Other subdirectories may also have files that need to be archived.
+#  After you get the list of files, don't forget to add the subdirectory
+#  name (if any) to the beginning of the file name and add a trailing
+#  backslash (\) to each file name (except the last one), so the `tar'
+#  command gets the entire list of files.
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

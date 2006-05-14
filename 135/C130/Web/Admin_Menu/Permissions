@@ -1,0 +1,33 @@
+Current PostNuke (as of 26 Oct 2004):
+1 Admins	.*	.*	Admin
+2 All groups	Menublock::	Main Menu:Administration:	None
+3 Users	Menublock::	Main Menu:Online Chat|Email List|Member List|Ask a Question:	None
+4 Unregistered	Menublock::	Main Menu:My Account|Logout|Online Chat|Email List|Member List|Ask a Question:	None
+5 Participants	.*	.*	Moderate
+6 Users .*  .*  Read
+7 Unregistered	.*	.*	Read
+
+New PostNuke (before 26 Oct 2004):
+1 Admins	.*	.*	Admin
+2 All groups	Menublock::	Main Menu:Administration:	None
+3 Participants	.*	.*	Moderate
+4 Users .*  .*  Comment
+5 Users	Menublock::	Main Menu:(Update C-130Q|Stats|DiscussionForums|Forum How To|Online Chat|Members List:	None
+6 Unregistered	Menublock::	Main Menu:(My Account|Logout|Update C-130Q|Stats|Discussion Forums|Forum How To|Online Chat|Members List|FAQ|Ask a Question):	None
+7 Unregistered	.*	.*	Read
+
+5 Unregistered Menublock:: Main Menu:(My Account|Logout|Update C-130Q|Stats|Discussion Forums|Forum How To|Online Chat|Members List|FAQ|Ask a Question): None
+
+5 Users Menublock:: Main Menu:(Update C-130Q|Stats|Discussion Forums|Forum How To|Online Chat|Members List: None
+
+
+Old PostNuke:
+1 Admins	.*	.*	Admin
+2 Participants	PostCalendar::	.*	Admin
+3 Participants	.*	.*	Moderate
+4 All groups	Menublock::	Main Menu:Administration:	None
+5 Participants	ew_filemanager::	.*	Delete
+6 All groups	ew_filemanager::	.*	Add
+7 Users	.*	.*	Comment
+8 Unregistered	Menublock::	Main Menu:(My Account|Logout|Submit News|Submit Calendar Event|Discussion Forums|Online Chat):	None
+

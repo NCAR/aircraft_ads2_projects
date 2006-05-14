@@ -1,0 +1,86 @@
+#! /bin/csh -f
+#
+#  Archive support files for 4-120 BASE HRT
+#
+cd /home/local/proj/120
+tar chlvf /home/local/proj/120/Production/120.hrt.tar \
+Categories \
+Defaults \
+DependTable \
+LowRateVars \
+PMSspecs \
+ProjectName \
+VarDB \
+ascii_parms \
+bulletin.9 \
+calib_attr \
+config \
+despike \
+header \
+header.AFT \
+header.CTL \
+header.FORWARD \
+header.PODLW \
+header.PODRW \
+header.save \
+header.text \
+header.works \
+history_file \
+hvars.text \
+landmarks \
+plot_attr \
+plotspex \
+plotspexbruce \
+regions \
+regions.BASE \
+stats_selns \
+Production/120rf04h.hdr \
+Production/FlightGroups \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_12 \
+Production/Flight_13 \
+Production/Flight_17 \
+Production/Flight_3 \
+Production/Flight_4 \
+Production/Flight_6 \
+Production/Flight_7 \
+Production/MSCP_out.120 \
+Production/Mail.120 \
+Production/arch.120 \
+Production/arch_support.120 \
+Production/flt04hr \
+Production/flt06hr \
+Production/flt07hr2 \
+Production/flt10hr \
+Production/flt11hr \
+Production/flt13hr \
+Production/flt17hr \
+Production/hr_process_log \
+Production/hr_process_log2 \
+Production/ncfixhdr \
+Production/ncfixhdr.c \
+Production/nimbus.tar.dir \
+Production/nimbus_defaults.tar.dir \
+Production/proj.info \
+Production/remove \
+Production/rename \
+Production/taplog.hrt.120 \
+Production/tarit.120.hrt.tar \
+Production/nimbus.tar.dir \
+Production/ncfixhdr.tar.dir \
+Production/tp2ms.summary \
+Production/archive/tapes.120 \
+Production/archive/tp2ms.120job1 \
+Production/archive/tp2ms.120job2 \
+Production/archive/tp2ms.120job3
+#
+#  Get tar directory list for archiving
+set dfile = /home/local/proj/120/Production/120.hrt.tar.dir
+echo " Directory list for file 120.hrt.tar:  Support files for 1994-120 BASE HRT" >! $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf /home/local/proj/120/Production/120.hrt.tar >> $dfile
+#
+exit

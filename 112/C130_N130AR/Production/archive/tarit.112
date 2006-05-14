@@ -1,0 +1,113 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Notes:  Create a copy of, modify and run this script from a project's 
+#            "Production/archive" subdirectory.
+#          IMPORTANT:  Use the "tarit.docs" script to create an archive
+#            file for the project's documentation in the "Production/docs"
+#            subdirectory.
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#  Revised by RLR (remind about "tarit.docs" script)                 4 Mar 2002
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+cd $PROJDIR
+tar chvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+Despike \
+HeaderChangeLog \
+Lags \
+LowRateVars \
+PMSspecs \
+ProjectName \
+UserNames \
+VarDB \
+ascii_parms \
+header \
+header.bak \
+header.cjw \
+landmarks \
+ophir3.names \
+s100.default \
+s200.default \
+s300.default \
+status_message \
+Production/BlankOuts.rf06 \
+Production/FlightGroups \
+Production/Flight_rf01 \
+Production/Flight_rf02 \
+Production/Flight_rf03 \
+Production/Flight_rf04 \
+Production/Flight_rf05 \
+Production/Flight_rf06 \
+Production/Flight_rf07 \
+Production/Flight_rf08 \
+Production/Mail.112 \
+Production/email_list \
+Production/logFile_LRT.rf01 \
+Production/logFile_LRT.rf02 \
+Production/logFile_LRT.rf03 \
+Production/logFile_LRT.rf04 \
+Production/logFile_LRT.rf05 \
+Production/logFile_LRT.rf06 \
+Production/logFile_LRT.rf07 \
+Production/logFile_LRT.rf08 \
+Production/photo_info \
+Production/proj.info \
+Production/taplog.112 \
+Production/taplog.mcr.112 \
+Production/taplog.pms2d.112 \
+Production/archive/Unk_list \
+Production/archive/arch2d.112 \
+Production/archive/archads.112 \
+Production/archive/archcpi.112 \
+Production/archive/archive.support \
+Production/archive/archprodnc.112 \
+Production/archive/archrawmcr.112 \
+Production/archive/archrawrdma.112 \
+Production/archive/atdarchprodmcr.112 \
+Production/archive/atdmv2d.112 \
+Production/archive/data_file_notes \
+Production/archive/mcr_arch_log.112 \
+Production/archive/oarchprod.112 \
+Production/archive/odmg \
+Production/archive/tapes.112 \
+Production/archive/tarit.112
+# Production/docs/ <-- archived with "tarit.docs"
+#
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

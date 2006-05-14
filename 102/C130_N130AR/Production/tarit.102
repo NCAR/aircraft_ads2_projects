@@ -1,0 +1,315 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production" directory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file $LOCAL/proj/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/[a-z_A-Z\/]//g"`
+set OSTYPE = `uname`
+if ($OSTYPE == Linux) set LOCAL = $SOLARIS_LOCAL
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY proj.info | sed -e "s/FY=//"`
+cd $PROJDIR
+set PROJNAME = `cat ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+tar chlvf $OFILE \
+Categories \
+Defaults \
+DependTable \
+Despike \
+Lags \
+LowRateVars \
+PMSspecs \
+ProjectName \
+UserNames \
+VarDB \
+header \
+header.AFT \
+header.CTL \
+header.FORWARD \
+header.MASP \
+header.MCR \
+header.PODLW \
+header.PODRW \
+ophir3.names \
+originalPMSspecs \
+Production/FFlightGroups \
+Production/FFlight_1 \
+Production/FFlight_16 \
+Production/FlightGroups \
+Production/Flight_1 \
+Production/Flight_10 \
+Production/Flight_11 \
+Production/Flight_12 \
+Production/Flight_13 \
+Production/Flight_14 \
+Production/Flight_16 \
+Production/Flight_4 \
+Production/Flight_5 \
+Production/Flight_6 \
+Production/Flight_7 \
+Production/Flight_8 \
+Production/Flight_9 \
+Production/HRT_Processing_notes \
+Production/INDOEX_FSSP_info \
+Production/MSCP_out.102 \
+Production/Mail.102 \
+Production/Processing_notes \
+Production/arch.102 \
+Production/arch.merge.102 \
+Production/arch_HRT.102 \
+Production/arch_2d.102 \
+Production/arch_ads.102 \
+Production/arch_ferry.102 \
+Production/arch_masp.102 \
+Production/arch_mcr.102 \
+Production/archive.support \
+Production/logFile_FSSP.1 \
+Production/logFile_FSSP.10 \
+Production/logFile_FSSP.11 \
+Production/logFile_FSSP.12 \
+Production/logFile_FSSP.13 \
+Production/logFile_FSSP.14 \
+Production/logFile_FSSP.15a \
+Production/logFile_FSSP.15b \
+Production/logFile_FSSP.16 \
+Production/logFile_FSSP.17 \
+Production/logFile_FSSP.18 \
+Production/logFile_FSSP.2 \
+Production/logFile_FSSP.3 \
+Production/logFile_FSSP.4 \
+Production/logFile_FSSP.5 \
+Production/logFile_FSSP.6 \
+Production/logFile_FSSP.7 \
+Production/logFile_FSSP.8 \
+Production/logFile_FSSP.9 \
+Production/logFile_HRT.1 \
+Production/logFile_HRT.10 \
+Production/logFile_HRT.11 \
+Production/logFile_HRT.12 \
+Production/logFile_HRT.13 \
+Production/logFile_HRT.14 \
+Production/logFile_HRT.15b \
+Production/logFile_HRT.16 \
+Production/logFile_HRT.17 \
+Production/logFile_HRT.18 \
+Production/logFile_HRT.2 \
+Production/logFile_HRT.3 \
+Production/logFile_HRT.4 \
+Production/logFile_HRT.5 \
+Production/logFile_HRT.6 \
+Production/logFile_HRT.7 \
+Production/logFile_HRT.8 \
+Production/logFile_HRT.9 \
+Production/logFile_LRT.1 \
+Production/logFile_LRT.10 \
+Production/logFile_LRT.11 \
+Production/logFile_LRT.12 \
+Production/logFile_LRT.13 \
+Production/logFile_LRT.14 \
+Production/logFile_LRT.15b \
+Production/logFile_LRT.16 \
+Production/logFile_LRT.17 \
+Production/logFile_LRT.18 \
+Production/logFile_LRT.2 \
+Production/logFile_LRT.3 \
+Production/logFile_LRT.4 \
+Production/logFile_LRT.5 \
+Production/logFile_LRT.6 \
+Production/logFile_LRT.7 \
+Production/logFile_LRT.8 \
+Production/logFile_LRT.9 \
+Production/logFile_LRT.FF1 \
+Production/logFile_LRT.FF10 \
+Production/logFile_LRT.FF11 \
+Production/logFile_LRT.FF2 \
+Production/logFile_LRT.FF3 \
+Production/logFile_LRT.FF4 \
+Production/logFile_LRT.FF5a \
+Production/logFile_LRT.FF5b \
+Production/logFile_LRT.FF6a \
+Production/logFile_LRT.FF6b \
+Production/logFile_LRT.FF7 \
+Production/logFile_LRT.FF8 \
+Production/logFile_LRT.FF9 \
+Production/proj.info \
+Production/rename \
+Production/setup.102FSSP_1 \
+Production/setup.102FSSP_10 \
+Production/setup.102FSSP_12 \
+Production/setup.102FSSP_14 \
+Production/setup.102FSSP_16 \
+Production/setup.102FSSP_4 \
+Production/setup.102FSSP_9 \
+Production/setup.HRT \
+Production/taplog.102 \
+Production/tarit.102 \
+Production/tp2ms.summary \
+Production/CVI/CV15A.NEW.gz \
+Production/CVI/CV15B.NEW.gz \
+Production/CVI/CV990216.NEW.gz \
+Production/CVI/CV990218.NEW.gz \
+Production/CVI/CV990220.NEW.gz \
+Production/CVI/CV990224.NEW.gz \
+Production/CVI/CV990225.NEW.gz \
+Production/CVI/CV990227.NEW.gz \
+Production/CVI/CV990228.NEW.gz \
+Production/CVI/CV990304.NEW.gz \
+Production/CVI/CV990307.NEW.gz \
+Production/CVI/CV990309.NEW.gz \
+Production/CVI/CV990311.NEW.gz \
+Production/CVI/CV990313.NEW.gz \
+Production/CVI/CV990316.NEW.gz \
+Production/CVI/CV990318.NEW.gz \
+Production/CVI/CV990321.NEW.gz \
+Production/CVI/CV990324.NEW.gz \
+Production/CVI/CV990325.NEW.gz \
+Production/CVI/cvrf01.cdf.gz \
+Production/CVI/cvrf02.cdf.gz \
+Production/CVI/cvrf03.cdf.gz \
+Production/CVI/cvrf04.cdf.gz \
+Production/CVI/cvrf05.cdf.gz \
+Production/CVI/cvrf06.cdf.gz \
+Production/CVI/cvrf07.cdf.gz \
+Production/CVI/cvrf08.cdf.gz \
+Production/CVI/cvrf09.cdf.gz \
+Production/CVI/cvrf10.cdf.gz \
+Production/CVI/cvrf11.cdf.gz \
+Production/CVI/cvrf12.cdf.gz \
+Production/CVI/cvrf13.cdf.gz \
+Production/CVI/cvrf14.cdf.gz \
+Production/CVI/cvrf15a.cdf.gz \
+Production/CVI/cvrf15b.cdf.gz \
+Production/CVI/cvrf16.cdf.gz \
+Production/CVI/cvrf17.cdf.gz \
+Production/CVI/cvrf18.cdf.gz \
+Production/CVI/indoexprp.doc \
+Production/CVI/src/CVI \
+Production/CVI/src/CVI.CC \
+Production/CVI/src/CVI.H \
+Production/O3/README \
+Production/O3/amlib.o3.01.c \
+Production/O3/amlib.o3.02.c \
+Production/O3/amlib.o3.03.c \
+Production/O3/amlib.o3.04.c \
+Production/O3/amlib.o3.05.c \
+Production/O3/amlib.o3.06.c \
+Production/O3/amlib.o3.07.c \
+Production/O3/amlib.o3.08.c \
+Production/O3/amlib.o3.09.c \
+Production/O3/amlib.o3.10.c \
+Production/O3/amlib.o3.11.c \
+Production/O3/amlib.o3.12.c \
+Production/O3/amlib.o3.13.c \
+Production/O3/amlib.o3.14.c \
+Production/O3/amlib.o3.15.c \
+Production/O3/amlib.o3.16.c \
+Production/O3/amlib.o3.17.c \
+Production/O3/amlib.o3.18.c \
+Production/archive/rename \
+Production/archive/return_tapes_from_opns.mo \
+Production/archive/return_tapes_from_opns_2.mo \
+Production/archive/send_tapes_to_opns.mo \
+Production/archive/tapes.102 \
+Production/archive/tp2ms.job \
+Production/coupling/Makefile \
+Production/coupling/README \
+Production/coupling/XmSkeleton \
+Production/coupling/Xwin.c \
+Production/coupling/amlib.c \
+Production/coupling/cb_main.c \
+Production/coupling/cb_pause.c \
+Production/coupling/cb_time.c \
+Production/coupling/compute.c \
+Production/coupling/define.h \
+Production/coupling/error.c \
+Production/coupling/globals.c \
+Production/coupling/init.c \
+Production/coupling/lrloop.c \
+Production/coupling/netcdf.c \
+Production/coupling/oldamlib.c \
+Production/coupling/search.c \
+Production/coupling/skel \
+Production/coupling/skel.c \
+Production/coupling/sort.c \
+Production/coupling/timeseg.c \
+Production/docs/102.QA.doc \
+Production/docs/102.cal.doc \
+Production/docs/102.chem.dq.rep.fig2.doc \
+Production/docs/102.chem.dq.rep.txt.doc \
+Production/docs/102.inst.doc \
+Production/docs/Presentation_Notes2.doc \
+Production/docs/Quality_AssuranceII.doc \
+Production/docs/VIDEO_LOG.doc \
+Production/docs/calibrationExplained.doc \
+Production/docs/chem_fig.1.doc \
+Production/docs/clouds.ppt \
+Production/docs/regressionLWC.doc \
+Production/docs/clouds/activem.gif \
+Production/docs/clouds/activep.gif \
+Production/docs/clouds/collapse.gif \
+Production/docs/clouds/expand.gif \
+Production/docs/clouds/first.gif \
+Production/docs/clouds/home.gif \
+Production/docs/clouds/ielogo.gif \
+Production/docs/clouds/img001.gif \
+Production/docs/clouds/img002.gif \
+Production/docs/clouds/img003.gif \
+Production/docs/clouds/img004.gif \
+Production/docs/clouds/img005.gif \
+Production/docs/clouds/img006.gif \
+Production/docs/clouds/img007.gif \
+Production/docs/clouds/img008.gif \
+Production/docs/clouds/index.htm \
+Production/docs/clouds/info.gif \
+Production/docs/clouds/last.gif \
+Production/docs/clouds/next.gif \
+Production/docs/clouds/pptani.gif \
+Production/docs/clouds/prev.gif \
+Production/docs/clouds/sld001.htm \
+Production/docs/clouds/sld002.htm \
+Production/docs/clouds/sld003.htm \
+Production/docs/clouds/sld004.htm \
+Production/docs/clouds/sld005.htm \
+Production/docs/clouds/sld006.htm \
+Production/docs/clouds/sld007.htm \
+Production/docs/clouds/sld008.htm \
+Production/docs/clouds/space.gif \
+Production/docs/clouds/text.gif \
+Production/docs/clouds/tsld001.htm \
+Production/docs/clouds/tsld002.htm \
+Production/docs/clouds/tsld003.htm \
+Production/docs/clouds/tsld004.htm \
+Production/docs/clouds/tsld005.htm \
+Production/docs/clouds/tsld006.htm \
+Production/docs/clouds/tsld007.htm \
+Production/docs/clouds/tsld008.htm \
+Production/docs/HTML
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

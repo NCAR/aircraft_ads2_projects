@@ -1,0 +1,720 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 6-130 ACE-1
+#   (Southern Hemisphere Marine Aerosol Characterization Experiment)
+#
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive' subdirectory.
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+#set RECS = ( "nfile=1" )
+#set RECS = ( "nrec=16000" )
+#set SKIPS = ( "skpr=16000" )
+#set SKIPS = ( "skpr=32000" )
+#
+#
+# Data below from file:  tape_archive.130
+#
+#  Second Wave                 Total
+# tape#  fltno   sgmnt   Recs   Recs
+# ----------------------------------
+# R1029  RF01    RF01A  14000  19707
+# R1029  RF01    RF01B   5707  19707
+# R1030  RF02.1  RF02A  12757  12757
+# R1031  RF02.2  RF02B   4786   4786
+# R1032  RF03    RF03A  14000  28832
+# R1032  RF03    RF03B  14000  28832
+# R1032  RF03    RF03C    832  28832
+# R1033  RF04.1  RF04A   7534   7534
+# R1034  RF04.2  RF04B   7018   7018
+# R1035  RF05    RF05A  14000  16561
+# R1035  RF05    RF05B   2561  16561
+# R1036  RF06.1  RF06A  14000  20239
+# R1036  RF06.1  RF06B   6239  20239
+# R1037  RF06.2  RF06C  14000  25348
+# R1037  RF06.2  RF06D  11348  25348
+# R1038  RF07    RF07   15656  15656
+# R1039  RF08    RF08A  14000  16211
+# R1039  RF08    RF08B   2211  16211
+# R1040  RF09    RF09   15732  15732
+# R1041  RF10    RF10   10756  10756
+# R1042  RF11    RF11   15791  15791
+# R1043  RF12    RF12A  14000  16659
+# R1043  RF12    RF12B   2659  16659
+# R1044  RF13    RF13A  14000  31291
+# R1044  RF13    RF13B  14000  31291
+# R1044  RF13    RF13C   3291  31291
+# R1045  RF14    RF14A  14000  16427
+# R1045  RF14    RF14B   2427  16427
+# R1046  RF15    RF15A  14000  16842
+# R1046  RF15    RF15B   2842  16842
+# R1047  RF16    RF16A  14000  18996
+# R1047  RF16    RF16B   4996  18996
+# R1048  RF17    RF17A  14000  47741
+# R1048  RF17    RF17B  14000  47741
+# R1048  RF17    RF17C  14000  47741
+# R1048  RF17    RF17D   5741  47741
+#
+#   First Wave                 Total
+# tape#  fltno   sgmnt   Recs   Recs
+#-----------------------------------
+# R1049  RF18    RF18A  16000  31542
+# R1049  RF18    RF18B  15542  31542
+# R1050  RF19    RF19A  16000  33556
+# R1050  RF19    RF19B  17556  33556
+# R1051  RF20    RF20A  16000  37917
+# R1051  RF20    RF20B  16000  37917
+# R1051  RF20    RF20C   5917  37917
+# R1052  RF21    RF21A  16000  32568
+# R1052  RF21    RF21B  16568  32568
+# R1053  RF22.1  RF22A  14531  14531
+# R1054  RF22.2  RF22B  17081  17081
+# R1055  RF23    RF23A  16000  35077
+# R1055  RF23    RF23B  19077  35077
+# R1056  RF24    RF24A  16000  33517
+# R1056  RF24    RF24B  17517  33517
+# R1057  RF25    RF25A  16000  31060
+# R1057  RF25    RF25B  15060  31060
+# R1058  RF26    RF26A  16000  38334
+# R1058  RF26    RF26B  16000  38334
+# R1058  RF26    RF26C   6334  38334
+# R1059  RF27.1  RF27A   6294   6294
+# R1060  RF27.2  RF27B  11769  11769
+# R1061  RF28    RF28A  12000  16704
+# R1061  RF28    RF28B   4704  16704
+# R1062  RF29    RF29A  16000  34106
+# R1062  RF29    RF29B  18106  34106
+# R1063  RF30    RF30A  16000  25069
+# R1063  RF30    RF30B   9069  25069
+# R1064  RF31.1  RF31A  19696  19696
+# R1065  RF31.2  RF31B  19851  19851
+# R1066  RF32    RF32A  16000  30256
+# R1066  RF32    RF32B  14256  30256
+# R1067  RF33    RF33A  16000  36078
+# R1067  RF33    RF33B  20078  36078
+#-----------------------------------
+#
+#
+#   F I R S T   W A V E
+#   - - - - -   - - - -
+#
+# Section 1.  Whole tapes that fit in one bitfile:  1st wave, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nfile=1" )
+#set FLIGHTS = ( \
+#RF22A \
+#RF27A \
+#RF27B \
+#)
+#set TAPELIST = ( \
+#R1053 \
+#R1059 \
+#R1060 \
+#)
+#
+# Section 2.  Flights with two segments:  1st wave, 1st segment, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nrec=16000" )
+#set FLIGHTS = ( \
+#RF18A \
+#RF22B \
+#RF25A \
+#RF28A \
+#RF30A \
+#RF31A \
+#RF31C \
+#RF32A \
+#)
+#set TAPELIST = ( \
+#R1049 \
+#R1054 \
+#R1057 \
+#R1061 \
+#R1063 \
+#R1064 \
+#R1065 \
+#R1066 \
+#)
+#
+# Section 2.  Flights with two segments:  1st wave, 1st segment, 2nd try
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nrec=16000" )
+#set FLIGHTS = ( \
+#RF28A \
+#RF31C \
+#RF32A \
+#)
+#set TAPELIST = ( \
+#R1061 \
+#R1065 \
+#R1066 \
+#)
+#
+# Section 2.  Flights with two segments:  1st wave, 1st segment, 3rd try
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nrec=12000" "nrec=16000" )
+#set FLIGHTS = ( \
+#RF28A \
+#RF30A \
+#)
+#set TAPELIST = ( \
+#R1061 \
+#R1063 \
+#)
+#
+# Section 3.  Flights with two segments:  1st wave, 2nd segment, 1st try
+#set SKIPS = ( \
+#"skpr=16000" \
+#"skpr=16000" \
+#"skpr=16000" \
+#"skpr=12000" \
+#"skpr=16000" \
+#"skpr=16000" \
+#"skpr=16000" \
+#"skpr=16000" \
+#)
+#set RECS  = ( \
+#"nrec=15542" \
+#"nrec=1081" \
+#"nrec=15060" \
+#"nrec=4704" \
+#"nrec=9069" \
+#"nrec=3696" \
+#"nrec=3851" \
+#"nrec=14256" \
+#)
+#set FLIGHTS = ( \
+#RF18B \
+#RF22C \
+#RF25B \
+#RF28B \
+#RF30B \
+#RF31B \
+#RF31D \
+#RF32B \
+#)
+#set TAPELIST = (\
+#R1049 \
+#R1054 \
+#R1057 \
+#R1061 \
+#R1063 \
+#R1064 \
+#R1065 \
+#R1066 \
+#)
+#
+# Section 3.  Flights with two segments:  1st wave, 2nd segment, 2nd try
+#set SKIPS = ( \
+#"skpr=16000" \
+#)
+#set RECS  = ( \
+#"nrec=3851" \
+#)
+#set FLIGHTS = ( \
+#RF31D \
+#)
+#set TAPELIST = (\
+#R1065 \
+#)
+#
+# Section 4.  Flights with three segments:  1st wave, 1st segment, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nrec=16000" )
+#set FLIGHTS = ( \
+#RF19A \
+#RF20A \
+#RF21A \
+#RF23A \
+#RF24A \
+#RF26A \
+#RF29A \
+#RF33A \
+#)
+#set TAPELIST = (\
+#R1050 \
+#R1051 \
+#R1052 \
+#R1055 \
+#R1056 \
+#R1058 \
+#R1062 \
+#R1067 \
+#)
+#
+# Section 5.  Flights with three segments:  1st wave, 2nd segment, 1st try
+#set SKIPS = ( "skpr=16000" )
+#set RECS  = ( "nrec=16000" )
+#set FLIGHTS = ( \
+#RF19B \
+#RF20B \
+#RF21B \
+#RF23B \
+#RF24B \
+#RF26B \
+#RF29B \
+#RF33B \
+#)
+#set TAPELIST = (\
+#R1050 \
+#R1051 \
+#R1052 \
+#R1055 \
+#R1056 \
+#R1058 \
+#R1062 \
+#R1067 \
+#)
+#
+# Section 6.  Flights with three segments:  1st wave, 3rd segment, 1st try
+#set SKIPS = ( "skpr=32000" )
+#set RECS  = ( \
+#"nrec=1556" \
+#"nrec=5917" \
+#"nrec=568" \
+#"nrec=3077" \
+#"nrec=1517" \
+#"nrec=6334" \
+#"nrec=2106" \
+#"nrec=4078" \
+#)
+#set FLIGHTS = ( \
+#RF19C \
+#RF20C \
+#RF21C \
+#RF23C \
+#RF24C \
+#RF26C \
+#RF29C \
+#RF33C \
+#)
+#set TAPELIST = (\
+#R1050 \
+#R1051 \
+#R1052 \
+#R1055 \
+#R1056 \
+#R1058 \
+#R1062 \
+#R1067 \
+#)
+#
+# Section 7.  Mop-up operations from 1st wave
+#  Redo some flight segments to consolidate bitfiles
+#  (Can reduce number of bitfiles due to smaller sizes than expected)
+#  (Rename extant bitfiles first by moving them into an OLD subdirectory)
+#  (Purge them off after all are redone correctly)
+#set SKIPS = ( \
+# "skpr=16000" \
+# "skpr=16000" \
+# "skpr=0" \
+# "skpr=16000" \
+# "skpr=16000" \
+# "skpr=16000" \
+# "skpr=0" \
+# "skpr=0" \
+# "skpr=16000" \
+#)
+#set RECS  = ( \
+#"nrec=17556" \
+#"nrec=16568" \
+#"nrec=17081" \
+#"nrec=19077" \
+#"nrec=17517" \
+#"nrec=18106" \
+#"nrec=19696" \
+#"nrec=19851" \
+#"nrec=20078" \
+#)
+#set FLIGHTS = ( \
+#RF19B \
+#RF21B \
+#RF22B \
+#RF23B \
+#RF24B \
+#RF29B \
+#RF31A \
+#RF31B \
+#RF33B \
+#)
+#set TAPELIST = (\
+#R1050 \
+#R1052 \
+#R1054 \
+#R1055 \
+#R1056 \
+#R1062 \
+#R1064 \
+#R1065 \
+#R1067 \
+#)
+#
+#
+#   S E C O N D   W A V E
+#   - - - - - -   - - - -
+#
+# Section 8.  Whole tapes that fit in one bitfile:  2nd wave, 1st try
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nfile=1" )
+#set FLIGHTS = ( \
+#RF02A \
+#RF02B \
+#RF04A \
+#RF04B \
+#RF07 \
+#RF09 \
+#RF10 \
+#RF11 \
+#)
+#set TAPELIST = ( \
+#R1030 \
+#R1031 \
+#R1033 \
+#R1034 \
+#R1038 \
+#R1040 \
+#R1041 \
+#R1042 \
+#)
+#
+# Section 9.  Flights with multiple segments:  2nd wave, 1st segment, 1st try
+#                (RF16A and RF17A postponed)
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nrec=14000" )
+#set FLIGHTS = ( \
+#RF01A \
+#RF03A \
+#RF05A \
+#RF06A \
+#RF06C \
+#RF08A \
+#RF12A \
+#RF13A \
+#RF14A \
+#RF15A \
+#)
+#set TAPELIST = ( \
+#R1029 \
+#R1032 \
+#R1035 \
+#R1036 \
+#R1037 \
+#R1039 \
+#R1043 \
+#R1044 \
+#R1045 \
+#R1046 \
+#)
+#
+# Section 10.  Flights with multiple segments:  2nd wave, 2nd segment, 1st try
+#                (RF16B and RF17B postponed)
+#set SKIPS = ( "skpr=14000" )
+#set RECS  = ( \
+#"nrec=5707" \
+#"nrec=14832" \
+#"nrec=2561" \
+#"nrec=6239" \
+#"nrec=11348" \
+#"nrec=2211" \
+#"nrec=2659" \
+#"nrec=14000" \
+#"nrec=2427" \
+#"nrec=2842" \
+#)
+#set FLIGHTS = ( \
+#RF01B \
+#RF03B \
+#RF05B \
+#RF06B \
+#RF06D \
+#RF08B \
+#RF12B \
+#RF13B \
+#RF14B \
+#RF15B \
+#)
+#set TAPELIST = (\
+#R1029 \
+#R1032 \
+#R1035 \
+#R1036 \
+#R1037 \
+#R1039 \
+#R1043 \
+#R1044 \
+#R1045 \
+#R1046 \
+#)
+#
+# Section 11.  Flights with multiple segments:  2nd wave, 3rd segment, 1st try
+#                (RF17C postponed)
+#set SKIPS = ( "skpr=28000" )
+#set RECS  = ( \
+#"nrec=832" \
+#"nrec=3291" \
+#)
+#set FLIGHTS = ( \
+#RF03C \
+#RF13C \
+#)
+#set TAPELIST = (\
+#R1032 \
+#R1044 \
+#)
+#
+# Section 12.  Flights with multiple segments:  2nd wave, 4th segment, 1st try
+#set SKIPS    = ( "skpr=42000" )
+#set RECS     = ( "nrec=5741" )
+#set FLIGHTS  = ( RF17D )
+#set TAPELIST = ( R1048 )
+#
+#
+# Section 13.  Mop-up operations from 2nd wave
+#----- 1st set
+#set SKIPS = ( "skpr=14000" )
+#set RECS  = ( "nrec=14000" )
+#set FLIGHTS  = ( RF03B )
+#set TAPELIST = ( R1032 )
+#----- 2nd set
+#set SKIPS = ( "skpr=0" )
+#set RECS  = ( "nrec=14000" )
+#set FLIGHTS  = ( \
+#RF16A \
+#RF17A \
+#)
+#set TAPELIST = ( \
+#R1047 \
+#R1048 \
+#)
+#----- 3rd set
+#set SKIPS = ( "skpr=14000" )
+#set RECS  = ( \
+#"nrec=4996" \
+#"nrec=14000" \
+#)
+#set FLIGHTS  = ( \
+#RF16B \
+#RF17B \
+#)
+#set TAPELIST = ( \
+#R1047 \
+#R1048 \
+#)
+#----- 4th set
+#set SKIPS = ( "skpr=28000" )
+#set RECS  = ( "nrec=14000" )
+#set FLIGHTS  = ( RF17C )
+#set TAPELIST = ( R1048 )
+#
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $SKIP $REC \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit
+#
+#
+# Section 1.  Whole tapes that fit in one bitfile:  1st wave, 1st try
+#             (Before cut-over to new Mass Store Control Processor)
+#  Job(s) submitted on Wed Jan 31 14:02:06 MST 1996
+# Sequence number = MI1880 -- RF22A/R1053 -- OK @ 31 Jan 1996 17:57:16
+# Sequence number = MI1887 -- RF27A/R1059 -- OK @ 1 Feb 1996 12:43:53
+# Sequence number = MI1894 -- RF27B/R1060 -- OK @ 1 Feb 1996 16:06:28
+#
+# Section 2.  Flights with two segments:  1st wave, 1st segment, 1st try
+#             (After cut-over to new Mass Store Control Processor)
+#  Job(s) submitted on Tue Feb  6 12:15:59 MST 1996
+# Sequence number = MI5454 -- RF18A/R1049 -- OK @ 6 Feb 1996 14:41:51
+# Sequence number = MI5461 -- RF22B/R1054 -- OK @ 6 Feb 1996 16:17:29
+# Sequence number = MI5468 -- RF25A/R1057 -- OK @ 6 Feb 1996 16:54:56
+# Sequence number = MI5475 -- RF28A/R1061 -- Failed* @ 6 Feb 1996 15:26:25
+# Sequence number = MI5482 -- RF30A/R1063 -- Failed+ @ 6 Feb 1996 18:07:11
+# Sequence number = MI5489 -- RF31A/R1064 -- OK @ 6 Feb 1996 17:52:06
+# Sequence number = MI5496 -- RF31C/R1065 -- Failed# @ Feb  6 12:45:56 MST 1996
+# Sequence number = MI5503 -- RF32A/R1066 -- Failed# @ Feb  6 12:48:30 MST 1996
+#  * Potential bitfile too large (> 400,000,000 bytes)
+#  + SYMPTOM DUMP OUTPUT (Error termination)
+#  # new MSCP setup problem?? (copied too few records)
+#
+# Section 2.  Flights with two segments:  1st wave, 1st segment, 2nd try
+#  Job(s) submitted on Tue Feb  6 15:28:12 MST 1996
+# Sequence number = MI2974 -- RF28A/R1061 -- Failed* @ 6 Feb 1996 20:16:54
+# Sequence number = MI2985 -- RF31C/R1065 -- OK @ 6 Feb 1996 18:34:25
+# Sequence number = MI2994 -- RF32A/R1066 -- OK @ 6 Feb 1996 19:34:32
+#  * Potential bitfile too large (> 400,000,000 bytes)
+#
+# Section 2.  Flights with two segments:  1st wave, 1st segment, 3rd try
+#  Job(s) submitted on Thu Feb  8 10:22:23 MST 1996
+# Sequence number = MI1002 -- RF28A/R1061 -- OK @ 8 Feb 1996 11:29:33
+# Sequence number = MI1009 -- RF30A/R1063 -- OK @ 8 Feb 1996 10:57:20
+#
+# Section 3.  Flights with two segments:  1st wave, 2nd segment, 1st try
+#  Job(s) submitted on Thu Feb  8 14:29:14 MST 1996
+# Sequence number = MI0606 -- RF18B/R1049 -- OK @ 8 Feb 1996 15:42:43
+# Sequence number = MI0613 -- RF22C/R1054 -- OK @ 8 Feb 1996 16:07:09
+# Sequence number = MI0620 -- RF25B/R1057 -- OK @ 8 Feb 1996 16:44:35
+# Sequence number = MI0627 -- RF28B/R1061 -- OK @ 8 Feb 1996 17:36:26
+# Sequence number = MI0634 -- RF30B/R1063 -- OK @ 8 Feb 1996 18:14:03
+# Sequence number = MI0641 -- RF31B/R1064 -- OK @ 8 Feb 1996 20:01:33
+# Sequence number = MI0648 -- RF31D/R1065 -- Failed* @ 8 Feb 1996 18:56:43
+# Sequence number = MI0655 -- RF32B/R1066 -- OK @ 8 Feb 1996 19:39:07
+#  * FATAL UNIT CHECK ENCOUNTERED. RCODE= 15   TAPE OPEN FAILED. RCODE= 1
+#
+# Section 3.  Flights with two segments:  1st wave, 2nd segment, 2nd try
+#  Job(s) submitted on Fri Feb  9 10:02:37 MST 1996
+# Sequence number = MI2758 -- RF31D/R1065 -- OK @ 9 Feb 1996 10:21:27
+#
+#  Job(s) submitted (by mistake) on Fri Feb  9 10:05:42 MST 1996
+# Sequence number = MI2876 -- RF18B/R1049 -- Dropped* @ 9 Feb 1996 11:28:09
+# Sequence number = MI2883 -- RF22C/R1054 -- OK @ 9 Feb 1996 10:46:19
+# Sequence number = MI2891 -- RF25B/R1057 -- Dropped* @ 9 Feb 1996 11:28
+# Sequence number = MI2898 -- RF28B/R1061 -- Dropped* @ 9 Feb 1996 11:28
+# Sequence number = MI2905 -- RF30B/R1063 -- Dropped* @ 9 Feb 1996 11:28
+# Sequence number = MI2912 -- RF31B/R1064 -- Dropped* @ 9 Feb 1996 11:28
+# Sequence number = MI2919 -- RF31D/R1065 -- Dropped* @ 9 Feb 1996 11:28
+# Sequence number = MI2926 -- RF32B/R1066 -- Dropped* @ 9 Feb 1996 11:28
+#  * at my request
+#
+# Section 4.  Flights with three segments:  1st wave, 1st segment, 1st try
+#  Job(s) submitted on Thu Feb  8 17:34:28 MST 1996
+# Sequence number = MI0838 -- RF19A/R1050 -- OK @ 8 Feb 1996 20:24:37
+# Sequence number = MI0845 -- RF20A/R1051 -- OK @ 8 Feb 1996 20:56:25
+# Sequence number = MI0852 -- RF21A/R1052 -- OK @ 8 Feb 1996 21:19:51
+# Sequence number = MI0859 -- RF23A/R1055 -- OK @ 8 Feb 1996 21:43:34
+# Sequence number = MI0866 -- RF24A/R1056 -- OK @ 8 Feb 1996 22:11:12
+# Sequence number = MI0873 -- RF26A/R1058 -- OK @ 8 Feb 1996 22:33:22
+# Sequence number = MI0880 -- RF29A/R1062 -- OK @ 8 Feb 1996 22:55:59
+# Sequence number = MI0887 -- RF33A/R1067 -- OK @ 8 Feb 1996 23:29:23
+#
+# Section 5.  Flights with three segments:  1st wave, 2nd segment, 1st try
+#  Job(s) submitted on Fri Feb  9 11:37:36 MST 1996
+# Sequence number = MI4227 -- RF19B/R1050 -- OK @ 9 Feb 1996 12:27:12
+# Sequence number = MI4234 -- RF20B/R1051 -- OK @ 9 Feb 1996 12:55:50
+# Sequence number = MI4241 -- RF21B/R1052 -- OK @ 9 Feb 1996 13:36:35
+# Sequence number = MI4248 -- RF23B/R1055 -- OK @ 9 Feb 1996 14:14:13
+# Sequence number = MI4255 -- RF24B/R1056 -- OK @ 9 Feb 1996 14:49:39
+# Sequence number = MI4262 -- RF26B/R1058 -- OK @ 9 Feb 1996 16:11:28
+# Sequence number = MI4269 -- RF29B/R1062 -- OK @ 9 Feb 1996 16:44:30
+# Sequence number = MI4276 -- RF33B/R1067 -- OK @ 9 Feb 1996 15:33:00
+#
+# Section 6.  Flights with three segments:  1st wave, 3rd segment, 1st try
+#  Job(s) submitted on Fri Feb  9 16:51:16 MST 1996
+# Sequence number = MI8012 -- RF19C/R1050 -- OK @ 9 Feb 1996 18:21:51
+# Sequence number = MI8019 -- RF20C/R1051 -- OK @ 9 Feb 1996 17:25:26
+# Sequence number = MI8026 -- RF21C/R1052 -- OK @ 9 Feb 1996 17:50:36
+# Sequence number = MI8033 -- RF23C/R1055 -- OK @ 9 Feb 1996 18:57:05
+# Sequence number = MI8040 -- RF24C/R1056 -- OK @ 9 Feb 1996 19:27:32
+# Sequence number = MI8047 -- RF26C/R1058 -- OK @ 9 Feb 1996 20:11:46
+# Sequence number = MI8054 -- RF29C/R1062 -- OK @ 9 Feb 1996 20:45:12
+# Sequence number = MI8061 -- RF33C/R1067 -- OK @ 9 Feb 1996 21:18:03
+#
+# Section 7.  Mop-up operations from 1st wave
+#  Job(s) submitted on Tue Feb 13 16:30:02 MST 1996
+# Sequence number = MI2213 -- RF19B/R1050 -- OK @ 13 Feb 1996 17:31:48
+# Sequence number = MI2220 -- RF21B/R1052 -- OK @ 13 Feb 1996 18:03:18
+# Sequence number = MI2227 -- RF22B/R1054 -- OK @ 13 Feb 1996 18:24:43
+# Sequence number = MI2234 -- RF23B/R1055 -- OK @ 13 Feb 1996 19:03:52
+# Sequence number = MI2241 -- RF24B/R1056 -- OK @ 13 Feb 1996 20:11:23
+# Sequence number = MI2248 -- RF29B/R1062 -- OK @ 13 Feb 1996 20:56:00
+# Sequence number = MI2255 -- RF31A/R1064 -- OK @ 13 Feb 1996 21:26:49
+# Sequence number = MI2262 -- RF31B/R1065 -- OK @ 13 Feb 1996 21:55:22
+# Sequence number = MI2270 -- RF33B/R1067 -- OK @ 13 Feb 1996 22:39:00
+#
+# Section 8.  Whole tapes that fit in one bitfile:  2nd wave, 1st try
+#  Job(s) submitted on Fri Feb 23 14:21:13 MST 1996 (while MIGS was down)
+#   (MIGS came up about Fri 23 Feb 15:18:58 MST 1996.)
+# Sequence number = MI7896 -- RF02A/R1030 -- OK @ 24 Feb 1996 13:40:02
+# Sequence number = MI7903 -- RF02B/R1031 -- OK @ 24 Feb 1996 13:43:18
+# Sequence number = MI7910 -- RF04A/R1033 -- OK @ 24 Feb 1996 13:39:12
+# Sequence number = MI7917 -- RF04B/R1034 -- OK @ 24 Feb 1996 13:39:34
+# Sequence number = MI7924 -- RF07/R1038 -- OK @ 24 Feb 1996 13:22:24
+# Sequence number = MI7931 -- RF09/R1040 -- OK @ 24 Feb 1996 13:38:53
+# Sequence number = MI7938 -- RF10/R1041 -- OK @ 24 Feb 1996 13:37:32
+# Sequence number = MI7945 -- RF11/R1042 -- OK @ 24 Feb 1996 13:37:57
+#
+# Section 9.  Flights with multiple segments:  2nd wave, 1st segment, 1st try
+#  Job(s) submitted on Mon Feb 26 12:22:23 MST 1996
+# Sequence number = MI8590 -- RF01A/R1029 -- OK @ 26 Feb 1996 12:54:26
+# Sequence number = MI8597 -- RF03A/R1032 -- OK @ 26 Feb 1996 13:45:24
+# Sequence number = MI8604 -- RF05A/R1035 -- OK @ 26 Feb 1996 14:11:20
+# Sequence number = MI8611 -- RF06A/R1036 -- OK @ 26 Feb 1996 13:22:01
+# Sequence number = MI8618 -- RF06C/R1037 -- OK @ 26 Feb 1996 15:01:39
+# Sequence number = MI8625 -- RF08A/R1039 -- OK @ 26 Feb 1996 16:32:22
+# Sequence number = MI8632 -- RF12A/R1043 -- OK @ 26 Feb 1996 16:34:13
+# Sequence number = MI8639 -- RF13A/R1044 -- OK @ 26 Feb 1996 16:33:31
+# Sequence number = MI8650 -- RF14A/R1045 -- OK @ 26 Feb 1996 16:57:39
+# Sequence number = MI8663 -- RF15A/R1046 -- OK @ 26 Feb 1996 17:26:07
+#
+# Section 10.  Flights with multiple segments:  2nd wave, 2nd segment, 1st try
+#  Job(s) submitted on Mon Feb 26 17:18:14 MST 1996
+# Sequence number = MI5533 -- RF01B/R1029 -- OK @ 26 Feb 1996 17:55:34
+# Sequence number = MI5540 -- RF03B/R1032 -- Failed* @ 26 Feb 1996 19:14:11
+# Sequence number = MI5547 -- RF05B/R1035 -- OK @ 26 Feb 1996 18:22:25
+# Sequence number = MI5554 -- RF06B/R1036 -- OK @ 26 Feb 1996 19:47:02
+# Sequence number = MI5561 -- RF06D/R1037 -- OK @ 26 Feb 1996 20:45:14
+# Sequence number = MI5568 -- RF08B/R1039 -- OK @ 26 Feb 1996 20:08:51
+# Sequence number = MI5575 -- RF12B/R1043 -- OK @ 26 Feb 1996 21:24:59
+# Sequence number = MI5582 -- RF13B/R1044 -- OK @ 26 Feb 1996 22:01:35
+# Sequence number = MI5589 -- RF14B/R1045 -- OK @ 26 Feb 1996 21:07:40
+# Sequence number = MI5596 -- RF15B/R1046 -- OK @ 26 Feb 1996 22:48:56
+#  * Potential bitfile too large (> 400,000,000 bytes)
+#
+# Section 11.  Flights with multiple segments:  2nd wave, 3rd segment, 1st try
+#  Job(s) submitted on Tue Feb 27 10:46:01 MST 1996
+# Sequence number = MI9363 -- RF03C/R1032 -- OK @ 27 Feb 1996 11:28:31
+# Sequence number = MI9370 -- RF13C/R1044 -- OK @ 27 Feb 1996 12:18:45
+#
+# Section 12.  Flights with multiple segments:  2nd wave, 4th segment, 1st try
+#  Job(s) submitted on Wed Feb 28 10:45:15 MST 1996
+# Sequence number = MI0343 -- RF17D/R1048 -- OK @ 28 Feb 1996 11:47:37
+#
+# Section 13.  Mop-up operations from 2nd wave
+#  Job(s) submitted on Tue Feb 27 11:44:07 MST 1996
+# Sequence number = MI9414 -- RF03B/R1032 -- OK @ 27 Feb 1996 12:53:39
+#
+#  Job(s) submitted on Wed Feb 28 10:47:27 MST 1996
+# Sequence number = MI0386 -- RF16A/R1047 -- OK @ 28 Feb 1996 12:22:35
+# Sequence number = MI0394 -- RF17A/R1048 -- OK @ 28 Feb 1996 12:59:53
+#
+#  Job(s) submitted on Wed Feb 28 10:48:42 MST 1996
+# Sequence number = MI0043 -- RF16B/R1047 -- OK @ 28 Feb 1996 13:29:50
+# Sequence number = MI0050 -- RF17B/R1048 -- OK @ 28 Feb 1996 14:08:57
+#
+#  Job(s) submitted on Wed Feb 28 10:52:31 MST 1996
+# Sequence number = MI0068 -- RF17C/R1048 -- OK @ 28 Feb 1996 15:00:36
+#

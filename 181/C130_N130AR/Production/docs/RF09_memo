@@ -1,0 +1,36 @@
+To all,
+
+On 27 March 2002, Dave Leon (U Wyoming) made RAF aware of a time offset in the
+high-rate netCDF file for DYCOMS-II RF09 (07/27/2001) when compared with its
+companion low-rate file.
+
+Upon investigating this problem, I discovered that the processing program
+failed to keep track of correct time following an approximate 12-minute data
+gap which occurred just as the airplane was taking off.  At 18:47 UTC the
+high-rate data were 22 seconds ahead.  Later at 19:00 UTC, the difference
+widened to 11m 34s and stayed there for the rest of the flight.  By looking
+at the independent time measurements (HOUR, MINUTE, SECOND) it became obvious
+that the high-rate data file had the error.
+
+To correct the problem, I reprocessed the high-rate data for RF09 by omitting
+the initial 45-minute segment that occurred before takeoff.  The new data file
+has the correct time information.
+
+I removed the errant file from the RAF archive and replaced it with the new
+file which has a different name due its new time period.  Its SCD Mass Store
+bitfile names are (one plain, one gzipped):
+ /ATD/DATA/2001/DYCOMS-II/C130_N130AR/HRT/RF09.20010727.191201_034427.PNI.nc
+ /ATD/DATA/2001/DYCOMS-II/C130_N130AR/HRT/RF09.20010727.191201_034427.PNI.nc.gz
+
+I urge anyone presently using high-rate data from RF09 (07/27/2001) to get
+the new file.  Use the web URL:
+  http://www.atd.ucar.edu/raf/projects/DYCOMS-II/Production/data_download.html
+
+All the documentation on the RAF DYCOMS-II web site has been updated to
+reflect this change:
+   http://raf.atd.ucar.edu/Projects/DYCOMS-II/
+
+RAF apologizes for this discrepancy and sincerely thanks Dave Leon for
+pointing it out to us.
+
+Ron

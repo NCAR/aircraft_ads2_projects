@@ -1,0 +1,52 @@
+ACE-Asia - 131, Flight rf19
+Version - 3.0.1
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /usr/local/proj/131/Production/Flight_rf19
+BOSSBI has no description or units.
+BOSSBY has no description or units.
+BOSSIDE has no description or units.
+BOSSSMP has no description or units.
+BSPHUM has no description or units.
+BSPRR has no description or units.
+TFILTF has no description or units.
+FREF3_RPO has no description or units.
+FTMP3_RPO has no description or units.
+Processed on: Aug 30 17:48 UTC 2001
+Flight Date: 05/03/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+FREF3_RPO has no entry in the VarDB.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Blanking DPT from 23:40:00 to 07:35:55.
+ The following variables depend upon this variable:
+  DPTC
+Blanking TTWH from 23:40:00 to 07:35:55.
+ The following variables depend upon this variable:
+  ATWH
+Blanking VLA from 23:40:00 to 07:35:55.
+ The following variables depend upon this variable:
+  MRLA RHOLA
+Blanking ATWH from 23:40:00 to 07:35:55.
+Blanking DPTC from 23:40:00 to 07:35:55.
+Blanking MRLA from 23:40:00 to 07:35:55.
+ The following variables depend upon this variable:
+  MRLA RHOLA
+Blanking RHOLA from 23:40:00 to 07:35:55.
+ The following variables depend upon this variable:
+  MRLA RHOLA
+Blanking CONC3_RPO from 23:40:00 to 26:48:00.
+Blanking DBAR3_RPO from 23:40:00 to 26:48:00.
+Blanking CONC3_RPO from 29:50:00 to 30:23:00.
+Blanking DBAR3_RPO from 29:50:00 to 30:23:00.
+Time interval(s) completed : 23:40:00-07:35:55
+Processing took 2.6 minutes.

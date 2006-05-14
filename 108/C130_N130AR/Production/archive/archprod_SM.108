@@ -1,0 +1,93 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project
+#   2002-108 PALS Soil Moisture (Steve Dinardo)
+#   using the new ATD directory path
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 12 on Thu Sep 19 16:25:30 MDT 2002
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+set SFILES = ( \
+108rf01.nc \
+108rf02.nc \
+108rf03.nc \
+108rf04.nc \
+108rf05.nc \
+108rf06.nc \
+108rf07.nc \
+108rf08.nc \
+)
+#
+set DFILES = ( \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF01.20020625.122142_170109.PNI.nc \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF02.20020627.120454_151757.PNI.nc \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF03.20020701.121452_150313.PNI.nc \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF04.20020702.115956_153930.PNI.nc \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF05.20020705.124208_173747.PNI.nc \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF06.20020706.122014_173740.PNI.nc \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF07.20020707.123653_170650.PNI.nc \
+mss:/ATD/DATA/2002/SMEX02/C130_N130AR/LRT/RF08.20020708.121628_152733.PNI.nc \
+)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2002/SMEX02/C130_N130AR/"
+echo "#  (Check year in path, if project occurred in more than one.)"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  8 job(s) submitted on Fri Sep 20 10:03:31 MDT 2002
+#  Files archived to MSS directory:  /ATD/DATA/2002/SMEX02/C130_N130AR/
+#   LRT/RF01.20020625.122142_170109.PNI.nc -- OK -- Fri Sep 20 10:03:57 MDT 2002
+#   LRT/RF02.20020627.120454_151757.PNI.nc -- OK -- Fri Sep 20 10:04:15 MDT 2002
+#   LRT/RF03.20020701.121452_150313.PNI.nc -- OK -- Fri Sep 20 10:04:27 MDT 2002
+#   LRT/RF04.20020702.115956_153930.PNI.nc -- OK -- Fri Sep 20 10:04:42 MDT 2002
+#   LRT/RF05.20020705.124208_173747.PNI.nc -- OK -- Fri Sep 20 10:04:56 MDT 2002
+#   LRT/RF06.20020706.122014_173740.PNI.nc -- OK -- Fri Sep 20 10:05:14 MDT 2002
+#   LRT/RF07.20020707.123653_170650.PNI.nc -- OK -- Fri Sep 20 10:05:27 MDT 2002
+#   LRT/RF08.20020708.121628_152733.PNI.nc -- OK -- Fri Sep 20 10:05:43 MDT 2002
+#   Completed on Fri Sep 20 10:05:43 MDT 2002
+#

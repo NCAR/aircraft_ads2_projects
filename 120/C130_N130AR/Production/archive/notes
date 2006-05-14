@@ -1,0 +1,42 @@
+Remove MSS bitfile /RAF/1994/120/RF01C/R0914
+It has been superseded by other bitfiles.
+
+mistral/ron % nrnet msrm % r flnm=/RAF/1994/120/RF01C/R0914 w=RAFDMG
+Sequence number = MI3238
+mistral/ron % date
+Tue Jun  6 17:03:41 MDT 1995
+
+From scdemail@migs.UCAR.EDU Tue Jun  6 17:04 MDT 1995
+Return-Path: <scdemail@migs.UCAR.EDU>
+Received: from migs.UCAR.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id RAA10370; Tue, 6 Jun 1995 17:03:59 -0600
+Received: by migs.ucar.EDU (NCAR-local/ NCAR Backup Central Post Office 04/22/91)
+	id RAA29047; Tue, 6 Jun 1995 17:03:58 -0600
+Date: Tue, 6 Jun 1995 17:03:58 -0600
+Message-Id: <199506062303.RAA29047@migs.ucar.EDU>
+From: gwuser@migs.UCAR.EDU (MASnet Gateway)
+To: ron@raf.atd.ucar.edu
+Subject: IRJE/MIGS Request MI3238 Success
+Content-Type: text
+Content-Length: 108
+Status: RO
+
+MI3238: Success!
+NRNET command line arguments:
+FLNM=%
+VERB=msrm
+r
+flnm=/RAF/1994/120/RF01C/R0914
+w=RAFDMG
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+MSS Bitfiles removed as of Mon Jan 30 10:56:32 MST 2006
+berlioz/ruth % msrm -wpwd RAFDMG /RAF/1994/120/HRT/120hr.tar.dir /RAF/1994/120/HRT/flt07hr
+
+Mistake realized:  Restored flt07hr (NIMBUS flight file for high-rate processing)
+berlioz/dmg % date ; msrcp -pe 4095 -pr 41113009 -wpwd RAFDMG flt07hr mss:/RAF/1994/120/HRT/flt07hr ; date
+Mon Jan 30 11:05:03 MST 2006
+Mon Jan 30 11:05:14 MST 2006
+
+RLR

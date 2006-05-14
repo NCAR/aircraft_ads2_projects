@@ -1,0 +1,215 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 4-120 BASE (Curry, et al.)
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1994
+set PROJ = 120
+#set STAGE = nfile=1
+#set STAGE = nrec=15000
+#set STAGE = "skpr=15000 nrec=15000"
+#set STAGE = "skpr=30000 nrec=15000"
+#
+#  Section 1.  Test to see how many sections occur on one flight tape
+#                 at 13000 records per bitfile.
+#set TAPELIST = ( R0914 )
+#set FLIGHTS  = ( RF01 )    <-- renamed RF01A
+#set FLIGHTS  = ( RF01B )
+#set FLIGHTS  = ( RF01C )
+#
+#  Section 1.  Redo RF01 to use two bitfiles instead of three, since
+#                15000 records fit in one bitfile.
+#set STAGE = "nrec=15000"
+#set TAPELIST = ( R0914 )
+#set FLIGHTS =  ( RF01A )
+#set STAGE = "skpr=15000 nfile=1"
+#set TAPELIST = ( R0914 )
+#set FLIGHTS =  ( RF01B )
+#
+#  Section 2.  First try at mass production.
+#set TAPELIST = ( R0915 R0916 R0921 R0923 R0924 R0925 R0926 R0870 R0928 R0929 \
+#                  R0930 R0931 R0932 R0933 R0934 R0935 R0936 R0937 R0939 )
+#set FLIGHTS =  ( RF02  RF03A RF04  RF05  RF06  RF07  RF08  TF09  RF09  RF10  \
+#                  RF11  RF12  RF13  RF14  RF15  RF16  RF17  RF18A RF19A )
+#
+#  Section 2.  Second try at mass production.
+#set TAPELIST = ( R0915 R0921 R0923 R0924 R0925 R0926 R0928 R0929 \
+#                  R0930 R0931 R0932 R0933 R0934 R0935 R0936 )
+#set FLIGHTS =  ( RF02B RF04B RF05B RF06B RF07B RF08B RF09B RF10B \
+#                  RF11B RF12B RF13B RF14B RF15B RF16B RF17B )
+#
+#  Section 2.  Third try at mass production.
+#set STAGE = "skpr=30000 nrec=15000"
+#set TAPELIST = ( R0915 R0921 R0925 R0926 R0929 R0930 R0932 R0933 R0934 R0935 )
+#set FLIGHTS =  ( RF02C RF04C RF07C RF08C RF10C RF11C RF13C RF14C RF15C RF16C )
+#
+#  Section 2.  Fourth try at mass production.
+#set STAGE = "skpr=30000 nrec=15000"
+#set TAPELIST = ( R0925 R0930 R0932 R0934 R0935 )
+#set FLIGHTS =  ( RF07C RF11C RF13C RF15C RF16C )
+#
+#  Section 2.  Fifth try at mass production.
+#set STAGE = "skpr=30000 nrec=15000"
+#set TAPELIST = ( R0930 R0932 R0934 )
+#set FLIGHTS =  ( RF11C RF13C RF15C )
+#
+#  Section 2.  Sixth try at mass production.
+set STAGE = "skpr=30000 nrec=15000"
+set TAPELIST = ( R0934 )
+set FLIGHTS =  ( RF15C )
+#
+#  Section 3.  First try.  Second tapes used for research flights.
+#set STAGE = "nrec=15000"
+#set TAPELIST = ( R0917 R0938 R0940 )
+#set FLIGHTS =  ( RF03B RF18B RF19B )
+#
+#  Section 3.  Second and third tries.  Second tapes used for research flights.
+#set STAGE = "skpr=15000 nrec=15000"
+#set TAPELIST = ( R0938 R0940 )
+#set FLIGHTS =  ( RF18C RF19C )
+#
+#  Section 4.  First and second tries.
+#  More than likely, this will not be named with suffix C.  (Complete the
+#   archive of section 3 first to get the proper letter.)
+#set STAGE = "nrec=15000"
+#set TAPELIST = ( R0918 )
+#set FLIGHTS =  ( RF03C )
+#
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+#  Job submitted Wed Nov 16 16:53:07 MST 1994
+# Sequence number = CK2121 -- RF01A/R0914 -- OK
+#
+#  Job submitted Thu Nov 17 12:02:20 MST 1994
+# Sequence number = CK2389 -- RF01B/R0914 -- Failed:  job hung & dropped
+#
+#  Job submitted Tue Nov 22 15:47:46 MST 1994
+# Sequence number = CK2982 -- RF01B/R0914 -- OK
+#
+#  Job submitted Wed Nov 23 13:45:00 MST 1994
+# Sequence number = CK5356 -- RF01C/R0914 -- OK
+#
+#  Jobs submitted Wed Nov 23 15:12:15 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK6042 -- RF02/R0915 -- OK: renamed RF0xA
+# Sequence number = CK6051 -- RF03A/R0916 -- Failed:  no EOF
+# Sequence number = CK6064 -- RF04/R0921 -- OK: renamed RF04A
+# Sequence number = CK6075 -- RF05/R0923 -- OK: renamed RF05A
+# Sequence number = CK6085 -- RF06/R0924 -- OK: renamed RF06A
+# Sequence number = CK6103 -- RF07/R0925 -- OK: renamed RF07A
+# Sequence number = CK6112 -- RF08/R0926 -- OK: renamed RF08A
+# Sequence number = CK6125 -- TF09/R0870 -- OK
+# Sequence number = CK6143 -- RF09/R0928 -- OK: renamed RF09A
+# Sequence number = CK6157 -- RF10/R0929 -- OK: renamed RF10A
+# Sequence number = CK6168 -- RF11/R0930 -- OK: renamed RF11A
+# Sequence number = CK6179 -- RF12/R0931 -- OK: renamed RF12A
+# Sequence number = CK6192 -- RF13/R0932 -- OK: renamed RF13A
+# Sequence number = CK6206 -- RF14/R0933 -- OK: renamed RF14A
+# Sequence number = CK6224 -- RF15/R0934 -- OK: renamed RF15A
+# Sequence number = CK6238 -- RF16/R0935 -- OK: renamed RF16A
+# Sequence number = CK6250 -- RF17/R0936 -- OK: renamed RF17A
+# Sequence number = CK6262 -- RF18A/R0937 -- OK
+# Sequence number = CK6279 -- RF19A/R0939 -- Failed:  no EOF
+# 
+#  Jobs submitted Mon Nov 28 12:38:16 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1134 -- RF02B/R0915 -- OK
+# Sequence number = CK1141 -- RF04B/R0921 -- Failed:  job hung & dropped
+# Sequence number = CK1148 -- RF05B/R0923 -- OK
+# Sequence number = CK1155 -- RF06B/R0924 -- OK
+# Sequence number = CK1162 -- RF07B/R0925 -- OK
+# Sequence number = CK1169 -- RF08B/R0926 -- OK
+# Sequence number = CK1176 -- RF09B/R0928 -- OK
+# Sequence number = CK1183 -- RF10B/R0929 -- OK
+# Sequence number = CK1190 -- RF11B/R0930 -- OK
+# Sequence number = CK1197 -- RF12B/R0931 -- OK
+# Sequence number = CK1204 -- RF13B/R0932 -- OK
+# Sequence number = CK1211 -- RF14B/R0933 -- OK
+# Sequence number = CK1218 -- RF15B/R0934 -- OK
+# Sequence number = CK1225 -- RF16B/R0935 -- OK
+# Sequence number = CK1232 -- RF17B/R0936 -- OK
+#
+#  Job submitted Mon Nov 28 15:17:22 MST 1994
+# Sequence number = CK2221 -- RF01A/R0914 -- Failed:  job hung & dropped
+#
+#  Job submitted Mon Nov 28 15:18:41 MST 1994
+# Sequence number = CK2233 -- RF01B/R0914 -- OK
+#
+#  Job submitted Mon Dec 12 12:18:06 MST 1994
+# Sequence number = CK7983 -- RF01A/R0914 -- Failed:  read too few records
+#
+#  Job submitted Tue Dec 13 16:04:01 MST 1994
+# Sequence number = CK9544 -- RF01A/R0914 -- OK
+# 
+#  Jobs submitted Tue Dec 13 16:12:19 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK9643 -- RF02C/R0915 -- OK
+# Sequence number = CK9654 -- RF04C/R0921 -- OK
+# Sequence number = CK9663 -- RF07C/R0925 -- Failed:  I/O RC=25
+# Sequence number = CK9676 -- RF08C/R0926 -- OK
+# Sequence number = CK9685 -- RF10C/R0929 -- OK
+# Sequence number = CK9696 -- RF11C/R0930 -- Failed:  job hung & dropped
+# Sequence number = CK9707 -- RF13C/R0932 -- Failed:  job hung & dropped
+# Sequence number = CK9719 -- RF14C/R0933 -- OK
+# Sequence number = CK9733 -- RF15C/R0934 -- Failed:  job hung & dropped
+# Sequence number = CK9744 -- RF16C/R0935 -- Failed:  job hung & dropped
+# 
+#  Jobs submitted Wed Dec 14 14:13:49 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK4151 -- RF03B/R0917 -- Failed:  No EOF
+# Sequence number = CK4160 -- RF18B/R0938 -- OK
+# Sequence number = CK4171 -- RF19B/R0940 -- OK
+# 
+#  Job submitted Wed Dec 21 14:15:19 MST 1994
+# Sequence number = CK1767 -- RF03C/R0918 -- Failed:  job hung & dropped
+# 
+#  Jobs submitted Wed Dec 21 14:20:41 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1834 -- RF07C/R0925 -- OK
+# Sequence number = CK1841 -- RF11C/R0930 -- Failed:  job hung & dropped
+# Sequence number = CK1848 -- RF13C/R0932 -- Failed:  job hung & dropped
+# Sequence number = CK1855 -- RF15C/R0934 -- Failed:  job hung & dropped
+# Sequence number = CK1862 -- RF16C/R0935 -- OK
+# 
+#  Jobs submitted Thu Dec 22 10:06:14 MST 1994
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK1460 -- RF18C/R0938 -- Failed:  job hung & dropped
+# Sequence number = CK1467 -- RF19C/R0940 -- Failed:  job hung & dropped
+# 
+#  Job submitted Wed Jan  4 14:07:42 MST 1995
+# Sequence number = CK9011 -- RF03C/R0918 -- Failed:  job hung & dropped
+# 
+#  Jobs submitted Wed Jan  4 14:10:04 MST 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK9039 -- RF11C/R0930 -- OK
+# Sequence number = CK9049 -- RF13C/R0932 -- OK
+# Sequence number = CK9061 -- RF15C/R0934 -- Failed:  job hung & dropped
+# 
+#  Jobs submitted Wed Jan  4 14:14:40 MST 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = CK9479 -- RF18C/R0938 -- Failed:  job hung & dropped
+# Sequence number = CK9486 -- RF19C/R0940 -- OK
+# 
+#  Job submitted Wed Jan 11 10:04:23 MST 1995
+# Sequence number = CK3467 -- RF15C/R0934 -- Failed:  job hung & dropped
+# 
+#  Job submitted Tue Jan 17 09:36:46 MST 1995
+# Sequence number = CK7869 -- RF15C/R0934 -- 
+# 
+# done.
+exit

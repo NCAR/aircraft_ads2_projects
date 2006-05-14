@@ -1,0 +1,40 @@
+DRAFT
+
+SCMS reprocessing chronology.
+
+For the SCMS project, Darrel developed a NIMBUS skeleton processor for the
+PMS-1D probes (FSSP-100 and FSSP-300) and Golden Egg temperature data (both
+low- and high- rate).  It was used to produce intermediate netCDF files.
+These were merged into the NIMBUS-produced production low- and high-rate
+files which were archived to the SCD Mass Store System as the first production
+data set.  (At this time, RAF had no software to display the production PMS-1D
+data.)
+
+After production data delivery, word came from the users that the high-rate
+PMS-1D data were garbage.  Perhaps through misinterpretation, it was thought
+that these were opinions on data quality.  In reality, because of a missing
+"write" statement in the skeleton processor, the data really were garbage.
+
+I first got word of a possible problem with the data on 17 December 1997.  My
+recollection is that Jay Miller called Chris to see about straightening things
+out.  Rather than use a skeleton, the idea was to reprocess the PMS-1D data
+within NIMBUS.  When Chris got into the loop, his first try used incorrect
+settings in a PMSspecs file regarding the number of cells in a probe, and
+the high-rate data (for the 260X, I think) were scrambled.  He worked with
+Jay Miller and Darrel to massage the data until it satisfied everyone, about
+early May for the low-rate data.
+
+A review of my email messages shows that things were not really ready by then.
+Messages between Chris, Neil Laird, Jay Miller and me showed more problems,
+and it wasn't until 22 May that the final reprocessing was completed and
+the production data archived to the MSS.  That same day I sent mail to the
+primary people associated with this reprocessing:  Neil Laird, Bob Rauber,
+Jay Miller, Harry Ochs.  That same day I also updated Charlie Knight, Krista
+and Darrel.  On 17 July, after I had moved all the MSS data to their new
+permanent directories, I sent a final email to all the SCMS recipients
+in a list that Krista compiled for me.
+
+One significant date was 2 June, a submission deadline for a Cloud Physics
+Conference everyone was scrambling to meet.
+
+Ron Ruth  12 October 1998

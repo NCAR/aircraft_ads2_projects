@@ -1,0 +1,52 @@
+PELTI - 186, Flight rf09
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /usr/local/proj/186/Production/Flight_rf09
+Processed on: Sep 18 19:24 UTC 2000
+Flight Date: 07/22/2000
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Advancing past odd-ball time stamp:
+  previous time = 17:32:18
+       odd time = 17:32:16
+Advancing past odd-ball time stamp:
+  previous time = 17:32:18
+       odd time = 17:32:17
+Advancing past duplicate time stamp:
+  previous time = 17:32:18
+       odd time = 17:32:18
+    advanced to = 17:32:19
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 21 seconds ending @ 17:47:06, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 17:47:08
+       odd time = 17:47:07
+Advancing past duplicate time stamp:
+  previous time = 17:47:08
+       odd time = 17:47:08
+    advanced to = 17:47:09
+Time break of 1153 seconds ending @ 18:35:04, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 18:35:05
+       odd time = 18:35:04
+Advancing past duplicate time stamp:
+  previous time = 18:35:05
+       odd time = 18:35:05
+    advanced to = 18:35:06
+Time break of 59 seconds ending @ 20:16:48, filling in with MISSING_VALUE.
+Time break of 38 seconds ending @ 20:17:36, filling in with MISSING_VALUE.
+Time break of 42 seconds ending @ 20:39:46, filling in with MISSING_VALUE.
+Time interval(s) completed : 17:32:19-21:59:02
+ACINS: 1 spikes removed with slope exceeding 4.000000
+PSFRD: 9 spikes removed with slope exceeding 20.000000
+THDG: 1 spikes removed with slope exceeding 0.300000
+Processing took 2.0 minutes.

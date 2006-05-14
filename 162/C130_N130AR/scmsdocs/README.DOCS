@@ -1,0 +1,93 @@
+Several ASCII and PostScript documents were generated which
+describe the various data products and quality of data associated
+with the SCMS project.  These documents were prepared for the SCMS
+data documentation notebooks and have also been archived in the
+subdirectory "scmsdocs" within the SCMS (project 162) directory
+for users who do not have ready access to the documentation notebooks.
+
+-------------------------------------------------------------------------
+**NOTE:  On the SCD Mass Store System (MSS), the files in the directory
+         "scmsdocs" are located in the MSS directory path
+         /RAF/1995/162/DOCS.
+-------------------------------------------------------------------------
+
+The relevant file names are listed below, along with the file types
+and brief descriptions of the contents.
+
+
+  File Name             Type           Description
+  ---------             ----           -----------
+
+162hrtdump.asc        ASCII           ASCII dump of high-rate netCDF data file
+                                         header; describes the format in which
+                                         high-rate data were written to files.
+
+162lrtdump.asc        ASCII           ASCII dump of low-rate netCDF data file
+                                         header; describes the format in which
+                                         low-rate data were written to files.
+
+162rf02.mrcomp.ps     PostScript      Scatter plot of MRLA and MRUV data versus
+                                         MR data for SCMS flight RF02 (7/20/95)**.
+
+acfltnotes.ps         PostScript      Al Cooper's flight scientist notes.
+
+cnspike.ps            PostScript      Plot showing an example of spikes in
+                                         high-rate CN concentration (CONCN) data.
+
+dataqual.ps           PostScript      SCMS data quality summary.
+
+dbfltnotes.txt        ASCII           Darrel Baumgardner's flight scientist notes.
+
+gerber.dat            ASCII           Background information, outline of
+                                         processing steps, and discussion of
+                                         availability for Gerber PVM-100A data.
+
+gerberinfo.ps         PostScript      Introductory statement regarding Gerber
+                                         PVM-100A data.
+
+lwcstruct.ps          PostScript      Plot showing liquid water content
+                                         variability as revealed by 10 Hz
+                                         FSSP-100 data (PLWCF_IBR) versus 1 Hz
+                                         King probe data (PLWCC).
+
+mruvsat.ps            PostScript      Table of SCMS UV hygrometer mixing ratio
+                                         saturation values.
+
+rfinoise.ps           PostScript      Plot showing samples of RFI noise in TTRL
+                                         and DPBC data obtained during SCMS flight
+                                         RF01 (7/19/95).
+
+spdatinfo.ps          PostScript      Special data products discussion.
+
+spnoise.ps            PostScript      Plot showing an example of "spectral
+                                         noise" in high-rate (25 Hz) SCMS data.
+                                         The spectral plot shown is for the
+                                         variable QCF.
+
+tempsat.ps            PostScript      Plot showing Rosemount sensor (ATX), Golden
+                                         Egg (XEGGT2), and OPHIR (OAT) temperature
+                                         responses in cloud.
+
+tsismps.ps            PostScript      SCMS TSI Aerosol System (SMPS) data log
+                                         and data quality and availability
+                                         discussion.
+
+variables.scms        ASCII           Processed variables list (names, units, and
+                                         descriptions).
+
+
+** Users should note that MRLA and MRUV versus MR scatter plots were
+generated and stored as PostScript files for each of the research
+flights flown during SCMS.  These PostScript files have been archived
+in the subdirectory "mrcompfiles" within the "scmsdocs" directory
+and follow the same name convention as was used for the RF02 PostScript
+file (i.e., 162rfxx.mrcomp.ps, where xx is the research flight number).
+------------------------------------------------------------------------
+NOTE:  On the SCD MSS, the files in the subdirectory "mrcompfiles"   
+       are located in the MSS directory path
+       /RAF/1995/162/DOCS/MRCOMPFILES.
+------------------------------------------------------------------------
+
+It is suggested that users print out copies of each of the above files
+in order to obtain a complete set of documents describing the quality
+and availability of SCMS data.

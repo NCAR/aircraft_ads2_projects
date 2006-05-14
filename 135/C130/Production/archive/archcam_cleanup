@@ -1,0 +1,57 @@
+#! /bin/csh -f
+#
+#  Script to "fix" mistakes in archiving the RICO digital camera files
+#
+#  Directories:
+set D1 = "/ATD/DATA/2004/RICO/C130_N130AR/CAMERA"
+set D2 = "/ATD/DATA/2005/RICO/C130_N130AR/CAMERA"
+#
+#
+echo "#   $0 job began `date`"
+#
+#  Need to delete the following
+#
+#   archcam_cleanup job began Fri Mar 11 11:58:29 MST 2005
+#msrm -wpwd RAFDMG $D2/FF06.FWD.20050127.145650_145959.jpg.tar
+#msrm -wpwd RAFDMG $D2/FF06.FWD.20050127.145650_145959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/FF06.FWD.20050127.150000_155959.jpg.tar
+#msrm -wpwd RAFDMG $D2/FF06.FWD.20050127.150000_155959.jpg.tar.dir
+##
+#msrm -wpwd RAFDMG $D1/RF01.FWD.20041207.220327_220328.jpg.tar
+#msrm -wpwd RAFDMG $D1/RF01.FWD.20041207.220327_220328.jpg.tar.dir
+##
+#msrm -wpwd RAFDMG $D2/RF15.FWD.20050116.134938_135959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF15.FWD.20050116.134938_135959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/RF15.FWD.20050116.140000_145959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF15.FWD.20050116.140000_145959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/RF15.FWD.20050116.200000_202000.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF15.FWD.20050116.200000_202000.jpg.tar.dir
+##
+#msrm -wpwd RAFDMG $D2/RF17.FWD.20050119.100300_105959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF17.FWD.20050119.100300_105959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/RF17.FWD.20050119.110000_115959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF17.FWD.20050119.110000_115959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/RF17.FWD.20050119.170000_174300.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF17.FWD.20050119.170000_174300.jpg.tar.dir
+##
+#msrm -wpwd RAFDMG $D2/RF18.FWD.20050123.115200_115959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF18.FWD.20050123.115200_115959.jpg.tar.dir
+##
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.085200_085959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.085200_085959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.085959_085959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.085959_085959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.090000_095959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.090000_095959.jpg.tar.dir
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.100000_105959.jpg.tar
+#msrm -wpwd RAFDMG $D2/RF19.FWD.20050124.100000_105959.jpg.tar.dir
+#   archcam_cleanup completed on Fri Mar 11 11:59:24 MST 2005
+#
+#   archcam_cleanup job began Fri Mar 11 13:01:50 MST 2005
+#msrm -wpwd RAFDMG $D2/FF06.FWD.20050127.200000_200800.jpg.tar
+#msrm -wpwd RAFDMG $D2/FF06.FWD.20050127.200000_200800.jpg.tar.dir
+#   archcam_cleanup completed on Fri Mar 11 13:01:53 MST 2005
+#
+# Done.
+echo "#   $0 completed on `date`"
+exit

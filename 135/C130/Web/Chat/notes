@@ -1,0 +1,156 @@
+After playing with the chatlogs for "C130Q," "RICO" and "dropsonde" yesterday,
+I discovered this morning that these three files haven't been updated since.
+(I was merging Mike Daniels' logs as a missing section to the master files.)
+Apparently by editing with vi, it locked the file, and xchat, via the NFS
+mount, created a new, hidden file to continue the logging operation.  This
+was a good thing.  The file names are:
+    /net/www/docs/rdp/projects/RICO/chatlog/.nfs001c63e100000008  (C130Q)
+    /net/www/docs/rdp/projects/RICO/chatlog/.nfs001c63e70000000a  (RICO)
+    /net/www/docs/rdp/projects/RICO/chatlog/.nfs001c63ec00000009  (dropsonde)
+In the past, if a file changed during editing, I would get a message telling
+me that the file changed since I modified it.  I then could reimport the file
+anew with no loss.  I'm wondering if this is a new "feature" of RedHat
+Enterprise Linux.
+
+So from now on, I plan to copy the file, make changes and then figure out
+a way to merge the changed file back in or just keep a new file to do the
+logging.
+
+The chatlog files should be edited to have RICO phase 2 separated from RICO
+phase 1.  Later the files should be further broken down into missions and/or
+dates.  I also need to create sanitized versions.  It's amazing how much time
+this all takes.
+
+Ron Ruth
+Tue Jan 11 14:06:35 MST 2005
+
+-------
+
+Since the hidden files could not be accessed by the RICO Forum web site,
+we decided to restart xchat and reset the file logging.  When I exited the
+running xchat client, the three hidden files (mentioned above) disappeared!
+To preserve them, a link or copy should have been made of these files before
+exiting.  (Remember this for the future!)  Now the three affected chatlogs
+have about 24-hour holes in them (~21:30 11 Jan 2005 to 22:37 12 Jan 2005).
+Mike Daniels was keeping a chat session on his machine during part of this
+period and emailed me text files from it for the two important channels.
+However, they have no time stamps.  (The third channel only had people
+joining and leaving, so there is really no need to update it.)
+
+The files:
+  xchat_rico_01112005.txt
+  xchat_c130q_01112005.txt
+are non-time-stamped logfiles from Mike's computer as an attempt to 
+recover parts the missing pieces of the main chatlog files for RICO
+and C130Q.
+
+Ron Ruth
+Tue Jan 11 16:38:43 MST 2005
+
+-------
+
+Future plans/priciples regarding chat logging.
+
+1.  Do not edit an active chatlog file.  Instead, make a copy of it and
+     do editing there.  Keep this copy in the project's Web/Chat subdirectory.
+2.  If the chat session, for some reason, begins logging to a hidden scratch
+     file, create a hard link to it and/or copy it somewhere before exiting
+     xchat.  Also, start a new, temporary xchat session on a different
+     machine before exiting to preserve any traffic that occurs while the
+     logging xchat session is restarting.
+3.  Edit copies of the chatlogs to separate them into RICO phases 1 and 2.
+4.  Further edit copies to create individual logs for each "mission."
+5.  Sanitize the copies before publishing.
+
+Ron Ruth
+Wed Jan 12 11:25:47 MST 2005
+
+-------
+
+mahler rebooted from 15 Jan 2005 01:07:00 through 01:09:44 UTC
+ Chat restarted with all channels joined by 01:10:25 UTC
+ All topics reset (via initialize script) by 01:11:30 UTC
+
+Ron Ruth
+Fri Jan 14 18:26:03 MST 2005
+
+-------
+
+mahler rebooteed from 18 Jan 2005 16:21:00 through 16:25:00 UTC
+ Chat restarted with all channels joined by 16:25:00 UTC
+ All topics reset (via initialize script) by 16:25:00 UTC
+
+Ron Ruth
+Tue Jan 18 09:38:33 MST 2005
+
+-------
+
+The chat logs got contaminated when the FL servers rebooted about 15:30 UTC.
+Log entries in all chatrooms were replaced by garbage characters sometime
+after 27 Jan 2005 14:59:40 and before 27 Jan 2005 15:29:54.
+/net/www/docs/rdp/projects/RICO/chatlog/bae146_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/c130q_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/dropsonde_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/gaus_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/kingair_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/network_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/pam_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/rico_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/sabl_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/sewardjohnson_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/spol_chatlog.txt
+/net/www/docs/rdp/projects/RICO/chatlog/students_chatlog.txt
+
+Ron Ruth
+Thu Jan 27 10:39:15 MST 2005
+
+-------
+
+After a mahler reboot before Thu Jan 27 09:38:11 2005, the time zone didn't
+get reset to UTC.  Therefore. all time stamps after that reboot are in MST.
+These must be cleaned up.  (All of the following begin in the 16th hour UTC,
+not the 9th hour MST.)
+bae146_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:19 2005
+c130q_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:11 2005
+dropsonde_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:23 2005
+gaus_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:27 2005
+kingair_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:17 2005
+network_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:31 2005
+pam_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:25 2005
+rico_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:13 2005
+sabl_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:15 2005
+sewardjohnson_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:29 2005
+spol_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:21 2005
+students_chatlog.txt:  BEGIN LOGGING AT Thu Jan 27 09:38:33 2005
+
+Ron Ruth
+Fri Jan 28 16:18:16 MST 2005
+
+-------
+
+I finished breaking up and sanitizing the chat logs.  There is still a
+"need" to correct the raw chatlog time stamps after the mid-morning
+reboot on 27 January 2005.  (The one sanitized chatlog covering that
+time, c130q.xchatlog.20050127, has been fixed.)
+
+Here are some "tasks" that could be accomplished with the chatlogs:
+ - combine the separate, raw chatlogs into one file for each chat room
+ - remove all entries related to people entering and leaving chatrooms
+ - have someone else review the raw and sanitized files to check up on my
+    censorship
+ - move all the chatlog files to a more appropriate place in the file system
+
+Ron Ruth
+Wed Feb  9 16:06:13 MST 2005
+
+-------
+
+Today I moved the RICO chatlogs from directory:
+   /net/www/docs/rdp/projects/RICO/chatlog
+to
+   /jnet/local/proj/135/Web/Chat/chatlog
+
+Now all the chat stuff is in one place.
+
+Ron Ruth
+Fri Apr 15 15:09:01 MDT 2005

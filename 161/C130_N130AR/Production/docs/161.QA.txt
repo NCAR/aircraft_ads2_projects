@@ -1,0 +1,589 @@
+									    12 December 2001
+  	   EPIC-2001
+              NCAR C-130 - Project #1-161
+                 Data Quality Report
+    
+
+This summary has been written to outline basic 
+instrumentation problems affecting the quality of the data set 
+and is not intended to point out every bit of questionable data. 
+It is hoped that this information will facilitate use of the data 
+as the research concentrates on specific flights and times.
+
+The following report covers only the RAF supplied 
+instrumentation and is organized into two sections.  The first 
+section lists recurring problems, general limitations, and 
+systematic biases in the standard RAF measurements.  The second 
+section lists isolated problems occurring on a flight-by-flight 
+basis.  A discussion of the performance of the SABL lidar and RAF 
+chemistry sensors will be provided separately, as will the 
+respective data sets.
+
+Section I: General Discussion
+
+      1. RAF staff have reviewed the data set for 
+instrumentation problems.  When an instrument has been found 
+to be malfunctioning, specific time intervals are noted.  In 
+those instances the bad data intervals have been filled in 
+the netCDF data files with the missing data code of -32767. 
+In some cases a system will be out for an entire flight.
+
+ 	2. The wind data for this project were derived from 
+measurements taken with the radome wind gust package.  As is 
+normally the case with all wind gust systems, the ambient 
+wind calculations can be adversely affected by either sharp 
+changes in the aircraft's flight attitude or excessive drift 
+in the onboard inertial reference system (IRS).  Turns, or 
+more importantly, climbing turns are particularly disruptive 
+to this type of measurement technique.  Wind data reported 
+for these conditions should be used with caution.
+
+Special sets of in-flight calibration maneuvers were 
+conducted on flights TF01 and RF17 to aid in the performance 
+analysis of the wind gust measurements.  The calibration 
+data identified a systematic bias in the pitch and sideslip 
+parameters. These offsets have been removed from the final 
+data set.  The time intervals for each set of maneuvers have 
+been documented in both the flight-by-flight data quality 
+review and on the individual Research Flight Forms prepared 
+for each flight. Drift in the IRS accelerometers are removed 
+using an algorithm that employs a complementary high-
+pass/low-pass filter that removes the long term drift with 
+the accurate GPS reference and preserves the shorter term 
+fluctuations measured by the IRS. 
+
+Both the GPS corrected and basic uncorrected values are 
+included in the final data set.  RAF strongly recommends 
+that the GPS corrected inertial winds be used for all 
+research efforts (WSC,WDC,UXC,VYC,WIC,UIC,VIC).  
+
+3. A Trimble Global Positioning System (GPS) was used 
+as a more accurate position reference during the program.  
+The system performed extremely well and the GPS position 
+values should be used for all research efforts (GLAT, GLON). 
+There may be occasional spikes in these due to satellite 
+geometry and aircraft maneuvering. The algorithm referred to 
+in (2) above also blends the GPS and IRS position to yield a 
+best position (LATC, LONC) that generally removes the GPS 
+spikes. 
+
+4. RAF flies redundant sensors to assure data quality. 
+Performance characteristics differ from sensor to sensor 
+with certain units being more susceptible to various thermal 
+and dynamic effects than others.  Good comparisons were 
+typically obtained between the two static pressures 
+(PSFDC,PSFC), the three standard temperatures (ATRL, ATRR, 
+ATWH), two dynamic pressures (QCRC, QCFC), three liquid 
+water sensors (PLWCC, PLWCC1, XGLWC), and the two dew 
+pointers (DPT,DPB).  Exceptions are noted in the flight-by-
+flight summary.  The digital static pressure (PSFDC) was 
+selected as the reference pressure (PSXC) used in all of the 
+derived parameters.  The two remote surface temperature 
+sensors (RSTB, RSTB1) generally functioned well, but there 
+were times when the two measurements differ significantly. 
+
+5. Temperature measurements were made using the 
+standard heated (ATWH) and unheated (ATRR,ATRL) Rosemount 
+temperature sensors along with the OPHIR-III near-field 
+radiometric temperature sensor (OAT, XOAT).  The sensing 
+element from ATRL became damaged during flight RF04 and was 
+subsequently replaced.  Both unheated sensors (ATRR,ATRL) 
+were damaged during icing incidents encountered on flight 
+RF07, resulting in fixed offset adjustments to the 
+calibration factors for both systems. During the following 
+flights, all of the standard temperature sensors performed 
+reasonably well, encountering the usual problems with sensor 
+wetting during cloud passes. Post project calibration of the 
+resistance changes in the elements in both sensor heads 
+quantified the adjustments needed for the production 
+processing of the final data set. A comparison of the data 
+sets when all systems were functional yielded good 
+correlation in instrument signatures and only small 
+differences in absolute value (?0.2 ?C) through out the 
+program. ATWH was selected as the reference value (ATX) used 
+in calculating the derived parameters. 
+
+
+The OPHIR-III sensor was flown because it is not sensitive to 
+interference from sensor wetting or icing.  Measurements are 
+derived from near field radiometric emissions in an infared 
+frequency band. The integrated sample volume of the unit is 
+designed to extend roughly 10 meters out from the aircraft.  In 
+actual practice there appears to have been some degradation of 
+the filters serving to limit this viewing depth.  Since the unit 
+points out roughly horizontally, the increased viewing depth is 
+not a problem during normal straight and level flight.  During 
+significant turns where the ROLL angle exceeds +-5 degrees, 
+however, the OPHIR temperature will be influenced by the 
+combination of the increased sampling depth and the vertical 
+gradient in ambient temperature.  Typically, differences in ATX 
+and OAT during these turns are around +-0.75 oC.  While the unit 
+performed quite well and its output was generally well correlated 
+to the in-situ temperature sensors, it is susceptible to in-
+flight calibration drift and experienced some intermittent 
+segments where the system seemed to lose its lock. These periods 
+are characterized by a sudden level shift and, in some cases, the 
+loss of response to the fine scale structure in the temperature 
+profile.   
+
+In order to assist in the analysis of these data, RAF has output 
+two different OPHIR temperatures in the final data set.  The 
+standard OAT data were obtained from a direct calculation of 
+ambient temperature using a calibration fit to clear air data 
+taken from the reference Rosemount temperature sensor during 
+level flight.  RAF has great confidence in this calibration fit 
+because it works well for all 19 research flights.  No flight-by-
+flight adjustments were necessary.  A second value (XOAT) was 
+produced through the use of our 'loose couple' data processing 
+technique that has been modified slightly to recognize and adjust 
+for the level shifts caused by the malfunction noted above.  
+
+Because this is not an independent, stand alone measurement, use 
+of the OPHIR data should be strictly limited to the direct cloud 
+penetrations where the standard sensors have a problem with 
+sensor wetting.  
+
+
+ 	6.  Humidity measurements were made using two collocated 
+thermoelectric dew point sensors, two Lyman-alpha fast response 
+hygrometers and an experimental TDL laser hygrometer.   Generally 
+speaking, the humidity sensors performed well.  As is typically 
+the case, the two dew point sensors (DPBC,DPTC) were set up 
+differently to provide the best coverage under the widest range 
+of ambient conditions.  DPTC was set up for fast response, but 
+its dynamic range was more limited. DPBC had a slower response 
+but had the capability of measuring greater dew point 
+depressions. A comparison of the data sets yielded good 
+correlation in instrument signatures during the largest portions 
+of the flights when both instruments were functioning normally.  
+However, some problems with water ingestion occurred which 
+resulted in some sensor drift.  Each flight was evaluated on a 
+case-by-case basis to see which dew point sensor was functioning 
+the best on that particular flight. Except where noted in the 
+flight-by-flight review, DPBC was used as the reference humidity 
+sensor (DPXC) in calculating all of the derived parameters.
+
+Lyman-alpha hygrometers are susceptible to in-flight drift 
+in the instrument's bias voltage.  Due to this problem, RAF uses 
+a special data processing technique to remove the bias drift by 
+referencing the long term humidity values to one of the more 
+stable thermoelectric dew point sensors.  Measurements from the 
+two systems remained well correlated for clear air sampling but 
+showed significant differences during cloud penetrations.  The 
+two Lyman-alpha hygrometers use different housing types.  The 
+stub unit (MRLA,RHOLA,DPLA,RHLA) is more susceptible to in-cloud 
+wetting and thermal drift.  This unit failed during the project 
+and had to be replaced.  The replacement system also failed late 
+in the project.  To avoid any confusion over possible bad data 
+from this system, all of the related variables have been removed 
+from the final data set.  The cross-flow unit (MRLA1, RHOLA1, 
+DPLA1, RHLA1) functioned well under all conditions and should be 
+perfectly adequate as the reference high rate sensor for basic 
+analysis. For flux calculations, MRLA1 should be used.
+
+A TDL (tunable diode laser) based hygrometer was flown on an 
+experimental basis for this project.  The system was originally 
+designed for measuring extremely low absolute humidities at 
+stratospheric altitudes.  The path length was shortened for the 
+unit when it was placed on the C-130 to at the higher humidities 
+common to the boundary layer and mid to lower troposphere.  While 
+the humidity values encountered during this deployment were 
+within the expected operational range of the instrument a complex 
+pressure calibration and special data processing are required to 
+correct the basic data.  At the time of this data release, the 
+TDL data were not fully corrected and should only be used to 
+identify trend problems with the primary humidity sensors (ie: 
+overshooting or oscillation in dew pointers).  We expect a 
+subsequent release of a 'corrected' set of TDL data (MRLHS) at a 
+later date.
+
+ 7. A set of standard upward and downward facing radiometers 
+were used to measure shortwave, ultraviolet, and infrared 
+irradiance. It should be noted that all units are hard mounted 
+and that none of the raw data have been corrected for changes in 
+the aircraft's flight attitude. RAF has recently added a new set 
+of irradiance parameters which have been corrected for aircraft 
+attitude and relative sun angle.  A description of this 
+correction process is provided in RAF Bulletin 9. 
+
+8. Thermal temperature chamber experiments have indicated 
+that the Heimann sensors used to remotely measure the surface 
+temperature (RSTB, RSTB1) are sensitive to some thermal drift.   
+In an attempt to deal with these problems the units were equipped 
+with a temperature control heater system.  Generally speaking, 
+the heater system stabilized the signals fairly well.  Some drift 
+is still apparent in the data set.  RSTB1 seemed to be the more 
+stable of the two units and exhibited better accuracy in the 
+regular, single point, precision tests run prior to each flight. 
+RSTB1 is therefore recommended as the reference system for this 
+measurement. 
+ 
+In addition to their thermal sensitivity, the accuracy of 
+the remote sensing measurement is also dependent upon the total 
+amount of water in the sensing path.  In such a moist, marine 
+environment this sensitivity appears as an altitude dependence in 
+the raw surface temperature. Using a compilation of vertical 
+soundings from all of the research flights, RAF was able to 
+empirically generate a mean moisture vertical profile that could 
+be used to characterize the conditions encountered during the 
+research flights.  To aid in the analysis of these data RAF has 
+added a special calculation of sea surface temperature (XTSURF) 
+to the final data set which makes a rough attempt to account for 
+this dependency. 
+
+	9. The altitude of the aircraft was measured in several 
+ways.  A pressure based altitude (PALT,PALTF) is derived from the 
+static pressure using the hydrostatic equation and normally using 
+the U.S. Standard Atmosphere, which assumes a constant surface 
+pressure of 1013mb and a mean surface temperature of 288 ?C. Due 
+to the tropical nature of the research area for EPIC2001, better 
+results were obtained by using a mean surface temperature of 305 
+oC.
+
+A radar altimeter (HGM232) was onboard the aircraft for the 
+project.  This unit worked well and, due to the fact that most of 
+the research was conducted over a water surface, showed an 
+excellent correlation with the calculated pressure altitude.  
+
+	The GPS positioning system also provides an altitude readout 
+(GALT).  The military has removed the electronic dithering of 
+this signal that used to prevent its use by research aircraft.
+This output now provides a fairly accurate MSL latitude based on 
+a ellipsoid model of the Earth (WGS-84).  The signal recorded on 
+the C-130 can still be interrupted during steep turns. 
+
+	To aid the Users in choosing a common altitude to use in 
+their analyses, RAF now calculates a 'reference' altitude (ALTX). 
+The output is based directly upon GALT and uses basic smoothing 
+techniques to fill gaps with Inertial altitude data when the GPS 
+signal is interrupted.
+
+10.  Two hot wire liquid water sensors were used on the C-
+130 at the start of the program.  The PMS King Probes (PLWCC, 
+PLWCC1) worked well during the program but the sensing elements 
+were susceptible to frequent damage caused by the large 
+precipitation encountered during the routine cloud penetrations. 
+In order to conserve enough sensing elements to complete the 
+field deployment, only one system was flown on each flight 
+(PLWCC1) after flight RF07.  A comparison of the two units 
+yielded a good correlation in instrument signatures and only 
+small differences in absolute value. Special note should be made 
+of the fact that both these instruments are calibrated for a 
+specific range of aircraft speeds.  Small changes in the baseline 
+are apparent with speed changes, as are small zero offsets.  Each 
+cloud penetration will require a baseline adjustment with the 
+relative change providing the sampled liquid water content.  Due 
+to the nature of this sampling technique, it should be clear that 
+water contained in ice particles will not be observed. This fact 
+should be taken into account when comparing data from these 
+sensors with the calculated liquid water content obtained from 
+the optical particle probes.
+
+A Gerber Model PVM-100 liquid water probe was included in 
+the research instrumentation package.  The unit responded well to 
+the presence of liquid water, but exhibited a large baseline 
+offset that was strongly dependent upon changes in the aircraft 
+true airspeed.  Calibration for this unit comes from the 
+manufacturer. During final data processing the RAF loose couple 
+technique was used to remove some of the remaining baseline 
+drift.  Note that a comparison between these data, the King Probe 
+measurements and the equivalent liquid water content calculated 
+from the SPP-100 probe can vary significantly, depending on the 
+cloud type and droplet spectra.  Both of the direct measurement 
+systems are less effective in measuring the water in the larger 
+droplet sizes (greater than100 um) and are basically unresponsive 
+to ice particles where the SPP-100 probe samples all particles 
+but can't differentiate between ice and water.
+
+      11. The calculation of CN sized aerosol particle 
+concentrations (CONCN) is dependent upon total particle counts 
+(CNTS) and the measurement of sample flow (FCN,FCNC).  NOTE: the 
+internal sample flow (FCN) has been corrected (FCNC) to ambient 
+conditions, only, and not to STP for the calculation of particle 
+concentration.  NOTE: the length of the tubing connecting the 
+inlet to the counter will induce a 2 second lag in the system 
+response to changes in particle concentration.
+
+In the past, droplet shattering during cloud penetrations would 
+sharply increase the number of counts and falsely increase 
+indicated CN concentrations by several orders of magnitude. A new 
+inlet system has been in use for several projects, specifically 
+designed to avoid this problem and provide good interstitial, in-
+cloud aerosol measurements.  However, based on the results from 
+this project, it now appears that the new inlet can still be 
+affected by this problem in warm clouds with large droplets.
+
+12.	Six PMS particle probes (SSP300, SPP100, SPP200, 260X, 
+2D-C, 2D-P) were used on the project.   Some specific 
+details on each of the probes are summarized below:
+
+SPP200 - The SPP200 aerosol particle probe functioned 
+extremely well during the project.  The probe being 
+flown  has been modified in order to directly measure 
+the sample flow through the instrument.  These data, 
+recorded as PFLWC_WDL, have been used in the 
+calculation of particle concentrations to provide a 
+more accurate measurement of aerosol concentrations.
+Due to the sampling technique employed by this probe
+it is not suitable for use in clouds.
+
+SSP100 - The SSP100 cloud droplet probe functioned
+extremely well. Weekly servicing and re-calibration of
+the sensor optics provided good documentation for data
+processing.  Being an optical scattering probe, the
+SSP100 has no way of distinguishing between ice 
+particles and water droplets. Therefore, the liquid 
+water content calculated from this probe (PLWCF_IBR) 
+should be used with caution in this application. 
+
+SSP300 - The SSP300 aerosol probe covers a range of
+particle sizes that bridges the gap between the true
+aerosols and the smaller droplets (0.3 - 20 ?m).  Like
+all 1-D optical probes, however, the SSP300 has no way 
+to distinguish between aerosols, ice or water.  Counts 
+in the lowest 3 bin sizes were contaminated by 
+excessive electronic noise.  Data from those channels 
+have been removed from the calculation of total 
+particle concentration.
+
+Note: The bin sizes vary significantly in the particle
+sizing routines for this probe.
+ 
+260X - While the range of this probe is specified to be 
+10 - 640 um in 10 um increments, it has some problems 
+sampling the smaller sizes when mounted on an aircraft. 
+NCAR data processing uses the Baumgardner correction 
+alogrithms (Baumgardner, Korolev,1997; Airspeed 
+Corrections for Optical Array Probe Sample Volumes, 
+JTECH, 14, 1224-1229) to correct the 260X data for 
+these problems. Effectively this changes the range of 
+the unit to 50 - 640 ?m when it is mounted on the C-
+130. The unit functioned well through out the program
+
+2D-C/2D-P - Both of the two-dimensional imaging probes 
+performed extremely well throughout the program.  New 
+data processing techniques convert the image data into 
+1-D equivalent particle size distribution and total 
+particle concentration data that have been included in 
+the general data set.  The actual image data have been 
+archived separately.  Access to the images will require 
+the use of specialized software routines that may 
+necessitate direct assistance from the RAF staff.  
+
+    13. The TECO Model 49 ozone analyzer is a slow response 
+instrument which provides 10 second - averaged values.  The 
+corrected output (TEO3C) has been adjusted for variations in 
+sample pressure and temperature.  Generally the instrument 
+performed well.  Intermittent spikes do occur, but are fairly 
+isolated and obvious to any User.  More information on the 
+performance of this sensor and the modified TECO Model 48 carbon 
+monoxide analyzer, appears in Appendix A.
+
+   14.  Data recording typically begins well in advance of the 
+actual aircraft takeoff time.  Virtually all measurements made on 
+the aircraft require some sort of airspeed correction or the 
+systems simply do not become active while the aircraft remains on 
+the ground.  None of the data collected while the aircraft is on 
+the ground should be considered as valid.
+
+*	*	*	*	*	*	*	*	*	*	*	*	
+
+
+
+
+
+Section II:  Flight-by-Flight Summary
+
+RF01	King Probe liquid water elements failed in flight due to damage
+from large droplets.  PLWCC data bad from 1556 CUT to end of 
+flight.  PLWCC1 data bad from 1925 CUT to end of flight.
+
+RF02	Viewing port for upward looking remote temperature sensor was
+	full of water.  RSTT data bad for the entire flight.
+
+	OPHIR-III temperature sensor did not initialize properly.  OAT
+and XOAT data bad from 1353 to 1408 CUT.
+
+Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 2206 to 2220 CUT.
+
+RF04	Top dew point sensor used as reference for this flight.
+
+RF05	Top dew point sensor used as reference for this flight.
+
+RF06	Top Dew Point Sensor loses its control lock.  DPT and DPTC data
+bad from 2148 to 2200 CUT.
+
+RF07	King Probe liquid water elements failed in flight due to damage
+from large droplets.  PLWCC and PLWCC1 data bad for the entire 
+flight.
+
+Icing of center radome pressure port.  QCR, QCRC, and TASR data
+bad from 1551 to 1630 and 1719 to 1755 CUT.  Data from heated 
+fuselage pitot used in calculations of derived variables for the
+entire flight.
+
+Top dew point sensor used as reference for this flight.
+
+Damage to sensing elements changes calibration of both unheated
+temperature sensors in-flight.  Values of ATRR and ATRL uncertain
+for entire flight.
+
+RF08	Icing of center radome pressure port. QCR, QCRC, and TASR data
+bad from 2039 to 2101 CUT.  Data from heated fuselage pitot used 
+in calculations of derived variables for the entire flight.
+
+Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 1528 to 1540 and 2207 to 2217 CUT.
+
+Malfunction in PVM-100 liquid water sensor.  XGLWC data bad from
+1324 to 1334 CUT.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+RF09	Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 1636 to 1645, 1715 to 1726 and 2107 to 2121 CUT.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+RF10	Icing of center radome pressure port. QCR, QCRC, and TASR data
+bad from 2051 to 2152 CUT.  Data from heated fuselage pitot used 
+in calculations of derived variables for the entire flight.
+
+Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 2212 to 2230 CUT.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+RF11	Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 2205 to 2216 CUT.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+RF12	Viewing port for upward looking remote temperature sensor was
+	Not open at takeoff.  RSTT data bad from 1430 to 1516 CUT.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+RF13	Icing of center radome pressure port. QCR, QCRC, and TASR data
+bad from 1624 to 1655 CUT.  Data from heated fuselage pitot used 
+in calculations of derived variables for the entire flight.
+
+Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 1640 to 1734 and 2112 to 2201 CUT.
+
+
+Malfunction in PVM-100 liquid water sensor.  XGLWC data bad from
+1930 to 1935 CUT.
+
+Sensor head on ATRR sensor was iced up.  ATRR data bad from 1637
+To 1924 CUT.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+RF14	Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 1711 to 1743 and 2302 CUT to end of flight.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+RF15	Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 1717 to 1730 and 2257 to 2315 CUT.
+
+Data system failure.  Complete data gap from 184051 - 184856 CUT.
+
+Backup remote surface temperature showing excessive drift.  RSTB
+data bad from 2110 CUT to end of flight.
+
+Malfunction of SPP300 particle probe.  All data from this probe
+are bad for the entire flight.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+Intermittent periods where the OPHIR-III temperature sensor loses
+Signal lock.
+
+RF16	Loss of signal from radar altimeter.  HGM232 data bad from 153352 
+	to 153356 CUT.
+
+Backup remote surface temperature showing excessive drift.  RSTB
+data bad from 2143 to 2338 CUT.
+
+SPP300 particle probe removed from aircraft.  All data from this
+probe are bad for the entire flight.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+Intermittent periods where the OPHIR-III temperature sensor loses
+Signal lock.
+
+RF17	SPP300 particle probe removed from aircraft.  All data from this
+probe are bad for the entire flight.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+Top dew point sensor used as reference for this flight.
+
+	In-flight calibration maneuvers conducted from 2159 to 2232 CUT.
+
+Intermittent periods where the OPHIR-III temperature sensor loses
+Signal lock.
+
+
+RF18	Icing of radome pressure ports. QCR, QCRC, ADIFR, BDIFR, TASR 
+And all 3-D wind variable data bad from 2249 to 2259 and 2111 to 
+2156 CUT.  Data from heated fuselage pitot used in calculations 
+of derived variables for the entire flight.
+
+Top dew point sensor loses signal lock.  DPT and DPTC data bad
+from 1713 to 1723 CUT.
+
+Malfunction of PMS260X particle probe.  All data from this probe
+are bad for the entire flight.
+
+Sensor head on ATRL sensor was iced up.  ATRR data bad from 1745
+to 1940 CUT.
+
+Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+Backup remote surface temperature showing excessive drift.  RSTB
+data bad from 2109 CUT to end of flight.
+
+Intermittent periods where the OPHIR-III temperature sensor loses
+Signal lock.
+
+RF19	Backup King probe removed from aircraft.  No PLWCC1 data for the
+entire flight.
+
+Backup remote surface temperature showing excessive drift.  RSTB
+data bad from 2048 CUT to end of flight.
+
+Intermittent periods where the OPHIR-III temperature sensor loses
+Signal lock.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*	*	*	*	*	*	*	*	*	*	*	*	
+
+

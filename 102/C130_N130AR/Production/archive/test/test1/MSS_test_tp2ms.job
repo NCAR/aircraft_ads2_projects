@@ -1,0 +1,175 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1999-102 INDOEX (Clarke, et al.)
+#    rev. 990312  RLR  (adapt to new MIGS "msimp" verb)
+#
+#  Note:  For this script to run properly, it must be run from a project's
+#          `Production/archive/test' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+#set PROJ = `pwd | sed "s:^.*proj/::" | sed "s:/Production/archive::"`
+#   Following works if the only digits in the directory path are the proj#
+set PROJ = `pwd | sed -e "s/[a-zA-Z\/]//g"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*60000
+#set SKIPS   = ^B*120000
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*60000
+#set RECS    = B*100000
+#
+goto start
+#
+#
+start:
+#
+#  1st test set, 1st segment, 1st try (using "dmg" login and "server=mss4")
+#  1st test set, 1st segment, 2nd try
+#set SKIPS   = ^B*0
+#set RECS    = B*100000 
+#set TAPES   = ( \
+#R1310 \
+#R1311 \
+#R1312 \
+#R1313 \
+#R1314 \
+#R1315 \
+#R1316 \
+#R1317 \
+#R1345 \
+#R1346 \
+#R1347 \
+#R1348 \
+#R1349 \
+#)
+#set FLIGHTS = ( \
+#FF01A \
+#FF02A \
+#FF03A \
+#FF04A \
+#FF05A \
+#FF05C \
+#FF06A \
+#FF06B \
+#FF07A \
+#FF08A \
+#FF09A \
+#FF10A \
+#FF11A \
+#)
+#
+#
+#  Get started:
+date
+if ($#TAPES != $#FLIGHTS) then
+  echo "  Tapes and Flights don't match.  Quitting."
+  exit 1 
+endif
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" server=mss4 \
+   fmt=U cos=binary rtpd=4096 wpwd=RAFTEST type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/TEST/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#   MSS path for all archived bitfiles:  /RAF/TEST/1999/102/
+#
+#  Test set, 1st segment, 1st try
+#  Job submitted on Tue Aug 31 14:00:04 MDT 1999
+# Sequence number = MI8281 -- FF01A/R1310 -- Failed* @ ?
+# Sequence number = MI8289 -- FF02A/R1311 -- Failed* @ ?
+# Sequence number = MI8296 -- FF03A/R1312 -- Failed* @ ?
+# Sequence number = MI8303 -- FF04A/R1313 -- Failed* @ ?
+# Sequence number = MI8312 -- FF05A/R1314 -- Failed* @ 31 Aug 1999 15:35:21
+# Sequence number = MI8339 -- FF05B/R1315 -- Failed* @ 31 Aug 1999 15:35:32
+# Sequence number = MI8350 -- FF06A/R1316 -- Failed* @ 31 Aug 1999 15:35:42
+# Sequence number = MI8363 -- FF06B/R1317 -- Failed* @ 31 Aug 1999 15:35:53
+# Sequence number = MI8375 -- FF07A/R1345 -- Failed* @ 31 Aug 1999 15:36:03
+# Sequence number = MI8388 -- FF08A/R1346 -- Failed* @ 31 Aug 1999 15:36:13
+# Sequence number = MI8402 -- FF09A/R1347 -- Failed* @ 31 Aug 1999 15:36:24
+# Sequence number = MI8414 -- FF10A/R1348 -- Failed* @ 31 Aug 1999 15:36:34
+# Sequence number = MI8428 -- FF11A/R1349 -- Failed* @ 31 Aug 1999 15:36:45
+# * Failures due to MSS4 msimp software bug
+#
+#  1st test set, 1st segment, 2nd try
+#  Jobs submitted on Wed Sep  1 11:22:42 MDT 1999
+# Sequence number = MI1805 -- FF01A/R1310 -- Failed* @ 01 Sep 1999 11:27:33
+# Sequence number = MI1812 -- FF02A/R1311 -- Failed* @ 01 SEP 1999 11.18.31
+# Sequence number = MI1821 -- FF03A/R1312 -- Failed* @ 01 SEP 1999 11.18.38
+# Sequence number = MI1839 -- FF04A/R1313 -- Failed* @ 01 SEP 1999 11.18.45
+# Sequence number = MI1852 -- FF05A/R1314 -- Failed* @ 01 SEP 1999 11.18.51
+# Sequence number = MI1864 -- FF05B/R1315 -- Failed* @ 01 SEP 1999 11.18.58
+# Sequence number = MI1877 -- FF06A/R1316 -- Failed* @ 01 SEP 1999 11.19.05
+# Sequence number = MI1899 -- FF06B/R1317 -- Failed* @ 01 SEP 1999 11.19.12
+# Sequence number = MI1914 -- FF07A/R1345 -- Failed* @ 01 SEP 1999 11.19.18
+# Sequence number = MI1926 -- FF08A/R1346 -- Failed* @ 01 SEP 1999 11.19.25
+# Sequence number = MI1949 -- FF09A/R1347 -- Failed* @ 01 SEP 1999 11.19.32
+# Sequence number = MI1979 -- FF10A/R1348 -- Failed* @ 01 SEP 1999 11.19.39
+# Sequence number = MI2009 -- FF11A/R1349 -- Failed* @ 01 SEP 1999 11.19.46
+# * Failures due to MSS4 msimp software bug
+#
+#  2nd test set, 1st segment, 1st try
+#  Jobs submitted on Mon Dec  6 16:46:40 MST 1999
+# Sequence number = LN0235 --  --  Jobs lost
+# Sequence number = LN0243 --  --  Jobs lost
+# Sequence number = LN0251 --  --  Jobs lost
+# Sequence number = LN0259 --  --  Jobs lost
+# Sequence number = LN0267 --  --  Jobs lost
+# Sequence number = LN0275 --  --  Jobs lost
+# Sequence number = LN0283 --  --  Jobs lost
+# Sequence number = LN0291 --  --  Jobs lost
+# Sequence number = LN0299 --  --  Jobs lost
+# Sequence number = LN0307 --  --  Jobs lost
+# Sequence number = LN0315 --  --  Jobs lost
+# Sequence number = LN0323 --  --  Jobs lost
+# Sequence number = LN0331 --  --  Jobs lost
+#
+#      test set,     segment,     try
+#  Jobs submitted on 
+#

@@ -1,0 +1,294 @@
+#! /bin/csh -f
+#
+#  Move MSS bitfiles associated with the first reprocessing for the project
+#   SCMS to the new directory:  /RAF/1995/162/2ND_PRODUCTION/
+#
+#  Move MSS bitfiles associated with the second reprocessing for the project
+#   SCMS from the temporary directory:  /RAF/1995/162/NEW
+#         to the production directory:  /RAF/1995/162/
+#
+#   Created by Ron Ruth on 14 March 2001
+#    Adapted from the file 2nd_production/msmove
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#   To edit the "Sequence number" lines:
+#       :map g wea 
+#       :map v AOK @ 
+#
+#
+#################################################
+#     date
+#     nrnet msrm % r flnm=/RAF/1995/162/NEW/nimbus_scms6-20.tar wpwd=RAFDMG
+#################################################
+#
+#  1st set, 1st wave -- these files to be moved on 15 March 2001
+#   Move bitfiles from the reference directory to the 2ND_PRODUCTION directory.
+#set SDIR
+#set DDIR = 2ND_PRODUCTION/
+#set FILES = ( \
+#162.tar \
+#162.tar.dir \
+#nimbus1-5.tar \
+#nimbus1-5.tar.dir \
+#nimbus6-20.tar \
+#nimbus6-20.tar.dir \
+#nimbus_defaults.tar \
+#nimbus_defaults.tar.dir \
+#taplog.162 \
+#)
+#
+#  1st set, 2nd wave -- these files to be moved on 15 March 2001
+#   Move bitfiles from the reference directory to the 2ND_PRODUCTION directory.
+#set SDIR = HRT/
+#set DDIR = 2ND_PRODUCTION/HRT/
+#set FILES = ( \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#)
+#
+#  1st set, 3rd wave -- these files to be moved on 15 March 2001
+#   Move bitfiles from the reference directory to the 2ND_PRODUCTION directory.
+#set SDIR = LRT/
+#set DDIR = 2ND_PRODUCTION/LRT/
+#set FILES = ( \
+#FF01A.cdf \
+#FF01B.cdf \
+#FF04.cdf \
+#RF01.cdf \
+#RF02.cdf \
+#RF03.cdf \
+#RF04.cdf \
+#RF05.cdf \
+#RF06.cdf \
+#RF07.cdf \
+#RF08.cdf \
+#RF09.cdf \
+#RF10.cdf \
+#RF11.cdf \
+#RF12.cdf \
+#RF13.cdf \
+#RF14.cdf \
+#RF15.cdf \
+#RF16.cdf \
+#RF17.cdf \
+#RF18.cdf \
+#RF19.cdf \
+#RF20.cdf \
+#)
+#
+#--------------------------------------------------------
+#
+#  2nd set, 1st wave -- these files to be moved on 15 March 2001 after 1st set
+#   move bitfiles from the "NEW" directory to the production directory
+##set SDIR = NEW/HRT/
+##set DDIR = HRT/
+##set FILES = ( \
+##RF01.cdf \
+##RF02.cdf \
+##RF03.cdf \
+##RF04.cdf \
+##RF05.cdf \
+##RF06.cdf \
+##RF07.cdf \
+##RF08.cdf \
+##RF09.cdf \
+##RF10.cdf \
+##RF11.cdf \
+##RF12.cdf \
+##RF13.cdf \
+##RF14.cdf \
+##RF15.cdf \
+##RF16.cdf \
+##RF17.cdf \
+##RF18.cdf \
+##RF19.cdf \
+##RF20.cdf \
+##)
+#
+#  2nd set, 2nd wave -- these files to be moved on 15 March 2001 after 1st set
+#   move bitfiles from the "NEW" directory to the production directory
+##set SDIR = NEW/LRT/
+##set DDIR = LRT/
+##set FILES = ( \
+##RF01.cdf \
+##RF02.cdf \
+##RF03.cdf \
+##RF04.cdf \
+##RF05.cdf \
+##RF06.cdf \
+##RF07.cdf \
+##RF08.cdf \
+##RF09.cdf \
+##RF10.cdf \
+##RF11.cdf \
+##RF12.cdf \
+##RF13.cdf \
+##RF14.cdf \
+##RF15.cdf \
+##RF16.cdf \
+##RF17.cdf \
+##RF18.cdf \
+##RF19.cdf \
+##RF20.cdf \
+##)
+#
+#
+#  Get started:
+date
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  echo \
+  nrnet msmv % r flnm=/RAF/1995/162/${SDIR}$FILE \
+   newf=/RAF/1995/162/${DDIR}$FILE wpwd=RAFDMG proj=41113009
+  @ num ++
+end
+#
+# Done.
+exit
+#
+------------------------------------------------------------------------------
+#
+# Prelim:  remove /RAF/1995/162/NEW/nimbus_scms6-20.tar
+#  Job submitted on Thu Mar 15 10:55:25 MST 2001
+# Sequence number = LN6726 -- nimbus_scms6-20.tar -- OK @ 15 Mar 2001 10:55:27
+#
+# 1st set, 1st wave
+#   Move files in directory:  /RAF/1995/162
+#                          to /RAF/1995/162/2ND_PRODUCTION/
+#  Job(s) submitted on Thu Mar 15 10:59:34 MST 2001
+# Sequence number = LN6932 -- 162.tar -- OK @ 15 Mar 2001 10:59:36
+# Sequence number = LN6940 -- 162.tar.dir -- OK @ 15 Mar 2001 10:59:38
+# Sequence number = LN6948 -- nimbus1-5.tar -- OK @ 15 Mar 2001 10:59:38
+# Sequence number = LN6956 -- nimbus1-5.tar.dir -- OK @ 15 Mar 2001 10:59:39
+# Sequence number = LN6964 -- nimbus6-20.tar -- OK @ 15 Mar 2001 10:59:39
+# Sequence number = LN6972 -- nimbus6-20.tar.dir -- OK @ 15 Mar 2001 11:03:38
+# Sequence number = LN6980 -- nimbus_defaults.tar -- OK @ 15 Mar 2001 10:59:40
+# Sequence number = LN6994 -- nimbus_defaults.tar.dir -- OK @ 15 Mar 2001 10:59:40
+# Sequence number = LN7002 -- taplog.162 -- OK @ 15 Mar 2001 10:59:41
+#
+# 1st set, 2nd wave
+#   Move files in:  /RAF/1995/162/HRT/
+#                to /RAF/1995/162/2ND_PRODUCTION/HRT/
+#  Job(s) submitted on Thu Mar 15 11:02:00 MST 2001
+# Sequence number = LN7131 -- HRT/RF01.cdf -- OK @ 15 Mar 2001 11:02:03
+# Sequence number = LN7139 -- HRT/RF02.cdf -- OK @ 15 Mar 2001 11:02:04
+# Sequence number = LN7147 -- HRT/RF03.cdf -- OK @ 15 Mar 2001 11:02:04
+# Sequence number = LN7155 -- HRT/RF04.cdf -- OK @ 15 Mar 2001 11:02:05
+# Sequence number = LN7163 -- HRT/RF05.cdf -- OK @ 15 Mar 2001 11:02:05
+# Sequence number = LN7171 -- HRT/RF06.cdf -- OK @ 15 Mar 2001 11:06:04
+# Sequence number = LN7180 -- HRT/RF07.cdf -- OK @ 15 Mar 2001 11:02:06
+# Sequence number = LN7190 -- HRT/RF08.cdf -- OK @ 15 Mar 2001 11:02:06
+# Sequence number = LN7202 -- HRT/RF09.cdf -- OK @ 15 Mar 2001 11:02:07
+# Sequence number = LN7212 -- HRT/RF10.cdf -- OK @ 15 Mar 2001 11:02:08
+# Sequence number = LN7229 -- HRT/RF11.cdf -- OK @ 15 Mar 2001 11:02:08
+# Sequence number = LN7245 -- HRT/RF12.cdf -- OK @ 15 Mar 2001 11:02:09
+# Sequence number = LN7260 -- HRT/RF13.cdf -- OK @ 15 Mar 2001 11:02:10
+# Sequence number = LN7274 -- HRT/RF14.cdf -- OK @ 15 Mar 2001 11:02:10
+# Sequence number = LN7286 -- HRT/RF15.cdf -- OK @ 15 Mar 2001 11:02:12
+# Sequence number = LN7296 -- HRT/RF16.cdf -- OK @ 15 Mar 2001 11:02:12
+# Sequence number = LN7311 -- HRT/RF17.cdf -- OK @ 15 Mar 2001 11:02:12
+# Sequence number = LN7324 -- HRT/RF18.cdf -- OK @ 15 Mar 2001 11:02:13
+# Sequence number = LN7339 -- HRT/RF19.cdf -- OK @ 15 Mar 2001 11:06:12
+# Sequence number = LN7352 -- HRT/RF20.cdf -- OK @ 15 Mar 2001 11:02:14
+#
+# 1st set, 3rd wave
+#   Move files in:  /RAF/1995/162/LRT/
+#                to /RAF/1995/162/2ND_PRODUCTION/LRT/
+#  Job(s) submitted on Thu Mar 15 11:13:44 MST 2001
+# Sequence number = LN9769 -- LRT/FF01A.cdf -- OK @ 15 Mar 2001 11:13:46
+# Sequence number = LN9777 -- LRT/FF01B.cdf -- OK @ 15 Mar 2001 11:13:47
+# Sequence number = LN9786 -- LRT/FF04.cdf -- OK @ 15 Mar 2001 11:13:47
+# Sequence number = LN9794 -- LRT/RF01.cdf -- OK @ 15 Mar 2001 11:13:48
+# Sequence number = LN9802 -- LRT/RF02.cdf -- OK @ 15 Mar 2001 11:13:49
+# Sequence number = LN9810 -- LRT/RF03.cdf -- OK @ 15 Mar 2001 11:13:50
+# Sequence number = LN9818 -- LRT/RF04.cdf -- OK @ 15 Mar 2001 11:13:51
+# Sequence number = LN9829 -- LRT/RF05.cdf -- OK @ 15 Mar 2001 11:13:51
+# Sequence number = LN9842 -- LRT/RF06.cdf -- OK @ 15 Mar 2001 11:13:52
+# Sequence number = LN9856 -- LRT/RF07.cdf -- OK @ 15 Mar 2001 11:17:50
+# Sequence number = LN9870 -- LRT/RF08.cdf -- OK @ 15 Mar 2001 11:13:53
+# Sequence number = LN9887 -- LRT/RF09.cdf -- OK @ 15 Mar 2001 11:13:53
+# Sequence number = LN9896 -- LRT/RF10.cdf -- OK @ 15 Mar 2001 11:13:54
+# Sequence number = LN9904 -- LRT/RF11.cdf -- OK @ 15 Mar 2001 11:13:54
+# Sequence number = LN9918 -- LRT/RF12.cdf -- OK @ 15 Mar 2001 11:17:54
+# Sequence number = LN9932 -- LRT/RF13.cdf -- OK @ 15 Mar 2001 11:13:55
+# Sequence number = LN9948 -- LRT/RF14.cdf -- OK @ 15 Mar 2001 11:13:55
+# Sequence number = LN9964 -- LRT/RF15.cdf -- OK @ 15 Mar 2001 11:13:56
+# Sequence number = LN9980 -- LRT/RF16.cdf -- OK @ 15 Mar 2001 11:13:57
+# Sequence number = LN9991 -- LRT/RF17.cdf -- OK @ 15 Mar 2001 11:13:58
+# Sequence number = LN0008 -- LRT/RF18.cdf -- OK @ 15 Mar 2001 11:13:59
+# Sequence number = LN0025 -- LRT/RF19.cdf -- OK @ 15 Mar 2001 11:14:00
+# Sequence number = LN0041 -- LRT/RF20.cdf -- OK @ 15 Mar 2001 11:14:00
+#
+#--------------------------------------------------------
+#
+# 2nd set, 1st wave
+#   Move files in:  /RAF/1995/162/NEW/HRT/
+#                to /RAF/1995/162/HRT/
+#  Job(s) submitted on Thu Mar 15 11:51:49 MST 2001
+# Sequence number = LN3101 -- HRT/RF01.cdf -- OK @ 15 Mar 2001 11:51:52
+# Sequence number = LN3109 -- HRT/RF02.cdf -- OK @ 15 Mar 2001 11:51:53
+# Sequence number = LN3117 -- HRT/RF03.cdf -- OK @ 15 Mar 2001 11:51:54
+# Sequence number = LN3125 -- HRT/RF04.cdf -- OK @ 15 Mar 2001 11:51:54
+# Sequence number = LN3133 -- HRT/RF05.cdf -- OK @ 15 Mar 2001 11:51:55
+# Sequence number = LN3141 -- HRT/RF06.cdf -- OK @ 15 Mar 2001 11:55:54
+# Sequence number = LN3149 -- HRT/RF07.cdf -- OK @ 15 Mar 2001 11:55:55
+# Sequence number = LN3157 -- HRT/RF08.cdf -- OK @ 15 Mar 2001 11:51:55
+# Sequence number = LN3170 -- HRT/RF09.cdf -- OK @ 15 Mar 2001 11:51:56
+# Sequence number = LN3180 -- HRT/RF10.cdf -- OK @ 15 Mar 2001 11:51:56
+# Sequence number = LN3189 -- HRT/RF11.cdf -- OK @ 15 Mar 2001 11:51:57
+# Sequence number = LN3209 -- HRT/RF12.cdf -- OK @ 15 Mar 2001 11:51:58
+# Sequence number = LN3227 -- HRT/RF13.cdf -- OK @ 15 Mar 2001 11:51:58
+# Sequence number = LN3242 -- HRT/RF14.cdf -- OK @ 15 Mar 2001 11:51:59
+# Sequence number = LN3262 -- HRT/RF15.cdf -- OK @ 15 Mar 2001 11:52:00
+# Sequence number = LN3273 -- HRT/RF16.cdf -- OK @ 15 Mar 2001 11:52:01
+# Sequence number = LN3290 -- HRT/RF17.cdf -- OK @ 15 Mar 2001 11:52:02
+# Sequence number = LN3306 -- HRT/RF18.cdf -- OK @ 15 Mar 2001 11:52:03
+# Sequence number = LN3320 -- HRT/RF19.cdf -- OK @ 15 Mar 2001 11:52:03
+# Sequence number = LN3333 -- HRT/RF20.cdf -- OK @ 15 Mar 2001 11:56:02
+#
+# 2nd set, 2nd wave
+#   Move files in:  /RAF/1995/162/NEW/LRT/
+#                to /RAF/1995/162/LRT/
+#  Job(s) submitted on Thu Mar 15 11:53:24 MST 2001
+# Sequence number = LN3404 -- NEW/LRT/RF01.cdf -- OK @ 15 Mar 2001 11:53:26
+# Sequence number = LN3412 -- NEW/LRT/RF02.cdf -- OK @ 15 Mar 2001 11:53:27
+# Sequence number = LN3420 -- NEW/LRT/RF03.cdf -- OK @ 15 Mar 2001 11:53:28
+# Sequence number = LN3428 -- NEW/LRT/RF04.cdf -- OK @ 15 Mar 2001 11:53:29
+# Sequence number = LN3436 -- NEW/LRT/RF05.cdf -- OK @ 15 Mar 2001 11:53:29
+# Sequence number = LN3444 -- NEW/LRT/RF06.cdf -- OK @ 15 Mar 2001 11:57:29
+# Sequence number = LN3452 -- NEW/LRT/RF07.cdf -- OK @ 15 Mar 2001 11:53:30
+# Sequence number = LN3460 -- NEW/LRT/RF08.cdf -- OK @ 15 Mar 2001 11:53:31
+# Sequence number = LN3473 -- NEW/LRT/RF09.cdf -- OK @ 15 Mar 2001 11:53:31
+# Sequence number = LN3483 -- NEW/LRT/RF10.cdf -- OK @ 15 Mar 2001 11:53:32
+# Sequence number = LN3493 -- NEW/LRT/RF11.cdf -- OK @ 15 Mar 2001 11:53:32
+# Sequence number = LN3508 -- NEW/LRT/RF12.cdf -- OK @ 15 Mar 2001 11:53:33
+# Sequence number = LN3520 -- NEW/LRT/RF13.cdf -- OK @ 15 Mar 2001 11:53:34
+# Sequence number = LN3530 -- NEW/LRT/RF14.cdf -- OK @ 15 Mar 2001 11:57:32
+# Sequence number = LN3546 -- NEW/LRT/RF15.cdf -- OK @ 15 Mar 2001 11:53:35
+# Sequence number = LN3559 -- NEW/LRT/RF16.cdf -- OK @ 15 Mar 2001 11:53:36
+# Sequence number = LN3577 -- NEW/LRT/RF17.cdf -- OK @ 15 Mar 2001 11:53:36
+# Sequence number = LN3592 -- NEW/LRT/RF18.cdf -- OK @ 15 Mar 2001 11:53:36
+# Sequence number = LN3615 -- NEW/LRT/RF19.cdf -- OK @ 15 Mar 2001 11:57:36
+# Sequence number = LN3624 -- NEW/LRT/RF20.cdf -- OK @ 15 Mar 2001 11:53:37
+#

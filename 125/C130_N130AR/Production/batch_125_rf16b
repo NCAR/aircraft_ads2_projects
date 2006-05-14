@@ -1,0 +1,4 @@
+nimbus -b cmd_125_rf16b
+mv /jnet/productiondata/125rf16.nc /jnet/productiondata/temp.nc
+ncReorder /jnet/productiondata/temp.nc /jnet/productiondata/125rf16b.nc
+rm /jnet/productiondata/temp.nc

@@ -1,0 +1,77 @@
+"IDEAS project, aerosol racks - ADS sample table"						
+Dave Rogers - 3/20/02						
+
+NOTES: 	1. RDMA setup - same as EPIC					
+	"2. Nephs serial is free running, about 2Hz. How to sample?"					
+	3. Climet serial output looks weird.					
+	4. Inlet ident - can we rig up and log a 3-position switch ?					
+	5. CN counter #1 = same as always. CN #2 has flow but no temperature or pressure.					
+
+Forward starboard rack						
+instrument	variable	description	units	type	rate	comments
+						
+RDMA	RDMAHVPS	High Voltage Power Supply	v	RS-232	1 Hz	unpack 10 variables from string
+ (same as EPIC)	RDMAPABS	Absolute Pressure	atm	RS-232	1 Hz	
+	RDMAQA	Aerosol Inflow	v	RS-232	1 Hz	
+	RDMAQEX	Excess Outflow	v	RS-232	1 Hz	
+	RDMAQS	Classified Aerosol Outflow	v	RS-232	1 Hz	
+	RDMAQSH	Sheath Inflow	v	RS-232	1 Hz	
+	RDMARH	Relative Humidity	%	RS-232	1 Hz	
+	RDMATEMP	Sample Temperature	C	RS-232	1 Hz	
+	RDMAVD	Dilution Valve Control Volts	v	RS-232	1 Hz	
+	RDMAVSH	Sheath Valve Control Volts	v	RS-232	1 Hz	
+	(string)	sizedistup*.txt	cm^-3	RS-232		"long string, once every 156 sec"
+	(string)	sizedistdn*.txt	cm^-3	RS-232		"long string, once every 156 sec"
+	(string)	"ambient*.txt (flow, press, T, rh)"		RS-232		"long string, once every 156 sec"
+	(string)	countrec*.txt		RS-232		"long string, once every 156 sec"
+						
+neph-1	xnbscat1	back scatter	1/m	RS-232	1 Hz ?	unpack 5 variables from string
+	xncal1	calib coeff	1/m	RS-232	1 Hz ?	
+	xnp1	pressure	mb	RS-232	1 Hz ?	
+	xnt1	temperature	K	RS-232	1 Hz ?	
+	xnrh1	relative humidity	%	RS-232	1 Hz ?	
+						
+neph-2	xnbscat2	back scatter	1/m	RS-232	1 Hz ?	unpack 5 variables from string
+	xncal2	calib coeff	1/m	RS-232	1 Hz ?	
+	xnp2	pressure	mb	RS-232	1 Hz ?	
+	xnt2	temperature	K	RS-232	1 Hz ?	
+	xnrh2	relative humidity	%	RS-232	1 Hz ?	
+						
+neph-humidifier	xnht	saturator temperature 	C	analog	1 Hz	 does not exist yet
+						
+Climet	xconclim [6]	"particle conc array, six size bins"	#/vol	RS-232	1 Hz	unpack 8 variables from string
+	xtclim	temperature	K	RS-232	1 Hz	
+	xrhclim	relative humidity	%	RS-232	1 Hz	
+						
+Wyoming heated inlet						
+	xwyof	flow rate	LPM	analog 	1 Hz	
+	xwyot	temperature of inlet tip	C	analog 	1 Hz	
+						
+Inlet select	xinlet	switch (thumbwheel?) inlet selected		?	1 Hz	
+		  three-position switch if possible				
+						
+						
+						
+Aft starboard rack						
+instrument	variable	description	units	type	rate	comments
+CN - 1	CONCN	Condensation Nuclei (CN) Concentration		calc	10 Hz	
+	CNTEMP	CN Counter Inlet Temperature		analog	10 Hz	
+	CNTS	TSI CN Counter Output		TTL pulses	10 Hz	
+	PCN	CN Counter Inlet Pressure		analog	10 Hz	
+	FCN	Raw CN Counter Sample Flow Rate		analog	10 Hz	
+	FCNC	Corrected CN Counter Sample Flow Rate		calc	10 Hz	
+						
+CN -2	CONCN2	Condensation Nuclei (CN) Concentration		calc	10 Hz	
+	CNTS2	TSI CN Counter Output		TTL pulses	10 Hz	
+	FCN2	Raw CN Counter Sample Flow Rate		analog	10 Hz	
+	FCNC2	Corrected CN Counter Sample Flow Rate		calc	10 Hz	
+
+Right instrument pod						
+instrument	variable	description	units	type	rate	comments
+DMT - total water	xtwc	total water content	g/m^3	analog	10 Hz	
+
+Left instrument pod						
+instrument	variable	description	units	type	rate	comments
+Nevzorov	xntwc	total water content	g/m^3	analog	10 Hz	
+	xnLwc	liquid water content	g/m^3	analog	10 Hz	
+	Maybe additional variables for Nevzorov ..?					

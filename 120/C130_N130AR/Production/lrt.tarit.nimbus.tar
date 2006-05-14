@@ -1,0 +1,16 @@
+#! /bin/csh -f
+#
+#  Save special version of NIMBUS processor for 4-120 BASE
+#
+cd /home/local/proj/120/Production
+tar chlvf nimbus.tar nimbus
+#
+#  Get tar directory list for archiving
+set dfile = /home/local/proj/120/Production/nimbus.tar.dir
+echo " Directory list for file 120.tar:  NIMBUS processor files for 1994-120 BASE" >! $dfile
+set dt = `date`
+echo " "  >> $dfile
+echo "  Archive created on $dt" >> $dfile
+tar tf nimbus.tar >> $dfile
+#
+exit

@@ -1,0 +1,163 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2004-109 AIRS-II (Alliance Icing Research Study - II) (John Hallett, et al.)
+#   using the new ATD directory path
+#
+#  File created by '/net/local_lnx/scripts/genar' Revision 12b on Mon Aug 30 14:49:58 MDT 2004
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /net/local_lnx/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+#set SFILES = ( \
+#109rf01.nc \
+#109rf02.nc \
+#109rf03.nc \
+#109rf04.nc \
+#109rf05.nc \
+#109rf06.nc \
+#109rf07.nc \
+#109rf08.nc \
+#109rf09.nc \
+#109rf10.nc \
+#109rf11.nc \
+#109rf12.nc \
+#109rf13.nc \
+#109rf14.nc \
+#109rf15.nc \
+#109tf01.nc \
+#)
+#set DFILES = ( \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF01.20031105.175900_214123.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF02.20031106.170200_214952.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF03.20031107.152607_210944.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF04.20031110.190300_234859.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF05.20031111.174100_010712.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF06.20031114.114300_183519.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF07.20031117.154100_195154.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF08.20031118.105400_174035.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF09.20031119.143345_235108.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF10.20031124.141500_191256.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF11.20031125.132600_181220.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF12.20031201.160800_220000.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF13.20031203.155316_213714.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF14.20031204.135600_191756.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF15.20031206.140034_211621.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/TF01.20031023.180700_192426.PNI.nc \
+#)
+#
+#  Flights reprocessed on 14 October 2004 (TTWH calibration change)
+#set SFILES = ( \
+#109rf10.nc \
+#109rf11.nc \
+#109rf12.nc \
+#109rf13.nc \
+#109rf14.nc \
+#109rf15.nc \
+#)
+#set DFILES = ( \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF10.20031124.141500_191256.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF11.20031125.132600_181220.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF12.20031201.160800_220000.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF13.20031203.155316_213714.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF14.20031204.135600_191756.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF15.20031206.140034_211621.PNI.nc \
+#)
+#
+#  Added RF07 and corrected RF14's start time (14 October 2004)
+#set SFILES = ( \
+#109rf07.nc \
+#109rf14.nc \
+#)
+#set DFILES = ( \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF07.20031117.154100_195154.PNI.nc \
+#mss:/ATD/DATA/2003/AIRS-II/C130_N130AR/LRT/RF14.20031204.135600_191756.PNI.nc \
+#)
+#
+#
+#set SFILES = ( \
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2003/AIRS-II/C130_N130AR/"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  16 job(s) submitted on Mon Aug 30 16:23:03 MDT 2004
+#  Files archived to MSS directory:  /ATD/DATA/2003/AIRS-II/C130_N130AR/
+#   LRT/RF01.20031105.175900_214123.PNI.nc -- OK -- Mon Aug 30 16:39:35 MDT 2004
+#   LRT/RF02.20031106.170200_214952.PNI.nc -- OK -- Mon Aug 30 17:18:59 MDT 2004
+#   LRT/RF03.20031107.152607_210944.PNI.nc -- OK -- Mon Aug 30 17:19:52 MDT 2004
+#   LRT/RF04.20031110.190300_234859.PNI.nc -- OK -- Mon Aug 30 17:59:57 MDT 2004
+#   LRT/RF05.20031111.174100_010712.PNI.nc -- OK -- Mon Aug 30 18:18:52 MDT 2004
+#   LRT/RF06.20031114.114300_183519.PNI.nc -- OK -- Mon Aug 30 18:37:09 MDT 2004
+#   LRT/RF07.20031117.154100_195154.PNI.nc -- OK -- Mon Aug 30 19:36:43 MDT 2004
+#   LRT/RF08.20031118.105400_174035.PNI.nc -- OK -- Mon Aug 30 19:58:57 MDT 2004
+#   LRT/RF09.20031119.143345_235108.PNI.nc -- OK -- Mon Aug 30 20:19:36 MDT 2004
+#   LRT/RF10.20031124.141500_191256.PNI.nc -- OK -- Mon Aug 30 20:51:13 MDT 2004
+#   LRT/RF11.20031125.132600_181220.PNI.nc -- OK -- Mon Aug 30 21:14:23 MDT 2004
+#   LRT/RF12.20031201.160800_220000.PNI.nc -- OK -- Mon Aug 30 21:42:05 MDT 2004
+#   LRT/RF13.20031203.155316_213714.PNI.nc -- OK -- Mon Aug 30 22:16:36 MDT 2004
+#   LRT/RF14.20031204.135600_191756.PNI.nc -- OK -- Mon Aug 30 22:41:57 MDT 2004
+#   LRT/RF15.20031206.140034_211621.PNI.nc -- OK -- Mon Aug 30 23:06:52 MDT 2004
+#   LRT/TF01.20031023.180700_192426.PNI.nc -- OK -- Mon Aug 30 23:07:03 MDT 2004
+#   Completed on Mon Aug 30 23:07:03 MDT 2004
+#
+#  Flights reprocessed on 14 October 2004 (TTWH calibration change)
+#  6 job(s) submitted on Thu Oct 14 17:09:00 MDT 2004
+#  Files archived to MSS directory:  /ATD/DATA/2003/AIRS-II/C130_N130AR/
+#   LRT/RF10.20031124.141500_191256.PNI.nc -- OK -- Thu Oct 14 17:12:18 MDT 2004
+#   LRT/RF11.20031125.132600_181220.PNI.nc -- OK -- Thu Oct 14 17:14:16 MDT 2004
+#   LRT/RF12.20031201.160800_220000.PNI.nc -- OK -- Thu Oct 14 17:16:53 MDT 2004
+#   LRT/RF13.20031203.155316_213714.PNI.nc -- OK -- Thu Oct 14 17:19:18 MDT 2004
+#   LRT/RF14.20031204.135600_191756.PNI.nc -- OK -- Thu Oct 14 17:20:48 MDT 2004
+#   LRT/RF15.20031206.140034_211621.PNI.nc -- OK -- Thu Oct 14 17:23:17 MDT 2004
+#   Completed on Thu Oct 14 17:23:17 MDT 2004
+#
+#  Added RF07 and corrected RF14's start time (14 October 2004)
+#  2 job(s) submitted on Thu Oct 14 17:46:41 MDT 2004
+#  Files archived to MSS directory:  /ATD/DATA/2003/AIRS-II/C130_N130AR/
+#   LRT/RF07.20031117.154100_195154.PNI.nc -- OK -- Thu Oct 14 17:50:32 MDT 2004
+#   LRT/RF14.20031204.135600_191756.PNI.nc -- OK -- Thu Oct 14 17:52:34 MDT 2004
+#   Completed on Thu Oct 14 17:52:34 MDT 2004
+#

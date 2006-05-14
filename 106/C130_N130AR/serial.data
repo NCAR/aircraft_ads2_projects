@@ -1,0 +1,56 @@
+Please note change in format from original email.
+
+Serial Data Feed to Users:
+
+	RAF provides a serial data output common to all users who require
+	separate recording of aircraft data.  Data packets are broadcast
+	in ascii characters at 1 sec intervals.  Time coincidence with
+	aircraft data recording will be less than 2 sec.
+
+	Data packet format:
+
+	HH:MM:SS +X.XXXXXXe+XX +X.XXXXXXe+XX ... etc
+
+	Specific parameters available in the broadcast include any 
+	variables in the RAF inventory - including position or research
+	values. The order of variables selected for INDOEX appear below. 
+
+
+	Connection to your system can be made thru either a DB25/female or
+	DE9/male connector.  We use a 3 wire interface - transmit/receive/gnd
+	with no handshake.  The feed is in plain ascii, 9600 baud (N81) with
+	fields separated by a single space.
+
+List:
+
+GLAT	GPS Latitude (deg)
+GLON  	GPS Longitude (deg)
+HGM232	Geometric (radar) Altitude (meters)
+PITCH	Aircraft Pitch Angle (deg)
+ROLL	Aircraft Roll Angle (deg)
+THDG	Aircraft True Heading (deg)
+TKAT	Aircraft Track Angle (deg)
+TASR	Aircraft True Airspeed (m/s)
+PSFDC	Static Pressure (mb)
+PALT   	Pressure Altitude (meters)
+ATRR   	Ambient Temperature (C)
+DPTC	Dew Poinbt Temperature (C)
+XWSC	Wind Speed (m/s)
+XWDC	Wind Direction (deg)
+WI	Vertical Wind Speed (m/s)
+MR	Mixing Ratio (g/kg) - derived from DPTC
+RSTB1	Radiometric Surface Temperature (C)
+CONCF	FSSP Total Particle Concentration (#/CC)
+PLWCF	FSSP Liquid Water Content (g/m3)
+PLWCC	King Probe Liquid Water Content (g/m3)
+XGLWC	PVM Probe Liquid Water Content (g/m3)
+XGSFC	PVM Probe Total Particle Surface Area (?)
+XBSPD	Ogren Neph - dry scattering coeff.
+XBSPW	Ogren Neph - wet scattering coeff.
+XBCUT	Ogren Neph - impactor cut size
+XBSPWRH	Ogren Neph - Humidity of wet neph sampler
+XBABS	Ogren Neph - Absorption coeff.
+XCNHOT  Clarke - Hot CN output
+XCNCOLD Clarke - Cold CN output
+VEW	Aircraft Ground Speed E-W component
+VNS	Aircraft Ground Speed N-S component

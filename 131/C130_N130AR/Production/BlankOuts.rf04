@@ -1,0 +1,19 @@
+#  BlankOuts file for setting measurements to the "missing_value" of -32767.
+#  Entries to "zap" a measurement for a give time interval should be of the
+#  form:
+#    Variable SH:SM:SS EH:EM:ES
+#
+#    where,
+#      Variable -- variable name
+#      SH:SM:SS -- colon-separated start time for data zap
+#      EH:EM:ES -- colon-separated end time for data zap
+#
+#  Separate fields with white space.
+#  Add separate lines if multiple times pertain to the same variable.
+#
+VLA    06:20:00 09:44:00
+RHOLA  06:20:00 09:44:00
+MRLA   06:20:00 09:44:00
+VLA    30:20:00 33:44:00
+RHOLA  30:20:00 33:44:00
+MRLA   30:20:00 33:44:00

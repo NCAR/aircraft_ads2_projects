@@ -1,0 +1,22 @@
+DYCOMS-II - 181, Flight rf03
+Version - 3.0.1
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /usr/local/proj/181/Production/Flight_rf03
+XGREFF has no description or units.
+Loading setup file: /h/9/krista/nimbus/d2ultrafast.nimbus
+Processed on: Oct 09 13:08 UTC 2001
+Flight Date: 07/13/2001
+Despiking enabled.
+Time break of 24 seconds ending @ 06:19:38, filling in with MISSING_VALUE.
+Blanking times (06:18:23 to 08:32:03) not valid for DPB.
+Blanking times (06:18:23 to 08:32:03) not valid for DPBC.
+Blanking XGLWC from 11:00:00 to 11:54:00.
+ The following variables depend upon this variable:
+  CING
+Blanking XGRFF from 11:00:00 to 11:54:00.
+  WARNING: XGRFF NOT found!  Continuing.
+Blanking CING from 11:00:00 to 11:54:00.
+Time interval(s) completed : 06:18:35-15:45:15
+HGM232: 213 spikes removed with slope exceeding 25.000000
+PSFD: 427 spikes removed with slope exceeding 20.000000
+Processing took 6.4 minutes.

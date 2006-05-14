@@ -1,0 +1,46 @@
+EPIC2001 - 161, Flight rf08
+Version - 3.1.2
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /jnet/linux/proj/161/Production/Flight_rf08
+DIFF1 has no description or units.
+Processed on: Apr 16 22:28 UTC 2002
+Flight Date: 09/19/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Blanking DPT from 15:28:00 to 15:40:00.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 15:28:00 to 15:40:00.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking DPT from 22:07:00 to 22:17:00.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 22:07:00 to 22:17:00.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking PLWCC from 13:24:00 to 13:30:30.
+Blanking PLWCC from 22:21:50 to 22:22:43.
+Blanking XGLWC from 13:24:00 to 13:34:00.
+Blanking QCR from 20:39:00 to 21:01:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 EDPC MR MRLA1 PALT PFLWC_RPO PLWCC PLWCF_LPC PSFDC PSXC QCRC QCX QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WP3 WSC XMACH2
+Blanking QCRC from 20:39:00 to 21:01:00.
+ The following variables depend upon this variable:
+  AKRD ATRL ATRR ATTACK ATWH ATX C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CONCP_RPO CS100_LPC CS200_RPO CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC DBARP_RPO DPLA1 MRLA1 PFLWC_RPO PLWCC PLWCF_LPC QCXC RHODT RHOLA1 SSLIP SSRD TASHC TASR TASX THETA THETAE UI UIC UX VEWC VI VIC VY WDC WI WIC WSC XMACH2
+Blanking TASR from 20:39:00 to 21:01:00.
+ The following variables depend upon this variable:
+  C260X_RWO CONC3_RPC CONC6_RWO CONCF_LPC CS100_LPC CS300_RPC DBAR3_RPC DBAR6_RWO DBARF_LPC PLWCC PLWCF_LPC TASHC TASX UI UIC UX VEWC VI VIC VY WDC WI WIC WSC
+Time interval(s) completed : 13:24:00-22:22:43
+Processing took 4.1 minutes.

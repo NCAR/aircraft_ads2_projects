@@ -1,0 +1,43 @@
+#! /bin/csh -f
+#
+#  Archive newly-found accelerometer data tapes associated with the
+#   SOLAR_CORONA project
+#  (Tape data first transferred to local disk files which removed record gaps.)
+#   Ron Ruth  2 April 2004
+#
+set RPWD = ""
+#
+echo "#  2 Job(s) submitted on `date`"
+#
+echo \
+rsh vivaldi msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+ /jnet/data/R1170.ads mss:/RAF/1998/103/ADS/tf01/R1170
+if ($status == 0) then
+  echo "#  msrcp job for tf01/R1170 -- OK -- `date`"
+else
+  echo "  msrcp job FAILED for job tf01/R1170.  See email message for details."
+endif
+#
+echo \
+rsh vivaldi msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+ /jnet/data/Accel_Cal.ads mss:/RAF/1998/103/ADS/gt01/Accel_Cal
+if ($status == 0) then
+  echo "#  msrcp job for tf01/R1170 -- OK -- `date`"
+else
+  echo "  msrcp job FAILED for job tf01/R1170.  See email message for details."
+endif
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/1998/103/ADS
+#
+#  1st wave
+#  2 Job(s) submitted on Fri Apr  2 11:18:36 MST 2004
+#  msrcp job for tf01/R1170 -- OK -- Fri Apr  2 11:24:50 MST 2004
+#  msrcp job for tf01/R1170 -- OK -- Fri Apr  2 11:25:02 MST 2004
+#   Completed on Fri Apr  2 11:25:02 MST 2004
+
+#

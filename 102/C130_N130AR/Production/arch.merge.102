@@ -1,0 +1,319 @@
+#! /bin/csh -f
+#
+#   Archive production merged files for project 1999-102 INDOEX (Clarke, et al.)
+#
+#  Written by Ronald L. Ruth using archive.support as a template     7 Oct 1999
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PRDIR = `pwd`
+set PDIR = $PRDIR/..
+set PROJ = `echo $PRDIR | sed -e "s/[a-zA-Z\/]//g"`
+set YEAR = `grep FY proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PDIR/ProjectName`
+#
+date
+#
+#set TURBRT = LRT/CVI
+#set SFILES = ( \
+#cvrf01.cdf  \
+#cvrf02.cdf  \
+#cvrf03.cdf  \
+#cvrf04.cdf  \
+#cvrf05.cdf  \
+#cvrf06.cdf  \
+#cvrf07.cdf  \
+#cvrf08.cdf  \
+#cvrf09.cdf  \
+#cvrf10.cdf  \
+#cvrf11.cdf  \
+#cvrf12.cdf  \
+#cvrf13.cdf  \
+#cvrf14.cdf  \
+#cvrf15a.cdf  \
+#cvrf15b.cdf  \
+#cvrf16.cdf  \
+#cvrf17.cdf  \
+#cvrf18.cdf  \
+#)
+#set DFILES = ( \
+#RF01.cdf  \
+#RF02.cdf  \
+#RF03.cdf  \
+#RF04.cdf  \
+#RF05.cdf  \
+#RF06.cdf  \
+#RF07.cdf  \
+#RF08.cdf  \
+#RF09.cdf  \
+#RF10.cdf  \
+#RF11.cdf  \
+#RF12.cdf  \
+#RF13.cdf  \
+#RF14.cdf  \
+#RF15A.cdf  \
+#RF15B.cdf  \
+#RF16.cdf  \
+#RF17.cdf  \
+#RF18.cdf  \
+#)
+#
+#set TURBRT = LRT/O3
+#set SFILES = ( \
+#o3rf01.cdf  \
+#o3rf02.cdf  \
+#o3rf03.cdf  \
+#o3rf04.cdf  \
+#o3rf05.cdf  \
+#o3rf06.cdf  \
+#o3rf07.cdf  \
+#o3rf08.cdf  \
+#o3rf09.cdf  \
+#o3rf10.cdf  \
+#o3rf11.cdf  \
+#o3rf12.cdf  \
+#o3rf13.cdf  \
+#o3rf14.cdf  \
+#o3rf15a.cdf  \
+#o3rf15b.cdf  \
+#o3rf16.cdf  \
+#o3rf17.cdf  \
+#o3rf18.cdf  \
+#)
+#set DFILES = ( \
+#RF01.cdf  \
+#RF02.cdf  \
+#RF03.cdf  \
+#RF04.cdf  \
+#RF05.cdf  \
+#RF06.cdf  \
+#RF07.cdf  \
+#RF08.cdf  \
+#RF09.cdf  \
+#RF10.cdf  \
+#RF11.cdf  \
+#RF12.cdf  \
+#RF13.cdf  \
+#RF14.cdf  \
+#RF15A.cdf  \
+#RF15B.cdf  \
+#RF16.cdf  \
+#RF17.cdf  \
+#RF18.cdf  \
+#)
+#
+#set TURBRT = LRT/COUPLED
+#set SFILES = ( \
+#couprf01.cdf  \
+#couprf02.cdf  \
+#couprf03.cdf  \
+#couprf04.cdf  \
+#couprf05.cdf  \
+#couprf06.cdf  \
+#couprf07.cdf  \
+#couprf08.cdf  \
+#couprf09.cdf  \
+#couprf10.cdf  \
+#couprf11.cdf  \
+#couprf12.cdf  \
+#couprf13.cdf  \
+#couprf14.cdf  \
+#couprf15a.cdf  \
+#couprf15b.cdf  \
+#couprf16.cdf  \
+#couprf17.cdf  \
+#couprf18.cdf  \
+#)
+#set DFILES = ( \
+#RF01.cdf  \
+#RF02.cdf  \
+#RF03.cdf  \
+#RF04.cdf  \
+#RF05.cdf  \
+#RF06.cdf  \
+#RF07.cdf  \
+#RF08.cdf  \
+#RF09.cdf  \
+#RF10.cdf  \
+#RF11.cdf  \
+#RF12.cdf  \
+#RF13.cdf  \
+#RF14.cdf  \
+#RF15A.cdf  \
+#RF15B.cdf  \
+#RF16.cdf  \
+#RF17.cdf  \
+#RF18.cdf  \
+#)
+#
+#set TURBRT = LRT/FSSP
+#set SFILES = ( \
+#102rf01FSSP.cdf  \
+#102rf02FSSP.cdf  \
+#102rf03FSSP.cdf  \
+#102rf04FSSP.cdf  \
+#102rf05FSSP.cdf  \
+#102rf06FSSP.cdf  \
+#102rf07FSSP.cdf  \
+#102rf08FSSP.cdf  \
+#102rf09FSSP.cdf  \
+#102rf10FSSP.cdf  \
+#102rf11FSSP.cdf  \
+#102rf12FSSP.cdf  \
+#102rf13FSSP.cdf  \
+#102rf14FSSP.cdf  \
+#102rf15aFSSP.cdf  \
+#102rf15bFSSP.cdf  \
+#102rf16FSSP.cdf  \
+#102rf17FSSP.cdf  \
+#102rf18FSSP.cdf  \
+#)
+#set DFILES = ( \
+#RF01.cdf  \
+#RF02.cdf  \
+#RF03.cdf  \
+#RF04.cdf  \
+#RF05.cdf  \
+#RF06.cdf  \
+#RF07.cdf  \
+#RF08.cdf  \
+#RF09.cdf  \
+#RF10.cdf  \
+#RF11.cdf  \
+#RF12.cdf  \
+#RF13.cdf  \
+#RF14.cdf  \
+#RF15A.cdf  \
+#RF15B.cdf  \
+#RF16.cdf  \
+#RF17.cdf  \
+#RF18.cdf  \
+#)
+#
+#  Get started:
+set todo = $#SFILES
+if ($todo != $#DFILES) then
+  echo "  Source and destination files don't match in number.  Quitting."
+  exit 1
+endif
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/$DFILE \
+     name=RAF proj=41113009 rtpd=4095 wpwd=RAFDMG mvn=CTRAFDMG
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#  1st wave:  CVI files
+#  Job(s) submitted on Thu Oct  7 14:28:02 MDT 1999
+# Sequence number = MI9570 -- LRT/CVI/RF01.cdf -- OK @ 7 Oct 1999 14:28:23
+# Sequence number = MI9577 -- LRT/CVI/RF02.cdf -- OK @ 7 Oct 1999 14:28:22
+# Sequence number = MI9584 -- LRT/CVI/RF03.cdf -- OK @ 7 Oct 1999 14:30:29
+# Sequence number = MI9591 -- LRT/CVI/RF04.cdf -- OK @ 7 Oct 1999 14:30:29
+# Sequence number = MI9598 -- LRT/CVI/RF05.cdf -- OK @ 7 Oct 1999 14:32:24
+# Sequence number = MI9605 -- LRT/CVI/RF06.cdf -- OK @ 7 Oct 1999 14:32:24
+# Sequence number = MI9612 -- LRT/CVI/RF07.cdf -- OK @ 7 Oct 1999 14:34:26
+# Sequence number = MI9619 -- LRT/CVI/RF08.cdf -- OK @ 7 Oct 1999 14:36:24
+# Sequence number = MI9627 -- LRT/CVI/RF09.cdf -- OK @ 7 Oct 1999 14:34:26
+# Sequence number = MI9635 -- LRT/CVI/RF10.cdf -- OK @ 7 Oct 1999 14:36:24
+# Sequence number = MI9642 -- LRT/CVI/RF11.cdf -- OK @ 7 Oct 1999 14:38:28
+# Sequence number = MI9652 -- LRT/CVI/RF12.cdf -- OK @ 7 Oct 1999 14:42:33
+# Sequence number = MI9662 -- LRT/CVI/RF13.cdf -- OK @ 7 Oct 1999 14:40:34
+# Sequence number = MI9673 -- LRT/CVI/RF14.cdf -- OK @ 7 Oct 1999 14:40:35
+# Sequence number = MI9684 -- LRT/CVI/RF15A.cdf -- OK @ 7 Oct 1999 14:42:32
+# Sequence number = MI9694 -- LRT/CVI/RF15B.cdf -- OK @ 7 Oct 1999 14:44:28
+# Sequence number = MI9712 -- LRT/CVI/RF16.cdf -- OK @ 7 Oct 1999 14:38:29
+# Sequence number = MI9725 -- LRT/CVI/RF17.cdf -- OK @ 7 Oct 1999 14:46:31
+# Sequence number = MI9735 -- LRT/CVI/RF18.cdf -- OK @ 7 Oct 1999 14:44:31
+#
+#  2nd wave:  O3 files
+#  Job(s) submitted on Mon Oct 11 17:45:47 MDT 1999
+# Sequence number = MI3089 -- LRT/O3/RF01.cdf -- OK @ 11 Oct 1999 17:46:02
+# Sequence number = MI3096 -- LRT/O3/RF02.cdf -- OK @ 11 Oct 1999 17:46:03
+# Sequence number = MI3103 -- LRT/O3/RF03.cdf -- OK @ 11 Oct 1999 17:46:02
+# Sequence number = MI3110 -- LRT/O3/RF04.cdf -- OK @ 11 Oct 1999 17:54:02
+# Sequence number = MI3117 -- LRT/O3/RF05.cdf -- OK @ 11 Oct 1999 18:15:06
+# Sequence number = MI3124 -- LRT/O3/RF06.cdf -- OK @ 11 Oct 1999 17:50:02
+# Sequence number = MI3131 -- LRT/O3/RF07.cdf -- OK @ 11 Oct 1999 18:15:06
+# Sequence number = MI3138 -- LRT/O3/RF08.cdf -- OK @ 11 Oct 1999 18:17:08
+# Sequence number = MI3146 -- LRT/O3/RF09.cdf -- OK @ 11 Oct 1999 18:17:08
+# Sequence number = MI3153 -- LRT/O3/RF10.cdf -- OK @ 11 Oct 1999 18:19:11
+# Sequence number = MI3165 -- LRT/O3/RF11.cdf -- OK @ 11 Oct 1999 18:15:09
+# Sequence number = MI3178 -- LRT/O3/RF12.cdf -- OK @ 11 Oct 1999 17:46:09
+# Sequence number = MI3189 -- LRT/O3/RF13.cdf -- OK @ 11 Oct 1999 17:50:06
+# Sequence number = MI3196 -- LRT/O3/RF14.cdf -- OK @ 11 Oct 1999 17:46:09
+# Sequence number = MI3214 -- LRT/O3/RF15A.cdf -- OK @ 11 Oct 1999 17:54:09
+# Sequence number = MI3226 -- LRT/O3/RF15B.cdf -- OK @ 11 Oct 1999 17:54:06
+# Sequence number = MI3233 -- LRT/O3/RF16.cdf -- OK @ 11 Oct 1999 17:48:09
+# Sequence number = MI3250 -- LRT/O3/RF17.cdf -- OK @ 11 Oct 1999 17:46:10
+# Sequence number = MI3261 -- LRT/O3/RF18.cdf -- OK @ 11 Oct 1999 18:19:11
+#
+#  3rd wave:  "coupled" files
+#  Job(s) submitted on Wed Oct 13 11:50:57 MDT 1999
+# Sequence number = MI0263 -- LRT/COUPLED/RF01.cdf -- OK @ 13 Oct 1999 11:51:08
+# Sequence number = MI0271 -- LRT/COUPLED/RF02.cdf -- OK @ 13 Oct 1999 11:51:14
+# Sequence number = MI0279 -- LRT/COUPLED/RF03.cdf -- OK @ 13 Oct 1999 11:51:10
+# Sequence number = MI0287 -- LRT/COUPLED/RF04.cdf -- OK @ 13 Oct 1999 11:55:30
+# Sequence number = MI0295 -- LRT/COUPLED/RF05.cdf -- OK @ 13 Oct 1999 11:51:15
+# Sequence number = MI0303 -- LRT/COUPLED/RF06.cdf -- OK @ 13 Oct 1999 11:55:31
+# Sequence number = MI0312 -- LRT/COUPLED/RF07.cdf -- OK @ 13 Oct 1999 11:55:28
+# Sequence number = MI0325 -- LRT/COUPLED/RF08.cdf -- OK @ 13 Oct 1999 11:55:30
+# Sequence number = MI0341 -- LRT/COUPLED/RF09.cdf -- OK @ 13 Oct 1999 11:59:18
+# Sequence number = MI0350 -- LRT/COUPLED/RF10.cdf -- OK @ 13 Oct 1999 11:59:19
+# Sequence number = MI0367 -- LRT/COUPLED/RF11.cdf -- OK @ 13 Oct 1999 11:59:18
+# Sequence number = MI0381 -- LRT/COUPLED/RF12.cdf -- OK @ 13 Oct 1999 11:59:20
+# Sequence number = MI0404 -- LRT/COUPLED/RF13.cdf -- OK @ 13 Oct 1999 11:51:17
+# Sequence number = MI0421 -- LRT/COUPLED/RF14.cdf -- OK @ 13 Oct 1999 11:51:19
+# Sequence number = MI0431 -- LRT/COUPLED/RF15A.cdf -- OK @ 13 Oct 1999 12:03:21
+# Sequence number = MI0439 -- LRT/COUPLED/RF15B.cdf -- OK @ 13 Oct 1999 12:03:21
+# Sequence number = MI0447 -- LRT/COUPLED/RF16.cdf -- OK @ 13 Oct 1999 12:03:21
+# Sequence number = MI0455 -- LRT/COUPLED/RF17.cdf -- OK @ 13 Oct 1999 12:03:21
+# Sequence number = MI0463 -- LRT/COUPLED/RF18.cdf -- OK @ 13 Oct 1999 12:07:20
+#
+#  4th wave:  "FSSP" files
+#  Job(s) submitted on Wed Oct 13 12:47:47 MDT 1999
+# Sequence number = MI2195 -- LRT/FSSP/RF01.cdf -- OK @ 13 Oct 1999 12:48:22
+# Sequence number = MI2203 -- LRT/FSSP/RF02.cdf -- OK @ 13 Oct 1999 12:48:24
+# Sequence number = MI2211 -- LRT/FSSP/RF03.cdf -- OK @ 13 Oct 1999 12:48:28
+# Sequence number = MI2219 -- LRT/FSSP/RF04.cdf -- OK @ 13 Oct 1999 12:48:26
+# Sequence number = MI2227 -- LRT/FSSP/RF05.cdf -- OK @ 13 Oct 1999 12:52:25
+# Sequence number = MI2235 -- LRT/FSSP/RF06.cdf -- OK @ 13 Oct 1999 12:52:30
+# Sequence number = MI2243 -- LRT/FSSP/RF07.cdf -- OK @ 13 Oct 1999 12:52:18
+# Sequence number = MI2252 -- LRT/FSSP/RF08.cdf -- OK @ 13 Oct 1999 12:52:27
+# Sequence number = MI2264 -- LRT/FSSP/RF09.cdf -- OK @ 13 Oct 1999 12:58:30
+# Sequence number = MI2285 -- LRT/FSSP/RF10.cdf -- OK @ 13 Oct 1999 12:56:34
+# Sequence number = MI2303 -- LRT/FSSP/RF11.cdf -- OK @ 13 Oct 1999 12:56:29
+# Sequence number = MI2313 -- LRT/FSSP/RF12.cdf -- OK @ 13 Oct 1999 13:00:24
+# Sequence number = MI2347 -- LRT/FSSP/RF13.cdf -- OK @ 13 Oct 1999 12:58:32
+# Sequence number = MI2355 -- LRT/FSSP/RF14.cdf -- OK @ 13 Oct 1999 13:00:22
+# Sequence number = MI2363 -- LRT/FSSP/RF15A.cdf -- OK @ 13 Oct 1999 13:00:20
+# Sequence number = MI2371 -- LRT/FSSP/RF15B.cdf -- OK @ 13 Oct 1999 13:00:11
+# Sequence number = MI2379 -- LRT/FSSP/RF16.cdf -- OK @ 13 Oct 1999 13:04:28
+# Sequence number = MI2387 -- LRT/FSSP/RF17.cdf -- OK @ 13 Oct 1999 13:04:30
+# Sequence number = MI2395 -- LRT/FSSP/RF18.cdf -- OK @ 13 Oct 1999 13:04:33
+#

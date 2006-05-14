@@ -1,0 +1,180 @@
+#! /bin/csh -f
+#
+#  Archive RDMA data files for 2002-112 IDEAS, Phase 2
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  Advisory:
+#   RDMA data are extracted from the ADS data set by the "nimbus" software.
+#   For meaningful production processing of these data, other state parameter
+#   measurements are required, so there is no need for these data to stand
+#   alone.  Therefore, the separate RAW_RDMA files have been removed today
+#   from the SCD Mass Store System archive via the script:
+#       /jnet/shared/proj/archives/MSS_updates/remove_RDMA
+#   Ronald L. Ruth
+#   Thu Sep 25 09:52:39 MDT 2003
+#
+#  File adapted from file /$LOCAL/proj/181/Production/archive/archrdma.161
+#    by Ron Ruth  11 December 2001
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+#
+#  Select data type
+#  Raw (uncorrected) data
+set TYPE = RAW_RDMA
+#  Processed data
+#set TYPE = RDMA
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+# Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#112rf01.rdma \
+#112rf02.rdma \
+#112rf03.rdma \
+#112rf04.rdma \
+#)
+#set DFILES = ( \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#112rf05.rdma \
+#)
+#set DFILES = ( \
+#RF05 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#112rf06.rdma \
+#)
+#set DFILES = ( \
+#RF06 \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#112rf07.rdma \
+#)
+#set DFILES = ( \
+#RF07 \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#112rf08.rdma \
+#)
+#set DFILES = ( \
+#RF08 \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    if ($status == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2002/112/
+#
+#  1st wave
+#  4 Job(s) submitted on Fri Oct 18 10:02:32 MDT 2002
+#  msrcp job for RAW_RDMA/RF01 -- OK -- Fri Oct 18 10:02:39 MDT 2002
+#  msrcp job for RAW_RDMA/RF02 -- OK -- Fri Oct 18 10:02:45 MDT 2002
+#  msrcp job for RAW_RDMA/RF03 -- OK -- Fri Oct 18 10:02:50 MDT 2002
+#  msrcp job for RAW_RDMA/RF04 -- OK -- Fri Oct 18 10:02:55 MDT 2002
+#   Completed on Fri Oct 18 10:02:55 MDT 2002
+#
+#  2nd wave
+#  1 Job(s) submitted on Fri Oct 25 15:57:41 MDT 2002
+#  msrcp job for RAW_RDMA/RF05 -- OK -- Fri Oct 25 15:57:51 MDT 2002
+#   Completed on Fri Oct 25 15:57:51 MDT 2002
+#
+#  3rd wave
+#  msrcp job for RAW_RDMA/RF06 -- OK -- Wed Oct 30 11:52:11 MST 2002
+#   Completed on Wed Oct 30 11:52:11 MST 2002
+#
+#  4th wave
+#  Job(s) submitted on 
+#
+#  5th wave
+#  1 Job(s) submitted on Fri Nov  1 17:54:04 MST 2002
+#  msrcp job for RAW_RDMA/RF07 -- OK -- Fri Nov  1 17:54:12 MST 2002
+#   Completed on Fri Nov  1 17:54:12 MST 2002
+#
+#  6th wave
+#  1 Job(s) submitted on Thu Dec 19 14:48:56 MST 2002
+#  msrcp job for RAW_RDMA/RF08 -- OK -- Thu Dec 19 14:49:30 MST 2002
+#   Completed on Thu Dec 19 14:49:31 MST 2002
+#
+#   th wave
+#  Job(s) submitted on 
+#

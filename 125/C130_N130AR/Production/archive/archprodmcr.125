@@ -1,0 +1,704 @@
+#! /bin/csh -f
+#
+#  Archive processed MCR data files for 2004-125 ACME
+#  to the SCD Mass Store System under the /ATD/DATA path
+#   (Done one file at a time to keep from overloading the network)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2003                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Notes:  This script runs only in a project's "Production/archive"
+#           subdirectory under the "dmg" login.
+#          Files required by this script are:
+#           ../proj.info
+#           ../taplog.*[1]  (the first-listed taplog file, if more than one)
+#          It is required that only one flight's data files can be
+#           archived during each wave.
+#
+#
+#  File adapted from file $PROJ_DIR/111/Production/archive/archprodmcr.111
+#   by Ron Ruth  14 March 2003
+#  Script enhanced by RLR (using taplog file data)                  18 Mar 2003
+#  Script repaired by RLR (fix destination file name composition)    4 Apr 2003
+#  Script enhanced by RLR (ignore logfile if testing the script)    17 Oct 2003
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#
+#
+#     * * * * * * * * * * * * * *
+#   *                             *
+#  *  Executable code starts here  *
+#   *                             *
+#     * * * * * * * * * * * * * *
+#
+# Initialize stuff
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = /jnet/mcr/ACME/MCRproc
+#
+#  Get project number
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+#
+#  Set logfile name
+set logfile = mcr_arch_log.$PROJ
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set file with flight information (default location:  Production directory)
+set taplog = (`ls ../taplog*`)
+set result = $status
+if ($result != 0) then
+  echo "  Cannot find taplog file in Production subdirectory"
+  echo "   Quitting."
+  exit 1
+endif
+set taplog = $taplog[1]
+#
+#--------------------------------------------
+#
+#  Assign data type
+set TYPE = "MCR"
+#
+#  Assign extent
+set EXTENT = "M01.bi"
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+#  set msrcpMachine = "mahler"
+#  set msrcpMachine = "lenny"
+#  set msrcpMachine = "mistral"
+endif
+#
+#  Is this a test run?
+#set test = "no"
+set test = "yes"
+#
+#
+# Get started
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get MSS project directory name
+set MSS_PDN = `grep 'MSS Project Directory Name:' $LOCAL/proj/$PROJ/Production/proj.info | awk '{print $5}'`
+if ($test == "yes") then
+  echo "  MSS_PDN = $MSS_PDN"
+endif
+#
+#  Assign aircraft (only two supported at this time)
+if ( ($PROJ > 99) && ($PROJ < 200) ) then
+  set PLTFRM = "C130_N130AR"
+else if ( ($PROJ > 299) && ($PROJ < 400) ) then
+  set PLTFRM = "NRL_P3"
+else
+  echo "  Cannot determine aircraft platform (PLTFRM)"
+  echo "   Quitting."
+  exit 1
+endif
+#
+#
+#  W A R N I N G:   The flight number for each wave is obtained from the
+#                   first source file.  Therefore, each wave MUST have
+#                   files from only one flight.
+#
+#  1st wave
+#set wave = "1st"
+##!!ls /jnet/mcr/ACME/MCRproc/rf01
+#set FILES = ( \
+#125rf01.130055-131858 \
+#125rf01.133701-133832 \
+#125rf01.134419-134858 \
+#125rf01.135646-135840 \
+#125rf01.140125-140303 \
+#125rf01.140340-140803 \
+#125rf01.141049-141242 \
+#125rf01.141509-141702 \
+#125rf01.141726-142054 \
+#125rf01.142529-142634 \
+#125rf01.143208-143318 \
+#125rf01.144305-144954 \
+#125rf01.150351-153618 \
+#125rf01.161858-162346 \
+#125rf01.163010-163056 \
+#125rf01.163138-163225 \
+#)
+#
+#  2nd wave
+#set wave = "2nd"
+##!!ls /jnet/mcr/ACME/MCRproc/rf03
+#set FILES = ( \
+#125rf03.123140-123311 \
+#125rf03.123408-125116 \
+#125rf03.125436-125654 \
+#125rf03.130032-130203 \
+#125rf03.130259-130941 \
+#125rf03.131334-131519 \
+#125rf03.131625-131803 \
+#125rf03.131845-132005 \
+#125rf03.132232-133108 \
+#125rf03.133919-134153 \
+#125rf03.134314-134508 \
+#125rf03.134601-134759 \
+#125rf03.135209-135551 \
+#125rf03.135955-140110 \
+#125rf03.140559-140938 \
+#125rf03.141026-141206 \
+#125rf03.141347-141502 \
+#125rf03.141631-141728 \
+#125rf03.141855-142005 \
+#125rf03.142734-143254 \
+#125rf03.143651-143841 \
+#125rf03.144208-144320 \
+#125rf03.144908-152751 \
+#125rf03.153445-153627 \
+#125rf03.153652-154726 \
+#125rf03.155217-155607 \
+#125rf03.155723-155839 \
+#125rf03.160111-160515 \
+#125rf03.161112-161423 \
+#)
+#
+#  3rd wave
+#set wave = "3rd"
+##!!ls /jnet/mcr/ACME/MCRproc/rf05
+#set FILES = ( \
+#125rf05.123520-124241 \
+#125rf05.124501-125521 \
+#125rf05.125533-125655 \
+#125rf05.130120-130304 \
+#125rf05.130338-130954 \
+#125rf05.131145-131255 \
+#125rf05.131527-131904 \
+#125rf05.132121-132815 \
+#125rf05.132942-133038 \
+#125rf05.133108-133215 \
+#125rf05.133421-133545 \
+#125rf05.133609-133851 \
+#125rf05.134017-134256 \
+#125rf05.134339-134508 \
+#125rf05.134529-134644 \
+#125rf05.135041-135238 \
+#125rf05.135253-135404 \
+#125rf05.135549-135806 \
+#125rf05.135850-140038 \
+#125rf05.140049-140210 \
+#125rf05.140610-140857 \
+#125rf05.141000-141303 \
+#125rf05.141342-141504 \
+#125rf05.141647-141751 \
+#125rf05.142519-142622 \
+#125rf05.142655-143242 \
+#125rf05.143559-143902 \
+#125rf05.144450-144645 \
+#125rf05.144718-144859 \
+#125rf05.144904-145807 \
+#125rf05.145905-150444 \
+#125rf05.150456-150635 \
+#125rf05.150811-151301 \
+#125rf05.151316-152459 \
+#125rf05.152648-152747 \
+#125rf05.152844-153151 \
+#125rf05.153346-153826 \
+#125rf05.154110-154217 \
+#125rf05.154917-155544 \
+#125rf05.155554-155830 \
+#125rf05.160316-160849 \
+#125rf05.161001-161212 \
+#)
+#
+#  4th wave
+#set wave = "4th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf07
+#set FILES = ( \
+#125rf07.123325-123504 \
+#125rf07.123522-125232 \
+#125rf07.125545-130153 \
+#125rf07.130351-130448 \
+#125rf07.130510-130733 \
+#125rf07.131237-131538 \
+#125rf07.131555-131941 \
+#125rf07.132113-132320 \
+#125rf07.132337-133237 \
+#125rf07.133335-133453 \
+#125rf07.134056-134257 \
+#125rf07.134400-134457 \
+#125rf07.134709-134826 \
+#125rf07.135503-135710 \
+#125rf07.135803-135932 \
+#125rf07.140106-140229 \
+#125rf07.140855-141050 \
+#125rf07.141152-141310 \
+#125rf07.141507-141615 \
+#125rf07.141742-141845 \
+#125rf07.142750-143129 \
+#125rf07.143142-143342 \
+#125rf07.143648-143811 \
+#125rf07.143909-144017 \
+#125rf07.144116-144208 \
+#125rf07.145147-145602 \
+#125rf07.145617-145802 \
+#125rf07.150112-150212 \
+#125rf07.150246-150420 \
+#125rf07.151236-151745 \
+#125rf07.152153-152832 \
+#125rf07.153425-153525 \
+#125rf07.153542-153954 \
+#125rf07.154627-154739 \
+#125rf07.154812-155547 \
+#125rf07.155614-160014 \
+#125rf07.160119-160226 \
+#)
+#
+#  5th wave
+#set wave = "5th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf08
+#set FILES = ( \
+#125rf08.160119-160226 \
+#125rf08.193718-195313 \
+#125rf08.200157-200517 \
+#125rf08.200756-200940 \
+#125rf08.201107-201544 \
+#125rf08.202318-203521 \
+#125rf08.203635-203813 \
+#125rf08.203838-203955 \
+#125rf08.204237-204349 \
+#125rf08.204409-204708 \
+#125rf08.205115-205235 \
+#125rf08.205252-205420 \
+#125rf08.205718-205829 \
+#125rf08.205851-210149 \
+#125rf08.210604-210727 \
+#125rf08.210758-210905 \
+#125rf08.211839-212415 \
+#125rf08.212655-212802 \
+#125rf08.212844-213023 \
+#125rf08.214220-214626 \
+#125rf08.214719-214846 \
+#125rf08.220036-220503 \
+#)
+#
+#  6th wave
+#set wave = "6th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf11
+#set FILES = ( \
+#125rf11.123925-124305 \
+#125rf11.124552-124957 \
+#125rf11.125434-125534 \
+#125rf11.125554-125659 \
+#125rf11.125917-130500 \
+#125rf11.130955-131530 \
+#125rf11.132113-132710 \
+#125rf11.132740-132908 \
+#125rf11.132922-133132 \
+#125rf11.133413-133609 \
+#125rf11.134238-134408 \
+#125rf11.134649-135324 \
+#125rf11.135610-135751 \
+#125rf11.135901-140015 \
+#125rf11.140053-140209 \
+#125rf11.140651-140927 \
+#125rf11.141400-141520 \
+#125rf11.141539-141706 \
+#125rf11.141929-142039 \
+#125rf11.142102-142338 \
+#125rf11.142759-142922 \
+#125rf11.143552-143805 \
+#125rf11.143903-144008 \
+#125rf11.144222-144344 \
+#125rf11.144453-144637 \
+#125rf11.145355-150009 \
+#125rf11.150253-150426 \
+#125rf11.150952-151101 \
+#125rf11.151234-151519 \
+#125rf11.151811-152009 \
+#125rf11.152142-152234 \
+#125rf11.152541-152641 \
+#125rf11.152840-153150 \
+#125rf11.153159-153319 \
+#125rf11.153332-153445 \
+#125rf11.153521-153648 \
+#125rf11.154005-154422 \
+#125rf11.154809-154924 \
+#125rf11.155016-155218 \
+#125rf11.155609-155710 \
+#125rf11.160049-160146 \
+#125rf11.160420-160730 \
+#125rf11.161011-161212 \
+#125rf11.161242-161346 \
+#)
+#
+#  7th wave
+#set wave = "7th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf12
+#set FILES = ( \
+#125rf12.124324-124604 \
+#125rf12.124829-125019 \
+#125rf12.125038-130240 \
+#125rf12.130443-131038 \
+#125rf12.131408-131559 \
+#125rf12.131653-131959 \
+#125rf12.132254-132416 \
+#125rf12.132436-133024 \
+#125rf12.133112-133234 \
+#125rf12.134418-134754 \
+#125rf12.135049-135153 \
+#125rf12.135254-135356 \
+#125rf12.135427-135539 \
+#125rf12.140107-140226 \
+#125rf12.140642-140821 \
+#125rf12.140833-141011 \
+#125rf12.141240-141339 \
+#125rf12.141424-141651 \
+#125rf12.141819-141941 \
+#125rf12.142117-142236 \
+#125rf12.142244-142432 \
+#125rf12.142704-142801 \
+#125rf12.142855-143109 \
+#125rf12.143219-143400 \
+#125rf12.143538-143657 \
+#125rf12.143904-143955 \
+#125rf12.144746-145347 \
+#125rf12.145618-145723 \
+#125rf12.150156-150313 \
+#125rf12.150321-150559 \
+#125rf12.150838-151253 \
+#125rf12.151515-151627 \
+#125rf12.152453-152751 \
+#125rf12.153020-153420 \
+#125rf12.154002-154108 \
+#125rf12.154915-155304 \
+#125rf12.155420-155621 \
+#)
+#
+#  8th wave
+#set wave = "8th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf13
+#set FILES = ( \
+#125rf13.193351-193535 \
+#125rf13.193557-194001 \
+#125rf13.194057-194645 \
+#125rf13.195530-195814 \
+#125rf13.200552-200814 \
+#125rf13.201322-201504 \
+#125rf13.201920-202108 \
+#125rf13.202118-202233 \
+#125rf13.202619-202916 \
+#125rf13.203327-203443 \
+#125rf13.203715-203828 \
+#125rf13.204641-204959 \
+#125rf13.205038-205226 \
+#125rf13.205416-210710 \
+#125rf13.211349-211538 \
+#125rf13.212353-212447 \
+#125rf13.212540-212737 \
+#125rf13.212825-213403 \
+#125rf13.213508-213853 \
+#)
+#
+#  9th wave
+set wave = "9th"
+#!!ls /jnet/mcr/ACME/MCRproc/rf14
+set FILES = ( \
+125rf14.125432-125618 \
+125rf14.125658-133606 \
+125rf14.133802-134113 \
+125rf14.134134-134241 \
+125rf14.134412-134831 \
+125rf14.135041-135614 \
+125rf14.135844-135940 \
+125rf14.140019-140401 \
+125rf14.140443-140551 \
+125rf14.141124-141744 \
+125rf14.142210-142326 \
+125rf14.142404-142547 \
+125rf14.142658-143204 \
+125rf14.143428-143539 \
+125rf14.143825-143942 \
+125rf14.144110-144217 \
+125rf14.144237-145532 \
+125rf14.145819-150404 \
+125rf14.150640-151110 \
+125rf14.151625-151713 \
+125rf14.151831-152207 \
+125rf14.152714-153057 \
+125rf14.153104-153441 \
+125rf14.154410-155831 \
+125rf14.155900-161020 \
+125rf14.161454-161659 \
+125rf14.162323-162452 \
+125rf14.162507-162624 \
+125rf14.162706-162947 \
+125rf14.163002-163056 \
+125rf14.163933-164313 \
+125rf14.164535-165122 \
+125rf14.165649-170051 \
+125rf14.170251-170524 \
+125rf14.171747-172232 \
+125rf14.172612-172742 \
+125rf14.173314-173600 \
+125rf14.174207-174317 \
+125rf14.174707-174948 \
+125rf14.175354-175457 \
+125rf14.175512-175649 \
+125rf14.175824-180303 \
+125rf14.180321-180442 \
+125rf14.180603-180800 \
+)
+#
+# 10th wave
+#set wave = "10th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf15
+#set FILES = ( \
+#125rf15.200417-201225 \
+#125rf15.201311-202337 \
+#125rf15.202949-203150 \
+#125rf15.203504-203553 \
+#125rf15.203612-204603 \
+#125rf15.205222-205532 \
+#125rf15.210227-210847 \
+#125rf15.211126-211226 \
+#125rf15.211325-211453 \
+#125rf15.211532-211651 \
+#125rf15.211838-212110 \
+#)
+#
+# 11th wave
+#set wave = "11th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf16
+#set FILES = ( \
+#125rf16.151128-151307 \
+#125rf16.151315-151427 \
+#125rf16.151727-152131 \
+#125rf16.152641-152739 \
+#125rf16.152916-153124 \
+#125rf16.153141-153735 \
+#125rf16.153951-154454 \
+#125rf16.154630-155910 \
+#125rf16.155932-160111 \
+#125rf16.160353-160547 \
+#125rf16.160754-160923 \
+#125rf16.161137-161622 \
+#125rf16.162039-162305 \
+#125rf16.162557-162755 \
+#125rf16.165759-165912 \
+#125rf16.170207-170418 \
+#125rf16.170736-171351 \
+#125rf16.171723-171814 \
+#125rf16.171917-172123 \
+#125rf16.172704-173049 \
+#125rf16.173604-173805 \
+#125rf16.174018-174153 \
+#125rf16.174200-174650 \
+#125rf16.175011-175506 \
+#125rf16.180113-180621 \
+#125rf16.180903-181103 \
+#125rf16.181312-181855 \
+#125rf16.182029-182150 \
+#125rf16.182432-182537 \
+#125rf16.182559-182758 \
+#125rf16.182948-183209 \
+#125rf16.183258-183422 \
+#125rf16.183433-183600 \
+#125rf16.183855-184000 \
+#125rf16.184022-184258 \
+#125rf16.184413-184623 \
+#125rf16.184703-184830 \
+#125rf16.184844-184957 \
+#125rf16.185300-185407 \
+#125rf16.185430-185714 \
+#125rf16.185819-185950 \
+#125rf16.190301-190402 \
+#125rf16.190412-190537 \
+#125rf16.191030-191201 \
+#125rf16.191217-191605 \
+#125rf16.192723-193510 \
+#125rf16.193618-193730 \
+#)
+#
+#   th wave
+#set wave = " th"
+##!!ls /jnet/mcr/ACME/MCRproc/rf##  <-- specify correct path before using
+#set FILES = ( \
+#)
+#
+#
+# Do the work;
+#
+if ($test == "no") then
+#
+#  Set up and/or test log file
+  if (! -e $logfile) then
+    echo "Log file for archiving Production MCR data to the SCD Mass Store System" >! $logfile
+    if ($status != 0) then
+      echo "  Cannot create log file $logfile."
+      echo "  Quitting."
+      exit 1
+    else
+      echo " Created by the script ${0} on `date`" >> $logfile
+      echo "" >> $logfile
+    endif
+  else if (! -w $logfile) then
+    echo "  Cannot update log file $logfile."
+    echo "  Quitting."
+    exit 1
+  else
+    echo "" >> $logfile
+    echo " Appended by the script ${0} on `date`" >> $logfile
+    echo "" >> $logfile
+    if ($status != 0) then
+      echo "  Cannot update log file $logfile."
+      echo "  Quitting."
+      exit 1
+    endif
+  endif
+endif
+#
+#  Get flight number from the first source file's name
+#   (Source file-naming format is ppp[rtf]fxx.ShSmSs-EhEmEs.)
+set fltno = `echo $FILES[1] | sed -e "s/^...//" | awk -F\. '{print $1}'`
+#
+#  Compose source file's path name
+set SFDIR = $SDIR/$fltno
+#
+#  Compose destination MSS path name
+set FLTNO = `echo $fltno | tr '[a-z]' '[A-Z]'`
+#set FDATE = `grep $FLTNO $taplog | awk '{print $2}' | awk -F/ '{print $3$1$2}'`
+set FDATE = (`grep $FLTNO $taplog | awk '{print $2}'`)
+set FDATE = `echo $FDATE[1] | awk '{print $1}' | awk -F/ '{print $3$1$2}'`
+set YEAR = `echo $FDATE | sed -e 's/....$//'`
+set MSS_DIR = "/ATD/DATA/$YEAR/$MSS_PDN/$PLTFRM/$TYPE"
+#
+set sdate = `date`
+if ($test == "no") then
+  echo "------- $wave wave" >> $logfile
+  echo " $#FILES files to be archived to the MSS directory:  $MSS_DIR/" >> $logfile
+  echo " Job submssion began on $sdate" >> $logfile
+endif
+#
+echo "# $#FILES files to be archived to the MSS directory:  $MSS_DIR/"
+echo "#  Job submssion began on $sdate"
+#
+#
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $SFDIR/$FILE) then
+#  Compose destination bitfile name
+    set FLTTM = `echo $FILE | awk -F\. '{print $2}' | sed -e "s/-/_/"`
+    set DFILE = "$FLTNO.$FDATE.$FLTTM.M01.bi"
+#
+    if ($test == "no") then
+      rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $SFDIR/$FILE mss:$MSS_DIR/$DFILE
+      set result = $status
+      if ($result == 0) then
+        echo " rsh $msrcpMachine msrcp -> mss:../$DFILE completed successfully on `date`" >> $logfile
+      else
+        echo " rsh $msrcpMachine msrcp -> mss:../$DFILE FAILED (error=$result) on `date`" >> $logfile
+      endif
+    else
+      echo \
+      rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $SFDIR/$FILE mss:$MSS_DIR/$DFILE
+    endif
+  else
+    echo " Cannot access file $SFDIR/$FILE" >> $logfile
+  endif
+  @ num ++
+end
+#
+set cdate = `date`
+if ($test == "no") then
+  echo " Job completed on $cdate" >> $logfile
+  echo "#  Job completed on $cdate"
+else
+  echo "#  Test job completed on $cdate"
+endif
+#
+exit
+#
+#
+#  MSS path for bitfiles listed below:  /ATD/DATA/...
+#   (See logfile "mcr_arch_log.125" for archive status.)
+#
+#  1st wave
+# 16 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Wed Jun 8 17:54:35 MDT 2005
+#  Job completed on Wed Jun 8 17:57:46 MDT 2005
+#
+#  2nd wave
+# 29 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 09:51:42 MDT 2005
+#  Job completed on Thu Jun 9 09:54:35 MDT 2005
+#
+#  3rd wave
+# 42 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 10:21:38 MDT 2005
+#  Job completed on Thu Jun 9 10:29:06 MDT 2005
+#
+#  4th wave
+# 37 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 10:35:27 MDT 2005
+#  Job completed on Thu Jun 9 10:38:47 MDT 2005
+#
+#  5th wave
+# 22 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 10:43:56 MDT 2005
+#  Job completed on Thu Jun 9 10:47:40 MDT 2005
+#
+#  6th wave
+# 44 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 11:03:50 MDT 2005
+#  Job completed on Thu Jun 9 11:07:49 MDT 2005
+#
+#  7th wave
+# 37 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 11:22:17 MDT 2005
+#  Job completed on Thu Jun 9 11:29:38 MDT 2005
+#
+#  8th wave
+# 19 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 11:31:11 MDT 2005
+#  Job completed on Thu Jun 9 11:34:24 MDT 2005
+#
+#  9th wave
+# 44 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 11:41:17 MDT 2005
+#  Job completed on Thu Jun 9 11:50:02 MDT 2005
+#
+# 10th wave
+# 11 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 12:08:15 MDT 2005
+#  Job completed on Thu Jun 9 12:10:52 MDT 2005
+#
+# 11th wave
+# 47 files to be archived to the MSS directory:  /ATD/DATA/2004/ACME/C130_N130AR/MCR/
+#  Job submssion began on Thu Jun 9 12:11:51 MDT 2005
+#  Job completed on Thu Jun 9 12:19:49 MDT 2005
+#
+#   th wave
+#  Job(s) submitted on 
+#  

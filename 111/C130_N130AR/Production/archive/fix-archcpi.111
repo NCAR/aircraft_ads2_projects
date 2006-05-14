@@ -1,0 +1,303 @@
+#! /bin/csh -f
+#
+#  Rename archived raw PCI data files for 2002-111 IDEAS
+#   (Were put in a misspelled directory with PCI instead of CPI)
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file /$LOCAL/proj/111/Production/archcpi.111
+#   by Ron Ruth   1 November 2002
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Set initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set STYPE = RAW_PCI
+set DTYPE = RAW_CPI
+#
+#  1st wave
+#set SFILES = ( \
+#RF01.04051043.roi \
+#RF01.04051129.roi \
+#RF01.04051233.roi \
+#RF01.04051238.roi \
+#RF01.04051408.roi \
+#RF01.04051417.roi \
+#RF01.04051453.roi \
+#)
+#set DFILES = ( \
+#RF01/04051043.roi \
+#RF01/04051129.roi \
+#RF01/04051233.roi \
+#RF01/04051238.roi \
+#RF01/04051408.roi \
+#RF01/04051417.roi \
+#RF01/04051453.roi \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#RF02.04120953.roi \
+#RF02.04121107.roi \
+#RF02.04121112.roi \
+#RF02.04121934.obj \
+#RF02.04121934.roi \
+#RF02.04122056.obj \
+#RF02.04122056.roi \
+#RF02.04122111.roi \
+#RF02.04122120.roi \
+#RF02.04122131.roi \
+#RF02.04122137.roi \
+#RF02.04122349.roi \
+#)
+#set DFILES = ( \
+#RF02/04120953.roi \
+#RF02/04121107.roi \
+#RF02/04121112.roi \
+#RF02/04121934.obj \
+#RF02/04121934.roi \
+#RF02/04122056.obj \
+#RF02/04122056.roi \
+#RF02/04122111.roi \
+#RF02/04122120.roi \
+#RF02/04122131.roi \
+#RF02/04122137.roi \
+#RF02/04122349.roi \
+#)
+
+# 3rd wave
+#set SFILES = ( \
+#RF03.04181717.roi \
+#RF03.04181927.roi \
+#RF03.04181930.roi \
+#RF03.04182030.roi \
+#RF03.04182101.roi \
+#RF03.04182124.roi \
+#RF03.04182129.roi \
+#)
+#set DFILES = ( \
+#RF03/04181717.roi \
+#RF03/04181927.roi \
+#RF03/04181930.roi \
+#RF03/04182030.roi \
+#RF03/04182101.roi \
+#RF03/04182124.roi \
+#RF03/04182129.roi \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#RF04.04251235.roi \
+#RF04.04251242.roi \
+#RF04.04251358.roi \
+#RF04.04251406.roi \
+#RF04.04251429.roi \
+#RF04.04251436.roi \
+#RF04.04251445.roi \
+#RF04.04251451.roi \
+#RF04.04251456.roi \
+#RF04.04251459.roi \
+#RF04.04251500.roi \
+#RF04.04251501.roi \
+#RF04.04251505.roi \
+#RF04.04251507.roi \
+#RF04.04251508.roi \
+#RF04.04251509.roi \
+#RF04.04251510.roi \
+#RF04.04251515.roi \
+#RF04.04251517.roi \
+#RF04.04251519.roi \
+#RF04.04251535.roi \
+#RF04.04251814.roi \
+#RF04.04251815.roi \
+#)
+#set DFILES = ( \
+#RF04/04251235.roi \
+#RF04/04251242.roi \
+#RF04/04251358.roi \
+#RF04/04251406.roi \
+#RF04/04251429.roi \
+#RF04/04251436.roi \
+#RF04/04251445.roi \
+#RF04/04251451.roi \
+#RF04/04251456.roi \
+#RF04/04251459.roi \
+#RF04/04251500.roi \
+#RF04/04251501.roi \
+#RF04/04251505.roi \
+#RF04/04251507.roi \
+#RF04/04251508.roi \
+#RF04/04251509.roi \
+#RF04/04251510.roi \
+#RF04/04251515.roi \
+#RF04/04251517.roi \
+#RF04/04251519.roi \
+#RF04/04251535.roi \
+#RF04/04251814.roi \
+#RF04/04251815.roi \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#RF05.04301145.roi \
+#RF05.04301150.roi \
+#RF05.04301153.roi \
+#RF05.04301156.roi \
+#RF05.04301207.roi \
+#RF05.04301247.roi \
+#RF05.04301601.roi \
+#)
+#set DFILES = ( \
+#RF05/04301145.roi \
+#RF05/04301150.roi \
+#RF05/04301153.roi \
+#RF05/04301156.roi \
+#RF05/04301207.roi \
+#RF05/04301247.roi \
+#RF05/04301601.roi \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#TF01.04031435.roi \
+#TF01.04031505.roi \
+#TF01.04031530.roi \
+#TF01.04031531.roi \
+#TF01.04031557.roi \
+#)
+#set DFILES = ( \
+#TF01/04031435.roi \
+#TF01/04031505.roi \
+#TF01/04031530.roi \
+#TF01/04031531.roi \
+#TF01/04031557.roi \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+#  echo \
+  msmv -pr 41113009 -wpwd RAFDMG /RAF/$YEAR/$PROJ/$STYPE/$SFILE \
+   /RAF/$YEAR/$PROJ/$DTYPE/$DFILE
+  set result = $status
+  if ($result == 0) then
+     echo "#  msmv job for $DTYPE/$DFILE -- OK -- `date`"
+  else
+     echo "Move failed with error $result"
+  endif
+  @ num ++
+end
+#
+echo "#  Completed on `date`"
+exit
+#
+#  Incorrect MSS path (before rename):  /RAF/2002/111/RAW_PCI/
+#  MSS path for all bitfiles listed below:  /RAF/2002/111/RAW_CPI/
+#
+#  1st wave
+#  7 Job(s) submitted on Fri Nov  1 11:06:22 MST 2002
+#  msmv job for RF01/04051043.roi -- OK -- Fri Nov  1 11:06:24 MST 2002
+#  msmv job for RF01/04051129.roi -- OK -- Fri Nov  1 11:06:27 MST 2002
+#  msmv job for RF01/04051233.roi -- OK -- Fri Nov  1 11:06:29 MST 2002
+#  msmv job for RF01/04051238.roi -- OK -- Fri Nov  1 11:06:31 MST 2002
+#  msmv job for RF01/04051408.roi -- OK -- Fri Nov  1 11:06:34 MST 2002
+#  msmv job for RF01/04051417.roi -- OK -- Fri Nov  1 11:06:37 MST 2002
+#  msmv job for RF01/04051453.roi -- OK -- Fri Nov  1 11:06:38 MST 2002
+#  Completed on Fri Nov  1 11:06:38 MST 2002
+#
+#  2nd wave
+#  12 Job(s) submitted on Fri Nov  1 11:07:30 MST 2002
+#  msmv job for RF02/04120953.roi -- OK -- Fri Nov  1 11:07:31 MST 2002
+#  msmv job for RF02/04121107.roi -- OK -- Fri Nov  1 11:07:32 MST 2002
+#  msmv job for RF02/04121112.roi -- OK -- Fri Nov  1 11:07:34 MST 2002
+#  msmv job for RF02/04121934.obj -- OK -- Fri Nov  1 11:07:36 MST 2002
+#  msmv job for RF02/04121934.roi -- OK -- Fri Nov  1 11:07:38 MST 2002
+#  msmv job for RF02/04122056.obj -- OK -- Fri Nov  1 11:07:40 MST 2002
+#  msmv job for RF02/04122056.roi -- OK -- Fri Nov  1 11:07:42 MST 2002
+#  msmv job for RF02/04122111.roi -- OK -- Fri Nov  1 11:07:44 MST 2002
+#  msmv job for RF02/04122120.roi -- OK -- Fri Nov  1 11:07:44 MST 2002
+#  msmv job for RF02/04122131.roi -- OK -- Fri Nov  1 11:07:46 MST 2002
+#  msmv job for RF02/04122137.roi -- OK -- Fri Nov  1 11:07:48 MST 2002
+#  msmv job for RF02/04122349.roi -- OK -- Fri Nov  1 11:07:50 MST 2002
+#  Completed on Fri Nov  1 11:07:50 MST 2002
+#
+#  3rd wave
+#  7 Job(s) submitted on Fri Nov  1 11:08:21 MST 2002
+#  msmv job for RF03/04181717.roi -- OK -- Fri Nov  1 11:08:22 MST 2002
+#  msmv job for RF03/04181927.roi -- OK -- Fri Nov  1 11:08:24 MST 2002
+#  msmv job for RF03/04181930.roi -- OK -- Fri Nov  1 11:08:26 MST 2002
+#  msmv job for RF03/04182030.roi -- OK -- Fri Nov  1 11:08:28 MST 2002
+#  msmv job for RF03/04182101.roi -- OK -- Fri Nov  1 11:08:30 MST 2002
+#  msmv job for RF03/04182124.roi -- OK -- Fri Nov  1 11:08:32 MST 2002
+#  msmv job for RF03/04182129.roi -- OK -- Fri Nov  1 11:08:34 MST 2002
+#  Completed on Fri Nov  1 11:08:34 MST 2002
+#
+#  4th wave
+#  23 Job(s) submitted on Fri Nov  1 11:11:55 MST 2002
+#  msmv job for RF04/04251235.roi -- OK -- Fri Nov  1 11:11:56 MST 2002
+#  msmv job for RF04/04251242.roi -- OK -- Fri Nov  1 11:11:57 MST 2002
+#  msmv job for RF04/04251358.roi -- OK -- Fri Nov  1 11:11:59 MST 2002
+#  msmv job for RF04/04251406.roi -- OK -- Fri Nov  1 11:12:01 MST 2002
+#  msmv job for RF04/04251429.roi -- OK -- Fri Nov  1 11:12:02 MST 2002
+#  msmv job for RF04/04251436.roi -- OK -- Fri Nov  1 11:12:04 MST 2002
+#  msmv job for RF04/04251445.roi -- OK -- Fri Nov  1 11:12:04 MST 2002
+#  msmv job for RF04/04251451.roi -- OK -- Fri Nov  1 11:12:06 MST 2002
+#  msmv job for RF04/04251456.roi -- OK -- Fri Nov  1 11:12:07 MST 2002
+#  msmv job for RF04/04251459.roi -- OK -- Fri Nov  1 11:12:09 MST 2002
+#  msmv job for RF04/04251500.roi -- OK -- Fri Nov  1 11:12:10 MST 2002
+#  msmv job for RF04/04251501.roi -- OK -- Fri Nov  1 11:12:11 MST 2002
+#  msmv job for RF04/04251505.roi -- OK -- Fri Nov  1 11:12:13 MST 2002
+#  msmv job for RF04/04251507.roi -- OK -- Fri Nov  1 11:12:15 MST 2002
+#  msmv job for RF04/04251508.roi -- OK -- Fri Nov  1 11:12:16 MST 2002
+#  msmv job for RF04/04251509.roi -- OK -- Fri Nov  1 11:12:18 MST 2002
+#  msmv job for RF04/04251510.roi -- OK -- Fri Nov  1 11:12:20 MST 2002
+#  msmv job for RF04/04251515.roi -- OK -- Fri Nov  1 11:12:21 MST 2002
+#  msmv job for RF04/04251517.roi -- OK -- Fri Nov  1 11:12:22 MST 2002
+#  msmv job for RF04/04251519.roi -- OK -- Fri Nov  1 11:12:23 MST 2002
+#  msmv job for RF04/04251535.roi -- OK -- Fri Nov  1 11:12:25 MST 2002
+#  msmv job for RF04/04251814.roi -- OK -- Fri Nov  1 11:12:25 MST 2002
+#  msmv job for RF04/04251815.roi -- OK -- Fri Nov  1 11:12:26 MST 2002
+#  Completed on Fri Nov  1 11:12:26 MST 2002
+#
+#  5th wave
+#  7 Job(s) submitted on Fri Nov  1 11:20:36 MST 2002
+#  msmv job for RF05/04301145.roi -- OK -- Fri Nov  1 11:20:38 MST 2002
+#  msmv job for RF05/04301150.roi -- OK -- Fri Nov  1 11:20:41 MST 2002
+#  msmv job for RF05/04301153.roi -- OK -- Fri Nov  1 11:20:43 MST 2002
+#  msmv job for RF05/04301156.roi -- OK -- Fri Nov  1 11:20:46 MST 2002
+#  msmv job for RF05/04301207.roi -- OK -- Fri Nov  1 11:20:48 MST 2002
+#  msmv job for RF05/04301247.roi -- OK -- Fri Nov  1 11:20:49 MST 2002
+#  msmv job for RF05/04301601.roi -- OK -- Fri Nov  1 11:20:50 MST 2002
+#  Completed on Fri Nov  1 11:20:50 MST 2002
+#
+#  6th wave
+#  5 Job(s) submitted on Fri Nov  1 11:21:34 MST 2002
+#  msmv job for TF01/04031435.roi -- OK -- Fri Nov  1 11:21:35 MST 2002
+#  msmv job for TF01/04031505.roi -- OK -- Fri Nov  1 11:21:38 MST 2002
+#  msmv job for TF01/04031530.roi -- OK -- Fri Nov  1 11:21:40 MST 2002
+#  msmv job for TF01/04031531.roi -- OK -- Fri Nov  1 11:21:44 MST 2002
+#  msmv job for TF01/04031557.roi -- OK -- Fri Nov  1 11:21:46 MST 2002
+#  Completed on Fri Nov  1 11:21:46 MST 2002
+#

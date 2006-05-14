@@ -1,0 +1,16 @@
+		    Rain in Cumulus over the Ocean (RICO)
+			  NCAR C-130 - Project #5-135
+				 Data Quality Report
+
+
+Section III:  Special Notes on the High Rate Data Sets
+
+The high rate (HRT) data sets produced for the RICO project are subsets of the total list of available variables provided in the standard (1 sps) data archive.  Only key parameters were included in the HRT archive in order to minimize the overall size of the data files and make them more manageable for the average participant.  A separate HRT variable list has been included in the on-line project documentation.  Both the standard and HRT data files can be accessed via the RAF web site.
+
+1)Different sensors have different response times.  In order to make the resultant data more useable, C-130 HRT data files output most of the variables at a standard rate of 25 sps.  For sensors samples at higher rates, the data are averaged down to 25 sps.  Slower sensors, sampled at 5 sps or even 1 Hz, are handled on a case-by-case basis.  Key low rate variables such as GPS altitude and ground speed are interpolated up to the standard 25 sps output rate.  Other low rate variables are simply output at the standard 1 sps rate.
+
+2)PMS 1-D particle probe data are sampled at 10 sps and output at the same rate in the HRT data files.  Concentration data from the PMS 2-D probes are output at 1 sps in the HRT files because they are recorded asynchronously and have no set rate.
+
+3)RAF special programs designed to reduce excess baseline drift in certain variables are not available on HRT data sets.  Take special note of the fact that the King Probe liquid water data (PLWCC, PLWCC1) fall into this category.  Excess zero drift in these two variables has been removed from the data in the standard archive.  This is not the case with the HRT data set.  Comparisons of PLWCC and PLWCC1 values between the two data sets (1 sps & 25 sps) will show some differences in absolute value due to this difference in zero offset.  On some flights this difference can be as large as 0.05 g/m3.
+
+4)RAF has special programs designed to calculate new, special function variables for selected projects. These optional functions are not available on HRT data sets.  Specifically, the drift corrected output of the OPHIR-III in-cloud temperature (XOAT) and the altitude corrected remote surface temperature (XTSURF) fall into this category.  Neither of the base sensors for these calculations are particularly fast, anyway, so most of the structure in a high rate output of these variables would be interpolation.  Both variables are available in the standard data archive files. 

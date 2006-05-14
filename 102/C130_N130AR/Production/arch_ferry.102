@@ -1,0 +1,59 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output Ferry Flight files for 1999-102 INDOEX (Clarke, et al.)
+#
+#  File created by Ron Ruth (modified version of arch.102) on Wed Dec 15 10:56:58 MST 1999
+#
+date
+#
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+set YEAR = 1999
+set PROJ = 102
+set SDIR = $PROD_DATA
+#
+set TURBRT = LRT
+#
+#  Flights that have completed successfully as of 11 January 2000
+#echo nrnet msput $SDIR/102ff01.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF01.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff03.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF03.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff05a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff05b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF05B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff06a.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF06A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff06b.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF06B.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#echo nrnet msput $SDIR/102ff10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+#  Flights that need to have raw data properly archived before processing
+#echo nrnet msput $SDIR/102ff11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/FF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG
+#
+exit
+#
+#  1st group (reprocessing completed before 11 January 2000)
+#  Job(s) submitted on Tue Jan 11 11:46:15 MST 2000
+# Sequence number = LN9108 -- LRT/FF01.cdf -- OK @ 11 Jan 2000 11:46:28
+# Sequence number = LN9116 -- LRT/FF02.cdf -- OK @ 11 Jan 2000 11:46:32
+# Sequence number = LN9124 -- LRT/FF03.cdf -- OK @ 11 Jan 2000 11:46:30
+# Sequence number = LN9134 -- LRT/FF04.cdf -- OK @ 11 Jan 2000 11:46:29
+# Sequence number = LN9143 -- LRT/FF05A.cdf -- OK @ 11 Jan 2000 11:50:30
+# Sequence number = LN9154 -- LRT/FF05B.cdf -- OK @ 11 Jan 2000 11:50:25
+# Sequence number = LN9164 -- LRT/FF06A.cdf -- OK @ 11 Jan 2000 11:50:30
+# Sequence number = LN9172 -- LRT/FF06B.cdf -- OK @ 11 Jan 2000 11:50:30
+# Sequence number = LN9180 -- LRT/FF07.cdf -- OK @ 11 Jan 2000 11:54:42
+# Sequence number = LN9188 -- LRT/FF08.cdf -- OK @ 11 Jan 2000 11:56:35
+# Sequence number = LN9196 -- LRT/FF09.cdf -- OK @ 11 Jan 2000 11:54:42
+# Sequence number = LN9204 -- LRT/FF10.cdf -- OK @ 11 Jan 2000 11:54:44
+#
+#  2nd group (reprocessing completed before 14 January 2000)
+#  Job(s) submitted on Thu Jan 13 16:56:12 MST 2000
+# Sequence number = LN4110 -- LRT/FF11.cdf -- OK @ 13 Jan 2000 16:56:30
+# 

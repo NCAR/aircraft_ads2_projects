@@ -1,0 +1,78 @@
+**** BEGIN LOGGING AT Fri Sep 19 13:48:54 2003
+
+Sep 19 13:48:54 -->	You are now talking on #IDEAS3
+Sep 19 14:23:17 -->	jpfugal-c130 (~jpfugal@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 14:27:29 <Ron>	N130AR leaving RAF tarmac
+Sep 19 14:27:36 <Ron>	ATID KBJC 191946Z 14008KT 50SM FEW080 21/M03 A3013
+Sep 19 14:28:34 -->	cockpit-c130 (~ads@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 14:29:47 <cockpit-c130>	taxi now
+Sep 19 14:30:10 <cockpit-c130>	will do climb to 22 k to check for dust profile on IN
+Sep 19 14:30:38 <cockpit-c130>	after that look for visible moisture 
+Sep 19 14:31:27 <jpfugal-c130>	Last visible satallite I saw showed moisture a bit west of rocky mountain np.
+Sep 19 14:32:50 <Ron>	ATIS KBJC 191946Z 14008KT 50SM FEW080 21/M03 A3013
+Sep 19 14:33:56 <Ron>	takeoff
+Sep 19 14:36:08 <beaton>	Could someone ask Dave R. if he has rebooted clyde since the satcom link came up?
+Sep 19 14:36:32 <cockpit-c130>	cleared to 12 kfeet initally higher later
+Sep 19 14:37:18 <cockpit-c130>	now cleared to 22 kfeet
+Sep 19 14:38:45 <cockpit-c130>	top of BL is at 9.3 kfeet
+Sep 19 14:39:01 <jpfugal-c130>	I told dave rogers. He's rebooting now
+Sep 19 14:39:32 <beaton>	Thanks, Jacob.
+Sep 19 14:41:31 <jpfugal-c130>	In case you didn't know, Jeff, I really like your updates on chat.  They're more useful than the ones over the intercom.
+Sep 19 14:45:55 -->	clyde-c130 (~ads@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 14:46:07 <clyde-c130>	ick daveR-c130
+Sep 19 14:46:18 ---	clyde-c130 is now known as daveR-c130
+Sep 19 14:47:08 <daveR-c130>	Stuart- clyde rebooted. There is disk activity ~1hz. Where are axis image files stored?
+Sep 19 14:47:17 <twohy>	Dave: I have to go to the EM lab in a few minutes--is everything OK w/ the CVI so far?
+Sep 19 14:48:08 <beaton>	dave, the images are in the CameraTest directory. (Note capitalization, C..T..)
+Sep 19 14:50:40 <--	cockpit-c130 has quit (Ping timeout)
+Sep 19 14:50:50 <--	jpfugal-c130 has quit (Ping timeout)
+Sep 19 14:50:54 <--	daveR-c130 has quit (Ping timeout)
+Sep 19 14:51:57 -->	schanot (~8075543a@linus.atd.ucar.edu) has joined #IDEAS3
+Sep 19 14:54:33 <twohy>	Ron: If Dave R. ever responds and needs any help w/ the CVI, someone can call me on my cell at 503-260-5099. Got to go. Tx
+Sep 19 14:54:57 -->	jpfugal-c130 (~jpfugal@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 14:55:11 -->	cockpit-c130 (~ads@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 14:55:40 -->	daveR-c130 (~ads@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 14:56:46 <--	twohy has quit (CGI:IRC)
+Sep 19 14:57:45 <Cowan>	DaveR If you need Cindy she can be reached at 503-260-5099.
+Sep 19 14:58:15 <daveR-c130>	John- okay, thanks.  Right now, we're fighting aft-DSM deaths, two so far.
+Sep 19 14:58:22 <cockpit-c130>	still having trouble with dsystem
+Sep 19 14:58:49 <cockpit-c130>	Cu humulus near Leadvill after data system comes up
+Sep 19 15:00:09 <schanot>	make sure the CMIGITS and 858 tranducers are offline while booting DSM's
+Sep 19 15:00:24 <Cowan>	DaveR Remind them that the need to turn off the 858 probe to get it to reboot correctly.
+Sep 19 15:01:27 <--	daveR-c130 has quit (Ping timeout)
+Sep 19 15:01:46 <--	jpfugal-c130 has quit (Ping timeout)
+Sep 19 15:01:49 <--	cockpit-c130 has quit (Ping timeout)
+Sep 19 15:04:03 -->	daveR-c130 (~ads@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 15:04:20 -->	jpfugal-c130 (~jpfugal@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 15:05:19 <Cowan>	Have the Techs turn Off and LEAVE OFF the 858 for the rest of the flight, Al Concurs!!! 
+Sep 19 15:07:58 -->	cockpit-c130 (~ads@ras18.ucar.edu) has joined #IDEAS3
+Sep 19 15:08:34 <cockpit-c130>	now have clearance to hold at -14 C in cu hu south of Leadville
+Sep 19 15:10:53 <Cowan>	Is the data system behaving better?
+Sep 19 15:13:49 <cockpit-c130>	good pass at -14, peak fssp about 650, one more then lower
+Sep 19 15:29:29 <daveR-c130>	Can someone ping Stuart and ask how I can confirm Axis camera is logging?
+Sep 19 15:30:32 -->	campos (~807554a4@linus.atd.ucar.edu) has joined #IDEAS3
+Sep 19 15:31:10 <--	campos has quit (CGI:IRC)
+Sep 19 15:31:17 -->	ruth (~8075541b@linus.atd.ucar.edu) has joined #IDEAS3
+Sep 19 15:31:23 -->	campos (~807554a4@linus.atd.ucar.edu) has joined #IDEAS3
+Sep 19 15:31:30 <--	ruth has quit (CGI:IRC)
+Sep 19 15:31:37 <beaton>	Dave, The images are in ~/CameraTest. The filename ends with the time, last 6 digits before .jpg   If you are in the CameraTest directory, then typing ls | tail will give you the lst 10 files.
+Sep 19 15:31:51 <beaton>	A new file will be added every second if the camera is logging.
+Sep 19 15:36:47 <cockpit-c130>	we are going to descend to 17.5, get cloud base sample 3 min and RTB
+Sep 19 15:42:23 <cockpit-c130>	cn jumps from 2000 to 6000 under cloud
+Sep 19 15:43:13 <cockpit-c130>	heading hom
+Sep 19 15:43:15 <cockpit-c130>	e
+Sep 19 15:47:20 <--	schanot has quit (CGI:IRC (EOF))
+Sep 19 15:47:42 <--	Cowan has quit (ChatZilla 0.8.31 [Mozilla rv:1.4/20030624])
+Sep 19 15:50:03 <--	anstett has quit (Flood)
+Sep 19 15:50:08 -->	anstett (~chatzilla@blizzard.atd.ucar.edu) has joined #IDEAS3
+Sep 19 15:50:59 <jpfugal-c130>	teresa your system has a runtime error, abnormal program termnation. What to do?
+Sep 19 15:51:47 <daveR-c130>	Stuart - ~/CameraTest is empty.
+Sep 19 15:51:55 <Ron>	Jacob,  Just turn off the toggle switch on the front panel (from Teresa)
+Sep 19 15:52:55 <jpfugal-c130>	I turned off a toggle switch and the screen went blank. Right toggle switch?
+Sep 19 15:53:33 <Ron>	Jacob, That's what's supposed to happen.
+Sep 19 15:54:35 <beaton>	Dave, can you get images from the browser? One the camera, is the green plug with the red wire loop plugged in?
+Sep 19 16:02:40 <Ron>	N130AR landing
+Sep 19 16:05:12 <--	beaton has quit (Client exiting)
+Sep 19 16:05:18 <Ron>	N130AR on RAF tarmac
+**** ENDING LOGGING AT Fri Sep 19 16:05:46 2003
+

@@ -1,0 +1,292 @@
+#! /bin/csh -f
+#
+#  Archive production netCDF data files for 2000-143 TOPSE
+#    using the new ATD directory path
+#
+#   Must be run from a project's Production subdirectory
+#
+#  File adapted from file /jnet/local/proj/143/Production/archive/arads.143
+#    by Ron Ruth   8 August 2K
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#goto rename
+#
+#  Rename files for RF16 (segment names got a lower-case letter by mistake)
+#goto rename2
+#
+#  Get setup information for this project
+@ plat = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+@ plat /= 100
+if ($plat == 1) set PLATFORM = N130AR
+if ($plat == 8) set PLATFORM = N308D
+set YEAR = `grep CY proj.info | sed -e "s/CY=//"`
+set PROJ = `cat ../ProjectName`
+set TYPE = LRT
+#  set extent for Production NIMBUS netCDF file
+set EXTENT = PNI.nc
+#set SDIR = $TEMP
+set SDIR = $PROD_DATA
+#set SDIR = $DATA_DIR
+#set SDIR = $DATA_DIR/topse
+#
+#  1st wave
+#set SFILES = ( \
+#143rf01.cdf \
+#)
+#set DFILES = ( \
+#RF01 \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#143rf02.cdf \
+#143rf03.cdf \
+#143rf04.cdf \
+#143rf05.cdf \
+#143rf06.cdf \
+#143rf07.cdf \
+#143rf08.cdf \
+#143rf09.cdf \
+#143rf10.cdf \
+#143rf11.cdf \
+#143rf12.cdf \
+#143rf13.cdf \
+#143rf14.cdf \
+#143rf15.cdf \
+#143rf16a.cdf \
+#143rf16b.cdf \
+#143rf17.cdf \
+#143rf18.cdf \
+#143rf19.cdf \
+#143rf20.cdf \
+#143rf21.cdf \
+#143rf22.cdf \
+#143rf23.cdf \
+#143rf24.cdf \
+#143rf25.cdf \
+#143rf26.cdf \
+#143rf28.cdf \
+#143rf29.cdf \
+#143rf30.cdf \
+#143rf31.cdf \
+#143rf32.cdf \
+#)
+#set DFILES = ( \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15 \
+#RF16a \
+#RF16b \
+#RF17 \
+#RF18 \
+#RF19 \
+#RF20 \
+#RF21 \
+#RF22 \
+#RF23 \
+#RF24 \
+#RF25 \
+#RF26 \
+#RF28 \
+#RF29 \
+#RF30 \
+#RF31 \
+#RF32 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r \
+      flnm=/ATD/DATA/$YEAR/$PROJ/$PLATFORM/$TYPE/$DFILE.$EXTENT \
+      rtpd=32767 name=RAF proj=41113009 w=RAFDMG
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    exit 1
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /ATD/DATA/2000/TOPSE/N130AR/LRT/
+#
+#  1st wave
+#  Job(s) submitted on Fri Aug 11 10:14:27 MDT 2000
+# Sequence number = LN9080 -- RF01.PNI.nc -- OK @ 11 Aug 2000 10:18:08
+#
+#  2nd wave
+#  Job(s) submitted on Fri Aug 11 10:22:51 MDT 2000
+# Sequence number = LN9231 -- RF02.PNI.nc -- OK @ 11 Aug 2000 10:26:34
+# Sequence number = LN9239 -- RF03.PNI.nc -- OK @ 11 Aug 2000 10:26:21
+# Sequence number = LN9247 -- RF04.PNI.nc -- OK @ 11 Aug 2000 10:26:43
+# Sequence number = LN9256 -- RF05.PNI.nc -- OK @ 11 Aug 2000 10:26:10
+# Sequence number = LN9265 -- RF06.PNI.nc -- OK @ 11 Aug 2000 10:30:19
+# Sequence number = LN9275 -- RF07.PNI.nc -- OK @ 11 Aug 2000 10:30:25
+# Sequence number = LN9285 -- RF08.PNI.nc -- OK @ 11 Aug 2000 10:30:32
+# Sequence number = LN9295 -- RF09.PNI.nc -- OK @ 11 Aug 2000 10:29:44
+# Sequence number = LN9303 -- RF10.PNI.nc -- OK @ 11 Aug 2000 10:34:12
+# Sequence number = LN9311 -- RF11.PNI.nc -- OK @ 11 Aug 2000 10:34:33
+# Sequence number = LN9319 -- RF12.PNI.nc -- OK @ 11 Aug 2000 10:34:01
+# Sequence number = LN9327 -- RF13.PNI.nc -- OK @ 11 Aug 2000 10:34:24
+# Sequence number = LN9335 -- RF14.PNI.nc -- OK @ 11 Aug 2000 10:38:15
+# Sequence number = LN9343 -- RF15.PNI.nc -- OK @ 11 Aug 2000 10:37:44
+# Sequence number = LN9351 -- RF16a.PNI.nc -- OK @ 11 Aug 2000 10:38:22
+# Sequence number = LN9359 -- RF16b.PNI.nc -- OK @ 11 Aug 2000 10:36:22
+# Sequence number = LN9367 -- RF17.PNI.nc -- OK @ 11 Aug 2000 10:41:49
+# Sequence number = LN9375 -- RF18.PNI.nc -- OK @ 11 Aug 2000 10:41:08
+# Sequence number = LN9383 -- RF19.PNI.nc -- OK @ 11 Aug 2000 10:41:38
+# Sequence number = LN9391 -- RF20.PNI.nc -- OK @ 11 Aug 2000 10:41:55
+# Sequence number = LN9399 -- RF21.PNI.nc -- OK @ 11 Aug 2000 10:46:27
+# Sequence number = LN9407 -- RF22.PNI.nc -- OK @ 11 Aug 2000 10:46:50
+# Sequence number = LN9415 -- RF23.PNI.nc -- OK @ 11 Aug 2000 10:46:32
+# Sequence number = LN9423 -- RF24.PNI.nc -- OK @ 11 Aug 2000 10:46:59
+# Sequence number = LN9431 -- RF25.PNI.nc -- OK @ 11 Aug 2000 10:51:31
+# Sequence number = LN9439 -- RF26.PNI.nc -- OK @ 11 Aug 2000 10:51:37
+# Sequence number = LN9447 -- RF28.PNI.nc -- OK @ 11 Aug 2000 10:51:45
+# Sequence number = LN9455 -- RF29.PNI.nc -- OK @ 11 Aug 2000 10:51:26
+# Sequence number = LN9463 -- RF30.PNI.nc -- OK @ 11 Aug 2000 10:57:10
+# Sequence number = LN9471 -- RF31.PNI.nc -- OK @ 11 Aug 2000 10:57:25
+# Sequence number = LN9479 -- RF32.PNI.nc -- OK @ 11 Aug 2000 10:56:54
+#
+#rename:
+#  Rename bitfiles with new naming convention that includes flight date and times.
+#
+date
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF01.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF01.20000204.152500_221600.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF02.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF02.20000207.154400_224100.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF03.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF03.20000209.184500_010201.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF04.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF04.20000221.150000_235958.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF05.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF05.20000223.132800_193915.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF06.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF06.20000225.145000_212500.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF07.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF07.20000227.164256_233332.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF08.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF08.20000305.145700_215150.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF09.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF09.20000307.132500_183355.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF10.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF10.20000308.171000_231800.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF11.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF11.20000319.145000_232812.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF12.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF12.20000321.125449_183922.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF13.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF13.20000323.132310_193940.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF14.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF14.20000324.143023_204326.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF15.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF15.20000326.170340_002428.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF16a.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF16a.20000402.153500_185358.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF16b.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF16b.20000402.233400_020041.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF17.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF17.20000404.115200_173500.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF18.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF18.20000406.125500_165000.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF19.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF19.20000407.145400_175830.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF20.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF20.20000410.142100_204830.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF21.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF21.20000411.135000_201912.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF22.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF22.20000423.153000_003401.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF23.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF23.20000425.114249_181257.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF24.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF24.20000427.115610_182552.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF25.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF25.20000428.135628_202913.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF26.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF26.20000430.155500_225040.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF28.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF28.20000515.163928_005219.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF29.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF29.20000518.114815_175920.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF30.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF30.20000519.115323_174139.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF31.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF31.20000522.131413_210845.PNI.nc wpwd=RAFDMG
+# nrnet msmv % r flnm=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF32.PNI.nc newf=/ATD/DATA/2000/TOPSE/N130AR/LRT/RF32.20000523.155559_201531.PNI.nc wpwd=RAFDMG
+exit
+#
+#  New MSS bitfile name structure:
+#            /ATD/DATA/2000/TOPSE/N130AR/LRT/fltno.yyyymmdd.hhmms_hhmms.PNI.nc
+#  Jobs submitted on Tue Sep  5 13:06:57 MDT 2000
+#  (Names listed below are those _before_ the rename occurred.  See commands
+#   above for the correct names.  They are a bit long to list here.)
+# Sequence number = LN0606 -- /TOPSE/N130AR/LRT/RF01.PNI.nc -- OK @ 5 Sep 2000 13:06:59
+# Sequence number = LN0614 -- /TOPSE/N130AR/LRT/RF02.PNI.nc -- OK @ 5 Sep 2000 13:07:00
+# Sequence number = LN0622 -- /TOPSE/N130AR/LRT/RF03.PNI.nc -- OK @ 5 Sep 2000 13:07:00
+# Sequence number = LN0630 -- /TOPSE/N130AR/LRT/RF04.PNI.nc -- OK @ 5 Sep 2000 13:07:01
+# Sequence number = LN0638 -- /TOPSE/N130AR/LRT/RF05.PNI.nc -- OK @ 5 Sep 2000 13:07:02
+# Sequence number = LN0646 -- /TOPSE/N130AR/LRT/RF06.PNI.nc -- OK @ 5 Sep 2000 13:07:02
+# Sequence number = LN0654 -- /TOPSE/N130AR/LRT/RF07.PNI.nc -- OK @ 5 Sep 2000 13:07:03
+# Sequence number = LN0662 -- /TOPSE/N130AR/LRT/RF08.PNI.nc -- OK @ 5 Sep 2000 13:07:03
+# Sequence number = LN0670 -- /TOPSE/N130AR/LRT/RF09.PNI.nc -- OK @ 5 Sep 2000 13:07:04
+# Sequence number = LN0678 -- /TOPSE/N130AR/LRT/RF10.PNI.nc -- OK @ 5 Sep 2000 13:07:04
+# Sequence number = LN0691 -- /TOPSE/N130AR/LRT/RF11.PNI.nc -- OK @ 5 Sep 2000 13:11:03
+# Sequence number = LN0711 -- /TOPSE/N130AR/LRT/RF12.PNI.nc -- OK @ 5 Sep 2000 13:07:05
+# Sequence number = LN0729 -- /TOPSE/N130AR/LRT/RF13.PNI.nc -- OK @ 5 Sep 2000 13:07:06
+# Sequence number = LN0739 -- /TOPSE/N130AR/LRT/RF14.PNI.nc -- OK @ 5 Sep 2000 13:07:06
+# Sequence number = LN0756 -- /TOPSE/N130AR/LRT/RF15.PNI.nc -- OK @ 5 Sep 2000 13:07:07
+# Sequence number = LN0773 -- /TOPSE/N130AR/LRT/RF16a.PNI.nc -- OK @ 5 Sep 2000 13:07:07
+# Sequence number = LN0790 -- /TOPSE/N130AR/LRT/RF16b.PNI.nc -- OK @ 5 Sep 2000 13:07:08
+# Sequence number = LN0812 -- /TOPSE/N130AR/LRT/RF17.PNI.nc -- OK @ 5 Sep 2000 13:07:08
+# Sequence number = LN0833 -- /TOPSE/N130AR/LRT/RF18.PNI.nc -- OK @ 5 Sep 2000 13:07:09
+# Sequence number = LN0854 -- /TOPSE/N130AR/LRT/RF19.PNI.nc -- OK @ 5 Sep 2000 13:07:09
+# Sequence number = LN0868 -- /TOPSE/N130AR/LRT/RF20.PNI.nc -- OK @ 5 Sep 2000 13:07:10
+# Sequence number = LN0885 -- /TOPSE/N130AR/LRT/RF21.PNI.nc -- OK @ 5 Sep 2000 13:07:11
+# Sequence number = LN0900 -- /TOPSE/N130AR/LRT/RF22.PNI.nc -- OK @ 5 Sep 2000 13:07:11
+# Sequence number = LN0916 -- /TOPSE/N130AR/LRT/RF23.PNI.nc -- OK @ 5 Sep 2000 13:07:12
+# Sequence number = LN0932 -- /TOPSE/N130AR/LRT/RF24.PNI.nc -- OK @ 5 Sep 2000 13:07:12
+# Sequence number = LN0947 -- /TOPSE/N130AR/LRT/RF25.PNI.nc -- OK @ 5 Sep 2000 13:07:13
+# Sequence number = LN0961 -- /TOPSE/N130AR/LRT/RF26.PNI.nc -- OK @ 5 Sep 2000 13:07:14
+# Sequence number = LN0975 -- /TOPSE/N130AR/LRT/RF28.PNI.nc -- OK @ 5 Sep 2000 13:07:14
+# Sequence number = LN0988 -- /TOPSE/N130AR/LRT/RF29.PNI.nc -- OK @ 5 Sep 2000 13:07:15
+# Sequence number = LN1003 -- /TOPSE/N130AR/LRT/RF30.PNI.nc -- OK @ 5 Sep 2000 13:07:15
+# Sequence number = LN1015 -- /TOPSE/N130AR/LRT/RF31.PNI.nc -- OK @ 5 Sep 2000 13:07:16
+# Sequence number = LN1025 -- /TOPSE/N130AR/LRT/RF32.PNI.nc -- OK @ 5 Sep 2000 13:07:17
+#
+rename2:
+#  Rename segments for RF16 (names should be upper case)
+#echo "#  2 job(s) submitted on `date`"
+#msmv -wpwd RAFDMG /ATD/DATA/2000/TOPSE/C130_N130AR/LRT/RF16a.20000402.153500_185358.PNI.nc /ATD/DATA/2000/TOPSE/C130_N130AR/LRT/RF16A.20000402.153500_185358.PNI.nc
+#msmv -wpwd RAFDMG /ATD/DATA/2000/TOPSE/C130_N130AR/LRT/RF16b.20000402.233400_020041.PNI.nc /ATD/DATA/2000/TOPSE/C130_N130AR/LRT/RF16B.20000402.233400_020041.PNI.nc
+#echo "#   Completed on `date`"
+#
+#  2 job(s) submitted on Tue Jul 13 10:48:12 MDT 2004
+#   Completed on Tue Jul 13 10:48:14 MDT 2004
+#

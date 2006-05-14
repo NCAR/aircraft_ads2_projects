@@ -1,0 +1,61 @@
+SCMS (Small Cumulus Microphysics Study) - 162, Flight RF10
+PSURF already added to derived list, ignoring duplicate, check dependencies.
+PVOL3 has no dependencies, turning off.
+PVOLP has no dependencies, turning off.
+RADCF has no dependencies, turning off.
+SWTC has no dependencies, turning off.
+Loading setup file: /usr/local/proj/162/Production/Flight_6
+Loading setup file: /usr/local/proj/162/Production/Flight_10
+PLANTMP has no description or units.
+PLCPTMP has no description or units.
+PLSLTMP has no description or units.
+PLSRTMP has no description or units.
+BLONGA has no description or units.
+HGM232S has no description or units.
+PVOL3_LPO has no description or units.
+PVOLP_RPC has no description or units.
+RADCF has no description or units.
+SWTC has no description or units.
+Request for non-existent default, ASTG.
+ASTG set to 1013.245972 in AMLIB function initPalt.
+Request for non-existent default, SFCT.
+SFCT set to 288.149994 in AMLIB function initPalt.
+Request for non-existent default, TWIRE_DIAM.
+Value set to 0.210000 in AMLIB function plwccInit.
+Request for non-existent default, PSURF_ALT_MAX.
+Value set to 7000.000000 in AMLIB function initPsurf.
+Processed on: Jan 22 23:32 UTC 2001
+Flight Date: 07/31/1995
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+BLONGA has no entry in the VarDB.
+Time lag for FACT_IBR enabled, with lag of -100 milliseconds.
+Time lag for FRST_IBR enabled, with lag of -100 milliseconds.
+Time lag for FSTB_IBR enabled, with lag of -100 milliseconds.
+Time lag for GSF enabled, with lag of -140 milliseconds.
+Time lag for LAT enabled, with lag of -130 milliseconds.
+Time lag for LON enabled, with lag of -130 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_ROLL_MAX.
+Value set to 40.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_TAUP.
+Value set to 100.000000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time interval(s) completed : 14:04:11-15:38:45
+ACINS: 4 spikes removed with slope exceeding 4.000000
+PITCH: 70 spikes removed with slope exceeding 0.300000
+ROLL: 137 spikes removed with slope exceeding 0.200000
+THDG: 1 spikes removed with slope exceeding 0.300000
+VEW: 35 spikes removed with slope exceeding 1.200000
+VNS: 29 spikes removed with slope exceeding 1.200000
+VSPD: 24 spikes removed with slope exceeding 0.600000
+Processing took 2.9 minutes.

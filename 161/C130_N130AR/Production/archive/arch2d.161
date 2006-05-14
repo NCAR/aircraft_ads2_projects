@@ -1,0 +1,251 @@
+#! /bin/csh -f
+#
+#goto rename
+#
+#  Archive stripped raw PMS-2D data files for 2001-161 EPIC2001
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file /home/local/proj/102/Production/arch2d.181
+#   by Ron Ruth  16 October 2001
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set YEAR = `grep FY ../proj.info | sed -e "s/FY=//"`
+#set TYPE = PMS2D
+#
+# Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave (original data)
+#set TYPE = PMS2D/ORIGINAL
+#set SFILES = ( \
+#161ff01a.2d  \
+#161ff02a.2d  \
+#161rf01a.2d  \
+#161rf02a.2d  \
+#161rf03a.2d  \
+#161rf03b.2d  \
+#161rf04a.2d  \
+#161rf05a.2d  \
+#161rf06a.2d  \
+#161rf07a.2d  \
+#161rf08a.2d  \
+#161rf09a.2d  \
+#161rf10a.2d  \
+#161rf11a.2d  \
+#161rf12a.2d  \
+#161rf13a.2d  \
+#161rf14a.2d  \
+#161rf15a.2d  \
+#161rf15b.2d  \
+#161rf16a.2d  \
+#161rf17a.2d  \
+#161rf18a.2d  \
+#161rf18b.2d  \
+#161rf19a.2d  \
+#161tf01a.2d  \
+#161tf02a.2d  \
+#161tf02b.2d  \
+#161tf03a.2d  \
+#161tf04a.2d  \
+#161tf04b.2d  \
+#161tf05a.2d  \
+#)
+#set DFILES = ( \
+#FF01  \
+#FF02  \
+#RF01  \
+#RF02  \
+#RF03A  \
+#RF03B  \
+#RF04  \
+#RF05  \
+#RF06  \
+#RF07  \
+#RF08  \
+#RF09  \
+#RF10  \
+#RF11  \
+#RF12  \
+#RF13  \
+#RF14  \
+#RF15A  \
+#RF15B  \
+#RF16  \
+#RF17  \
+#RF18A  \
+#RF18B  \
+#RF19  \
+#TF01  \
+#TF02A  \
+#TF02B  \
+#TF03  \
+#TF04A  \
+#TF04B  \
+#TF05A  \
+#)
+#
+#  3rd wave (corrected data)
+#set TYPE = PMS2D
+#set SFILES = ( \
+#161ff01a.2d \
+#161rf01a.2d \
+#161rf03a.2d \
+#161rf04a.2d \
+#161rf05a.2d \
+#161rf06a.2d \
+#161rf07a.2d \
+#161rf08a.2d \
+#161rf09a.2d \
+#161rf10a.2d \
+#161rf12a.2d \
+#161rf13a.2d \
+#161rf14a.2d \
+#161rf16a.2d \
+#161rf17a.2d \
+#161rf18b.2d \
+#161tf02b.2d \
+#n161rf02a.2d \
+#n161tf01a.2d \
+#n161tf02a.2d \
+#n161tf03a.2d \
+#)
+#set DFILES = ( \
+#FF01 \
+#RF01 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#RF10 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF16 \
+#RF17 \
+#RF18 \
+#TF02B \
+#RF02 \
+#TF01 \
+#TF02A \
+#TF03 \
+#)
+#
+#
+#  Get started:
+date
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/$TYPE/$DFILE \
+      rtpd=4095 name=RAF proj=41113009 wpwd=RAFDMG $RPWD
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+    @ num ++
+  endif
+end
+#
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/161/PMS2D/ORIGINAL/
+#
+#  1st wave
+#  Job(s) submitted on Wed Oct 17 16:43:26 MDT 2001
+# Sequence number = LN9232 -- PMS2D/ORIGINAL/FF01 -- OK @ 17 Oct 2001 16:47:12
+# Sequence number = LN9240 -- PMS2D/ORIGINAL/FF02 -- OK @ 17 Oct 2001 16:47:07
+# Sequence number = LN9248 -- PMS2D/ORIGINAL/RF01 -- OK @ 17 Oct 2001 16:45:32
+# Sequence number = LN9258 -- PMS2D/ORIGINAL/RF02 -- OK @ 17 Oct 2001 16:45:51
+# Sequence number = LN9266 -- PMS2D/ORIGINAL/RF03A -- OK @ 17 Oct 2001 16:47:36
+# Sequence number = LN9277 -- PMS2D/ORIGINAL/RF03B -- OK @ 17 Oct 2001 16:50:07
+# Sequence number = LN9289 -- PMS2D/ORIGINAL/RF04 -- OK @ 17 Oct 2001 16:56:37
+# Sequence number = LN9298 -- PMS2D/ORIGINAL/RF05 -- OK @ 17 Oct 2001 16:48:44
+# Sequence number = LN9306 -- PMS2D/ORIGINAL/RF06 -- OK @ 17 Oct 2001 16:53:28
+# Sequence number = LN9315 -- PMS2D/ORIGINAL/RF07 -- OK @ 17 Oct 2001 16:57:26
+# Sequence number = LN9325 -- PMS2D/ORIGINAL/RF08 -- OK @ 17 Oct 2001 16:56:59
+# Sequence number = LN9333 -- PMS2D/ORIGINAL/RF09 -- OK @ 17 Oct 2001 16:57:29
+# Sequence number = LN9341 -- PMS2D/ORIGINAL/RF10 -- OK @ 17 Oct 2001 17:09:13
+# Sequence number = LN9350 -- PMS2D/ORIGINAL/RF11 -- OK @ 17 Oct 2001 16:59:56
+# Sequence number = LN9362 -- PMS2D/ORIGINAL/RF12 -- OK @ 17 Oct 2001 17:04:01
+# Sequence number = LN9384 -- PMS2D/ORIGINAL/RF13 -- OK @ 17 Oct 2001 17:06:09
+# Sequence number = LN9402 -- PMS2D/ORIGINAL/RF14 -- OK @ 17 Oct 2001 17:05:12
+# Sequence number = LN9410 -- PMS2D/ORIGINAL/RF15A -- OK @ 17 Oct 2001 17:09:26
+# Sequence number = LN9419 -- PMS2D/ORIGINAL/RF15B -- OK @ 17 Oct 2001 16:47:49
+# Sequence number = LN9428 -- PMS2D/ORIGINAL/RF16 -- OK @ 17 Oct 2001 17:09:26
+# Sequence number = LN9436 -- PMS2D/ORIGINAL/RF17 -- OK @ 17 Oct 2001 17:09:50
+# Sequence number = LN9444 -- PMS2D/ORIGINAL/RF18A -- OK @ 17 Oct 2001 17:11:46
+# Sequence number = LN9452 -- PMS2D/ORIGINAL/RF18B -- OK @ 17 Oct 2001 17:27:31
+# Sequence number = LN9462 -- PMS2D/ORIGINAL/RF19 -- OK @ 17 Oct 2001 17:13:23
+# Sequence number = LN9470 -- PMS2D/ORIGINAL/TF01 -- OK @ 17 Oct 2001 17:11:53
+# Sequence number = LN9478 -- PMS2D/ORIGINAL/TF02A -- OK @ 17 Oct 2001 17:16:00
+# Sequence number = LN9496 -- PMS2D/ORIGINAL/TF02B -- OK @ 17 Oct 2001 17:16:00
+# Sequence number = LN9508 -- PMS2D/ORIGINAL/TF03 -- OK @ 17 Oct 2001 17:19:55
+# Sequence number = LN9520 -- PMS2D/ORIGINAL/TF04A -- OK @ 17 Oct 2001 17:16:42
+# Sequence number = LN9536 -- PMS2D/ORIGINAL/TF04B -- OK @ 17 Oct 2001 17:27:48
+# Sequence number = LN9544 -- PMS2D/ORIGINAL/TF05A -- OK @ 17 Oct 2001 17:19:53
+#
+#rename:
+#date
+#nrnet msmv % r flnm=/RAF/2001/161/PMS2D/ORIGINAL/TF05A newf=/RAF/2001/161/PMS2D/ORIGINAL/TF05 wpwd=RAFDMG
+#  2nd wave
+#  Job(s) submitted on Thu Oct 18 09:31:04 MDT 2001
+# Sequence number = LN8707 -- PMS2D/ORIGINAL/TF05 -- OK @ 18 Oct 2001 09:31:07
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/161/PMS2D/
+#
+#  3rd wave (corrected data)
+#  Job(s) submitted on Fri Nov  2 14:32:25 MST 2001
+# Sequence number = LN8981 -- PMS2D/FF01 -- OK @ 2 Nov 2001 14:35:55
+# Sequence number = LN8989 -- PMS2D/RF01 -- OK @ 2 Nov 2001 14:34:15
+# Sequence number = LN8997 -- PMS2D/RF03 -- OK @ 2 Nov 2001 14:36:04
+# Sequence number = LN9005 -- PMS2D/RF04 -- OK @ 2 Nov 2001 14:42:44
+# Sequence number = LN9015 -- PMS2D/RF05 -- OK @ 2 Nov 2001 14:37:47
+# Sequence number = LN9026 -- PMS2D/RF06 -- OK @ 2 Nov 2001 14:38:37
+# Sequence number = LN9035 -- PMS2D/RF07 -- OK @ 2 Nov 2001 14:41:18
+# Sequence number = LN9045 -- PMS2D/RF08 -- OK @ 2 Nov 2001 14:43:22
+# Sequence number = LN9054 -- PMS2D/RF09 -- OK @ 2 Nov 2001 14:42:49
+# Sequence number = LN9062 -- PMS2D/RF10 -- OK @ 2 Nov 2001 14:52:17
+# Sequence number = LN9070 -- PMS2D/RF12 -- OK @ 2 Nov 2001 14:49:14
+# Sequence number = LN9078 -- PMS2D/RF13 -- OK @ 2 Nov 2001 14:51:31
+# Sequence number = LN9086 -- PMS2D/RF14 -- OK @ 2 Nov 2001 14:46:00
+# Sequence number = LN9094 -- PMS2D/RF16 -- OK @ 2 Nov 2001 14:48:44
+# Sequence number = LN9102 -- PMS2D/RF17 -- OK @ 2 Nov 2001 14:53:26
+# Sequence number = LN9110 -- PMS2D/RF18 -- Failed* @ 2 Nov 2001 14:52:34
+# Sequence number = LN9118 -- PMS2D/TF02B -- OK @ 2 Nov 2001 14:56:40
+# Sequence number = LN9126 -- PMS2D/RF02 -- OK @ 2 Nov 2001 14:53:35
+# Sequence number = LN9134 -- PMS2D/TF01 -- OK @ 2 Nov 2001 14:52:42
+# Sequence number = LN9142 -- PMS2D/TF02A -- OK @ 2 Nov 2001 14:52:42
+# Sequence number = LN9150 -- PMS2D/TF03 -- OK @ 2 Nov 2001 14:56:43
+#    *  zero-length file (not archived)
+#

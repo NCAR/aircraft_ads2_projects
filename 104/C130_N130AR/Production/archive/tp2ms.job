@@ -1,0 +1,167 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data tapes for 1999-104 Soil Moisture (Dinardo)
+#    rev. 990317  RLR  (adapt to new MIGS "msimp" verb)
+#    rev. 990503  RLR  (add noglob, "start" code)
+#    rev. 990813  RLR  (modify for this project)
+#
+#  Note:  For the tape images to be archived correctly, run this script:
+#         1.  under the "dmg" login ONLY;
+#         2.  from the project's `Production/archive' subdirectory.
+#
+#   To find executable (non-comment) lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+set noglob
+#
+#  Get initialization info
+set pfile = ../proj.info
+set YEAR = `grep FY $pfile | sed "s/FY=//"`
+set PROJ = `pwd | sed "s:$LOCAL/proj/::" | sed "s:/Production/archive::"`
+#
+#set TYPE = "9track ermx=99 den=1600"
+#set EOT  = eotp-ignore
+#
+#set TYPE = 8200
+set TYPE = 8500
+set EOT  = eotp-end
+#
+#set SKIPS   = ^B*0
+#set SKIPS   = ^B*100000
+#set SKIPS   = ^B*200000
+#
+#set RECS    = F*1
+#set RECS    = B*100000
+#
+goto start
+#
+#  1st set, 1st segment, 1st try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+##set RECS    = B*100000
+#set FLIGHTS = ( \
+#FF01 \
+#FF02 \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#FF03A \
+#FF03B \
+#RF07 \
+#RF08 \
+#RF09 \
+#FF04 \
+#)
+#set TAPES   = ( \
+#R1368 \
+#R1369 \
+#R1370 \
+#R1371 \
+#R1372 \
+#R1373 \
+#R1374 \
+#R1375 \
+#R1376 \
+#R1377 \
+#R1378 \
+#R1379 \
+#R1380 \
+#R1381 \
+#)
+#
+#  1st set, 1st segment, 2nd try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+##set RECS    = B*100000
+#set FLIGHTS = ( \
+#RF08 \
+#)
+#set TAPES   = ( \
+#R1379 \
+#)
+#
+#  1st set, 1st segment, 3rd try
+#set SKIPS   = ^B*0
+#set RECS    = F*1
+##set RECS    = B*100000
+#set FLIGHTS = ( \
+#TF02 \
+#)
+#set TAPES   = ( \
+#R1367 \
+#)
+#
+start:
+#
+#  Get started:
+set noglob
+date
+set todo = $#TAPES
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPES[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  if ($#SKIPS > 1) then
+    set SKIP = $SKIPS[$num]
+  else
+    set SKIP = $SKIPS
+  endif
+  if ($#RECS > 1) then
+    set REC = $RECS[$num]
+  else
+    set REC = $RECS
+  endif
+#
+  echo \
+  nrnet msimp % l proj=41113009 sci=9008 r opts="-keep" blk=50000 \
+   fmt=U cos=binary rtpd=4095 wpwd=RAFDMG type=$TYPE sub="$SKIP $REC $EOT" \
+   vol=$TAPE flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+#
+# done.
+exit
+#
+#  1st set, 1st segment, 1st try
+#  Job(s) submitted on Fri Aug 13 14:23:59 MDT 1999
+# Sequence number = MI2180 -- FF01/R1368 -- OK @ 13 Aug 1999 14:33:05
+# Sequence number = MI2187 -- FF02/R1369 -- OK @ 13 Aug 1999 14:41:43
+# Sequence number = MI2194 -- RF01/R1370 -- OK @ 13 Aug 1999 14:47:01
+# Sequence number = MI2203 -- RF02/R1371 -- OK @ 13 Aug 1999 14:59:00
+# Sequence number = MI2223 -- RF03/R1372 -- OK @ 13 Aug 1999 15:10:59
+# Sequence number = MI2233 -- RF04/R1373 -- OK @ 13 Aug 1999 15:17:59
+# Sequence number = MI2248 -- RF05/R1374 -- OK @ 13 Aug 1999 15:27:27
+# Sequence number = MI2260 -- RF06/R1375 -- OK @ 13 Aug 1999 15:38:10
+# Sequence number = MI2273 -- FF03A/R1376 -- OK @ 13 Aug 1999 15:41:58
+# Sequence number = MI2289 -- FF03B/R1377 -- OK @ 13 Aug 1999 15:46:37
+# Sequence number = MI2301 -- RF07/R1378 -- OK @ 13 Aug 1999 15:57:07
+# Sequence number = MI2311 -- RF08/R1379 -- Failed @ 13 Aug 1999 16:00:41
+# Sequence number = MI2325 -- RF09/R1380 -- OK @ 13 Aug 1999 16:15:58
+# Sequence number = MI2337 -- FF04/R1381 -- OK @ 13 Aug 1999 16:29:00
+#
+#  1st set, 1st segment, 2nd try
+#  Job(s) submitted on Fri Aug 13 16:32:05 MDT 1999
+# Sequence number = MI4813 -- RF08/R1379 -- OK @ 13 Aug 1999 16:49:26
+#
+#  1st set, 1st segment, 3rd try
+#  Job(s) submitted on Tue Aug 17 11:14:12 MDT 1999
+# Sequence number = MI6392 -- TF02/R1367 -- OK @ 17 Aug 99 11:38:11
+#
+#      set,     segment,     try
+#  Job(s) submitted on 
+#
+#

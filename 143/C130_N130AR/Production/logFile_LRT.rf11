@@ -1,0 +1,38 @@
+TOPSE - 143, Flight rf11
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+Loading setup file: /usr/local/proj/143/Production/Flight_rf11
+XDAFSTA has no description or units.
+XDAFSTB has no description or units.
+DIFF1 has no description or units.
+DIFF2 has no description or units.
+DIFF3 has no description or units.
+IAS has no description or units.
+PVOL3_RPI has no description or units.
+PVOLP_RPO has no description or units.
+RATIO has no description or units.
+Processed on: Jul 17 21:03 UTC 2000
+Flight Date: 03/19/2000
+Despiking enabled.
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+RATIO has no entry in the VarDB.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 1030 seconds ending @ 16:40:35, filling in with MISSING_VALUE.
+Time break of 3 seconds ending @ 16:40:39, filling in with MISSING_VALUE.
+Time break of 881 seconds ending @ 18:45:27, filling in with MISSING_VALUE.
+Time break of 2 seconds ending @ 18:45:30, filling in with MISSING_VALUE.
+Time break of 1 seconds ending @ 18:45:32, filling in with MISSING_VALUE.
+Time interval(s) completed : 14:50:00-23:28:12
+CNTS: 59 spikes removed with slope exceeding 3000.000000
+PSFRD: 2 spikes removed with slope exceeding 20.000000
+THDG: 5 spikes removed with slope exceeding 0.300000
+Processing took 2.9 minutes.

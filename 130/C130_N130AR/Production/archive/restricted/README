@@ -1,0 +1,17 @@
+This directory contains the C-shell script used to archive to the SCD Mass
+Store System (MSS) certain SCMS project data files with READ passwords to
+limit their access.  Since no access is possible without using the correct
+READ password, it is imperative that the passwords be documented somewhere,
+so this is the place.
+
+As of Mon Apr 21 15:55:36 MDT 1997,
+ these bitfiles        have this associated READ password:
+   /RAF/1996/130/PMS2D/RFx                       1-ECA
+    where:  x = flight number and possible segment
+ 
+File          Description
+------------  --------------
+README        This file
+arch2d.130    Script to archive the stripped PMS-2D data to the MSS
+-------
+Ronald L. Ruth

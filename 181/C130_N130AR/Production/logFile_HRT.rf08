@@ -1,0 +1,61 @@
+DYCOMS-II - 181, Flight rf08
+Version - 3.1.2
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+DPLA has no dependencies, turning off.
+DPLA1 has no dependencies, turning off.
+RHLA has no dependencies, turning off.
+RHLA1 has no dependencies, turning off.
+Loading setup file: /usr/local/proj/181/Production/Flight_rf08
+XGREFF has no description or units.
+DPLA has no description or units.
+DPLA1 has no description or units.
+RHLA has no description or units.
+RHLA1 has no description or units.
+Loading setup file: /usr/local/proj/181/Production/d2hrt.nimbus
+LoadSetup: can't find A1DC_RWI1.
+LoadSetup: can't find A2DC_RWI2.
+LoadSetup: can't find DT1DC_RWI1.
+LoadSetup: can't find DT2DC_RWI2.
+LoadSetup: can't find C1DC_RWI1.
+LoadSetup: can't find C2DC_RWI2.
+LoadSetup: can't find CONC1DC_RWI1.
+LoadSetup: can't find CONC2DC_RWI2.
+LoadSetup: can't find DBAR1DC_RWI1.
+LoadSetup: can't find DBAR2DC_RWI2.
+LoadSetup: can't find DBZ1DC_RWI1.
+LoadSetup: can't find DBZ2DC_RWI2.
+LoadSetup: can't find DISP1DC_RWI1.
+LoadSetup: can't find DISP2DC_RWI2.
+LoadSetup: can't find PLWC1DC_RWI1.
+LoadSetup: can't find PLWC2DC_RWI2.
+Processed on: Jan 08 16:26 UTC 2002
+Flight Date: 07/25/2001
+Time lag for ACINS enabled, with lag of -170 milliseconds.
+Despiking enabled.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for PITCH enabled, with lag of 20 milliseconds.
+Time lag for ROLL enabled, with lag of 20 milliseconds.
+Time lag for THDG enabled, with lag of -140 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, GPS_UPFCTR.
+Value set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+Value set to 0.997000 in AMLIB function slatc.
+Time break of 212 seconds ending @ 19:51:43, filling in with MISSING_VALUE.
+Time break of 75 seconds ending @ 19:54:58, filling in with MISSING_VALUE.
+Blanking GALT from 21:19:57 to 21:22:48.
+ The following variables depend upon this variable:
+  ALTX
+Blanking ALTX from 21:19:57 to 21:22:48.
+Blanking GALT from 24:29:49 to 24:30:15.
+ The following variables depend upon this variable:
+  ALTX
+Blanking ALTX from 24:29:49 to 24:30:15.
+Time interval(s) completed : 19:45:34-05:19:46
+Processing took 1.81 hour(s).
