@@ -1,0 +1,69 @@
+#! /bin/csh -f
+#
+#  Archive NIMBUS netCDF output files for 4-201 Hong Kong (Kok)
+#
+set YEAR = 1994
+set PROJ = 201
+set TURB = LRT
+#set TURB = HRT
+#
+#  Following are production output file names (sans extension) on $PROD_DATA.
+set FILES =   ( 201RF67 201RF68 201RF69 201RF70 201RF71 201RF72 201RF73 \
+                201RF74 201RF75 201RF76 201RF77 201RF78 201RF79 201RF80 \
+                201RF81 201RF82 201RF83 201RF84 201RF85 201RF86 201RF87 \
+                201RF88 201RF89 201RF90 201RF91 201RF92 201RF93 201RF94 \
+                201RF95 201RF96 201RF97 )
+set FLIGHTS = ( RF67    RF68    RF69    RF70    RF71    RF72    RF73 \
+                RF74    RF75    RF76    RF77    RF78    RF79    RF80 \
+                RF81    RF82    RF83    RF84    RF85    RF86    RF87 \
+                RF88    RF89    RF90    RF91    RF92    RF93    RF94 \
+                RF95    RF96    RF97 )
+#
+#  Get started:
+date
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  echo \
+  nrnet msput ${PROD_DATA}/${FILES[$num]}.cdf l df=tr \
+    r flnm=/RAF/$YEAR/$PROJ/$TURB/${FLIGHTS[$num]}.cdf \
+    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#  Jobs submitted on Wed Mar 15 12:32:41-12:35:37 MST 1995
+# Sequence number = MI2305 -- LRT/RF67.cdf -- OK
+# Sequence number = MI2312 -- LRT/RF68.cdf -- OK
+# Sequence number = MI2319 -- LRT/RF69.cdf -- OK
+# Sequence number = MI2326 -- LRT/RF70.cdf -- OK
+# Sequence number = MI2333 -- LRT/RF71.cdf -- OK
+# Sequence number = MI2340 -- LRT/RF72.cdf -- OK
+# Sequence number = MI2347 -- LRT/RF73.cdf -- OK
+# Sequence number = MI2354 -- LRT/RF74.cdf -- OK
+# Sequence number = MI2361 -- LRT/RF75.cdf -- OK
+# Sequence number = MI2368 -- LRT/RF76.cdf -- OK
+# Sequence number = MI2375 -- LRT/RF77.cdf -- OK
+# Sequence number = MI2382 -- LRT/RF78.cdf -- OK
+# Sequence number = MI2389 -- LRT/RF79.cdf -- OK
+# Sequence number = MI2396 -- LRT/RF80.cdf -- OK
+# Sequence number = MI2403 -- LRT/RF81.cdf -- OK
+# Sequence number = MI2410 -- LRT/RF82.cdf -- OK
+# Sequence number = MI2417 -- LRT/RF83.cdf -- OK
+# Sequence number = MI2424 -- LRT/RF84.cdf -- OK
+# Sequence number = MI2431 -- LRT/RF85.cdf -- OK
+# Sequence number = MI2438 -- LRT/RF86.cdf -- OK
+# Sequence number = MI2445 -- LRT/RF87.cdf -- OK
+# Sequence number = MI2452 -- LRT/RF88.cdf -- OK
+# Sequence number = MI2459 -- LRT/RF89.cdf -- OK
+# Sequence number = MI2466 -- LRT/RF90.cdf -- OK
+# Sequence number = MI2473 -- LRT/RF91.cdf -- OK
+# Sequence number = MI2480 -- LRT/RF92.cdf -- OK
+# Sequence number = MI2487 -- LRT/RF93.cdf -- OK
+# Sequence number = MI2494 -- LRT/RF94.cdf -- OK
+# Sequence number = MI2501 -- LRT/RF95.cdf -- OK
+# Sequence number = MI2508 -- LRT/RF96.cdf -- OK
+# Sequence number = MI2515 -- LRT/RF97.cdf -- OK
+#
+#
+# done.
+exit

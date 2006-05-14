@@ -1,0 +1,7 @@
+#! /bin/csh -f
+#
+#   Save present version of the NIMBUS processor for 4-201 Hong Kong
+#
+cd /home/local
+tar chlvf /home/local/proj/201/Production/nimbus.tar nimbus
+exit

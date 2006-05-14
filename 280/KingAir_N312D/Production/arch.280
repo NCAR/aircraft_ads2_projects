@@ -1,0 +1,75 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2-280 FIB (Fires in Brazil) ()
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Fri Dec 12 11:17:51 MST 1997
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set YEAR = 1992
+set PROJ = 280
+set SDIR = $PROD_DATA
+#
+#
+# set TURBRT = LRT
+#
+# nrnet msput $SDIR/280rf02.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf04.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf06.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf07.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf10.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#
+# set TURBRT = HRT
+#
+# nrnet msput $SDIR/280rf02h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf04h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf06h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf07h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf09h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf10h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#
+set TURBRT = HRT
+#
+nrnet msput $SDIR/280rf02ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF02A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/280rf04ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF04A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/280rf06ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF06A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/280rf07ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF07A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/280rf09ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/280rf10ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF10A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Job(s) submitted on Fri Dec 12 11:21:55 MST 1997
+# Sequence number = MI3922 -- LRT/RF02.cdf -- OK @ 12 Dec 1997 11:22:18
+# Sequence number = MI3929 -- LRT/RF04.cdf -- OK @ 12 Dec 1997 11:22:27
+# Sequence number = MI3938 -- LRT/RF06.cdf -- OK @ 12 Dec 1997 11:22:30
+# Sequence number = MI3947 -- LRT/RF07.cdf -- OK @ 12 Dec 1997 11:22:40
+# Sequence number = MI3956 -- LRT/RF10.cdf -- OK @ 12 Dec 1997 11:26:45
+# Sequence number = MI3965 -- HRT/RF02.cdf -- OK @ 12 Dec 1997 11:27:12
+# Sequence number = MI3984 -- HRT/RF04.cdf -- OK @ 12 Dec 1997 11:34:24
+# Sequence number = MI3995 -- HRT/RF06.cdf -- OK @ 12 Dec 1997 11:28:23
+# Sequence number = MI4007 -- HRT/RF07.cdf -- OK @ 12 Dec 1997 11:24:46
+# Sequence number = MI4031 -- HRT/RF09.cdf -- OK @ 12 Dec 1997 11:31:29
+# Sequence number = MI4064 -- HRT/RF10.cdf -- OK @ 12 Dec 1997 11:27:29
+# Sequence number = MI4124 -- HRT/RF02A.cdf -- Failed* @ 12 Dec 1997 11:27:20
+# Sequence number = MI4143 -- HRT/RF04A.cdf -- Failed* @ 12 Dec 1997 11:27:38
+# Sequence number = MI4205 -- HRT/RF06A.cdf -- Failed* @ 12 Dec 1997 11:27:48
+# Sequence number = MI4236 -- HRT/RF07A.cdf -- Failed* @ 12 Dec 1997 11:27:54
+# Sequence number = MI4247 -- HRT/RF09A.cdf -- Failed* @ 12 Dec 1997 11:28:03
+# Sequence number = MI4254 -- HRT/RF10A.cdf -- Failed* @ 12 Dec 1997 11:28:08
+#  *  Script failed to properly name the source files.
+#
+#  Job(s) submitted on Fri Dec 12 11:39:42 MST 1997
+# Sequence number = MI5149 -- HRT/RF02A.cdf -- OK @ 12 Dec 1997 11:40:35
+# Sequence number = MI5156 -- HRT/RF04A.cdf -- OK @ 12 Dec 1997 11:40:51
+# Sequence number = MI5165 -- HRT/RF06A.cdf -- OK @ 12 Dec 1997 11:40:58
+# Sequence number = MI5174 -- HRT/RF07A.cdf -- OK @ 12 Dec 1997 11:40:25
+# Sequence number = MI5183 -- HRT/RF09A.cdf -- OK @ 12 Dec 1997 11:44:27
+# Sequence number = MI5192 -- HRT/RF10A.cdf -- OK @ 12 Dec 1997 11:41:02
+#

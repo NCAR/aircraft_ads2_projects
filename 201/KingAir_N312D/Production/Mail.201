@@ -1,0 +1,1347 @@
+From greg Fri Jan 13 11:47:07 1995
+From: greg (Greg Kok)
+Message-Id: <199501131847.LAA13147@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA13147; Fri, 13 Jan 1995 11:47:07 -0700
+Subject: no subject (file transmission)
+To: ron (Ron Ruth)
+Date: Fri, 13 Jan 1995 11:47:06 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1177      
+Status: RO
+
+Date                Flight Number
+
+10/03/94                 R65
+10/04/94                 R66
+10/06/94                 R67
+10/07/94                 R68
+10/10/94                 R69
+10/11/94                 R70
+10/12/94                 R71
+10/13/94                 R72
+10/13/94                 R73
+10/15/94                 R74
+10/17/94                 R75
+10/18/94                 R76
+10/19/94                 R77
+10/20/94                 R78
+10/21/94                 R79
+10/24/94                 R80
+10/25/94                 R81
+11/05/94                 R82
+11/06/94                 R83
+11/07/94                 R84
+11/08/94                 R85
+11/11/94                 R86
+11/12/94                 R87
+11/13/94                 R88
+11/13/94                 R89
+11/15/94                 R90
+11/16/94                 R91
+11/18/94                 R92
+11/19/94                 R93
+11/20/94                 R94
+11/20/94                 R95
+11/23/94                 R96
+11/24/94                 R97
+
+Ron:
+
+This is the list of flights from the Hong Kong Air Quality program, that I
+would like archived on the mass store.  I expect to have the tapes for you
+on Tuesday.
+
+Thanks,
+
+Greg
+
+
+From ron Fri Jan 13 12:24:24 1995
+Subject: Re: Hong Kong data tapes
+To: greg@mistral.atd.ucar.edu (Greg Kok)
+Date: Fri, 13 Jan 1995 12:24:24 -0700 (MST)
+In-Reply-To: <199501131847.LAA13147@chinook.atd.ucar.EDU> from "Greg Kok" at Jan 13, 95 11:47:06 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 791       
+Status: RO
+
+Greg,
+
+Thanks for the information.  I've forgotten; what is the project number?
+I assume the fiscal year is 1994.
+
+When archiving these tapes to the Mass Store, instead of using a tape number
+(which, I guess, doesn't exist), I have decided to add the extension `.ADS'
+to the flight number as an indication of data type.
+
+Standard:   /RAF/1994/PPP/fltno/Rxxxxx
+Hong Kong:  /RAF/1994/PPP/fltno.ADS
+
+This will positively identify the data type while reasonably preserving
+our file-naming format.  If these tapes do not have any SCD-approved
+numbering scheme, Sue Jensen (SCD tape librarian) will have to add
+temporary numbers to them so we can read them using SCD's computer system.
+That will be transparent to us, and we can ignore her assignments after
+the data have been archived.
+
+-- 
+Ron
+
+From greg Fri Jan 13 12:28:49 1995
+From: greg (Greg Kok)
+Message-Id: <199501131928.MAA14656@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id MAA14656; Fri, 13 Jan 1995 12:28:48 -0700
+Subject: Re: Hong Kong data tapes
+To: ron@chinook.atd.ucar.EDU
+Date: Fri, 13 Jan 1995 12:28:47 -0700 (MST)
+In-Reply-To: <199501131924.MAA15433@mistral.atd.ucar.edu> from "ron@chinook.atd.ucar.EDU" at Jan 13, 95 12:24:24 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 49        
+Status: RO
+
+Ron:
+
+The project number is 201.
+
+Thanks,
+
+Greg
+
+
+From dick@chinook.atd.ucar.EDU Thu Dec 29 11:25:03 1994
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA11162; Thu, 29 Dec 1994 11:25:02 -0700
+Message-Id: <199412291817.LAA17667@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA17667; Thu, 29 Dec 1994 11:17:30 -0700
+Subject: HK data
+To: herzegh@stout.atd.ucar.EDU (paul herzegh), greg (Greg Kok)
+Date: Thu, 29 Dec 1994 11:17:29 -0700 (MST)
+Cc: ron (Ron Ruth)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1222      
+Status: RO
+
+Paul, Greg:
+     I think that it is important to get the HK raw data tapes archived as
+soon as possible to prevent any loss of data. I asked Rodi what his intentions
+are since he apparently has a large portion (if not all) of the raw data tapes.
+He said that RAP is busy archiving the data tapes and that he (Rodi) will be
+responsible for the OWWS processing at UW. 
+     This means that RAF will not have records of the OWWS flights or tapes
+and will not be responsible for their back-up, safe-keeping, or whereabouts.
+Any inquires will be directed to RAP or UW. 
+     As far as the Air Chemistry tapes, I assume Gregg would like them 
+archived in the RAF data archive. So, Greg, you have the task of putting 
+together the raw ADS tape  info and tapes and getting them to Ron Ruth
+for archiving (if this is what you want). I am assuming that Gregg will 
+interface with Rodi to get any tapes that were dual flights to Jeffco for 
+archiving.
+     If you have any problems with this arrangement, or if other arrangements
+have already been made let me know.
+
+Dick Friesen                
+
+NCAR/ATD/RAF                    
+P.O. Box 3000
+Boulder, Co. 80307          
+(303) 497-1047   1092 (fax) 
+dick@chinook.atd.ucar.edu   
+
+
+
+From greg Fri Jan 20 12:31:17 1995
+From: greg (Greg Kok)
+Message-Id: <199501201931.MAA25593@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id MAA25593; Fri, 20 Jan 1995 12:31:17 -0700
+Subject: Re: HK Tape discrepancies
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Fri, 20 Jan 1995 12:31:16 -0700 (MST)
+In-Reply-To: <199501201725.KAA15491@chinook.atd.ucar.EDU> from "Ron Ruth" at Jan 20, 95 10:25:00 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 580       
+Status: RO
+
+Ron:
+
+I will not be able to deal with this until Monday.  Sorry for the dealy.
+
+Greg
+
+> Greg,
+> 
+> As I am preparing to ship the HK tapes to the Mesa Lab for archiving,
+> I compared the dates on the tape with the dates in your email.  Here
+> are some discrepancies:
+> 
+>   Memo    Flight    Tape
+>   Date    number    Date
+> --------  ------  --------
+> 10/10/94   R69    10/09/94
+> 10/11/94   R70    10/10/94
+> 10/12/94   R71    10/11/94
+> 
+> 10/13/94   R73    10/12/94
+> 10/15/94   R74    10/14/94
+> 
+> Please let me know which ones are correct.
+> 
+> Thanks.
+> 
+> -- 
+> Ron
+> 
+
+
+From greg Mon Jan 23 08:51:38 1995
+From: greg (Greg Kok)
+Message-Id: <199501231551.IAA15072@chinook.atd.ucar.EDU>
+Received: from localhost by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id IAA15072; Mon, 23 Jan 1995 08:51:38 -0700
+Subject: HK tapes
+To: ruth
+Date: Mon, 23 Jan 1995 08:51:37 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 122       
+Status: RO
+
+Ron:
+
+Please call me when you get in, so that I can get a couple more of the
+HK data tapes, to copy them.
+
+Thanks,
+
+Greg
+
+
+From ron Fri Jan 20 10:25:00 1995
+Subject: HK Tape discrepancies
+To: greg (Greg Kok)
+Date: Fri, 20 Jan 1995 10:25:00 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 447       
+Status: RO
+
+Greg,
+
+As I am preparing to ship the HK tapes to the Mesa Lab for archiving,
+I compared the dates on the tape with the dates in your email.  Here
+are some discrepancies:
+
+  Memo    Flight    Tape
+  Date    number    Date
+--------  ------  --------
+10/10/94   R69    10/09/94
+10/11/94   R70    10/10/94
+10/12/94   R71    10/11/94
+
+10/13/94   R73    10/12/94
+10/15/94   R74    10/14/94
+
+Please let me know which ones are correct.
+
+Thanks.
+
+-- 
+Ron
+
+From sue@niwot.scd.ucar.EDU Mon Jan 23 11:50:35 1995
+Received: from niwot.scd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id LAA19138; Mon, 23 Jan 1995 11:50:35 -0700
+From: sue@niwot.scd.ucar.EDU (Sue Jensen)
+Message-Id: <199501231850.LAA00991@niwot.scd.ucar.EDU>
+Received: by niwot.scd.ucar.EDU (NCAR-local/ NCAR Mail Server 04/10/90)
+	id LAA00991; Mon, 23 Jan 1995 11:50:34 -0700
+Subject: Re: ExaByte tape list
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Mon, 23 Jan 95 11:50:34 MST
+In-Reply-To: <199501191739.KAA10414@chinook.atd.ucar.EDU>; from "Ron Ruth" at Jan 19, 95 10:39 am
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Ron,
+
+Here's your S-numbers.  Note the asterisks indicating non-consecutive
+numbers.  They are all ready to use whenever you are.  Have fun! ;-)
+
+--Sue
+
+>           Flight  Sue's
+> Date      Number  Number
+> --------  ------  ------
+> 10/03/94   R65    S00032
+> 10/04/94   R66    S00033
+> 10/06/94   R67    S00034
+> 10/07/94   R68    S00035
+> 10/10/94   R69    S00036
+> 10/11/94   R70    S00037
+> 10/12/94   R71    S00038
+> 10/13/94   R72    S00039
+> 10/13/94   R73    S00040
+> 10/15/94   R74    S00041
+> 10/17/94   R75    S00042
+> 10/18/94   R76    S00043
+> 10/19/94   R77    S00044
+> 10/20/94   R78    S00045
+> 10/21/94   R79    S00046
+> 10/24/94   R80    S00049*
+> 10/25/94   R81    S00050
+> 11/05/94   R82    S00052*
+> 11/06/94   R83    S00053
+> 11/07/94   R84    S00054
+> 11/08/94   R85    S00055
+> 11/11/94   R86    S00056
+> 11/12/94   R87    S00057
+> 11/13/94   R88    S00058
+> 11/13/94   R89    S00059
+> 11/15/94   R90    S00060
+> 11/16/94   R91    S00061
+> 11/18/94   R92    S00062
+> 11/19/94   R93    S00063
+> 11/20/94   R94    S00064
+> 11/20/94   R95    S00066*
+> 11/23/94   R96    S00069*
+> 11/24/94   R97    S00075*
+> 
+
+--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--
+  Sue Ellen Jensen
+  NCAR/SCD, ML5                   Mass Storage Media Technician
+  sue@ncar.ucar.edu               File Managemant Services
+  Phone: (303)497-1245            Serving tape users since 1977.
+  Fax:   (303)497-1298
+--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--**--
+
+
+From greg@chinook.atd.ucar.EDU Fri Jan 27 13:27:08 1995
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.5/ NCAR Mail Server 04/10/90)
+	id NAA27367; Fri, 27 Jan 1995 13:27:07 -0700
+Message-Id: <199501272027.NAA24237@mistral.atd.ucar.edu>
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA24237; Fri, 27 Jan 1995 13:27:05 -0700
+Subject: VarDB items for the Fssp-300
+To: ron (Ron Ruth)
+Date: Fri, 27 Jan 1995 13:27:04 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 87        
+Status: RO
+
+Ron, Can you tell me what I need to add to the VarDB for the FSSP-300?
+
+Thanks,
+
+Greg
+
+
+From ron Wed Mar  1 10:59:15 1995
+Subject: Hong Kong
+To: greg (Greg Kok)
+Date: Wed, 1 Mar 1995 10:59:15 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 449       
+Status: RO
+
+Greg,
+
+How are you progressing with your project?  I've seen some output files,
+but I was wondering if any of them are production runs?  (If you do run
+production, please remember to use the `nimbus' login and put the output
+files in the `/home/local/data/production' directory.)  It would also help
+me if you use the following output-file naming convention:
+  201RFxx.cdf  <-- low-rate processing
+  201RFxxH.cdf  <-- high-rate processing
+
+-- 
+Ron
+
+From ron Mon Mar 13 18:28:00 1995
+Subject: Re: archive hk
+To: greg@chinook.atd.ucar.EDU (Greg Kok)
+Date: Mon, 13 Mar 1995 18:28:00 -0700 (MST)
+In-Reply-To: <199503132248.PAA05295@mistral.atd.ucar.edu> from "Greg Kok" at Mar 13, 95 03:48:22 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2470      
+Status: RO
+
+Greg,
+
+I will tar each of the directories you mentioned into separate files and
+archive each of them to the Mass Store in the directory /RAF/1994/201.
+I assume all the production data files are LRT; therefore, these files
+will be individually archived in the /RAF/1994/201/LRT directory.
+I created a "Production MSS Bitfile Log" file (taplog.201) in the proj
+directory which summarizes all the flights and includes data such as
+flight date, start and end times and output file size.
+
+I just looked at the production data files and found the following
+variables that had no definition:
+  TMP1         (all)
+  DISPX_OBL    (201RF67, 201RF68
+This is normally a no-no, but in your case I'll make an exception.
+
+Before I archive the actual production data files, please answer me one
+question.  I noticed in the .../proj/201/Production/FlightGroups file that
+all the entries were like the following example:
+   201R92.cdf==201R96.cdf
+
+This is contrary to the format that I was told to use:
+   92 == 96
+
+In the above example, it says to process RF92 using the setup file of RF96
+(Flight_96).  (And if a Flight_92 file exists, load it after Flight_96.)
+I suspect that none of these dependent Flight_xx files ever got loaded into
+NIMBUS.  Are you sure that all these flights were processed the way you
+wanted?
+
+I will archive these data when you assure me that all is OK.
+
+P.S.  Please don't panic if you cannot find your production output files.
+      For me to do my work effectively, I had to move all the production
+      netCDF files from the /home/data directory to the /home/productiondata
+      directory and give them slightly different names (e.g., 201RF96.cdf).
+      I left the *.asc files alone; they are still in /home/data.
+
+P.P.S.  I'm sorry I didn't get to tell you about it, but my normal procedure
+        when doing production runs with NIMBUS, is to grab all the information
+	in the grey box at the bottom of the large NIMBUS window and save it
+	in a labeled portion of a "Production.log" file in the Production
+	directory (along with adding the date it was processed).  That file
+	then documents each production run and can be reviewed easily for
+	such things as which setup file(s) was(were) used, which variables
+	didn't have VarDB entries, etc.  Some day I'll get all my procedures
+	documented.
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From greg@chinook.atd.ucar.EDU Mon Mar 13 15:48 MST 1995
+From: greg@chinook.atd.ucar.EDU (Greg Kok)
+Return-Path: <greg@chinook.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA28745; Mon, 13 Mar 1995 15:48:48 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA05295; Mon, 13 Mar 1995 15:48:28 -0700
+Message-Id: <199503132248.PAA05295@mistral.atd.ucar.edu>
+Subject: archive hk
+To: ron (Ron Ruth)
+Date: Mon, 13 Mar 1995 15:48:22 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 301
+Status: RO
+
+Hello Ron:
+
+
+The Hong Kong processing is finished, and I would like you to do
+your archive magic.  the data is in hl data, and nimbus is in my]
+directory as nimbus_hk.  The data is 210RXX.cdf.  Also, please
+archive the production directory and  the directory so2skel in
+my directory.
+
+
+Thanks,
+
+Greg
+
+
+From greg@chinook.atd.ucar.EDU Tue Mar 14 13:31 MST 1995
+From: greg@chinook.atd.ucar.EDU (Greg Kok)
+Return-Path: <greg@chinook.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id NAA11191; Tue, 14 Mar 1995 13:31:31 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id NAA02174; Tue, 14 Mar 1995 13:30:32 -0700
+Message-Id: <199503142030.NAA02174@mistral.atd.ucar.edu>
+Subject: Re: archive hk
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Tue, 14 Mar 1995 13:30:31 -0700 (MST)
+In-Reply-To: <199503140128.SAA01971@mistral.atd.ucar.edu> from "Ron Ruth" at Mar 13, 95 06:28:00 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 567
+Status: RO
+
+Ron:
+
+We did not use the flight groups setup file.  John lind,
+my associate, who did the processing, just loaded the flight
+parameter file manually each time.  I am confident that all
+the the data is acceptable.  Thanks for your tip about the
+production log.  that would be a nice thing to have added.
+
+
+How much work do you think it would be to make an ASCII to
+net-CDF converter?  With the demise of DAP, there are times
+that I can see the need of one.  I sent an email to Friesen
+about this, but I would like your opinion on the effort
+involved.
+
+
+Thanks,
+
+Greg
+
+
+
+From ron Wed Mar 15 14:18:14 1995
+Subject: Re: archive hk
+To: greg@chinook.atd.ucar.EDU (Greg Kok)
+Date: Wed, 15 Mar 1995 14:18:14 -0700 (MST)
+In-Reply-To: <199503142030.NAA02174@mistral.atd.ucar.edu> from "Greg Kok" at Mar 14, 95 01:30:31 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3311      
+Status: RO
+
+> 
+> Ron:
+> 
+> We did not use the flight groups setup file.  John Lind,
+> my associate, who did the processing, just loaded the flight
+> parameter file manually each time.  I am confident that all
+> the the data is acceptable.  Thanks for your tip about the
+> production log.  that would be a nice thing to have added.
+> 
+Greg,
+
+I assume then that John used one or more of the four individual Flight_xx
+setup files in the 201 project directory (Flight_0, Flight_78, Flight_87 and
+Flight_96).  NIMBUS (unless run with the -n option) automatically loads one
+corresponding to the flight number, if there is a match.  Changes from any
+setup file(s) one loads after that would be added.  (Entries in the new
+setup file would overwrite duplicate entries.)  I just want you to be sure
+that all the flights were processed the way you wanted.
+
+By using the FlightGroups file, it properly documents all the special
+changes made for each flight when processing the data.  In the case that
+reprocessing needs to be done, it is a lot easier to see where things may
+have gone wrong.  Does the extant FlightGroups file actually show the
+correct relationships?  If so, I could just fix all the entries.
+
+I'd like to automate the production log, but Chris has not yet put that into
+his wish list.  That is why one now has to do it manually.  For production
+runs, I'd like to have all that information logged automatically by NIMBUS
+without any operator intervention.
+
+After moving the NIMBUS production netCDF files to the `productiondata'
+directory and renaming them, I was able to create a `taplog.201' file in
+the `...201/Production' directory using my fancy c-shell script.  You
+may want to take a look at it just to make sure that the boiler-plate
+information is correct.
+
+(While composing this email message, all the netCDF files were archived
+to the MSS.  Now all I have to worry about are the support files.)
+
+If you are writing any kind of QC report and/or project summary, it would
+be nice to archive them to the Mass Store, too.  I would appreciate it if
+you would put a copy in the `...201/Production' directory.  I would name
+one of these files README.
+
+> 
+> How much work do you think it would be to make an ASCII to
+> net-CDF converter?  With the demise of DAP, there are times
+> that I can see the need of one.  I sent an email to Friesen
+> about this, but I would like your opinion on the effort
+> involved.
+> 
+Greg,
+
+Are you referring to ASCII files that were written here by a program
+that Chris wrote?  If so, I suspect it would not be too difficult to
+decode the data and write a netCDF file.  The problem would be in
+defining the specific ASCII file format (unless Chris only uses one).
+
+If one wanted a truly compatible netCDF file, one would need to include
+the long variable names in the netCDF header.  That would add a bit of
+development time, since I don't think they appear in the ASCII file.
+
+If you just want to convert some kind of generic ASCII data, perhaps there
+is something available from Unidata's netCDF contributed library, i.e., it
+may already have been written.
+
+Chris just mentioned to me the program `ncgen,' the standard netCDF utility,
+which takes an ASCII file that looks identical to the output from `ncdump'
+and encodes it into a netCDF file.  Would that work for you?
+
+-- 
+Ron
+
+From greg@chinook.atd.ucar.EDU Wed Mar 15 14:52 MST 1995
+From: greg@chinook.atd.ucar.EDU (Greg Kok)
+Return-Path: <greg@chinook.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by chinook.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id OAA04303; Wed, 15 Mar 1995 14:52:54 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id OAA07919; Wed, 15 Mar 1995 14:52:45 -0700
+Message-Id: <199503152152.OAA07919@mistral.atd.ucar.edu>
+Subject: Re: archive hk
+To: ron@chinook.atd.ucar.EDU (Ron Ruth)
+Date: Wed, 15 Mar 1995 14:52:45 -0700 (MST)
+In-Reply-To: <199503152118.OAA03448@chinook.atd.ucar.EDU> from "Ron Ruth" at Mar 15, 95 02:18:14 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 480
+Status: RO
+
+Ron:
+
+thanks for all your effort with this.  Since I do not do this
+very often, coupled with the fact that there is generally
+a problem in the ADS system when we do chemistry, makes
+it complicated.  Am I just unlucky with that?
+
+Anyhow, there is a README file, but is is in 201, not in the
+/Production.  This has all the details.  Yes there were three
+flight groups.  Flight 78, group of 1, flight 87, which was
+flights 67-87, without 78, and 96, which was 88-97.
+
+Thanks,
+
+Greg
+
+
+From ron Wed Mar 15 15:28:34 1995
+Subject: Re: archive hk
+To: greg@chinook.atd.ucar.EDU (Greg Kok)
+Date: Wed, 15 Mar 1995 15:28:34 -0700 (MST)
+In-Reply-To: <199503152152.OAA07919@mistral.atd.ucar.edu> from "Greg Kok" at Mar 15, 95 02:52:45 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1470      
+Status: RO
+
+> 
+> Ron:
+> 
+> thanks for all your effort with this.  Since I do not do this
+> very often, coupled with the fact that there is generally
+> a problem in the ADS system when we do chemistry, makes
+> it complicated.  Am I just unlucky with that?
+> 
+> Anyhow, there is a README file, but is is in 201, not in the
+> /Production.  This has all the details.  Yes there were three
+> flight groups.  Flight 78, group of 1, flight 87, which was
+> flights 67-87, without 78, and 96, which was 88-97.
+> 
+> Thanks,
+> 
+Greg,
+
+Actually, this has been pretty easy to archive.  The `nimbus_hk' file was in
+your `bin' directory, but, according to Chris, its only difference from the
+current version of NIMBUS is the use of one file called `calco.hk' in the
+`nimbus' directory.  Since that file is in the current NIMBUS source code
+directory, I can do a standard archive to save it.
+
+I will not move the README file; it is fine where it is.  I will archive
+it as a separate file on the MSS.
+
+I took the liberty of editing the FlightGroups file to reflect your
+flight group mapping.  Except for syntax, the file exactly matched your
+description.  Future runs of NIMBUS will now automatically pick up those
+setups (unless one run NIMBUS with the `-n' option).
+
+I'm almost ready to archive all the support files, and I'll let you know
+when that job is complete.
+
+Do you need to ship copies of the final production data sets to anyone?
+
+Are you planning to produce a project binder?
+
+-- 
+Ron
+
+From ron Wed Mar 15 16:14:43 1995
+Subject: HK archive complete
+To: greg (Greg Kok)
+Date: Wed, 15 Mar 1995 16:14:43 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 14442     
+Status: RO
+
+Greg,
+
+I have completed archiving all the production data and support files for
+4-201 Hong Kong project.  Immediately below is a list of all the bitfiles
+on the SCD Mass Store System.  Below that are directory listings of the two
+tar files.  If you think I should include anything else, please let me know.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+SCD Mass Store Directory Listing for /RAF/1994/201/ as of 03/15/95 16:00:28
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+03/15/95 -WD-    337920 LRT/201.tar
+03/15/95 -WD-       576 LRT/201.tar.dir
+03/15/95 -WD-  13028964 LRT/RF67.cdf
+03/15/95 -WD-  11554260 LRT/RF68.cdf
+03/15/95 -WD-  15428160 LRT/RF69.cdf
+03/15/95 -WD-  13398888 LRT/RF70.cdf
+03/15/95 -WD-  14865072 LRT/RF71.cdf
+03/15/95 -WD-  12568272 LRT/RF72.cdf
+03/15/95 -WD-  12726672 LRT/RF73.cdf
+03/15/95 -WD-  11835672 LRT/RF74.cdf
+03/15/95 -WD-  15261072 LRT/RF75.cdf
+03/15/95 -WD-  13723272 LRT/RF76.cdf
+03/15/95 -WD-  17478672 LRT/RF77.cdf
+03/15/95 -WD-  17360048 LRT/RF78.cdf
+03/15/95 -WD-  14480952 LRT/RF79.cdf
+03/15/95 -WD-   8133072 LRT/RF80.cdf
+03/15/95 -WD-  14267448 LRT/RF81.cdf
+03/15/95 -WD-  19005048 LRT/RF82.cdf
+03/15/95 -WD-  17583768 LRT/RF83.cdf
+03/15/95 -WD-  12093072 LRT/RF84.cdf
+03/15/95 -WD-  17161872 LRT/RF85.cdf
+03/15/95 -WD-  16528272 LRT/RF86.cdf
+03/15/95 -WD-  18349872 LRT/RF87.cdf
+03/15/95 -WD-  16053068 LRT/RF88.cdf
+03/15/95 -WD-  13835468 LRT/RF89.cdf
+03/15/95 -WD-  17795468 LRT/RF90.cdf
+03/15/95 -WD-  17161868 LRT/RF91.cdf
+03/15/95 -WD-  18033068 LRT/RF92.cdf
+03/15/95 -WD-  18508268 LRT/RF93.cdf
+03/15/95 -WD-  18509588 LRT/RF94.cdf
+03/15/95 -WD-  15498668 LRT/RF95.cdf
+03/15/95 -WD-  17795468 LRT/RF96.cdf
+03/15/95 -WD-  13993868 LRT/RF97.cdf
+03/15/95 -WD-   1751040 LRT/nimbus.tar
+03/15/95 -WD-     10191 LRT/nimbus.tar.dir
+03/15/95 -WD-      2360 LRT/taplog.201
+03/15/95 -WD-    122653 MSCP_out.201
+03/15/95 -WD-      1362 README
+01/24/95 -W--  68277120 RF65/S00032
+01/24/95 -W-S  68213760 RF66/S00033
+02/10/95 -W-S  65516160 RF67/S00034
+01/24/95 -W-S  62856960 RF68/S00035
+01/24/95 -W-S 106277760 RF69/S00036
+01/25/95 -W-S  85875840 RF70/S00037
+01/25/95 -W-S  99728640 RF71/S00038
+01/25/95 -W-S  99997440 RF72/S00039
+01/24/95 -W--  89541120 RF73/S00040
+01/24/95 -W-S  64465920 RF74/S00041
+01/25/95 -W-S  91449600 RF75/S00042
+01/25/95 -W-S  76291200 RF76/S00043
+01/24/95 -W-S  97067520 RF77/S00044
+01/24/95 -W--  88412160 RF78/S00045
+01/25/95 -W-S  89299200 RF79/S00046
+01/26/95 -W-S 217862400 RF80/S00049
+01/24/95 -W-S 117492480 RF81/S00050
+01/25/95 -W-- 116472960 RF82/S00052
+01/25/95 -W-S 111285120 RF83/S00053
+01/25/95 -W-S 102387840 RF84/S00054
+01/25/95 -W-S 103678080 RF85/S00055
+01/24/95 -W-S 117626880 RF86/S00056
+01/25/95 -W-S  62423040 RF87/S00057
+01/25/95 -W-S 100884480 RF88/S00058
+01/25/95 -W-S  93788160 RF89/S00059
+01/25/95 -W-S 106473600 RF90/S00060
+01/23/95 -W-S 114833280 RF91/S00061
+01/25/95 -W-S 123567360 RF92/S00062
+01/25/95 -W-S 114806400 RF93/S00063
+01/25/95 -W-S 100696320 RF94/S00064
+01/25/95 -W-S 116580480 RF95/S00066
+01/25/95 -W-S 120610560 RF96/S00069
+02/21/95 -W-S 104693760 RF97/S00075
+03/15/95 -WD-      4350 tp2ms.summary
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+201.tar.dir
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+CO_zero.pts
+Defaults
+DependTable
+ProjectName
+README
+UserNames
+VarDB
+VarDB1
+XNOY_zero.pts
+XNO_zero.pts
+XSO2S_zero.pts
+adscmd
+bulletin.9
+calib_attr
+config
+def.tmp
+flat_panel_parms
+header
+landmarks
+plot_attr
+plotspex
+Production/FlightGroups
+Production/Flight_0
+Production/Flight_78
+Production/Flight_87
+Production/Flight_96
+Production/MSCP_out.201
+Production/Mail.201
+Production/msput.201
+Production/proj.info
+Production/taplog.201
+Production/tarit.nimbus.tar
+Production/tp2ms.summary
+Production/archive/tapelist.sue
+Production/archive/tapes.201
+Production/archive/tp2ms.201job1
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+nimbus.tar.dir  (Note existence of file `nimbus/src/filter/calco.hk')
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+nimbus/
+nimbus/include/
+nimbus/include/Makefile
+nimbus/include/amlib.fns
+nimbus/include/amlib.h
+nimbus/include/amlibfn.h
+nimbus/include/bounds.h
+nimbus/include/circbuff.h
+nimbus/include/decode.h
+nimbus/include/filters.h
+nimbus/include/gui.h
+nimbus/include/gust.h
+nimbus/include/make_amlib.c
+nimbus/include/make_amlib
+nimbus/include/nimbus.h
+nimbus/include/qc.h
+nimbus/src/
+nimbus/src/filter/
+nimbus/src/filter/obj/
+nimbus/src/filter/obj/.pure
+nimbus/src/filter/cb_defs.c
+nimbus/src/filter/globals.c
+nimbus/src/filter/filter.c
+nimbus/src/filter/phase_shift.c
+nimbus/src/filter/rd_mod.c
+nimbus/src/filter/Makefile
+nimbus/src/filter/XmNimbus
+nimbus/src/filter/Xwin.c
+nimbus/src/filter/nimbus.c
+nimbus/src/filter/average.c
+nimbus/src/filter/cb_edit.c
+nimbus/src/filter/compute.c
+nimbus/src/filter/depend.c
+nimbus/src/filter/adsIO.c
+nimbus/src/filter/README
+nimbus/src/filter/rd_defs.c
+nimbus/src/filter/amlibfn.c
+nimbus/src/filter/.exrc
+nimbus/src/filter/TODO
+nimbus/src/filter/pms1d.c
+nimbus/src/filter/rd_sum.c
+nimbus/src/filter/batch
+nimbus/src/filter/cb_main.c
+nimbus/src/filter/hrloop.c
+nimbus/src/filter/init.c
+nimbus/src/filter/search.c
+nimbus/src/filter/textfile.c
+nimbus/src/filter/hdr_decode.c
+nimbus/src/filter/HISTORY
+nimbus/src/filter/rec_decode.c
+nimbus/src/filter/lrloop.c
+nimbus/src/filter/netcdf.c
+nimbus/src/filter/tags
+nimbus/src/filter/timeseg.c
+nimbus/src/filter/cb_time.c
+nimbus/src/filter/cb_pause.c
+nimbus/src/filter/circbuff.c
+nimbus/src/filter/error.c
+nimbus/src/filter/filters.c
+nimbus/src/filter/interp.c
+nimbus/src/filter/memalloc.c
+nimbus/src/filter/order.c
+nimbus/src/filter/popen.c
+nimbus/src/filter/rd_lag.c
+nimbus/src/filter/sort.c
+nimbus/src/filter/despike.c
+nimbus/src/filter/rd_ddor.c
+nimbus/src/filter/fake1d.c
+nimbus/src/filter/calco.c
+nimbus/src/filter/rd_spike.c
+nimbus/src/filter/probe.c
+nimbus/src/filter/setup.c
+nimbus/src/filter/calco.hk
+nimbus/src/amlib/
+nimbus/src/amlib/std/
+nimbus/src/amlib/std/akdf.c
+nimbus/src/amlib/std/akrd.c
+nimbus/src/amlib/std/ambt.c
+nimbus/src/amlib/std/atb.c
+nimbus/src/amlib/std/atf.c
+nimbus/src/amlib/std/atfh.c
+nimbus/src/amlib/std/atkp.c
+nimbus/src/amlib/std/atrf.c
+nimbus/src/amlib/std/con2c.c
+nimbus/src/amlib/std/psbc.c
+nimbus/src/amlib/std/psfc.c
+nimbus/src/amlib/std/psfdc.c
+nimbus/src/amlib/std/psurf.c
+nimbus/src/amlib/std/pswc.c
+nimbus/src/amlib/std/qcbc.c
+nimbus/src/amlib/std/qcfc.c
+nimbus/src/amlib/std/qcrc.c
+nimbus/src/amlib/std/qcwc.c
+nimbus/src/amlib/std/ssdf.c
+nimbus/src/amlib/std/ssrd.c
+nimbus/src/amlib/std/tas.c
+nimbus/src/amlib/std/tasb.c
+nimbus/src/amlib/std/tasf.c
+nimbus/src/amlib/std/tasr.c
+nimbus/src/amlib/std/tasw.c
+nimbus/src/amlib/std/xmac2.c
+nimbus/src/amlib/std/esubt.c
+nimbus/src/amlib/std/200x.c
+nimbus/src/amlib/std/asas.c
+nimbus/src/amlib/std/200y.c
+nimbus/src/amlib/std/260x.c
+nimbus/src/amlib/std/Makefile
+nimbus/src/amlib/std/atx.c
+nimbus/src/amlib/std/attack.c
+nimbus/src/amlib/std/dpxc.c
+nimbus/src/amlib/std/psrxc.c
+nimbus/src/amlib/std/psx.c
+nimbus/src/amlib/std/psxc.c
+nimbus/src/amlib/std/qcrxc.c
+nimbus/src/amlib/std/qcx.c
+nimbus/src/amlib/std/qcxc.c
+nimbus/src/amlib/std/sslip.c
+nimbus/src/amlib/std/tasx.c
+nimbus/src/amlib/std/ttx.c
+nimbus/src/amlib/std/xmach2.c
+nimbus/src/amlib/std/con2p.c
+nimbus/src/amlib/std/deni.c
+nimbus/src/amlib/std/dpc.c
+nimbus/src/amlib/std/dpcrc.c
+nimbus/src/amlib/std/irc.c
+nimbus/src/amlib/std/lwcc.c
+nimbus/src/amlib/std/mr.c
+nimbus/src/amlib/std/plwcc.c
+nimbus/src/amlib/std/flux.c
+nimbus/src/amlib/std/rhodt.c
+nimbus/src/amlib/std/rhum.c
+nimbus/src/amlib/std/sphum.c
+nimbus/src/amlib/std/theta.c
+nimbus/src/amlib/std/thetae.c
+nimbus/src/amlib/std/thetav.c
+nimbus/src/amlib/std/tvir.c
+nimbus/src/amlib/std/mrla.c
+nimbus/src/amlib/std/dvalue.c
+nimbus/src/amlib/std/irs.c
+nimbus/src/amlib/std/gust.c
+nimbus/src/amlib/std/gpsc.c
+nimbus/src/amlib/std/cnctr.c
+nimbus/src/amlib/std/gsf.c
+nimbus/src/amlib/std/palt.c
+nimbus/src/amlib/std/initAC.c
+nimbus/src/amlib/std/profiled/
+nimbus/src/amlib/std/rhola.c
+nimbus/src/amlib/std/teo3c.c
+nimbus/src/amlib/std/pms1d_cv
+nimbus/src/amlib/std/boomln.c
+nimbus/src/amlib/std/thf.c
+nimbus/src/amlib/std/f300.c
+nimbus/src/amlib/std/fssp.c
+nimbus/src/amlib/std/template.c
+nimbus/src/amlib/std/ins.c
+nimbus/src/amlib/std/angcr.c
+nimbus/src/amlib/std/wd.c
+nimbus/src/amlib/std/pms1d.c
+nimbus/src/amlib/std/kinglwc.c
+nimbus/src/amlib/std/xrlwcc.c
+nimbus/src/amlib/std/ws.c
+nimbus/src/amlib/std/irs.bak
+nimbus/src/amlib/user/
+nimbus/src/amlib/user/zero.c
+nimbus/src/amlib/user/gegg.h
+nimbus/src/amlib/user/efield.c
+nimbus/src/amlib/user/ndvi.c
+nimbus/src/amlib/user/ophir3.c
+nimbus/src/amlib/user/parcltrk.c
+nimbus/src/amlib/user/Makefile
+nimbus/src/amlib/user/profiled/
+nimbus/src/amlib/user/co2c.c
+nimbus/src/amlib/user/gegg.c
+nimbus/src/amlib/user/xflowc.c
+nimbus/src/amlib/user/cvi.c
+nimbus/src/amlib/user/licor.c
+nimbus/src/amlib/user/conccn.c
+nimbus/src/amlib/user/ophir3.old
+nimbus/src/amlib/user/template.c linked to nimbus/src/amlib/std/template.c
+nimbus/src/amlib/user/chemcal.c
+nimbus/src/amlib/user/rlwp.c
+nimbus/src/amlib/xlate/
+nimbus/src/amlib/xlate/gps.c
+nimbus/src/amlib/xlate/gpsm.c
+nimbus/src/amlib/xlate/dme.c
+nimbus/src/amlib/xlate/loranc.c
+nimbus/src/amlib/xlate/irs.c
+nimbus/src/amlib/xlate/event.c
+nimbus/src/amlib/xlate/ins.c
+nimbus/src/amlib/xlate/pms1_ps.c
+nimbus/src/amlib/xlate/serial.c
+nimbus/src/amlib/xlate/time.c
+nimbus/src/amlib/xlate/uvhyg.c
+nimbus/src/amlib/xlate/Makefile
+nimbus/src/amlib/xlate/psfd.c
+nimbus/src/amlib/xlate/hgm.c
+nimbus/src/amlib/xlate/profiled/
+nimbus/src/amlib/xlate/fssp.c
+nimbus/src/amlib/xlate/pms1_hskp.c
+nimbus/src/amlib/xlate/pms1_data.c
+nimbus/src/amlib/xlate/ophir3.c
+nimbus/src/amlib/xlate/etorq.c
+nimbus/src/amlib/xlate/template.c
+nimbus/src/amlib/xlate/irs.defs
+nimbus/src/amlib/xlate/asas.c
+nimbus/src/amlib/xlate/irs.old
+nimbus/src/amlib/README
+nimbus/src/amlib/Makefile
+nimbus/src/amlib/qc1/
+nimbus/src/amlib/qc2/
+nimbus/src/n2asc/
+nimbus/src/n2asc/Makefile
+nimbus/src/n2asc/.exrc
+nimbus/src/n2asc/Xwin.c
+nimbus/src/n2asc/n2asc.c
+nimbus/src/n2asc/XmN2Ascii
+nimbus/src/n2asc/cb_main.c
+nimbus/src/n2asc/cb_pause.c
+nimbus/src/n2asc/cb_time.c
+nimbus/src/n2asc/n2asc.1
+nimbus/src/n2asc/define.h
+nimbus/src/n2asc/error.c
+nimbus/src/n2asc/globals.c
+nimbus/src/n2asc/init.c
+nimbus/src/n2asc/lrloop.c
+nimbus/src/n2asc/netcdf.c
+nimbus/src/n2asc/search.c
+nimbus/src/n2asc/sort.c
+nimbus/src/n2asc/timeseg.c
+nimbus/src/n2asc/tags
+nimbus/src/bskel/
+nimbus/src/bskel/basic.c
+nimbus/src/bskel/rd.c
+nimbus/src/bskel/spline.c
+nimbus/src/ncmerge/
+nimbus/src/ncmerge/.exrc
+nimbus/src/ncmerge/ncmerge.c
+nimbus/src/ncmerge/Makefile
+nimbus/src/ncmerge/ncmerge.1
+nimbus/src/ncplot/
+nimbus/src/ncplot/Makefile
+nimbus/src/ncplot/Xdialog.c
+nimbus/src/ncplot/ncplot.man
+nimbus/src/ncplot/sort.c
+nimbus/src/ncplot/XmNCplot
+nimbus/src/ncplot/search.c
+nimbus/src/ncplot/.exrc
+nimbus/src/ncplot/Xplot.c
+nimbus/src/ncplot/ncplot.c
+nimbus/src/ncplot/Xwin.c
+nimbus/src/ncplot/autoscale.c
+nimbus/src/ncplot/ccb.c
+nimbus/src/ncplot/dataIO.c
+nimbus/src/ncplot/define.h
+nimbus/src/ncplot/error.c
+nimbus/src/ncplot/extern.h
+nimbus/src/ncplot/init.c
+nimbus/src/ncplot/global.c
+nimbus/src/ncplot/misc.c
+nimbus/src/ncplot/parmsIO.c
+nimbus/src/ncplot/ps.c
+nimbus/src/ncplot/tags
+nimbus/src/nstat/
+nimbus/src/nstat/Makefile
+nimbus/src/nstat/.exrc
+nimbus/src/nstat/Xwin.c
+nimbus/src/nstat/XmNstat
+nimbus/src/nstat/cb_main.c
+nimbus/src/nstat/cb_pause.c
+nimbus/src/nstat/nstat.c
+nimbus/src/nstat/cb_time.c
+nimbus/src/nstat/nstat.1
+nimbus/src/nstat/define.h
+nimbus/src/nstat/error.c
+nimbus/src/nstat/globals.c
+nimbus/src/nstat/init.c
+nimbus/src/nstat/lrloop.c
+nimbus/src/nstat/lrloop.file
+nimbus/src/nstat/netcdf.c
+nimbus/src/nstat/search.c
+nimbus/src/nstat/sort.c
+nimbus/src/nstat/timeseg.c
+nimbus/src/skel/
+nimbus/src/skel/.exrc
+nimbus/src/skel/Makefile
+nimbus/src/skel/skel.c
+nimbus/src/skel/amlib.c
+nimbus/src/skel/Xwin.c
+nimbus/src/skel/README
+nimbus/src/skel/define.h
+nimbus/src/skel/XmSkeleton
+nimbus/src/skel/cb_main.c
+nimbus/src/skel/cb_pause.c
+nimbus/src/skel/cb_time.c
+nimbus/src/skel/compute.c
+nimbus/src/skel/error.c
+nimbus/src/skel/globals.c
+nimbus/src/skel/init.c
+nimbus/src/skel/lrloop.c
+nimbus/src/skel/netcdf.c
+nimbus/src/skel/search.c
+nimbus/src/skel/sort.c
+nimbus/src/skel/timeseg.c
+nimbus/src/dap2cdf/
+nimbus/src/dap2cdf/dap2cdf.c
+nimbus/src/dap2cdf/.exrc
+nimbus/src/dap2cdf/Makefile
+nimbus/src/ncav/
+nimbus/src/ncav/Makefile
+nimbus/src/ncav/ncav.c
+nimbus/src/ncav/.exrc
+nimbus/src/ncav/Xwin.c
+nimbus/src/ncav/tags
+nimbus/src/ncav/cb_main.c
+nimbus/src/ncav/XmNCav
+nimbus/src/ncav/cb_pause.c
+nimbus/src/ncav/cb_time.c
+nimbus/src/ncav/define.h
+nimbus/src/ncav/error.c
+nimbus/src/ncav/globals.c
+nimbus/src/ncav/init.c
+nimbus/src/ncav/netcdf.c
+nimbus/src/ncav/search.c
+nimbus/src/ncav/sort.c
+nimbus/src/ncav/ncav.1
+nimbus/src/ncav/timeseg.c
+nimbus/src/ncav/ncav
+nimbus/src/ncav/ncav.o
+nimbus/src/ncav/globals.o
+nimbus/src/ncav/init.o
+nimbus/src/ncav/timeseg.o
+nimbus/src/ncav/sort.o
+nimbus/src/ncav/search.o
+nimbus/src/ncav/netcdf.o
+nimbus/src/ncav/cb_main.o
+nimbus/src/ncav/cb_time.o
+nimbus/src/ncav/cb_pause.o
+nimbus/src/ncav/Xwin.o
+nimbus/src/ncav/error.o
+nimbus/src/ncxy/
+nimbus/src/ncxy/Makefile
+nimbus/src/ncxy/Xdialog.c
+nimbus/src/ncxy/ncxy.man
+nimbus/src/ncxy/ncxy.c
+nimbus/src/ncxy/Xplot.c
+nimbus/src/ncxy/.exrc
+nimbus/src/ncxy/Xwin.c
+nimbus/src/ncxy/autoscale.c
+nimbus/src/ncxy/ccb.c
+nimbus/src/ncxy/dataIO.c
+nimbus/src/ncxy/define.h
+nimbus/src/ncxy/error.c
+nimbus/src/ncxy/extern.h
+nimbus/src/ncxy/global.c
+nimbus/src/ncxy/init.c
+nimbus/src/ncxy/misc.c
+nimbus/src/ncxy/parmsIO.c
+nimbus/src/ncxy/ps.c
+nimbus/src/ncxy/search.c
+nimbus/src/ncxy/sort.c
+nimbus/src/ncxy/tags
+nimbus/src/ncxy/XmNCxy
+nimbus/lib/
+nimbus/lib/libstd.a
+nimbus/lib/libuser.a
+nimbus/lib/libxlate.a
+nimbus/doc/
+nimbus/doc/memos/
+nimbus/doc/memos/qc.proposal
+nimbus/doc/memos/qc.presentaion
+nimbus/doc/memos/nim200
+nimbus/doc/memos/nim201
+nimbus/doc/memos/nim210
+nimbus/doc/netCDF
+nimbus/doc/NimbusTools
+nimbus/doc/ProductionProcedures
+nimbus/doc/MultiRateFilter
+nimbus/doc/NOAA/
+nimbus/doc/NOAA/NimbusTools
+nimbus/doc/Programmer/
+nimbus/doc/Programmer/AddingProbes
+nimbus/doc/FilesUsedByNimbus
+nimbus/doc/AES/
+nimbus/doc/HISTORY
+nimbus/doc/outline
+nimbus/doc/html/
+nimbus/doc/html/top.html
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Tue Apr 25 16:27:08 1995
+Subject: Files in ~nimbus directory
+To: greg (Greg Kok)
+Date: Tue, 25 Apr 1995 16:27:08 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 775       
+Status: RO
+
+Greg,
+
+There are a number of files in the `nimbus' home directory that I'd like
+to move.  Can you tell me if any are yours, and, if so, what is their
+purpose?  I assume that the 120 and 818 subdirectories are associated
+with their project numbers and are not yours.
+ 
+Thanks.
+ 
+Directory:  /home/users/nimbus
+drwxrwxr-x   3 nimbus   proj         512 Feb 16 09:31 120/
+drwxrwxr-x   2 nimbus   proj        3072 Apr 20 16:33 818/
+-rw-rw-r--   1 nimbus   proj         350 Feb 21 10:33 CO_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:39 XNOY_zero.pts
+-rw-rw-r--   1 nimbus   proj         267 Feb 21 10:36 XNO_zero.pts
+-rw-rw-r--   1 nimbus   proj           0 Feb 14 12:53 XNST_zero.pts
+-rw-rw-r--   1 nimbus   proj         154 Feb 21 10:41 XSO2S_zero.pts
+
+-- 
+Ron
+
+From greg@raf.atd.ucar.EDU Wed Apr 26 08:11 MDT 1995
+From: greg@raf.atd.ucar.EDU (Greg Kok)
+Return-Path: <greg@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id IAA03196; Wed, 26 Apr 1995 08:11:38 -0600
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id IAA00577; Wed, 26 Apr 1995 08:11:36 -0600
+Message-Id: <199504261411.IAA00577@mistral.atd.ucar.edu>
+Subject: Re: Files in ~nimbus directory
+To: ron@raf.atd.ucar.EDU (Ron Ruth)
+Date: Wed, 26 Apr 1995 08:11:36 -0600 (MDT)
+In-Reply-To: <199504252227.QAA14715@mistral.atd.ucar.edu> from "Ron Ruth" at Apr 25, 95 04:27:08 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 890
+Status: RO
+
+>Ron:
+
+Sorry for these files here.  I have taken care of them.
+
+
+Greg
+ 
+> Greg,
+> 
+> There are a number of files in the `nimbus' home directory that I'd like
+> to move.  Can you tell me if any are yours, and, if so, what is their
+> purpose?  I assume that the 120 and 818 subdirectories are associated
+> with their project numbers and are not yours.
+>  
+> Thanks.
+>  
+> Directory:  /home/users/nimbus
+> drwxrwxr-x   3 nimbus   proj         512 Feb 16 09:31 120/
+> drwxrwxr-x   2 nimbus   proj        3072 Apr 20 16:33 818/
+> -rw-rw-r--   1 nimbus   proj         350 Feb 21 10:33 CO_zero.pts
+> -rw-rw-r--   1 nimbus   proj         267 Feb 21 10:39 XNOY_zero.pts
+> -rw-rw-r--   1 nimbus   proj         267 Feb 21 10:36 XNO_zero.pts
+> -rw-rw-r--   1 nimbus   proj           0 Feb 14 12:53 XNST_zero.pts
+> -rw-rw-r--   1 nimbus   proj         154 Feb 21 10:41 XSO2S_zero.pts
+> 
+> -- 
+> Ron
+> 
+
+
+From ron Fri Jan 27 13:47:36 1995
+Subject: Re: VarDB items for the Fssp-300
+To: greg@chinook.atd.ucar.EDU
+Date: Fri, 27 Jan 1995 13:47:37 -0700 (MST)
+In-Reply-To: <199501272027.NAA24237@mistral.atd.ucar.edu> from "greg@chinook.atd.ucar.EDU" at Jan 27, 95 01:27:04 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1146      
+Status: RO
+
+> 
+> Ron, Can you tell me what I need to add to the VarDB for the FSSP-300?
+> 
+> Thanks,
+> 
+Greg,
+
+Initially, you don't have to add anything.  I suggest you do a NIMBUS test
+run and look at the output netCDF file header.  To find variables that have
+no definitions, search the header output for the strings "No title" or
+"Unknown".  If any of them point to FSSP-300 variables, then one needs
+to add their descriptions to the VarDB file.  If these are permanent
+descriptions, I should add them to the master VarDB file.  If they are not,
+then you can run the VarDB editor (while in the ...201/Production
+subdirectory) and update the local list.  For the final production data set
+you don't want ANY "Unknown" variables (i.e., there should be definitions
+in the VarDB for every variable output to the netCDF file).
+
+If Chris has not added NIMBUS processing code for the FSSP-300, that is
+another matter.  For any raw variables not having code for derived output,
+NIMBUS will output the raw data and nothing else.  We must define what needs
+to be done to produce the derived data and add the proper functions, derived
+variable names, etc.
+
+-- 
+Ron
+

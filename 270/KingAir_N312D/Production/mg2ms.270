@@ -1,0 +1,63 @@
+#! /bin/csh -f
+#
+#  Archive files to SCD Mass Store System (MSS)
+#
+#  Destination directory on MSS
+set MSDIR = /RAF/1994/270/LRT
+#
+#  Standard archive options
+set Options = "mvn=CTRAFDMG w=RAFDMG rtpd=4096 proj=41113009"
+#
+#  Local directory having data sets
+set DDATA = /home/local/staticdata
+#
+#  Local directory having support files
+set DFILE = /home/local/proj/270/Production
+#
+#  Local data set name list
+set DATAS = ( 270RF01.cdf 270RF02.cdf 270RF03.cdf 270RF05.cdf 270RF06.cdf \
+              270RF07.cdf 270RF08.cdf 270RF09.cdf 270RF10.cdf 270RF11.cdf \
+              270RF12.cdf )
+#
+#  MSS data set bitfile name list
+set DATAO = ( RF01.cdf    RF02.cdf    RF03.cdf    RF05.cdf    RF06.cdf \
+              RF07.cdf    RF08.cdf    RF09.cdf    RF10.cdf    RF11.cdf \
+              RF12.cdf )
+#
+#  Local support file list
+set FILES = ( 4-270.tar tarit.4-270.tar nimbus.tar taplog.270 tp2ms.summary \
+              RF01.hdr README )
+#
+# Sequence number = CK0934
+# Sequence number = CK0939
+# Sequence number = CK0946
+# Sequence number = CK0953
+# Sequence number = CK0960
+# Sequence number = CK0967
+# Sequence number = CK0974
+# Jobs submitted before Wed Jan 26 18:04:17 MST 1994
+#
+#  Do the work
+#set todo = $#DATAS
+#set num = 1
+#while ($num <= $todo)
+#  set DATA = $DATAS[$num]
+#  set BITFIL = $DATAO[$num]
+#  nrnet msput $DDATA/$DATA r flnm=$MSDIR/$BITFIL $Options
+#  @ num ++
+#end
+#
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set BITFIL = $FILES[$num]
+  nrnet msput $DFILE/$BITFIL r flnm=$MSDIR/$BITFIL $Options
+  @ num ++
+end
+#
+#  Special job submitted outside of this file (but put here for documentation)
+#nrnet msput skel.tar l df=tr r flnm=/RAF/1994/270/LRT/skel.tar rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+# Job submitted on Tue Jun 20 10:23:54 MDT 1995
+# Sequence number = MI2067 -- /RAF/1994/270/LRT/skel.tar -- OK @ 10:28:38
+#
+exit

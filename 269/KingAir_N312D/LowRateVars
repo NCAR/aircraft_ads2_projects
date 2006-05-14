@@ -1,0 +1,73 @@
+#
+# This file contains variable names of Derived variables whose OutputRate
+# will default to LowRate for a HighRate nimbus run.
+#
+# Derived variables
+# Project-related changes for NIMBUS/GENPRO comparison test (RLR):
+PSFDC
+PSWC
+#PSXC
+#PSXC   (This variable can derive from a high-rate pressure measurement.)
+HGM
+PALT
+#PALT   (This variable can derive from a high-rate pressure measurement.)
+PALTF
+#PALTF  (This variable can derive from a high-rate pressure measurement.)
+DPTC
+DPBC
+#DPXC
+#RHODB
+RHODT
+RHUM
+#RHUM   (This variable can derive from a high-rate moisture measurement.)
+PLWCC
+#PLWCC  (This variable can derive from a high-rate LWC measurement.)
+LWCC
+RICE
+IRTC
+IRBC
+#   Solar angles and corrected SWT added on 23 October 1997
+SOLZE
+SOLAZ
+SOLDE
+SOLEL
+XRADCF
+XSWTC
+#
+TEO3C
+CONC6
+DBAR6
+CONCF
+DBARF
+EDPC
+MR
+#MR     (This variable can derive from a high-rate moisture measurement.)
+#
+# Dummy variables
+ONE
+ZERO
+#
+#PSURF  (This variable can derive from a high-rate pressure measurement.)
+#VEWC
+#VNSC
+#XICNC
+#XRLWCC
+#
+#XLONC
+#XLATC
+#XVEWC  (The source variable has a 10 sps sample rate.)
+#XVNSC  (The source variable has a 10 sps sample rate.)
+#
+# PMS-1D variables
+CFSSP
+#CPCAS
+#CF300
+#C200X
+#C200Y
+C260X
+#
+# PMS-2D variables
+CON2C1
+#CON2C2
+CON2P1
+#CON2P2

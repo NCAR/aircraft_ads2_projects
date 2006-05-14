@@ -1,0 +1,53 @@
+#! /bin/csh -f
+#
+#  Archive NIMBUS support files for 4-201 Hong Kong (Kok)
+#
+set YEAR = 1994
+set PROJ = 201
+set TURB = LRT
+#set TURB = HRT
+#
+set DIR = "/home/local/proj/201/Production"
+#
+#  Main project directory
+set FILES =   ( ../README MSCP_out.201 tp2ms.summary )
+set FLIGHTS = (    README MSCP_out.201 tp2ms.summary )
+#
+#  Get started:
+date
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  echo \
+  nrnet msput $DIR/$FILES[$num] l df=tr \
+    r flnm=/RAF/$YEAR/$PROJ/$FLIGHTS[$num] \
+    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#  LRT/HRT directory
+set FILES =   ( taplog.201 201.tar 201.tar.dir nimbus.tar nimbus.tar.dir )
+set FLIGHTS = ( taplog.201 201.tar 201.tar.dir nimbus.tar nimbus.tar.dir )
+#
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  echo \
+  nrnet msput $DIR/$FILES[$num] l df=tr \
+    r flnm=/RAF/$YEAR/$PROJ/$TURB/$FLIGHTS[$num] \
+    rtpd=4095 w=RAFDMG mvn=CTRAFDMG
+  @ num ++
+end
+#
+#  Jobs submitted on Wed Mar 15 15:41:08 MST 1995
+# Sequence number = MI2607 -- README -- OK
+# Sequence number = MI2614 -- MSCP_out.201 -- OK
+# Sequence number = MI2621 -- tp2ms.summary -- OK
+# Sequence number = MI2628 -- LRT/taplog.201 -- OK
+# Sequence number = MI2635 -- LRT/201.tar -- OK
+# Sequence number = MI2642 -- LRT/201.tar.dir -- OK
+# Sequence number = MI2649 -- LRT/nimbus.tar -- OK
+# Sequence number = MI2656 -- LRT/nimbus.tar.dir -- OK
+#
+# done.
+exit

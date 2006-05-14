@@ -1,0 +1,41 @@
+     1	ls
+     2	mv 110rf07a.cdf 110rf07alrt.cdf
+     3	ls
+     4	cd
+     5	exit
+     6	source .ron
+     7	rm .nimbus.exrc
+     8	move 280*cdf /home/productiondata/.
+     9	cd data
+    10	move 280*cdf /home/productiondata/.
+    11	mv 280*cdf /home/productiondata/.
+    12	mv 280*cdf /home/productiondata/.
+    13	d
+    14	Proj 280
+    15	ls
+    16	mv /home/local/data/280RF12.hdr .
+    17	ls
+    18	lsr
+    19	d
+    20	bye
+    21	source .ron
+    22	Proj 280
+    23	cd productiondata
+    24	ls
+    25	ls 280*
+    26	ls 280* > rename
+    27	dmusic
+    28	d
+    29	ncdht 280HR05a.cdf
+    30	ncdht 280HR05.cdf
+    31	ncdhm 280HR05.cdf
+    32	d
+    33	ls 280rf11old
+    34	ls 280rf11old*
+    35	d
+    36	ls 280*
+    37	bye
+    38	ls
+    39	hl proj/280
+    40	history
+    41	history > notes.proj

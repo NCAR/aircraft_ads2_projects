@@ -1,0 +1,52 @@
+Changes for processing of Hong Kong air quality data.
+
+Changed CN counter divide to 16.
+
+Changed the calibration pressure for Luminox NO2 to 1013
+
+Passed the variable XLUMS straght through to XNO2C.  There is no
+non linear correction on the luminol signal.
+
+Changed DependTable for Luminox to include XLUMP
+
+There was an unknown problem in the radar altimeter.
+Special calibration coefficients were derived using
+the profile from R96 as the calibration basis.
+This profile started at 100 ft above sealevel, and
+the voltage for HGM was reverse engineered from the
+standard processing algorithm.  This voltage was then
+used as a regression against PALT.  The regression 
+expression is:
+
+HGM (feet) = 264 - 29.98 * hgmv
+
+if hgmv < -7.3 volts
+
+HGM (feet) = -948 - 196 * hgmv
+
+This keys to project 201 in the amlib/xlate/hgm
+file.
+
+
+
+There was a voltage offset in ADS for flights 93-96.  This
+was corrected by terminating the parameter XNEPR with
+a 50 ohm short, and using this as a zero reference channel.
+The rec_decode.c was changed to work with this.
+
+There are three flight groups for the production:
+
+Flight 78, where the large chemistry pumps were not operated, 
+and the calibrations for the state parameters changed slightly.
+
+
+Flights 67-87, excluding flight 78.  This had a different unit for
+DPB.
+
+
+Flights 88-97, same as flights 67-87 change in DPB.
+
+
+
+
+

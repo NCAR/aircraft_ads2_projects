@@ -1,0 +1,385 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files and other processed data files
+#     for 2-280 FIB (Fires in Brazil)
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+set done_1 = "no"
+set done_2 = "no"
+set done_3 = "no"
+# set done_4 = "no"
+# set done_5 = "no"
+#
+#
+date
+#
+set YEAR = 1992
+set PROJ = 280
+#
+#  Set #1 -- high-rate netCDF segments
+set SDIR = /home/data/migs/campos
+set DDIR
+set TURBRT = HRT
+set SFILES = ( \
+280hr11a.cdf \
+280hr12a.cdf \
+280hr13a.cdf \
+280hr14a.cdf \
+)
+set DFILES = ( \
+RF11A \
+RF12A \
+RF13A \
+RF14A \
+)
+goto do_it
+#
+setup_2:
+#  Set #2 -- low-rate ASCII files
+set SDIR = /home/tmp/campos
+set DDIR = ASCII/
+set TURBRT = LRT
+set SFILES = ( \
+280rf02.track.lwc.asc \
+280rf04.track.lwc.asc \
+280rf05.track.lwc.asc \
+280rf06.track.lwc.asc \
+280rf07.track.lwc.asc \
+280rf08.track.lwc.asc \
+280rf09.track.lwc.asc \
+280rf10.track.lwc.asc \
+280rf11.track.lwc.asc \
+280rf12.track.lwc.asc \
+280rf13.track.lwc.asc \
+280rf14.track.lwc.asc \
+)
+set DFILES = ( $SFILES )
+goto do_it
+#
+setup_3:
+# Set #3 -- high-rate ASCII readme files
+set SDIR = /home/tmp/campos
+set DDIR = ASCII/
+set TURBRT = HRT
+set SFILES = ( \
+README.hr02.980514 \
+README.hr04.980514 \
+README.hr05.980514 \
+README.hr06.980514 \
+README.hr07.980514 \
+README.hr08.980514 \
+README.hr09.980407 \
+README.hr10.980514 \
+)
+set DFILES = ( $SFILES )
+goto do_it
+#
+setup_4:
+# Set #4 -- high-rate ASCII files
+set SDIR = /home/data
+set DDIR = ASCII/
+set TURBRT = HRT
+set SFILES = ( \
+280HR02a.asc \
+280HR02b.asc \
+280HR02c.asc \
+280HR02d.asc \
+280HR02e.asc \
+280HR02f.asc \
+280HR02g.asc \
+280HR04a.asc \
+280HR04b.asc \
+280HR04c.asc \
+280HR04d.asc \
+280HR04e.asc \
+280HR04f.asc \
+280HR04g.asc \
+280HR04h.asc \
+280HR04i.asc \
+280HR05a.asc \
+280HR05b.asc \
+280HR05c.asc \
+280HR05d.asc \
+280HR05e.asc \
+280HR05f.asc \
+280HR05g.asc \
+280HR05h.asc \
+280HR05i.asc \
+280HR06a.asc \
+280HR06b.asc \
+280HR06c.asc \
+280HR06d.asc \
+280HR06e.asc \
+280HR06f.asc \
+280HR06g.asc \
+280HR06h.asc \
+280HR07a.asc \
+280HR07b.asc \
+280HR07c.asc \
+280HR08a.asc \
+280HR08b.asc \
+280HR08c.asc \
+280HR08d.asc \
+280HR08e.asc \
+280HR08f.asc \
+280HR08g.asc \
+280HR08h.asc \
+280HR08i.asc \
+280HR09a.asc \
+280HR09b.asc \
+280HR09c.asc \
+280HR09d.asc \
+280HR09e.asc \
+280HR09f.asc \
+280HR10a.asc \
+280HR10b.asc \
+280HR10c.asc \
+280HR10d.asc \
+280HR10e.asc \
+280HR10f.asc \
+280TR02a.asc \
+280TR02b.asc \
+280TR02c.asc \
+280TR02d.asc \
+280TR02e.asc \
+280TR02f.asc \
+280TR02g.asc \
+280TR04a.asc \
+280TR04b.asc \
+280TR04c.asc \
+280TR04d.asc \
+280TR04e.asc \
+280TR04f.asc \
+280TR04g.asc \
+280TR04h.asc \
+280TR04i.asc \
+280TR05a.asc \
+280TR05b.asc \
+280TR05c.asc \
+280TR05d.asc \
+280TR05e.asc \
+280TR05f.asc \
+280TR05g.asc \
+280TR05h.asc \
+280TR05i.asc \
+280TR06a.asc \
+280TR06b.asc \
+280TR06c.asc \
+280TR06d.asc \
+280TR06e.asc \
+280TR06f.asc \
+280TR06g.asc \
+280TR06h.asc \
+280TR07a.asc \
+280TR07b.asc \
+280TR07c.asc \
+280TR08a.asc \
+280TR08b.asc \
+280TR08c.asc \
+280TR08d.asc \
+280TR08e.asc \
+280TR08f.asc \
+280TR08g.asc \
+280TR08h.asc \
+280TR08i.asc \
+280TR09a.asc \
+280TR09b.asc \
+280TR09c.asc \
+280TR09d.asc \
+280TR09e.asc \
+280TR09f.asc \
+280TR10a.asc \
+280TR10b.asc \
+280TR10c.asc \
+280TR10d.asc \
+280TR10e.asc \
+280TR10f.asc \
+)
+set DFILES = ( $SFILES )
+#
+#
+do_it:
+#
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names do not match."
+  echo " Quitting.
+  exit 1
+endif
+#
+#  Get started:
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+#    echo \
+    nrnet msput $SDIR/$SFILE l df=tr r flnm=/RAF/$YEAR/$PROJ/${DDIR}${TURBRT}/$DFILE rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+  else
+    echo "^G Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+if ($done_1 == "no") then
+  set done_1 = "yes"
+  goto setup_2
+endif
+if ($done_2 == "no") then
+  set done_2 = "yes"
+  goto setup_3
+endif
+if ($done_3 == "no") then
+  set done_3 = "yes"
+  goto setup_4
+endif
+#
+# Done.
+exit
+#
+#
+#  All bitfiles archived in the MSS directory /RAF/1992/280/
+#
+#  Job(s) submitted on Wed May 20 12:16:06 MDT 1998
+# Sequence number = MI4018 -- HRT/RF11A -- OK @ 20 May 1998 12:17:25
+# Sequence number = MI4025 -- HRT/RF12A -- OK @ 20 May 1998 12:17:17
+# Sequence number = MI4032 -- HRT/RF13A -- OK @ 20 May 1998 12:17:35
+# Sequence number = MI4039 -- HRT/RF14A -- OK @ 20 May 1998 12:17:30
+# Sequence number = MI4046 -- ASCII/LRT/280rf02.track.lwc.asc -- OK @ 20 May 1998 12:21:46
+# Sequence number = MI4053 -- ASCII/LRT/280rf04.track.lwc.asc -- OK @ 20 May 1998 12:26:13
+# Sequence number = MI4060 -- ASCII/LRT/280rf05.track.lwc.asc -- OK @ 20 May 1998 12:23:03
+# Sequence number = MI4067 -- ASCII/LRT/280rf06.track.lwc.asc -- OK @ 20 May 1998 12:22:05
+# Sequence number = MI4074 -- ASCII/LRT/280rf07.track.lwc.asc -- OK @ 20 May 1998 12:30:55
+# Sequence number = MI4081 -- ASCII/LRT/280rf08.track.lwc.asc -- OK @ 20 May 1998 12:22:50
+# Sequence number = MI4089 -- ASCII/LRT/280rf09.track.lwc.asc -- OK @ 20 May 1998 12:19:00
+# Sequence number = MI4096 -- ASCII/LRT/280rf10.track.lwc.asc -- OK @ 20 May 1998 12:33:38
+# Sequence number = MI4103 -- ASCII/LRT/280rf11.track.lwc.asc -- OK @ 20 May 1998 12:33:33
+# Sequence number = MI4110 -- ASCII/LRT/280rf12.track.lwc.asc -- OK @ 20 May 1998 12:18:46
+# Sequence number = MI4117 -- ASCII/LRT/280rf13.track.lwc.asc -- OK @ 20 May 1998 12:29:36
+# Sequence number = MI4124 -- ASCII/LRT/280rf14.track.lwc.asc -- OK @ 20 May 1998 12:19:04
+# Sequence number = MI4131 -- ASCII/HRT/README.hr02.980514 -- OK @ 20 May 1998 12:33:41
+# Sequence number = MI4138 -- ASCII/HRT/README.hr04.980514 -- OK @ 20 May 1998 12:17:54
+# Sequence number = MI4145 -- ASCII/HRT/README.hr05.980514 -- OK @ 20 May 1998 12:34:34
+# Sequence number = MI4152 -- ASCII/HRT/README.hr06.980514 -- OK @ 20 May 1998 12:33:52
+# Sequence number = MI4159 -- ASCII/HRT/README.hr07.980514 -- OK @ 20 May 1998 12:22:32
+# Sequence number = MI4166 -- ASCII/HRT/README.hr08.980514 -- OK @ 20 May 1998 12:40:07
+# Sequence number = MI4173 -- ASCII/HRT/README.hr09.980407 -- OK @ 20 May 1998 12:38:00
+# Sequence number = MI4180 -- ASCII/HRT/README.hr10.980514 -- OK @ 20 May 1998 12:29:57
+# Sequence number = MI4187 -- ASCII/HRT/280HR02a.asc -- OK @ 20 May 1998 12:18:08
+# Sequence number = MI4194 -- ASCII/HRT/280HR02b.asc -- OK @ 20 May 1998 12:34:14
+# Sequence number = MI4201 -- ASCII/HRT/280HR02c.asc -- OK @ 20 May 1998 12:30:13
+# Sequence number = MI4208 -- ASCII/HRT/280HR02d.asc -- OK @ 20 May 1998 12:22:19
+# Sequence number = MI4215 -- ASCII/HRT/280HR02e.asc -- OK @ 20 May 1998 12:42:26
+# Sequence number = MI4222 -- ASCII/HRT/280HR02f.asc -- OK @ 20 May 1998 12:18:25
+# Sequence number = MI4229 -- ASCII/HRT/280HR02g.asc -- OK @ 20 May 1998 12:30:21
+# Sequence number = MI4236 -- ASCII/HRT/280HR04a.asc -- OK @ 20 May 1998 12:26:30
+# Sequence number = MI4243 -- ASCII/HRT/280HR04b.asc -- OK @ 20 May 1998 12:22:34
+# Sequence number = MI4250 -- ASCII/HRT/280HR04c.asc -- OK @ 20 May 1998 12:30:37
+# Sequence number = MI4257 -- ASCII/HRT/280HR04d.asc -- OK @ 20 May 1998 12:18:38
+# Sequence number = MI4264 -- ASCII/HRT/280HR04e.asc -- OK @ 20 May 1998 12:34:42
+# Sequence number = MI4271 -- ASCII/HRT/280HR04f.asc -- OK @ 20 May 1998 12:26:44
+# Sequence number = MI4278 -- ASCII/HRT/280HR04g.asc -- OK @ 20 May 1998 12:22:50
+# Sequence number = MI4285 -- ASCII/HRT/280HR04h.asc -- OK @ 20 May 1998 12:30:52
+# Sequence number = MI4292 -- ASCII/HRT/280HR04i.asc -- OK @ 20 May 1998 12:18:50
+# Sequence number = MI4299 -- ASCII/HRT/280HR05a.asc -- OK @ 20 May 1998 12:38:55
+# Sequence number = MI4306 -- ASCII/HRT/280HR05b.asc -- OK @ 20 May 1998 12:26:58
+# Sequence number = MI4313 -- ASCII/HRT/280HR05c.asc -- OK @ 20 May 1998 12:19:03
+# Sequence number = MI4320 -- ASCII/HRT/280HR05d.asc -- OK @ 20 May 1998 12:19:32
+# Sequence number = MI4327 -- ASCII/HRT/280HR05e.asc -- OK @ 20 May 1998 12:23:08
+# Sequence number = MI4334 -- ASCII/HRT/280HR05f.asc -- OK @ 20 May 1998 12:31:11
+# Sequence number = MI4341 -- ASCII/HRT/280HR05g.asc -- OK @ 20 May 1998 12:19:18
+# Sequence number = MI4348 -- ASCII/HRT/280HR05h.asc -- OK @ 20 May 1998 12:19:26
+# Sequence number = MI4355 -- ASCII/HRT/280HR05i.asc -- OK @ 20 May 1998 12:19:30
+# Sequence number = MI4362 -- ASCII/HRT/280HR06a.asc -- OK @ 20 May 1998 12:27:24
+# Sequence number = MI4369 -- ASCII/HRT/280HR06b.asc -- OK @ 20 May 1998 12:19:37
+# Sequence number = MI4376 -- ASCII/HRT/280HR06c.asc -- OK @ 20 May 1998 12:27:41
+# Sequence number = MI4383 -- ASCII/HRT/280HR06d.asc -- OK @ 20 May 1998 12:19:46
+# Sequence number = MI4390 -- ASCII/HRT/280HR06e.asc -- OK @ 20 May 1998 12:19:53
+# Sequence number = MI4397 -- ASCII/HRT/280HR06f.asc -- OK @ 20 May 1998 12:20:02
+# Sequence number = MI4404 -- ASCII/HRT/280HR06g.asc -- OK @ 20 May 1998 12:20:06
+# Sequence number = MI4411 -- ASCII/HRT/280HR06h.asc -- OK @ 20 May 1998 12:20:08
+# Sequence number = MI4418 -- ASCII/HRT/280HR07a.asc -- OK @ 20 May 1998 12:32:05
+# Sequence number = MI4425 -- ASCII/HRT/280HR07b.asc -- OK @ 20 May 1998 12:20:22
+# Sequence number = MI4432 -- ASCII/HRT/280HR07c.asc -- OK @ 20 May 1998 12:20:19
+# Sequence number = MI4439 -- ASCII/HRT/280HR08a.asc -- OK @ 20 May 1998 12:20:27
+# Sequence number = MI4446 -- ASCII/HRT/280HR08b.asc -- OK @ 20 May 1998 12:20:31
+# Sequence number = MI4453 -- ASCII/HRT/280HR08c.asc -- OK @ 20 May 1998 12:24:30
+# Sequence number = MI4460 -- ASCII/HRT/280HR08d.asc -- OK @ 20 May 1998 12:20:37
+# Sequence number = MI4467 -- ASCII/HRT/280HR08e.asc -- OK @ 20 May 1998 12:20:44
+# Sequence number = MI4474 -- ASCII/HRT/280HR08f.asc -- OK @ 20 May 1998 12:24:44
+# Sequence number = MI4481 -- ASCII/HRT/280HR08g.asc -- OK @ 20 May 1998 12:20:54
+# Sequence number = MI4488 -- ASCII/HRT/280HR08h.asc -- OK @ 20 May 1998 12:20:56
+# Sequence number = MI4495 -- ASCII/HRT/280HR08i.asc -- OK @ 20 May 1998 12:28:50
+# Sequence number = MI4502 -- ASCII/HRT/280HR09a.asc -- OK @ 20 May 1998 12:25:01
+# Sequence number = MI4509 -- ASCII/HRT/280HR09b.asc -- OK @ 20 May 1998 12:25:07
+# Sequence number = MI4516 -- ASCII/HRT/280HR09c.asc -- OK @ 20 May 1998 12:29:10
+# Sequence number = MI4523 -- ASCII/HRT/280HR09d.asc -- OK @ 20 May 1998 12:21:12
+# Sequence number = MI4530 -- ASCII/HRT/280HR09e.asc -- OK @ 20 May 1998 12:29:17
+# Sequence number = MI4537 -- ASCII/HRT/280HR09f.asc -- OK @ 20 May 1998 12:25:15
+# Sequence number = MI4544 -- ASCII/HRT/280HR10a.asc -- OK @ 20 May 1998 12:33:19
+# Sequence number = MI4551 -- ASCII/HRT/280HR10b.asc -- OK @ 20 May 1998 12:25:23
+# Sequence number = MI4558 -- ASCII/HRT/280HR10c.asc -- OK @ 20 May 1998 12:29:25
+# Sequence number = MI4565 -- ASCII/HRT/280HR10d.asc -- OK @ 20 May 1998 12:33:29
+# Sequence number = MI4572 -- ASCII/HRT/280HR10e.asc -- OK @ 20 May 1998 12:25:32
+# Sequence number = MI4579 -- ASCII/HRT/280HR10f.asc -- OK @ 20 May 1998 12:30:35
+# Sequence number = MI4586 -- ASCII/HRT/280TR02a.asc -- OK @ 20 May 1998 12:33:29
+# Sequence number = MI4593 -- ASCII/HRT/280TR02b.asc -- OK @ 20 May 1998 12:26:33
+# Sequence number = MI4600 -- ASCII/HRT/280TR02c.asc -- OK @ 20 May 1998 12:26:52
+# Sequence number = MI4607 -- ASCII/HRT/280TR02d.asc -- OK @ 20 May 1998 12:37:34
+# Sequence number = MI4614 -- ASCII/HRT/280TR02e.asc -- OK @ 20 May 1998 12:35:21
+# Sequence number = MI4621 -- ASCII/HRT/280TR02f.asc -- OK @ 20 May 1998 12:27:10
+# Sequence number = MI4628 -- ASCII/HRT/280TR02g.asc -- OK @ 20 May 1998 12:35:41
+# Sequence number = MI4635 -- ASCII/HRT/280TR04a.asc -- OK @ 20 May 1998 12:29:44
+# Sequence number = MI4642 -- ASCII/HRT/280TR04b.asc -- OK @ 20 May 1998 12:37:46
+# Sequence number = MI4649 -- ASCII/HRT/280TR04c.asc -- OK @ 20 May 1998 12:38:25
+# Sequence number = MI4656 -- ASCII/HRT/280TR04d.asc -- OK @ 20 May 1998 12:29:50
+# Sequence number = MI4663 -- ASCII/HRT/280TR04e.asc -- OK @ 20 May 1998 12:39:42
+# Sequence number = MI4670 -- ASCII/HRT/280TR04f.asc -- OK @ 20 May 1998 12:41:56
+# Sequence number = MI4677 -- ASCII/HRT/280TR04g.asc -- OK @ 20 May 1998 12:33:58
+# Sequence number = MI4684 -- ASCII/HRT/280TR04h.asc -- OK @ 20 May 1998 12:30:00
+# Sequence number = MI4691 -- ASCII/HRT/280TR04i.asc -- OK @ 20 May 1998 12:30:59
+# Sequence number = MI4698 -- ASCII/HRT/280TR05a.asc -- OK @ 20 May 1998 12:42:30
+# Sequence number = MI4705 -- ASCII/HRT/280TR05b.asc -- OK @ 20 May 1998 12:38:09
+# Sequence number = MI4712 -- ASCII/HRT/280TR05c.asc -- OK @ 20 May 1998 12:42:18
+# Sequence number = MI4719 -- ASCII/HRT/280TR05d.asc -- OK @ 20 May 1998 12:43:42
+# Sequence number = MI4726 -- ASCII/HRT/280TR05e.asc -- OK @ 20 May 1998 12:38:18
+# Sequence number = MI4733 -- ASCII/HRT/280TR05f.asc -- OK @ 20 May 1998 12:48:19
+# Sequence number = MI4740 -- ASCII/HRT/280TR05g.asc -- OK @ 20 May 1998 12:34:24
+# Sequence number = MI4747 -- ASCII/HRT/280TR05h.asc -- OK @ 20 May 1998 12:42:34
+# Sequence number = MI4754 -- ASCII/HRT/280TR05i.asc -- OK @ 20 May 1998 12:38:26
+# Sequence number = MI4761 -- ASCII/HRT/280TR06a.asc -- OK @ 20 May 1998 12:46:30
+# Sequence number = MI4768 -- ASCII/HRT/280TR06b.asc -- OK @ 20 May 1998 12:38:34
+# Sequence number = MI4775 -- ASCII/HRT/280TR06c.asc -- OK @ 20 May 1998 12:40:43
+# Sequence number = MI4782 -- ASCII/HRT/280TR06d.asc -- OK @ 20 May 1998 12:24:09
+# Sequence number = MI4789 -- ASCII/HRT/280TR06e.asc -- OK @ 20 May 1998 12:26:56
+# Sequence number = MI4796 -- ASCII/HRT/280TR06f.asc -- OK @ 20 May 1998 12:30:44
+# Sequence number = MI4803 -- ASCII/HRT/280TR06g.asc -- OK @ 20 May 1998 12:35:56
+# Sequence number = MI4810 -- ASCII/HRT/280TR06h.asc -- OK @ 20 May 1998 12:30:52
+# Sequence number = MI4817 -- ASCII/HRT/280TR07a.asc -- OK @ 20 May 1998 12:34:54
+# Sequence number = MI4824 -- ASCII/HRT/280TR07b.asc -- OK @ 20 May 1998 12:24:30
+# Sequence number = MI4831 -- ASCII/HRT/280TR07c.asc -- OK @ 20 May 1998 12:27:00
+# Sequence number = MI4838 -- ASCII/HRT/280TR08a.asc -- OK @ 20 May 1998 12:27:57
+# Sequence number = MI4845 -- ASCII/HRT/280TR08b.asc -- OK @ 20 May 1998 12:32:42
+# Sequence number = MI4852 -- ASCII/HRT/280TR08c.asc -- OK @ 20 May 1998 12:27:10
+# Sequence number = MI4859 -- ASCII/HRT/280TR08d.asc -- OK @ 20 May 1998 12:25:26
+# Sequence number = MI4866 -- ASCII/HRT/280TR08e.asc -- OK @ 20 May 1998 12:24:46
+# Sequence number = MI4873 -- ASCII/HRT/280TR08f.asc -- OK @ 20 May 1998 12:27:17
+# Sequence number = MI4880 -- ASCII/HRT/280TR08g.asc -- OK @ 20 May 1998 12:28:16
+# Sequence number = MI4887 -- ASCII/HRT/280TR08h.asc -- OK @ 20 May 1998 12:31:22
+# Sequence number = MI4894 -- ASCII/HRT/280TR08i.asc -- OK @ 20 May 1998 12:27:24
+# Sequence number = MI4901 -- ASCII/HRT/280TR09a.asc -- OK @ 20 May 1998 12:31:27
+# Sequence number = MI4908 -- ASCII/HRT/280TR09b.asc -- OK @ 20 May 1998 12:31:31
+# Sequence number = MI4915 -- ASCII/HRT/280TR09c.asc -- OK @ 20 May 1998 12:27:32
+# Sequence number = MI4922 -- ASCII/HRT/280TR09d.asc -- OK @ 20 May 1998 12:31:35
+# Sequence number = MI4929 -- ASCII/HRT/280TR09e.asc -- OK @ 20 May 1998 12:31:39
+# Sequence number = MI4936 -- ASCII/HRT/280TR09f.asc -- OK @ 20 May 1998 12:27:41
+# Sequence number = MI4943 -- ASCII/HRT/280TR10a.asc -- OK @ 20 May 1998 12:31:44
+# Sequence number = MI4950 -- ASCII/HRT/280TR10b.asc -- OK @ 20 May 1998 12:31:47
+# Sequence number = MI4957 -- ASCII/HRT/280TR10c.asc -- OK @ 20 May 1998 12:27:46
+# Sequence number = MI4964 -- ASCII/HRT/280TR10d.asc -- OK @ 20 May 1998 12:29:54
+# Sequence number = MI4971 -- ASCII/HRT/280TR10e.asc -- OK @ 20 May 1998 12:31:51
+# Sequence number = MI4978 -- ASCII/HRT/280TR10f.asc -- OK @ 20 May 1998 12:27:57
+#

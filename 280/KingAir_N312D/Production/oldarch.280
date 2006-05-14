@@ -1,0 +1,72 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2-280 FIB (Fires in Brazil) ()
+#
+#  File created by '/home/local/scripts/genar' Revision 5 on Tue Apr 15 12:17:19 MDT 1997
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set YEAR = 1992
+set PROJ = 280
+set SDIR = $PROD_DATA
+#
+#
+set TURBRT = OLDLRT
+#
+# nrnet msput $SDIR/280rf11old.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11OLDER.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf05.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf08.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf09.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf11.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf12.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf13.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf14.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#
+set TURBRT = OLDHRT
+#
+# nrnet msput $SDIR/280rf05h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf08h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf11h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf12h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf13h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+# nrnet msput $SDIR/280rf14h.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+#
+set TURBRT = OLDHRT
+#
+nrnet msput $SDIR/280rf05ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+nrnet msput $SDIR/280rf08ah.cdf l df=tr r flnm=/RAF/$YEAR/$PROJ/$TURBRT/RF08A.cdf rtpd=4095 name=RAF proj=41113009 w=RAFDMG mvn=CTRAFDMG
+#
+exit
+#
+#  Note:  All bitfiles put in the path:  /RAF/1992/280/
+#  Job(s) submitted on Tue Apr 15 12:23:00 MDT 1997
+# Sequence number = MI4904 -- OLDLRT/RF11OLDER.cdf -- OK @ 15 Apr 1997 12:24:22
+# Sequence number = MI4911 -- OLDLRT/RF05.cdf -- OK @ 15 Apr 1997 12:24:22
+# Sequence number = MI4918 -- OLDLRT/RF08.cdf -- OK @ 15 Apr 1997 12:24:22
+# Sequence number = MI4925 -- OLDLRT/RF09.cdf -- OK @ 15 Apr 1997 12:24:22
+# Sequence number = MI4932 -- OLDLRT/RF11.cdf -- OK @ 15 Apr 1997 12:27:50
+# Sequence number = MI4939 -- OLDLRT/RF12.cdf -- OK @ 15 Apr 1997 12:28:57
+# Sequence number = MI4946 -- OLDLRT/RF13.cdf -- OK @ 15 Apr 1997 12:29:00
+# Sequence number = MI4953 -- OLDLRT/RF14.cdf -- OK @ 15 Apr 1997 12:29:00
+# Sequence number = MI4960 -- OLDHRT/RF05.cdf -- OK @ 15 Apr 1997 12:30:37
+# Sequence number = MI4967 -- OLDHRT/RF08.cdf -- OK @ 15 Apr 1997 12:38:29
+# Sequence number = MI4974 -- OLDHRT/RF11.cdf -- OK @ 15 Apr 1997 12:41:22
+# Sequence number = MI4981 -- OLDHRT/RF12.cdf -- OK @ 15 Apr 1997 12:39:15
+# Sequence number = MI4988 -- OLDHRT/RF13.cdf -- OK @ 15 Apr 1997 12:41:50
+# Sequence number = MI4995 -- OLDHRT/RF14.cdf -- OK @ 15 Apr 1997 12:42:34
+# Sequence number = MI5002 -- OLDHRT/RF05A.cdf -- FTPF failed 15 Apr 1997 12:40:11 (Bad source file name)
+# Sequence number = MI5009 -- OLDHRT/RF08A.cdf -- FTPF failed 15 Apr 1997 12:40:33 (Bad source file name)
+#
+#  Job(s) submitted on Tue Apr 15 12:48:01 MDT 1997
+# Sequence number = MI5019 -- OLDHRT/RF05A.cdf -- OK @ 15 Apr 1997 12:48:49
+# Sequence number = MI5026 -- OLDHRT/RF08A.cdf -- OK @ 15 Apr 1997 12:48:53
+#

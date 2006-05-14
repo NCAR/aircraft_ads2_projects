@@ -1,0 +1,109 @@
+#! /bin/csh -f
+#
+#  Move archived NIMBUS netCDF output files for 2-280 FIB (Fires in Brazil) ()
+#
+#  `vi' :map commands for annotating job completion:
+#  :map g eea 
+#  :map v AOK @ 
+#
+date
+#
+set YEAR = 1992
+set PROJ = 280
+#
+#
+#  Set 1
+#
+#set OTURBRT = OLDLRT
+#set TURBRT = LRT
+#
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF05.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF08.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF09.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF09.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF11.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF12.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF13.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF14.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf
+#
+#
+#set OTURBRT = OLDHRT
+#set TURBRT = HRT
+#
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF05.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF05.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF05A.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF05A.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF08.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF08.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF08A.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF08A.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF11.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF11.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF12.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF12.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF13.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF13.cdf
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF14.cdf newf=/RAF/$YEAR/$PROJ/$TURBRT/RF14.cdf
+#
+#
+#  Set 2 (to be done when set 1 is finished)
+#
+set OTURBRT = OLDLRT
+#
+# nrnet msmv % r name=RAF proj=41113009 wpwd=RAFDMG flnm=/RAF/$YEAR/$PROJ/$OTURBRT/RF11OLDER.cdf newf=/RAF/$YEAR/$PROJ/$OTURBRT/RF11.cdf
+#
+exit
+#
+#  Set 1, Try 1
+#  Job(s) submitted on Fri Dec 12 13:44:21 MST 1997
+# Sequence number = MI6529 -- LRT/RF05.cdf -- Failed* @ 12 Dec 1997 13:44:24
+# Sequence number = MI6536 -- LRT/RF08.cdf -- Failed* @ 12 Dec 1997 13:44:27
+# Sequence number = MI6547 -- LRT/RF09.cdf -- Failed* @ 12 Dec 1997 13:44:29
+# Sequence number = MI6561 -- LRT/RF11.cdf -- Failed* @ 12 Dec 1997 13:44:32
+# Sequence number = MI6574 -- LRT/RF12.cdf -- Failed* @ 12 Dec 1997 13:44:34
+# Sequence number = MI6587 -- LRT/RF13.cdf -- Failed* @ 12 Dec 1997 13:44:37
+# Sequence number = MI6601 -- LRT/RF14.cdf -- Failed* @ 12 Dec 1997 13:44:40
+# Sequence number = MI6613 -- HRT/RF05.cdf -- Failed* @ 12 Dec 1997 13:44:42
+# Sequence number = MI6628 -- HRT/RF05A.cdf -- Failed* @ 12 Dec 1997 13:44:45
+# Sequence number = MI6644 -- HRT/RF08.cdf -- Failed* @ 12 Dec 1997 13:44:47
+# Sequence number = MI6655 -- HRT/RF08A.cdf -- Failed* @ 12 Dec 1997 13:44:50
+# Sequence number = MI6670 -- HRT/RF11.cdf -- Failed* @ 12 Dec 1997 13:44:53
+# Sequence number = MI6681 -- HRT/RF12.cdf -- Failed* @ 12 Dec 1997 13:44:55
+# Sequence number = MI6693 -- HRT/RF13.cdf -- Failed* @ 12 Dec 1997 13:44:58
+# Sequence number = MI6709 -- HRT/RF14.cdf -- Failed* @ 12 Dec 1997 13:45:00
+#   * Invalid parameter: mvn
+#
+#  Set 1, Try 2
+#  Job(s) submitted on Fri Dec 12 13:52:34 MST 1997
+# Sequence number = MI6983 -- LRT/RF05.cdf -- Failed** @ 12 Dec 1997 13:52:37
+# Sequence number = MI6990 -- LRT/RF08.cdf -- Failed** @ 12 Dec 1997 13:52:40
+# Sequence number = MI7000 -- LRT/RF09.cdf -- Failed** @ 12 Dec 1997 13:52:44
+# Sequence number = MI7021 -- LRT/RF11.cdf -- Failed** @ 12 Dec 1997 13:52:47
+# Sequence number = MI7034 -- LRT/RF12.cdf -- Failed** @ 12 Dec 1997 13:52:50
+# Sequence number = MI7048 -- LRT/RF13.cdf -- Failed** @ 12 Dec 1997 13:52:54
+# Sequence number = MI7061 -- LRT/RF14.cdf -- Failed** @ 12 Dec 1997 13:52:58
+# Sequence number = MI7074 -- HRT/RF05.cdf -- Failed** @ 12 Dec 1997 13:53:03
+# Sequence number = MI7091 -- HRT/RF05A.cdf -- Failed** @ 12 Dec 1997 13:53:08
+# Sequence number = MI7104 -- HRT/RF08.cdf -- Failed** @ 12 Dec 1997 13:53:14
+# Sequence number = MI7117 -- HRT/RF08A.cdf -- Failed** @ 12 Dec 1997 13:53:21
+# Sequence number = MI7134 -- HRT/RF11.cdf -- Failed** @ 12 Dec 1997 13:53:25
+# Sequence number = MI7147 -- HRT/RF12.cdf -- Failed** @ 12 Dec 1997 13:53:29
+# Sequence number = MI7160 -- HRT/RF13.cdf -- Failed** @ 12 Dec 1997 13:53:32
+# Sequence number = MI7175 -- HRT/RF14.cdf -- Failed** @ 12 Dec 1997 13:53:36
+#   ** Invalid parameter: w (should have been wpwd)
+#
+#  Set 1, Try 3
+#  Job(s) submitted on Fri Dec 12 13:56:19 MST 1997
+# Sequence number = MI7392 -- LRT/RF05.cdf -- OK @ 12 Dec 1997 13:56:22
+# Sequence number = MI7399 -- LRT/RF08.cdf -- OK @ 12 Dec 1997 13:56:24
+# Sequence number = MI7406 -- LRT/RF09.cdf -- OK @ 12 Dec 1997 13:56:27
+# Sequence number = MI7421 -- LRT/RF11.cdf -- OK @ 12 Dec 1997 13:56:30
+# Sequence number = MI7434 -- LRT/RF12.cdf -- OK @ 12 Dec 1997 13:56:32
+# Sequence number = MI7447 -- LRT/RF13.cdf -- OK @ 12 Dec 1997 13:56:35
+# Sequence number = MI7460 -- LRT/RF14.cdf -- OK @ 12 Dec 1997 13:56:37
+# Sequence number = MI7473 -- HRT/RF05.cdf -- OK @ 12 Dec 1997 13:56:40
+# Sequence number = MI7487 -- HRT/RF05A.cdf -- OK @ 12 Dec 1997 13:56:43
+# Sequence number = MI7499 -- HRT/RF08.cdf -- OK @ 12 Dec 1997 13:56:45
+# Sequence number = MI7513 -- HRT/RF08A.cdf -- OK @ 12 Dec 1997 13:56:47
+# Sequence number = MI7526 -- HRT/RF11.cdf -- OK @ 12 Dec 1997 13:56:50
+# Sequence number = MI7540 -- HRT/RF12.cdf -- OK @ 12 Dec 1997 13:56:53
+# Sequence number = MI7552 -- HRT/RF13.cdf -- OK @ 12 Dec 1997 13:56:56
+# Sequence number = MI7567 -- HRT/RF14.cdf -- OK @ 12 Dec 1997 13:56:58
+#
+#  Set 2
+#  Job(s) submitted on Fri Dec 12 14:31:11 MST 1997
+# Sequence number = MI8636 -- OLDLRT/RF11.cdf -- OK @ 12 Dec 1997 14:31:16
+#

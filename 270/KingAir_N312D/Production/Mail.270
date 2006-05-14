@@ -1,0 +1,1339 @@
+From krista@chinook.atd.ucar.EDU Tue Nov 30 14:29:05 1993
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA21773; Tue, 30 Nov 93 14:29:04 MST
+Date: Tue, 30 Nov 93 14:29:03 MST
+Message-Id: <9311302129.AA00426@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA00426; Tue, 30 Nov 93 14:29:03 MST
+To: ron
+Subject: Lawson tape info
+Cc: darrel
+Status: RO
+
+Ron--
+
+The program Chris W. wrote (xtv) to look at ADS tapes is not giving me
+the information that I thought it would regarding the length of the
+tape, etc.  I believe Chris is out today, but I'll check with him as
+soon as he gets back and try to find a way to get you the information
+you need.
+
+Krista
+
+From krista@chinook.atd.ucar.EDU Tue Nov 30 14:59:22 1993
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA22670; Tue, 30 Nov 93 14:59:21 MST
+Date: Tue, 30 Nov 93 14:59:20 MST
+Message-Id: <9311302159.AA00429@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA00429; Tue, 30 Nov 93 14:59:20 MST
+To: ron
+Subject: Re: Lawson tape info
+Status: RO
+
+Ron--
+
+Will do....I'll try to get the info you need completed by tomorrow
+afternoon.
+
+Krista
+
+From ron Tue Nov 30 12:29:23 1993
+Subject: Lawson tapes
+To: krista (Krista Laursen)
+Date: Tue, 30 Nov 1993 12:29:23 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 216       
+Status: RO
+
+Krista,
+
+Do you have any information about the tapes you gave me this morning, like
+start/end times, number of records, total bytes?  It will greatly help my
+job in staging them to the Mass Store.
+
+Thanks!
+
+-- 
+Ron
+
+From ron Tue Nov 30 14:55:04 1993
+Subject: Re: Lawson tape info
+To: krista@chinook.atd.ucar.EDU
+Date: Tue, 30 Nov 1993 14:55:04 -0700 (MST)
+In-Reply-To: <9311302129.AA00426@lhotse> from "krista@chinook.atd.ucar.EDU" at Nov 30, 93 02:29:03 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 165       
+Status: RO
+
+Krista,
+
+Just to verify our little conversation:
+
+Use the routine `tpvew' on chinook with the `CK' command and totalize the
+record-size*number-of-records.
+
+-- 
+Ron
+
+From ron Wed Dec 22 11:24:46 1993
+Subject: 4-270 Tape Stage Complete
+To: krista (Krista Laursen)
+Date: Wed, 22 Dec 1993 11:24:46 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1868      
+Status: RO
+
+Krista,
+
+I have finished staging all the 4-270 ExaByte tapes to the SCD Mass Store
+System.  I have asked Sue Jensen (SCD tape librarian) to return tapes R0764,
+R0765, R0766, R0768, R0769, R0770, R0771, R0773, R0774, R0775 and R0776 to
+Barbara Knowles for safekeeping.
+
+Here is the tape stage summary:
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+              Tape Stage Summary:  4-270  In-Cloud Temperature    RLR
+ 
+                  MSS path name: /RAF/1994/270/
+ 
+ 
+  IMPORT USED TAPE DRIVE 560 FOR:  RF01, RF02, RF03, RF05, RF06, RF07,
+                                   RF08, RF09, RF10 and RF11
+  IMPORT USED TAPE DRIVE 561 FOR:  RF12
+
+
+                           Execution                                  Data Rate
+  Date     Begin    End    Time(min)  Bitfile Name   Recs    Bytes   (Bytes/sec)
+-------- -------- -------- --------- -------------   ----  --------- -----------
+12/02/93 09.18.22 09.52.51   34.48   ...RF01/R0764   3410   83624696    40422
+12/02/93 09.52.52 10.21.10   28.30   ...RF02/R0765   2437   59766736    35198
+12/02/93 10.21.11 10.55.35   34.40   ...RF03/R0766   5978  147047008    71244
+12/02/93 10.55.36 11.25.15   29.66   ...RF05/R0768   3100   76062124    42741
+12/02/93 11.25.16 11.56.48   31.53   ...RF06/R0769   4859  122501936    64754
+12/02/93 11.56.49 12.39.06   42.29   ...RF07/R0770   5314  138169428    54453
+12/02/93 12.39.07 13.37.50   58.71   ...RF08/R0771   5291  139005080    39461
+12/16/93 14.23.46 14.46.50   23.06   ...RF09/R0773   2043   50826272    36735
+12/16/93 14.46.51 15.53.06   66.25   ...RF10/R0774   3656   90914460    22872
+12/21/93 16.42.40 17.00.57   18.28   ...RF11/R0775   1923   47789556    43572
+12/21/93 17.00.58 18.08.22   67.40   ...RF12/R0776   3576   95337152    23575
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From krista@chinook.atd.ucar.EDU Thu Jan 20 15:44:15 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA23513; Thu, 20 Jan 94 15:44:13 MST
+Date: Thu, 20 Jan 94 15:44:15 MST
+Message-Id: <9401202244.AA06719@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA06719; Thu, 20 Jan 94 15:44:15 MST
+To: ron
+Subject: Lawson data
+Cc: darrel
+Status: RO
+
+Ron--
+
+Processing of the Project 4-270 data is complete.  Chris was able to 
+copy the necessary setup files and "Defaults" file information to
+the Production subdirectory.  All that remains is for Chris to move
+the Nimbus skeleton needed to process some data for flights 1 and 2
+into the Production subdirectory.  So, you can go ahead and save
+copies of the processed data up to the mass store....I'll go ahead
+and copy the netCDF files onto tape for Paul Lawson.
+
+All of the netCDF files are in the /home/local/data directory and
+follow the same naming convention.  They begin with the project number
+and flight number and have the suffix ".cdf".  For example, flight 5
+data is in "27005.cdf".  Note that there is no file for flight 4, since
+the tape was bad.
+
+Barb will need a copy of the mass store bitfile log once you have
+transferred the data files.  Also, she needs you to sign the letter 
+from the RAF data manager.
+
+Thanks for your help.  Let me know if you have any questions.
+
+Krista
+
+From krista@chinook.atd.ucar.EDU Thu Jan 20 15:49:20 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA23588; Thu, 20 Jan 94 15:49:17 MST
+Date: Thu, 20 Jan 94 15:49:19 MST
+Message-Id: <9401202249.AA06722@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA06722; Thu, 20 Jan 94 15:49:19 MST
+To: ron, chris
+Subject: Missing files
+Status: RO
+
+I just checked in /home/local/data for all of the Lawson netCDF files,
+and a huge chunk of them are missing....only the files for flights
+1, 2, 6, 7, and 8 are left.  Have some of them already been moved up
+to the Mass Store, or am I going to have to start over and reprocess
+all of the missing ones?
+
+Krista
+
+From krista@chinook.atd.ucar.EDU Fri Jan 21 08:13:41 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA03751; Fri, 21 Jan 94 08:13:41 MST
+Date: Fri, 21 Jan 94 08:13:39 MST
+Message-Id: <9401211513.AA06824@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA06824; Fri, 21 Jan 94 08:13:39 MST
+To: ron
+Subject: Re: Missing files
+Status: RO
+
+Yes, after I spoke with Chris yesterday, it became all to clear that
+I'd become a victim of the scrubber.  But, at least now I can try out
+the modifications Chris made.
+
+Krista
+
+
+From krista@chinook.atd.ucar.EDU Fri Jan 21 10:25:35 1994
+Received: from music.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA09959; Fri, 21 Jan 94 10:25:34 MST
+Received: from chinook.atd.ucar.EDU by music (4.1/ NCAR Mail Client 04/19/90)
+	id AA11389; Fri, 21 Jan 94 10:25:45 MST
+From: krista@chinook.atd.ucar.EDU (Krista Laursen)
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA09955; Fri, 21 Jan 94 10:25:31 MST
+Date: Fri, 21 Jan 94 10:25:29 MST
+Message-Id: <9401211725.AA07083@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA07083; Fri, 21 Jan 94 10:25:29 MST
+To: ron@music.atd.ucar.EDU
+Subject: Re: Missing files
+Status: RO
+
+Ron--
+
+I discussed this with Chris yesterday, and he instructed me to reprocess
+the data logged on as myself.  That's what I've done, and all of the
+data is now stored in hl data.  However, I'm going to move it to staticdata
+so it doesn't get scrubbed again.  I'll place an ASCII document in the
+Production subdirectory to explain all of the special processing that
+needs to be done.  But past that, Chris has put all of the files in
+Production that will be needed for any future processing, and I have found
+no problems with them.  You shouldn't have any problems, but see Chris
+if you do.
+
+Krista
+
+
+From ron Thu Jan 20 16:29:53 1994
+Subject: Re: Missing files
+To: krista@chinook.atd.ucar.EDU
+Date: Thu, 20 Jan 1994 16:29:53 -0700 (MST)
+In-Reply-To: <9401202249.AA06722@lhotse> from "krista@chinook.atd.ucar.EDU" at Jan 20, 94 03:49:19 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 930       
+Status: RO
+
+Krista,
+
+Sorry to say I have moved none of your files to the Mass Store.
+
+If you haven't `touched' these files within two weeks of last access, there is
+a good chance that the scrubber got you.  I thought I mentioned this problem,
+so you could protect yourself.  This also happened to Al Schanot with the
+NARE-AIR project.  The purged files have been saved on backup ExaByte tapes.
+See Rob or Brenda for instructions on restoring them.  (Al Schanot may also
+remember.)  It would help to know when they disappeared.
+
+I have requested that Mike Daniels change the scrubber to ignore any files
+owned by `nimbus' as a way to protect production processing.  I don't know
+whether he has implemented that yet.  (My guess is that he's too busy with
+the new Sparc 1000.)
+
+If you do have to reprocess any of the flights, how about trying it using the
+`nimbus' logon.  That will verify that Chris transferred everything correctly.
+
+-- 
+Ron
+
+From ron Fri Jan 21 10:21:00 1994
+Subject: Re: Missing files
+To: krista@chinook.atd.ucar.EDU
+Date: Fri, 21 Jan 1994 10:21:00 -0700 (MST)
+In-Reply-To: <9401211513.AA06824@lhotse> from "krista@chinook.atd.ucar.EDU" at Jan 21, 94 08:13:39 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1317      
+Status: RO
+
+> 
+> Yes, after I spoke with Chris yesterday, it became all too clear that
+> I'd become a victim of the scrubber.  But, at least now I can try out
+> the modifications Chris made.
+> 
+Krista,
+
+Please make sure you log on as `nimbus' this time.  If you need the password,
+see Chris or me.  I don't think Mike has yet fixed the scrubber, so be sure
+to `touch' your files regularly until they are ready for archiving.  Also,
+I recommend that you process all the flights (except your two "specials")
+using the same version of NIMBUS.  Otherwise it will be very difficult to
+archive the processing software.  (Your specials may give me problems, too.)
+
+----------
+
+Regarding Broomfield's Kohl Elementary School Science Fair:  someone needs
+to contact Ms. Marty Burton to let her know you are interested in judging.
+If you want, I can call her, or you may.  She's on lunch break at Kohl
+(466-5944) between 12:45 and 1:20 p.m.  Her home phone is 465-0356.  Please
+let me know.
+
+I'm sure we will have a one-hour organization meeting some morning during the
+week of 21 February.  Preliminary judging will take place at some agreeable
+time on either 26 or 27 February.  Final judging will take place on 28 February
+when we will discuss individual projects with the students; that will take most
+of the day (8:30-4:00).
+
+-- 
+Ron
+
+From ron Fri Jan 28 16:30:19 1994
+Subject: 4-270 Lawson
+To: krista (Krista Laursen)
+Date: Fri, 28 Jan 1994 16:30:19 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 216       
+Status: RO
+
+Krista,
+
+I just wanted to let you know that I have archived all the pertinent files
+associated with NIMBUS production processing of 4-270 In Cloud Temperature.
+I have also archived the output netCDF files.
+
+-- 
+Ron
+
+From ron Thu Mar 31 10:14:40 1994
+Subject: Re: Data Requests
+To: krista@chinook.atd.ucar.EDU
+Date: Thu, 31 Mar 1994 10:14:40 -0700 (MST)
+In-Reply-To: <9403311647.AA02774@lhotse> from "krista@chinook.atd.ucar.EDU" at Mar 31, 94 09:47:58 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 1470      
+Status: RO
+
+> 
+> Ron--
+> 
+> I realized this morning that I had failed to notify you of a couple
+> of data requests that have come in for SPICE (Proj. 4-270) data.  One
+> is from people at New Mexico Tech., and I have already sent them part
+> of the data that they requested.  I am presently gearing up to get
+> the second portion of processing done for them, but I wanted to contact
+> you to see how you wish to handle this.  Do you want me to do the
+> processing, and simply notify you of to whom the data was sent and the
+> nature of the request, or do you want to handle the processing?
+> 
+Krista,
+
+In general, data archiving and distribution is my (RDP's) job.  As RAF's
+Data Manager I oversee the data processing, but normally the processing
+itself is the job of each project leader.
+
+In many respects we work together to make sure that the data set meets the
+requirements of the PI as well as our own standards.  One example of this
+is to make sure that all the "standard" variables are output (at their
+correct rates) to the netCDF file.  That will assure that we won't have to
+reprocess data later because something was inadvertently omitted.
+
+So, for this specific example, are you doing high-rate processing or
+using a skeleton program to produce something special?  (In other words,
+why aren't we shipping them copies of our already-archived 4-270 data set?)
+
+We should be archiving any new data sets you produce.
+
+Let's get together and talk about your plans.
+
+-- 
+Ron
+
+From krista@chinook.atd.ucar.EDU Thu Apr  7 11:01:14 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA25411; Thu, 7 Apr 94 11:01:13 MDT
+Date: Thu, 7 Apr 94 11:01:12 MDT
+Message-Id: <9404071701.AA00592@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA00592; Thu, 7 Apr 94 11:01:12 MDT
+To: ron
+Subject: Info on data requests
+Cc: darrel, krista
+Status: RO
+
+Ron--
+
+Here's the info I promised you on data requests I have received (and in
+some cases filled) for the SPICE project:
+
+1) Al Rodi, Univ. of Wyoming -- Raw data for research flights 7 and 8
+   *Order filled*
+2) Phil Brown, UK Met Office -- High-rate LWC and 2D probe data for
+   research flights 3 and 7
+   *Order filled 1/27/94*
+3) Rasmus Benestad, New Mexico Tech. -- Low-rate data for all research
+   flights; high-rate FSSP data for flights 4,6,7, and 8; high-rate
+   data for Golden Egg, OPHIR, reverse flow temperature probe, PMS LWC,
+   Lyman-Alpha probe, and vertical winds
+   *First two requests filled approx. two months ago; waiting to fill
+    third request until clarification of exact variables desired is
+    received*
+
+Additionally, Paz Ramos-Johnson of the TASC Corp. in Reading, Mass. 
+requested information regarding high-rate humidity data collected during
+the project.  However, no formal data request has been received as of
+yet.
+
+Krista
+
+From krista@chinook.atd.ucar.EDU Fri Apr  8 14:41:03 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA27019; Fri, 8 Apr 94 14:41:02 MDT
+Date: Fri, 8 Apr 94 14:41:01 MDT
+Message-Id: <9404082041.AA00664@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA00664; Fri, 8 Apr 94 14:41:01 MDT
+To: ron
+Subject: Data request
+Cc: darrel
+Status: RO
+
+Ron--
+
+Just wanted to notify you that I've received a formal request for data
+from the SPICE project.  Pertinent info is as follows:
+
+Request from:  Ms. Paz Ramos-Johnson
+               TASC
+               55 Walkers Brook Drive
+               Reading, MA 01867-3297
+               (617)942-2000
+
+She has requested high-rate data for the 8 research flights in Florida
+for the following quantities:  humidity, latitude and longitude, aircraft
+true heading and true airspeed, FSSP cloud droplet concentration, static
+air temperature, and equivalent potential air temperature.  Ms. Ramos-
+Johnson is also asking that the data be output for them in ASCII format.
+
+Unless I hear differently from you, I will begin processing the necessary
+data.  I will then place the ASCII files in one of our directories where
+Ms. Ramos-Johnson can then grab the data using ftp.
+
+Let me know if you have any further questions.
+
+Krista
+
+From krista@chinook.atd.ucar.EDU Fri Apr  8 15:03:24 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA27357; Fri, 8 Apr 94 15:03:24 MDT
+Date: Fri, 8 Apr 94 15:03:23 MDT
+Message-Id: <9404082103.AA00676@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA00676; Fri, 8 Apr 94 15:03:23 MDT
+To: ron
+Subject: Addendum
+Status: RO
+
+Ron--
+
+I also forgot to tell you that I've sent Ms. Ramos-Johnson background
+information on the SPICE project (flight summaries, data quality
+report, etc.).
+
+Krista
+
+From krista@chinook.atd.ucar.EDU Mon May  2 14:18:28 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA11954; Mon, 2 May 94 14:18:27 MDT
+Date: Mon, 2 May 94 14:18:26 MDT
+Message-Id: <9405022018.AA02551@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA02551; Mon, 2 May 94 14:18:26 MDT
+To: ron
+Subject: Re: 4-270 high-rate processing
+Status: RO
+
+Ron--
+
+Fantastic!  Thanks for yours and Brenda's help on this.  I will call
+Ms. Ramos-Johnson momentarily here and inform her of the data format.
+
+I have two more requests to make of you, Ron.  First, can you prepare
+a brief document describing the netCDF format that I can send to Ms.
+Ramos-Johnson?  Also, how should I tell her to get hold of the data?
+Will it be possible for her to get it via ftp, or should I check with her
+to see if they are set up to read Exabyte?
+
+Also, I agree that the data set and support files should be archived to
+the Mass Store.  Good idea.
+
+Krista
+
+
+From krista@chinook.atd.ucar.EDU Mon May  2 14:37:52 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA12167; Mon, 2 May 94 14:37:51 MDT
+Date: Mon, 2 May 94 14:37:50 MDT
+Message-Id: <9405022037.AA02554@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA02554; Mon, 2 May 94 14:37:50 MDT
+To: ron
+Subject: Message addendum
+Status: RO
+
+Ron--
+
+I just spoke with Ms. Ramos-Johnson from TASC, and it will be easier
+for her to get the data via ftp.  So, can you figure out the steps
+she will need to go through to do this and let me know?  I will then
+include the instructions to her in the letter I send with the netCDF
+info.
+
+Also, you told me once that there is a company she can contact to get
+some help with reading the data.  Can you let me know what that company
+is?  Thanks!
+
+Krista
+
+
+From martinez Mon May  2 12:55:37 1994
+From: martinez (Brenda Martinez)
+Message-Id: <9405021855.AA08149@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA08149; Mon, 2 May 94 12:55:36 MDT
+Subject: Finished
+To: ron (Ron Ruth)
+Date: Mon, 2 May 1994 12:55:35 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 259       
+Status: RO
+
+
+Ron,
+
+I finished the nimbus files. They are all in the staticdata directory.
+I might not be coming in on Wednesday, but I will be in on Friday.
+I guess Krista can take a look at them and then let me know on Friday
+if they are all allright. 
+
+thanks,
+
+Brenda
+
+From ron Fri Apr 22 15:09:34 1994
+Subject: Krista's data files
+To: martinez (Brenda Martinez)
+Date: Fri, 22 Apr 1994 15:09:34 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 605       
+Status: RO
+
+Brenda,
+
+I submitted 3 requests for data with the 3 shortest files.  They, again,
+will be put in my MIGS directory.  I'll send you email messages when they
+have fully transferred.  In the meantime, here are the names they will
+have.  Please don't transfer them until they have been completely
+transferred from the Mass Store.
+     /home/local/migs/ron/R0765.ADS  (RF02)
+     /home/local/migs/ron/R0773.ADS  (RF09)
+     /home/local/migs/ron/R0775.ADS  (RF11)
+
+(Oops.  I just remembered that she only wanted RF01-RF09, so ignore/delete
+the last file in the list and only work with RF02 and RF09.)
+
+-- 
+Ron
+
+From ron Mon May  2 13:19:52 1994
+Subject: Re: Finished
+To: martinez@chinook.atd.ucar.edu (Brenda Martinez)
+Date: Mon, 2 May 1994 13:19:52 -0600 (MDT)
+In-Reply-To: <9405021855.AA08149@chinook.atd.ucar.EDU> from "Brenda Martinez" at May 2, 94 12:55:35 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 144       
+Status: RO
+
+Brenda,
+
+I'll look over all the netCDF headers and let Krista know they are finished.
+Thanks for your help on this.  I appreciate it!
+
+-- 
+Ron
+
+From ron Mon May  2 13:40:17 1994
+Subject: 4-270 high-rate processing
+To: krista (Krista Laursen)
+Date: Mon, 2 May 1994 13:40:17 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 420       
+Status: RO
+
+Krista,
+
+Brenda sent me an email telling me that she has finished your special
+high-rate processing for 4-270 (RF01-RF08).  I checked the headers to
+make sure that all the data sets had high-rate data in them.
+(They did.)
+
+Now I guess it's up to you to verify that all the data are OK so we can
+ship them off.
+
+I think this data set (and its support files) should be archived to the
+Mass Store.  Do you agree?
+
+-- 
+Ron
+
+From ron Mon Apr 11 11:23:05 1994
+Subject: Re: Data request
+To: krista@chinook.atd.ucar.EDU
+Date: Mon, 11 Apr 1994 11:23:05 -0600 (MDT)
+In-Reply-To: <9404082041.AA00664@lhotse> from "krista@chinook.atd.ucar.EDU" at Apr 8, 94 02:41:01 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2387      
+Status: RO
+
+> 
+> Ron--
+> 
+> Just wanted to notify you that I've received a formal request for data
+> from the SPICE project.  Pertinent info is as follows:
+> 
+> Request from:  Ms. Paz Ramos-Johnson
+>                TASC
+>                55 Walkers Brook Drive
+>                Reading, MA 01867-3297
+>                (617)942-2000
+> 
+> She has requested high-rate data for the 8 research flights in Florida
+> for the following quantities:  humidity, latitude and longitude, aircraft
+> true heading and true airspeed, FSSP cloud droplet concentration, static
+> air temperature, and equivalent potential air temperature.  Ms. Ramos-
+> Johnson is also asking that the data be output for them in ASCII format.
+> 
+> Unless I hear differently from you, I will begin processing the necessary
+> data.  I will then place the ASCII files in one of our directories where
+> Ms. Ramos-Johnson can then grab the data using ftp.
+> 
+> Let me know if you have any further questions.
+> 
+Krista,
+
+Since this request is rather non-standard, I'm glad you are doing the
+processing.  I would recommend:
+  1)  Make a "complete" high-rate netCDF file if you can.  This can then
+       be archived to keep you from having to process the data over again.
+  2)  Check with Ms. Ramos-Johnson to see if there are any other variables
+       that may interest her (particularly winds).  It is easier to give
+       here more than she needs now than have her come back with a request
+       for `missing' data later.
+  3)  Strip off the variables of interest from the "complete" netCDF file
+       for the ASCII conversion.
+
+The ASCII files may end up to be quite large since you are writing high-rate
+output.  Our normal place for files to be picked up via ftp is in chinook's
+`~ftp/pub' directory.  This is not accessible from most workstations, so
+you'll need to login to chinook to gain access.  Advise if you have any
+write permission problems.
+
+There is also a public area on the machine `ftp.ucar.edu' that has a one-day
+purge cycle.  One can upload files for someone else to pick up.  Files are
+guaranteed to stay 24 hours, but not necessarily longer.  (This is an option
+if disk space on chinook is at a premium.)
+
+You may need more disk space for output files than exists , so you may
+benefit from doing a few flights, archiving and copying, then processing
+a few more.
+
+Please let me know if you need any help.
+
+-- 
+Ron
+
+From ron Mon Apr 11 17:29:14 1994
+Subject: Re: Data processing
+To: krista@chinook.atd.ucar.EDU
+Date: Mon, 11 Apr 1994 17:29:14 -0600 (MDT)
+In-Reply-To: <9404112242.AA00881@lhotse> from "krista@chinook.atd.ucar.EDU" at Apr 11, 94 04:42:24 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 743       
+Status: RO
+
+> 
+> Ron--
+> 
+> I have a favor to ask of you.  I've gotten swamped with MCR and lidar
+> work that I need to be working on.  I was wondering if, since you are
+> the data manager here, you would agree to completing the high-rate
+> processing for Ms. Ramos-Johnson at TASC.  I've gone ahead and made
+> a Nimbus setup file for processing the necessary variables, so all you
+> would have to do is generate the high-rate data and then uses Chris'
+> program to convert the necessary variables to ASCII format.  (I've
+> got a list of the variables she wants here in my office.)  This would
+> really save me a lot of valuable time if you could do this for me.
+> Thanks!
+> 
+Krista,
+
+I'll get back to you on this.  I'm not exactly idle either.
+
+-- 
+Ron
+
+From ron Wed Apr 20 14:31:22 1994
+Subject: 4-270 Special Processing
+To: martinez (Brenda Martinez)
+Date: Wed, 20 Apr 1994 14:31:22 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3345      
+Status: RO
+
+Brenda
+
+Below is a copy of the file (/home/local/proj/270/Production/stage/tapes.270)
+which summarizes the raw ADS data tapes used for this project.  You may use
+copies of the actual ExaByte tapes to do the processing, or you may get the
+bitfiles from the SCD Mass Store System (MSS) using the script I wrote
+(details below) and have NIMBUS read the data from a disk file.
+
+When you do the processing, please put the output data in the directory
+/home/local/staticdata.  The output file-naming convention is 270RFxx.cdf,
+where xx is the flight number (note the upper- and lower-case letters).
+
+The script `msgetads' can be used to retrieve raw ADS data files from the MSS.
+The transfer rate, at present, is about 100 Mbytes per hour, so you can see
+that it will take some time to transfer one of the larger files.  It will be
+put in your MIGS directory (/home/local/migs/martinez), so when you run NIMBUS,
+you will have to change its default path so it will know where to find the
+file.
+
+The disk space on MIGS isn't very large, so you may want to move the ADS files
+to the directory `/home/local/ADSdata.'  When you use the `mv' command, you
+should be logged in to either chinook or mistral; otherwise, the `mv' command,
+executed locally, will move all the data through your local workstation (i.e.,
+from chinook to workstation to mistral) across the net, and it will take much
+longer.
+
+Using the `msgetads' script is easy.  For this project, all you need to do
+is enter the command:
+   msgetads rxxxx
+     where xxxx is the tape number
+     example:  msgetads r0764
+
+The script will answer with the following:
+    /home/local/scripts/msgetads -- get raw aircraft data file from
+     the SCD Mass Store System (MSS)
+      Revision  2  RLR  940412
+    Report bugs or give questions about MSS bitfile names to Ron Ruth
+        (ron@raf.atd.ucar.edu)
+ 
+ 
+   Ready to retrieve /RAF/1994/270/RF01/R0764 from the MSS.
+    File size = 83817600 bytes.
+   Do you wish to submit the MIGS request now ? (y/n/q) ([r]=y)
+
+At this point, if you just hit the [RETURN] key, the job will be sent to
+MIGS, and the file should appear in your MIGS directory in about an hour.
+
+When you process a flight, please make a note of any messages that appear
+in the gray area of the NIMBUS processor's window.  You may want to keep
+a log file of your progress, which flights you've completed and which you
+still have to do.
+
+As we discussed today, please come see me on Friday, and we'll get started.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+4-270 In-cloud Temperature (Lawson) Raw ADS Tape Summary       RLR  931220
+
+ Tape            Date       File Size
+ no.   fltno  mm/dd/yyyy    (Mbytes)    Comments
+-----  -----  ----------   ----------   -------------------------------
+R0764  RF01   11/10/1993    83.624696
+R0765  RF02   11/12/1993    59.766736
+R0766  RF03   11/13/1993   147.047008
+R0768  RF05   11/16/1993    76.062124   ITT
+R0769  RF06   11/17/1993   122.501936   ITT
+R0770  RF07   11/18/1993   138.169428   ITT
+R0771  RF08   11/19/1993   139.005080   ITT
+R0773  RF09   12/06/1993    50.826272   ITT
+R0774  RF10   12/09/1993    90.914460   ITT
+R0775  RF11   12/15/1993    47.789556   ITT
+R0776  RF12   12/25/1993    95.337152   ITT
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron
+
+From ron Fri May  6 12:24:45 1994
+Subject: 270 High-rate Processing
+To: martinez (Brenda Martinez)
+Date: Fri, 6 May 1994 12:24:45 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 315       
+Status: RO
+
+Brenda,
+
+Can you tell me the full name of the setup file that Krista had you load
+into NIMBUS before you processed all those flights for her.
+
+I'd like to archive that file along with the data.
+
+Thanks.
+
+P.S.  If there are other files pertinent to the processing, I'd like to 
+       know about them, too.
+-- 
+Ron
+
+From ron Fri May  6 12:51:52 1994
+Subject: Re: 270 High-rate Processing
+To: martinez@chinook.atd.ucar.edu (Brenda Martinez)
+Date: Fri, 6 May 1994 12:51:52 -0600 (MDT)
+In-Reply-To: <9405061834.AA05300@chinook.atd.ucar.EDU> from "Brenda Martinez" at May 6, 94 12:34:11 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 111       
+Status: RO
+
+Brenda,
+
+I will grab those files and let you know when I'm finished with them so
+you may erase them.
+
+-- 
+Ron
+
+From martinez Fri May  6 12:34:12 1994
+From: martinez (Brenda Martinez)
+Message-Id: <9405061834.AA05300@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA05300; Fri, 6 May 94 12:34:11 MDT
+Subject: Re: 270 High-rate Processing
+To: ron@chinook.atd.ucar.edu (Ron Ruth)
+Date: Fri, 6 May 1994 12:34:11 -0600 (MDT)
+In-Reply-To: <9405061824.AA05059@chinook.atd.ucar.EDU> from "Ron Ruth" at May 6, 94 12:24:45 pm
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 686       
+Status: RO
+
+> 
+> 
+> Can you tell me the full name of the setup file that Krista had you load
+> into NIMBUS before you processed all those flights for her.
+> 
+> I'd like to archive that file along with the data.
+> 
+> Thanks.
+> 
+> P.S.  If there are other files pertinent to the processing, I'd like to 
+>        know about them, too.
+> 
+
+Ron,
+
+The name of the file is /home/chinook/krista/prjsetup.nimbus
+
+The only other files you might want are in my home directory in the      
+directory nim_mess. These are only those messages that you asked me
+to store in a file. There is a file for each flight. 
+I guess if you don't need them then let me know and I will erase the
+directory. 
+
+Thanks,
+Brenda
+
+From darrel Thu Nov 11 07:30:29 1993
+From: darrel (Darrel Baumgardner)
+Message-Id: <9311111430.AA27432@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA27432; Thu, 11 Nov 93 07:30:28 MST
+Subject: Project Update: Lawson-4-270
+To: ussg
+Date: Thu, 11 Nov 93 7:30:27 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Project Update: Lawson-4-270
+
+11/10
+	First research mission was flown yesterday with Lawson and Baumgardner
+on board oservers. All instrumentation was operational except for the optical
+liquid water probe which needed the diode laser replaced. Excellent research
+flight, 2.1 hours. All sensors functioned very well. We had a number of
+excellent penetrations of growing Cu, LWCs near 1 gm-3. All six temperature
+sensors agreed within .5 degrees, except for Ophir. Ophir tracks perfectly
+but the cal needs changing for situation here. Strong positive buoyancy in
+some of the clouds with Egg and Ophir showing no signs of wetting but ATB
+showed cooling spikes.
+
+We got good high rate data from Droplet Spacing Monitor and Fast FSSP and
+will need many hours of analysis to interpret.
+
+Today was called down to allow repair of Optical Liquid Water Probe and
+we expect to fly tommorrow.
+
+Test Flight Hours: 	.9
+Ferry Flight Hours: 	6.5
+Research Hours:		2.1
+Total Hours:	9.5		Remaining:	33.5
+
+
+From darrel Wed Nov 17 06:11:20 1993
+From: darrel (Darrel Baumgardner)
+Message-Id: <9311171311.AA14674@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA14674; Wed, 17 Nov 93 06:11:18 MST
+Subject: Lawson Project Update
+To: ussg
+Date: Wed, 17 Nov 1993 06:11:18 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 4910      
+Status: RO
+
+
+Test Flight - 0.9 hours
+
+Ferry Flight - 3.6+2.9 = 6.5 hours
+
+
+Research Flight 1 - Summary
+
+Research Hours = 2.1 hours	Total Flight Hours =  9.5 Hours Remaining = 33.5
+
+Instrument Status:
+Non-Functioning - OLWP	   - Not installed
+		  FFSSP	   - Dirty optics and misalignment
+		  HVPS	   - Problems with interface, HVPS did not interface
+			     with the 2D interface as advertised.
+		  OPHIR    - The cal cycle is being invoked every 50 seconds.
+
+Flight summary:
+	Multiple pentrations through Cu formed over land.
+	One good pass through adiabatic core.
+	Multiple passes through several other Cu already in later stages of
+        formation or decay.
+
+
+
+Research Flight 2 - Summary
+
+Research Hours = 1.6 hours	Total Flight Hours = 11.1 Hours Remaining = 31.9
+
+Non-Functioning - FFSSP	   - Intermittent problem with sizing
+		  HVPS	   - Problems with interface, HVPS did not interface
+			     with the 2D interface as advertised.
+		  OPHIR    - Nimbus processing is introducing oscillations.
+		  2D-C     - Moved to Bombrack but left turned off because of
+                             runaway problem. Repaired after flight.
+		  Forward Video did not record for some reason.
+
+
+Flight summary:
+	Multiple pentrations through Cu imbedded in stratus deck. Worked mostly
+over Palm beach and north area.
+
+Research Flight 3 - Summary
+
+Research Hours = 3.3 hours	Total Flight Hours = 14.4 Hours Remaining = 28.6
+
+Non-Functioning - FFSSP	   - Intermittent problem with sizing
+		  HVPS	   - Problems with interface, HVPS did not interface
+			     with the 2D interface as advertised.
+		  OPHIR    - Nimbus processing is introducing oscillations.
+
+Processing Notes:
+
+The 2D-C is now on the inboard left pylon. There is apparently 30 Hz noise
+being seen on egg temperatures and on ADIFR. This was seen in the spectra
+analysis.
+
+Flight summary:
+
+  Worked marine cumulus east of Miami. Started with a line of cumulus oriented
+along the wind. Began 100 feet below cloud base and stepped up in 200 ft
+increments after each pass. Cloud bases were rising during the passes so
+we increased increments to get into cloud just above cloud base. Heavy drizzle
+and rain was encountered during many of the low level passes. Upper level
+wind shear was causing precip to fall out of the upper portions of cloud
+into clear air portions between the clouds. 
+
+Research Flight 4 - Summary
+Research Hours = 1.6 hours	Total Flight Hours = 16.0 Hours Remaining = 27.0
+
+Non-Functioning - HVPS	   - Problems with interface, HVPS did not interface
+			     with the 2D interface as advertised.
+		  OPHIR    - Nimbus processing is introducing oscillations.
+		  ADS      - System crashed repeatedly.
+
+Processing Notes:
+
+The tape header was overwritten during a reboot. Data may not be recoverable. The
+FFSSP and DSM functioned normally as did SPEC OLWP and DHIS. The RAF FSSP #9 is
+now in the right bombrack.
+
+Flight summary:
+
+   Midafternoon flight north to Lake Ochechobee. Multiple time lockups on
+WINDS caused by ADS funky times caused abortion of flight. A few penetrations
+through young cumulus.
+
+
+Research Flight 5 - Summary
+
+Research Hours = 2.0 hours	Total Flight Hours = 18.0 Hours Remaining = 25.0
+
+MalFunctioning -  HVPS	   - Problems with interface, HVPS did not interface
+			     with the 2D interface as advertised.
+		  OPHIR    - Nimbus processing is introducing oscillations.
+		  ADS      - System crashed after about an hour. Post flight
+                             check showed that digital bus connectors were
+                             very dirty and were probably causing the
+                             intermittencies.
+                  PSFDC    - Failure during roll maneuvers, probably caused by
+                             digital bus problems.
+                  DPB/DPT  - Differences because of dirty optics
+                  FSSP_IBR - Noise in channels 2 and 12. Traced to digital bus
+                             problem.
+                  CONCF_IBR- All concentrations and liquid water calculations are
+                             0 but counts are there.
+		  DSM      - The laptop computer wouldn't come up running so
+                             the DSM processor could not be initialized.
+
+
+
+Flight summary:
+
+	Late morning flight to Lake Okechobee. Boundary layer clouds were
+persitent and there was a very strong haze layer right at LCL where there are
+clouds forming. Flight track started right at cloud base then 500 meters higher.
+FSSP showed classic condensational growth of droplets.
+
+-- 
+                      ____________________________
+                     |Darrel Baumgardner          |
+                     |NCAR/RAF                    |
+                     |Box 3000                    |
+                     |Boulder, Co. 80307          |
+                     |(303) 497-1054   1092 (fax) |
+                     |darrel@chinook.atd.ucar.edu |
+                     \____________________________/
+
+
+From krista@chinook.atd.ucar.EDU Thu Mar 31 09:48:00 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA26529; Thu, 31 Mar 94 09:48:00 MST
+Date: Thu, 31 Mar 94 09:47:58 MST
+Message-Id: <9403311647.AA02774@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA02774; Thu, 31 Mar 94 09:47:58 MST
+To: ron
+Subject: Data Requests
+Status: RO
+
+Ron--
+
+I realized this morning that I had failed to notify you of a couple
+of data requests that have come in for SPICE (Proj. 4-270) data.  One
+is from people at New Mexico Tech., and I have already sent them part
+of the data that they requested.  I am presently gearing up to get
+the second portion of processing done for them, but I wanted to contact
+you to see how you wish to handle this.  Do you want me to do the
+processing, and simply notify you of to whom the data was sent and the
+nature of the request, or do you want to handle the processing?
+
+Krista
+
+From krista@chinook.atd.ucar.EDU Mon Apr 11 16:42:26 1994
+Received: from lhotse.atd.ucar.edu by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA16872; Mon, 11 Apr 94 16:42:26 MDT
+Date: Mon, 11 Apr 94 16:42:24 MDT
+Message-Id: <9404112242.AA00881@lhotse>
+Received: by lhotse (4.1/ NCAR Mail Client 04/19/90)
+	id AA00881; Mon, 11 Apr 94 16:42:24 MDT
+To: ron
+Subject: Data processing
+Status: RO
+
+Ron--
+
+I have a favor to ask of you.  I've gotten swamped with MCR and lidar
+work that I need to be working on.  I was wondering if, since you are
+the data manager here, you would agree to completing the high-rate
+processing for Ms. Ramos-Johnson at TASC.  I've gone ahead and made
+a Nimbus setup file for processing the necessary variables, so all you
+would have to do is generate the high-rate data and then uses Chris'
+program to convert the necessary variables to ASCII format.  (I've
+got a list of the variables she wants here in my office.)  This would
+really save me a lot of valuable time if you could do this for me.
+Thanks!
+
+Krista
+
+From ron Mon May  9 16:29:05 1994
+Subject: 4-270 RF03
+To: martinez (Brenda Martinez)
+Date: Mon, 9 May 1994 16:29:05 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 423       
+Status: RO
+
+Brenda,
+
+I'm having a problem archiving one of the high-rate 270 data files you
+processed.  Each time I try to send the file, I get some kind of I/O
+error.  I just checked the file using `ncplot,' and it quit plotting
+the data toward the beginning of the file.  I suspect the file has been
+corrupted somehow.  Depending on your schedule, I was wondering if you
+would redo it for me.
+
+Please let me know.
+
+Thanks.
+
+-- 
+Ron
+
+From ron Mon May  9 16:31:41 1994
+Subject: 270 high-rate processing
+To: krista (Krista Laursen)
+Date: Mon, 9 May 1994 16:31:41 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 350       
+Status: RO
+
+Krista,
+
+I have been trying to archive RF03 and have been getting consistent I/O
+errors.  I just used `ncplot' to check out the file, and it quit about
+1/4 of the way through.  I'm sure the file is corrupt, so I have asked
+Brenda to redo it.  As a result, this data set is not ready to send off
+to Ms. Ramos-Johnson.
+
+I'll keep you posted.
+
+-- 
+Ron
+
+From ron Wed May 18 14:59:29 1994
+Subject: 270 high-rate processing
+To: krista (Krista Laursen)
+Date: Wed, 18 May 1994 14:59:29 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 5191      
+Status: RO
+
+Krista,
+
+Following is a document you may email to Ms. Ramos-Johnson (since I don't
+have her email address.) regarding software for access to the netCDF files
+we'll be sending her.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=   cut here   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+                        RAF netCDF Information
+                           rev. 5/94   RLR
+ 
+The Research Aviation Facility (RAF) uses a custom-built Airborne Data
+System (ADS) and ExaByte tapes to acquire its aircraft research data.
+Processed output data sets (with values calculated in engineering units)
+are created from these tapes using a software processor called NIMBUS.
+Developed at RAF, NIMBUS can adjust automatically to the many and varied
+research instrumentation configurations, and its windows interface makes
+the software easy to use.
+
+The NIMBUS output data format is Network Common Data Form (netCDF).  Access
+to netCDF data is via a public-domain library of programs and subroutines
+which provide common C and FORTRAN interfaces for storing and retrieving
+scientific data from disk files.  The NIMBUS netCDF files you receive, if
+on tape, first must be stored onto a disk before they can be accessed.
+
+The netCDF software library, as well as documentation and consulting
+support, can be obtained from the Unidata project office of UCAR.
+If you have access to Mosaic, extensive information is available from
+the Unidata Mosaic server.  (Select "NCAR," "Unidata," netCDF.")
+If you have access to an Internet gopher, the same information is
+available from the Unidata gopher server.  (Select "Colorado," "Unidata
+Program Center.")  In the "Unidata Software Distributions/netCDF
+distribution (netcdf)" section, the complete netCDF library is the
+file "netcdf.tar.Z."  The same file can be acquired via anonymous ftp
+from `unidata.ucar.edu' in the `/pub/netcdf' directory.
+
+The netCDF was developed at UCAR by the Unidata Program (sponsored by the
+National Science Foundation) and employs concepts from the NASA-developed
+Common Data Format.  Details of the netCDF can be found in the "NetCDF
+User's Guide" (NCAR Technical Note, NCAR/TN-334+IA, NTIS # PB90 132275).
+It is also part of the netCDF software distribution.
+
+RAF recommends that you obtain netCDF software from Unidata and have your
+system administrator (with help from Unidata consultants, if needed)
+install it on your computer system.  Unidata support for netCDF may be
+obtained through the Internet by sending email to `support@unidata.ncar.edu.'
+
+RAF will develop a library of utilities for converting to/from other
+formats and netCDF as time and programming resources permit.  If you have
+questions, please contact the RAF Data Manager, Ronald L. Ruth, by phone
+((303)497-1084) or Internet email (ruth@ncar.ucar.edu).
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=   cut here   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+I was finally able to archive flight RF03 to the Mass Store System (MSS).
+It turned out to be operator error (mine).  I had to tell the MSS that the
+file was greater than 30Mbytes and forgot to do so.
+
+But the file is now there along with the NIMBUS setup file you used.
+Following is the present archived bitfile list for this project.  The
+LRT path has bitfiles for the normal processing while the HRTS path
+has Ms. Ramos-Johnson's bitfiles.  The files at the end are the raw
+ADS tape images.
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=   cut here   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+/RAF/1994/270 as of 05/18/94 12:29:53
+05/06/94 -W--      6271 HRTS/README
+05/06/94 -W--  20849900 HRTS/RF01.cdf
+05/06/94 -W--      6177 HRTS/RF01.hdr
+05/06/94 -W--  14809516 HRTS/RF02.cdf
+05/18/94 -W-S  36133996 HRTS/RF03.cdf
+05/06/94 -W--  11429260 HRTS/RF05.cdf
+05/06/94 -W--  25003052 HRTS/RF06.cdf
+05/06/94 -W--  21303084 HRTS/RF07.cdf
+05/06/94 -W--  20905772 HRTS/RF08.cdf
+05/18/94 -WD-      9789 HRTS/prjsetup.nimbus
+01/26/94 -W--   2383872 LRT/4-270.tar
+01/26/94 -W--      3262 LRT/README
+03/17/94 -W--   5929516 LRT/RF01.cdf
+01/26/94 -W--     45786 LRT/RF01.hdr
+02/22/94 -W--   4240388 LRT/RF02.cdf
+02/22/94 -W--  10203624 LRT/RF03.cdf
+02/22/94 -W--   4491692 LRT/RF05.cdf
+02/22/94 -W--   7090976 LRT/RF06.cdf
+02/22/94 -W--   6056320 LRT/RF07.cdf
+02/22/94 -W--   6000080 LRT/RF08.cdf
+02/22/94 -W--   3559952 LRT/RF09.cdf
+02/22/94 -W--   6379216 LRT/RF10.cdf
+02/22/94 -W--   3374200 LRT/RF11.cdf
+02/22/94 -W--   3408920 LRT/RF12.cdf
+01/26/94 -W--   8552448 LRT/nimbus.tar
+01/26/94 -W--      1450 LRT/taplog.270
+01/26/94 -W--      1126 LRT/tarit.4-270.tar
+01/26/94 -W--      1466 LRT/tp2ms.summary
+04/22/94 -W--  83817600 RF01/R0764
+04/22/94 -W--  59904000 RF02/R0765
+05/13/94 -W-- 147384960 RF03/R0766
+04/25/94 -W-S  76237440 RF05/R0768
+04/29/94 -W-S 122784000 RF06/R0769
+04/29/94 -W-- 138491520 RF07/R0770
+04/29/94 -W-- 139328640 RF08/R0771
+04/22/94 -W--  50943360 RF09/R0773
+04/05/94 -W--  91123200 RF10/R0774
+04/22/94 -W-S  47900160 RF11/R0775
+04/05/94 -W-S  95560320 RF12/R0776
+=-=-=-=-=-=-=-=-=-=-=-=-=-=   cut here   =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+What is next?  Do you want RDP to make a tape (tar or binary) and send it
+off to her.  If so I'll need complete shipping information.  Phone and fax
+numbers and an email address would be nice, too.
+
+-- 
+Ron
+
+From ron Wed May 18 15:03:59 1994
+Subject: 270RF03.cdf
+To: martinez (Brenda Martinez)
+Date: Wed, 18 May 1994 15:03:59 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 463       
+Status: RO
+
+Brenda,
+
+I have now successfully archived 270RF03.cdf to the Mass Store.  It turns out
+that the problem with it was mine.  I had to tell the MSS that it was larger
+than 30Mbytes.  (All the others were smaller.)
+
+The problem with plotting the data using `ncplot' was Chris Webster's.
+I think he has fixed it, too.
+
+Between the two of these errors, I thought that the netCDF data were bad.
+Such is life!
+
+Again, thanks for your help doing the processing.
+
+-- 
+Ron
+

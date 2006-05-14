@@ -1,0 +1,57 @@
+#  File copy to MSS for project 4-270  In-Cloud Temperature  (Lawson)
+#
+#  from:  chinook:/home/local/staticdata
+#  from:  chinook:/home/local/proj/270
+#    to:  MSS:/RAF/1994/270/LRT/
+#
+#  Method:  ftp
+#
+#  Caution:  if transferring large files, don't forget the MDS site parameter.
+#
+#  Commands:
+ftp massive
+bi
+quote SITE PERS Y
+quote SITE RTPD 4096
+quote SITE WPW RAFDMG
+quote SITE MVN CTRAFDMG
+cd /RAF/1994/270/LRT
+ 
+lcd /home/local/staticdata
+put 270RF01.cdf RF01.cdf
+put 270RF02.cdf RF02.cdf
+put 270RF03.cdf RF03.cdf
+put 270RF05.cdf RF05.cdf
+put 270RF06.cdf RF06.cdf
+put 270RF07.cdf RF07.cdf
+put 270RF08.cdf RF08.cdf
+put 270RF09.cdf RF09.cdf
+put 270RF10.cdf RF10.cdf
+put 270RF11.cdf RF11.cdf
+put 270RF12.cdf RF12.cdf
+
+lcd /home/local/proj/270/Production
+put 4-270.tar
+put tarit.4-270.tar
+put nimbus.tar
+put taplog.270
+put tp2ms.summary
+put 270RF01.hdr RF01.hdr
+put README
+
+cd /RAF/1994/270/HRTS
+lcd /home/chinook/krista/nimbus
+put prjsetup.nimbus
+lcd /home/local/staticdata
+put 270RF01.hdr RF01.hdr
+put 270RF01.cdf RF01.cdf
+put 270RF02.cdf RF02.cdf
+quote SITE MDS 50
+put 270RF03.cdf RF03.cdf
+quote SITE MDS 30
+put 270RF05.cdf RF05.cdf
+put 270RF06.cdf RF06.cdf
+put 270RF07.cdf RF07.cdf
+put 270RF08.cdf RF08.cdf
+
+bye

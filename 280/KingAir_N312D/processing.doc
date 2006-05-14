@@ -1,0 +1,33 @@
+							Nov. 19, 1992  mlg
+
+
+
+		Running and modifying dninp.eb
+
+Running:
+
+	1.  To output CO as both volts and ppm use the M1 command
+		to add variable CO.
+
+	2.  Add the correct calibration coefficients for the flight
+		using the CA command.  Remember that the signal from
+		the A to D converter is inverted so the sign of the
+		slope (calcoef2) must also be inverted.
+
+
+
+Modifying:
+
+	1.  /home/local/amlib/user/co2c.c   contains the CO2 code.
+
+	2.  /home/local/amlib/std/ssrd.eb.c   contains the sideslip
+		correction factor (currently 0.35)
+
+	3.  /home/local/amlib/std/init_ac_dep.eb.c   contains the modified
+		radome pcor using mach number and attack (line 116)
+
+	4.  to make a new version of dninp.eb after making modifications
+		to any of the above files execute the following commands:
+
+		cd /home/local/dap/source/input
+		make -f make280

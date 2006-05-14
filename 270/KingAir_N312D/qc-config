@@ -1,0 +1,66 @@
+#
+# Valkyrie Airborne Validation System Configuration File
+#
+
+# range tests			low		high     	high delta
+# -----------			------		-----		----------
+#(correct values)
+#GLAT			range	-180.0		180.0		0.5
+#GLON			range	-90.0		90.0		0.5
+#LAT			range	-180.0		180.0		0.3
+
+#(intentionally bad values)
+GLAT			range	0.0		5.0		50.0
+GLON			range	0.0		5.0		50.0
+LAT			range	0.0		5.0		50.0
+
+TTB			range	200.0		300.0		50.0
+
+#(even more)
+#VLA   			range	0.0		1.0		50.0
+#ADIFR 			range	0.0		1.0		50.0
+#BDIFR 			range	0.0		1.0		50.0
+#XADIF 			range	0.0		1.0		50.0
+#XBDIF 			range	0.0		1.0		50.0
+#QCW   			range	0.0		1.0		50.0
+#TTRF  			range	0.0		1.0		50.0
+#XTWC1 			range	0.0		1.0		50.0
+#XTWC2 			range	0.0		1.0		50.0
+#XRF3  			range	0.0		1.0		50.0
+#XRF4  			range	0.0		1.0		50.0
+#DPT   			range	0.0		1.0		50.0
+#DPB   			range	0.0		1.0		50.0
+#PSW   			range	0.0		1.0		50.0
+
+
+
+
+# flatline tests			minvarlow	minvarhigh
+# --------------			---------	----------
+#GLAT			flatline	0.001		0.0001   
+#GLON			flatline	0.002		0.0002
+
+V10			flatline	0.002		0.0003
+V10R			flatline	0.003		0.0003
+
+ROLL			flatline	0.002		0.0003
+PITCH			flatline	0.002		0.0002
+
+
+
+# levelshift tests		minslope	minshift   peakmaxint	rtnslk
+# ----------------		--------	--------   ----------	------
+#GLAT			level	0.1		0.2		1	0.4
+#GLON			level	0.1		0.2		1	0.4
+
+#(intentional errors)
+GLAT			level	0.005		0.005		4	1.0
+GLON			level	0.005		0.005		4	1.0
+
+V10			level	0.005		0.005		4	1.0
+V10R			level	0.005		0.005		4	1.0
+
+ROLL			level	0.005		0.005		4	1.0
+PITCH			level	0.005		0.005		0	1.0
+
+

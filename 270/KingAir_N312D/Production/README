@@ -1,0 +1,119 @@
+        ------------------------------------------------------------------------
+                 SPECIAL DATA PROCESSING INFORMATION FOR PROJECT 4-270
+        ------------------------------------------------------------------------
+
+        In general, data processing for Project 4-270 is fairly "automatic,"
+        with all of the necessary information (i.e. calibration coefficient
+        references, "Defaults" file information, etc.) contained in the
+        setup files and "FlightGroups" file in the "Production" subdirectory
+        of the project 270 directory.  However, for flights 1, 2, and 5,
+        special steps must be taken in order to correctly process the data.
+        These steps are outlined below.
+
+        A GENERAL NOTE:  If you wish to obtain FSSP data for any given flight,
+        you MUST be sure that the variables "AFSSP_*" and "CFSSP_*" are turned
+        on for output.  Output of these two quantities is NOT on by default
+        in the various setup files.
+
+
+        -----------------
+        Flights R1 and R2
+        -----------------
+
+        For these two flights, begin by processing the data using the setup
+        files ("Flight_1" and/or "Flight_2") in the "Production" subdirectory.
+        Next, special processing needs to be done to take into account the 
+        installation of the /10 jumper on the control module for the AES
+        Extended Range FSSP.  Run the Nimbus skeleton stored in the "Production"
+        subdirectory--this is done by typing "skel".  This program will generate
+        the correct data for the following five variables:  FBMFR_IBR, FSTB_IBR,
+        CONCF_IBR, PLWCF_IBR, AND CFSSP_IBR.  (These variables contain AES
+        FSSP data.)  Finally, run the program "ncmerge", using the "-v" option,
+        to merge these five variables into the original netCDF output file
+        you generated using the default setup files.  For information on how
+        to use "ncmerge", see the "man" pages for this program.
+
+
+        -----------------
+        Flight R5
+        -----------------
+
+        During this flight, both the AES Extended Range FSSP and the RAF SN#6
+        FSSP were interfaced into ADS.  To process the data for this flight,
+        begin by running Nimbus using the default setup file ("Flight_5") in
+        the "Production" subdirectory for project 270.  Before running Nimbus,
+        turn off the output for all "_IBR" variables, and turn on the output
+        for all "_OTH" variables.  This will assure that only the RAF FSSP
+        data is calibrated and output to the output netCDF file.  Having 
+        generated this first output file, run Nimbus again, but manually load
+        the setup file called "Flight_5_AES" in the "Production" subdirectory.
+        This will cause the AES FSSP data to be calibrated and output correctly
+        to a second netCDF output file.  Finally, run the program "ncmerge",
+        using the "-v" option, to merge the following variables from the
+        second output file into the first:  AFSSP_IBR, FRNG_IBR, FRST_IBR,
+        FSTB_IBR, CFSSP_IBR, CONCF_IBR, DBARF_IBR, DISPF_IBR, FACT_IBR,
+        FBMFR_IBR, and PLWCF_IBR.  This final netCDF output file will now
+        contain both the AES and RAF FSSP data.
+
+
+Notes on high-rate 4-270 NIMBUS processing for Paz Ramos-Johnson of the
+TASC Corp. in Reading, Mass.
+
+Processing was non-standard in that only a small subset of the data were
+written to the output files.  Since this resulted from a special request
+for data, the MSS path chosen to archive the files is also special:
+/RAF/1993/270/HRTS.
+
+Following are the messages from NIMBUS for each of the processed data sets:
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RF01
+Loading setup file: /home/local/proj/270/Production/Flight_1
+Loading setup file: /home/chinook/krista/prjsetup.nimbus
+Time Interval(s) completed : 19:09:44-21:01:38
+Processing took 32.2 minutes.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RF02 19:02:00
+Loading setup file: /home/local/proj/270/Production/Flight_2
+Loading setup file: /home/chinook/krista/prjsetup.nimbus
+Time Interval(s) completed : 19:01:51-20:21:19
+Processing took 22.8 minutes.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RF03
+Loading setup file: /home/local/proj/270/Production/Flight_2
+Loading setup file: /home/chinook/krista/prjsetup.nimbus
+Time Interval(s) completed : 18:09:56-21:23:54
+Processing took 56.5 minutes.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RF05 16:13:00
+Loading setup file: /home/local/proj/270/Production/Flight_5
+Loading setup file: /home/chinook/krista/prjsetup.nimbus
+Break in time sequence, moving up start time.
+Break in time sequence, moving up start time.
+Break in time sequence, moving up start time.
+Break in time sequence, moving up start time.
+Break in time sequence, moving up start time.
+Break in time sequence, adding new time interval. 17:22
+Time Interval(s) completed : 16:12:51-17:10:58, 17:12:09-17:12:46, 17:15:30-17:16:15, 17:20:29-17:22:16, -1:00:00-00:00:00
+Processing took 20.1 minutes.
+(Note from Ron Ruth:  The last time interval is illegal.  I'm not sure whether
+this will affect the ability to acquire the other data.)
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RF06 19:01:00
+Loading setup file: /home/local/proj/270/Production/Flight6
+Loading setup file: /home/chinook/krista/prjsetup.nimbus
+Time Interval(s) completed : 19:00:07-21:14:19
+Processing took 38.9 minutes.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RF07
+Loading setup file:  /home/local/proj/270/Production/Flight_6
+Loading setup file:  /home/chinook/krista/prjsetup.nimbus
+ending time 20:02:00
+Time Interval(s) completed : 18:08:16-20:02:36
+Processing took 36.9 minutes
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+RF08 18:31:00
+Loading setup file: /home/local/proj/270/Production/Flight_8
+Loading setup file: /home/chinook/krista/prjsetup.nimbus
+Time Interval(s) completed : 18:26:17-20:18:29
+Processing took 33.6 minutes.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=

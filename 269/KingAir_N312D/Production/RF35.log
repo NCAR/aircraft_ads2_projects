@@ -1,0 +1,110 @@
+Note:  This log file documents a NIMBUS run that was done to compare its
+         processing output with GENPRO.  This particular flight had been
+         processed on 22 September 1993 with a special version of GENPRO
+         whose high-rate output was set to 25 sps (rather than the normal
+         20 sps).  The referenced NIMBUS setup file has been copied into
+         this directory for documentation purposes.
+
+         Ronald L. Ruth
+
+adsIO: RAW_ADS
+CF1 has no description or units.
+CF2 has no description or units.
+CVTEMP has no description or units.
+DOUT_1 has no description or units.
+DOUT_2 has no description or units.
+GDSR has no description or units.
+RFI has no description or units.
+RFICP has no description or units.
+RFICT has no description or units.
+RSTB2 has no description or units.
+STROB has no description or units.
+TCBADS has no description or units.
+TMP1 has no description or units.
+TSGDR has no description or units.
+VLASM has no description or units.
+
+#  Processing begun:  Wed Mar 26 15:22:34 MST 1997
+
+filter.c: filter sum of 1to25   =      1.00000108
+filter.c: filter sum of 5to25   =      1.00000844
+filter.c: filter sum of 10to25  =      0.99993747
+filter.c: filter sum of 50to25  =      0.99993857
+filter.c: filter sum of 250to25 =      0.99994092
+
+----------  Above from stdout; below from grey NIMBUS message window
+
+Loading setup file: /home/users/ron/nimbus/setup.269rf35
+Time interval(s) completed : 17:52:07-21:26:16
+Processing took 27.3 minutes.
+
+#  Processing completed before:  Wed Mar 26 16:02:46 MST 1997
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+Mon Mar 31 10:02:59 MST 1997
+New run done on 31 March 1997 to change the Lyman-Alpha coefficients so they
+  agree with the GENPRO processing.
+
+adsIO: RAW_ADS
+CF1 has no description or units.
+CF2 has no description or units.
+CVTEMP has no description or units.
+DOUT_1 has no description or units.
+DOUT_2 has no description or units.
+GDSR has no description or units.
+RFI has no description or units.
+RFICP has no description or units.
+RFICT has no description or units.
+RSTB2 has no description or units.
+STROB has no description or units.
+TCBADS has no description or units.
+TMP1 has no description or units.
+TSGDR has no description or units.
+VLASM has no description or units.
+filter.c: filter sum of 1to25   =      1.00000108
+filter.c: filter sum of 5to25   =      1.00000844
+filter.c: filter sum of 10to25  =      0.99993747
+filter.c: filter sum of 50to25  =      0.99993857
+filter.c: filter sum of 250to25 =      0.99994092
+
+----------  Above from stdout; below from grey NIMBUS message window
+
+Loading setup file: /home/users/ron/nimbus/setup.269rf35
+Time interval(s) completed : 17:52:07-21:26:16
+Processing took 32.2 minutes.
+
+Processing completed before:  Mon Mar 31 10:40:42 MST 1997
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+New processing:  Equate calibrations for TEP and TET
+Processing began:  Thu Apr  3 15:26:21 MST 1997
+adsIO: RAW_ADS
+CF1 has no description or units.
+CF2 has no description or units.
+CVTEMP has no description or units.
+DOUT_1 has no description or units.
+DOUT_2 has no description or units.
+GDSR has no description or units.
+RFI has no description or units.
+RFICP has no description or units.
+RFICT has no description or units.
+RSTB2 has no description or units.
+STROB has no description or units.
+TCBADS has no description or units.
+TMP1 has no description or units.
+TSGDR has no description or units.
+VLASM has no description or units.
+ 
+filter.c: filter sum of 1to25   =      1.00000108
+filter.c: filter sum of 5to25   =      1.00000844
+filter.c: filter sum of 10to25  =      0.99993747
+filter.c: filter sum of 50to25  =      0.99993857
+filter.c: filter sum of 250to25 =      0.99994092
+
+----------  Above from stdout; below from grey NIMBUS message window
+
+Loading setup file: /home/users/ron/nimbus/setup.269rf35
+Request for non-existent default, ASTG.
+Time interval(s) completed : 17:52:07-21:26:16
+Processing took 29.7 minutes.
+
+Finished before:  Thu Apr  3 15:55:43 MST 1997

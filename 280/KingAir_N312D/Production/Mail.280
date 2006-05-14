@@ -1,0 +1,1211 @@
+From sloss Wed Dec 30 11:10:50 1992
+Date: Wed, 30 Dec 92 11:10:50 MST
+From: sloss (Joel Sloss)
+Message-Id: <9212301810.AA20608@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA20608; Wed, 30 Dec 92 11:10:50 MST
+To: ron
+Subject: FIB tapes
+Status: RO
+
+Ron, 
+
+I got back the print messages from all of the tape stages for FIB, and only
+two of them worked.  10 of them had "uncrecoverable fatal errors", and a 
+couple others seem to be longer than 195 MBytes.
+
+I don't know what to do from here.  Could you look at the files?  They are in
+my ~sloss/genpro/fib directory, and are the SLOSSprint# files.
+
+I appreciate any help you can offer about this.
+
+Thanks.
+
+--Joel
+
+From sloss Wed Dec 30 12:31:16 1992
+Date: Wed, 30 Dec 92 12:31:15 MST
+From: sloss (Joel Sloss)
+Message-Id: <9212301931.AA21835@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA21835; Wed, 30 Dec 92 12:31:15 MST
+To: ron
+Subject: Re: FIB staging analysis
+Status: RO
+
+
+Ron:
+
+Thanks for the help.
+
+RF01 doesn't exist, so there is no job for it.
+
+About all the -B6500's, I copied those lines out of a coare job file, and I
+didn't realize that that option was there.  I will go back and re-edit the
+file and resubmit it this afternoon, except RF03.
+
+Thanks.
+
+--Joel
+
+From sloss Wed Dec 30 15:07:56 1992
+Date: Wed, 30 Dec 92 15:07:56 MST
+From: sloss (Joel Sloss)
+Message-Id: <9212302207.AA23394@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA23394; Wed, 30 Dec 92 15:07:56 MST
+To: ron
+Subject: fib tapes
+Status: RO
+
+Ron:
+
+I am curious why the tapes are staging so quickly -- they seem to be reading
+in very few records into the files, like only 6 or 7 hundred at a time per
+tape.  This doesn't seem quite right for 4 hour flights, even on the king-air.
+
+If you have any ideas, let me know, like if not all of the files on the tapes
+are actually being read or something.
+
+Thanks.
+
+--Joel
+
+From sloss Thu Jan  7 16:06:23 1993
+From: sloss (Joel Sloss)
+Message-Id: <9301072306.AA08939@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA08939; Thu, 7 Jan 93 16:06:22 MST
+Subject: fib
+To: ron (Ron Ruth)
+Date: Thu, 7 Jan 93 16:06:22 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Ron, 
+
+I retrieved the last printjob file (SLOSSprint23) for RF03, and I can't tell
+if it actually finished or not.  it read 6700 records, wrote almost 195 MB, 
+but I don't know if it stopped there, or finished, or what.  
+
+It is in my /sloss/genpro/fib directory.  When you get a chance, could you look
+at it and see if it requires another segment to run?  If so, should I rename
+the first half to RF03A?
+
+Thanks.
+
+--JS
+
+PS:
+
+I looked at the file again, and it failed to terminate normally, and says that
+it didn't close the bitfile properly.  Does that mean that it didn't write the
+file afterall?
+
+--JS
+
+From sloss Thu Jan  7 16:15:08 1993
+From: sloss (Joel Sloss)
+Message-Id: <9301072315.AA09113@chinook.atd.ucar.EDU>
+Received: by chinook.atd.ucar.EDU (5.65/ NCAR Mail Server 04/10/90)
+	id AA09113; Thu, 7 Jan 93 16:15:08 MST
+Subject: RF03
+To: ron (Ron Ruth)
+Date: Thu, 7 Jan 93 16:15:07 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Ron,
+
+(sorry for so many messages)
+
+I have the SHCK files from the failures of RF03, in my migs directory, if you
+need to look at them.  The important ones are the ones dated most recently, 
+ie, from Jan 4, Dec 29/30.
+
+--Tx.
+
+--JS
+
+
+From ron Thu Jan  7 16:17:54 1993
+Subject: Re: fib
+To: sloss@chinook.atd.ucar.edu (Joel Sloss)
+Date: Thu, 7 Jan 93 16:17:54 MST
+In-Reply-To: <9301072306.AA08939@chinook.atd.ucar.EDU>; from "Joel Sloss" at Jan 7, 93 4:06 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+> 
+> Ron, 
+> 
+> I retrieved the last printjob file (SLOSSprint23) for RF03, and I can't tell
+> if it actually finished or not.  it read 6700 records, wrote almost 195 MB, 
+> but I don't know if it stopped there, or finished, or what.  
+> 
+> It is in my /sloss/genpro/fib directory.  When you get a chance, could you look
+> at it and see if it requires another segment to run?  If so, should I rename
+> the first half to RF03A?
+> 
+> Thanks.
+> 
+> --JS
+> 
+> PS:
+> 
+> I looked at the file again, and it failed to terminate normally and says that
+> it didn't close the bitfile properly.  Does that mean that it didn't write the
+> file after all?
+> 
+> --JS
+> 
+Joel,
+
+My guess is that NO bitfile was written because it read more than 195Mbytes.
+You need to separate it into two jobs:  RF03A and RF03B.  On the first one,
+read 6500 records and no file mark.  On the second one skip 6500 records and
+read to EOF.  You should have examples of each of these.  Just submit them as
+separate jobs waiting for one to finish before submitting the other one.
+
+-- 
+Ron
+
+From ron Mon Dec  7 16:42:27 1992
+Subject: Re: FIB tapes
+To: sloss@chinook.atd.ucar.edu (Joel Sloss)
+Date: Mon, 7 Dec 92 16:42:27 MST
+In-Reply-To: <9212072314.AA13468@chinook.atd.ucar.EDU>; from "Joel Sloss" at Dec 7, 92 4:14 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Joel,
+
+You may use guint to stage the tapes, but it may take longer to set up than
+you want.  Do any of them exceed 195 Mbytes in size?  If so, you need to break
+the jobs up into pieces.  So it may be easier for you to start with an extant
+file and modify it for your use.  A suitable example would be:
+          /home/local/genpro/projects/coare/tp2ms.817job2
+
+Change the account number to have the correct tail number of the plane.  Then
+duplicate the lines for each flight/segment (according to our file-naming
+principles) and change appropriate tape numbers and path names.  Even though
+they are low-density tapes, I'd recommending using the high-density drives
+(QD), since there are more of them and the staging should go faster.
+
+If you've forgotten the naming convention, just remember that, for these ADS
+tapes, there is never a segment with more than one letter (e.g., NO RF01AA).
+If you want, I can specify the MSS path names for you.
+
+Tell Sue Jensen to inform you when the tapes are ready.  Then, just before you
+submit the staging job, send email to 'tapelist@ncar' with the list of tapes
+you are going to use (and your name, in case they need to contact you) to let
+the operators know that a bunch of ExaByte mounts are coming.
+
+-- 
+Ron
+
+From ron Tue Dec 29 11:03:13 1992
+Subject: Re: FIB staging
+To: sloss@chinook.atd.ucar.edu (Joel Sloss)
+Date: Tue, 29 Dec 92 11:03:13 MST
+In-Reply-To: <9212291800.AA12280@chinook.atd.ucar.EDU>; from "Joel Sloss" at Dec 29, 92 11:00 am
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Joel,
+
+They will hold the jobs until the MIGS computer fills up.  They will then drop
+them which may require you to resubmit.  Too bad I didn't get the info to you
+earlier.  Sorry.
+
+-- 
+Ron
+
+From ron Wed Dec 30 11:18:28 1992
+Subject: Re: FIB tapes
+To: sloss@chinook.atd.ucar.edu (Joel Sloss)
+Date: Wed, 30 Dec 92 11:18:28 MST
+In-Reply-To: <9212301810.AA20608@chinook.atd.ucar.EDU>; from "Joel Sloss" at Dec 30, 92 11:10 am
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Joel,
+
+I'll get to them just after lunch.  I'm working on getting a 3-226 job sent to
+the Cray for Bruce Morley.  More than likely the failures could be due to a
+lack of EOFs as well as the 195Mbyte boundary.  I'll review them and let you
+know what to do next.
+
+It's also possible that the new MSCP installed yesterday could have something
+to do with things.
+
+-- 
+Ron
+
+From ron Wed Dec 30 12:27:14 1992
+Subject: FIB staging analysis
+To: sloss (Joel Sloss)
+Date: Wed, 30 Dec 92 12:27:14 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Joel,
+
+Following is my analysis of your staging operation.
+/RAF/1992/280/RF01/Rxxxx        <-- missing altogether
+/RAF/1992/280/RF02/R0693
+ OK--asked to read 6500 recs; wrote 1 file with 1627 recs
+/RAF/1992/280/RF03/R0694
+ Partially successful--asked to skip 6500 recs & read 1 file; wrote 6731 recs
+ (I think)
+/RAF/1992/280/RF04/R0695
+ OK--asked to read 6500 recs; wrote 1 file with 2178 recs
+/RAF/1992/280/RF05/R0696
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF06/R0697
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF07/R0698
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF08/R0699
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF09/R0700
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF10/R0701
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF11/R0702
+ Failed--asked to skip 6500 recs & read 1 file; skipped 192 recs (problem with
+  rec 193)
+/RAF/1992/280/RF12/R0703
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF13/R0704
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+/RAF/1992/280/RF14/R0705
+ Failed--asked to skip 6500 recs & read 1 file; found EOF before skip finished
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+You made some mistakes, obviously, but your requests found at least one tape
+with a problem, which is good.
+
+If a tape for RF01 exists, you'll need to set up a job for it.
+
+For flights RF05 - RF14, you need to remove the -B6500 option from the msimport
+command and resubmit them.  RF11 may fail again; if it does so at record #193,
+I'd set up a job that deletes the msimport option -N1 and adds the option
+-R192.  If there is reason to believe that more data exist than msimport wants
+to read, we should bring the tape back to Jeffco for analysis.
+
+For RF03, it appears that you wrote the second part.  What is strange to me is
+the MSS report said a total of 6731 records were read and written to the MSS.
+If records are skipped (as you had requested), the usual report shows many more
+records and bytes read that were written.  I'll send this to Kathy Fryberger
+for analysis.  Perhaps you should not resubmit RF03A until I get word back from
+her.  As a preparatory measure, change the msimport command to create
+.../RF03A/... by skipping zero records (omit -B6500) and reading 6500 records
+(-R6500) and no files (omit -N1).  If I find that the first stage was
+successful, I'll rename the RF03 you created to be RF03B.
+
+--
+Ron
+
+From ron Wed Dec 30 12:28:38 1992
+Subject: FIB staging files
+To: sloss (Joel Sloss)
+Date: Wed, 30 Dec 92 12:28:38 MST
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Joel,
+
+Please don't purge any of the FIB SLOSSprint?? files.  Kathy may want to look
+at them, too.
+
+Thanks.
+
+-- 
+Ron
+
+From ron Wed Dec 30 15:15:14 1992
+Subject: Re: fib tapes
+To: sloss@chinook.atd.ucar.edu (Joel Sloss)
+Date: Wed, 30 Dec 92 15:15:14 MST
+In-Reply-To: <9212302207.AA23394@chinook.atd.ucar.EDU>; from "Joel Sloss" at Dec 30, 92 3:07 pm
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+> 
+> Ron:
+> 
+> I am curious why the tapes are staging so quickly -- they seem to be reading
+> in very few records into the files, like only 6 or 7 hundred at a time per
+> tape.  This doesn't seem quite right for 4 hour flights, even on the kink-air.
+> 
+> If you have any ideas, let me know, like if not all of the files on the tapes
+> are actually being read or something.
+> 
+> Thanks.
+> 
+Joel,
+
+You may ask Krista or Ed Brown how long the flights lasted.  With 600-700
+records you're getting about an hour or a little longer.  Typically there
+is only one file per tape with ExaBytes.  It could be that the tapes'
+characteristics have changed and they cannot be read beyond that point.
+Did anyone give you a log of all the flights and their lengths?  You can
+compare that with 6-seconds per record.
+
+-- 
+Ron
+
+From ron Mon Jan  4 12:51:42 1993
+Subject: Re: FIB tape staging
+To: sloss@chinook.atd.ucar.edu (Joel Sloss)
+Date: Mon, 4 Jan 93 12:51:42 MST
+In-Reply-To: <9301041742.AA11135@chinook.atd.ucar.EDU>; from "Joel Sloss" at Jan 4, 93 10:42 am
+X-Mailer: ELM [version 2.3 PL11]
+Status: RO
+
+Joel,
+
+I looked at all the files.  Apparently, ...print0 through ...print12 are
+leftovers from previous runs.  I'd get rid of them.
+
+At present there are bitfiles in the /RAF/1992/280 directory for the following
+flights:  RF02, RF04 - RF14.
+
+RF07 seems a bit short in length, but it is probably OK.
+
+The SLOSSprint1 file showed a problem with RF03.  It was one of the early tries
+where you asked it to skip 6500 records then read to EOF.  It seems to have
+read 6731 records before quitting.  The summary shows that it found an EOF, but
+it apparently did that before the 6500 records were skipped.  I would resubmit
+that job to just read one file like you did with the others.
+
+If I recall correctly, there was no RF01.
+
+Otherwise, it looks like FIB staging is in good shape.
+
+-- 
+Ron
+
+From ron Tue Apr 15 11:32:35 1997
+Subject: Procedures
+To: campos (Teresa Campos)
+Date: Tue, 15 Apr 1997 11:32:35 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 8986      
+Status: RO
+
+
+        -----------------------------------------------------------
+         Quick Overview of NIMBUS Production Processing Procedures
+            for Project Managers and Data Management Personnel
+        -----------------------------------------------------------
+                           Ronald L. Ruth
+                          RAF Data Manager
+                           rev. Mar 1997
+        -----------------------------------------------------------
+
+  Note:  Production processing is unique.  Do not use the `nimbus' login
+          unless you are prepared to set up and perform production (final)
+          processing.
+
+ A)  The master raw ADS data tapes need to be archived to the SCD Mass Store
+      System (MSS).  Make sure this is done before doing any production
+      processing.  (See Ron for assistance.)
+ B)  Peruse the entire project's data using quick-look tools.  Identify all
+      changes that are needed for production processing.
+   1)  Use whatever tools you want, including NIMBUS, ncplot, WINDS, PV-Wave,
+        MATLAB, Xanadu, etc.
+   2)  Make a list of instrument anomalies, failures, etc., that occurred
+        during the project.
+   3)  Make a list of equipment changes made during the project.
+   4)  Edit the `Defaults' file in the project's directory
+        (`hl proj/### ; vi Defaults') to make changes that reflect the
+        typical flight.  (This file has reference constants used for
+        making derived calculations.)
+   5)  Make a list of per-flight changes needed for production.  Examples
+        include:  new calibrations, reference variable substitutions, unique
+        Defaults values.
+   6)  Using information from B)5), create groups of flights which all need
+        the same setup and whose processing will be identical.  (A group
+        consists of one or more flights.)  Select one reference flight from
+        each group.
+   7)  If you use NIMBUS during this time, be sure to use your own login (not
+        the `nimbus' login).  You may want to save setup files in your own
+        processing directory.  (Make a list of those you want to recall for
+        production processing.)
+   8)  Completely summarize all the information needed for production
+        processing (basically, all the above information); put it in a
+        Project Production Setup document (or file); and send a copy to Ron.
+        (Include the project's instrumentation list and ADS setup table.)
+ C)  Set up NIMBUS for the default, low-rate processing (no matter what the
+      final output rate will be).
+   1)  Login as user `nimbus.'  See Chris Webster or Ron if you need the
+        password.
+   2)  Change to the project's directory (`hl proj/###'). 
+   3)  Edit the `Production/FlightGroups' file to agree with B)6).  See Chris
+        or Ron if you need help with this.
+   4)  Edit the `DependTable' file to make changes that reflect the typical
+        flight.  (This file determines the reference variables used for
+        the derived calculations.)
+   5)  If you will be doing high-rate processing later, make appropriate
+        changes to the project's LowRateVars file, if necessary.  (This file
+        determines which derived variables are to be unconditionally output
+        at low rate.)
+   6)  Please make sure that the project's VarDB file is up to date.  You
+        may have to add and/or change extended definitions to the variable
+        dictionary (using the command:  `vared VarDB').
+   7)  Get the reference raw ADS data sets from the MSS.  One can use the
+        "msget" or "msgetads" script for this.  If a data set is split into
+        contiguous segments, retrieve all of them.  NIMBUS will process the
+        entire flight as one output file by sequentially reading each ADS
+        data set.
+   8)  Run NIMBUS with each reference flight to create the reference setup
+        files.  Refer to the ADS Reference Manual, Chapter 5, or the NIMBUS
+        `walkthrough' document (located in the `nimbus' home directory), if
+        necessary.
+     a)  If present, load appropriate setup file from B)6) above, and check to
+          make sure it makes no inappropriate changes.  (It can change rates,
+          defaults, calibration coefficients, dependencies, variable output
+          on/off.)  Multiple setup files can be loaded, one after another in
+          case multiple changes are necessary.
+     b)  From within NIMBUS, edit the Defaults file, if necessary.
+     c)  Make appropriate changes to the calibration coefficients.
+     d)  Make appropriate changes to the dependencies.
+     e)  Carefully choose which variables are to be output to or omitted
+          from the production netCDF file.
+     f)  Be sure all output rates are correct.
+     g)  Save the setup.  (You will not be asked for a setup file name,
+          since, in production mode, it is predefined.)
+     h)  Repeat for the next reference data set, if necessary.
+ D)  Preproduction test
+   1)  Make one production run using a representative flight.
+     a)  The output data set will be put in the directory
+          `/home/productiondata,' and its name will follow the prescribed
+          naming convention:  ppptFnn[H].cdf  (Example:  120rf03b.cdf)
+          where:  ppp = 3-digit project number
+                    t = type of flight (f=ferry, r=research, t=test)
+                   nn = flight number and possible segment letter
+                         (e.g., 03b)
+                  [h] = suffix letter to indicate high-rate data
+                         (Example:  120rf03bh.cdf)
+   2)  Peruse the production log file in the project's `Production'
+        subdirectory created during the NIMBSU run.  (See Ron for help,
+        if needed.)
+   3)  Peruse the netCDF header.  (Use `ncdump -h <file> | more'.)
+     a)  Make sure that the variable list is correct.
+     b)  Make sure that no variable has "units" of "Unk" or "Unknown" and
+          "long_name" of "No title".  If any do exist, repeat step C)8).
+          (Within the `more' comand, use the `vi'-like command:  "/Unk" and
+          "/No title" to find them.)
+   4)  Review output data using ncplot, WINDS or other available tools.
+   5)  Note changes that are needed to the processing, and rerun, if
+        necessary.  Update the associated setup file.
+   6)  Repeat this section using the reference example from each flight group.
+ E)  Production
+   1)  When all is ready for production, check available disk space to make
+       sure that room exists for the processed data.  (You may have to do
+       production runs in sections and have the output data archived before
+       continuing.  Also, other project processing may compete for the
+       available disk space which may require negotiation with other users.)
+   2)  Use NIMBUS to process each flight/segment.
+     a)  NIMBUS now has automatic output file naming, and if a flight has
+          to be processed in segments, one must rename each output file to
+          add the segment's letter, for example, 120rf05.cdf --> 120rf05a.cdf.
+     b)  If necessary, rename the production log file for this segment, too.
+          It will be located in the project's `Production' subdirectory.
+     c)  Thoroughly peruse the output from each production run, looking for
+          errors and things overlooked in setup.
+     d)  When flight/segments have been processed to your satisfaction, have
+          Ron archive the output files to the MSS.  (This may have to be done
+          in sections if disk space is at a premium.)  It is recommended that
+          all the low-rate files be archived before commencing with high-rate
+          production processing.
+ F)  If high-rate processing is required, repeat steps D) and E), but
+      select the `high-rate' button in the NIMBUS window before starting
+      the processing.
+   1)  You may need to make alterations to the setup.  One example would be
+        setting the output rates for variables like VEW and VNS to 10 sps.
+        A separate and independent setup file could be loaded to make these
+        changes (and set the "high-rate" flag, too).  (For an example, see
+        the file `HRT.convert' in the `870/Production' directory.)
+   2)  NIMBUS now has automatic production output file naming, so one should 
+        not have to rename the low-rate output file to avoid overwriting
+        extant data.
+   3)  Check a representative sample of high-rate, processed data using
+        appropriate tools.  (This may include spectrum analysis.)
+ G)  When all data have been processed to your satisfaction and archived to
+      the MSS, prepare the final documentation binder(s) for shipment to the
+      Principal Investigator(s).
+ H)  Determine the type of output product(s) needed by PI(s) and schedule RDP
+      to copy and ship the output data.  (See Ron for instructions.)
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From campos@raf.atd.ucar.EDU Tue Apr 15 11:40 MDT 1997
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA23709; Tue, 15 Apr 1997 11:40:22 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA00415; Tue, 15 Apr 1997 11:40:20 -0600
+Date: Tue, 15 Apr 1997 11:40:20 -0600
+Message-Id: <199704151740.LAA00415@gruyere.atd.ucar.edu>
+To: ron
+Subject: Re: Procedures
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 377
+Status: RO
+
+Ron,
+
+Thanks for all the processing information.  Thanks also for saving the existing 
+project 280 files for me.  After they have been archived to the mass store (or 
+moved somewhere else), you may delete the following files:
+
+280DF11.cdf      280HR11.cdf.gz   280RF13.cdf.gz
+280HR12.cdf.gz   280RF14.cdf.gz
+280HR13.cdf.gz   280RF11.cdf.gz
+280HR14.cdf.gz   280RF12.cdf
+
+Teresa
+
+From ron Tue Apr 15 17:25:25 1997
+Subject: Re: Files archived
+To: campos@raf.atd.ucar.EDU (Teresa Campos)
+Date: Tue, 15 Apr 1997 17:25:25 -0600 (MDT)
+In-Reply-To: <199704151740.LAA00415@gruyere.atd.ucar.edu> from "Teresa Campos" at Apr 15, 97 11:40:20 am
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2611      
+Status: RO
+
+Thou spake thusly:
+>
+> Ron,
+>
+> Thanks for all the processing information.  Thanks also for saving the
+> existing project 280 files for me.  After they have been archived to the
+> mass store (or moved somewhere else), you may delete the following files:
+>
+> 280DF11.cdf      280HR11.cdf.gz   280RF13.cdf.gz
+> 280HR12.cdf.gz   280RF14.cdf.gz
+> 280HR13.cdf.gz   280RF11.cdf.gz
+> 280HR14.cdf.gz   280RF12.cdf
+>
+Teresa,
+
+All the files have been archived to the SCD Mass Store System, so I have
+deleted the files you mentioned.  Since your names didn't conform to RAF's
+current naming convention, I renamed them so I could more easily archive
+them.  Below is a map that relates your original file names to the MSS
+bitfile names and, for those files that were not deleted, their names in
+the "/home/productiondata/old280/" directory.
+
+------------------------------------------------------------------------------
+                                                   Path:
+ MSS path:   /RAF/1992/280/            Your       /home/productiondata/old280/
+ File Size   Bitfile Name          Original Name   File Name
+ ---------  --------------------  --------------  ----------------------------
+ 119599056   OLDHRT/RF05.cdf       280HR05.cdf     280rf05h.cdf
+  17803928   OLDHRT/RF05A.cdf      280HR05a.cdf    280rf05ah.cdf
+ 107505936   OLDHRT/RF08.cdf       280HR08.cdf     280rf08h.cdf
+  16003640   OLDHRT/RF08A.cdf      280HR08a.cdf    280rf08ah.cdf
+ 106693196   OLDHRT/RF11.cdf       280HR11.cdf     -
+  90246956   OLDHRT/RF12.cdf       280HR12.cdf     -
+ 102480116   OLDHRT/RF13.cdf       280HR13.cdf     -
+  88267316   OLDHRT/RF14.cdf       280HR14.cdf     -
+  10416592   OLDLRT/RF05.cdf       280RF05.cdf     280rf05.cdf
+   9371440   OLDLRT/RF08.cdf       280RF08.cdf     280rf08.cdf
+   6863992   OLDLRT/RF09.cdf       280RF09.cdf     280rf09.cdf
+   9715240   OLDLRT/RF11.cdf       280RF11.cdf     -
+   7883608   OLDLRT/RF11OLDER.cdf  280DF11.cdf     -
+   8230024   OLDLRT/RF12.cdf       280RF12.cdf     -
+   9334768   OLDLRT/RF13.cdf       280RF13.cdf     -
+   8051248   OLDLRT/RF14.cdf       280RF14.cdf     -
+------------------------------------------------------------------------------
+
+I have fixed up all the file ownerships in the project "280" directory and
+subdirectories that pertian to NIMBUS processing, so you should be able to
+set up everything correctly.
+
+Call, visit or write if you have questions or problems or if you need any
+assistance.
+
+--
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From campos@raf.atd.ucar.EDU Fri Dec 12 11:03 MST 1997
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from mistral.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id LAA23124; Fri, 12 Dec 1997 11:03:34 -0700
+Received: by mistral.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id LAA15028; Fri, 12 Dec 1997 11:03:32 -0700
+Message-Id: <199712121803.LAA15028@mistral.atd.ucar.edu>
+Subject: no subject (file transmission)
+To: ron (Ron Ruth)
+Date: Fri, 12 Dec 1997 11:03:31 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Length: 1057
+Status: RO
+
+Hi Ron,
+
+Here is a list of the files which currently reside in the old280 subdirectory 
+of productiondata and should be saved to the mass store.  You will notice that
+the files with an Apr 11 creation date have already been saved, and thus may
+be removed.  There also several extraction scripts which may be removed, since
+I have copies saved elsewhere.  
+
+I also agree with you that it would make sense to change the current MS 
+directory names from OLDHRT -> HRT and OLDLRT -> LRT.
+
+Thanks much for your patience in this matter!
+
+Teresa
+
+Files to be saved to MS		MS Filename	
+
+280rf02.cdf			LRT/RF02.cdf
+280rf02h.cdf			HRT/RF02.cdf
+20rf02ah.cdf			HRT/RF02A.cdf
+280rf04.cdf			LRT/RF04.cdf
+280rf04h.cdf			HRT/RF04.cdf
+20rf04ah.cdf			HRT/RF04A.cdf
+280rf06.cdf			LRT/RF06.cdf
+280rf06h.cdf			HRT/RF06.cdf
+20rf06ah.cdf			HRT/RF06A.cdf
+280rf07.cdf			LRT/RF07.cdf
+280rf07h.cdf			HRT/RF07.cdf
+20rf07ah.cdf			HRT/RF07A.cdf
+280rf09h.cdf			HRT/RF09.cdf
+20rf09ah.cdf			HRT/RF09A.cdf
+280rf10.cdf			LRT/RF10.cdf
+280rf10h.cdf			HRT/RF10.cdf
+20rf10ah.cdf			HRT/RF10A.cdf
+
+
+From ron Fri Dec 12 15:26:49 1997
+Subject: Project 280 archive completed
+To: campos (Teresa Campos)
+Date: Fri, 12 Dec 1997 15:26:49 -0700 (MST)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 2508      
+Status: RO
+
+Teresa,
+
+I have archived to the SCD Mass Store System (MSS) the files you requested
+in your recent email:
+  Source directory:       mistral:/home/productiondata/old280/
+  Destination directory:  MSS:/RAF/1992/280/
+      280rf02.cdf  -->  LRT/RF02.cdf
+      280rf02h.cdf -->  HRT/RF02.cdf
+      20rf02ah.cdf -->  HRT/RF02A.cdf
+      280rf04.cdf  -->  LRT/RF04.cdf
+      280rf04h.cdf -->  HRT/RF04.cdf
+      20rf04ah.cdf -->  HRT/RF04A.cdf
+      280rf06.cdf  -->  LRT/RF06.cdf
+      280rf06h.cdf -->  HRT/RF06.cdf
+      20rf06ah.cdf -->  HRT/RF06A.cdf
+      280rf07.cdf  -->  LRT/RF07.cdf
+      280rf07h.cdf -->  HRT/RF07.cdf
+      20rf07ah.cdf -->  HRT/RF07A.cdf
+      280rf09h.cdf -->  HRT/RF09.cdf
+      20rf09ah.cdf -->  HRT/RF09A.cdf
+      280rf10.cdf  -->  LRT/RF10.cdf
+      280rf10h.cdf -->  HRT/RF10.cdf
+      20rf10ah.cdf -->  HRT/RF10A.cdf
+I took the liberty to change file names beginning with "20r" to "280r,"
+since it was obviously some kind of typo.  To efficiently do the archiving,
+I first moved them from the "old280" subdirectory into the main one.
+
+I also moved the following MSS bitfiles as we had agreed:
+  Source directory:       MSS:/RAF/1992/280/
+  Destination directory:  MSS:/RAF/1992/280/
+    OLDHRT/RF05.cdf     --> HRT/RF05.cdf
+    OLDHRT/RF05A.cdf    --> HRT/RF05A.cdf
+    OLDHRT/RF08.cdf     --> HRT/RF08.cdf
+    OLDHRT/RF08A.cdf    --> HRT/RF08A.cdf
+    OLDHRT/RF11.cdf     --> HRT/RF11.cdf
+    OLDHRT/RF12.cdf     --> HRT/RF12.cdf
+    OLDHRT/RF13.cdf     --> HRT/RF13.cdf
+    OLDHRT/RF14.cdf     --> HRT/RF14.cdf
+    OLDLRT/RF05.cdf     --> LRT/RF05.cdf
+    OLDLRT/RF08.cdf     --> LRT/RF08.cdf
+    OLDLRT/RF09.cdf     --> LRT/RF09.cdf
+    OLDLRT/RF11.cdf     --> LRT/RF11.cdf
+    OLDLRT/RF12.cdf     --> LRT/RF12.cdf
+    OLDLRT/RF13.cdf     --> LRT/RF13.cdf
+    OLDLRT/RF14.cdf     --> LRT/RF14.cdf
+    OLDLRT/RF11OLDER.cdf --> OLDLRT/RF11.cdf
+
+An updated MSS bitfile directory listing can be found in the file:
+  /home/local/proj/msfiles/msls.280
+
+I am presently in the process of updating the master RAF MSS bitfile
+directory so the "msget" scripts can find them.  It should be ready
+before the end of the day today.
+
+I got the impression that, once archived, you do not require ANY of the
+project 280 files to remain in the "productiondata" directory.  Please
+let me know whether or not this is the case.
+
+Thanks.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From campos@raf.atd.ucar.EDU Fri Dec 12 15:45 MST 1997
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA02066; Fri, 12 Dec 1997 15:45:48 -0700
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA01895; Fri, 12 Dec 1997 15:45:39 -0700
+Date: Fri, 12 Dec 1997 15:45:39 -0700
+Message-Id: <199712122245.PAA01895@gruyere.atd.ucar.edu>
+To: ron
+Subject: Re: Project 280 archive completed
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 159
+Status: RO
+
+Ron,
+
+Yes, now that we have them safely stored, I don't need instant access to any of
+those files.  Thanks for your prompt attention to the archiving.
+
+Teresa
+
+From campos@raf.atd.ucar.EDU Thu May 14 15:09 MDT 1998
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id PAA12802; Thu, 14 May 1998 15:09:31 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id PAA00433; Thu, 14 May 1998 15:09:28 -0600
+Date: Thu, 14 May 1998 15:09:28 -0600
+Message-Id: <199805142109.PAA00433@gruyere.atd.ucar.edu>
+To: ron
+Subject: new FIB archive request
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1784
+Status: RO
+
+Ron,
+
+I'm writing to request that some ASCII and netCDF files be added to the FIB
+(project 280) archives on the mass store.  As soon as the files are saved and
+I am able to ftp the ASCII files to the Forest Service, I will delete them.
+If space on /home/data becomes a problem, please let me know and we can work
+something out.  I would be able to free up space immediately, but the FS
+computers are off line until sometime within the next 2 weeks.  Let me know
+what will work for you.  Also please let me know where the files end up on
+the mass store.  Thanks very much for your help and patience,
+
+Teresa
+
+The netCDF files are high rate and have the following names and locations:
+	/home/data/migs/campos/280hr11a.cdf
+	/home/data/migs/campos/280hr12a.cdf
+	/home/data/migs/campos/280hr13a.cdf
+	/home/data/migs/campos/280hr14a.cdf
+
+The low rate ASCII files are:
+	/home/tmp/campos/280rf02.track.lwc.asc
+	/home/tmp/campos/280rf04.track.lwc.asc
+	/home/tmp/campos/280rf05.track.lwc.asc
+	/home/tmp/campos/280rf06.track.lwc.asc
+	/home/tmp/campos/280rf07.track.lwc.asc
+	/home/tmp/campos/280rf08.track.lwc.asc
+	/home/tmp/campos/280rf09.track.lwc.asc
+	/home/tmp/campos/280rf10.track.lwc.asc
+	/home/tmp/campos/280rf11.track.lwc.asc
+	/home/tmp/campos/280rf12.track.lwc.asc
+	/home/tmp/campos/280rf13.track.lwc.asc
+	/home/tmp/campos/280rf14.track.lwc.asc
+
+The high rate ASCII files are:
+	/home/data/280HR02[a-g].asc
+	/home/data/280TR02[a-g].asc
+	/home/data/280HR04[a-i].asc
+	/home/data/280TR04[a-i].asc
+	/home/data/280HR05[a-j].asc
+	/home/data/280TR05[a-j].asc
+	/home/data/280HR06[a-h].asc
+	/home/data/280TR06[a-h].asc
+	/home/data/280HR07[a-c].asc
+	/home/data/280TR07[a-c].asc
+	/home/data/280HR08[a-i].asc
+	/home/data/280TR08[a-i].asc
+	/home/data/280HR10[a-f].asc
+	/home/data/280TR10[a-f].asc
+
+From ron Thu May 14 15:44:34 1998
+Subject: Re: new FIB archive request
+To: campos@raf.atd.ucar.EDU (Teresa Campos)
+Date: Thu, 14 May 1998 15:44:34 -0600 (MDT)
+In-Reply-To: <199805142109.PAA00433@gruyere.atd.ucar.edu> from "Teresa Campos" at May 14, 98 03:09:28 pm
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 3070      
+Status: RO
+
+Thou spake thusly:
+> 
+> The netCDF files are high rate and have the following names and locations:
+> 	/home/data/migs/campos/280hr11a.cdf
+> 	/home/data/migs/campos/280hr12a.cdf
+> 	/home/data/migs/campos/280hr13a.cdf
+> 	/home/data/migs/campos/280hr14a.cdf
+
+Teresa,
+
+I already archived HRT files to the SCD Mass Store System (MSS) that seem
+equivalent to ones with the above names.  They are different, though, because
+they have different sizes.  Our normal names for these HRT data files are:
+   /RAF/1992/280/HRT/RF11.cdf
+   /RAF/1992/280/HRT/RF12.cdf
+   /RAF/1992/280/HRT/RF13.cdf
+   /RAF/1992/280/HRT/RF14.cdf
+
+Please let me know if you want your new data files to supersede (overwrite)
+the ones presently on the MSS or if you want them saved in addition to the
+ones presently on the MSS.  (If the latter, we have to devise a naming
+scheme for them.)
+
+For all the files you have listed below, I can create an ASCII subdirectory
+in the project 280 area and save these files with names very similar to
+what you have given them.  I will remove the 280, since the main directory
+structure has that designation already.  Here is an example:
+
+   "/home/tmp/campos/280rf02.track.lwc.asc"  will be archived as
+   .../280rf02.track.lwc.asc --> /RAF/1992/280/ASCII/rf02.track.lwc.asc
+
+ If you don't like this naming convention, please let me know, and I'll
+consider something you suggest.
+
+> The low rate ASCII files are:
+>   /home/tmp/campos/280rf02.track.lwc.asc
+> 	/home/tmp/campos/280rf04.track.lwc.asc
+> 	/home/tmp/campos/280rf05.track.lwc.asc
+> 	/home/tmp/campos/280rf06.track.lwc.asc
+> 	/home/tmp/campos/280rf07.track.lwc.asc
+> 	/home/tmp/campos/280rf08.track.lwc.asc
+> 	/home/tmp/campos/280rf09.track.lwc.asc
+> 	/home/tmp/campos/280rf10.track.lwc.asc
+> 	/home/tmp/campos/280rf11.track.lwc.asc
+> 	/home/tmp/campos/280rf12.track.lwc.asc
+> 	/home/tmp/campos/280rf13.track.lwc.asc
+> 	/home/tmp/campos/280rf14.track.lwc.asc
+
+The files below have HR and TR as part of their names.  Do they have
+significance?  Normally "RF##" appears in our naming convention for
+research flights.  Due to the special nature of these files, however
+I'm not terribly worried about their names.  It would be nice if you
+could create a README file that describes each of the files.  I would
+archive that in the ASCII subdirectory along with all these *.asc files.
+> 
+> The high rate ASCII files are:
+> 	/home/data/280HR02[a-g].asc
+> 	/home/data/280TR02[a-g].asc
+> 	/home/data/280HR04[a-i].asc
+> 	/home/data/280TR04[a-i].asc
+> 	/home/data/280HR05[a-j].asc
+> 	/home/data/280TR05[a-j].asc
+> 	/home/data/280HR06[a-h].asc
+> 	/home/data/280TR06[a-h].asc
+> 	/home/data/280HR07[a-c].asc
+> 	/home/data/280TR07[a-c].asc
+> 	/home/data/280HR08[a-i].asc
+> 	/home/data/280TR08[a-i].asc
+> 	/home/data/280HR10[a-f].asc
+> 	/home/data/280TR10[a-f].asc
+
+If all goes well, I can probably archive them early next week.  I'm a bit
+swamped with data this week.
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From campos@raf.atd.ucar.EDU Thu May 14 16:01 MDT 1998
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA14136; Thu, 14 May 1998 16:00:58 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA00547; Thu, 14 May 1998 16:00:56 -0600
+Date: Thu, 14 May 1998 16:00:56 -0600
+Message-Id: <199805142200.QAA00547@gruyere.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: new FIB archive request
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 1312
+Status: RO
+
+Ron,
+
+Thanks for your quick response.  I am ftp-ing the files to the Forest Service
+now, so it will probably be okay to remove them as soon as they are archived.
+I will let you know when they are all sent.
+
+Regarding the HRT netCDF files, there are already two sets of .cdf files
+archived to the HRT directory for all flights except flights 11-14.  These
+smaller files have the naming convention RF??A.cdf.  They are a small subset
+of each flight's data which I use to extract the ascii information for the
+forest service.  If I use the whole data file, PV-wave complains (and the
+system groans).  I'm saving the subset as a time saver if I have to reproduce
+my work.  Hope this is okay.
+
+The naming conventions you recommend for the ASCII files make sense to me.
+I've created README files for each flight, explaining the naming structure of
+the HR and TR (as well as the a-? letter appendage) for each flight's file.
+I will move these to my /home/tmp/campos directory for your convenience in
+archiving them.  The significance of the naming conventions TR and HR are as
+follows:
+	TR implies low rate time variables (hour minute second)
+	HR imlies high rate variables
+For some reason the FS wanted them separate if I remember correctly.
+
+If you need anything else, please let me know.  Thanks again,
+
+Teresa
+
+From campos@raf.atd.ucar.EDU Thu May 14 16:57 MDT 1998
+From: campos@raf.atd.ucar.EDU (Teresa Campos)
+Return-Path: <campos@raf.atd.ucar.EDU>
+Received: from gruyere.atd.ucar.edu.atd.ucar.EDU by raf.atd.ucar.EDU (8.6.9/ NCAR Mail Server 04/10/90)
+	id QAA14891; Thu, 14 May 1998 16:57:38 -0600
+Received: by gruyere.atd.ucar.edu (8.6.9/ NCAR Mail Client 04/19/90)
+	id QAA00589; Thu, 14 May 1998 16:57:36 -0600
+Date: Thu, 14 May 1998 16:57:36 -0600
+Message-Id: <199805142257.QAA00589@gruyere.atd.ucar.edu>
+To: ron@raf.atd.ucar.EDU
+Subject: Re: new FIB archive request
+X-Sun-Charset: US-ASCII
+Content-Type: text
+Content-Length: 297
+Status: RO
+
+Ron,
+
+I omitted one set of HRT ascii files from my previous request.  Please add the
+following files to the pile.  (I've also moved a README file for this flight
+into the /home/tmp/campos directory for your convenience.)
+	/home/data/280HR09[a-f].asc
+	/home/data/280TR09[a-f].asc
+
+Thanks,
+
+Teresa
+
+From ron Wed May 20 14:01:51 1998
+Subject: 280 files archived
+To: campos (Teresa Campos)
+Date: Wed, 20 May 1998 14:01:51 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 10861     
+Status: RO
+
+Teresa,
+
+I have archived all the files you requested to the SCD Mass Store System
+(MSS).  I also archived some of the README files I found there.  Following
+is a list of the original file names followed by their MSS bitfile names.
+I basically created an /RAF/1992/280/ASCII directory to hold all the ASCII
+files and the few README files.  The 4 new netCDF files were put into our
+standard directory with a suffix letter A to keep them from interfering
+with your original versions.
+
+We now can delete these data from RAF's disks.
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+           file name at RAF             -->    MSS bitfile name
+    /home/data/migs/campos/280hr11a.cdf --> /RAF/1992/280/HRT/RF11A
+    /home/data/migs/campos/280hr12a.cdf --> /RAF/1992/280/HRT/RF12A
+    /home/data/migs/campos/280hr13a.cdf --> /RAF/1992/280/HRT/RF13A
+    /home/data/migs/campos/280hr14a.cdf --> /RAF/1992/280/HRT/RF14A
+    /home/tmp/campos/280rf02.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf02.track.lwc.asc
+    /home/tmp/campos/280rf04.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf04.track.lwc.asc
+    /home/tmp/campos/280rf05.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf05.track.lwc.asc
+    /home/tmp/campos/280rf06.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf06.track.lwc.asc
+    /home/tmp/campos/280rf07.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf07.track.lwc.asc
+    /home/tmp/campos/280rf08.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf08.track.lwc.asc
+    /home/tmp/campos/280rf09.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf09.track.lwc.asc
+    /home/tmp/campos/280rf10.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf10.track.lwc.asc
+    /home/tmp/campos/280rf11.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf11.track.lwc.asc
+    /home/tmp/campos/280rf12.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf12.track.lwc.asc
+    /home/tmp/campos/280rf13.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf13.track.lwc.asc
+    /home/tmp/campos/280rf14.track.lwc.asc --> /RAF/1992/280/ASCII/LRT/280rf14.track.lwc.asc
+    /home/tmp/campos/README.hr02.980514 --> /RAF/1992/280/ASCII/HRT/README.hr02.980514
+    /home/tmp/campos/README.hr04.980514 --> /RAF/1992/280/ASCII/HRT/README.hr04.980514
+    /home/tmp/campos/README.hr05.980514 --> /RAF/1992/280/ASCII/HRT/README.hr05.980514
+    /home/tmp/campos/README.hr06.980514 --> /RAF/1992/280/ASCII/HRT/README.hr06.980514
+    /home/tmp/campos/README.hr07.980514 --> /RAF/1992/280/ASCII/HRT/README.hr07.980514
+    /home/tmp/campos/README.hr08.980514 --> /RAF/1992/280/ASCII/HRT/README.hr08.980514
+    /home/tmp/campos/README.hr09.980407 --> /RAF/1992/280/ASCII/HRT/README.hr09.980407
+    /home/tmp/campos/README.hr10.980514 --> /RAF/1992/280/ASCII/HRT/README.hr10.980514
+    /home/data/280HR02a.asc --> /RAF/1992/280/ASCII/HRT/280HR02a.asc
+    /home/data/280HR02b.asc --> /RAF/1992/280/ASCII/HRT/280HR02b.asc
+    /home/data/280HR02c.asc --> /RAF/1992/280/ASCII/HRT/280HR02c.asc
+    /home/data/280HR02d.asc --> /RAF/1992/280/ASCII/HRT/280HR02d.asc
+    /home/data/280HR02e.asc --> /RAF/1992/280/ASCII/HRT/280HR02e.asc
+    /home/data/280HR02f.asc --> /RAF/1992/280/ASCII/HRT/280HR02f.asc
+    /home/data/280HR02g.asc --> /RAF/1992/280/ASCII/HRT/280HR02g.asc
+    /home/data/280HR04a.asc --> /RAF/1992/280/ASCII/HRT/280HR04a.asc
+    /home/data/280HR04b.asc --> /RAF/1992/280/ASCII/HRT/280HR04b.asc
+    /home/data/280HR04c.asc --> /RAF/1992/280/ASCII/HRT/280HR04c.asc
+    /home/data/280HR04d.asc --> /RAF/1992/280/ASCII/HRT/280HR04d.asc
+    /home/data/280HR04e.asc --> /RAF/1992/280/ASCII/HRT/280HR04e.asc
+    /home/data/280HR04f.asc --> /RAF/1992/280/ASCII/HRT/280HR04f.asc
+    /home/data/280HR04g.asc --> /RAF/1992/280/ASCII/HRT/280HR04g.asc
+    /home/data/280HR04h.asc --> /RAF/1992/280/ASCII/HRT/280HR04h.asc
+    /home/data/280HR04i.asc --> /RAF/1992/280/ASCII/HRT/280HR04i.asc
+    /home/data/280HR05a.asc --> /RAF/1992/280/ASCII/HRT/280HR05a.asc
+    /home/data/280HR05b.asc --> /RAF/1992/280/ASCII/HRT/280HR05b.asc
+    /home/data/280HR05c.asc --> /RAF/1992/280/ASCII/HRT/280HR05c.asc
+    /home/data/280HR05d.asc --> /RAF/1992/280/ASCII/HRT/280HR05d.asc
+    /home/data/280HR05e.asc --> /RAF/1992/280/ASCII/HRT/280HR05e.asc
+    /home/data/280HR05f.asc --> /RAF/1992/280/ASCII/HRT/280HR05f.asc
+    /home/data/280HR05g.asc --> /RAF/1992/280/ASCII/HRT/280HR05g.asc
+    /home/data/280HR05h.asc --> /RAF/1992/280/ASCII/HRT/280HR05h.asc
+    /home/data/280HR05i.asc --> /RAF/1992/280/ASCII/HRT/280HR05i.asc
+    /home/data/280HR06a.asc --> /RAF/1992/280/ASCII/HRT/280HR06a.asc
+    /home/data/280HR06b.asc --> /RAF/1992/280/ASCII/HRT/280HR06b.asc
+    /home/data/280HR06c.asc --> /RAF/1992/280/ASCII/HRT/280HR06c.asc
+    /home/data/280HR06d.asc --> /RAF/1992/280/ASCII/HRT/280HR06d.asc
+    /home/data/280HR06e.asc --> /RAF/1992/280/ASCII/HRT/280HR06e.asc
+    /home/data/280HR06f.asc --> /RAF/1992/280/ASCII/HRT/280HR06f.asc
+    /home/data/280HR06g.asc --> /RAF/1992/280/ASCII/HRT/280HR06g.asc
+    /home/data/280HR06h.asc --> /RAF/1992/280/ASCII/HRT/280HR06h.asc
+    /home/data/280HR07a.asc --> /RAF/1992/280/ASCII/HRT/280HR07a.asc
+    /home/data/280HR07b.asc --> /RAF/1992/280/ASCII/HRT/280HR07b.asc
+    /home/data/280HR07c.asc --> /RAF/1992/280/ASCII/HRT/280HR07c.asc
+    /home/data/280HR08a.asc --> /RAF/1992/280/ASCII/HRT/280HR08a.asc
+    /home/data/280HR08b.asc --> /RAF/1992/280/ASCII/HRT/280HR08b.asc
+    /home/data/280HR08c.asc --> /RAF/1992/280/ASCII/HRT/280HR08c.asc
+    /home/data/280HR08d.asc --> /RAF/1992/280/ASCII/HRT/280HR08d.asc
+    /home/data/280HR08e.asc --> /RAF/1992/280/ASCII/HRT/280HR08e.asc
+    /home/data/280HR08f.asc --> /RAF/1992/280/ASCII/HRT/280HR08f.asc
+    /home/data/280HR08g.asc --> /RAF/1992/280/ASCII/HRT/280HR08g.asc
+    /home/data/280HR08h.asc --> /RAF/1992/280/ASCII/HRT/280HR08h.asc
+    /home/data/280HR08i.asc --> /RAF/1992/280/ASCII/HRT/280HR08i.asc
+    /home/data/280HR09a.asc --> /RAF/1992/280/ASCII/HRT/280HR09a.asc
+    /home/data/280HR09b.asc --> /RAF/1992/280/ASCII/HRT/280HR09b.asc
+    /home/data/280HR09c.asc --> /RAF/1992/280/ASCII/HRT/280HR09c.asc
+    /home/data/280HR09d.asc --> /RAF/1992/280/ASCII/HRT/280HR09d.asc
+    /home/data/280HR09e.asc --> /RAF/1992/280/ASCII/HRT/280HR09e.asc
+    /home/data/280HR09f.asc --> /RAF/1992/280/ASCII/HRT/280HR09f.asc
+    /home/data/280HR10a.asc --> /RAF/1992/280/ASCII/HRT/280HR10a.asc
+    /home/data/280HR10b.asc --> /RAF/1992/280/ASCII/HRT/280HR10b.asc
+    /home/data/280HR10c.asc --> /RAF/1992/280/ASCII/HRT/280HR10c.asc
+    /home/data/280HR10d.asc --> /RAF/1992/280/ASCII/HRT/280HR10d.asc
+    /home/data/280HR10e.asc --> /RAF/1992/280/ASCII/HRT/280HR10e.asc
+    /home/data/280HR10f.asc --> /RAF/1992/280/ASCII/HRT/280HR10f.asc
+    /home/data/280TR02a.asc --> /RAF/1992/280/ASCII/HRT/280TR02a.asc
+    /home/data/280TR02b.asc --> /RAF/1992/280/ASCII/HRT/280TR02b.asc
+    /home/data/280TR02c.asc --> /RAF/1992/280/ASCII/HRT/280TR02c.asc
+    /home/data/280TR02d.asc --> /RAF/1992/280/ASCII/HRT/280TR02d.asc
+    /home/data/280TR02e.asc --> /RAF/1992/280/ASCII/HRT/280TR02e.asc
+    /home/data/280TR02f.asc --> /RAF/1992/280/ASCII/HRT/280TR02f.asc
+    /home/data/280TR02g.asc --> /RAF/1992/280/ASCII/HRT/280TR02g.asc
+    /home/data/280TR04a.asc --> /RAF/1992/280/ASCII/HRT/280TR04a.asc
+    /home/data/280TR04b.asc --> /RAF/1992/280/ASCII/HRT/280TR04b.asc
+    /home/data/280TR04c.asc --> /RAF/1992/280/ASCII/HRT/280TR04c.asc
+    /home/data/280TR04d.asc --> /RAF/1992/280/ASCII/HRT/280TR04d.asc
+    /home/data/280TR04e.asc --> /RAF/1992/280/ASCII/HRT/280TR04e.asc
+    /home/data/280TR04f.asc --> /RAF/1992/280/ASCII/HRT/280TR04f.asc
+    /home/data/280TR04g.asc --> /RAF/1992/280/ASCII/HRT/280TR04g.asc
+    /home/data/280TR04h.asc --> /RAF/1992/280/ASCII/HRT/280TR04h.asc
+    /home/data/280TR04i.asc --> /RAF/1992/280/ASCII/HRT/280TR04i.asc
+    /home/data/280TR05a.asc --> /RAF/1992/280/ASCII/HRT/280TR05a.asc
+    /home/data/280TR05b.asc --> /RAF/1992/280/ASCII/HRT/280TR05b.asc
+    /home/data/280TR05c.asc --> /RAF/1992/280/ASCII/HRT/280TR05c.asc
+    /home/data/280TR05d.asc --> /RAF/1992/280/ASCII/HRT/280TR05d.asc
+    /home/data/280TR05e.asc --> /RAF/1992/280/ASCII/HRT/280TR05e.asc
+    /home/data/280TR05f.asc --> /RAF/1992/280/ASCII/HRT/280TR05f.asc
+    /home/data/280TR05g.asc --> /RAF/1992/280/ASCII/HRT/280TR05g.asc
+    /home/data/280TR05h.asc --> /RAF/1992/280/ASCII/HRT/280TR05h.asc
+    /home/data/280TR05i.asc --> /RAF/1992/280/ASCII/HRT/280TR05i.asc
+    /home/data/280TR06a.asc --> /RAF/1992/280/ASCII/HRT/280TR06a.asc
+    /home/data/280TR06b.asc --> /RAF/1992/280/ASCII/HRT/280TR06b.asc
+    /home/data/280TR06c.asc --> /RAF/1992/280/ASCII/HRT/280TR06c.asc
+    /home/data/280TR06d.asc --> /RAF/1992/280/ASCII/HRT/280TR06d.asc
+    /home/data/280TR06e.asc --> /RAF/1992/280/ASCII/HRT/280TR06e.asc
+    /home/data/280TR06f.asc --> /RAF/1992/280/ASCII/HRT/280TR06f.asc
+    /home/data/280TR06g.asc --> /RAF/1992/280/ASCII/HRT/280TR06g.asc
+    /home/data/280TR06h.asc --> /RAF/1992/280/ASCII/HRT/280TR06h.asc
+    /home/data/280TR07a.asc --> /RAF/1992/280/ASCII/HRT/280TR07a.asc
+    /home/data/280TR07b.asc --> /RAF/1992/280/ASCII/HRT/280TR07b.asc
+    /home/data/280TR07c.asc --> /RAF/1992/280/ASCII/HRT/280TR07c.asc
+    /home/data/280TR08a.asc --> /RAF/1992/280/ASCII/HRT/280TR08a.asc
+    /home/data/280TR08b.asc --> /RAF/1992/280/ASCII/HRT/280TR08b.asc
+    /home/data/280TR08c.asc --> /RAF/1992/280/ASCII/HRT/280TR08c.asc
+    /home/data/280TR08d.asc --> /RAF/1992/280/ASCII/HRT/280TR08d.asc
+    /home/data/280TR08e.asc --> /RAF/1992/280/ASCII/HRT/280TR08e.asc
+    /home/data/280TR08f.asc --> /RAF/1992/280/ASCII/HRT/280TR08f.asc
+    /home/data/280TR08g.asc --> /RAF/1992/280/ASCII/HRT/280TR08g.asc
+    /home/data/280TR08h.asc --> /RAF/1992/280/ASCII/HRT/280TR08h.asc
+    /home/data/280TR08i.asc --> /RAF/1992/280/ASCII/HRT/280TR08i.asc
+    /home/data/280TR09a.asc --> /RAF/1992/280/ASCII/HRT/280TR09a.asc
+    /home/data/280TR09b.asc --> /RAF/1992/280/ASCII/HRT/280TR09b.asc
+    /home/data/280TR09c.asc --> /RAF/1992/280/ASCII/HRT/280TR09c.asc
+    /home/data/280TR09d.asc --> /RAF/1992/280/ASCII/HRT/280TR09d.asc
+    /home/data/280TR09e.asc --> /RAF/1992/280/ASCII/HRT/280TR09e.asc
+    /home/data/280TR09f.asc --> /RAF/1992/280/ASCII/HRT/280TR09f.asc
+    /home/data/280TR10a.asc --> /RAF/1992/280/ASCII/HRT/280TR10a.asc
+    /home/data/280TR10b.asc --> /RAF/1992/280/ASCII/HRT/280TR10b.asc
+    /home/data/280TR10c.asc --> /RAF/1992/280/ASCII/HRT/280TR10c.asc
+    /home/data/280TR10d.asc --> /RAF/1992/280/ASCII/HRT/280TR10d.asc
+    /home/data/280TR10e.asc --> /RAF/1992/280/ASCII/HRT/280TR10e.asc
+    /home/data/280TR10f.asc --> /RAF/1992/280/ASCII/HRT/280TR10f.asc
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
+From ron Wed May  7 15:58:16 1997
+Subject: FIB data
+To: campos (Teresa Campos)
+Date: Wed, 7 May 1997 15:58:16 -0600 (MDT)
+X-Mailer: ELM [version 2.4 PL23]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Content-Length: 313       
+Status: RO
+
+Teresa,
+
+Within the last week I recall you telling me that you have more FIB data to
+archive.  Am I a basket case, or do you have some information for me?
+
+-- 
+Ron          RAF Data Manager     NCAR/ATD/RDP&RAF     Voice: (303)497-1084
+<ron@raf.atd.ucar.edu>                                   Fax: (303)497-1092
+
