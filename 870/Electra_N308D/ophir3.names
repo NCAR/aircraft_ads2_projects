@@ -1,0 +1,19 @@
+# Name		Order	Cal Coeffs
+# ---------------------------------------------------------------------------
+# cal factors for OTSNT,OTBNCH,OTBBC,OTBBF have had 273.16 added to get oK
+OGAIN		2	0.0	1.0
+OBBCOD		2	0.0	1.0
+#ODETDC		2	-4.17	0.0001333
+ODETDC		2	0.0	1.0
+OTSNT		2	499.429969	-0.0079188
+OTBNCH		2	497.434236	-0.0079818
+OTDET		2	0.0	1.0
+# Coefficients for flts 4,6,8,11,13 - 18
+#OTBBC		2	499.53278	-0.0079108
+#OTBBF		2	499.677918	-0.0079801
+# Coefficients for flts 1,2,3,5,7,9,10,12, 19 - 45
+OTBBC           2       501.000000      -0.0079108
+OTBBF           2       501.000000      -0.0079801
+OSMOTR		2	0.0	1.0
+ODETSG		2	0.0	1.0
+OTBOX		2	-50.3314 0.40612
