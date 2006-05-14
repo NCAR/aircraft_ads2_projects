@@ -1,0 +1,125 @@
+
+
+	Summary of Calibration Factors
+	C-130 - Basic MIRAGE Configuration
+	Project #6-145
+	Madronich et al
+ 
+
+
+Pre-Calibration - 10/28/05
+Param
+         Variable                    Name      C1        C2       C3 
+Dynamic Pressure-Fuselage L. (mb)	QCF+	  87.141	   8.614  -.0002
+Dynamic Pressure-Radome (mb)	QCR+	  85.612	   8.644	-.0001
+Dynamic Pressure-Fuselage R. (mb)	QCFR+	  68.989	   6.897  -.0011
+Total Temperature-Radome Right (oC)	TTRR&	  -0.946	   6.119	-.0139
+Total Temperature-Radome Left (oC)	TTRL	  -1.693	   6.151	-.0293
+Total Temperature:Heated- Wing (oC)  TTWH     -1.337     6.328  -.0157
+Remote Surface Temp. Bot. (oC) 	RSTB    -48.760     9.206   .0807
+Remote Surface Temp.-Bot. (oC) 	RSTB1   -49.975     9.466   .0680
+Remote Surface Temp. Top. (oC)	RSTT    -53.300    10.526   .0304
+Downward Shortwave Irrad. (W/m2)	SWT    3184.0	 320.222   .0323
+Upward Shortwave Irrad. (W/m2)	SWB    2877.7	 286.572	 .0285
+Downward Infrared Irrad. (W/m2)      IRT	 264.9     137.752  -.0794
+Upward Infrared Irrad. (W/m2)        IRB	 503.8	 156.645   .3853
+Downward Ultraviolet Irrad. (W/m2)	UVT      79.3	   7.926	 .0008
+Upward Ultraviolet Irrad. (W/m2)	UVB      37.6	   3.737	-.0011
+Dew Point Temperature-Bottom (oC)	DPB 	   0.162	   9.991	-.0007
+Dew Point Temperature-Top (oC)	DPT 	  -0.028	   9.900	 .0035
+Vertical Press. Diff. Radome(mb)	ADIFR	   0.193     6.975	 .0066
+Horizontal Press. Diff. Radome(mb) 	BDIFR	   0.150     5.151   .0000
+Cabin Pressure (mb)                  PCAB     -2.920  -109.068  -.0588
+CN Inlet Pressure (mb)               PCN     541.320    54.156  -.0065
+CN Flow Rate (slpm)	FCN	   0.014	   0.204  -.0010
+ 
+
++  Corrected for systematic offset
+
+
+Calibration Summary
+page 2
+
+
+
+Post Calibration - 4/05/06
+Param
+         Variable                    Name      C1        C2       C3__
+Dynamic Pressure-Fuselage (mb)	QCF	  87.091     8.611  -.0008
+Dynamic Pressure-Radome (mb)	QCR	  85.571	   8.644	-.0001
+Dynamic Pressure-Fuselage R. (mb)	QCFR	  68.680	   6.894  -.0009
+Total Temperature-Radome Right (oC)	TTRR&	  -3.157	   6.227	-.0248
+Total Temperature-Radome Left (oC)	TTRL     -1.623	   6.154	-.0029
+Total Temperature:Heated- Wing (oC)  TTWH     -1.178     6.333  -.0164
+Remote Surface Temp: Bot. (oC)       RSTB    -49.949     9.640	 .0547
+Remote Surface Temp: Bot. (oC) 	RSTB1   -54.961    10.606  -.0077
+Remote Surface Temp. Top. (oC)	RSTT    -52.017    10.071   .0300
+Downward Shortwave Irrad. (W/m2)	SWT    3173.8	 319.330	 .0274
+Upward Shortwave Irrad. (W/m2)	SWB    2877.3	 286.792	 .0356
+Downward Infrared Irrad. (W/m2)      IRT 	 252.8     136.988  -.0715
+Upward Infrared Irrad. (W/m2)        IRB 	 502.4	 156.580	 .3890
+Downward Ultraviolet Irrad. (W/m2)	UVT      79.3	   7.962	 .0007
+Upward Ultraviolet Irrad. (W/m2)	UVB      37.6       3.753   .0005
+Dew Point Temperature-Bottom (oC)	DPB	   0.277    10.002	-.0003
+Dew Point Temperature-Top (oC)	DPT 	   0.031	   9.900	 .0009
+Vertical Press. Diff. Radome (mb)	ADIFR	   0.132     6.925	 .0037
+Horizontal Press. Diff. Radome(mb) 	BDIFR	   0.029     5.146   .0001
+Cabin Pressure (mb)                  PCAB     -2.290  -108.919  -.0546
+CN Inlet Pressure (mb)               PCN*    541.32     54.154  -.0065
+ 
+
+
+* Pending
+
+&  Certain sensors had to be replaced during the course of the experiment.  Post Calibration coefficients were used from the point of the exchange to the end of the project.
+
+
+Calibration Maneuvers -            
+
+     RAF uses sets of in-flight maneuvers specifically designed to help evaluate the performance of the 3-D wind measurement system on the aircraft.  Sets of maneuvers were flown on one test flight and one research flight: 145tfXX and 145rf12, respectively. An additional set of maneuvers were flow during flight 146rf02 of the IMPEX deployment. In each case the variations observed fell within acceptable limits.  
+
+
+
+
+PMS - 1-D Probe Bin Sizes
+
+     The SPPP100, SPP200, SPP300, and 260X 1-D probes were used on the project.  The minimum droplet size (microns) for each sampling bin are listed below:
+
+ SPP100		        			
+(Range 0)		 SPP200  		 SPP300   
+
+bin#1 		 2.25 um		 0.095 um		0.275 um
+bin#2		 	 3.75		 0.105		0.325
+bin#3			 5.25		 0.115		0.375
+bin#4			 6.75		 0.125		0.425
+bin#5			 8.25		 0.135		0.475
+bin#6			 9.75		 0.145		0.525
+bin#7			11.25		 0.155		0.575
+bin#8			12.75		 0.165		0.625
+bin#9			14.25		 0.175		0.675
+bin#10		15.75		 0.185		0.725
+bin#11		17.25		 0.205		1.45
+bin#12		18.75		 0.225		2.35
+bin#13		20.25		 0.245		3.25
+bin#14		21.75		 0.265		4.15
+bin#15		23.25		 0.29 		5.05
+bin#16		24.75		 0.35		5.95
+bin#17		26.25		 0.45		6.85
+bin#18		27.75 		 0.55		7.75
+bin#19		29.25		 0.70		8.65
+bin#20		30.75		 0.90	     9.55
+bin#21		32.25		 1.10	    10.50
+bin#22		33.75		 1.30	    11.50
+bin#23		35.25		 1.50	    12.50
+bin#24		36.75		 1.70	    13.50
+bin#25		38.25		 1.90	    14.50
+bin#26		39.75		 2.10	    15.50
+bin#27		41.25		 2.30 	    16.50
+bin#28		42.75		 2.50	    17.50
+bin#29		44.25		 2.70	    18.50
+bin#30		45.75		 2.90	    19.50
+bin#31		47.75		 3.10	    20.50
+ 
+
+The 260X probe provides measurements for 64 bins of 10 um each.  Air
+speed limitations place the initial sizing threshold at 50 um.

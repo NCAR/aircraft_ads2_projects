@@ -1,0 +1,163 @@
+                                                        2/15/06
+	Aircraft Research Instrumentation
+	C-130 - Basic RAF MIRAGE/MILAGRO Configuration
+	Project #6-145
+	Madronich et al
+
+RAF-Supplied Instrumentation:
+
+I.  Airborne Data System.
+     A. Acquisition.  C-130 ADS2 (Motorola 68040 based). 
+   NCAR Distributed Sampling Modules (4 units), one in
+   each wing pod and two in cabin.
+
+B. Operator Station. Intel L440GX+ Motherboard with 
+   2 Pentium III-500 CPU's, 512 MB Memory, Redhat
+   Linux 6.2 OS.  9GB Disk Storage with RAID-1.
+   General Digital 17 inch 1280x1024 TFT Flat Panel
+   Color Monitor.  IBM-DRHS36D 36GB Removable Disk Drives
+   In Kingston Carriers (2 units). Lexmark Optra Color 45 
+   Inkjet Printer. UPS.
+ 
+C. Aft User Displays(1): 
+?	Dell Latitude Pentium III-850 Laptop (1), Linux OS, 15"
+ 	 Display - Clyde
+ 
+D.Flight Deck Display
+?	Dell Latitude Pentium III-850 Laptop, Linux OS, 15"      Display - Bonnie
+?	Lexmark Optra Color 45 Inkjet Printer
+
+II. Aircraft Position, Velocity and Attitude
+A. Honeywell Model HG1095-AC03 Laseref SM Inertial
+   Reference System . (Research).
+     B. Garmin GPS16 Global Positioning System. (GPS).
+	 
+III.Static Pressures.
+  	A. Rosemount Model 1501 Digital Pressure Transducer -
+   Fuselage Port (PSFD). 
+B. Ruska Model 7885 Digital Pressure Transducer -
+   Fuselage Port (PSFRD, PSFC).
+C. Rosemount Model 1201F1 Pressure Transducer - Cabin (PCAB).
+D. Rosemount Model 1201F1 Pressure Transducer - CNCounter (PCN).
+
+IV. Dynamic Pressures.
+     A. Rosemount Model 1221F1VL - Radome (QCR). 
+B. Rosemount Model 1221F1VL - Left Fuselage Pitot (QCF). 
+C. Rosemount Model 1221F1VL - Right Fuselage Pitot (QCFR).
+C-130 RAF MIRAGE/MILAGRO
+Page 2
+
+
+V.  Temperatures.
+     A. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Starboard Radome Mount (TTRR). 
+     B. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Port Radome Mount (TTRL). 
+C. Rosemount Type 102E Deiced Sensor -- Rosemount Model
+        510BF Amplifier - Left Inboard Wing Access Plate (TTWH).
+	 
+VI. Flow Angle Sensors, Radome.
+     A. Attack - Rosemount Model 1221F1VL Differential Pressure
+        Transducer (ADIFR). 
+     B. Sideslip - Rosemount Model 1221F1VL Differential 
+        Pressure Transducer (BDIFR). 
+
+VII. Dew Point and Humidity.
+A. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPT). 
+B. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Radome Mount (DPB). 
+C. SpectraSensors Open Path TDL Hygrometer -
+   Starboard Wing Pod Mount (MRLH).
+D. Experimental NCAR Fast Response Humidity - Fuselage Aperture
+   Plate L-2 (XUVHS).
+ 
+VIII.   Radiation Fluxes.
+     A. Visible Radiation.  RAF Modified Eppley Model PSP
+        Pyranometers - 2 units: Upward looking (SWT), Downward
+        looking (SWB). Multipurpose Radiometer Housings.
+B. Ultraviolet Radiation.  RAF Modified Eppley Model TUVR
+   Pyranometers - 2 units: Upward looking (UVT), Downward
+    looking (UVB). Multipurpose Radiometer Housings. 
+     C. Infrared Radiation.  RAF Modified Eppley Model PIR
+        Pyrgeometers - 2 units: Upward looking (IRT), Downward
+        looking (IRB). Multipurpose Radiometer Housings.
+     D. Remote Surface Temperature.  Heiman Model KT19.85 
+   Radiometer - 2 units: Down looking (RSTB,RSTB1).
+E. Remote Sky Temperature.  Heiman Model KT19.85 Radiometer.
+   Up looking (RSTT). 
+
+IX.  Basic Cloud Physics.
+      A. Rosemount Model 871FA Icing Rate Detector - Right
+    Inboard Wing Access Plate (RICE). 
+      B. PMS Liquid Water Sensor (King Probe) -
+    Left Outboard Wing Access Plate (PLWCC).
+ C. TSI Model 3760 CN Counter - Belly Inlet (CONCN).
+    	    Size Distribution, 0.01 to 3 um.
+C-130 RAF MIRAGE/MILAGRO
+Page 3
+
+
+X.	Wing Stores
+ A. RAF - Particle Measuring Systems Model SPP-200
+    Size Distribution, 0.12 to 3.12 um. RPO.
+ B. RAF - Particle Measuring Systems Model SPP-100
+    Size Distribution, 3 - 45 um. RWO.
+ C. RAF - Particle Measuring Systems Model SPP-300
+    Size Distribution, 0.3 - 20 um. RPI. 
+ D. RAF - Particle Measuring Systems Model 260X 
+ 	    Size Distribution, 50 to 640 um. RWI
+ E. RAF - PVM-100 Liquid Water Probe - Left wing
+    Pod mount (XGLWC). LPO.
+ 
+XI.  Geometric Altitude. 
+ A. Steward-Warner Model APN-232(v) - Fuselage Mount,
+    0 to 1,500 m AGL (HGM); 0 to 15,000 m AGL (HGM232). 
+
+XII. Photography.
+ A. Sony XC-999 $VH$ Color Camera with JVC Model HR-S4700U
+    VHS Recorder (2 pairs), Horita GPS Video Titler,
+    Forward facing Cockpit Mount, Side Looking.
+ B. Digital Camera, Forward facing cockpit mount.
+
+XIII.RAF Chemistry (T.Campos).
+      A. NCAR - Carbon Dioxide Analyzer (XCOMR).
+B. Aero-Laser Fast Response Carbon Monoxide Analyzer
+    -UV resonance fluorescence- (XCO2MR).
+  
+XIV. NCAR Special Request Instruments.
+      A. ATD SABL Up/Down looking Lidar - 2 wavelength backscatter
+         system.  Left Wing Pod Mount. 
+
+XV.	User Supplied Instrumentation.
+A.Georgia Tech Particles-into-Liquid Aerosol Sampler (PILS). 
+bulk inorganic & organic composition.
+ B. NCAR Scanning Actinic Flux Spectroradiometer (SAFS).
+ 	 - up & down looking sensors: 280 to 420nm.
+	 C. NCAR 4-channel Chemiluminescence Analyser (NO,NO2,NOy,O3).
+	 D. NCAR Trace Organic Gas Analyzer (TOGA).
+		 - OVOC's, NMHC's, halocarbons.
+	 E. Univ. of Miami/UC Irvine Whole Air Canister Sampler (WAS).
+	 F. NOAA Modified TECO SO2 Analyzer.
+	 G. NCAR Peroxyacyl nitrates Analyzer (PAN).
+		 - PAN, PPN, PBN, PBzN, APAN, MPAN, MoPAN, etc.
+	 H. Univ. of Colorado Aerosol Mass Spectrometer (AMS).
+		 - size resolved chemical composition of aerosols.
+	 I. TAMU Tandem Differential Mobility Analyzer (TDMA).
+C-130 RAF MIRAGE/MILAGRO
+Page 3
+	 
+
+J. DMT Cloud Condensation Nuclei Counter (CCN).
+K. DMT Single Particle Soot Photometer (SP-2).
+L. Scripps Aerosol Filter Impactor.
+	 - FT-IR & Electron Microscope analysis.
+M. NCAR SICIMS.
+N. Cal-Tech CIMS.
+O. Univ. of Hawaii Tandem Volatility Differential Mobility
+Analyzer (DMA).
+	P. Univ. of Hawaii Optical Particle Counters (OPC's - 2).
+	Q. TSI Aerodynamic Particle Sizer (APS).
+	R. Univ. of Hawaii Fast Mobility Particle Analyzer (FMPS).
+	S. Univ. of Hawaii 3 Wavelength Nephelometer.
+	T. Univ. of Hawaii 3 Wavelength Particle Soot Photometer.
+	U. NCAR Formaldahyde Analyzer.
+	V. NCAR PTR-MS.
