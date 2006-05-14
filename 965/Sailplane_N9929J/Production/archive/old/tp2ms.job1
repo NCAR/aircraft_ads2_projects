@@ -1,0 +1,117 @@
+#! /bin/csh -f
+#
+#  Stage raw ADS data tapes for 5-965 S2E2
+#
+#set TYPE = MT ermx=99 eotp=yes
+#set TYPE = EX
+set TYPE = QD
+set YEAR = 1995
+set PROJ = 965
+#set STAGE1 = " "
+set STAGE1 = "skpr=1"
+#set STAGE = "skpr=1 nfile=1"
+#set STAGE = "nfile=1"
+#set STAGE = "nrec=6500"
+#set STAGE = "skpr=6500 nrec=6500"
+#set STAGE = "skpr=13000 nrec=6500"
+#set STAGE = "skpr=19500 nrec=6500"
+#set STAGE = "skpr=26000 nrec=6500"
+#
+#  First try
+#set TAPELIST = ( S00073 S00074 S00075 S00076 S00077 S00078 S00079 \
+#                 S00080 S00081 S00083 S00084 S00085 S00086 )
+#set FLIGHTS =  ( GTST   RF01   RF02   RF03   RF04   RF05   RF06   \
+#                 RF07   RF08   RF11   RF12   RF13   RF14   )
+#
+#  Second and third tries (skip first record)
+#set TAPELIST = ( S00073 S00074 S00075 S00077 S00078 S00079 \
+#                 S00080 S00081 S00082 S00083 S00084 S00085 S00086 )
+#set FLIGHTS =  ( GTST   RF01   RF02   RF04   RF05   RF06   \
+#                 RF07   RF08   RF10   RF11   RF12   RF13   RF14   )
+#
+#  Fourth try (skip first record)
+set TAPELIST = ( S00073   S00079      S00083      )
+set FLIGHTS =  ( GTST     RF06        RF11        )
+set STAGES =   ("nfile=1" "nrec=2314" "nrec=1609" )
+#
+#  Get started:
+date
+set todo = $#TAPELIST
+set num = 1
+while ($num <= $todo)
+  set TAPE = $TAPELIST[$num]
+  set FLIGHT = $FLIGHTS[$num]
+  set STAGE = $STAGES[$num]
+#  echo \
+  nrnet msimport % r df=BI bksz=50000 rcfm=U dvty=$TYPE den=1600 \
+   name=RAF mvn=CTRAFDMG w=RAFDMG rtpd=4095 disp=KEEP clas=QQ \
+   proj=41113009 skpf=0 $STAGE1 $STAGE \
+   vlsr=$TAPE  flnm=/RAF/$YEAR/$PROJ/$FLIGHT/$TAPE
+  @ num ++
+end
+# 
+# done.
+exit
+#
+#  First try
+#  Jobs submitted on Tue Aug 15 16:40:08 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI7877 -- GTST/S00073 -- Failed (job dropped)
+# Sequence number = MI7884 -- RF01/S00074 -- Failed (job dropped)
+# Sequence number = MI7891 -- RF02/S00075 -- Failed (job dropped at my request)
+# Sequence number = MI7901 -- RF03/S00076 -- OK @ 18 Aug 1995 16:04:44
+# Sequence number = MI7909 -- RF04/S00077 -- Failed (job dropped at my request)
+# Sequence number = MI7916 -- RF05/S00078 -- Failed (job dropped at my request)
+# Sequence number = MI7923 -- RF06/S00079 -- Failed (job dropped at my request)
+# Sequence number = MI7930 -- RF07/S00080 -- Failed (job dropped at my request)
+# Sequence number = MI7937 -- RF08/S00081 -- Failed (job dropped at my request)
+# Sequence number = MI7944 -- RF10/S00082 -- OK @ 21 Aug 1995 13:49:42 (Data
+#                                             overwritten on 28 August 1995)
+# Sequence number = MI7951 -- RF11/S00083 -- Failed (job dropped at my request)
+# Sequence number = MI7958 -- RF12/S00084 -- Failed (job dropped at my request)
+# Sequence number = MI7965 -- RF13/S00085 -- Failed (job dropped at my request)
+# Sequence number = MI7972 -- RF14/S00086 -- Failed (job dropped at my request)
+#
+#  Second try (skip first record)
+#  Jobs submitted on Wed Aug 23 15:24:28 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI0765 -- GTST/S00073 -- Failed (file permission problem)
+# Sequence number = MI0772 -- RF01/S00074 -- Failed (job dropped at my request)
+# Sequence number = MI0779 -- RF02/S00075 -- Failed (job dropped at my request)
+# Sequence number = MI0786 -- RF04/S00077 -- Failed (job dropped at my request)
+# Sequence number = MI0793 -- RF05/S00078 -- Failed (job dropped at my request)
+# Sequence number = MI0800 -- RF06/S00079 -- Failed (job dropped at my request)
+# Sequence number = MI0807 -- RF07/S00080 -- Failed (job dropped at my request)
+# Sequence number = MI0814 -- RF08/S00081 -- Failed (job dropped at my request)
+# Sequence number = MI0821 -- RF10/S00082 -- Failed (job dropped at my request)
+# Sequence number = MI0828 -- RF11/S00083 -- Failed (job dropped at my request)
+# Sequence number = MI0835 -- RF12/S00084 -- Failed (job dropped at my request)
+# Sequence number = MI0842 -- RF13/S00085 -- Failed (job dropped at my request)
+# Sequence number = MI0849 -- RF14/S00086 -- Failed (job dropped at my request)
+#
+#  Third try (skip first record)
+#  Jobs submitted on Thu Aug 24 17:11:39 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI1884 -- GTST/S00073 -- Failed (no log file returned)
+# Sequence number = MI1891 -- RF01/S00074 -- OK @ 25 Aug 1995 11:12:12
+# Sequence number = MI1898 -- RF02/S00075 -- OK @ 25 Aug 1995 12:21:49
+# Sequence number = MI1905 -- RF04/S00077 -- OK @ 25 Aug 1995 12:27:50
+# Sequence number = MI1912 -- RF05/S00078 -- OK @ 25 Aug 1995 17:30:16
+# Sequence number = MI1919 -- RF06/S00079 -- Failed (No EOF)
+#                                               @ 25 Aug 1995 19:40:55
+# Sequence number = MI1926 -- RF07/S00080 -- OK @ 28 Aug 1995 09:14:29
+# Sequence number = MI1933 -- RF08/S00081 -- OK @ 28 Aug 1995 10:18:41
+# Sequence number = MI1940 -- RF10/S00082 -- OK @ 28 Aug 1995 12:21:22
+# Sequence number = MI1947 -- RF11/S00083 -- Failed (No EOF)
+#                                               @ 29 Aug 1995 10:13:22
+# Sequence number = MI1954 -- RF12/S00084 -- OK @ 28 Aug 1995 13:02:28
+# Sequence number = MI1961 -- RF13/S00085 -- OK @ 25 Aug 1995 12:06:19
+# Sequence number = MI1968 -- RF14/S00086 -- OK @ 28 Aug 1995 14:42:28
+#
+#  Fourth try (skip first record; clean up tapes with no EOF)
+#  Jobs submitted on Tue Aug 29 12:52:11 MDT 1995
+#  Sequence numbers are (in order of submission):
+# Sequence number = MI2072 -- GTST/S00073 -- OK @ 29 Aug 1995 13:03:01
+# Sequence number = MI2079 -- RF06/S00079 -- OK @ 29 Aug 1995 13:50:11
+# Sequence number = MI2086 -- RF11/S00083 -- OK @ 29 Aug 1995 13:27:12
+#
