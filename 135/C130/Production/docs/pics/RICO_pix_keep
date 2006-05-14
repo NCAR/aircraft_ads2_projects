@@ -1,0 +1,106 @@
+#! /bin/csh -f
+#setenv S /media/cdrom/RicoEquipmentPics
+##
+rotate ccw90 #cp $S/ADS?Station?2.JPG .
+#cp $S/Aft_Port?Inlet?1.JPG .
+#cp $S/Aft_Starboard?Inlet?1.JPG .
+#cp $S/Bottom?11.JPG .
+#cp $S/Bottom?25?Thornton?Inlets.JPG .
+#cp $S/Bottom?26?Thornton?Inlets.JPG .
+## Bottom 3.JPG
+#cp $S/Bottom?7.JPG .
+#cp $S/Bottom?8?Aft?Inlets.JPG .
+#cp $S/Bottom?9?Campos?Inlets.JPG .
+## CSIRO Wet_Dry Bulb Inlet 1.JPG*
+#cp $S/CSIRO?Wet_Dry?Bulb?Inlet?2.JPG .
+#cp $S/CVI?Inlet?1.JPG .
+#cp $S/CVI?Inlet?3.JPG .
+#cp $S/CVI?Inlet?4.JPG .
+rotate ccw90 #cp $S/CVI?Rack?1.JPG .
+#cp $S/CVI?Rack?11.JPG .
+#cp $S/CVI?Rack?4.JPG .
+#cp $S/CVI?Rack?5.JPG .
+#cp $S/CVI?Rack?6.JPG .
+#cp $S/Chaung?Monitor?1.JPG .
+#cp $S/Chemistry?Rack?1.JPG .
+#cp $S/Chemistry?Rack?10.JPG .
+#cp $S/Chemistry?Rack?11.JPG .
+#cp $S/Chemistry?Rack?6.JPG .
+#cp $S/Chemistry?Rack?7.JPG .
+## Chemistry Rack 8.JPG
+#cp $S/Chemistry?Rack?9.JPG .
+#cp $S/GN?Impactor?Inlet?1.JPG .
+## GN Impactor Inlet 2.JPG
+#cp $S/H2O2?Inlet?1.JPG .
+#cp $S/Heikeis?Rack?1.JPG .
+#cp $S/Heikeis?Rack?3.JPG .
+#cp $S/Heikeis?Rack?4.JPG .
+#cp $S/Heikeis?Rack?5.JPG .
+## Hudson Rack 1.JPG
+## Hudson Rack 3.JPG
+#cp $S/Hudson?Rack?4.JPG .
+#cp $S/Hudson?Rack?5.JPG .
+#cp $S/Hudson?Rack?6.JPG .
+#cp $S/Hudson?Rack?7.JPG .
+#cp $S/Left?Fuselage?Penetration?10?CVI.JPG .
+#cp $S/Left?Fuselage?Penetration?11?CVI.JPG .
+#cp $S/Left?Fuselage?Penetration?12.JPG .
+#cp $S/Left?Fuselage?Penetration?4.JPG .
+#cp $S/Left?Fuselage?Penetration?5?TAS.JPG .
+#cp $S/Left?Fuselage?Penetration?6?TAS.JPG .
+#cp $S/Left?Fuselage?Penetration?8?H2O2?Inlet.JPG .
+#cp $S/Left?Wing?1.JPG .
+#cp $S/Left?Wing?Pod?1.JPG .
+#cp $S/Left?Wing?Pod?3?Gerber.JPG .
+#cp $S/Left?Wing?Pod?6.JPG .
+#cp $S/Left?Wing?Tip?1.JPG .
+#cp $S/NO?Containment?Box?1.JPG .
+#cp $S/PH?Meter?Inlet?1.JPG .
+#cp $S/Portside?Penetrations?1.JPG .
+## Port Cylinder Storage
+## RDMA Rack 1.JPG ?
+## RDMA Rack 2.JPG ?
+## RDMA Rack 3.JPG ?
+#cp $S/RDMA?Rack?6.JPG .
+#cp $S/RDMA?Rack?9.JPG .
+#cp $S/Right?Fuselage?Penetrations?10.JPG .
+#cp $S/Right?Fuselage?Penetrations?12?PH?Meter.JPG .
+#cp $S/Right?Fuselage?Penetrations?13?CSIRO?Wet_Dry?Bulb.JPG .
+#cp $S/Right?Fuselage?Penetrations?2?GN?Impactor.JPG .
+## Right Fuselage Penetrations 3 Hudson CCN.JPG
+#cp $S/Right?Fuselage?Penetrations?9.JPG .
+#cp $S/Right?Nose?Penetrations?4.JPG .
+#cp $S/Right?Wing?2.JPG .
+#cp $S/Right?Wing?3.JPG .
+#cp $S/Right?Wing?Pod?12.JPG .
+#cp $S/Right?Wing?Pod?14?TDL.JPG .
+#cp $S/Right?Wing?Pod?6.JPG .
+#cp $S/Right?Wing?Tip?1.JPG .
+#cp $S/Right?Wing?Tip?4.JPG .
+#cp $S/SABL?Rack?1.JPG .
+#cp $S/SABL?Rack?2.JPG .
+#cp $S/SABL?Rack?3.JPG .
+## SABL Rack 4.JPG
+## SABL Rack 6.JPG
+## SPEC_French FSSP 1.JPG ?
+## SPEC_French FSSP 2.JPG ?
+#cp $S/SPEC_French?FSSP?3.JPG .
+#cp $S/SPEC_French?FSSP?4.JPG .
+## Starboard Cylinder Storage ???
+#cp $S/Storage?Rack?1.JPG .
+#cp $S/Storage?Rack?5?with?Pump.JPG .
+#cp $S/TAS?Inlet?1.JPG .
+#cp $S/Thornton?Rack?Portside?1.JPG .
+#cp $S/Thornton?Rack?Portside?2.JPG .
+#cp $S/Thornton?Rack?Portside?3.JPG .
+#cp $S/Thornton?Rack?Portside?4.JPG .
+## Thornton Rack Portside 5.JPG
+#cp $S/Thornton?Rack?Portside?6.JPG .
+#cp $S/Thornton?Rack?Portside?7.JPG .
+#cp $S/Thornton?Rack?Starboardside?1.JPG .
+## Thornton Rack Starboardside 2.JPG
+#cp $S/Thornton?Rack?Starboardside?3.JPG .
+## Thornton Rack Starboardside 4.JPG
+#cp $S/Thornton?Rack?Starboardside?5.JPG .
+#cp $S/Thornton?Rack?Starboardside?6.JPG .
+exit
