@@ -1,0 +1,388 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 2002-301 IHOP_2002
+#   (Customizing this script for each project is rather labor intensive.
+#   It may make more sense to just save everything in the project's
+#   directory rather than filter out stuff that apparently isn't needed.
+#   If one saves everything, this script could be generic and would be
+#   much simpler.)
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#          "Production" or Production/archive subdirectory.  This script
+#          runs only under the "dmg" login.
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (debug)                                           16 Apr 1996
+#  Revised by RLR (add some comment lines)                           1 Jul 1997
+#  Revised by RLR (streamline the way things are set up)            11 Aug 1997
+#  Revised by RLR (minor changes and more template examples)        20 Aug 1998
+#  Revised by RLR (change the way $PROJ is determined)              20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#  Revised by RLR (use DCS command "msrcp" instead of MIGS)         19 Apr 2002
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#         having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file
+#         $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#   4.  Script is run from affected project's "Production/archive" subdirectory
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+#
+#  Get setup information for this project
+set SDIR = $PROD_DATA
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set PROJDIR = $LOCAL/proj/$PROJ
+set PDIR = $PROJDIR
+set PRDIR = $PROJDIR/Production
+set YEAR = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PDIR/ProjectName`
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#
+echo "#  Job(s) submitted on `date`"
+#
+#  Current archive (msrcp) commands go here
+#  ----------------------------------------
+#
+#
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+# -----------------------------------------------------------------------------
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+301.documents.tar \
+301.documents.tar.dir \
+301.tar \
+301.tar.dir \
+Mail.301 \
+taplog.lrt.301 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR/archive
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+tapes.301 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+#
+set FILES = ( \
+nimbus.lrt.tar \
+nimbus.lrt.tar.dir \
+nimbus_defaults.lrt.tar \
+nimbus_defaults.lrt.tar.dir \
+taplog.lrt.301 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+set FILES = ( \
+301rf01.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#  -------------------------------------------------------------
+#   T E M P L A T E S   ( e d i t ,   a s   n e c e s s a r y )
+#  -------------------------------------------------------------
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = 
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = 
+set TURBRT = 
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (renamed)
+#
+set DIR = 
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$OFILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = 
+set TURBRT = 
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+  else
+    echo " Cannot access file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  -------------------------------------------------------------
+#   T E M P L A T E S   ( b r u t e - f o r c e   m e t h o d )
+#  -------------------------------------------------------------
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's `Production' directory
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$OFILE
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$OFILE
+#
+#
+#  Set turbulence rate (LRT or HRT) here
+set TURBRT = 
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+#
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's `Production' directory
+set FILE = 
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+#
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+#
+# -----------------------------------------------------------------------------
+#
+#  Files archived to MSS directory:  /RAF/2002/301/
+#  Job(s) submitted on Thu Sep 12 11:30:11 MDT 2002
+#  msrcp job for 301.documents.tar -- OK -- 12 Sep 2002 11:30:26
+#  msrcp job for 301.documents.tar.dir -- OK -- 12 Sep 2002 11:30:33
+#  msrcp job for 301.tar -- OK -- 12 Sep 2002 11:30:39
+#  msrcp job for 301.tar.dir -- OK -- 12 Sep 2002 11:30:47
+#  msrcp job for Mail.301 -- OK -- 12 Sep 2002 11:31:01
+#  msrcp job for taplog.lrt.301 -- OK -- 12 Sep 2002 11:31:06
+#  msrcp job for tapes.301 -- OK -- 12 Sep 2002 11:31:11
+#  msrcp job for LRT/nimbus.lrt.tar -- OK -- 12 Sep 2002 11:32:00
+#  msrcp job for LRT/nimbus.lrt.tar.dir -- OK -- 12 Sep 2002 11:32:04
+#  msrcp job for LRT/nimbus_defaults.lrt.tar -- OK -- 12 Sep 2002 11:32:11
+#  msrcp job for LRT/nimbus_defaults.lrt.tar.dir -- OK -- 12 Sep 2002 11:32:15
+#  msrcp job for LRT/taplog.lrt.301 -- OK -- 12 Sep 2002 11:32:22
+#  msrcp job for LRT/RF01.hdr -- OK -- 12 Sep 2002 11:32:27
+#  Completed on Thu Sep 12 11:32:27 MDT 2002
+#

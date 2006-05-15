@@ -1,0 +1,1129 @@
+#! /bin/csh -f
+###############  -- search for changes or needed code
+#
+#  Script to handle remote processing of RAF Aircraft Data
+#  using hot-swappable disk drives
+#
+#
+#    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#    *           Copyright 2002 University Corporation           *
+#    *       for Atmospheric Research, All Rights Reserved.      *
+#    * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Written by Ronald L. Ruth  17 May 2002
+#  Revision  0 by RLR on 21 May 2002 (original code)
+#
+#  Dependencies:
+#     Environment variables:  none
+#     Hard wires:  email: rafdmg@ucar.edu
+#     Files:  /usr/local/scripts/gncproc.conf /fnet/data/gndproc_log.$$
+#     UNIX files/commands:  stdin, scp, grep, sed, awk, ls, cp,
+#                           gzip, gunzip, nimbus, /bin/rm
+#                           (n2asc)
+#
+#  Notes:   Need to add code to exit script gracefully if user doesn't
+#             want it to complete.
+#
+#
+#      * * * * * * * * * * * * * * *
+#     *                             *
+#    *  Executable code starts here  *
+#     *                             *
+#      * * * * * * * * * * * * * * *
+#
+onintr abort
+umask 0
+#
+#  Initialize variables to default values
+#
+#  Project number
+set proj = "301"
+#
+#  Caddis removable drive in use
+set S = "/r1"
+#  Caddis data destination
+#set D = "/fnet/data"
+set D = $DATA_DIR
+#  Jeffco data destination
+set JD = "/jnet/data"
+#  Jeffco login for file transfers
+set scp_login = "ihop-anstett@raf"
+#
+#set debug = "yes"
+set debug = "no"
+#
+#  Configuration file for this script
+set config_file = "/usr/local/scripts/gndproc.conf"
+#
+#  ADS file extension
+set ads = "ads"
+#   Make sure display environment is set (for nimbus)
+setenv DISPLAY :0.0
+set mok = "no"
+#
+#   Default email 
+set elist = "rafdmg@ucar.edu"
+set aext = ""
+set next = ""
+#
+#   Email message buffer (and temporary job-log file)
+set mbufr = $D/gndproc_log.$$
+#
+#   Mail program
+set mp = "/bin/mail"
+#
+#   nimbus processor to use
+set nimbus_p = "nimbus"
+#
+#   nimbus setup file to use (default none)
+set nimbus_sf = ""
+#
+#   n2asc processor to use
+set n2asc_p = "n2asc"
+#
+set bfile = "none"
+#
+#  Get configuration from config file, if possible
+if (-e $config_file) then
+#  debug mode
+  set config = "yes"
+  set input = `grep "^debug =" $config_file`
+  if ($#input > 2) then
+    set debug = $input[3]
+  endif
+#  Removable drive path
+  set input = `grep "^S =" $config_file`
+  if ($#input > 2) then
+    set S = $input[3]
+    if ($debug == "yes") then
+      echo "   S = $S"
+    endif
+  endif
+#  Ground station data-destination path
+  set input = `grep "^D =" $config_file`
+  if ($#input > 2) then
+    set D = $input[3]
+    if ($debug == "yes") then
+      echo "   D = $D"
+    endif
+  endif
+#  Jeffco data-destination path
+  set input = `grep "^JD =" $config_file`
+  if ($#input > 2) then
+    set JD = $input[3]
+    if ($debug == "yes") then
+      echo "   JD = $JD"
+    endif
+  endif
+#  Jeffco login for file transfers
+  set input = `grep "^scp_login =" $config_file`
+  if ($#input > 2) then
+    set scp_login = $input[3]
+    if ($debug == "yes") then
+      echo "   scp_login = $scp_login"
+    endif
+  endif
+#  Project number
+  set input = `grep "^proj =" $config_file`
+  if ($#input > 2) then
+    set proj = $input[3]
+    if ($debug == "yes") then
+      echo "   proj = $proj"
+    endif
+  endif
+#   Mail program
+  set input = `grep "^mp =" $config_file`
+  if ($#input > 2) then
+    set mp = $input[3]
+    if ($debug == "yes") then
+      echo "   mp = $mp"
+    endif
+  endif
+#   nimbus program
+  set input = `grep "^nimbus_p =" $config_file`
+  if ($#input > 2) then
+    set nimbus_p = $input[3]
+    if ($debug == "yes") then
+      echo "   nimbus_p = $nimbus_p"
+    endif
+  endif
+#   nimbus setup file to use
+  set input = `grep "^nimbus_sf =" $config_file`
+  if ($#input > 2) then
+    set nimbus_sf = $input[3]
+    if ($debug == "yes") then
+      echo "   nimbus_sf = $nimbus_sf"
+    endif
+  endif
+#   n2asc program
+  set input = `grep "^n2asc_p =" $config_file`
+  if ($#input > 2) then
+    set n2asc_p = $input[3]
+    if ($debug == "yes") then
+      echo "   n2asc_p = $n2asc_p"
+    endif
+  endif
+else
+  set config = "no"
+endif
+#
+#   Set default startup message
+set mseparator = " --------------- "`date`" ---------------"
+set mbegin = "Processing script started  "`date`
+set mbegan = "Processing script restarted  "`date`
+#
+#  Set up email message buffer and tell people that I have begun
+echo " " >! $mbufr
+set result = $status
+if ($status != 0) then
+  if ($debug == "yes") then
+    echo "   Could not write to log buffer $mbufr"
+  else
+    $mp -s "$0 email error 1 -- line 183" $elist < /dev/null >& /dev/null
+  endif
+  set mbufr = /dev/null     #              Writing to bit bucket instead <--
+endif
+#
+if ($config == "no") then
+  echo "   Could not access configuration file ${config_file}; using defaults" >> $mbufr
+endif
+#
+#  Get started
+#
+#  Make sure removable disk isn't mounted
+umount $S >& /dev/null
+#
+echo ""
+echo ""
+echo '  Remove "old" disk drive from *TOP* slot of the ZZYZX chassis.'
+echo "   - Turn the key clockwise one quarter turn to a vertical position."
+echo '   - Wait for drive to spin down. (The LED display will indicate "u"'
+echo "       when the drive can be removed.)"
+echo "   - Pull out the drive by its handle."
+echo "   - Set this drive on top of the ZZYZX chassis."
+echo '     (The LED display should indicate "1" at this time.)'
+echo ""
+echo '  Insert "new" disk drive into *TOP* slot of the ZZYZX chassis.'
+echo "   - Carefully push it all the way in until flush with the front panel."
+echo "     The last fraction of an inch will be harder to psh, since it's"
+echo "     making an electrical connection.  (The LED display should"
+echo '     indicate "u" if it is properly inserted.)'
+echo ""
+echo "  Turn key counterclockwise one quarter turn to lock."
+echo ""
+echo "  Wait for drive to spin up (LED display will be blinking.)"
+echo ""
+echo '  Hit [ENTER] key when LED display stops blinking and indicates "1".'
+set input = "$<"
+#
+#  Try to mount drive
+mount $S >& /dev/null
+set result = $status
+if ($result != 0) then
+  set mesg ="   Could not mount removable drive.  Error code = $result"
+  echo $mesg >> $mbufr
+  echo $mesg
+  echo '  This can happen if the LED display did not indicate "1".'
+  echo "  Otherwise try removing and remounting the drive, then run $0 again."
+  goto quit
+endif
+#
+#  See if it has files
+set files = (`/bin/ls $S`)
+if ($#files < 1) then
+  set mesg = "   Removable drive doesn't seem to be mounted (couldn't find any files)."
+  echo $mesg
+  echo "  Try removing and remounting the drive then run $0 again."
+  echo $mesg >> $mbufr
+  umount $S
+  goto quit
+endif
+#
+#  Find all raw ADS files on removable drive
+pushd $S >& /dev/null
+/bin/ls ${proj}[rft]f[0-9][0-9][a-z].$ads >& /dev/null
+set result = $status
+if ($status != 0) then
+  set afiles = ""
+else 
+  set afiles = (`/bin/ls ${proj}[rft]f[0-9][0-9][a-z].$ads`) >& /dev/null
+endif
+if ($debug == "yes") then
+  echo "$S ads files = $afiles"
+  echo "number of ads files = $#afiles"
+endif
+#
+#  See if new ADS files
+if ($#afiles > 0) then
+  set f2do = ""
+  foreach afile ($afiles)
+    set efile = `ls $D/$afile >& /dev/null`
+    set result = $status
+    if ($result == 0) then
+#  Check file lengths to see if they match (incomplete transfer)
+      set t1_len = `ls -l $S/$afile | awk '{print $5}'`
+      set t2_len = `ls -l $D/$afile | awk '{print $5}'`
+      if ($t1_len == $t2_len) continue
+    endif
+    set f2do = ($f2do $afile)
+#    if ($debug == "yes") then
+#      echo \
+#       cp -p $afile $D/. 
+#    else
+      echo "   Copying $afile to $D" >> $mbufr
+      cp -p $afile $D/. 
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   File copy failed from $S/$afile to $D/$afile"
+        echo $mesg
+        echo $mesg >> $mbufr
+        df -k $D >> $mbufr
+###############    need to add code here to analyze copy failure
+###############     disk full??
+      else
+        set mesg = "   Successfully copied file from $S/$afile to $D/$afile"
+        echo $mesg
+        echo $mesg >> $mbufr
+      endif
+    endif
+  end
+else
+  set mesg = "   No ADS files found to copy"
+  echo $mesg
+  echo $mesg >> $mbufr
+endif
+#
+#  Add code here to copy other file types (2d, rawMCR, RDMA, etc)
+#  Add file types to the config file then test here to see if they
+#   should be copied
+#  (Assume that ADS files always will be copied)
+#
+#  Finished copying files
+popd >& /dev/null
+umount $S
+set mesg = " "
+echo $mesg >> $mbufr
+echo ""
+echo ""
+echo ""
+set mesg = "   File copy job completed on "`date`
+echo $mesg
+echo $mesg >> $mbufr
+echo ""
+set mesg = '   Leave "new" drive in the chassis, and put the "old" drive (put on'
+echo $mesg
+echo $mesg >> $mbufr
+set mesg = "   top of the ZZYZX chassis) in the lunch box for use on the plane."
+echo $mesg
+echo $mesg >> $mbufr
+echo ""
+echo ""
+echo ""
+#
+#  Set up email addressee(s)
+set input = `grep "^e_names =" $config_file`
+if ($#input > 2) then
+  set elist = `echo $input | awk -F= '{print $2}'`
+  if ($debug == "yes") then
+    echo "   elist = $elist"
+    echo '   $#elist = '$#elist
+  endif
+  set mok = "yes"
+else
+  if ($debug == "yes") then
+    echo "   Cannot read email addressee list from config file $config_file"
+  else
+    $mp -s "$0 email error 2 -- line 314" $elist < /dev/null >& /dev/null
+  endif
+endif
+#
+#   Check to see if I have anything to do
+set nf2do = $#f2do
+if ($nf2do < 1) goto done
+#   
+#   Set default copy options
+set COPYADS = "yes"
+set COPYCDF = "yes"
+set COPYRTF = "no"
+set COPYJOSS = "no"
+set COPYOTHER = "no"
+#
+#   Get file copy options from $config_file, if possible
+#
+if ($config == "yes") then
+  set input = `grep "^COPYADS" $config_file`
+  if ($#input > 2) then
+    set COPYADS = $input[3]
+  endif
+  set input = `grep "^COPYCDF" $config_file`
+  if ($#input > 2) then
+    set COPYCDF = $input[3]
+  endif
+  set input = `grep "^COPYJOSS" $config_file`
+  if ($#input > 2) then
+    set COPYJOSS = $input[3]
+  endif
+  set input = `grep "^COPYRTF" $config_file`
+  if ($#input > 2) then
+    set COPYRTF = $input[3]
+  endif
+  set input = `grep "^COPYOTHER" $config_file`
+  if ($#input > 2) then
+    set COPYOTHER = $input[3]
+  endif
+#
+#    RTF's, if requested
+  if ($COPYRTF == "yes") then
+#   Set default values for RTF's file
+    set RTF_file = "netCDF"
+    set RTF_gz = "no"
+    set RTF_machine = "charlie"
+    set RTF_login = "dmg"
+    set RTF_path = "/scr/science41/dmg/IHOP/p3"
+#
+#   Get options from file, if possible
+    set input = `grep "^RTF_file =" $config_file`
+    if ($#input > 2) then
+      set RTF_file = $input[3]
+    endif
+    set input = `grep "^RTF_gz =" $config_file`
+    if ($#input > 2) then
+      set RTF_gz = $input[3]
+    endif
+    set input = `grep "^RTF_machine =" $config_file`
+    if ($#input > 2) then
+      set RTF_machine = $input[3]
+    endif
+    set input = `grep "^RTF_login =" $config_file`
+    if ($#input > 2) then
+      set RTF_login = $input[3]
+    endif
+    set input = `grep "^RTF_path =" $config_file`
+    if ($#input > 2) then
+      set RTF_path = $input[3]
+    endif
+  endif
+#
+#    JOSS', if requested
+  if ($COPYJOSS == "yes") then
+#   Set default values for JOSS' file
+    set JOSS_file = "netCDF"
+    set JOSS_gz = "no"
+    set JOSS_machine = "charlie"
+    set JOSS_login = "dmg"
+    set JOSS_path = "/scr/science41/dmg/IHOP/p3"
+#
+#   Get options from file, if possible
+    set input = `grep "^JOSS_file =" $config_file`
+    if ($#input > 2) then
+      set JOSS_file = $input[3]
+    endif
+    set input = `grep "^JOSS_gz =" $config_file`
+    if ($#input > 2) then
+      set JOSS_gz = $input[3]
+    endif
+    set input = `grep "^JOSS_machine =" $config_file`
+    if ($#input > 2) then
+      set JOSS_machine = $input[3]
+    endif
+    set input = `grep "^JOSS_login =" $config_file`
+    if ($#input > 2) then
+      set JOSS_login = $input[3]
+    endif
+    set input = `grep "^JOSS_path =" $config_file`
+    if ($#input > 2) then
+      set JOSS_path = $input[3]
+    endif
+  endif
+#
+#  Check for other copy options (PMS-2D, RDMA, MCR, etc)
+  if ($COPYOTHER == "yes") then
+#
+#   Set default options for 1st "other" file
+    set OTHER1_file = "none"
+#    set OTHER1_file = "2d"
+#    set OTHER1_file = "RDMA"
+#    set OTHER1_file = "rawmcr"
+    set OTHER1_gz = "no"
+    set OTHER1_machine = "charlie"
+    set OTHER1_login = "dmg"
+    set OTHER1_path = "/scr/science41/dmg/IHOP/p3"
+#
+#   Get options from file, if possible
+    set input = `grep "^OTHER1_file =" $config_file`
+    if ($#input > 2) then
+      set OTHER1_file = $input[3]
+    endif
+    set input = `grep "^OTHER1_gz =" $config_file`
+    if ($#input > 2) then
+      set OTHER1_gz = $input[3]
+    endif
+    set input = `grep "^OTHER1_machine =" $config_file`
+    if ($#input > 2) then
+      set OTHER1_machine = $input[3]
+    endif
+    set input = `grep "^OTHER1_login =" $config_file`
+    if ($#input > 2) then
+      set OTHER1_login = $input[3]
+    endif
+    set input = `grep "^OTHER1_path =" $config_file`
+    if ($#input > 2) then
+      set OTHER1_path = $input[3]
+    endif
+#
+#   Set default options for 2nd "other" file
+    set OTHER2_file = "none"
+    set OTHER2_gz = "no"
+    set OTHER2_machine = "charlie"
+    set OTHER2_login = "dmg"
+    set OTHER2_path = "/scr/science41/dmg/IHOP/p3"
+#
+#   Get options from file, if possible
+    set input = `grep "^OTHER2_file =" $config_file`
+    if ($#input > 2) then
+      set OTHER2_file = $input[3]
+    endif
+    set input = `grep "^OTHER2_gz =" $config_file`
+    if ($#input > 2) then
+      set OTHER2_gz = $input[3]
+    endif
+    set input = `grep "^OTHER2_machine =" $config_file`
+    if ($#input > 2) then
+      set OTHER2_machine = $input[3]
+    endif
+    set input = `grep "^OTHER2_login =" $config_file`
+    if ($#input > 2) then
+      set OTHER2_login = $input[3]
+    endif
+    set input = `grep "^OTHER2_path =" $config_file`
+    if ($#input > 2) then
+      set OTHER2_path = $input[3]
+    endif
+  endif
+endif
+#
+#   Do the rest of the work
+cd $D
+@ idx = 0
+set mesg = "   Beginning the background work for $nf2do ADS file(s)"
+echo $mesg >> $mbufr
+foreach afile ($f2do)
+  @ idx ++
+#
+#  Do we send ADS file back to Jeffco?
+  if ($COPYADS == "yes") then
+#   Yes
+#   Gzip ADS file
+    set mesg = "   gzipping $D/$afile"
+    echo $mesg >> $mbufr
+    gzip -f $afile
+    set result = $status
+    if ($result != 0) then
+      set mesg = "   Gzip failed on file $afile with error $result"
+      set aext = ""
+    else
+      set aext = ".gz"
+      set mesg = "   gzipped $D/$afile"
+    endif
+    echo $mesg >> $mbufr
+#  Secure copy file to Jeffco
+    set mesg = "   Beginning scp $D/$afile$aext to Jeffco"
+    echo $mesg >> $mbufr
+    if ($debug == "yes") then
+      echo "   scp $D/$afile$aext ${scp_login}:$JD/$afile$aext"
+    endif
+#    scp -AqB $D/$afile$aext ${scp_login}:$JD/$afile$aext >& /dev/null
+    scp $D/$afile$aext ${scp_login}:$JD/$afile$aext >& /dev/null
+    set result = $status
+    if ($result != 0) then
+      set mesg = "   scp failed on file $afile$aext with error $result."
+      echo $mesg >> $mbufr
+    else
+      set mesg = "   Successfully copied file $afile$aext."
+      echo $mesg >> $mbufr
+    endif
+#  Gunzip ADS file, if needed
+    if ($aext == ".gz") then
+      gunzip $afile$aext
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   Could not gunzip file $afile.$aext"
+        echo $mesg >> $mbufr
+        if ($nf2do > 1 && $idx < $nf2do) then
+          set mesg = "   Going on to next file."
+          echo $mesg >> $mbufr
+          continue                                 #  <-- skipping to next file
+        endif
+      endif
+    endif
+  else
+    set mesg = "   Jeffco scp ADS file option turned off.  $afile not transferred"
+    echo $mesg >> $mbufr
+  endif
+#
+#  Create nimbus batch file
+#   Set name for nimbus batch file
+  set mesg = "   Setting name for nimbus batch file"
+  echo $mesg >> $mbufr
+  set rfile = `echo $afile | sed -e "s/.$ads//"`
+  set bfile = "$rfile.batch"
+  set nfile = "$rfile.cdf"
+  set mesg = "   Creating nimbus batch file $bfile"
+  echo $mesg >> $mbufr
+  echo "pr=1" >! $bfile
+  set result = $status
+  if ($result != 0) then
+    set mesg = "   Cannot create batch file for $rfile.$ads"
+    echo $mesg >> $mbufr
+#     Skip to next file, if extant
+    continue                                 #  <-- skipping to next file
+  else
+    echo "if=$D/$afile" >> $bfile
+    echo "of=$D/$nfile" >> $bfile
+    if ($nimbus_sf != "") then
+      echo "sf=$nimbus_sf" >> $bfile
+    endif
+#  Run nimbus with batch file
+    set mesg = "   Running nimbus with command: $nimbus_p -b $bfile"
+    echo $mesg >> $mbufr
+    $nimbus_p -b $bfile >& /dev/null
+    set result = $status
+    if ($result != 0) then
+      set mesg = "   Error $result running nimbus in batch mode on $afile."
+      echo $mesg >> $mbufr
+#     Skip to next file, if extant
+      continue                                 #  <-- skipping to next file
+    else
+      set mesg = "   Nimbus completed successfully and created file $nfile"
+      echo $mesg >> $mbufr
+    endif
+    /bin/rm $bfile
+  endif
+#
+#  Send netCDF file back to Jeffco?
+  if ($COPYCDF == "yes") then
+#   Yes
+#   Gzip netCDF file 
+    set mesg = "   gzipping $D/$nfile"
+    echo $mesg >> $mbufr
+    gzip -f $nfile
+    set result = $status
+    if ($result != 0) then
+      set mesg = "   Gzip failed on file $nfile with error $result"
+      set next = ""
+    else
+      set next = ".gz"
+      set mesg = "   Gzipped $D/$nfile"
+    endif
+    echo $mesg >> $mbufr
+#  Secure copy file to Jeffco
+    set mesg = "   Beginning scp $D/$nfile$next to Jeffco"
+    echo $mesg >> $mbufr
+#    scp $D/$nfile$next ron@raf:$JD/$nfile$next
+#    scp $D/$nfile$next ihop-anstett@raf:$JD/$nfile$next
+    scp $D/$nfile$next ${scp_login}:$JD/$nfile$next >& /dev/null
+    set result = $status
+    if ($result != 0) then
+      set mesg = "   scp failed on file $nfile$next with error $result."
+      echo $mesg >> $mbufr
+    else
+      set mesg = "   Successfully copied file $nfile$next."
+      echo $mesg >> $mbufr
+    endif
+#  Gunzip netCDF file, if needed
+    if ($next == ".gz") then
+      gunzip $nfile$next
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   Could not gunzip file $nfile.$next"
+        echo $mesg >> $mbufr
+        if ($nf2do > 1 && $idx < $nf2do) then
+          set mesg = "   Going on to next file."
+          echo $mesg >> $mbufr
+          continue                                 #  <-- skipping to next file
+        endif
+      else
+        set next = ""
+      endif
+    endif
+  else
+    set mesg = "   Jeffco scp netCDF file option turned off.  $nfile not transferred"
+    echo $mesg >> $mbufr
+  endif
+#
+#   Copy file for RTF, if requested
+#
+  if ($COPYRTF == "yes") then
+    set mesg = "   Copying file for RTF"
+    echo $mesg >> $mbufr
+    if ($RTF_file == "netCDF") then
+      if ($RTF_gz == "yes") then
+#    Gzip netCDF file, if needed
+        if ($next != ".gz") then
+          gzip -f $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $nfile with error $result"
+          else
+            set next = ".gz"
+            set mesg = "   Gzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif  
+      else
+#    Gunzip netCDF file, if needed
+        if ($next == ".gz") then
+          gunzip $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $nfile with error $result"
+          else
+            set next = ""
+            set mesg = "   Gunzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+#  Secure copy file to RTF
+      set mesg = "   Beginning scp $D/$nfile$next to ${RTF_login}@${RTF_machine}:${RTF_path}/$nfile$next"
+      echo $mesg >> $mbufr
+      scp $D/$nfile$next ${RTF_login}@${RTF_machine}:${RTF_path}/$nfile$next >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $nfile$next with error $result."
+        echo $mesg >> $mbufr
+      else
+        set mesg = "   Successfully copied file $nfile$next."
+        echo $mesg >> $mbufr
+      endif
+#     Gunzip netCDF file, if needed
+      if ($next == ".gz") then
+        gunzip $nfile$next
+        set result = $status
+        if ($result != 0) then
+          set mesg = "   Could not gunzip file $nfile.$next"
+          echo $mesg >> $mbufr
+        else
+          set next = ""
+        endif
+      endif
+    else if ($RTF_file == "ads") then
+      if ($RTF_gz == "yes") then
+#    Gzip ADS file, if needed
+        if ($aext != ".gz") then
+          gzip -f $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $afile with error $result"
+          else
+            set aext = ".gz"
+            set mesg = "   Gzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+#    Gunzip ADS file, if needed
+        if ($aext == ".gz") then
+          gunzip $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $afile with error $result"
+          else
+            set aext = ""
+            set mesg = "   Gunzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+      echo $mesg >> $mbufr
+#  Secure copy file to 1st "other" destination
+      set mesg = "   Beginning scp $D/$afile$aext to ${RTF_login}@${RTF_machine}:${RTF_path}/$afile$aext"
+      echo $mesg >> $mbufr
+      scp $D/$afile$aext ${RTF_login}@${RTF_machine}:${RTF_path}/$afile$aext >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $afile$aext with error $result."
+      else
+        set mesg = "   Successfully copied file $afile$aext."
+      endif
+      echo $mesg >> $mbufr
+    else if ($RTF_file != "none") then
+      set mesg = "   Unrecognized file type.  No copy done"
+      echo $mesg >> $mbufr
+    endif
+  endif
+#
+#   Copy file for JOSS, if requested
+#
+  if ($COPYJOSS == "yes") then
+    set mesg = "   Copying file for JOSS"
+    echo $mesg >> $mbufr
+    if ($JOSS_file == "netCDF") then
+      if ($JOSS_gz == "yes") then
+#    Gzip netCDF file, if needed
+        if ($next != ".gz") then
+          gzip -f $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $nfile with error $result"
+          else
+            set next = ".gz"
+            set mesg = "   Gzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif  
+      else
+#    Gunzip netCDF file, if needed
+        if ($next == ".gz") then
+          gunzip $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $nfile with error $result"
+          else
+            set next = ""
+            set mesg = "   Gunzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+#  Secure copy file to 1st "other" destination
+      set mesg = "   Beginning scp $D/$nfile$next to ${JOSS_login}@${JOSS_machine}:${JOSS_path}/$nfile$next"
+      echo $mesg >> $mbufr
+      scp $D/$nfile$next ${JOSS_login}@${JOSS_machine}:${JOSS_path}/$nfile$next >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $nfile$next with error $result."
+        echo $mesg >> $mbufr
+      else
+        set mesg = "   Successfully copied file $nfile$next."
+        echo $mesg >> $mbufr
+      endif
+#     Gunzip netCDF file, if needed
+      if ($next == ".gz") then
+        gunzip $nfile$next
+        set result = $status
+        if ($result != 0) then
+          set mesg = "   Could not gunzip file $nfile.$next"
+          echo $mesg >> $mbufr
+        else
+          set next = ""
+        endif
+      endif
+    else if ($JOSS_file == "ads") then
+      if ($JOSS_gz == "yes") then
+#    Gzip ADS file, if needed
+        if ($aext != ".gz") then
+          gzip -f $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $afile with error $result"
+          else
+            set aext = ".gz"
+            set mesg = "   Gzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+#    Gunzip ADS file, if needed
+        if ($aext == ".gz") then
+          gunzip $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $afile with error $result"
+          else
+            set aext = ""
+            set mesg = "   Gunzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+      echo $mesg >> $mbufr
+#  Secure copy file to 1st "other" destination
+      set mesg = "   Beginning scp $D/$afile$aext to ${JOSS_login}@${JOSS_machine}:${JOSS_path}/$afile$aext"
+      echo $mesg >> $mbufr
+      scp $D/$afile$aext ${JOSS_login}@${JOSS_machine}:${JOSS_path}/$afile$aext >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $afile$aext with error $result."
+      else
+        set mesg = "   Successfully copied file $afile$aext."
+      endif
+      echo $mesg >> $mbufr
+    else if (if ($JOSS_file != "none") then
+      set mesg = "   Unrecognized file type.  No copy done"
+      echo $mesg >> $mbufr
+    endif
+  endif
+#
+#   Do other optional per-file work here
+#
+  if ($COPYOTHER == "yes") then
+#
+#   1st "other" file
+    if ($OTHER1_file == "netCDF") then
+      set mesg = "   Copying netCDF file for OTHER1"
+      echo $mesg >> $mbufr
+      if ($OTHER1_gz == "yes") then
+#    Gzip netCDF file, if needed
+        if ($next != ".gz") then
+          gzip -f $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $nfile with error $result"
+          else
+            set next = ".gz"
+            set mesg = "   Gzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif  
+      else
+#    Gunzip netCDF file, if needed
+        if ($next == ".gz") then
+          gunzip $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $nfile with error $result"
+          else
+            set next = ""
+            set mesg = "   Gunzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+#  Secure copy file to 1st "other" destination
+      set mesg = "   Beginning scp $D/$nfile$next to ${OTHER1_login}@${OTHER1_machine}:${OTHER1_path}/$nfile$next"
+      echo $mesg >> $mbufr
+      scp $D/$nfile$next ${OTHER1_login}@${OTHER1_machine}:${OTHER1_path}/$nfile$next >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $nfile$next with error $result."
+        echo $mesg >> $mbufr
+      else
+        set mesg = "   Successfully copied file $nfile$next."
+        echo $mesg >> $mbufr
+      endif
+#     Gunzip netCDF file, if needed
+      if ($next == ".gz") then
+        gunzip $nfile$next
+        set result = $status
+        if ($result != 0) then
+          set mesg = "   Could not gunzip file $nfile.$next"
+          echo $mesg >> $mbufr
+        else
+          set next = ""
+        endif
+      endif
+    else if ($OTHER1_file == "ads") then
+      set mesg = "   Copying ADS file for OTHER1"
+      echo $mesg >> $mbufr
+      if ($OTHER1_gz == "yes") then
+#    Gzip ADS file, if needed
+        if ($aext != ".gz") then
+          gzip -f $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $afile with error $result"
+          else
+            set aext = ".gz"
+            set mesg = "   Gzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+#    Gunzip ADS file, if needed
+        if ($aext == ".gz") then
+          gunzip $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $afile with error $result"
+          else
+            set aext = ""
+            set mesg = "   Gunzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+      echo $mesg >> $mbufr
+#  Secure copy file to 1st "other" destination
+      set mesg = "   Beginning scp $D/$afile$aext to ${OTHER1_login}@${OTHER1_machine}:${OTHER1_path}/$afile$aext"
+      echo $mesg >> $mbufr
+      scp $D/$afile$aext ${OTHER1_login}@${OTHER1_machine}:${OTHER1_path}/$afile$aext >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $afile$aext with error $result."
+      else
+        set mesg = "   Successfully copied file $afile$aext."
+      endif
+      echo $mesg >> $mbufr
+    else if (if ($OTHER1_file != "none") then
+      set mesg = "   Unrecognized file type.  No copy done"
+      echo $mesg >> $mbufr
+    endif
+#
+#   2nd "other" file
+#
+    if ($OTHER2_file == "netCDF") then
+      set mesg = "   Copying netCDF file for OTHER2"
+      echo $mesg >> $mbufr
+      if ($OTHER2_gz == "yes") then
+#    Gzip netCDF file, if needed
+        if ($next != ".gz") then
+          gzip -f $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $nfile with error $result"
+          else
+            set next = ".gz"
+            set mesg = "   Gzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif  
+      else
+#    Gunzip netCDF file, if needed
+        if ($next == ".gz") then
+          gunzip $nfile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $nfile with error $result"
+          else
+            set next = ""
+            set mesg = "   Gunzipped $D/$nfile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+#  Secure copy file to 2nd "other" destination
+      set mesg = "   Beginning scp $D/$nfile$next to ${OTHER2_login}@${OTHER2_machine}:${OTHER2_path}/$nfile$next"
+      echo $mesg >> $mbufr
+      scp $D/$nfile$next ${OTHER2_login}@${OTHER2_machine}:${OTHER2_path}/$nfile$next >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $nfile$next with error $result."
+        echo $mesg >> $mbufr
+      else
+        set mesg = "   Successfully copied file $nfile$next."
+        echo $mesg >> $mbufr
+      endif
+#     Gunzip netCDF file, if needed
+      if ($next == ".gz") then
+        gunzip $nfile$next
+        set result = $status
+        if ($result != 0) then
+          set mesg = "   Could not gunzip file $nfile.$next"
+          echo $mesg >> $mbufr
+        else
+          set next = ""
+        endif
+      endif
+    else if ($OTHER2_file == "ads") then
+      set mesg = "   Copying ADS file for OTHER2"
+      echo $mesg >> $mbufr
+      if ($OTHER2_gz == "yes") then
+#    Gzip ADS file, if needed
+        if ($aext != ".gz") then
+          gzip -f $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gzip failed on file $afile with error $result"
+          else
+            set aext = ".gz"
+            set mesg = "   Gzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+#    Gunzip ADS file, if needed
+        if ($aext == ".gz") then
+          gunzip $afile
+          set result = $status
+          if ($result != 0) then
+            set mesg = "   Gunzip failed on file $afile with error $result"
+          else
+            set aext = ""
+            set mesg = "   Gunzipped $D/$afile"
+          endif
+          echo $mesg >> $mbufr
+        endif
+      endif
+      echo $mesg >> $mbufr
+#  Secure copy file to 2nd "other" destination
+      set mesg = "   Beginning scp $D/$afile$aext to ${OTHER2_login}@${OTHER2_machine}:${OTHER2_path}/$afile$aext"
+      echo $mesg >> $mbufr
+      scp $D/$afile$aext ${OTHER2_login}@${OTHER2_machine}:${OTHER2_path}/$afile$aext >& /dev/null
+      set result = $status
+      if ($result != 0) then
+        set mesg = "   scp failed on file $afile$aext with error $result."
+      else
+        set mesg = "   Successfully copied file $afile$aext."
+      endif
+      echo $mesg >> $mbufr
+    else if (if ($OTHER2_file != "none") then
+      set mesg = "   Unrecognized file type.  No copy done"
+      echo $mesg >> $mbufr
+    endif
+  endif
+#
+#
+#    Make rudimentary entries in RAFDIS ??
+#
+end
+#
+#  Finished
+echo "   $0 completed @ `date`" >> $mbufr
+goto done
+#
+quit:
+set merror = "   Processing script quit with a drive-mount error."
+echo $merror >> $mbufr
+#
+done:
+set mdone = "   Processing script finished.  "`date`
+#
+#    Compose "real" name for log file
+set logname = `echo $D/$f2do[1] | sed -e "s/.$ads//"`
+set logname = ${logname}.log
+if (-e $logname) then
+#    Add separator to logfile to separate runs
+  if (-w $logname) then
+    echo $mseparator >> $logname
+  #    Append new log file to "real" name
+    set result = $status
+    if ($result != 0) then
+      set mesg = "   Could not add this log file ($mbufr) to extant one ($logname)"
+      echo $mesg >> $mbufr
+      set mesg = "   $mbufr will remain in $D."
+      echo $mesg >> $mbufr
+      set logname = $mbufr
+    else
+      echo $mbegan >> $logname
+      cat $mbufr >> $logname
+      /bin/rm $mbufr >& /dev/null
+    endif
+  endif
+else
+  echo $mbegin >> $logname
+#    Copy new log file to "real" name
+  if ($result != 0) then
+    set mesg = "   Could not copy this log file from ($mbufr) to ($logname)"
+    echo $mesg >> $mbufr
+    set mesg = "   $mbufr will remain in $D."
+    echo $mesg >> $mbufr
+    set logname = $mbufr
+  else
+    cat $mbufr >> $logname
+    /bin/rm $mbufr >& /dev/null
+  endif
+endif
+#
+set mesg = "   Log file for this job is $logname"
+echo $mesg >> $logname
+endif
+#
+#  Send $logname as email message to "recipients"
+if ($mok == "yes") $mp -s "$0 job completed" $elist < $logname
+#
+set mok = "no"
+#
+abort:
+onintr -
+if (mok == "yes") goto done
+#
+if (-e $bfile) /bin/rm $bfile
+#
+exit

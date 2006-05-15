@@ -1,0 +1,17 @@
+#  Instructions for getting files from "caddis" at IHOP
+#
+#  Secure shell to "charlie"
+ssh 129.15.54.180
+#  Secure shell to "caddis"
+ssh caddis
+#  Set source data directory
+cd /fnet/data
+#  Ftp files back to Jeffco
+sftp raf.atd.ucar.edu
+#  Set destination data directory
+  bi
+  cd /jnet/data
+  put <file>
+  exit
+exit (caddis)
+exit (charlie)

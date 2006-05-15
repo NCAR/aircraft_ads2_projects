@@ -1,0 +1,212 @@
+Beforehand:
+ - create generic nimbus setup file to be used by all processing
+    /usr/local/proj/301/Production/setup.301
+
+ - create configuration file
+    /usr/local/scripts/gndproc.conf
+
+Steps for "automated" processing at IHOP.
+  Ron Ruth  29 April 2002
+      rev.  19 May 2002
+      rev.  22 May 2002
+
+Assumption:  ground system has correct date/time
+
+- login (necessary)
+ - .my_defaults file
+  - set unique environment variables, if necessary
+  - determine machine addresses (source/destination)
+  - determine file transfer protocol/procedures to use
+  - set distribution email list (project manager, data manager)
+  - email distribution that process has started
+ - as "user"
+
+- run "doit" script
+ - check/set proper environment (from config file)
+  - DISPLAY variable
+  - COPYADS == yes/no
+  - COPYCDF == yes/no
+  - COPYOTHER == yes/no (may need specific variable names)
+  - destination machine names/logins/passwords (using scp with keys)
+ - make sure removable drive partition is unmounted
+ - make sure removable drive is physically present in the system (if needed)
+ - operator given instructions to properly insert removable disk drive 
+ - pause for keyboard input
+ - mount drive (check for success)
+ - if mount is not successful
+  - notify appropriate people via screen and/or email
+  - supply "fix" suggestions
+  - ask that script be run again
+  - exit (log out/reboot ?)
+ - search removable drive for new ADS files since last processing
+  - check for duplicate file name(s) but without duplicate data (creation
+    date, file length and flight date all may help to determine)
+    (looking for length difference now)
+  - ignore each duplicate file name found
+ - check space on local drive (not currently done)
+  - if inadequate space
+   - repeatedly remove oldest file that has been successfully copied to Jeffco
+      until adequate room exists (use log file information)
+   - send file deletion info to log file (also to email file)
+   - if still inadequate space and no more files can be deleted
+    - send failure email to distribution list
+    - give operator the bad news
+    - hopefully have a contingency plan in place
+ - for each new/incomplete ADS file:
+  - copy to local disk (with new name if necessary)
+  - verify copy (not currently done)
+ - unmount removable drive
+ - notify operator to remove drive from ground system
+ - notify that operator can depart
+ - begin automatic operation
+ - check that file transfer links are up
+ - for each new file:
+  - if ($COPYADS) copy raw ADS file to Jeffco
+   - gzip raw ADS file
+   - check for succesful file transfer
+   - gunzip raw ADS file
+  - create batch script based on new ADS file's name
+  - run nimbus batch job sending all output to an unique output_log file
+  - check for succesful nimbus completion
+  - if ($COPYCDF) copy netCDF file to Jeffco
+   - gzip netCDF file
+   - check for succesful transfer
+  - if ($COPYRTF) copy requested files to RTF
+   - possibilities:  RDMA, PMS2D, nimbus output_log file
+   - check for succesful transfer
+  - if ($COPYJOSS)
+   - if special file(s) is/are needed, produce it/them
+      (usually a subset of the full netCDF file)
+   - transfer "shared" data file(s) to JOSS repository
+   - check for succesful transfer
+  - if ($COPYOTHER) copy other needed files to Jeffco (gzipped)
+########  stopped here  21 May 2002
+   - possibilities:  RDMA, PMS2D, nimbus output_log file
+   - check for succesful transfer
+  - update processing log file
+ - check for successful completion of all tasks
+ - check status of local disk (nearing capacity?)
+ - make rudimentary entries in RAFDIS ??
+ - compose job-completion report (actually the log file)
+ - send job-completion report email to distribution list
+ - move & rename (compose name) log file from scratch space to permanent space
+ - exit (log out?)
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ngndproc specs
+
+test/read config file
+test/write scratch message file
+read configuration variables from config file
+  (progress messages)
+read job list from config file
+  (progress messages)
+test/write job log file
+for each job
+ - read job configuration settings from config file
+  (log progress)
+ - do each job
+  (log progress)
+create log file
+
+list jobs for a new data set in the conf file
+(give list of job types recognized)
+(should all special files be in the project's Production directory?)
+
+set jobs = ("NIMBUS_ADS_RAF" "RUN_N2ASC_DLR" "COPY_ADS_RAF" "COPY_CDF_RAF" \
+             "COPY_CDF_RTF" "COPY_ASC_DLR")
+
+foreach job ($jobs)
+  decode job class, type and purpose
+  read options for job from config file
+  perform job
+   gzip/gunzip, as needed
+   check for required files (e.g., netCDF for n2asc)
+   do specific operation
+   check for successful completion
+   set completion flag
+  handle any error condition
+end
+
+job classes:
+  copy
+  nimbus
+  n2asc
+
+file types
+  ADS
+  netCDF
+
+purposes:
+  RAF
+  RTF
+  DLR
+  other
+
+----------------------
+config file contents:
+----------------------
+  "test" mode flag
+  location (file path) of scratch_message file (scr_msg_f)
+  location (file path) of scratch log file
+  location (file path) of output log file
+
+gndproc configuration settings:
+test  -- test mode (yes,no) (In test mode it will ask whether to do or skip
+           each operation)
+debug -- debug mode (yes,no) (In debug mode there is verbose output)
+proj -- 3-digit project number (unless put on command line)
+S -- source file directory (removable disk)
+D -- local destination file directory (fixed disk)
+e_names -- email addresses to send process log and error messages
+mp -- Mail program to use
+jobs -- job list to be parsed (contains names like:  NIMBUS_ADS_RAF)
+        (in addition to the automated ADS file copy from $S to $D)
+############
+add??
+ -- which grep to use
+ -- which awk to use
+ -- which mount to use ??
+ -- which umount to use ??
+ -- which ls to use
+ -- which cp to use
+ -- which df to use (df -k)
+ -- which gzip to use
+ -- which gunzip to use
+ -- which scp to use
+ -- which sed to use
+ -- which rm to use
+
+ -- method to make rudimentary entries in RAFDIS
+
+add if it doesn't already exist
+ -- whether to send any files back to Jeffco (in case there's no network)
+
+Decoded from $jobs:
+j_class -- job class (nimbus, n2asc, scp, etc.)
+sf_type -- source file type (ADS, netCDF, ASCII, etc.)
+jod -- job output destination (RAF, RTF, etc.)
+
+job configuration settings:
+  copy
+    ads
+    netCDF
+    PMS-2D
+    rawMCR
+    
+  nimbus
+    nimbus_sf -- optional nimbus setup file name
+                 (full path or with respect to project directory???)
+    nimbus_p -- name of nimbus program to use
+
+  n2asc
+    n2asc_p -- name of n2asc program to use
+    n2asc_v_f -- name of file with variable list (inserted into batch file)
+
+  scp
+   scp_p -- name of scp program to use
+   scp_machine -- destination machine for file transfer
+   scp_login -- login name on destination machine
+   scp_path -- destination file path
+   scp_file -- file type (ADS, netCDF, ASCII, etc.)
+   scp_gz -- gzip file (yes,no)

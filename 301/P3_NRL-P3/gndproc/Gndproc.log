@@ -1,0 +1,1660 @@
+From user@caddis.atd.ucar.edu Tue May 21 19:06:36 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id TAA26357;
+	Tue, 21 May 2002 19:06:35 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g4M179m05342;
+	Tue, 21 May 2002 19:07:09 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma005249; Tue, 21 May 02 19:06:23 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g4M16NR29871;
+	Tue, 21 May 2002 20:06:23 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g4M16Mn15176;
+	Tue, 21 May 2002 19:06:22 -0600
+Date: Tue, 21 May 2002 19:06:22 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200205220106.g4M16Mn15176@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1160
+Status: RO
+
+Processing script started Tue May 21 19:00:25 MDT 2002
+ 
+   Copying 301rf02a.ads to /fnet/data
+Successfully copied file from /r1/301rf02a.ads to /fnet/data/301rf02a.ads
+File copy job completed on Tue May 21 19:02:54 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf02a.ads
+gzipped /fnet/data/301rf02a.ads
+Beginning scp /fnet/data/301rf02a.ads.gz to Jeffco
+Successfully copied file 301rf02a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf02a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf02a.batch
+Nimbus completed successfully and created file 301rf02a.cdf
+gzipping /fnet/data/301rf02a.cdf
+Gzipped /fnet/data/301rf02a.cdf
+Beginning scp /fnet/data/301rf02a.cdf.gz to Jeffco
+Successfully copied file 301rf02a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf02a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf02a.cdf
+Successfully copied file 301rf02a.cdf.
+   /usr/local/scripts/gndproc completed @ Tue May 21 19:06:22 MDT 2002
+Log file for this job is /fnet/data/301rf02a.log
+
+From ron@caddis.atd.ucar.edu Wed May 22 09:06:28 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id JAA17775
+	for <ron@raf.atd.ucar.edu>; Wed, 22 May 2002 09:06:28 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g4MF72Z08802
+	for <ruth@ucar.edu>; Wed, 22 May 2002 09:07:02 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma008620; Wed, 22 May 02 09:07:00 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g4MF6xR03476
+	for <ruth@ucar.edu>; Wed, 22 May 2002 10:06:59 -0500 (CDT)
+Received: (from ron@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g4MF6xS20564
+	for ruth@ucar.edu; Wed, 22 May 2002 09:06:59 -0600
+From: Ron Ruth <ron@caddis.atd.ucar.edu>
+Message-Id: <200205221506.g4MF6xS20564@caddis.atd.ucar.edu>
+Subject: /usr/local/scripts/gndproc job completed
+To: ruth@ucar.edu
+Date: Wed, 22 May 2002 09:06:59 -0600 (MDT)
+X-Mailer: ELM [version 2.5 PL6]
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Content-Length: 11099
+Status: RO
+
+IHOP processing script has started. Tue May 21 12:25:55 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 12:26:02 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+IHOP processing script has started. Tue May 21 13:58:48 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 13:58:59 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+IHOP processing script has started. Tue May 21 14:03:18 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 14:04:10 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+IHOP processing script has started. Tue May 21 14:10:55 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 14:11:03 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 301rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+Jeffco scp netCDF file option turned off. 301rf01a.cdf not transferred
+Beginning scp /fnet/data/301rf01a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf01a.cdf
+Successfully copied file 301rf01a.cdf.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 14:47:14 MDT 2002 ---------------
+IHOP processing script restarted. Tue May 21 14:47:14 MDT 2002
+IHOP processing script started. Tue May 21 14:47:14 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 14:47:43 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 301rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+Jeffco scp netCDF file option turned off. 301rf01a.cdf not transferred
+Copying file for RTF
+Beginning scp /fnet/data/301rf01a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf01a.cdf
+Successfully copied file 301rf01a.cdf.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 15:11:53 MDT 2002 ---------------
+Processing script restarted Tue May 21 15:11:53 MDT 2002
+Processing script started Tue May 21 15:11:53 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 15:12:01 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 15:22:43 MDT 2002 ---------------
+Processing script restarted Tue May 21 15:22:43 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 15:22:50 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:01:19 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:01:19 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:01:29 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Error 1 running nimbus in batch mode on 301rf01a.ads.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:04:04 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:11:10 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:11:10 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:11:19 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Error 1 running nimbus in batch mode on 301rf01a.ads.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:13:54 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:17:29 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:17:29 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:17:41 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Error 1 running nimbus in batch mode on 301rf01a.ads.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:20:17 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:36:00 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:36:00 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:36:09 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:39:20 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:44:47 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:44:47 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:45:00 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:48:06 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+
+From user@caddis.atd.ucar.edu Wed May 22 21:34:34 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id VAA10640;
+	Wed, 22 May 2002 21:34:33 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g4N3Z8Y07502;
+	Wed, 22 May 2002 21:35:08 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma007421; Wed, 22 May 02 21:34:23 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g4N3YNR09370;
+	Wed, 22 May 2002 22:34:23 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g4N3YNb28526;
+	Wed, 22 May 2002 21:34:23 -0600
+Date: Wed, 22 May 2002 21:34:23 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200205230334.g4N3YNb28526@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Wed May 22 21:30:00 MDT 2002
+ 
+   Copying 301rf03a.ads to /fnet/data
+Successfully copied file from /r1/301rf03a.ads to /fnet/data/301rf03a.ads
+File copy job completed on Wed May 22 21:30:10 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf03a.ads
+gzipped /fnet/data/301rf03a.ads
+Beginning scp /fnet/data/301rf03a.ads.gz to Jeffco
+Successfully copied file 301rf03a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf03a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf03a.batch
+Nimbus completed successfully and created file 301rf03a.cdf
+gzipping /fnet/data/301rf03a.cdf
+Gzipped /fnet/data/301rf03a.cdf
+Beginning scp /fnet/data/301rf03a.cdf.gz to Jeffco
+Successfully copied file 301rf03a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf03a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf03a.cdf
+Successfully copied file 301rf03a.cdf.
+   /usr/local/scripts/gndproc completed @ Wed May 22 21:34:22 MDT 2002
+Log file for this job is /fnet/data/301rf03a.log
+
+From ron@caddis.atd.ucar.edu Thu May 23 14:18:31 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA10696;
+	Thu, 23 May 2002 14:18:31 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g4NKJ5v11585;
+	Thu, 23 May 2002 14:19:05 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma011427; Thu, 23 May 02 14:18:29 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g4NKISR14699;
+	Thu, 23 May 2002 15:18:28 -0500 (CDT)
+Received: (from ron@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g4NKISM02068;
+	Thu, 23 May 2002 14:18:28 -0600
+Date: Thu, 23 May 2002 14:18:28 -0600
+From: Ron Ruth <ron@caddis.atd.ucar.edu>
+Message-Id: <200205232018.g4NKISM02068@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: OR
+
+Processing script started Thu May 23 14:16:11 MDT 2002
+ 
+   Copying 301rf04a.ads to /fnet/data
+Successfully copied file from /r1/301rf04a.ads to /fnet/data/301rf04a.ads
+File copy job completed on Thu May 23 14:16:18 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf04a.ads
+gzipped /fnet/data/301rf04a.ads
+Beginning scp /fnet/data/301rf04a.ads.gz to Jeffco
+Successfully copied file 301rf04a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf04a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf04a.batch
+Nimbus completed successfully and created file 301rf04a.cdf
+gzipping /fnet/data/301rf04a.cdf
+Gzipped /fnet/data/301rf04a.cdf
+Beginning scp /fnet/data/301rf04a.cdf.gz to Jeffco
+Successfully copied file 301rf04a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf04a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf04a.cdf
+Successfully copied file 301rf04a.cdf.
+   /usr/local/scripts/gndproc completed @ Thu May 23 14:18:27 MDT 2002
+Log file for this job is /fnet/data/301rf04a.log
+
+From user@caddis.atd.ucar.edu Fri May 24 17:56:30 2002
+Received: from mscan3.ucar.edu (mscan3.ucar.edu [128.117.64.125])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id RAA26734;
+	Fri, 24 May 2002 17:56:29 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan3.ucar.edu (8.11.6/8.11.6) id g4ONv3x09782;
+	Fri, 24 May 2002 17:57:03 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan3.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma009701; Fri, 24 May 02 17:56:43 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g4ONugR23623;
+	Fri, 24 May 2002 18:56:42 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g4ONugU14470;
+	Fri, 24 May 2002 17:56:42 -0600
+Date: Fri, 24 May 2002 17:56:42 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200205242356.g4ONugU14470@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 2014
+Status: RO
+
+Processing script started Fri May 24 17:51:32 MDT 2002
+ 
+   Copying 301rf05a.ads to /fnet/data
+Successfully copied file from /r1/301rf05a.ads to /fnet/data/301rf05a.ads
+   Copying 301rf50a.ads to /fnet/data
+Successfully copied file from /r1/301rf50a.ads to /fnet/data/301rf50a.ads
+File copy job completed on Fri May 24 17:52:54 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 2 ADS file(s)
+gzipping /fnet/data/301rf05a.ads
+gzipped /fnet/data/301rf05a.ads
+Beginning scp /fnet/data/301rf05a.ads.gz to Jeffco
+Successfully copied file 301rf05a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf05a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf05a.batch
+Nimbus completed successfully and created file 301rf05a.cdf
+gzipping /fnet/data/301rf05a.cdf
+Gzipped /fnet/data/301rf05a.cdf
+Beginning scp /fnet/data/301rf05a.cdf.gz to Jeffco
+Successfully copied file 301rf05a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf05a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf05a.cdf
+Successfully copied file 301rf05a.cdf.
+gzipping /fnet/data/301rf50a.ads
+gzipped /fnet/data/301rf50a.ads
+Beginning scp /fnet/data/301rf50a.ads.gz to Jeffco
+Successfully copied file 301rf50a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf50a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf50a.batch
+Nimbus completed successfully and created file 301rf50a.cdf
+gzipping /fnet/data/301rf50a.cdf
+Gzipped /fnet/data/301rf50a.cdf
+Beginning scp /fnet/data/301rf50a.cdf.gz to Jeffco
+Successfully copied file 301rf50a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf50a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf50a.cdf
+Successfully copied file 301rf50a.cdf.
+   /usr/local/scripts/gndproc completed @ Fri May 24 17:56:41 MDT 2002
+Log file for this job is /fnet/data/301rf05a.log
+
+From user@caddis.atd.ucar.edu Tue May 28 10:51:26 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id KAA28789;
+	Tue, 28 May 2002 10:51:26 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g4SGq3e07834;
+	Tue, 28 May 2002 10:52:03 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma007646; Tue, 28 May 02 10:51:09 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g4SGp8R10325;
+	Tue, 28 May 2002 11:51:08 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g4SGp8a13883;
+	Tue, 28 May 2002 10:51:08 -0600
+Date: Tue, 28 May 2002 10:51:08 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200205281651.g4SGp8a13883@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Tue May 28 10:47:06 MDT 2002
+ 
+   Copying 301rf06a.ads to /fnet/data
+Successfully copied file from /r1/301rf06a.ads to /fnet/data/301rf06a.ads
+File copy job completed on Tue May 28 10:47:17 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf06a.ads
+gzipped /fnet/data/301rf06a.ads
+Beginning scp /fnet/data/301rf06a.ads.gz to Jeffco
+Successfully copied file 301rf06a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf06a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf06a.batch
+Nimbus completed successfully and created file 301rf06a.cdf
+gzipping /fnet/data/301rf06a.cdf
+Gzipped /fnet/data/301rf06a.cdf
+Beginning scp /fnet/data/301rf06a.cdf.gz to Jeffco
+Successfully copied file 301rf06a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf06a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf06a.cdf
+Successfully copied file 301rf06a.cdf.
+   /usr/local/scripts/gndproc completed @ Tue May 28 10:51:07 MDT 2002
+Log file for this job is /fnet/data/301rf06a.log
+
+From user@caddis.atd.ucar.edu Wed May 29 18:23:29 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA07633;
+	Wed, 29 May 2002 18:23:29 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g4U0O5u30019;
+	Wed, 29 May 2002 18:24:05 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma029927; Wed, 29 May 02 18:23:46 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g4U0NjR21391;
+	Wed, 29 May 2002 19:23:45 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g4U0NjJ21219;
+	Wed, 29 May 2002 18:23:45 -0600
+Date: Wed, 29 May 2002 18:23:45 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200205300023.g4U0NjJ21219@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 13176
+Status: RO
+
+IHOP processing script has started. Tue May 21 12:25:55 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 12:26:02 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+IHOP processing script has started. Tue May 21 13:58:48 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 13:58:59 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+IHOP processing script has started. Tue May 21 14:03:18 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 14:04:10 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+IHOP processing script has started. Tue May 21 14:10:55 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 14:11:03 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 301rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+Jeffco scp netCDF file option turned off. 301rf01a.cdf not transferred
+Beginning scp /fnet/data/301rf01a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf01a.cdf
+Successfully copied file 301rf01a.cdf.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 14:47:14 MDT 2002 ---------------
+IHOP processing script restarted. Tue May 21 14:47:14 MDT 2002
+IHOP processing script started. Tue May 21 14:47:14 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 14:47:43 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 301rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+Jeffco scp netCDF file option turned off. 301rf01a.cdf not transferred
+Copying file for RTF
+Beginning scp /fnet/data/301rf01a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf01a.cdf
+Successfully copied file 301rf01a.cdf.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 15:11:53 MDT 2002 ---------------
+Processing script restarted Tue May 21 15:11:53 MDT 2002
+Processing script started Tue May 21 15:11:53 MDT 2002
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 15:12:01 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 15:22:43 MDT 2002 ---------------
+Processing script restarted Tue May 21 15:22:43 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 15:22:50 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:01:19 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:01:19 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:01:29 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Error 1 running nimbus in batch mode on 301rf01a.ads.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:04:04 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:11:10 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:11:10 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:11:19 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Error 1 running nimbus in batch mode on 301rf01a.ads.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:13:54 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:17:29 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:17:29 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:17:41 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Error 1 running nimbus in batch mode on 301rf01a.ads.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:20:17 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:36:00 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:36:00 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:36:09 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:39:20 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Tue May 21 17:44:47 MDT 2002 ---------------
+Processing script restarted Tue May 21 17:44:47 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+File copy job completed on Tue May 21 17:45:00 MDT 2002
+Turn key clockwise to release drive.
+Remove drive when display indicates "u".
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue May 21 17:48:06 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+--------------- Wed May 29 18:16:06 MDT 2002 ---------------
+Processing script restarted Wed May 29 18:16:06 MDT 2002
+ 
+   Copying 301rf01a.ads to /fnet/data
+Successfully copied file from /r1/301rf01a.ads to /fnet/data/301rf01a.ads
+   Copying 301rf07a.ads to /fnet/data
+Successfully copied file from /r1/301rf07a.ads to /fnet/data/301rf07a.ads
+File copy job completed on Wed May 29 18:16:24 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 2 ADS file(s)
+gzipping /fnet/data/301rf01a.ads
+gzipped /fnet/data/301rf01a.ads
+Beginning scp /fnet/data/301rf01a.ads.gz to Jeffco
+Successfully copied file 301rf01a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf01a.batch
+Nimbus completed successfully and created file 301rf01a.cdf
+gzipping /fnet/data/301rf01a.cdf
+Gzipped /fnet/data/301rf01a.cdf
+Beginning scp /fnet/data/301rf01a.cdf.gz to Jeffco
+Successfully copied file 301rf01a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf01a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf01a.cdf
+Successfully copied file 301rf01a.cdf.
+gzipping /fnet/data/301rf07a.ads
+gzipped /fnet/data/301rf07a.ads
+Beginning scp /fnet/data/301rf07a.ads.gz to Jeffco
+Successfully copied file 301rf07a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf07a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf07a.batch
+Nimbus completed successfully and created file 301rf07a.cdf
+gzipping /fnet/data/301rf07a.cdf
+Gzipped /fnet/data/301rf07a.cdf
+Beginning scp /fnet/data/301rf07a.cdf.gz to Jeffco
+Successfully copied file 301rf07a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf07a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf07a.cdf
+Successfully copied file 301rf07a.cdf.
+   /usr/local/scripts/gndproc completed @ Wed May 29 18:23:44 MDT 2002
+Log file for this job is /fnet/data/301rf01a.log
+
+From user@caddis.atd.ucar.edu Sun Jun  2 18:33:28 2002
+Received: from mscan3.ucar.edu (mscan3.ucar.edu [128.117.64.125])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA25997;
+	Sun, 2 Jun 2002 18:33:28 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan3.ucar.edu (8.11.6/8.11.6) id g530Y6U20485;
+	Sun, 2 Jun 2002 18:34:06 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan3.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma020443; Sun, 2 Jun 02 18:33:06 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g530X6R12564;
+	Sun, 2 Jun 2002 19:33:06 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g530X6e21830;
+	Sun, 2 Jun 2002 18:33:06 -0600
+Date: Sun, 2 Jun 2002 18:33:06 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206030033.g530X6e21830@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1211
+Status: RO
+
+Processing script started Sun Jun 2 18:29:33 MDT 2002
+ 
+   Copying 301rf08a.ads to /fnet/data
+Successfully copied file from /r1/301rf08a.ads to /fnet/data/301rf08a.ads
+File copy job completed on Sun Jun 2 18:29:41 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf08a.ads
+gzipped /fnet/data/301rf08a.ads
+Beginning scp /fnet/data/301rf08a.ads.gz to Jeffco
+Successfully copied file 301rf08a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf08a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf08a.batch
+Nimbus completed successfully and created file 301rf08a.cdf
+gzipping /fnet/data/301rf08a.cdf
+Gzipped /fnet/data/301rf08a.cdf
+Beginning scp /fnet/data/301rf08a.cdf.gz to Jeffco
+Successfully copied file 301rf08a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf08a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf08a.cdf
+Successfully copied file 301rf08a.cdf.
+   /usr/local/scripts/gndproc completed @ Sun Jun  2 18:33:05 MDT 2002
+Log file for this job is /fnet/data/301rf08a.log
+
+From user@caddis.atd.ucar.edu Tue Jun  4 08:12:31 2002
+Received: from mscan3.ucar.edu (mscan3.ucar.edu [128.117.64.125])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id IAA23118;
+	Tue, 4 Jun 2002 08:12:31 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan3.ucar.edu (8.11.6/8.11.6) id g54EDAs15476;
+	Tue, 4 Jun 2002 08:13:10 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan3.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma015373; Tue, 4 Jun 02 08:12:10 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g54EC8R21266;
+	Tue, 4 Jun 2002 09:12:08 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g54EC8t30562;
+	Tue, 4 Jun 2002 08:12:08 -0600
+Date: Tue, 4 Jun 2002 08:12:08 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206041412.g54EC8t30562@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1211
+Status: RO
+
+Processing script started Tue Jun 4 08:05:39 MDT 2002
+ 
+   Copying 301rf09a.ads to /fnet/data
+Successfully copied file from /r1/301rf09a.ads to /fnet/data/301rf09a.ads
+File copy job completed on Tue Jun 4 08:06:04 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf09a.ads
+gzipped /fnet/data/301rf09a.ads
+Beginning scp /fnet/data/301rf09a.ads.gz to Jeffco
+Successfully copied file 301rf09a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf09a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf09a.batch
+Nimbus completed successfully and created file 301rf09a.cdf
+gzipping /fnet/data/301rf09a.cdf
+Gzipped /fnet/data/301rf09a.cdf
+Beginning scp /fnet/data/301rf09a.cdf.gz to Jeffco
+Successfully copied file 301rf09a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf09a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf09a.cdf
+Successfully copied file 301rf09a.cdf.
+   /usr/local/scripts/gndproc completed @ Tue Jun  4 08:12:07 MDT 2002
+Log file for this job is /fnet/data/301rf09a.log
+
+From user@caddis.atd.ucar.edu Fri Jun  7 18:23:27 2002
+Received: from mscan3.ucar.edu (mscan3.ucar.edu [128.117.64.125])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id SAA00690;
+	Fri, 7 Jun 2002 18:23:26 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan3.ucar.edu (8.11.6/8.11.6) id g580O4p16388;
+	Fri, 7 Jun 2002 18:24:04 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan3.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma016265; Fri, 7 Jun 02 18:23:57 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g580NvR18121;
+	Fri, 7 Jun 2002 19:23:57 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g580NvZ18195;
+	Fri, 7 Jun 2002 18:23:57 -0600
+Date: Fri, 7 Jun 2002 18:23:57 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206080023.g580NvZ18195@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1211
+Status: RO
+
+Processing script started Fri Jun 7 18:19:57 MDT 2002
+ 
+   Copying 301rf10a.ads to /fnet/data
+Successfully copied file from /r1/301rf10a.ads to /fnet/data/301rf10a.ads
+File copy job completed on Fri Jun 7 18:21:25 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf10a.ads
+gzipped /fnet/data/301rf10a.ads
+Beginning scp /fnet/data/301rf10a.ads.gz to Jeffco
+Successfully copied file 301rf10a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf10a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf10a.batch
+Nimbus completed successfully and created file 301rf10a.cdf
+gzipping /fnet/data/301rf10a.cdf
+Gzipped /fnet/data/301rf10a.cdf
+Beginning scp /fnet/data/301rf10a.cdf.gz to Jeffco
+Successfully copied file 301rf10a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf10a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf10a.cdf
+Successfully copied file 301rf10a.cdf.
+   /usr/local/scripts/gndproc completed @ Fri Jun  7 18:23:55 MDT 2002
+Log file for this job is /fnet/data/301rf10a.log
+
+From user@caddis.atd.ucar.edu Sat Jun  8 08:39:27 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id IAA13028;
+	Sat, 8 Jun 2002 08:39:26 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g58Ee6m32395;
+	Sat, 8 Jun 2002 08:40:06 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma032334; Sat, 8 Jun 02 08:39:26 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g58EdQR19833;
+	Sat, 8 Jun 2002 09:39:26 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g58EdPY21724;
+	Sat, 8 Jun 2002 08:39:25 -0600
+Date: Sat, 8 Jun 2002 08:39:25 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206081439.g58EdPY21724@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1211
+Status: RO
+
+Processing script started Sat Jun 8 08:35:29 MDT 2002
+ 
+   Copying 301rf11a.ads to /fnet/data
+Successfully copied file from /r1/301rf11a.ads to /fnet/data/301rf11a.ads
+File copy job completed on Sat Jun 8 08:35:39 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf11a.ads
+gzipped /fnet/data/301rf11a.ads
+Beginning scp /fnet/data/301rf11a.ads.gz to Jeffco
+Successfully copied file 301rf11a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf11a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf11a.batch
+Nimbus completed successfully and created file 301rf11a.cdf
+gzipping /fnet/data/301rf11a.cdf
+Gzipped /fnet/data/301rf11a.cdf
+Beginning scp /fnet/data/301rf11a.cdf.gz to Jeffco
+Successfully copied file 301rf11a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf11a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf11a.cdf
+Successfully copied file 301rf11a.cdf.
+   /usr/local/scripts/gndproc completed @ Sat Jun  8 08:39:25 MDT 2002
+Log file for this job is /fnet/data/301rf11a.log
+
+From user@caddis.atd.ucar.edu Sun Jun  9 21:14:27 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id VAA14130;
+	Sun, 9 Jun 2002 21:14:27 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g5A3F7N13199;
+	Sun, 9 Jun 2002 21:15:07 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma013085; Sun, 9 Jun 02 21:14:09 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5A3E9R24229;
+	Sun, 9 Jun 2002 22:14:09 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5A3E8P08701;
+	Sun, 9 Jun 2002 21:14:08 -0600
+Date: Sun, 9 Jun 2002 21:14:08 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206100314.g5A3E8P08701@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1211
+Status: RO
+
+Processing script started Sun Jun 9 21:08:55 MDT 2002
+ 
+   Copying 301rf12a.ads to /fnet/data
+Successfully copied file from /r1/301rf12a.ads to /fnet/data/301rf12a.ads
+File copy job completed on Sun Jun 9 21:09:06 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf12a.ads
+gzipped /fnet/data/301rf12a.ads
+Beginning scp /fnet/data/301rf12a.ads.gz to Jeffco
+Successfully copied file 301rf12a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf12a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf12a.batch
+Nimbus completed successfully and created file 301rf12a.cdf
+gzipping /fnet/data/301rf12a.cdf
+Gzipped /fnet/data/301rf12a.cdf
+Beginning scp /fnet/data/301rf12a.cdf.gz to Jeffco
+Successfully copied file 301rf12a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf12a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf12a.cdf
+Successfully copied file 301rf12a.cdf.
+   /usr/local/scripts/gndproc completed @ Sun Jun  9 21:14:07 MDT 2002
+Log file for this job is /fnet/data/301rf12a.log
+
+From user@caddis.atd.ucar.edu Mon Jun 10 19:28:27 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id TAA13778;
+	Mon, 10 Jun 2002 19:28:26 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g5B1T7p03825;
+	Mon, 10 Jun 2002 19:29:07 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma003647; Mon, 10 Jun 02 19:28:05 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5B1S4R01392;
+	Mon, 10 Jun 2002 20:28:04 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5B1S4N14361;
+	Mon, 10 Jun 2002 19:28:04 -0600
+Date: Mon, 10 Jun 2002 19:28:04 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206110128.g5B1S4N14361@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Mon Jun 10 19:22:51 MDT 2002
+ 
+   Copying 301rf13a.ads to /fnet/data
+Successfully copied file from /r1/301rf13a.ads to /fnet/data/301rf13a.ads
+File copy job completed on Mon Jun 10 19:23:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf13a.ads
+gzipped /fnet/data/301rf13a.ads
+Beginning scp /fnet/data/301rf13a.ads.gz to Jeffco
+Successfully copied file 301rf13a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf13a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf13a.batch
+Nimbus completed successfully and created file 301rf13a.cdf
+gzipping /fnet/data/301rf13a.cdf
+Gzipped /fnet/data/301rf13a.cdf
+Beginning scp /fnet/data/301rf13a.cdf.gz to Jeffco
+Successfully copied file 301rf13a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf13a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf13a.cdf
+Successfully copied file 301rf13a.cdf.
+   /usr/local/scripts/gndproc completed @ Mon Jun 10 19:28:03 MDT 2002
+Log file for this job is /fnet/data/301rf13a.log
+
+From user@caddis.atd.ucar.edu Tue Jun 11 20:44:32 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id UAA17432;
+	Tue, 11 Jun 2002 20:44:32 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g5C2jBn16876;
+	Tue, 11 Jun 2002 20:45:12 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma016642; Tue, 11 Jun 02 20:42:52 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5C2gpR10413;
+	Tue, 11 Jun 2002 21:42:51 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5C2gpd21044;
+	Tue, 11 Jun 2002 20:42:51 -0600
+Date: Tue, 11 Jun 2002 20:42:51 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206120242.g5C2gpd21044@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Tue Jun 11 20:36:54 MDT 2002
+ 
+   Copying 301rf14a.ads to /fnet/data
+Successfully copied file from /r1/301rf14a.ads to /fnet/data/301rf14a.ads
+File copy job completed on Tue Jun 11 20:37:07 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf14a.ads
+gzipped /fnet/data/301rf14a.ads
+Beginning scp /fnet/data/301rf14a.ads.gz to Jeffco
+Successfully copied file 301rf14a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf14a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf14a.batch
+Nimbus completed successfully and created file 301rf14a.cdf
+gzipping /fnet/data/301rf14a.cdf
+Gzipped /fnet/data/301rf14a.cdf
+Beginning scp /fnet/data/301rf14a.cdf.gz to Jeffco
+Successfully copied file 301rf14a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf14a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf14a.cdf
+Successfully copied file 301rf14a.cdf.
+   /usr/local/scripts/gndproc completed @ Tue Jun 11 20:42:50 MDT 2002
+Log file for this job is /fnet/data/301rf14a.log
+
+From user@caddis.atd.ucar.edu Wed Jun 12 20:35:27 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id UAA19204;
+	Wed, 12 Jun 2002 20:35:27 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g5D2a8417390;
+	Wed, 12 Jun 2002 20:36:08 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma017257; Wed, 12 Jun 02 20:35:36 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5D2ZaR22047;
+	Wed, 12 Jun 2002 21:35:36 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5D2Za727945;
+	Wed, 12 Jun 2002 20:35:36 -0600
+Date: Wed, 12 Jun 2002 20:35:36 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206130235.g5D2Za727945@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Wed Jun 12 20:31:07 MDT 2002
+ 
+   Copying 301rf15a.ads to /fnet/data
+Successfully copied file from /r1/301rf15a.ads to /fnet/data/301rf15a.ads
+File copy job completed on Wed Jun 12 20:31:18 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf15a.ads
+gzipped /fnet/data/301rf15a.ads
+Beginning scp /fnet/data/301rf15a.ads.gz to Jeffco
+Successfully copied file 301rf15a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf15a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf15a.batch
+Nimbus completed successfully and created file 301rf15a.cdf
+gzipping /fnet/data/301rf15a.cdf
+Gzipped /fnet/data/301rf15a.cdf
+Beginning scp /fnet/data/301rf15a.cdf.gz to Jeffco
+Successfully copied file 301rf15a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf15a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf15a.cdf
+Successfully copied file 301rf15a.cdf.
+   /usr/local/scripts/gndproc completed @ Wed Jun 12 20:35:35 MDT 2002
+Log file for this job is /fnet/data/301rf15a.log
+
+From user@caddis.atd.ucar.edu Fri Jun 14 13:53:26 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id NAA04836;
+	Fri, 14 Jun 2002 13:53:26 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g5EJs8G23414;
+	Fri, 14 Jun 2002 13:54:08 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma023264; Fri, 14 Jun 02 13:53:32 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5EJrVr18171;
+	Fri, 14 Jun 2002 14:53:31 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5EJrV305558;
+	Fri, 14 Jun 2002 13:53:31 -0600
+Date: Fri, 14 Jun 2002 13:53:31 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206141953.g5EJrV305558@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1220
+Status: RO
+
+Processing script started Fri Jun 14 13:33:14 MDT 2002
+ 
+   Copying 301rf16a.ads to /fnet/data
+Successfully copied file from /r1/301rf16a.ads to /fnet/data/301rf16a.ads
+File copy job completed on Fri Jun 14 13:33:25 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf16a.ads
+gzipped /fnet/data/301rf16a.ads
+Beginning scp /fnet/data/301rf16a.ads.gz to Jeffco
+scp failed on file 301rf16a.ads.gz with error 1.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf16a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf16a.batch
+Nimbus completed successfully and created file 301rf16a.cdf
+gzipping /fnet/data/301rf16a.cdf
+Gzipped /fnet/data/301rf16a.cdf
+Beginning scp /fnet/data/301rf16a.cdf.gz to Jeffco
+Successfully copied file 301rf16a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf16a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf16a.cdf
+Successfully copied file 301rf16a.cdf.
+   /usr/local/scripts/gndproc completed @ Fri Jun 14 13:53:30 MDT 2002
+Log file for this job is /fnet/data/301rf16a.log
+
+From user@caddis.atd.ucar.edu Sat Jun 15 20:57:27 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id UAA22177;
+	Sat, 15 Jun 2002 20:57:27 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g5G2w8s26583;
+	Sat, 15 Jun 2002 20:58:08 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma026541; Sat, 15 Jun 02 20:57:41 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5G2ver24287;
+	Sat, 15 Jun 2002 21:57:40 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5G2ve413915;
+	Sat, 15 Jun 2002 20:57:40 -0600
+Date: Sat, 15 Jun 2002 20:57:40 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206160257.g5G2ve413915@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Sat Jun 15 20:52:23 MDT 2002
+ 
+   Copying 301rf17a.ads to /fnet/data
+Successfully copied file from /r1/301rf17a.ads to /fnet/data/301rf17a.ads
+File copy job completed on Sat Jun 15 20:52:40 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf17a.ads
+gzipped /fnet/data/301rf17a.ads
+Beginning scp /fnet/data/301rf17a.ads.gz to Jeffco
+Successfully copied file 301rf17a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf17a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf17a.batch
+Nimbus completed successfully and created file 301rf17a.cdf
+gzipping /fnet/data/301rf17a.cdf
+Gzipped /fnet/data/301rf17a.cdf
+Beginning scp /fnet/data/301rf17a.cdf.gz to Jeffco
+Successfully copied file 301rf17a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf17a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf17a.cdf
+Successfully copied file 301rf17a.cdf.
+   /usr/local/scripts/gndproc completed @ Sat Jun 15 20:57:39 MDT 2002
+Log file for this job is /fnet/data/301rf17a.log
+
+From user@caddis.atd.ucar.edu Sun Jun 16 16:31:32 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id QAA00833;
+	Sun, 16 Jun 2002 16:31:32 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g5GMWD400983;
+	Sun, 16 Jun 2002 16:32:13 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma000904; Sun, 16 Jun 02 16:31:42 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5GMVfr26555;
+	Sun, 16 Jun 2002 17:31:41 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5GMVfh30096;
+	Sun, 16 Jun 2002 16:31:41 -0600
+Date: Sun, 16 Jun 2002 16:31:41 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206162231.g5GMVfh30096@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Sun Jun 16 16:28:10 MDT 2002
+ 
+   Copying 301rf18a.ads to /fnet/data
+Successfully copied file from /r1/301rf18a.ads to /fnet/data/301rf18a.ads
+File copy job completed on Sun Jun 16 16:28:19 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf18a.ads
+gzipped /fnet/data/301rf18a.ads
+Beginning scp /fnet/data/301rf18a.ads.gz to Jeffco
+Successfully copied file 301rf18a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf18a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf18a.batch
+Nimbus completed successfully and created file 301rf18a.cdf
+gzipping /fnet/data/301rf18a.cdf
+Gzipped /fnet/data/301rf18a.cdf
+Beginning scp /fnet/data/301rf18a.cdf.gz to Jeffco
+Successfully copied file 301rf18a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf18a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf18a.cdf
+Successfully copied file 301rf18a.cdf.
+   /usr/local/scripts/gndproc completed @ Sun Jun 16 16:31:40 MDT 2002
+Log file for this job is /fnet/data/301rf18a.log
+
+From user@caddis.atd.ucar.edu Tue Jun 18 19:49:18 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id TAA00191;
+	Tue, 18 Jun 2002 19:49:18 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g5J1o1300603;
+	Tue, 18 Jun 2002 19:50:01 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma000532; Tue, 18 Jun 02 19:49:49 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5J1nmr11147;
+	Tue, 18 Jun 2002 20:49:48 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5J1nm810427;
+	Tue, 18 Jun 2002 19:49:48 -0600
+Date: Tue, 18 Jun 2002 19:49:48 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206190149.g5J1nm810427@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Tue Jun 18 19:44:11 MDT 2002
+ 
+   Copying 301rf19a.ads to /fnet/data
+Successfully copied file from /r1/301rf19a.ads to /fnet/data/301rf19a.ads
+File copy job completed on Tue Jun 18 19:44:21 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf19a.ads
+gzipped /fnet/data/301rf19a.ads
+Beginning scp /fnet/data/301rf19a.ads.gz to Jeffco
+Successfully copied file 301rf19a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf19a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf19a.batch
+Nimbus completed successfully and created file 301rf19a.cdf
+gzipping /fnet/data/301rf19a.cdf
+Gzipped /fnet/data/301rf19a.cdf
+Beginning scp /fnet/data/301rf19a.cdf.gz to Jeffco
+Successfully copied file 301rf19a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf19a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf19a.cdf
+Successfully copied file 301rf19a.cdf.
+   /usr/local/scripts/gndproc completed @ Tue Jun 18 19:49:47 MDT 2002
+Log file for this job is /fnet/data/301rf19a.log
+
+From user@caddis.atd.ucar.edu Thu Jun 20 10:12:19 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id KAA04581;
+	Thu, 20 Jun 2002 10:12:19 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g5KGD2n18585;
+	Thu, 20 Jun 2002 10:13:02 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma018452; Thu, 20 Jun 02 10:12:11 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5KGCCr24151;
+	Thu, 20 Jun 2002 11:12:12 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5KGCBY21855;
+	Thu, 20 Jun 2002 10:12:11 -0600
+Date: Thu, 20 Jun 2002 10:12:11 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206201612.g5KGCBY21855@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Thu Jun 20 09:48:10 MDT 2002
+ 
+   Copying 301rf20a.ads to /fnet/data
+Successfully copied file from /r1/301rf20a.ads to /fnet/data/301rf20a.ads
+File copy job completed on Thu Jun 20 09:48:19 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf20a.ads
+gzipped /fnet/data/301rf20a.ads
+Beginning scp /fnet/data/301rf20a.ads.gz to Jeffco
+Successfully copied file 301rf20a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf20a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf20a.batch
+Nimbus completed successfully and created file 301rf20a.cdf
+gzipping /fnet/data/301rf20a.cdf
+Gzipped /fnet/data/301rf20a.cdf
+Beginning scp /fnet/data/301rf20a.cdf.gz to Jeffco
+Successfully copied file 301rf20a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf20a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf20a.cdf
+Successfully copied file 301rf20a.cdf.
+   /usr/local/scripts/gndproc completed @ Thu Jun 20 10:12:11 MDT 2002
+Log file for this job is /fnet/data/301rf20a.log
+
+From user@caddis.atd.ucar.edu Thu Jun 20 11:28:27 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id LAA06759;
+	Thu, 20 Jun 2002 11:28:27 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g5KHTAA19209;
+	Thu, 20 Jun 2002 11:29:10 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma019014; Thu, 20 Jun 02 11:28:20 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5KHSFr24862;
+	Thu, 20 Jun 2002 12:28:15 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5KHSEh22309;
+	Thu, 20 Jun 2002 11:28:14 -0600
+Date: Thu, 20 Jun 2002 11:28:14 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206201728.g5KHSEh22309@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Thu Jun 20 10:59:59 MDT 2002
+ 
+   Copying 301rf21a.ads to /fnet/data
+Successfully copied file from /r1/301rf21a.ads to /fnet/data/301rf21a.ads
+File copy job completed on Thu Jun 20 11:00:13 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf21a.ads
+gzipped /fnet/data/301rf21a.ads
+Beginning scp /fnet/data/301rf21a.ads.gz to Jeffco
+Successfully copied file 301rf21a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf21a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf21a.batch
+Nimbus completed successfully and created file 301rf21a.cdf
+gzipping /fnet/data/301rf21a.cdf
+Gzipped /fnet/data/301rf21a.cdf
+Beginning scp /fnet/data/301rf21a.cdf.gz to Jeffco
+Successfully copied file 301rf21a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf21a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf21a.cdf
+Successfully copied file 301rf21a.cdf.
+   /usr/local/scripts/gndproc completed @ Thu Jun 20 11:28:14 MDT 2002
+Log file for this job is /fnet/data/301rf21a.log
+
+From user@caddis.atd.ucar.edu Fri Jun 21 15:54:19 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id PAA26925;
+	Fri, 21 Jun 2002 15:54:19 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g5LLt3d14513;
+	Fri, 21 Jun 2002 15:55:03 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma014233; Fri, 21 Jun 02 15:54:29 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5LLsSr05954;
+	Fri, 21 Jun 2002 16:54:28 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5LLsSC29565;
+	Fri, 21 Jun 2002 15:54:28 -0600
+Date: Fri, 21 Jun 2002 15:54:28 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206212154.g5LLsSC29565@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Fri Jun 21 15:46:59 MDT 2002
+ 
+   Copying 301rf22a.ads to /fnet/data
+Successfully copied file from /r1/301rf22a.ads to /fnet/data/301rf22a.ads
+File copy job completed on Fri Jun 21 15:47:14 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf22a.ads
+gzipped /fnet/data/301rf22a.ads
+Beginning scp /fnet/data/301rf22a.ads.gz to Jeffco
+Successfully copied file 301rf22a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf22a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf22a.batch
+Nimbus completed successfully and created file 301rf22a.cdf
+gzipping /fnet/data/301rf22a.cdf
+Gzipped /fnet/data/301rf22a.cdf
+Beginning scp /fnet/data/301rf22a.cdf.gz to Jeffco
+Successfully copied file 301rf22a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf22a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf22a.cdf
+Successfully copied file 301rf22a.cdf.
+   /usr/local/scripts/gndproc completed @ Fri Jun 21 15:54:27 MDT 2002
+Log file for this job is /fnet/data/301rf22a.log
+
+From user@caddis.atd.ucar.edu Sat Jun 22 16:15:23 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id QAA07730;
+	Sat, 22 Jun 2002 16:15:23 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g5MMG8n28533;
+	Sat, 22 Jun 2002 16:16:08 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma028478; Sat, 22 Jun 02 16:15:07 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5MMF7r10286;
+	Sat, 22 Jun 2002 17:15:07 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5MMF6h03356;
+	Sat, 22 Jun 2002 16:15:06 -0600
+Date: Sat, 22 Jun 2002 16:15:06 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206222215.g5MMF6h03356@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Sat Jun 22 16:12:30 MDT 2002
+ 
+   Copying 301rf23a.ads to /fnet/data
+Successfully copied file from /r1/301rf23a.ads to /fnet/data/301rf23a.ads
+File copy job completed on Sat Jun 22 16:12:37 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf23a.ads
+gzipped /fnet/data/301rf23a.ads
+Beginning scp /fnet/data/301rf23a.ads.gz to Jeffco
+Successfully copied file 301rf23a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf23a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf23a.batch
+Nimbus completed successfully and created file 301rf23a.cdf
+gzipping /fnet/data/301rf23a.cdf
+Gzipped /fnet/data/301rf23a.cdf
+Beginning scp /fnet/data/301rf23a.cdf.gz to Jeffco
+Successfully copied file 301rf23a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf23a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf23a.cdf
+Successfully copied file 301rf23a.cdf.
+   /usr/local/scripts/gndproc completed @ Sat Jun 22 16:15:06 MDT 2002
+Log file for this job is /fnet/data/301rf23a.log
+
+From user@caddis.atd.ucar.edu Tue Jun 25 17:03:23 2002
+Received: from mscan3.ucar.edu (mscan3.ucar.edu [128.117.64.125])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id RAA16653;
+	Tue, 25 Jun 2002 17:03:23 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan3.ucar.edu (8.11.6/8.11.6) id g5PN47g14451;
+	Tue, 25 Jun 2002 17:04:07 -0600
+Received: from lazarus.nssl.noaa.gov(129.15.67.3) by mscan3.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma014383; Tue, 25 Jun 02 17:03:55 -0600
+Received: from caddis.atd.ucar.edu ([129.15.54.180])
+	by lazarus.nssl.noaa.gov (8.11.3/8.11.3) with ESMTP id g5PN3tT01857;
+	Tue, 25 Jun 2002 18:03:55 -0500 (CDT)
+Received: (from user@localhost)
+	by caddis.atd.ucar.edu (8.11.6/8.11.6) id g5PN3s200397;
+	Tue, 25 Jun 2002 17:03:54 -0600
+Date: Tue, 25 Jun 2002 17:03:54 -0600
+From: Joe User <user@caddis.atd.ucar.edu>
+Message-Id: <200206252303.g5PN3s200397@caddis.atd.ucar.edu>
+To: ruth@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1213
+Status: RO
+
+Processing script started Tue Jun 25 16:57:51 MDT 2002
+ 
+   Copying 301rf24a.ads to /fnet/data
+Successfully copied file from /r1/301rf24a.ads to /fnet/data/301rf24a.ads
+File copy job completed on Tue Jun 25 16:58:07 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+gzipping /fnet/data/301rf24a.ads
+gzipped /fnet/data/301rf24a.ads
+Beginning scp /fnet/data/301rf24a.ads.gz to Jeffco
+Successfully copied file 301rf24a.ads.gz.
+Setting name for nimbus batch file
+Creating nimbus batch file 301rf24a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 301rf24a.batch
+Nimbus completed successfully and created file 301rf24a.cdf
+gzipping /fnet/data/301rf24a.cdf
+Gzipped /fnet/data/301rf24a.cdf
+Beginning scp /fnet/data/301rf24a.cdf.gz to Jeffco
+Successfully copied file 301rf24a.cdf.gz.
+Copying file for RTF
+Beginning scp /fnet/data/301rf24a.cdf to dmg@charlie:/scr/science41/dmg/IHOP/p3/301rf24a.cdf
+Successfully copied file 301rf24a.cdf.
+   /usr/local/scripts/gndproc completed @ Tue Jun 25 17:03:54 MDT 2002
+Log file for this job is /fnet/data/301rf24a.log
+

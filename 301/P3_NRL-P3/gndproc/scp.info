@@ -1,0 +1,11 @@
+get new key set on caddis (source machine):
+
+    43  13:05   ssh-keygen -d
+    47  13:06   scp id_dsa.pub raf:.ssh/id_dsa.ron@ihop.pub
+
+on raf (destination machine):
+    69  13:08   cp id_dsa.ron@ihop.pub authorized_keys2
+    69  13:08   cat id_dsa.ron@ihop.pub >> authorized_keys2
+
+ls .ssh
+id_dsa  id_dsa.pub  identity  identity.pub  known_hosts  known_hosts2
