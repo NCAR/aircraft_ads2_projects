@@ -1,0 +1,37 @@
+#
+#  gndproc job file
+#  name:  scp_ads_raf
+#    secure copy:  raw ADS data file to RAF
+#
+#  Notes:  Comment lines start with #
+#          An authorized keyset between source and destination machines
+#           must be set up for scp to work
+#          Success also depends on a network connection which may not exist
+#
+#  What is set (Edit this line to add/delete settings.)
+scp_set = scp_p zip login dest ddp
+#   (Raw data files should never have an "fmod")
+#scp_set = scp_p zip login dest ddp fmod
+#
+#  Settings
+#   scp program assignment (with command-line options, if any)
+scp_p = /usr/bin/scp
+#scp_p = /usr/bin/scp -AqB
+#
+#   gzip the file?
+zip = yes
+#zip = no
+#
+#   Destination login name
+login = ron
+#login = ihop-anstett
+#
+#   Destination machine (IP address)
+dest = raf.atd.ucar.edu
+#
+#   Destination data path on destination machine
+ddp = /jnet/data
+#
+#   Output file-name modifier to uniquely define this data set
+fmod = raf
+#

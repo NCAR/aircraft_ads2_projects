@@ -1,0 +1,34 @@
+#
+#  gndproc job file
+#  name:  ftp_ads_raf
+#    ftp:  raw ADS data file to RAF
+#
+#  Notes:  Comment lines start with #
+#          Success depends on a network connection which may not exist
+#
+#  What is set (Edit this line to add/delete settings.)
+ftp_set = ftp_p zip login dest ddp
+#   (Raw data files should never have an "fmod")
+#ftp_set = ftp_p zip login dest ddp fmod
+#
+#  Settings
+#   ftp program assignment (with command-line options, if any)
+ftp_p = /usr/bin/ftp -n -v
+#ftp_p = /usr/kerberos/bin/ftp -n -v
+#
+#   gzip the file?
+zip = yes
+#zip = no
+#
+#   Destination login name
+login = anonymous
+#
+#   Destination machine (IP address)
+dest = raf.atd.ucar.edu
+#
+#   Destination data path on destination machine
+ddp = /jnet/data
+#
+#   Output file-name modifier to uniquely define this data set
+fmod = raf
+#

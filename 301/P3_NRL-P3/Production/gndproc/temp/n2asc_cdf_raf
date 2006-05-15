@@ -1,0 +1,44 @@
+#
+#  gndproc job file
+#  name:  n2asc_cdf_raf
+#    run "n2asc" using nimbus netCDF data to produce a special ASCII data file
+#
+#  Note:  Comment lines start with #
+#
+#  What is set (Edit this line to add/delete settings.)
+n2asc_set = n2asc_p format varlist fmod nasa
+#n2asc_set = n2asc_p varlist
+#
+#  Settings
+#   n2asc program
+#    (Don't add command-line options, since they're handled by the script.)
+#    Production version
+n2asc_p = n2asc
+#n2asc_p = /usr/local/bin/n2asc
+#    Development version
+#n2asc_p = /usr/local/dev/n2asc/n2asc
+#
+#   Output format for all variables
+#    (e.g., %14e == 2.52932e-01, default is %10.3f)
+format = %14e
+#
+#   Output variable list (separated by white space)
+varlist = ADIFR BDIFR
+#    
+#   Output file name modifier for user:  RAF
+#    file name will be of the form pppxfnns_fmod.aext
+#     where:   ppp = 3-digit project number
+#                x = f (ferry), r (research), t(test)
+#                f = <f character>
+#               nn = 2-digit flight number
+#                s = possible segment letter (may not be present)
+#                _ = <underscore character>
+#             fmod = file name modifier             <-- (set below)
+#                . = <period character>
+#             aext = ASCII extension (txt)
+fmod = raf
+#
+#   Use special NASA ASCII output format?
+nasa = yes
+#nasa = no
+#
