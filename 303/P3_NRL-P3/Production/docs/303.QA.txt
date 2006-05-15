@@ -1,0 +1,107 @@
+                    Data Quality Report
+                  NRL P3 - Project #3-303
+            BAMEX
+                        Davis et al
+
+                            by
+
+    	   Allen Schanot 
+
+This summary has been written to outline basic instrumentation problems affecting the data set and is not intended to point out every bit of questionable data.  It is hoped that this information will facilitate use of the data as the research concentrates on specific flights and times.
+
+The following report covers only the RAF supplied 'in-situ' instrumentation and is organized into two sections.  The first section lists recurring problems, general limitations, and systematic biases in the standard RAF measurements.  The second section lists isolated problems occurring on a flight-by-flight basis.  
+
+Section I:  General Discussion
+
+1. Aircraft position, ground speed, and attitude are provided by a Honeywell Inertial Laser Reference System (IRS).  The values of PITCH, ROLL, and THDG are recorded at 50 sps and are highly accurate.  However, the position and ground speed data are susceptible to long term drift known as the Schuler oscillation, typically reducing their accuracy over the duration of a flight.  A Garman Global Positioning System (GPS) was used as a more accurate position reference during the program. When the GPS is working properly it can provide data with an accuracy of better than 100 meters in position and 1 meter/sec in ground speed. The GPS provides a good absolute measurement over the entire duration of a flight while the IRS provides a good relative measurement and is good for short term variations. 
+
+Both systems generally performed well and the GPS position values are typically recommended for all research efforts.  However, sharp turns do occasionally interrupt the reception from some satellites.  These cases are characterized by a small, instantaneous shift in position and thus ground speed.  Once the aircraft has come out of the turn the track will typically shift back, but the wind calculations can be adversely affected by the resulting discontinuities in the key input variables.  Rather than use the GPS data directly, the RAF uses the GPS parameters to correct the position and ground speed errors that are inherent in the IRS measurements. The simplest way to take advantage of the relative strengths of these two measurements when both are present is to apply a low pass filter to the GPS measurements and the complementary high pass filter to the IRS measurements and then add the two. The RAF algorithm accomplishes this with the addition of some tests and corrections for when the GPS signal is not present.  For the most accurate data with smooth transitions under all conditions, RAF recommends that the LATC/LONC position data be used. 
+
+2.The wind data for this project were derived from 
+measurements taken with the radome wind gust package.  As is the case with all wind gust systems, the ambient wind calculations can be adversely affected by either sharp changes in the aircraft's flight attitude or excessive drift in the onboard inertial reference system (IRS).  Turns, or more importantly, climbing turns are particularly disruptive to this type of measurement technique.  Wind data reported for these conditions should be used with caution.  As an additional enhancement to this data set, a second pass correction was applied to the wind data using position and ground speed updates provided by the GPS positioning system. Both the GPS corrected and uncorrected values are included in the final data set. 
+
+	3.  The aircraft true airspeed (TASX) is a critical measurement that factors into most of the in-situ data calculations.  Redundant dynamic pressure sensors (QCR, QCF) are included in the instrumentation package to prevent any loss of data in this critical area.  The two systems functioned well throughout the project and exhibited excellent correlation under most all conditions.  QCF was selected as the reference sensor for all of the BAMEX flights. Note that the RAF uses a 'wet' airspeed in the calculation of all derived parameters.  In moist conditions this correction to the true air speed can be as great as 0.5 m/s.  
+
+ 	4.  Temperature measurements were made using a set of two standard  unheated (ATRR, ATRL) Rosemount temperature sensors.  While fast and accurate, these sensors are susceptible to wetting during cloud penetrations.  The two systems generally tracked very well with typical mean differences within around 0.2 oC.  However, both sensors appeared to be susceptible to some noise from different sources.  ATRR shows the signs of small scale radio frequency interference during certain intervals.  The shift in the absolute value of ATRR during these occurrences was on the order of 0.2 to 0.3 oC.  The spikes in ATRL were much more pronounced (in excess of 1.0 oC) with the source of the problem being less obvious.  The ATRL sensor was swapped out prior to flight RF01 but the problem persisted with the new element.  ATRR was therefore selected as the reference temperature sensor (ATX) with these values being used in all of the derived parameter calculations.  An evaluation of the pre & post project calibrations showed a stable response over the duration of the field deployment.
+
+
+5. Humidity measurements were made using a thermoelectric
+dew point sensor. In general terms, the dew point sensor functioned fairly well but had difficulty achieving dew point depressions in excess of 20 oC.  The unit was swapped out between flights RF03 and RF04.  Low dew point performance was improved, but some signal definition was still lacking at depressions greater than around 25 oC. There was no redundant dew point sensor available either as a QA comparison or as a fill in data source. 
+
+6. The altitude of the aircraft was measured in several 
+ways. The standard measurement (PALT,PALTF) is derived from the static pressure using the hydrostatic equation and the U.S. Standard Atmosphere, which assumes a constant surface pressure of 1013 mb and a base surface temperature of 288 oK.  Whenever the aircraft is operating in areas that significantly differ from this basic profile, adjustments are typically made to the input constants to improve the calculation.  In this case flight-to-flight conditions varied so much that no systematic adjustment could improve the overall data set so the calculation was left unchanged. 
+
+The GPS positioning system also provides an MSL altitude (GGALT). The signal is unaffected by changes in the surface pressure or temperature.  The RAF recommends using GGALT as the the reference MSL altitude. 
+
+A full range (0 - 15,000 m) radar altimeter was onboard the aircraft for all of the research flights.  This unit provides a direct measurement of the aircraft's AGL height.  For operational reasons, the unit was not initially turned on until after takeoff so some data will be missing at the start of each flight.  Reflections of the surface will result in a noisy signal while the aircraft is on or very near the ground.
+
+7.  Data recording typically begins well in advance of the actual aircraft takeoff time. Virtually all measurements made on the aircraft require some sort of airspeed correction or the systems are simply not active while the aircraft remains on the ground.  None of the data collected while the aircraft is on the ground should be considered as valid.
+
+Problems with data streams that have been identified in this quality assurance process have been noted in the following section.  In order to avoid any confusion or misinterpretation of the data provided by RAF, the output from systems deemed to be bad for an entire flight have been replaced with the missing data flag: -32767.
+
+
+
+
+*	*	*	*	*	*	*	*
+
+
+
+
+Section II:  Flight-by-Flight Summary
+
+Normally test flight data are not included in the official project data archive.  On this project two of the test flight cases were conducted while the aircraft was in the field and include data important to the overall goals of the research, namely in-flight calibration maneuvers and an aircraft-to-aircraft inter-comparison.  Comments on these data sets will appear in the order in which they flown.
+
+TF03
+Dew point temperature beyond the range of the sensor due to   large dew point depressions ( > 20 oC ). All humidity data 
+are bad from 200400-220800 CUT. 
+
+RF01 
+Light radome icing affected one of the differential pressure measurements (ADIFR) and thus the vertical wind speed measurement (WIC).  Vertical wind speed data are bad from 222200-232800 CUT. 
+
+Gap in radar altimeter data (HGM232).  Data missing from 201204- 201224 CUT.
+
+RF02
+Dew point sensor balanced in flight. All humidity data are bad 
+     from 241750-241854 CUT.
+
+RF04	
+Failure of one of the differential pressure measurements (ADIFR)
+Results in the loss of the vertical wind speed measurement (WIC). Vertical wind speed data are bad from 154500-243000 CUT.
+
+TF04
+Light radome icing affected one of the differential pressure measurements (ADIFR) and thus the vertical wind speed measurement (WIC).  Vertical wind speed data are bad from 222600-231600 CUT. 
+
+Gap in radar altimeter data (HGM232).  Data missing from 232805-232824 CUT.
+
+
+RF06
+Dew point sensor not turned on at the start of the flight.  All humidity data are bad from 200300-201343 CUT.
+
+RF07
+Dew point sensor balanced in flight. All humidity data are bad 
+     from 215918-220829 CUT.  Raw true airspeed (TASF) used in 3-D
+wind calculations for this flight.
+
+
+RF09
+	Research Inertial Reference System failed on takeoff.  Aircraft
+returned to base for a realignment.  The data recording was 
+allowed to run through the entire process.  All IRS position and 
+attitude data, along with the 3-D wind data are bad from 184000-
+195800 CUT.  All recorded parameters are bad from 194300-2006 CUT 
+while the aircraft is on the ground.
+
+
+RF10
+Failure of the onboard ADS data system in flight.  Gap in the recording of all in-situ parameters from 005559-010026 CUT. 
+ 
+RF14	
+Light radome icing affected both of the differential pressure measurements (ADIFR, BDIFR) and thus all of the 3-D wind measurements.  Data are bad from 034100-043100 CUT. 
+
+
+
+
+
+
+*	*	*	*	*	*	*	*
+

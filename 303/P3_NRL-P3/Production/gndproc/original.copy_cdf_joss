@@ -1,0 +1,49 @@
+#
+#  gndproc job file
+#  name:  copy_cdf_joss
+#  purpose:   copy processed netCDF data file to JOSS
+#
+#  Notes:  Comment lines start with #
+#          An authorized keyset between source and destination machines
+#           must be set up if using scp or sftp
+#          Success also depends on a network connection which may not exist
+#
+#  What is set (Edit this line to add/delete settings.)
+copy_set = copy_type copy_p zip login dest ddp
+#
+#  Settings
+#
+#   type of copy command to be used
+copy_type = ftp
+#
+#   scp program assignment (with command-line options, if any)
+#copy_p = /usr/bin/scp
+#copy_p = /usr/bin/scp -AqB
+#
+#   ftp program assignment (with command-line options, if any)
+copy_p = /usr/bin/ftp -n -v
+#copy_p = /usr/kerberos/bin/ftp -n -v
+#
+#   sftp program assignment (with command-line options, if any)
+#copy_p = /usr/bin/sftp
+#
+#   gzip the file?
+zip = yes
+#zip = no
+#
+#   Destination login name
+login = ftp
+#login = ihop-anstett
+#
+#   Destination machine (IP address)
+dest = ftp.joss.ucar.edu
+#dest = raf.atd.ucar.edu
+#
+#   Destination data path on destination machine
+ddp = pub/incoming/bamex/nrl_p3
+#
+#   Output file-name modifier to uniquely define this data set
+#    (Use this modifier when sending an unique data set, i.e., not
+#     a standard RAF data set, to another user.)
+#fmod = joss
+#

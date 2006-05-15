@@ -1,0 +1,19 @@
+RF01
+  preliminary netCDF file
+    PSURF has constant value of 1000 mbar
+    GGALTC definitely looks better than GGALT
+  Ron Ruth  28 May 2003
+
+Production data files have the following variables missing from VarDB:
+GGMODE:long_name = "Garmin GPS Mode" ;
+GGMODE:units = "none" ;
+
+GGALTC:long_name = "Corrected GPS Altitude (MSL) - Garmin" ;
+GGALTC:units = "M" ;
+
+GGVEW:long_name = "GPS Ground Speed Vector, East Component - Garmin" ;
+GGVEW:units = "M/s" ;
+
+GGVNS:long_name = "GPS Ground Speed Vector, North Component - Garmin" ;
+GGVNS:units = "M/s"" ;
+

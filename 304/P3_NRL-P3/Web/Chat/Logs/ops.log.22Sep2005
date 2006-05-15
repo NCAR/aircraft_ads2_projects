@@ -1,0 +1,52 @@
+[GMT 09/22/05 17:19:44] Trying server rdcc.guest.ucar.edu:6668
+[GMT 09/22/05 17:19:44] Connected to rdcc.guest.ucar.edu
+[GMT 09/22/05 17:19:44] -NOTICE- *** Checking Ident
+[GMT 09/22/05 17:19:48] -NOTICE- on 24 ca 1(5) ft 10(10) tr
+[GMT 09/22/05 17:19:50] -NOTICE- *** Notice -- NCAR_EOL_RDCC (rdcc@rdcc.guest.ucar.edu) is now operator (O)
+[GMT 09/22/05 17:20:16] NCAR_EOL_RDCC joined &ops.
+[GMT 09/22/05 17:20:37] <StacyBrodzik-Ops> ChrisBurghart-Boulder, bob has asked 42 to switch to INMARSAT (like 43 did)
+[GMT 09/22/05 17:21:30] <StacyBrodzik-Ops> ChrisBurghart-Boulder, apparently they've already switched but we still aren't getting data
+[GMT 09/22/05 17:22:10] &ops: mode change '+o NCAR_EOL_RDCC' by NCAR_EOL_RDCC!rdcc@rdcc.guest.ucar.edu
+[GMT 09/22/05 17:25:17] <StacyBrodzik-Ops> ChrisBurghart-Boulder, looks like we got a few packets of 42 1hz data
+[GMT 09/22/05 17:25:49] <ChrisBurghart-Boulder> OK, will restart ingest.
+[GMT 09/22/05 17:31:01] <StacyBrodzik-Ops> ChrisBurghart-Boulder, as you probably noted, there's no more data coming in; still can't see a file for today in noaa_42 dir . . .
+[GMT 09/22/05 17:42:16] <ChrisBurghart-Boulder> StacyBrodzik-Ops: Since no 43 1Hz was coming in, I just did "cd /space/data/rainex; mv noaa_43 noaa_43.old; ln -s ../NOAA43_LF noaa_43" and it works to get track data on both rainex and rainex3.  The key is using "../" for the link!
+[GMT 09/22/05 17:43:07] <StacyBrodzik-Ops> ChrisBurghart-Boulder, awesome! can you do the same thing for the 42 as well?
+[GMT 09/22/05 17:46:00] <StacyBrodzik-Ops> ChrisBurghart-Boulder, I'm going to make that change
+[GMT 09/22/05 17:46:55] <ChrisBurghart-Boulder> The 42 1Hz ingestor will write its data to the NOAA42_LF directory if they start sending 1Hz data.  It could make things a little screwy.
+[GMT 09/22/05 17:47:12] <ChrisBurghart-Boulder> We can always readjust if they do start sending 1Hz.
+[GMT 09/22/05 17:47:12] <StacyBrodzik-Ops> ChrisBurghart-Boulder, oops, I'll undo it
+[GMT 09/22/05 17:47:25] <ChrisBurghart-Boulder> No, leave it.  We can tweak later.
+[GMT 09/22/05 17:48:08] <StacyBrodzik-Ops> ChrisBurghart-Boulder, ok, Bob's a happy camper; we'll just wait and see what happens....
+[GMT 09/22/05 17:50:31] <ChrisBurghart-Boulder> StacyBrodzik-Ops: I'm headed to lunch, and I'm taking my phone, but it doesn't have much of a charge.  It should have enough juice to at least ring, though, and that will bring me back to my office.
+[GMT 09/22/05 17:52:12] <StacyBrodzik-Ops> ChrisBurghart-Boulder, ok, i think we're good for awhile . . .
+[GMT 09/22/05 17:55:03] Action: ChrisBurghart-Boulder is away: Lunch.  Back around 19:00 UTC.
+[GMT 09/22/05 18:07:58] <StacyBrodzik-Ops> ChrisBurghart-Boulder, we started getting 43 1hz data, so I removed the link; 42 is still in kludge mode...
+[GMT 09/22/05 18:35:49] jmoore_ (jmoore@rdcc.guest.ucar.edu) joined &OPS.
+[GMT 09/22/05 18:38:31] JimMoore-Ops (jmoore@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/22/05 18:54:25] Nick change: jmoore_ -> JimMoore-Ops
+[GMT 09/22/05 18:58:41] <StacyBrodzik-Ops> ChrisBurghart-Boulder, just started getting 42 1hz data so I removed the kludge there too; we should be back to normal
+[GMT 09/22/05 18:59:12] <ChrisBurghart-Boulder> I just wrote a big long line saying that you could do that now.  :-)
+[GMT 09/22/05 18:59:26] <ChrisBurghart-Boulder> (And deleted it after your message came)
+[GMT 09/22/05 18:59:54] <StacyBrodzik-Ops> ChrisBurghart-Boulder, guess we're on the same page; thanks for the great idea!  we might end up using it again
+[GMT 09/22/05 19:00:35] <ChrisBurghart-Boulder> Seems likely if they ever fly in a Globalstar weak zone again.
+[GMT 09/22/05 19:02:33] <ChrisBurghart-Boulder> StacyBrodzik-Ops: Has anyone ever commented about the reflectivity differences between the 42 and 43 LF radars.  Seems like they differ around 10dB, and it makes the composites a little funny.
+[GMT 09/22/05 19:02:46] <ChrisBurghart-Boulder> Sorry, should have been "radars?"
+[GMT 09/22/05 19:08:45] <JimMoore-Ops> ChrisBurghart-Boulder, SO for tomorrow this beast will be getting back into western gulf 88D coverage.  Will Zebra pick up that OK?
+[GMT 09/22/05 19:09:30] <ChrisBurghart-Boulder> Yep, the composites are always being generated.  I'm displaying 'em now.
+[GMT 09/22/05 19:10:35] <ChrisBurghart-Boulder> JimMoore-Ops: can you take a look at my question to Stacy above? (time 19:03:19)
+[GMT 09/22/05 19:14:12] <JimMoore-Ops> We did talk about this a bit.  We think it may have to do with pointing angle. Quite frankly, there may not have been too many comparisons between the two system but I am not sure.  Can you tell the pointing angle from your data stream? maybe that will be a clue that will allow us to follow up.
+[GMT 09/22/05 19:15:02] <StacyBrodzik-Ops> ChrisBurghart-Boulder, oops, I left for a few minutes; and yes, Jasmine asked about the reflectivity diff 
+[GMT 09/22/05 19:15:43] Deanna-ops (dhence@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/22/05 19:50:24] jmoore_ (jmoore@rdcc.guest.ucar.edu) joined &OPS.
+[GMT 09/22/05 19:51:11] jmoore_ (jmoore@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/22/05 19:52:13] JimMoore-Ops (jmoore@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/22/05 20:05:45] <ChrisBurghart-Boulder> Stacy, no 1Hz from 42, but we're getting LF.  Probably time for the kluge again.
+[GMT 09/22/05 20:09:36] <StacyBrodzik-Ops> ChrisBurghart-Boulder, looks like we were doing this at the same time -- you with 42, me with 43
+[GMT 09/22/05 20:10:09] <StacyBrodzik-Ops> ChrisBurghart-Boulder, of course, NOW the 42 1hz stream came up again -- time to remove the kludge
+[GMT 09/22/05 20:10:38] <StacyBrodzik-Ops> ChrisBurghart-Boulder, hold on; maybe i spoke too soon
+[GMT 09/22/05 20:11:46] <StacyBrodzik-Ops> ChrisBurghart-Boulder, duh, no lf from 43, so kludge is no help . . 
+[GMT 09/22/05 22:06:55] StacyBrodzik-Ops (brodzik@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/22/05 22:38:37] GregStossmeister-Ops (gstoss@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/22/05 23:11:28] ChrisBurghart-Boulder (burghart@rdcc.guest.ucar.edu) left irc: Quit: goin' home
+[GMT 09/23/05 00:00:00] --- Fri Sep 23 2005

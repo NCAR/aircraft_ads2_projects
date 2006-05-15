@@ -1,0 +1,154 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2003-303 BAMEX (Bow Echo and MCV Experiment) (Christopher Davis, et al.)
+#   using the new ATD directory path
+#
+#goto remove
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 12b on Fri Aug 1 13:40:55 MDT 2003
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+#set SFILES = ( \
+#303rf01.nc \
+#303rf02.nc \
+#303rf03.nc \
+#303rf04.nc \
+#303rf05.nc \
+#303rf06.nc \
+#303rf07.nc \
+#303rf08.nc \
+#303rf09.nc \
+#303rf10.nc \
+#303rf11.nc \
+#303rf12.nc \
+#303rf13.nc \
+#303rf14.nc \
+#303rf15.nc \
+#303rf16.nc \
+#303rf17.nc \
+#303tf03.nc \
+#303tf04.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF01.20030524.183200_232811.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF02.20030528.194200_012146.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF03.20030530.230900_053940.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF04.20030602.154500_014050.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF05.20030605.205400_223157.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF06.20030606.200300_212115.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF07.20030608.145600_225029.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF08.20030610.015100_104639.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF09.20030618.184000_222942.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF10.20030620.234400_063357.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF11.20030621.235800_080352.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF12.20030622.235800_090152.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF13.20030624.023800_092359.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF14.20030625.210200_045037.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF15.20030628.235800_084736.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF16.20030703.003400_072726.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF17.20030704.234000_073801.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/TF03.20030522.195200_222129.PNI.nc \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/TF04.20030604.222600_234506.PNI.nc \
+#)
+#
+#  Rearchive RF17 (with correct start date)
+#set SFILES = ( \
+#303rf17.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF17.20030705.234000_073801.PNI.nc \
+#)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2003/BAMEX/NRL_P3/"
+echo "#  (Check year in path, if project occurred in more than one.)"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  19 job(s) submitted on Fri Aug  1 17:29:49 MDT 2003
+#  Files archived to MSS directory:  /ATD/DATA/2003/BAMEX/NRL_P3/
+#   LRT/RF01.20030524.183200_232811.PNI.nc -- OK -- Fri Aug  1 17:29:59 MDT 2003
+#   LRT/RF02.20030528.194200_012146.PNI.nc -- OK -- Fri Aug  1 17:30:12 MDT 2003
+#   LRT/RF03.20030530.230900_053940.PNI.nc -- OK -- Fri Aug  1 17:30:23 MDT 2003
+#   LRT/RF04.20030602.154500_014050.PNI.nc -- OK -- Fri Aug  1 17:30:38 MDT 2003
+#   LRT/RF05.20030605.205400_223157.PNI.nc -- OK -- Fri Aug  1 17:30:44 MDT 2003
+#   LRT/RF06.20030606.200300_212115.PNI.nc -- OK -- Fri Aug  1 17:30:49 MDT 2003
+#   LRT/RF07.20030608.145600_225029.PNI.nc -- OK -- Fri Aug  1 17:31:05 MDT 2003
+#   LRT/RF08.20030610.015100_104639.PNI.nc -- OK -- Fri Aug  1 17:31:20 MDT 2003
+#   LRT/RF09.20030618.184000_222942.PNI.nc -- OK -- Fri Aug  1 17:31:29 MDT 2003
+#   LRT/RF10.20030620.234400_063357.PNI.nc -- OK -- Fri Aug  1 17:31:41 MDT 2003
+#   LRT/RF11.20030621.235800_080352.PNI.nc -- OK -- Fri Aug  1 17:31:53 MDT 2003
+#   LRT/RF12.20030622.235800_090152.PNI.nc -- OK -- Fri Aug  1 17:32:06 MDT 2003
+#   LRT/RF13.20030624.023800_092359.PNI.nc -- OK -- Fri Aug  1 17:32:17 MDT 2003
+#   LRT/RF14.20030625.210200_045037.PNI.nc -- OK -- Fri Aug  1 17:32:30 MDT 2003
+#   LRT/RF15.20030628.235800_084736.PNI.nc -- OK -- Fri Aug  1 17:32:44 MDT 2003
+#   LRT/RF16.20030703.003400_072726.PNI.nc -- OK -- Fri Aug  1 17:32:56 MDT 2003
+#   LRT/RF17.20030704.234000_073801.PNI.nc -- OK -- Fri Aug  1 17:33:08 MDT 2003
+#   LRT/TF03.20030522.195200_222129.PNI.nc -- OK -- Fri Aug  1 17:33:15 MDT 2003
+#   LRT/TF04.20030604.222600_234506.PNI.nc -- OK -- Fri Aug  1 17:33:20 MDT 2003
+#   Completed on Fri Aug  1 17:33:20 MDT 2003
+#
+#  1 job(s) submitted on Fri Aug 29 10:42:32 MDT 2003
+#  Files archived to MSS directory:  /ATD/DATA/2003/BAMEX/NRL_P3/
+#   LRT/RF17.20030705.234000_073801.PNI.nc -- OK -- Fri Aug 29 10:42:53 MDT 2003
+#   Completed on Fri Aug 29 10:42:53 MDT 2003
+#
+#remove:
+#echo "# 1 job(s) submitted on `date`"
+#msrm -wpwd RAFDMG /ATD/DATA/2003/BAMEX/NRL_P3/LRT/RF17.20030704.234000_073801.PNI.nc
+#echo "#   Completed on `date`"
+#exit
+#
+#  File(s) removed from MSS directory:  /ATD/DATA/2003/BAMEX/NRL_P3/
+#    (incorrect start date)
+# 1 job(s) submitted on Fri Aug 29 11:19:46 MDT 2003
+#   LRT/RF17.20030704.234000_073801.PNI.nc -- OK -- Fri Aug 29 11:19:48 MDT 2003
+#   Completed on Fri Aug 29 11:19:48 MDT 2003
+#

@@ -1,0 +1,125 @@
+#! /bin/csh -f
+#
+#  Archive raw CPI data files for 2002-302 CRYSTAL-FACE
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  This file copied and modified from file
+#    /$LOCAL/proj/112/Production/archive/archcpi.112
+#   by Ron Ruth   1 November 2002
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = RAW_CPI
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd readonly"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $DATA_DIR
+set SDIR = "/jnet/win_jef2/cpi/CRYSTAL-FACE"
+#
+#  1st wave
+#set DDIR = "RF07"
+#set FILES = ( \
+#07181647.roi \
+#07181748.roi \
+#07181828.roi \
+#07181837.roi \
+#07181840.roi \
+#07181843.roi \
+#07181845.roi \
+#07181847.roi \
+#07181849.roi \
+#07181851.roi \
+#07181853.roi \
+#07181856.roi \
+#07181859.roi \
+#07181909.roi \
+#07181912.roi \
+#07181914.roi \
+#07182005.roi \
+#)
+#
+#  2nd wave
+#set DDIR = "RF08"
+#set FILES = ( \
+#07191834.roi \
+#07192207.roi \
+#)
+#
+#
+#  Get started:
+set todo = $#FILES
+echo "#  $todo Job(s) submitted on `date`"
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $SDIR/$FILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 4095 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DDIR/$FILE
+     echo "#  msrcp job for $DDIR/$FILE -- OK -- `date`"
+    @ num ++
+  else
+    echo " Cannot access file $SDIR/$FILE"
+    exit 1
+  endif
+end
+#
+echo "#   Completed on `date`"
+exit
+#
+#  MSS path for all bitfiles listed below:  /RAF/2002/302/RAW_CPI/
+#
+#  1st wave
+#  17 Job(s) submitted on Fri Nov  1 15:10:53 MST 2002
+#  msrcp job for RF07/07181647.roi -- OK -- Fri Nov  1 15:13:10 MST 2002
+#  msrcp job for RF07/07181748.roi -- OK -- Fri Nov  1 15:15:38 MST 2002
+#  msrcp job for RF07/07181828.roi -- OK -- Fri Nov  1 15:18:09 MST 2002
+#  msrcp job for RF07/07181837.roi -- OK -- Fri Nov  1 15:20:29 MST 2002
+#  msrcp job for RF07/07181840.roi -- OK -- Fri Nov  1 15:23:37 MST 2002
+#  msrcp job for RF07/07181843.roi -- OK -- Fri Nov  1 15:26:38 MST 2002
+#  msrcp job for RF07/07181845.roi -- OK -- Fri Nov  1 15:29:08 MST 2002
+#  msrcp job for RF07/07181847.roi -- OK -- Fri Nov  1 15:33:18 MST 2002
+#  msrcp job for RF07/07181849.roi -- OK -- Fri Nov  1 15:35:42 MST 2002
+#  msrcp job for RF07/07181851.roi -- OK -- Fri Nov  1 15:38:20 MST 2002
+#  msrcp job for RF07/07181853.roi -- OK -- Fri Nov  1 15:40:45 MST 2002
+#  msrcp job for RF07/07181856.roi -- OK -- Fri Nov  1 15:43:25 MST 2002
+#  msrcp job for RF07/07181859.roi -- OK -- Fri Nov  1 15:45:43 MST 2002
+#  msrcp job for RF07/07181909.roi -- OK -- Fri Nov  1 15:50:46 MST 2002
+#  msrcp job for RF07/07181912.roi -- OK -- Fri Nov  1 15:53:02 MST 2002
+#  msrcp job for RF07/07181914.roi -- OK -- Fri Nov  1 15:55:28 MST 2002
+#  msrcp job for RF07/07182005.roi -- OK -- Fri Nov  1 15:56:52 MST 2002
+#   Completed on Fri Nov  1 15:56:52 MST 2002
+#
+#  2nd wave
+#  2 Job(s) submitted on Fri Nov  1 16:07:42 MST 2002
+#  msrcp job for RF08/07191834.roi -- OK -- Fri Nov  1 16:16:51 MST 2002
+#  msrcp job for RF08/07192207.roi -- OK -- Fri Nov  1 16:26:42 MST 2002
+#   Completed on Fri Nov  1 16:26:42 MST 200
+#

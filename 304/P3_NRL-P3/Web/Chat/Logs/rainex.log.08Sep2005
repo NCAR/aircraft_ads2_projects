@@ -1,0 +1,102 @@
+[GMT 09/08/05 03:03:17] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 03:15:07] MikeDaniels-home (daniels@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 03:15:37] MikeDaniels-home (daniels@rdcc.guest.ucar.edu) left irc: EOF from client
+[GMT 09/08/05 03:18:48] Trying server rdcc.guest.ucar.edu:6668
+[GMT 09/08/05 03:18:48] Connected to rdcc.guest.ucar.edu
+[GMT 09/08/05 03:18:48] -NOTICE- *** Checking Ident
+[GMT 09/08/05 03:18:52] -NOTICE- on 4 ca 1(5) ft 9(10) tr
+[GMT 09/08/05 03:19:18] NCAR_EOL_RDCC joined &rainex.
+[GMT 09/08/05 03:21:43] Trying server rdcc.guest.ucar.edu:6668
+[GMT 09/08/05 03:21:43] Connected to rdcc.guest.ucar.edu
+[GMT 09/08/05 03:21:43] -NOTICE- *** Checking Ident
+[GMT 09/08/05 03:21:47] -NOTICE- on 5 ca 1(5) ft 10(10) tr
+[GMT 09/08/05 03:21:49] -NOTICE- *** Notice -- NCAR_EOL_RDCC (rdcc@rdcc.guest.ucar.edu) is now operator (O)
+[GMT 09/08/05 03:22:13] NCAR_EOL_RDCC joined &rainex.
+[GMT 09/08/05 03:24:00] &rainex: mode change '+o NCAR_EOL_RDCC' by NCAR_EOL_RDCC!rdcc@rdcc.guest.ucar.edu
+[GMT 09/08/05 03:24:53] MikeDaniels-home (daniels@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/08/05 04:42:21] TML_home (TML_home@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 05:06:17] TML_home (TML_home@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/08/05 05:23:32] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 06:14:12] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 06:32:05] <n43_RAMS> anybody there to see if 43's data is getting down?
+[GMT 09/08/05 07:33:54] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 07:53:47] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 08:17:55] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 08:18:50] n43_RAMS_ (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 08:22:27] n43_RAMS_ (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 10:37:29] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 11:06:21] Nick change: n43_RAMS -> terry-n43
+[GMT 09/08/05 12:09:02] terry-n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 12:11:03] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 13:14:30] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 13:19:57] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 13:21:37] JohnGamache-HRD (JohnGamach@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 13:21:54] JohnGamache-HRD (JohnGamach@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/08/05 13:28:41] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 14:56:12] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 15:33:47] anstett-jeffco (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 15:35:42] <ChrisBurghart-Boulder> Terry, I'll take a look.  Just a minute.
+[GMT 09/08/05 15:37:16] <ChrisBurghart-Boulder> I don't see any packets on ports 54324 or 54325
+[GMT 09/08/05 15:42:17] <anstett-jeffco> ads-nrlp3 are you there?
+[GMT 09/08/05 15:43:43] <ads-nrlp3> Kind of, I guess you are on the phone with john
+[GMT 09/08/05 15:45:18] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 09/08/05 15:46:57] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 15:48:13] <anstett-jeffco> ads nrlp3 I see you are back.  I'll check things out once I get logged back in.
+[GMT 09/08/05 15:49:24] <ads-nrlp3> Okay.  It camw up pretty quickly.  We shutdown the ACtracker program and brought it up from the start.
+[GMT 09/08/05 15:50:20] <anstett-jeffco> You can just hit stop, wait a minute or so, then hit start instead of closing ACtracker window.
+[GMT 09/08/05 16:24:19] <ads-nrlp3> Janet, we are going to want to run the system until 1430 our time.  I'm hoping you will be done by then.
+[GMT 09/08/05 16:25:18] <ChrisBurghart-Boulder> Janet, are you still looking at LDM issues?  Is there anything I can help with?
+[GMT 09/08/05 16:29:27] <anstett-jeffco> Chris, On reestablishing the satcomm link on the NRL, I'm stopping the LDM for two minutes to allow chat to reconnect faster.  I'm also looking at issues on malbec with expiring of images.  It appears that the pqexpire command does not work correctly when put in the config file.  If I run the same command from the command line, then it works.  The process does show up in the process list, but doesn't really appear to run.
+[GMT 09/08/05 16:30:24] <anstett-jeffco> ads - I will be done with the link shortly.  I'll let you know when I'm logged off the link.
+[GMT 09/08/05 16:30:30] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 16:33:32] <ChrisBurghart-Boulder> It almost looks like pqexpire (in the check-on-a-regular-basis mode) doesn't remove anything.  I'm going to send email to Unidata and ask if they know what pqexpire *really* does.
+[GMT 09/08/05 16:35:50] <anstett-jeffco> When I checked malbec yesterday, there were over 1000 products in the queue.  I restarted the ldm and pqexpire was running, but it only expired the images when I ran pqexpire from the command line.  The queue went from over 1000 images to 2!  It appears that pqexpire does work in a check-on-a-regular-basis mode but just not from the config file for some reason.
+[GMT 09/08/05 16:37:22] <ChrisBurghart-Boulder> So when you start pqexpire by hand, it cleans the queue of old images and continues to keep it clean, or just cleans things once when you first start it?
+[GMT 09/08/05 16:38:18] <anstett-jeffco> I think it was keeping the queue clean, but I'll have to check that again to make sure.  I'll start it again on malbec and let you know.
+[GMT 09/08/05 16:40:12] <anstett-jeffco> I just started it on malbec from the command line and know there are 5 products in the queue, 4 data files and 1 composite image.
+[GMT 09/08/05 16:45:21] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 17:49:16] anstett-jeffco (anstett@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 18:02:04] anstett-jeffco (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 18:04:18] <anstett-jeffco> Chris - Running pqexpire from the command line keeps the queue clean.  There are only 6 products in the queue and 4 of these are data products and not composite images.
+[GMT 09/08/05 18:36:02] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 18:40:08] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 18:48:40] MarkBradford-Boulder (MarkBradfo@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 18:48:53] <ads-nrlp3> Janet,  The phone dropped out but we are back now.  Are you still working on the st\ystem?
+[GMT 09/08/05 18:49:24] <anstett-jeffco> Yes, I'm still working on stuff.
+[GMT 09/08/05 18:49:52] <ads-nrlp3> Wow that was pretty quick.  No chat lag today.
+[GMT 09/08/05 18:50:11] <anstett-jeffco> Fewer people on chat.
+[GMT 09/08/05 18:50:32] <ads-nrlp3> yeah, that's true.
+[GMT 09/08/05 18:50:48] <MarkBradford-Boulder> Just us chickens
+[GMT 09/08/05 18:51:21] <anstett-jeffco> I will probably have you restart the link soon to do another test.
+[GMT 09/08/05 18:54:21] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 18:56:16] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 19:07:15] <ads-nrlp3> We will await your command.
+[GMT 09/08/05 19:35:38] <ads-nrlp3> Janet, we are still waiting for the reset command,
+[GMT 09/08/05 19:36:56] anstett-jeffco (anstett@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 19:39:59] anstett-jeffco (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 20:02:16] <ads-nrlp3> Janet, did you get logged back in?  I don't think we will get any time past 1630, they are starting to worry about fuel.
+[GMT 09/08/05 20:02:19] MikeDaniels-NCAR (daniels@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 20:02:29] &rainex: mode change '+o MikeDaniels-NCAR' by MikeDaniels-NCAR!daniels@rdcc.guest.ucar.edu
+[GMT 09/08/05 20:02:29] Mode change by non-chanop on &rainex!  Reversing...
+[GMT 09/08/05 20:02:56] <anstett-jeffco> I can't get back in to cirque.
+[GMT 09/08/05 20:03:02] TML_home (TML_home@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 09/08/05 20:04:36] <ads-nrlp3> Okay, is there anything I can do to help?
+[GMT 09/08/05 20:05:20] <MikeDaniels-NCAR> can you relay the changes needed via chat
+[GMT 09/08/05 20:05:38] <anstett-jeffco> Can you do the following in a terminal window: ps -ef | grep ldm   Tell me if you see any ldm processes running.
+[GMT 09/08/05 20:06:46] <anstett-jeffco> Actually the LDM is running because I just saw that it connected to malbec here.
+[GMT 09/08/05 20:09:40] <ads-nrlp3> tHERE ARE A BUNCH OF LDM PROCESSES RUNNING.
+[GMT 09/08/05 20:10:17] <anstett-jeffco> If I can't get back in before you shut down, then we'll just go with it as it is now.
+[GMT 09/08/05 20:10:30] <ads-nrlp3> It looks like there are 6 ldm precesses running.
+[GMT 09/08/05 20:10:51] <anstett-jeffco> That's good.
+[GMT 09/08/05 20:12:06] <ads-nrlp3> OK, it seems to be working.  We have about 15 minutes before I need to shutdown,
+[GMT 09/08/05 20:14:54] <anstett-jeffco> Try this:  grep "Starting" ~ldm/logs/ldmd.log     I just need to know the times in the last couple of lines that show up.
+[GMT 09/08/05 20:19:25] <ads-nrlp3> 15:57:55 cirque rtstats
+[GMT 09/08/05 20:20:08] <ads-nrlp3> 15:59:27 crique pqmon
+[GMT 09/08/05 20:20:08] <ads-nrlp3> Those are the last 2.
+[GMT 09/08/05 20:23:47] <MikeDaniels-NCAR> ads-nrlp3, don't forget that you can easily cut and paste from a terminal window into chat
+[GMT 09/08/05 20:24:01] <MikeDaniels-NCAR> and visa versa
+[GMT 09/08/05 20:24:02] <MikeDaniels-NCAR> !
+[GMT 09/08/05 20:24:46] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 09/08/05 22:08:38] anstett-jeffco (anstett@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/08/05 22:12:16] MikeDaniels-NCAR (daniels@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 09/09/05 00:00:00] --- Fri Sep  9 2005

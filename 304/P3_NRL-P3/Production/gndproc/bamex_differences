@@ -1,0 +1,42 @@
+diff $S/ogndproc gndproc
+
+1392c1392
+<               set bfile = "${pf[1]}_$fmod.ftp"
+---
+>               set bfile = "$HOME/.netrc"
+1396c1396
+<               echo "#! /bin/csh -f" >! $bfile
+---
+>               echo "machine $dest" >! $bfile
+1402,1408c1402,1410
+<                 echo "  user $login user@caddis.atd.ucar.edu" >> $bfile
+<                 echo "  bi" >> $bfile
+<                 echo "  cd $ddp" >> $bfile
+<                 echo "  put $D/$cfile$ext" >> $bfile
+<                 echo "  quit" >> $bfile
+<                 echo "textend" >> $bfile
+<                 echo "exit" >> $bfile
+---
+>                 echo "login ftp" >> $bfile
+>                 echo "password user@renegade.bamex.rdp" >> $bfile
+>                 echo "macdef init" >> $bfile
+>                 echo "bi" >> $bfile
+>                 echo "cd $ddp" >> $bfile
+>                 echo "put $cfile$ext" >> $bfile
+>                 set s = `chmod 600 $bfile`
+1415c1417
+<               if ($debug) echo "   source $bfile"
+---
+>               if ($debug) echo "Running ftp $dest "
+1417c1419,1421
+<               source $bfile >& /dev/null
+---
+>               set s = `ftp $dest`
+>               if ($debug) echo "Removing $bfile file"
+>               set s = `rm $bfile`
+1418a1423,1427
+>             if ($result != 0) then
+>               set mesg = "   ftp failed on file $cfile with error $result"
+>               if ($notquiet) echo $mesg
+>               echo $mesg >> $mbufr
+>             endif

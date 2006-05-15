@@ -1,0 +1,67 @@
+#! /bin/csh -f
+#
+#  archive NIMBUS netCDF output files for 2002-302 CRYSTAL-FACE (Cirrus Regional Study of Tropical Anvils and Cirrus Layers - Florida Area Cirrus Experiment) (Verlinde)
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 11 on Fri Sep 6 10:13:11 MDT 2002
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+echo "#  13 Job(s) submitted on `date`"
+#
+set SDIR = /jnet/productiondata
+#
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf01.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF01.20020707.155400_161800.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf02.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF02.20020710.135200_204900.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf03.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF03.20020711.151000_204300.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf04.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF04.20020713.155300_202400.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf05.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF05.20020716.175500_005301.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf06.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF06.20020717.175000_221800.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf07.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF07.20020718.151000_221121.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf08.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF08.20020719.165200_214516.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf09.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF09.20020721.165100_232100.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf10.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF10.20020723.182800_221628.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf11.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF11.20020725.155100_211550.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf12.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF12.20020728.175300_000016.PNI.nc
+#echo rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG \
+$SDIR/302rf13.nc mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/RF13.20020729.155800_210848.PNI.nc
+#
+# Done
+echo #   Completed on `date`
+exit
+#
+#  13 Job(s) submitted on Fri Sep  6 10:15:39 MDT 2002
+#  Files archived to MSS directory:  /ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/LRT/
+#  RF01.20020707.155400_161800.PNI.nc -- OK -- 6 Sep 2002 10:16:06
+#  RF02.20020710.135200_204900.PNI.nc -- OK -- 6 Sep 2002 10:17:39
+#  RF03.20020711.151000_204300.PNI.nc -- OK -- 6 Sep 2002 10:18:39
+#  RF04.20020713.155300_202400.PNI.nc -- OK -- 6 Sep 2002 10:22:31
+#  RF05.20020716.175500_005301.PNI.nc -- OK -- 6 Sep 2002 10:24:06
+#  RF06.20020717.175000_221800.PNI.nc -- OK -- 6 Sep 2002 10:27:07
+#  RF07.20020718.151000_221121.PNI.nc -- OK -- 6 Sep 2002 10:40:10
+#  RF08.20020719.165200_214516.PNI.nc -- OK -- 6 Sep 2002 10:41:28
+#  RF09.20020721.165100_232100.PNI.nc -- OK -- 6 Sep 2002 10:52:25
+#  RF10.20020723.182800_221628.PNI.nc -- OK -- 6 Sep 2002 11:00:42
+#  RF11.20020725.155100_211550.PNI.nc -- OK -- 6 Sep 2002 11:09:06
+#  RF12.20020728.175300_000016.PNI.nc -- OK -- 6 Sep 2002 11:16:19
+#  RF13.20020729.155800_210848.PNI.nc -- OK -- 6 Sep 2002 11:35:55
+#

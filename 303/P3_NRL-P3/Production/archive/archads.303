@@ -1,0 +1,326 @@
+#! /bin/csh -f
+#
+#  Archive raw ADS data files for 2003-303 BAMEX
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file /home/local/proj/102/Production/arch_ads.102
+#   by Ron Ruth  28 January 2K
+#  Revised by RLR 19 April 2002 to use DCS "msrcp" instead of MIGS
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set result = $status
+if ($result != 0) then
+  echo " Cannot find project number in this directory path"
+  echo "  Quitting."
+  exit 1
+endif
+set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set TYPE = ADS
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+#set msrcpMachine = $MSRCP_MACH
+set msrcpMachine = "mistral"
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Choose a source directory
+#set SDIR = $TEMP
+#set SDIR = $PROD_DATA
+set SDIR = $DATA_DIR
+#
+#  1st wave
+#set SFILES = ( \
+#303gt01a.ads \
+#303bjctf01a.ads \
+#303bjctf02a.ads \
+#303bjctf02b.ads \
+#)
+#set DFILES = ( \
+#GT01 \
+#TF01 \
+#TF02A \
+#TF02B \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#303rf01a.ads \
+#303rf02a.ads \
+#)
+#set DFILES = ( \
+#RF01 \
+#RF02 \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#303rf03a.ads \
+#303rf03b.ads \
+#)
+#set DFILES = ( \
+#RF03A \
+#RF03B \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#303rf04a.ads \
+#)
+#set DFILES = ( \
+#RF04 \
+#)
+#
+#  5th wave
+#set SFILES = ( \
+#303rf05a.ads \
+#)
+#set DFILES = ( \
+#RF05 \
+#)
+#
+#  6th wave
+#set SFILES = ( \
+#303rf06a.ads \
+#)
+#set DFILES = ( \
+#RF06 \
+#)
+#
+#  7th wave
+#set SFILES = ( \
+#303rf07a.ads \
+#)
+#set DFILES = ( \
+#RF07 \
+#)
+#
+#  8th wave
+#set SFILES = ( \
+#303rf08a.ads \
+#)
+#set DFILES = ( \
+#RF08 \
+#)
+#
+#  9th wave
+#set SFILES = ( \
+#303rf09a.ads \
+#303rf09b.ads \
+#)
+#set DFILES = ( \
+#RF09A \
+#RF09B \
+#)
+#
+# 10th wave
+#set SFILES = ( \
+#303rf10a.ads \
+#303rf10b.ads \
+#303rf11a.ads \
+#303rf12a.ads \
+#)
+#set DFILES = ( \
+#RF10A \
+#RF10B \
+#RF11 \
+#RF12 \
+#)
+#
+# 11th wave
+#set SFILES = ( \
+#303rf13a.ads \
+#)
+#set DFILES = ( \
+#RF13 \
+#)
+#
+# 12th wave
+#set SFILES = ( \
+#303rf14a.ads \
+#)
+#set DFILES = ( \
+#RF14 \
+#)
+#
+# 13th wave
+#set SFILES = ( \
+#303rf15a.ads \
+#)
+#set DFILES = ( \
+#RF15 \
+#)
+#
+# 14th wave
+#set SFILES = ( \
+#303rf16e.ads \
+#)
+#set DFILES = ( \
+#RF16 \
+#)
+#
+# 15th wave
+#set SFILES = ( \
+#303rf17a.ads \
+#303rf17b.ads \
+#)
+#set DFILES = ( \
+#RF17A \
+#RF17B \
+#)
+#
+# 16th wave
+#set SFILES = ( \
+#303tf03a.ads \
+#303tf04b.ads \
+#)
+#set DFILES = ( \
+#TF03 \
+#TF04 \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    if ($status == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+    echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#
+#  MSS path for all bitfiles listed below:  /RAF/2003/303/ADS
+#
+#  1st wave
+#  4 Job(s) submitted on Tue May 20 14:48:14 MDT 2003
+#  msrcp job for ADS/GT01 -- OK -- Tue May 20 14:50:01 MDT 2003
+#  msrcp job for ADS/TF01 -- OK -- Tue May 20 14:51:34 MDT 2003
+#  msrcp job for ADS/TF02A -- OK -- Tue May 20 14:52:06 MDT 2003
+#  msrcp job for ADS/TF02B -- OK -- Tue May 20 14:53:14 MDT 2003
+#   Completed on Tue May 20 14:53:14 MDT 2003
+#
+#  2nd wave
+#  2 Job(s) submitted on Thu May 29 12:33:37 MDT 2003
+#  msrcp job for ADS/RF01 -- OK -- Thu May 29 12:35:47 MDT 2003
+#  msrcp job for ADS/RF02 -- OK -- Thu May 29 12:38:09 MDT 2003
+#   Completed on Thu May 29 12:38:09 MDT 2003
+#
+#  3rd wave
+#  2 Job(s) submitted on Sat May 31 16:16:32 MDT 2003
+#  msrcp job for ADS/RF03A -- OK -- Sat May 31 16:17:29 MDT 2003
+#  msrcp job for ADS/RF03B -- OK -- Sat May 31 16:21:29 MDT 2003
+#   Completed on Sat May 31 16:21:29 MDT 2003
+#
+#  4th wave
+#  1 Job(s) submitted on Tue Jun  3 09:13:08 MDT 2003
+#  msrcp job for ADS/RF04 -- OK -- Tue Jun  3 09:17:28 MDT 2003
+#   Completed on Tue Jun  3 09:17:28 MDT 2003
+#
+#  5th wave
+#  1 Job(s) submitted on Fri Jun  6 10:06:07 MDT 2003
+#  msrcp job for ADS/RF05 -- OK -- Fri Jun  6 10:07:20 MDT 2003
+#   Completed on Fri Jun  6 10:07:20 MDT 2003
+#
+#  6th wave
+#  1 Job(s) submitted on Fri Jun  6 16:13:58 MDT 2003
+#  msrcp job for ADS/RF06 -- OK -- Fri Jun  6 16:14:36 MDT 2003
+#   Completed on Fri Jun  6 16:14:36 MDT 2003
+#
+#  7th wave
+#  1 Job(s) submitted on Sun Jun  8 22:49:26 MDT 2003
+#  msrcp job for ADS/RF07 -- OK -- Sun Jun  8 22:54:18 MDT 2003
+#   Completed on Sun Jun  8 22:54:18 MDT 2003
+#
+#  8th wave
+#  1 Job(s) submitted on Thu Jun 12 23:06:19 MDT 2003
+#  msrcp job for ADS/RF08 -- OK -- Thu Jun 12 23:14:11 MDT 2003
+#   Completed on Thu Jun 12 23:14:12 MDT 2003
+#
+#  9th wave
+#  2 Job(s) submitted on Thu Jun 19 14:50:55 MDT 2003
+#  msrcp job for ADS/RF09A -- OK -- Thu Jun 19 14:51:29 MDT 2003
+#  msrcp job for ADS/RF09B -- OK -- Thu Jun 19 14:52:57 MDT 2003
+#   Completed on Thu Jun 19 14:52:57 MDT 2003
+#
+# 10th wave
+#  4 Job(s) submitted on Mon Jun 23 11:02:24 MDT 2003
+#  msrcp job for ADS/RF10A -- OK -- Mon Jun 23 11:03:09 MDT 2003
+#  msrcp job for ADS/RF10B -- OK -- Mon Jun 23 11:05:45 MDT 2003
+#  msrcp job for ADS/RF11 -- OK -- Mon Jun 23 11:08:45 MDT 2003
+#  msrcp job for ADS/RF12 -- OK -- Mon Jun 23 11:12:17 MDT 2003
+#   Completed on Mon Jun 23 11:12:17 MDT 2003
+#
+# 11th wave
+#  1 Job(s) submitted on Tue Jun 24 09:17:45 MDT 2003
+#  msrcp job for ADS/RF13 -- OK -- Tue Jun 24 09:20:30 MDT 2003
+#   Completed on Tue Jun 24 09:20:30 MDT 2003
+#
+# 12th wave
+#  1 Job(s) submitted on Thu Jun 26 17:30:40 MDT 2003
+#  msrcp job for ADS/RF14 -- OK -- Thu Jun 26 17:33:30 MDT 2003
+#   Completed on Thu Jun 26 17:33:30 MDT 2003
+#
+# 13th wave
+#  1 Job(s) submitted on Sun Jun 29 11:09:59 MDT 2003
+#  msrcp job for ADS/RF15 -- OK -- Sun Jun 29 11:13:15 MDT 2003
+#   Completed on Sun Jun 29 11:13:15 MDT 2003
+#
+# 14th wave
+#  1 Job(s) submitted on Mon Jul  7 12:46:42 MDT 2003
+#  msrcp job for ADS/RF16 -- OK -- Mon Jul  7 12:49:18 MDT 2003
+#   Completed on Mon Jul  7 12:49:18 MDT 2003
+#
+# 15th wave
+#  2 Job(s) submitted on Mon Jul  7 15:01:18 MDT 2003
+#  msrcp job for ADS/RF17A -- OK -- Mon Jul  7 15:01:34 MDT 2003
+#  msrcp job for ADS/RF17B -- OK -- Mon Jul  7 15:06:23 MDT 2003
+#   Completed on Mon Jul  7 15:06:23 MDT 2003
+#
+# 16th wave
+#  2 Job(s) submitted on Fri Aug  1 17:18:49 MDT 2003
+#  msrcp job for ADS/TF03 -- OK -- Fri Aug  1 17:20:05 MDT 2003
+#  msrcp job for ADS/TF04 -- OK -- Fri Aug  1 17:22:00 MDT 2003
+#   Completed on Fri Aug  1 17:22:00 MDT 2003
+#

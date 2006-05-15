@@ -1,0 +1,74 @@
+											7/08/2003
+                                                          
+
+	Aircraft "in-situ" Instrumentation
+	NRL P-3 - Project #3-303
+	 BAMEX Configuration
+	Davis et al
+
+	
+I.   Airborne Data System.
+     A. Acquisition.   ADS2 (Motorola 68040 based). 
+   NCAR Distributed Sampling Modules (1 unit). Analog, digital
+   and serial recording available at adjustable rates 
+   (1,5,25,250 sps).  
+
+B. Operator Station. Intel L440GX+ Motherboard with 
+   2 Pentium III-500 CPU's, 512 MB Memory, Redhat
+   Linux 7.2 OS.  9GB Disk Storage with RAID-1.
+   General Digital 17 inch 1280x1024 TFT Flat Panel
+   Color Monitor.  IBM-DRHS36D 36GB Removable Disk Drives
+   In Kingston Carriers (2 units).  Exabyte Model EXB-8505
+   Tape Drive.  UPS.
+
+C. Data Display/Distribution. NCAR/RAF "WINDS" real time 
+   display package.  Ascii serial data feed available to Users
+   via network link.
+
+II.  Aircraft Position, Velocity and Attitude.
+A. Honeywell Model HG1095-AC03 Laseref SM Inertial
+   Reference System . (Research). LATITUDE, LONGITUDE,PITCH,
+   ROLL, HEADING, VERTICAL VELOCITY, VERTICAL ACCELLERATION,
+   N-S GROUND SPEED COMPONENT, E-W GROUND SPEED COMPONENT,       ALTITUDE(MSL).     
+
+B. Garman Model GPS16 Global Positioning System. (GPS).          LATITUDE, LONGITUDE, N-S GROUND SPEED COMPONENT, E-W GROUND
+   SPEED COMPONENT, ALTITUDE(MSL).
+
+III. Static Pressures.  	
+A.Rosemount Model 1201F1 Pressure Transducer - Fuselage
+Pitot/Static.  SN: 1516. (PSF,PSFC,PSXC).
+
+IV.  Dynamic Pressures.
+A.Rosemount Model 1221F1VL - Radome Gust Probe. SN: 148.
+(QCR,QCRC).
+
+B. Rosemount Model 1221F1VL - Fuselage. Pitot SN: 659.
+	   (QCF,QCFC).
+
+V.   Temperatures.
+     A. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Starboard Fuselage Mount. SN:3183.(TTRR).
+ 	B. Rosemount Type 102 Non-deiced Sensor -- Rosemount Model
+        510BF Amplifier - Port Fuselage Mount. SN:3245. (TTRL).
+
+BAMEX "in-situ" Instrumentation
+Page 2
+
+
+VI.  Dew Point and Humidity.
+A. General Eastern, Model 1011B Dew Point Hygrometer - 	    	   Starboard Fuselage Mount. SN:1991293.  (DPT, DPTC).
+
+VII.  Flow Angle Sensors, Radome Gust Probe.
+      A. Attack - Rosemount Model 1221F1VL Differential Pressure
+         Transducer. SN: 1177. (AKRD).
+     
+ 	 B. Sideslip - Rosemount Model 1221F1VL Differential 
+         Pressure Transducer. SN: 1176. (SSRD).
+
+	    3-D Wind Field: WIND SPEED, WIND DIRECTION, VERTICAL
+	    WIND SPEED, N-S WIND COMPONENT, E-W WIND COMPONENT.
+
+VIII. Geometric Altitude. 
+ A. NAVCOM Model APN-232 Radar Altimeter. Fuselage Mount,
+    0 to 15,000 m AGL (HGM232).
+

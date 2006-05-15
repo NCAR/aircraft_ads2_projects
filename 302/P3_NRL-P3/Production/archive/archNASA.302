@@ -1,0 +1,110 @@
+#! /bin/csh -f
+#
+#  Archive special NASA-format ASCII files for project:
+#    2002-302 CRYSTAL-FACE (Cirrus Regional Study of Tropical Anvils and
+#    Cirrus Layers - Florida Area Cirrus Experiment) (Verlinde)
+#   using the new ATD directory path
+#
+#  File created by '/jnet/linux/scripts/genar' Revision 12 on Fri Sep 20 10:16:36 MDT 2002
+#  File adapted by Ron Ruth for this special purpose on Fri Sep 20 10:30:00 MDT 2002
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo /jnet/linux/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run (should be $MSRCP_MACH)
+set msrcpMachine = "vivaldi"
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+set SFILES = ( \
+AD20020707.P3 \
+AD20020710.P3 \
+AD20020711.P3 \
+AD20020713.P3 \
+AD20020716.P3 \
+AD20020717.P3 \
+AD20020718.P3 \
+AD20020719.P3 \
+AD20020721.P3 \
+AD20020723.P3 \
+AD20020725.P3 \
+AD20020728.P3 \
+AD20020729.P3 \
+)
+#
+set DFILES = ( \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020707.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020710.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020711.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020713.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020716.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020717.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020718.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020719.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020721.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020723.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020725.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020728.P3 \
+mss:/ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/NASA_ASCII/AD20020729.P3 \
+)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/"
+echo "#  (Check year in path, if project occurred in more than one.)"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    rsh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  13 job(s) submitted on Fri Sep 20 10:25:07 MDT 2002
+#  Files archived to MSS directory:  /ATD/DATA/2002/CRYSTAL-FACE/NRL_P3/
+#   NASA_ASCII/AD20020707.P3 -- OK -- Fri Sep 20 10:25:25 MDT 2002
+#   NASA_ASCII/AD20020710.P3 -- OK -- Fri Sep 20 10:25:39 MDT 2002
+#   NASA_ASCII/AD20020711.P3 -- OK -- Fri Sep 20 10:25:51 MDT 2002
+#   NASA_ASCII/AD20020713.P3 -- OK -- Fri Sep 20 10:26:03 MDT 2002
+#   NASA_ASCII/AD20020716.P3 -- OK -- Fri Sep 20 10:26:30 MDT 2002
+#   NASA_ASCII/AD20020717.P3 -- OK -- Fri Sep 20 10:27:01 MDT 2002
+#   NASA_ASCII/AD20020718.P3 -- OK -- Fri Sep 20 10:27:27 MDT 2002
+#   NASA_ASCII/AD20020719.P3 -- OK -- Fri Sep 20 10:27:43 MDT 2002
+#   NASA_ASCII/AD20020721.P3 -- OK -- Fri Sep 20 10:27:57 MDT 2002
+#   NASA_ASCII/AD20020723.P3 -- OK -- Fri Sep 20 10:28:10 MDT 2002
+#   NASA_ASCII/AD20020725.P3 -- OK -- Fri Sep 20 10:28:33 MDT 2002
+#   NASA_ASCII/AD20020728.P3 -- OK -- Fri Sep 20 10:28:45 MDT 2002
+#   NASA_ASCII/AD20020729.P3 -- OK -- Fri Sep 20 10:29:08 MDT 2002
+#   Completed on Fri Sep 20 10:29:08 MDT 2002
+#

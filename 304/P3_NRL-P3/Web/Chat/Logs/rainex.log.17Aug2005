@@ -1,0 +1,547 @@
+[08/17/05 13:28:44] MikeDaniels-home (Mike@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 13:29:45] MikeDaniels-home (Mike@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 13:47:17] Jasmine (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 13:47:33] Jasmine (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 13:48:05] JasmineCetrone-Ops (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 13:48:08] jcetrone_ (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 13:48:12] JasmineCetrone-Ops (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 13:48:14] jcetrone_ (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 13:48:21] JasmineCetrone-Ops (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 13:48:27] JasmineCetrone-Ops (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 14:11:19] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:17:53] MikeDaniels-home (Mike@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:18:19] <jose_rainex> hi mike
+[08/17/05 14:18:21] <MikeDaniels-home> Hi Jose, any more specific indication of today's take-off time?
+[08/17/05 14:18:29] <jose_rainex> 2pm ET
+[08/17/05 14:18:38] <MikeDaniels-home> OK, I will join chat at that time.
+[08/17/05 14:18:49] <MikeDaniels-home> btw, I like the next hurricane's name :-)
+[08/17/05 14:19:06] <jose_rainex> i'm trying ot set up Mcfadden at AOC and get handshake timeout immediately
+[08/17/05 14:19:19] <MikeDaniels-home> port 6668?
+[08/17/05 14:19:23] <jose_rainex> yeah
+[08/17/05 14:19:34] <MikeDaniels-home> let me login to the server...  just a sec
+[08/17/05 14:22:05] <MikeDaniels-home> i see a message from the server that says "SSL_accept: Peer suddenly disconnected"
+[08/17/05 14:22:17] <MikeDaniels-home> need to verify Jim's SSL settings
+[08/17/05 14:22:33] <MikeDaniels-home> "accept invalid certificate" must be checked
+[08/17/05 14:22:44] <jose_rainex> yes
+[08/17/05 14:22:47] <MikeDaniels-home> and, of course, the use SSL
+[08/17/05 14:22:55] <jose_rainex> yes
+[08/17/05 14:22:56] <MikeDaniels-home> what version of xchat is he using?
+[08/17/05 14:23:11] <MikeDaniels-home> Help - about
+[08/17/05 14:23:12] <jose_rainex> older I'm sure cause his setup is different
+[08/17/05 14:23:27] <MikeDaniels-home> then SSL support may be buggy
+[08/17/05 14:23:42] <jose_rainex> ok, we'll look at another version
+[08/17/05 14:23:43] <MikeDaniels-home> have him upgrade to the latest
+[08/17/05 14:24:20] <jose_rainex> he is at 0.12  I have 0.14
+[08/17/05 14:24:24] <MikeDaniels-home> ?
+[08/17/05 14:24:35] <MikeDaniels-home> how did you get that
+[08/17/05 14:24:43] <MikeDaniels-home> mine is 2.10.0c
+[08/17/05 14:24:44] <jose_rainex> off some web site
+[08/17/05 14:24:49] <MikeDaniels-home> oops 2.0.10c
+[08/17/05 14:25:12] <MikeDaniels-home> that free web site i mention in the instructions something like silver...
+[08/17/05 14:25:35] <jose_rainex> i have it
+[08/17/05 14:25:58] <MikeDaniels-home> ok, what was the url again (can't see as i'm outside the firewall)?
+[08/17/05 14:26:34] <MikeDaniels-home> jose, are you running from a windows system?
+[08/17/05 14:26:51] <jose_rainex> nah! I'm a MAc OSX guy
+[08/17/05 14:26:58] <jose_rainex> so is most of AOC
+[08/17/05 14:27:17] <MikeDaniels-home> oooooh, ok then that is why the version # is different
+[08/17/05 14:27:33] <MikeDaniels-home> i have to check what version my mac is running, just a sec
+[08/17/05 14:28:16] jose (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:29:45] <MikeDaniels-home> Mine says "0.13.0/2.0.9" at the top
+[08/17/05 14:29:54] <MikeDaniels-home> and it works
+[08/17/05 14:29:57] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 14:30:51] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:31:07] <MikeDaniels-home> here is where you can get 0.14.0:  http://sourceforge.net/projects/xchataqua/
+[08/17/05 14:32:16] jose (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 14:32:41] <MikeDaniels-home> jose, did you get that url?
+[08/17/05 14:35:35] <jose_rainex> its www.silverex.org
+[08/17/05 14:36:03] <jose_rainex> we started the wx brief so I'll be off for a while
+[08/17/05 14:36:14] <jose_rainex> we're getting the latest version
+[08/17/05 14:36:20] <MikeDaniels-home> ok
+[08/17/05 14:36:23] <MikeDaniels-home> chat later...
+[08/17/05 14:36:36] MikeDaniels-home (Mike@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 14:36:45] Nick change: jose_rainex -> jose_rainex_tampa
+[08/17/05 14:37:07] Nick change: jose_rainex_tampa -> jose_tampa
+[08/17/05 14:52:54] jmcf (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:53:28] jmcf (jimm@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[08/17/05 14:54:56] jmcf (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:55:59] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:57:03] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 14:57:04] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 14:59:12] jmcf (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 15:00:08] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 15:01:13] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:01:19] BobHouze-Ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:01:25] BobHouze-Ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 15:02:23] <jimm> jose - how do you change the background cof the screen?
+[08/17/05 15:05:50] jimm (jimm@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 15:11:54] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:24:05] JimMoore-ops (JimMoore@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:27:50] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:35:14] jose (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:37:49] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 15:38:03] MikeDaniels-NCAR (daniels@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:38:23] &RAINEX: mode change '+o MikeDaniels-NCAR' by MikeDaniels-NCAR!daniels@rdcc.guest.ucar.edu
+[08/17/05 15:38:23] Mode change by non-chanop on &RAINEX!  Reversing...
+[08/17/05 15:46:16] MikeDaniels-NCAR (daniels@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 15:46:18] jose (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 15:46:20] Jasmine (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:46:58] Jasmine (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 15:48:07] MikeDaniels-NCAR (daniels@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:48:17] &RAINEX: mode change '+o MikeDaniels-NCAR' by MikeDaniels-NCAR!daniels@rdcc.guest.ucar.edu
+[08/17/05 15:48:17] Mode change by non-chanop on &RAINEX!  Reversing...
+[08/17/05 15:49:44] mblack-hrd (mblack@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:50:25] <mblack-hrd> Hi Folks-just installed xchat and testing
+[08/17/05 15:50:40] <mblack-hrd> Finished mission planning for  today
+[08/17/05 15:50:51] <ads-nrlp3> this is NRL P-3 ads system up and checking in
+[08/17/05 15:51:31] <mblack-hrd> coordinated wind box (20 nmi legs) around buoy 42013 @ 8 kft & 12kft
+[08/17/05 15:51:53] <mblack-hrd> NRL p3 trailing N43 by 4 nmi in box
+[08/17/05 15:52:22] <mblack-hrd> A sonde drop by both A/C at Buoy
+[08/17/05 15:53:19] <mblack-hrd> finish intercomparison with wind-L @ 12 kft P3's in formation- 40 nmi legs
+[08/17/05 15:53:41] BobHouze-ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:53:56] <mblack-hrd> Hunt for convection to the south-set up a tandem run first along convection
+[08/17/05 15:54:01] BobHouze-ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 15:54:26] BobHouze-ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:54:45] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 15:54:48] BobHouze-ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 15:57:26] <mblack-hrd> then try a set of coordinateed legs with P3s on either side on line
+[08/17/05 15:59:44] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[08/17/05 16:02:22] smull_n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:02:42] <mblack-hrd> Brad is joining the hi-tech worls as well
+[08/17/05 16:02:57] <smull_n43> Glad to be here!
+[08/17/05 16:13:58] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:15:40] Nick change: jose_rainex -> jose_tampa
+[08/17/05 16:15:52] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:16:00] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:26:17] Nick change: smull_n43 -> smull-n43
+[08/17/05 16:30:56] <jimm> ok
+[08/17/05 16:33:26] eldoraop-nrlp3 (tech@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:35:10] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:36:19] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 16:37:25] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 16:39:08] eldoraop-nrlp3 (tech@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 16:40:27] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 16:43:22] mblack-hrd (mblack@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[08/17/05 16:45:45] pavel-jeffco (pavel@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:46:08] pavel-aoc (pavel@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:46:10] pavel-jeffco (pavel@rdcc.guest.ucar.edu) left &RAINEX (Leaving).
+[08/17/05 16:47:09] anstett-tampa (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:47:15] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:48:19] anstett-tampa (anstett@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 16:48:21] anstett-tampa (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:48:22] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 16:48:57] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:49:38] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 16:52:28] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 16:52:56] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:54:16] BrigitteBaeuerleTampa (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 16:57:06] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 16:58:26] smull-n43 (smull@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[08/17/05 17:02:36] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:07:29] <ads-nrlp3> test test 
+[08/17/05 17:12:48] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:13:46] jose (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:14:26] <pavel-aoc> Hear hear
+[08/17/05 17:14:47] BrigitteBaeuerleTampa (Brigitte@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 17:16:00] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 17:18:07] <JimMoore-ops> Hey Jose, are you flying or on the ground this PM?
+[08/17/05 17:21:37] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:21:58] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 17:22:03] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 17:23:03] jose (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 17:31:24] bb (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:31:28] mblack-hrd (mblack@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:33:50] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 17:36:38] <mblack-hrd> Brad Smull will not have xchat ability frm the radar station on N43 today
+[08/17/05 17:37:08] mblack-hrd (mblack@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[08/17/05 17:37:30] RAINEXGUEST (rainex@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:39:32] Nick change: RAINEXGUEST -> mikestrong
+[08/17/05 17:41:29] BobHouze-Ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:45:50] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:46:49] BobHouze-Ops (houze@rdcc.guest.ucar.edu) left irc: EOF from client
+[08/17/05 17:47:12] BobHouze-Ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:47:33] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:47:38] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:48:45] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 17:48:49] JasmineCetrone-Ops (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:50:35] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:52:26] science2-nrlp3_ (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 17:53:05] Nick change: science2-nrlp3_ -> DeannaHence-nrlP3
+[08/17/05 17:58:37] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 18:01:49] <science2-nrlp3> anybody here ?
+[08/17/05 18:02:23] <DeannaHence-nrlP3> this is NRL-P3...anyone online?
+[08/17/05 18:02:27] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:02:32] <jose_tampa> i"m here
+[08/17/05 18:02:36] <bb> I am here
+[08/17/05 18:03:26] <jimm> OD
+[08/17/05 18:03:30] houze_ (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:03:47] ChrisBurghart-ops (burghart@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:03:53] <DeannaHence-nrlP3> we have an eldora forward transmitter issue
+[08/17/05 18:04:05] <DeannaHence-nrlP3> shall we continue with intercomparison or terminate mission?
+[08/17/05 18:04:54] <houze_> Continue with mission
+[08/17/05 18:05:00] StacyBrodzik-ROC (brodzik@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:05:08] <DeannaHence-nrlP3> ok
+[08/17/05 18:06:15] <ads-nrlp3> Pavel are you there?
+[08/17/05 18:07:13] <DeannaHence-nrlP3> Will continue the mission and try to trouble shoot in flight
+[08/17/05 18:07:53] <anstett-tampa> pavel isn't right here at the moment.  Shall I call him?
+[08/17/05 18:08:15] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:10:41] <ads-nrlp3> no that's ok, all is well!
+[08/17/05 18:11:01] <pavel-aoc> I am here Kurt.
+[08/17/05 18:11:33] drops-P3 (Avaps1@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:11:57] <drops-P3> drops online
+[08/17/05 18:12:22] Nick change: DeannaHence-nrlP3 -> science3-nrlp3
+[08/17/05 18:12:39] <pavel-aoc> Ads - we will be back in some 40 min.
+[08/17/05 18:13:31] mblack-hrd (mblack@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:13:55] <ads-nrlp3> ads-ok
+[08/17/05 18:14:09] <pavel-aoc> kurt how's ttrl bill
+[08/17/05 18:17:52] <ads-nrlp3> temps are good, inside and out!
+[08/17/05 18:18:06] <JimMoore-ops> Can NRL or N42 give us a heads-up when intercomparison is to begin
+[08/17/05 18:18:21] <JimMoore-ops> and drop is made?? Thanks
+[08/17/05 18:18:57] <mblack-hrd> N43 is now at the biggining of our firstleg of the wind boa near Buoy 42013
+[08/17/05 18:19:07] <science2-nrlp3> stand by
+[08/17/05 18:20:16] <science2-nrlp3> intercomparison will strat when box pattern will start
+[08/17/05 18:20:22] <science2-nrlp3> will let you know
+[08/17/05 18:20:48] <mblack-hrd> Are you reading me ok?
+[08/17/05 18:21:17] <drops-P3> what is bouy coordinates so i can anticipate lp
+[08/17/05 18:21:42] <jose_tampa> buoy 13-27.16 N 82.95 W (27°9'9" N 82°57'2" W)
+[08/17/05 18:21:55] <drops-P3> thanks
+[08/17/05 18:23:14] <BobHouze-Ops> Is LF radar on N43 turned on? We are looking for the data stream.
+[08/17/05 18:24:07] <BobHouze-Ops> Logins on chat need to indicate WHICH P3--42,43, or NRL
+[08/17/05 18:24:59] <jose_tampa> mike black is the ONLY log in from NOAA 43
+[08/17/05 18:25:32] <ChrisBurghart-ops> To change login name, use "/nick <new-name>"
+[08/17/05 18:26:24] <mblack-hrd> N43 is now talking to NRL_P3 to coordinate wind box
+[08/17/05 18:27:02] <mblack-hrd> We now have the NRLP3 ahead visually
+[08/17/05 18:28:06] <mblack-hrd> The lf stream just started
+[08/17/05 18:28:39] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 18:28:40] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 18:29:23] <ChrisBurghart-ops> Thanks, Mike, we see the radar data here now.
+[08/17/05 18:29:30] drops-P3 (Avaps1@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 18:29:38] <science2-nrlp3> eldora is up
+[08/17/05 18:30:01] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:31:23] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:32:10] drops-NRLP3 (Avaps1@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:32:53] <drops-NRLP3> drops p3 isnow drops nrlp3
+[08/17/05 18:34:44] <BobHouze-Ops> We have an LF image and track from N43
+[08/17/05 18:34:45] n43_rams (n43_rams@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:35:52] <n43_rams> hey all, this is terry lynch at the data station on n43
+[08/17/05 18:36:25] <n43_rams> is the 1hz flight level data and the l/f radar data getting down ok?
+[08/17/05 18:37:12] houze_ (houze@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[08/17/05 18:38:04] <ChrisBurghart-ops> Both LF and 1 Hz data are coming in, and we're successfully decoding the radar.  1 Hz decoding is currently on hold while dealing with other issues.
+[08/17/05 18:38:30] <science2-nrlp3> OPS did you get the NRL flight track  ?
+[08/17/05 18:38:31] <n43_rams> thanks chris
+[08/17/05 18:38:33] <BobHouze-Ops> Houze is NOT asleep!
+[08/17/05 18:39:09] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:39:24] Nick change: n43_rams -> terry_43
+[08/17/05 18:39:33] <JimMoore-ops> No NRL flight track yet--problem is being worked
+[08/17/05 18:40:34] <science2-nrlp3> intercomparison has started
+[08/17/05 18:40:36] houze_ (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:41:35] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 18:43:50] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:44:29] StacyBrodzik-ROC (brodzik@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 18:44:30] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 18:44:42] <mblack-hrd> intercomparison started at 1835 UTC
+[08/17/05 18:44:51] <JimMoore-ops> Thanks Mike
+[08/17/05 18:48:07] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 18:49:33] <mblack-hrd> having some problems with main data systems-spurious wind and track values
+[08/17/05 18:49:57] <mblack-hrd> right now-ok will let you know if further problems
+[08/17/05 18:56:30] <ChrisBurghart-ops> Mike, we're still getting the 1Hz stream, but no longer getting LF radar here.
+[08/17/05 18:56:36] <mblack-hrd> beginning our last leg (w-e) at 12,500 ft
+[08/17/05 18:56:45] <mblack-hrd> Ok, I'll check on the LF
+[08/17/05 19:00:17] <ChrisBurghart-ops> LF is coming in again.  Thanks!
+[08/17/05 19:00:41] <terry_43> the G* had dropped, it should be coming across now, I'm on the #sed channel as primary, so let me know there if it stops
+[08/17/05 19:02:32] <pavel-aoc> Janet is working on the NRL P3 track. It is coming in (see http://raf.atd.ucar.edu/cgi-bin/ion/ion-p?page=c130.ion) but time stamp is not what you expect.
+[08/17/05 19:03:53] <JimMoore-ops> Terry--Explain #sed channel (is that chat or G* lingo)
+[08/17/05 19:04:02] CharlieMartin-Boulder (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:04:08] <jose_tampa> nah, that's an AOC chat room
+[08/17/05 19:04:48] Nick change: CharlieMartin-Boulder -> CharlieMartin-nrlp3
+[08/17/05 19:05:45] StacyBrodzik-ROC (brodzik@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:07:10] <drops-NRLP3> testing data xfer from drops to skewt- is dummy file visible?
+[08/17/05 19:11:40] ShuyiChen-opc (Shuyi@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:12:36] <terry_43> #sed is an irc channel running on a server at AOC that john hill spent a chunk of time last week setting up. Prior to that the server we had been using for the P-3's had a limit of three users per IP address and we knew that with RAINEX we'd exceed that limit from the hangar's IP (the acft each have a seperate IP). So john set it all up and that is the primary channel that all the acft computers (data station, dropsonde, flight dir, radar, etc) use.
+[08/17/05 19:13:23] drops-NRLP3 (Avaps1@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:13:29] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:13:31] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:13:34] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:13:41] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:13:43] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:14:08] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 19:14:47] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:15:20] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 19:16:15] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:16:36] pavel-aoc- (pavel@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:17:39] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:17:43] pavel-aoc (pavel@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:19:54] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:20:10] <mblack-hrd> Began the seconnd wind box (12,500 ft) at 1911
+[08/17/05 19:20:18] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:20:32] <mblack-hrd> we are on the second leg (E-W) now at 1920
+[08/17/05 19:22:45] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:22:59] <mblack-hrd> Has the NRL P3 been able to see N43 LF images?
+[08/17/05 19:23:26] <JimMoore-ops> Mike, confirm you are still on second 12.5 Kft leg of intercomparison and have not done 8K yet?
+[08/17/05 19:23:51] <JimMoore-ops> Also, will the drop be made at this altitude or higher?
+[08/17/05 19:24:10] <ChrisBurghart-ops> Not yet for images to the NRL.  I'm having problems with automatic image generation, but am working on it now.
+[08/17/05 19:24:17] CharlieMartin-Boulder (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:24:31] drops-NRLP3 (Avaps1@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:24:56] <mblack-hrd> We started at 8,500 ft, finished that 1909, now beginning 3rd leg (S-N) at 12,500
+[08/17/05 19:25:11] <drops-NRLP3> nrl link back online
+[08/17/05 19:25:29] <mblack-hrd> We will be dropping from 12,500 ft over buoy 42013
+[08/17/05 19:26:05] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:26:29] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:26:43] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:27:08] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:27:11] <mblack-hrd> we could use some guidance for loaction of  convection
+[08/17/05 19:27:43] <science2-nrlp3> has the OPS center received a LF image yet ?
+[08/17/05 19:27:46] <mblack-hrd> we are thinking west of Naples- a few cells (line) there' how does that sound?
+[08/17/05 19:28:33] <science3-nrlp3> am i back online?
+[08/17/05 19:29:15] <mblack-hrd> another option might be just offshore north of Tampa
+[08/17/05 19:30:11] <jose_tampa> the ones N of TPA are not coming off the mainland, drifting nthwrd
+[08/17/05 19:30:37] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:31:33] <science1-nrlp3> has any LF images arrived OPS?
+[08/17/05 19:31:40] <drops-NRLP3> n43 please notify when drop occurs
+[08/17/05 19:33:24] <BobHouze-Ops> The best cells are along the coast north of TPA. They are just east of a line between 28.0 N 83.0 W and 29.2 N and 82.7 W. 
+[08/17/05 19:33:50] <BobHouze-Ops> Cells are aligne approx with coast. Motion is from 190 deg.
+[08/17/05 19:34:04] <BobHouze-Ops> Is that too far?
+[08/17/05 19:34:12] <ChrisBurghart-ops> Science1: we are getting LF data at ops, and are making displays here (by hand for now).  I just put a hand-generated image into the LDM queue, so you should see something soon.
+[08/17/05 19:34:20] <science1-nrlp3> has any LF images arrived OPS?
+[08/17/05 19:34:48] <BobHouze-Ops> yes, we are getting lf data here
+[08/17/05 19:35:31] <ChrisBurghart-ops> science1: please let me know if you get the image I sent
+[08/17/05 19:35:42] <mblack-hrd> The cells north of tampa are not too far but we would prefer over water
+[08/17/05 19:36:03] <BobHouze-Ops> Over water doesn't look too good right now.
+[08/17/05 19:36:24] CharlieMartin-Boulder (martinc@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:36:41] <BobHouze-Ops> Your track would be over water mostly, except on the north end of the line.
+[08/17/05 19:37:03] <BobHouze-Ops> The cells will be over land to your right as you go northbound
+[08/17/05 19:37:04] <mblack-hrd> How about the neww cells ~75 miles west of Naples?
+[08/17/05 19:37:32] <BobHouze-Ops> They don't look very good at this time and dissipating.
+[08/17/05 19:37:33] <science1-nrlp3> Chris, please tell me the time you sent the image so I can compute the time it takes to arrive here.
+[08/17/05 19:37:40] <BobHouze-Ops> Wouldn't give us much to work with.
+[08/17/05 19:38:27] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:38:58] <mblack-hrd> We can ask pilots about any FAA problems over land
+[08/17/05 19:39:03] <science1-nrlp3> Chris, the chat time is MDT, can we change it to UTC to be consistent with other displays?
+[08/17/05 19:39:48] <mblack-hrd> Brad and I are looking at Miami radar and think the convection off FL Sw coast is growing
+[08/17/05 19:40:00] <BobHouze-Ops> mblack-hrd: The best convection is just east of Lake Okeechobee--just so you know.
+[08/17/05 19:40:11] bb (Brigitte@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:40:44] <BobHouze-Ops> mblack & brad: The loop shows its weakening, not growing at this time.
+[08/17/05 19:41:41] <mblack-hrd> Ok, we are asking about flying north of Tampa- right along coast
+[08/17/05 19:41:59] <ChrisBurghart-ops> science1-nrlp3: According to Janet, no images will get up to you today.  Something changed on the server "malbec" at home, and it's broken LDM there (and that's how the images are supposed to get to you)
+[08/17/05 19:42:24] <science1-nrlp3> Chris, the MDT may be the problem only for science3 computer on board.
+[08/17/05 19:43:11] <BobHouze-Ops> mblack: the line is still very good, but it is weakening on the south end and strengthening on the north end
+[08/17/05 19:43:28] <science2-nrlp3> NRL just dropped the sonde
+[08/17/05 19:44:12] <drops-NRLP3> drop is away and looking good
+[08/17/05 19:44:24] <ChrisBurghart-ops> science1-nrlp3: can we move the discussion of NRL-specific issues to the "&NRL" channel?
+[08/17/05 19:44:36] <ChrisBurghart-ops> sorry, I meant "&NRLP3"
+[08/17/05 19:45:02] <BobHouze-Ops> mblack: a new end point for the north end of the line is 29.5, 82.8. The cells are east of this line.
+[08/17/05 19:45:44] <science1-nrlp3> sure.
+[08/17/05 19:47:29] mblackN43 (mblack@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:47:39] drops-NRLP3 (Avaps1@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 19:47:48] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 19:48:03] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:48:06] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:48:12] n43_rams_ (n43_rams@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:48:16] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:48:32] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:48:44] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:49:19] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 19:49:23] mblack-hrd (mblack@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:49:31] terry_43 (n43_rams@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:50:40] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:50:46] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:51:30] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:51:48] <BobHouze-Ops> mblack: The LF image is showing nothing but ground clutter over land north of TPA. Does the elevatin angle need to be adjusted, or do we have a problem?
+[08/17/05 19:52:47] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:54:30] mblackN43 (mblack@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:54:32] n43_rams_ (n43_rams@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 19:54:49] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:55:35] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:58:48] <JimMoore-ops> NRL--We seemed to have lost N43--Can you confirm you are in trail for Doppler run?
+[08/17/05 19:59:00] TomS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 19:59:37] TomS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:00:07] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:00:25] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:00:26] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:00:43] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:03:35] mblackN43 (mblack@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:03:50] <BobHouze-Ops> mblack: The LF image is showing nothing but ground clutter over land north of TPA. Does the elevatin angle need to be adjusted, or do we have a problem?
+[08/17/05 20:04:17] n43_rams_ (n43_rams@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:05:19] <BobHouze-Ops> mblack: We are starting to see echoes in the clutter. Would it help to tilt the antenna a little?
+[08/17/05 20:06:28] <mblackN43> Bob: Ik, John G. will AADJUST THE TILT
+[08/17/05 20:07:28] bb (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:07:41] <mblackN43> Bob: with only 30 miles offshore to work with do you still want us to target the convection north of Tampa; need to make a decision  in a few minutes
+[08/17/05 20:09:51] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:11:21] <BobHouze-Ops> mike: Do you have to stay offshore? Yesterday we heard land was ok. The strongest cells are on the north end of the line toward the point 29.5 82.8
+[08/17/05 20:12:01] <BobHouze-Ops> Some new cell are forming just NE of TPA in the southern part of the line.
+[08/17/05 20:13:20] <mblackN43> Land is ok, but do have to worry more about air traffic and ground clutter
+[08/17/05 20:14:10] <BobHouze-Ops> The north point I gave you is still excellent. The line is still between the points we gave you.
+[08/17/05 20:15:26] <mblackN43> Ok, we will be heading there in a few minutes
+[08/17/05 20:15:32] <pavel-aoc-> Beware - chat can drop out. Radar images should upload to NRL P3
+[08/17/05 20:16:12] <pavel-aoc-> Janet says there are 9 images in the queue to get up. Be patient.
+[08/17/05 20:17:57] <mblackN43> Bob: We'll set up a initial S-N leg, just offshore with the NRLP3 trailing us
+[08/17/05 20:18:44] <mblackN43> Bob: The we can try a coordinated leg with P3s on either side of line/cell
+[08/17/05 20:18:48] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 20:19:17] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:19:40] TrS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:19:47] <BobHouze-Ops> Mike: The in-trail pattern with both a/c on the west side is sufficient for the test. 
+[08/17/05 20:20:22] TrS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:20:32] <BobHouze-Ops> The east side of the line is messy, so we advise both a/c remain on west side of line
+[08/17/05 20:20:39] TrS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:21:15] TrS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:22:21] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) left irc: Quit: &c130
+[08/17/05 20:22:42] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:23:08] TrS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:23:16] <mblackN43> Bob: Brad and I agree, we will work the west side, how about both P3's heading toward Gainsville along the west side of line with reverse track having N43 on east side over land and NRLP3 on west side heading toward the water on their SSW track?
+[08/17/05 20:23:18] bruning-Jeffco (bruning@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:23:40] bruning-Jeffco (bruning@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 20:23:56] TrS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:25:43] <JimMoore-ops> Gents,  The track to Gainsville sounds fine although to stay on the west side you will.  By messy we mean
+[08/17/05 20:26:07] TrS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:26:16] <JimMoore-ops> likely be west of Gainsville.  By messy we mean cells are filling in on the east side of the line
+[08/17/05 20:26:43] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:26:56] <JimMoore-ops> and you would have to pick your way through near and east.  Line is oriented about
+[08/17/05 20:26:58] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:27:04] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:27:22] <JimMoore-ops> 190 degrees.  Really see no need to be to the east of the line at all.
+[08/17/05 20:27:40] <pavel-aoc-> Radar images should upload to NRL P3 now.
+[08/17/05 20:28:39] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:29:21] <JimMoore-ops> Mike and Brad,  Cells are on the decrease now so hurry up--
+[08/17/05 20:29:27] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:29:35] <science2-nrlp3> NRLP3 is receiving the images but not the track
+[08/17/05 20:30:53] TrS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:31:08] <mblackN43> We are heading there now, will track west of cells, then reverse track still staying west-will that be sufficiient for today
+[08/17/05 20:31:13] <science3-nrlp3> should we test the relay time for the LF radar image?  perhaps by sending another just to test out the time lapse?
+[08/17/05 20:31:20] TomS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:32:10] TomS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:32:12] <ChrisBurghart-ops> science1-nrlp3: yes, a test would be good.  Have you gotten more than one image?  I've only put one into the queue so far.
+[08/17/05 20:32:31] TrS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:33:01] <JimMoore-ops> Mike B.  Sounds Great  Can you confirm a N43 dropsonde launch and the time??
+[08/17/05 20:33:52] TrS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:34:12] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:34:19] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:34:21] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:34:29] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:34:30] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:35:08] TrS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:35:10] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:36:05] TrS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:36:18] <ChrisBurghart-ops> mblackN43: Mike, we've lost the LF stream again.
+[08/17/05 20:36:33] <mblackN43> N43 dropped 3 sondes- 1st UBLOX sonde @1941-failed-no launch detect, 2nd also at 1941-good drop-old (GPS121) sonde, 3rd@1949-UBLOX sonde-good, all released over the buoy
+[08/17/05 20:37:12] bb (Brigitte@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:37:43] TomS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:37:58] TomS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:38:24] TomS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:38:36] bb (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:39:41] BrigitteBaeuerleTampa (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:39:48] BrigitteBaeuerleTampa (Brigitte@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 20:40:32] TomS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[08/17/05 20:40:43] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 20:41:44] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:43:26] bb (Brigitte@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:43:31] <ChrisBurghart-ops> mblackN43: Mike, can you start the LF stream to us again?
+[08/17/05 20:46:57] BrigitteBaeuerleTampa (Brigitte@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:48:12] baeuerle_brigitte (Brigitte@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 20:49:55] <mblackN43> We are now in the vicinity of cells west of Ocala- will manuever to line up and coordinate with NRL
+[08/17/05 20:51:53] birwin-ncar (birwin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:53:57] CharlieMartin-Boulder (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:54:15] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:56:13] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:56:39] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:57:15] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 20:58:28] <mblackN43> We are lining up on a cell visually- will track to NW with NRL behind us
+[08/17/05 20:59:12] <ChrisBurghart-ops> Mike, we're still not getting LF in the ops center
+[08/17/05 20:59:51] <mblackN43> Are you getting the LF data now?
+[08/17/05 21:00:54] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:00:55] CharlieMartin-Boulder (martinc@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:00:55] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:00:57] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:01:05] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:01:31] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:01:42] <mblackN43> Fairly impressive cell visually and on tail radar
+[08/17/05 21:02:24] <ChrisBurghart-ops> Mike, LF data are back again.  Thanks.
+[08/17/05 21:02:49] <mblackN43> We are tracking North just past first cell and headed for 2nd one
+[08/17/05 21:02:59] <mblackN43> When did the LF radar go out?
+[08/17/05 21:03:38] birwin-ncar (birwin@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:04:12] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:04:19] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:04:47] <JasmineCetrone-Ops> LF data went out at 20:23, so 40 minutes ago
+[08/17/05 21:05:16] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:05:24] CharlieMartin-Boulder (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:06:10] <mblackN43> 50+ dbz cores above our altitude on tail radar
+[08/17/05 21:06:51] <BobHouze-Ops> The cells are right on the sea breeze front
+[08/17/05 21:07:07] <mblackN43> NRLp3: Are you guys past the convection yet?
+[08/17/05 21:07:40] <mblackN43> Yes, the front shows up nicely on the Tampa radar
+[08/17/05 21:07:51] <BobHouze-Ops> Once NRL is past the convection we should have the data we need.
+[08/17/05 21:08:40] <mblackN43> Ok, we will do a reciprocal track in a few minutes then head for base-ok?
+[08/17/05 21:08:51] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:09:05] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:09:13] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:09:14] <BobHouze-Ops> mike: We agree with that plan.
+[08/17/05 21:09:15] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:09:16] CharlieMartin-Boulder (martinc@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:09:30] <ChrisBurghart-ops> NRL, can we do a test to time image transfer?
+[08/17/05 21:09:44] <mblackN43> OK, we'll give you an eta in about 10 minutes
+[08/17/05 21:10:17] <mblackN43> Turning back to south for reverse track at 2110
+[08/17/05 21:10:52] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:11:47] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:11:47] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:13:15] <mblackN43> Just spotted NRLP3 behind us in turn-good coordination!
+[08/17/05 21:14:21] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:15:00] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:19:59] <pavel-aoc-> Kurt - on ION all looks Ok.
+[08/17/05 21:22:53] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:22:55] science1-nrlp3 (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:22:56] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:24:24] <jose_tampa> n43?  Doc is asking for ETA
+[08/17/05 21:28:30] <mblackN43> N43 should be landing in about 20 minutes -2150 UTC
+[08/17/05 21:28:45] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:29:48] science3-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:34:11] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:34:25] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 21:35:55] <mblackN43> 2135 UTC-N43 making initial descent into MacDill
+[08/17/05 21:35:56] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:36:18] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[08/17/05 21:36:50] mikestrong (rainex@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:37:51] <JimMoore-ops> SO Mike/Jose, When all on the ground call ops and let us know time to call HRD conferencing
+[08/17/05 21:39:23] <jose_tampa> OK, you want to do each a/c separate
+[08/17/05 21:39:45] <mblackN43> Ok, it looks like 2230 UTC (6:30 EDT) should work out fine for the call
+[08/17/05 21:40:36] <JimMoore-ops> Everybody together at 2230 sounds fine
+[08/17/05 21:41:03] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:41:33] <mblackN43> Sounds good-maybe each aircraft should provide a report, though
+[08/17/05 21:42:44] <JimMoore-ops> Yes indeed and Ops will as well.  
+[08/17/05 21:43:36] pavel-aoc- (pavel@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:45:58] pavel-aoc (pavel@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:47:23] mblackN43 (mblack@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:47:31] n43_rams_ (n43_rams@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:47:36] n43_rams__ (n43_rams@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:53:15] science3-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:54:34] houze_ (houze@rdcc.guest.ucar.edu) left irc: Quit: gone
+[08/17/05 21:54:36] pavel-aoc (pavel@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:54:41] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:55:00] n43_rams__ (n43_rams@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 21:55:24] houze_ (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 21:58:36] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 21:59:49] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 22:00:46] ShuyiChen-opc (Shuyi@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 22:09:30] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Quit: meet aircraft
+[08/17/05 22:10:52] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[08/17/05 22:24:14] JasmineCetrone-Ops (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 22:24:30] JasmineCetrone-Ops (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 22:25:01] Nick change: JasmineCetrone-Ops -> JasmineCetrone-ops
+[08/17/05 22:25:08] JasmineCetrone-ops (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 22:39:32] BrigitteBaeuerleTampa (Brigitte@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 22:42:14] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 22:42:43] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 22:51:16] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 22:51:50] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 22:51:52] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 22:52:02] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 22:52:30] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 22:58:42] MikeDaniels-NCAR (daniels@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 23:02:24] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Quit: Goodbye!
+[08/17/05 23:04:38] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 23:05:36] <DeannaHence-tampa> debrief?
+[08/17/05 23:07:21] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Quit: Goodbye!
+[08/17/05 23:08:39] BobHouze-Ops (houze@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 23:34:51] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[08/17/05 23:37:44] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 23:39:45] ChrisBurghart-ops (burghart@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 23:48:33] JimMoore-ops (JimMoore@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/17/05 23:53:25] anstett-tampa (anstett@rdcc.guest.ucar.edu) left irc: Ping timeout
+[08/17/05 23:59:24] houze_ (houze@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[08/18/05 00:00:00] --- Thu Aug 18 2005

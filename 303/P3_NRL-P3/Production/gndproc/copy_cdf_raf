@@ -1,0 +1,51 @@
+#
+#  gndproc job file
+#  name:  copy_cdf_raf
+#  purpose:   copy processed netCDF data file to RAF
+#
+#  Notes:  Comment lines start with #
+#          An authorized keyset between source and destination machines
+#           must be set up if using scp or sftp
+#          Success also depends on a network connection which may not exist
+#
+#  What is set (Edit this line to add/delete settings.)
+copy_set = copy_type copy_p zip login dest ddp
+#   (Raw and standard processed data files for RAF should not have an "fmod")
+#copy_set = copy_type copy_p zip login dest ddp fmod
+#
+#  Settings
+#
+#   type of copy command to be used
+copy_type = scp
+#
+#   scp program assignment (with command-line options, if any)
+copy_p = /usr/bin/scp
+#copy_p = /usr/bin/scp -AqB
+#
+#   ftp program assignment (with command-line options, if any)
+#copy_p = /usr/bin/ftp -n -v
+#copy_p = /usr/kerberos/bin/ftp -n -v
+#
+#   sftp program assignment (with command-line options, if any)
+#copy_p = /usr/bin/sftp
+#
+#   gzip the file?
+zip = yes
+#zip = no
+#
+#   Destination login name
+login = raf-bamex
+#login = ihop-anstett
+#
+#   Destination machine (IP address)
+dest = linus.atd.ucar.edu
+#dest = raf.atd.ucar.edu
+#
+#   Destination data path on destination machine
+ddp = /jnet/data
+#
+#   Output file-name modifier to uniquely define this data set
+#    (Use this modifier when sending an unique data set, i.e., not
+#     a standard RAF data set, to another user.)
+#fmod = raf
+#

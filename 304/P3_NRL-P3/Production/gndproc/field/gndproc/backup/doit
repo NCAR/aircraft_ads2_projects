@@ -1,0 +1,14 @@
+#! /bin/csh
+ln Instructions_1 backup/Instructions_1
+ln Instructions_2 backup/Instructions_2
+ln copy_ads_raf backup/copy_ads_raf
+ln doit backup/doit
+ln gndproc backup/gndproc
+ln gndproc.conf backup/gndproc.conf
+ln gndproc_dev_notes.txt backup/gndproc_dev_notes.txt
+ln gndproc_doc.txt backup/gndproc_doc.txt
+ln nimbus_ads_raf backup/nimbus_ads_raf
+ln old_setup.304 backup/old_setup.304
+ln setup.304 backup/setup.304
+ln support_files backup/support_files
+exit
