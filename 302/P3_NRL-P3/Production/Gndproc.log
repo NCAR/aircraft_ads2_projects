@@ -1,0 +1,1072 @@
+From user@cf1076.crystalface.nasa.gov Mon Jul  8 13:44:20 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id NAA03130;
+	Mon, 8 Jul 2002 13:44:19 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g68Jj8N22380;
+	Mon, 8 Jul 2002 13:45:08 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma022283; Mon, 8 Jul 02 13:44:37 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g68Jhtu01487;
+	Mon, 8 Jul 2002 13:43:55 -0600
+Date: Mon, 8 Jul 2002 13:43:55 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207081943.g68Jhtu01487@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 902
+Status: RO
+
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 13:43:54 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Error 1 running nimbus in batch mode on 302rf01a.ads.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 13:43:55 MDT 2002
+Could not copy this log file from (/fnet/data/gndproc_log.1444) to (/fnet/data/302rf01a.log)
+/fnet/data/gndproc_log.1444 will remain in /fnet/data.
+Log file for this job is /fnet/data/gndproc_log.1444
+
+From user@cf1076.crystalface.nasa.gov Mon Jul  8 14:02:19 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id OAA03437;
+	Mon, 8 Jul 2002 14:02:19 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g68K38Y25182;
+	Mon, 8 Jul 2002 14:03:08 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma025064; Mon, 8 Jul 02 14:02:13 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g68K1VY01726;
+	Mon, 8 Jul 2002 14:01:31 -0600
+Date: Mon, 8 Jul 2002 14:01:31 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207082001.g68K1VY01726@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 968
+Status: RO
+
+Processing script started Mon Jul 8 14:01:07 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 14:01:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 14:01:31 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+
+From user@cf1076.crystalface.nasa.gov Tue Jul  9 07:58:17 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id HAA08019;
+	Tue, 9 Jul 2002 07:58:17 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g69Dx6F22380;
+	Tue, 9 Jul 2002 07:59:06 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma022309; Tue, 9 Jul 02 07:58:38 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g69DvsW06151;
+	Tue, 9 Jul 2002 07:57:54 -0600
+Date: Tue, 9 Jul 2002 07:57:54 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207091357.g69DvsW06151@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1998
+Status: RO
+
+Processing script started Mon Jul 8 14:01:07 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 14:01:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 14:01:31 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 07:56:21 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 07:56:21 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 07:57:44 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 07:57:54 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+
+From user@cf1076.crystalface.nasa.gov Tue Jul  9 08:05:20 2002
+Received: from mscan3.ucar.edu (mscan3.ucar.edu [128.117.64.125])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id IAA08090;
+	Tue, 9 Jul 2002 08:05:20 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan3.ucar.edu (8.11.6/8.11.6) id g69E69i05775;
+	Tue, 9 Jul 2002 08:06:09 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan3.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma005673; Tue, 9 Jul 02 08:05:40 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g69E4tY06550;
+	Tue, 9 Jul 2002 08:04:55 -0600
+Date: Tue, 9 Jul 2002 08:04:55 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207091404.g69E4tY06550@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 3028
+Status: RO
+
+Processing script started Mon Jul 8 14:01:07 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 14:01:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 14:01:31 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 07:56:21 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 07:56:21 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 07:57:44 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 07:57:54 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:03:22 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:03:22 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:04:46 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:04:55 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+
+From user@cf1076.crystalface.nasa.gov Tue Jul  9 08:29:14 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id IAA08457;
+	Tue, 9 Jul 2002 08:29:13 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g69EU3n27936;
+	Tue, 9 Jul 2002 08:30:03 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma027820; Tue, 9 Jul 02 08:29:12 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g69ESSx06901;
+	Tue, 9 Jul 2002 08:28:28 -0600
+Date: Tue, 9 Jul 2002 08:28:28 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207091428.g69ESSx06901@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 4058
+Status: RO
+
+Processing script started Mon Jul 8 14:01:07 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 14:01:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 14:01:31 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 07:56:21 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 07:56:21 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 07:57:44 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 07:57:54 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:03:22 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:03:22 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:04:46 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:04:55 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:28:14 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:28:14 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:28:19 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:28:28 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+
+From user@cf1076.crystalface.nasa.gov Tue Jul  9 09:44:18 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id JAA10307;
+	Tue, 9 Jul 2002 09:44:18 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g69Fj7D32152;
+	Tue, 9 Jul 2002 09:45:07 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma031880; Tue, 9 Jul 02 09:44:07 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g69FhMR08095;
+	Tue, 9 Jul 2002 09:43:22 -0600
+Date: Tue, 9 Jul 2002 09:43:22 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207091543.g69FhMR08095@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu, rbf@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 5088
+Status: RO
+
+Processing script started Mon Jul 8 14:01:07 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 14:01:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 14:01:31 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 07:56:21 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 07:56:21 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 07:57:44 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 07:57:54 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:03:22 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:03:22 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:04:46 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:04:55 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:28:14 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:28:14 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:28:19 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:28:28 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 09:43:08 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 09:43:08 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 09:43:13 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 09:43:21 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+
+From user@cf1076.crystalface.nasa.gov Tue Jul  9 09:47:15 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id JAA10376;
+	Tue, 9 Jul 2002 09:47:15 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g69Fm4732616;
+	Tue, 9 Jul 2002 09:48:04 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma032511; Tue, 9 Jul 02 09:47:33 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g69FknH08319;
+	Tue, 9 Jul 2002 09:46:49 -0600
+Date: Tue, 9 Jul 2002 09:46:49 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207091546.g69FknH08319@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 6118
+Status: RO
+
+Processing script started Mon Jul 8 14:01:07 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 14:01:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 14:01:31 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 07:56:21 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 07:56:21 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 07:57:44 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 07:57:54 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:03:22 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:03:22 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:04:46 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:04:55 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:28:14 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:28:14 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:28:19 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:28:28 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 09:43:08 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 09:43:08 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 09:43:13 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 09:43:21 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 09:46:35 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 09:46:35 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 09:46:40 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 09:46:49 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+
+From user@cf1076.crystalface.nasa.gov Tue Jul  9 11:41:18 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id LAA13491;
+	Tue, 9 Jul 2002 11:41:17 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g69Hg7X19016;
+	Tue, 9 Jul 2002 11:42:07 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma018947; Tue, 9 Jul 02 11:41:27 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g69Hegi08986;
+	Tue, 9 Jul 2002 11:40:42 -0600
+Date: Tue, 9 Jul 2002 11:40:42 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207091740.g69Hegi08986@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 7148
+Status: RO
+
+Processing script started Mon Jul 8 14:01:07 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Mon Jul 8 14:01:12 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Mon Jul  8 14:01:31 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 07:56:21 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 07:56:21 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 07:57:44 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 07:57:54 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:03:22 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:03:22 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:04:46 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:04:55 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 08:28:14 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 08:28:14 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 08:28:19 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 08:28:28 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 09:43:08 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 09:43:08 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 09:43:13 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 09:43:21 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 09:46:35 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 09:46:35 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 09:46:40 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 09:46:49 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+--------------- Tue Jul 9 11:40:28 MDT 2002 ---------------
+Processing script restarted Tue Jul 9 11:40:29 MDT 2002
+ 
+   Copying 302rf01a.ads to /fnet/data
+Successfully copied file from /r1/302rf01a.ads to /fnet/data/302rf01a.ads
+File copy job completed on Tue Jul 9 11:40:33 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf01a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf01a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf01a.batch
+Nimbus completed successfully and created file 302rf01a.cdf
+gzipping /fnet/data/302rf01a.cdf
+Gzipped /fnet/data/302rf01a.cdf
+Beginning scp /fnet/data/302rf01a.cdf.gz to Jeffco
+Successfully copied file 302rf01a.cdf.gz.
+   /usr/local/scripts/gndproc completed @ Tue Jul  9 11:40:42 MDT 2002
+Log file for this job is /fnet/data/302rf01a.log
+
+From user@cf1076.crystalface.nasa.gov Wed Jul 10 15:40:16 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id PAA05169;
+	Wed, 10 Jul 2002 15:40:15 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g6ALf5s32415;
+	Wed, 10 Jul 2002 15:41:05 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma032257; Wed, 10 Jul 02 15:40:46 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6ALdwx15243;
+	Wed, 10 Jul 2002 15:39:58 -0600
+Date: Wed, 10 Jul 2002 15:39:58 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207102139.g6ALdwx15243@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: //usr/local/scripts/gndproc job completed
+Content-Length: 971
+Status: RO
+
+Processing script started Wed Jul 10 15:34:45 MDT 2002
+ 
+   Copying 302rf02a.ads to /fnet/data
+Successfully copied file from /r1/302rf02a.ads to /fnet/data/302rf02a.ads
+File copy job completed on Wed Jul 10 15:39:14 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf02a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf02a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf02a.batch
+Nimbus completed successfully and created file 302rf02a.cdf
+gzipping /fnet/data/302rf02a.cdf
+Gzipped /fnet/data/302rf02a.cdf
+Beginning scp /fnet/data/302rf02a.cdf.gz to Jeffco
+Successfully copied file 302rf02a.cdf.gz.
+   //usr/local/scripts/gndproc completed @ Wed Jul 10 15:39:57 MDT 2002
+Log file for this job is /fnet/data/302rf02a.log
+
+From user@cf1076.crystalface.nasa.gov Thu Jul 11 15:49:15 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id PAA22639;
+	Thu, 11 Jul 2002 15:49:15 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g6BLo6v32256;
+	Thu, 11 Jul 2002 15:50:06 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma032080; Thu, 11 Jul 02 15:49:41 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6BLmnM21040;
+	Thu, 11 Jul 2002 15:48:49 -0600
+Date: Thu, 11 Jul 2002 15:48:49 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207112148.g6BLmnM21040@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: //usr/local/scripts/gndproc job completed
+Content-Length: 971
+Status: RO
+
+Processing script started Thu Jul 11 15:46:30 MDT 2002
+ 
+   Copying 302rf03a.ads to /fnet/data
+Successfully copied file from /r1/302rf03a.ads to /fnet/data/302rf03a.ads
+File copy job completed on Thu Jul 11 15:48:10 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf03a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf03a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf03a.batch
+Nimbus completed successfully and created file 302rf03a.cdf
+gzipping /fnet/data/302rf03a.cdf
+Gzipped /fnet/data/302rf03a.cdf
+Beginning scp /fnet/data/302rf03a.cdf.gz to Jeffco
+Successfully copied file 302rf03a.cdf.gz.
+   //usr/local/scripts/gndproc completed @ Thu Jul 11 15:48:48 MDT 2002
+Log file for this job is /fnet/data/302rf03a.log
+
+From user@cf1076.crystalface.nasa.gov Sat Jul 13 15:20:11 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id PAA17867;
+	Sat, 13 Jul 2002 15:20:11 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g6DLL1L28077;
+	Sat, 13 Jul 2002 15:21:01 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma028028; Sat, 13 Jul 02 15:20:24 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6DLJFl01459;
+	Sat, 13 Jul 2002 15:19:15 -0600
+Date: Sat, 13 Jul 2002 15:19:15 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207132119.g6DLJFl01459@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: //usr/local/scripts/gndproc job completed
+Content-Length: 971
+Status: RO
+
+Processing script started Sat Jul 13 15:15:31 MDT 2002
+ 
+   Copying 302rf04a.ads to /fnet/data
+Successfully copied file from /r1/302rf04a.ads to /fnet/data/302rf04a.ads
+File copy job completed on Sat Jul 13 15:18:46 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf04a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf04a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf04a.batch
+Nimbus completed successfully and created file 302rf04a.cdf
+gzipping /fnet/data/302rf04a.cdf
+Gzipped /fnet/data/302rf04a.cdf
+Beginning scp /fnet/data/302rf04a.cdf.gz to Jeffco
+Successfully copied file 302rf04a.cdf.gz.
+   //usr/local/scripts/gndproc completed @ Sat Jul 13 15:19:14 MDT 2002
+Log file for this job is /fnet/data/302rf04a.log
+
+From user@cf1076.crystalface.nasa.gov Wed Jul 17 16:46:13 2002
+Received: from mscan2.ucar.edu (mscan2.ucar.edu [128.117.64.124])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id QAA14172;
+	Wed, 17 Jul 2002 16:46:13 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan2.ucar.edu (8.11.6/8.11.6) id g6HMl4K04667;
+	Wed, 17 Jul 2002 16:47:04 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan2.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma004514; Wed, 17 Jul 02 16:46:15 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6HMj3B21558;
+	Wed, 17 Jul 2002 16:45:03 -0600
+Date: Wed, 17 Jul 2002 16:45:03 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207172245.g6HMj3B21558@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: //usr/local/scripts/gndproc job completed
+Content-Length: 978
+Status: OR
+
+Processing script started Wed Jul 17 16:44:18 MDT 2002
+ 
+   Copying 302rf06a.ads to /fnet/data
+Successfully copied file from /r1/302rf06a.ads to /fnet/data/302rf06a.ads
+File copy job completed on Wed Jul 17 16:44:44 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf06a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf06a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf06a.batch
+Nimbus completed successfully and created file 302rf06a.cdf
+gzipping /fnet/data/302rf06a.cdf
+Gzipped /fnet/data/302rf06a.cdf
+Beginning scp /fnet/data/302rf06a.cdf.gz to Jeffco
+scp failed on file 302rf06a.cdf.gz with error 1.
+   //usr/local/scripts/gndproc completed @ Wed Jul 17 16:45:02 MDT 2002
+Log file for this job is /fnet/data/302rf06a.log
+
+From user@cf1076.crystalface.nasa.gov Fri Jul 19 13:54:15 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id NAA11956;
+	Fri, 19 Jul 2002 13:54:15 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g6JJt6M13688;
+	Fri, 19 Jul 2002 13:55:06 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma013570; Fri, 19 Jul 02 13:54:23 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6JJr7G02779;
+	Fri, 19 Jul 2002 13:53:07 -0600
+Date: Fri, 19 Jul 2002 13:53:07 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207191953.g6JJr7G02779@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 1926
+Status: RO
+
+Processing script started sometime before Thu Jul 18 16:50:29 MDT 2002
+ 
+   Copying 302rf07a.ads to /fnet/data
+Successfully copied file from /r1/302rf07a.ads to /fnet/data/302rf07a.ads
+File copy job completed on Thu Jul 18 16:50:29 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf07a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf07a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf07a.batch
+Nimbus completed successfully and created file 302rf07a.cdf
+gzipping /fnet/data/302rf07a.cdf
+Gzipped /fnet/data/302rf07a.cdf
+Beginning /usr/bin/scp /fnet/data/302rf07a.cdf.gz to Jeffco
+  (script died here)
+
+gzipped netCDF file manually copied by Ron Ruth to Jeffco on Jul 19 09:35 a.m.
+
+The log messages below created by further tests of the "gndproc" script by
+Ron Ruth.
+
+Processing script started Fri Jul 19 09:42:31 MDT 2002
+--------------- Fri Jul 19 09:48:32 MDT 2002 ---------------
+Processing script restarted Fri Jul 19 09:48:32 MDT 2002
+ 
+   Copying 302rf07a.ads to /fnet/data
+Successfully copied file from /r1/302rf07a.ads to /fnet/data/302rf07a.ads
+File copy job completed on Fri Jul 19 09:48:42 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf07a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf07a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf07a.batch
+Error 1 running nimbus in batch mode on 302rf07a.ads.
+   gndproc completed @ Fri Jul 19 09:48:42 MDT 2002
+Log file for this job is /fnet/data/302rf07a.log
+
+From user@cf1076.crystalface.nasa.gov Fri Jul 19 16:12:15 2002
+Received: from mscan4.ucar.edu (mscan4.ucar.edu [128.117.64.126])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id QAA15417;
+	Fri, 19 Jul 2002 16:12:14 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan4.ucar.edu (8.11.6/8.11.6) id g6JMD6X31238;
+	Fri, 19 Jul 2002 16:13:06 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan4.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma031109; Fri, 19 Jul 02 16:12:15 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6JMAw803556;
+	Fri, 19 Jul 2002 16:10:58 -0600
+Date: Fri, 19 Jul 2002 16:10:58 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207192210.g6JMAw803556@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: //usr/local/scripts/gndproc job completed
+Content-Length: 987
+Status: RO
+
+Processing script started Fri Jul 19 16:09:13 MDT 2002
+ 
+   Copying 302rf08a.ads to /fnet/data
+Successfully copied file from /r1/302rf08a.ads to /fnet/data/302rf08a.ads
+File copy job completed on Fri Jul 19 16:09:23 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf08a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf08a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf08a.batch
+Nimbus completed successfully and created file 302rf08a.cdf
+gzipping /fnet/data/302rf08a.cdf
+Gzipped /fnet/data/302rf08a.cdf
+Beginning /usr/bin/scp /fnet/data/302rf08a.cdf.gz to Jeffco
+scp failed on file 302rf08a.cdf.gz with error 1.
+   //usr/local/scripts/gndproc completed @ Fri Jul 19 16:10:57 MDT 2002
+Log file for this job is /fnet/data/302rf08a.log
+
+From user@cf1076.crystalface.nasa.gov Mon Jul 22 13:50:10 2002
+Received: from mscan3.ucar.edu (mscan3.ucar.edu [128.117.64.125])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id NAA16223;
+	Mon, 22 Jul 2002 13:50:10 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan3.ucar.edu (8.11.6/8.11.6) id g6MJp3s13710;
+	Mon, 22 Jul 2002 13:51:03 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan3.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma013605; Mon, 22 Jul 02 13:50:52 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6MJnLa01552;
+	Mon, 22 Jul 2002 13:49:21 -0600
+Date: Mon, 22 Jul 2002 13:49:21 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207221949.g6MJnLa01552@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: //usr/local/scripts/gndproc job completed
+Content-Length: 884
+Status: RO
+
+Processing script started Mon Jul 22 12:52:20 MDT 2002
+ 
+   Copying 302rf09a.ads to /fnet/data
+Successfully copied file from /r1/302rf09a.ads to /fnet/data/302rf09a.ads
+File copy job completed on Mon Jul 22 13:49:02 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf09a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf09a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf09a.batch
+Nimbus completed successfully and created file 302rf09a.cdf
+Jeffco scp netCDF file option turned off. 302rf09a.cdf not transferred
+   //usr/local/scripts/gndproc completed @ Mon Jul 22 13:49:21 MDT 2002
+Log file for this job is /fnet/data/302rf09a.log
+
+From user@cf1076.crystalface.nasa.gov Wed Jul 24 11:47:17 2002
+Received: from mscan1.ucar.edu (mscan1.ucar.edu [128.117.64.120])
+	by mistral.atd.ucar.edu (8.9.3+Sun/8.8.8) with ESMTP id LAA18281;
+	Wed, 24 Jul 2002 11:47:17 -0600 (MDT)
+Received: (from smap@localhost)
+	by mscan1.ucar.edu (8.11.6/8.11.6) id g6OHmAL21157;
+	Wed, 24 Jul 2002 11:48:10 -0600
+Received: from cf1076.crystalface.nasa.gov(198.116.49.76) by mscan1.ucar.edu via smap (V2.1/2.1+anti-relay+anti-spam)
+	id xma021014; Wed, 24 Jul 02 11:47:13 -0600
+Received: (from user@localhost)
+	by cf1076.crystalface.nasa.gov (8.11.6/8.11.6) id g6OHjcs01978;
+	Wed, 24 Jul 2002 11:45:38 -0600
+Date: Wed, 24 Jul 2002 11:45:38 -0600
+From: Joe User <user@cf1076.crystalface.nasa.gov>
+Message-Id: <200207241745.g6OHjcs01978@cf1076.crystalface.nasa.gov>
+To: ruth@ucar.edu, schanot@ucar.edu
+Subject: /usr/local/scripts/gndproc job completed
+Content-Length: 883
+Status: RO
+
+Processing script started Wed Jul 24 11:45:06 MDT 2002
+ 
+   Copying 302rf10a.ads to /fnet/data
+Successfully copied file from /r1/302rf10a.ads to /fnet/data/302rf10a.ads
+File copy job completed on Wed Jul 24 11:45:26 MDT 2002
+Leave "new" drive in the chassis, and put the "old" drive (put on
+top of the ZZYZX chassis) in the lunch box for use on the plane.
+Beginning the background work for 1 ADS file(s)
+Jeffco scp ADS file option turned off. 302rf10a.ads not transferred
+Setting name for nimbus batch file
+Creating nimbus batch file 302rf10a.batch
+Running nimbus with command: /usr/local/nimbus/src/filter/nimbus -b 302rf10a.batch
+Nimbus completed successfully and created file 302rf10a.cdf
+Jeffco scp netCDF file option turned off. 302rf10a.cdf not transferred
+   /usr/local/scripts/gndproc completed @ Wed Jul 24 11:45:38 MDT 2002
+Log file for this job is /fnet/data/302rf10a.log
+
