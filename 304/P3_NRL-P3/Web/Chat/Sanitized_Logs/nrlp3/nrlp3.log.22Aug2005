@@ -1,0 +1,71 @@
+[GMT 08/22/05 00:00:00] --- Mon Aug 22 2005
+[GMT 08/22/05 12:44:31] ChrisBurghart-ops (burghart@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 13:41:07] Action: ChrisBurghart-ops is away: Going away for a while
+[GMT 08/22/05 13:41:14] Action: ChrisBurghart-ops is back (gone 00:00:07)
+[GMT 08/22/05 13:44:31] anstett-tampa (anstett@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 13:50:12] JimMoore-ops (JimMoore@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 13:53:57] anstett_ (anstett@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 13:55:00] anstett_ (anstett@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 13:56:10] Houze-Ops (houze@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 13:57:59] Houze-Ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 13:59:23] houze_ (houze@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 14:01:28] houze_ (houze@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 14:05:43] Action: ChrisBurghart-ops is away: going to lunch
+[GMT 08/22/05 14:06:15] Action: ChrisBurghart-ops is back (gone 00:00:32)
+[GMT 08/22/05 14:07:53] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 14:12:33] houze_ops (houze@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 14:15:13] houze_ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Signing off
+[GMT 08/22/05 14:15:21] houze_ops (houze@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 14:15:51] houze_ops (houze@rdcc.guest.ucar.edu) left irc: EOF from client
+[GMT 08/22/05 14:16:14] houze_ops (houze@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 14:25:54] houze_ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Signing off
+[GMT 08/22/05 14:31:49] houze_ops (houze@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 14:34:51] BobHouze-ops (houze@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 15:03:18] <ChrisBurghart-ops> anstett-tampa: Janet, are you there?
+[GMT 08/22/05 15:03:47] <anstett-tampa> Yes, I'm here.
+[GMT 08/22/05 15:04:29] <ChrisBurghart-ops> We're trying to figure out why NRL apparently can't join chat, but they're sending track data.  Don't they share the same link?
+[GMT 08/22/05 15:06:07] <anstett-tampa> They were on chat earlier.  Chat and track data do share the same link.
+[GMT 08/22/05 15:06:54] <ChrisBurghart-ops> Maybe they just have dicey connection.  Good enough for an occasional UDP packet, but not enough to sustain a TCP connection.
+[GMT 08/22/05 15:07:52] <anstett-tampa> We did have an issue with the ldm hogging the bandwidth on a test flight, but there is no data for the ldm to transfer.
+[GMT 08/22/05 15:09:15] <ChrisBurghart-ops> There should be images in the LDM queue for the NRL plane now.  There just won't be any NOAA LF data in the images.
+[GMT 08/22/05 15:13:06] <anstett-tampa> I don't see any images in the ldm queue on malbec yet.  It looks like it can't find the rainex3 machine.
+[GMT 08/22/05 15:13:53] <ChrisBurghart-ops> Sorry, Janet, we're in the middle of something else right now.  I'll look into it in a few minutes.
+[GMT 08/22/05 15:21:36] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 15:23:00] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 15:25:22] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/22/05 15:27:36] <ChrisBurghart-ops> Janet, did you just tweak ldmd.conf on malbec?  I was just about to do that myself.... :-)
+[GMT 08/22/05 15:29:45] <anstett-tampa> yes i changed it.
+[GMT 08/22/05 15:30:50] <ChrisBurghart-ops> Whew.  I did an edit, then decided not to save it, but then it was there anyway (sort of).  Don't know what's up with name service here at U of Miami.
+[GMT 08/22/05 15:31:17] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/22/05 15:34:32] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 15:38:32] pavel-jeffco (pavel@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 15:50:20] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 15:52:43] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/22/05 15:54:29] houze_ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Signing off
+[GMT 08/22/05 15:56:39] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/22/05 15:58:18] <ChrisBurghart-ops> Janet, it occurs to me we need to tweak the LDM setup on malbec so that it expires the images from Miami in a timely fashion.
+[GMT 08/22/05 15:58:46] <ChrisBurghart-ops> Otherwise, it may try to send hours of queued images to the NRL P3 whenever it first starts up its LDM.
+[GMT 08/22/05 15:59:09] <ChrisBurghart-ops> I have a line for the ldmd.conf that should do this.
+[GMT 08/22/05 16:00:43] <pavel-jeffco> Hi Janet! The P3 is in the air, but not on chat. Did Bill make it on the airplane?...
+[GMT 08/22/05 16:11:20] <anstett-tampa> There were some problems with the iridium phone before takeoff.  It kept disconnecting while they were on the ground.  They are probably still having these problems in the air.  We'll have to talk to Bill after the flight and decide whether to try swapping the phones.
+[GMT 08/22/05 16:12:39] <pavel-jeffco> ION data looks Ok to mee, not too many dropouts.
+[GMT 08/22/05 16:13:19] <pavel-jeffco> Disconnects could have been related to 43 taking off right before them with their radar.
+[GMT 08/22/05 16:40:00] <anstett-tampa> pavel-jeffco:  I transferred the tf04 data to bora through the ldm on renegade.
+[GMT 08/22/05 16:41:07] <pavel-jeffco> All right! I will go take a look!
+[GMT 08/22/05 16:41:13] <pavel-jeffco> How did you make it work?
+[GMT 08/22/05 16:42:33] MichaelBell-ops (mbell@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 16:42:45] <ChrisBurghart-ops> Janet, is there a way to list what's in the LDM queue?  I want to see if there are .png images in the queue here and on malbec.
+[GMT 08/22/05 16:44:26] <anstett-tampa> I don't know how to list what is in the queue, but malbec hasn't received any .png images from rainex3.  All the files that come through the ldm are also saved in data/files and there are no new images in that directory.
+[GMT 08/22/05 16:45:54] <pavel-jeffco> Janet - I can see TF04 data on Bora and got it processed. Thanks a lot!
+[GMT 08/22/05 16:48:17] <anstett-tampa> I had to change a bunch of stuff on renegade to get it to work.  It's being port forwarded from the firewall here.  I'll send tf05 when I fix the ldm to unzip the files automatically.  Have to get the LDM going on syrah, so maybe in about 1/2 hour I'll send it.
+[GMT 08/22/05 16:49:13] <pavel-jeffco> Thank you! No hurry, whenever you have the time is fine.
+[GMT 08/22/05 17:25:02] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &NRLP3.
+[GMT 08/22/05 18:07:53] MichaelBell-ops (mbell@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 18:17:23] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 18:25:10] jose_tampa (meitin@rdcc.guest.ucar.edu) left irc: Quit:  adios!
+[GMT 08/22/05 19:08:58] pavel-jeffco (pavel@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 19:42:43] JimMoore-ops (JimMoore@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 19:55:20] ChrisBurghart-ops (burghart@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 20:22:25] anstett-tampa (anstett@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/22/05 20:25:34] BobHouze-ops (houze@rdcc.guest.ucar.edu) left &NRLP3 (Leaving).
+[GMT 08/23/05 00:00:00] --- Tue Aug 23 2005

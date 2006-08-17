@@ -1,0 +1,578 @@
+[GMT 08/25/05 13:34:00] Trying server rdcc.guest.ucar.edu:<Sanitized>
+[GMT 08/25/05 13:34:00] Connected to rdcc.guest.ucar.edu
+[GMT 08/25/05 13:34:00] -NOTICE- *** Checking Ident
+[GMT 08/25/05 13:34:04] -NOTICE- on 11 ca 1(5) ft 10(10) tr
+[GMT 08/25/05 13:34:06] -NOTICE- *** Notice -- RDCC-EOL (rdcc@rdcc.guest.ucar.edu) is now operator (O)
+[GMT 08/25/05 13:34:58] RDCC-EOL joined &rainex.
+[GMT 08/25/05 13:35:14] TomS (shepherd@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 13:36:00] &rainex: mode change '+o RDCC-EOL' by RDCC-EOL!rdcc@rdcc.guest.ucar.edu
+[GMT 08/25/05 13:40:57] <StacyBrodzik-Ops> terry, we got a bunch of LF packets but we're now just listening again with no new arrivals
+[GMT 08/25/05 13:41:35] ChrisBurghart-ops (burghart@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 13:41:42] <BradSmull-n43> Chat seems to be up & working fine
+[GMT 08/25/05 13:43:09] <StacyBrodzik-Ops> terry, looks like the LF data is coming in at a steady rate right now
+[GMT 08/25/05 13:43:51] <terry-n43> i got G* (GlobalStar) going again
+[GMT 08/25/05 13:44:01] <terry-n43> cool
+[GMT 08/25/05 13:44:44] <BradSmull-n43> Ops - We realize LF has lots of clutter, but Flt Director controls LF tilt for these initial passes
+[GMT 08/25/05 13:45:26] <BradSmull-n43> Crossing N-S rainband
+[GMT 08/25/05 13:45:37] science2-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 13:46:33] ChrisBurghart-ops (burghart@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 13:47:31] Nick change: science2-nrlp3 -> Wen-NRL
+[GMT 08/25/05 13:47:45] ChrisBurghart-ops (burghart@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 13:48:11] <Wen-NRL> received 1342 image.
+[GMT 08/25/05 13:49:07] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 13:49:21] <Wen-NRL> Ops, can you see me on the chat?
+[GMT 08/25/05 13:49:34] <BobHouze-Ops> yes, we see you
+[GMT 08/25/05 13:49:42] <BobHouze-Ops> on the chat
+[GMT 08/25/05 13:49:42] Nick change: ChrisBurghart-ops -> ChrisBurghart-Boulder
+[GMT 08/25/05 13:49:42] <StacyBrodzik-Ops> brad, if you want to grab the 1342 image, you can use the scp route we talked about yesterday.  There's not much of interest on it since it's centered at the NRL-P3.
+[GMT 08/25/05 13:50:14] <BradSmull-n43> scp?
+[GMT 08/25/05 13:50:28] <BradSmull-n43> I don't recall that discussion...
+[GMT 08/25/05 13:50:43] <BobHouze-Ops> ok brad stacy will try to clarify
+[GMT 08/25/05 13:50:57] <BradSmull-n43> thx
+[GMT 08/25/05 13:51:18] <BradSmull-n43> Ideally we should test this stuff on the ground, but I'm game.
+[GMT 08/25/05 13:51:38] <StacyBrodzik-Ops> don't worry about it.  I sent an email to you yesterday describing the process.  we can talk about it after the mission if you want
+[GMT 08/25/05 13:51:41] <Wen-NRL> Ops, Charlie Martin will continue monitor the image transfer for the next hour.
+[GMT 08/25/05 13:52:00] <BradSmull-n43> ETA at our IP is 1400Z
+[GMT 08/25/05 13:52:52] <BradSmull-n43> Thanks Stacy--my bad. Will review carefully upon landing.
+[GMT 08/25/05 13:54:39] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 13:54:41] Wen-NRL (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 13:56:22] &rainex: mode change '-o tml_lappyII' by MikeDaniels-ops!daniels@rdcc.guest.ucar.edu
+[GMT 08/25/05 13:56:31] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:00:06] <BradSmull-n43> At IP turning to track S, just releasing 1st dropsonde
+[GMT 08/25/05 14:03:09] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:05:40] science2-nrlp3_ (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:06:52] science2-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 14:08:21] <BradSmull-n43> Center on LF appears approx. 100 km S, near 26deg09min N  79deg15min W
+[GMT 08/25/05 14:08:29] science3-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:11:26] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 14:11:35] science2-nrlp3_ (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 14:11:41] science3-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 14:11:54] <BradSmull-n43> Approaching more intense echo wrapping around NE side of center, approx 20 nm ahead on our 190 track
+[GMT 08/25/05 14:13:04] <BradSmull-n43> Current FL winds at 5 kft: 100/50 kt
+[GMT 08/25/05 14:18:36] science3-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:18:57] <BradSmull-n43> Just passed through outer wrapping band, but more intense band constituting E/NE eyewall is just ahead
+[GMT 08/25/05 14:20:07] <BradSmull-n43> Peal FL wind was 55 kt, min pressure 990 mb. We're coming into the clear now
+[GMT 08/25/05 14:20:47] TML_home (TML_home@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:21:20] <BradSmull-n43> Sonde #2 released near center. FL winds now 290/20 kt
+[GMT 08/25/05 14:21:32] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[GMT 08/25/05 14:22:06] science3-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 14:23:56] <BradSmull-n43> Penetrating southern eyewall
+[GMT 08/25/05 14:24:41] <BradSmull-n43> Sonde #3 released in S eyewall
+[GMT 08/25/05 14:25:54] <BradSmull-n43> Stepped frequency shows 75 kt, but dubious in heavy rain. Sondes #2 & #3 lacked GPS/winds...
+[GMT 08/25/05 14:27:48] science2-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:27:57] <BradSmull-n43> LF severely attenuated here on S side. Strongest winds are on S side; Rogers views as potentially dangerous for MIA
+[GMT 08/25/05 14:28:01] science3-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:28:31] <BradSmull-n43> McFadden reports tentative tasking of N43 for Saturday
+[GMT 08/25/05 14:33:22] <BradSmull-n43> Ops - LF currently showing curving (~N-S) band out along 77.2 degW that might be ideal for NRL *if* it holds together. Your comments welcome.
+[GMT 08/25/05 14:34:03] <BradSmull-n43> (That band is out along our LF 200 km range ring)
+[GMT 08/25/05 14:34:55] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:36:20] <RRogers> test
+[GMT 08/25/05 14:38:08] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:41:29] <BradSmull-n43> Just cleared last intense SW-NE band of cells on S side. Will be turning  to track 045 in 1 min. Releasing Drop#4 at turn.
+[GMT 08/25/05 14:45:17] <BradSmull-n43> Good winds on Drop #4
+[GMT 08/25/05 14:45:54] <CharlieMartin-nrlp3> iridium was down for about 20 minutes. Has been back up now for about 20 minutes.
+[GMT 08/25/05 14:46:03] <CharlieMartin-nrlp3> image 1432 was received by 1435.
+[GMT 08/25/05 14:46:16] <CharlieMartin-nrlp3> image 1442 was received at 1444
+[GMT 08/25/05 14:47:37] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 14:48:39] <ads-nrlp3> test test
+[GMT 08/25/05 14:49:30] <ChrisBurghart-Boulder> LF data feed from NOAA 43 to ops center looks consistently good, and images for the NRL have tracked it correctly.
+[GMT 08/25/05 14:51:34] <BradSmull-n43> Excellent. Our GlobalStar link has been very reliable.
+[GMT 08/25/05 14:52:13] <RRogers> I got in late to this discussion, but has there been any discussion of targets for coordination?  Are we still thinking to target the NE side?
+[GMT 08/25/05 14:52:34] <RRogers> LF seems to show good line on S and SE side
+[GMT 08/25/05 14:54:04] <BradSmull-n43> Agreed Rob. The one ~150 km E of us (along ~ 77.2W) has hung together for last 30 min or so, might be reasonable NRL target
+[GMT 08/25/05 14:54:37] <CharlieMartin-nrlp3> image 1452 arrive 1455. So far, with good comms, we can expect the image at time+3minutes.
+[GMT 08/25/05 14:54:45] <RRogers> yeah
+[GMT 08/25/05 14:57:11] <BobHouze-Ops> ROB Who will initiate the 11 am conf call?
+[GMT 08/25/05 14:57:24] <terry-n43> G* #2 was of for a sec or two
+[GMT 08/25/05 14:57:32] <terry-n43> might see a gap in the lf data
+[GMT 08/25/05 14:58:53] <BobHouze-Ops> Brad & Rob: Satellite shows a broad band beyond what you can see to your ENE from the LF. It might be tricky for NRL to work it
+[GMT 08/25/05 14:59:31] <BradSmull-n43> UnderstoodBob. Would be nice to have a TMI pass to see what's underneath
+[GMT 08/25/05 14:59:46] <CharlieMartin-nrlp3> Tim Lim, can you call Wen Chou at <Sanitized>? I you can't reach him, give me a call at <Sanitized>.
+[GMT 08/25/05 14:59:49] <RRogers> mike will initiate 11am call
+[GMT 08/25/05 15:00:11] <BobHouze-Ops> thx Rob
+[GMT 08/25/05 15:00:21] <BradSmull-n43> Bob - Assume you are getting clear LF images to review as well.
+[GMT 08/25/05 15:00:36] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 15:00:39] <BobHouze-Ops> Brad: Yes, the images are excellent
+[GMT 08/25/05 15:01:16] <RRogers> we tried to get microwave image before t/o, but nothing recent
+[GMT 08/25/05 15:01:20] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:01:22] <RRogers> anything more recent?
+[GMT 08/25/05 15:02:39] <BobHouze-Ops> Brad & Rob: The region NE of storm center looks better for an NRL mission. There is a big wide clear slot between that band and the large band on satellite
+[GMT 08/25/05 15:03:07] <RRogers> bob -- yeah brad and I were talking about that
+[GMT 08/25/05 15:03:11] <RRogers> that sounds good to me
+[GMT 08/25/05 15:03:17] <RRogers> plus that's what our pattern is set up for
+[GMT 08/25/05 15:04:03] <BobHouze-Ops> Sounds good.
+[GMT 08/25/05 15:04:08] <BradSmull-n43> Bob --LF *may* be attenuated by it, but I don't see much evidence of anything beyond the band currently on our 100 km ring (i.e. along ~ 77.2W), at least in E quadrant
+[GMT 08/25/05 15:05:14] <BobHouze-Ops> Brad: To your east it's problematic. To your north is good. A lot of the pattern is out of LF range
+[GMT 08/25/05 15:06:32] <BradSmull-n43> Understood- we trust you to keep track of large-scale perspective
+[GMT 08/25/05 15:07:38] <RRogers> bob I just downloaded a visible image -- I can see the clear slot you're talking about...it's about 100 km wide or so right?
+[GMT 08/25/05 15:07:48] science2-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 15:07:59] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 15:08:06] science3-nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 15:08:25] <BobHouze-Ops> Brad: the stuff out east on satellite may be cirrus
+[GMT 08/25/05 15:09:03] <BradSmull-n43> That was my concern when I mentioned desire for TMI view
+[GMT 08/25/05 15:09:10] <RRogers> visible shows convection firing on NE side in this outer band
+[GMT 08/25/05 15:09:16] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:09:33] Nick change: jose_tampa -> jose-miami
+[GMT 08/25/05 15:10:13] <RRogers> in fact (and I may be totally off-base here),  but it looks like a great rainband forming
+[GMT 08/25/05 15:10:41] <RRogers> primarily convection on downwind side (western part of band) and more stratiform on upwind side (southeast side of band)
+[GMT 08/25/05 15:10:53] <RRogers> we could be sampling the development of this rainband
+[GMT 08/25/05 15:11:07] <BradSmull-n43> Turning to track 270. Sonde #5 away.
+[GMT 08/25/05 15:11:27] <RRogers> vis image shows 2 nice bands forming -- the one we're targeting and one wrapping around the south and soutwest side
+[GMT 08/25/05 15:13:30] <BobHouze-Ops> Rob: can you give me a couple of lat/lon points on the vis image you're looking at?
+[GMT 08/25/05 15:14:10] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:14:57] <RRogers> hmmmm....the image i'm looking at doesn't have lat/lon on it
+[GMT 08/25/05 15:15:21] <RRogers> i got it from the nhc web site, under satellite imagery, then under storm floater 1 visible
+[GMT 08/25/05 15:15:29] <BobHouze-Ops> HOw about referenc pts relative to B. bahama
+[GMT 08/25/05 15:15:34] <RRogers> the leading edge of the rainband is pretty much due east of Melbourne I think
+[GMT 08/25/05 15:15:38] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:16:01] science3-nrlp3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:16:15] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 08/25/05 15:16:21] jose-miami (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 15:16:23] <RRogers> it's about due east of melbourne, FL, and about 200 km N of enter
+[GMT 08/25/05 15:17:32] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:18:09] <BradSmull-n43> Stacy - For future ref, Chris & I discussed possibility of getting GIF's from ROC ftp'd up to us. Having a common reference image would make this discussion much more efficient. Just a wish-list item...
+[GMT 08/25/05 15:19:02] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:19:07] <BobHouze-Ops> Rob: I have to deal with the conf call for a minute
+[GMT 08/25/05 15:21:13] <CharlieMartin-nrlp3> image 1512 arrived 1519
+[GMT 08/25/05 15:22:27] <BobHouze-Ops> Rob: OK we can see what you see
+[GMT 08/25/05 15:22:46] <RRogers> ok
+[GMT 08/25/05 15:23:02] <RRogers> the band i'm talking about may be further outside of center than what you may be interested in
+[GMT 08/25/05 15:23:39] <RRogers> the band in between the core clouds and the rainband I was referring to i think may be what you and brad have been talking about
+[GMT 08/25/05 15:26:07] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Quit: Goodbye!
+[GMT 08/25/05 15:28:11] <BradSmull-n43> Approaching E eyewall
+[GMT 08/25/05 15:28:17] <BobHouze-Ops> Rob: Agreed. We will continue to watch that area.
+[GMT 08/25/05 15:28:28] jose (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:30:45] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 15:31:05] jose_rainex (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:32:08] jose_rainex (meitin@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 15:32:16] <BradSmull-n43> In the eye
+[GMT 08/25/05 15:33:18] jose (meitin@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 15:33:51] <BradSmull-n43> Min est sfc pressure this pass just slightly lower, ~989.5
+[GMT 08/25/05 15:34:55] <CharlieMartin-nrlp3> image 1532 arrived 1535
+[GMT 08/25/05 15:35:44] science2-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:36:32] <JimMoore-ops> Brad and Rob,  WE just finished 11am brief and a couple of questions arise--
+[GMT 08/25/05 15:37:02] <JimMoore-ops> First, status of NRL-- THey think if all goes well the might be ready to takeoff at
+[GMT 08/25/05 15:37:36] <JimMoore-ops> 1400-30 time frame.  SOOO-- can you estimate timing and waypoints of the start of
+[GMT 08/25/05 15:37:54] MikeDaniels-ops (daniels@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 15:38:23] <JimMoore-ops> the downwind (storm tangential)  legs that we might try to coordinate with an NRL pass?
+[GMT 08/25/05 15:38:33] <BradSmull-n43> We'll work on that Jim--stand by
+[GMT 08/25/05 15:38:53] <RRogers> i'll ask our flight director 
+[GMT 08/25/05 15:38:55] <JimMoore-ops> Based on your tracks, it will take NRL around 45 min to be abeam the storm on the north side
+[GMT 08/25/05 15:38:57] <RRogers> he's talking to NHC right now
+[GMT 08/25/05 15:39:27] <JimMoore-ops> near the feature you and ROb have been talking about.
+[GMT 08/25/05 15:39:39] <RRogers> jim, I presume the NRL would start its coordinated leg on the east side of the storm, right?
+[GMT 08/25/05 15:39:50] <RRogers> and then head NW toward the north?
+[GMT 08/25/05 15:40:39] <terry-n43> g* 2 went down, are you getting lf ok?
+[GMT 08/25/05 15:40:44] <JimMoore-ops> That is correct, but probably not before r 1500  or later assuming a 1400 departure from McDill
+[GMT 08/25/05 15:40:52] <RRogers> ok
+[GMT 08/25/05 15:40:53] <JimMoore-ops> and not know how far east to go yet
+[GMT 08/25/05 15:41:38] <ChrisBurghart-Boulder> terry-n43: LF is still coming in.
+[GMT 08/25/05 15:41:55] <terry-n43> cool, thanks
+[GMT 08/25/05 15:43:11] <BradSmull-n43> Tracking 180. Sonde #6 away
+[GMT 08/25/05 15:43:23] <ChrisBurghart-Boulder> StacyBrodzik-Ops: can you "/join &Network"?  I'm curious about rainex3 shutdown.
+[GMT 08/25/05 15:43:36] <RRogers> barry (flight dir.) is going to get me estimate of time until we start our downwind coordinated leg
+[GMT 08/25/05 15:43:46] <RRogers> may take a few minutes though since he's busy
+[GMT 08/25/05 15:44:56] <CharlieMartin-nrlp3> image status: we have gotten all images from 1242 through 1532, except for 1402 and 1412, whcih was when our iridium was down.
+[GMT 08/25/05 15:45:16] pavel-jeffco (pavel@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:45:20] <JimMoore-ops> Thanks Rob, We'll monitor--no real rush.
+[GMT 08/25/05 15:45:27] <RRogers> ok
+[GMT 08/25/05 15:45:42] <JimMoore-ops> Related question is an eta back to McDill for 43.  We would like to have a debrief
+[GMT 08/25/05 15:45:57] <JimMoore-ops> with you guys once on the ground.
+[GMT 08/25/05 15:47:55] <JimMoore-ops> FYI--conditions here at RSMAS are getting very wet and breezy A(GUSTS TO 25 kts at neaby buoy
+[GMT 08/25/05 15:48:10] <JimMoore-ops> pressure falling as well--
+[GMT 08/25/05 15:50:22] houze_ops (houze@rdcc.guest.ucar.edu) left irc: Quit: temporarily off
+[GMT 08/25/05 15:50:37] houze_ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:50:42] houze_ops (houze@rdcc.guest.ucar.edu) left irc: Quit: temporarily off
+[GMT 08/25/05 15:51:37] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 15:58:57] <BradSmull-n43> Jim - we estimate 43 will emerge on E side of circulation sometime between 19 & 20 Z (1500-1600 EDT) following our 18Z fix
+[GMT 08/25/05 15:59:06] <BradSmull-n43> Will refine as we go.
+[GMT 08/25/05 16:00:44] <BradSmull-n43> Just turned to track 025. Sonde #8 away, winds look good.
+[GMT 08/25/05 16:01:26] houze_ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:01:45] <houze_ops> back
+[GMT 08/25/05 16:03:04] n43_RAMS_ (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:03:24] Nick change: n43_RAMS_ -> terry_n43
+[GMT 08/25/05 16:03:40] BradSmull-n43rf (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:03:55] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 16:04:01] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 16:04:09] terry-n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 16:04:32] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:05:00] <CharlieMartin-nrlp3> image 1602 arrived 1605
+[GMT 08/25/05 16:08:09] <BradSmull-n43rf> Ops - Updates on NRL's T/O would be welcome as they come available-flight is inquiring
+[GMT 08/25/05 16:11:19] <houze_ops> we have  no new info. T/O is between 1400-1430 local
+[GMT 08/25/05 16:11:56] <houze_ops> that is a best estimate based on repairs
+[GMT 08/25/05 16:11:57] <BradSmull-n43rf> 43's revised ETA at easternmost point is 1830 Z; suspect NRL not available that early?  Alternatively, could meet-up on N side at end of downwind leg ~1850.
+[GMT 08/25/05 16:12:50] <houze_ops> ok we will think in terms of north side
+[GMT 08/25/05 16:13:15] <pavel-jeffco> Ta - is everything working? I can not see any dat aon ION.
+[GMT 08/25/05 16:13:15] <BradSmull-n43rf> OK--hopefully it'll work out. Penetrating eyewall.
+[GMT 08/25/05 16:14:42] <ChrisBurghart-Boulder> StacyBrodzik-Ops: Can you restart zebra on rainex3?  It's sucking up 98% of the CPU for no apparent reason...
+[GMT 08/25/05 16:15:11] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 08/25/05 16:16:38] <RRogers> in eye now
+[GMT 08/25/05 16:16:55] science2-nrlp3 (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 16:18:18] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:18:44] Nick change: science3-nrlp3 -> cai_nrlp3
+[GMT 08/25/05 16:18:48] science2-nrlp3 (science@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:20:09] <cai_nrlp3> image 1612 arrived at 1619
+[GMT 08/25/05 16:20:14] <ads-nrlp3> Pavel.Our system was up ok!
+[GMT 08/25/05 16:20:33] <pavel-jeffco> Thank you Ta.
+[GMT 08/25/05 16:20:51] terry_n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 16:21:02] BradSmull-n43rf (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 16:21:04] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 16:23:56] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:24:07] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:28:19] houze_ops (houze@rdcc.guest.ucar.edu) left irc: Quit: temporarily off
+[GMT 08/25/05 16:30:32] <cai_nrlp3> image 1622 arrived at 1625 
+[GMT 08/25/05 16:32:21] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:32:36] Action: DeannaHence-tampa is away: Busy at the moment
+[GMT 08/25/05 16:32:48] houze_ops (houze@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:33:16] Nick change: n43_RAMS -> terry-n43
+[GMT 08/25/05 16:35:03] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:35:12] <cai_nrlp3> image 1632 arrived at 1635
+[GMT 08/25/05 16:35:37] MichaelBell-ops (mbell@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:35:47] <ads-nrlp3> Hi Pavel, this is Janet,  the data is being sent to the ground, so ION should work.  I'll check it when I go back to the hangar.
+[GMT 08/25/05 16:36:05] <MichaelBell-ops> \nick MichaelBell-PalmBay
+[GMT 08/25/05 16:36:19] Nick change: MichaelBell-ops -> MichaelBell-PalmBay
+[GMT 08/25/05 16:40:26] <BradSmull-n43> Turning to track 270. Sonde #9 away.
+[GMT 08/25/05 16:41:18] <BradSmull-n43> Anyone on NRL - How are repairs going?
+[GMT 08/25/05 16:44:01] <BobHouze-Ops> brad: wen chau will receive a heads up 1 hr in advance of a t/o time. 
+[GMT 08/25/05 16:44:43] <BradSmull-n43> OK - hopefully we receive same heads-up soon after.
+[GMT 08/25/05 16:45:13] <BobHouze-Ops> yes
+[GMT 08/25/05 16:46:34] <cai_nrlp3> Image 1642 arrived at 1645
+[GMT 08/25/05 16:46:47] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[GMT 08/25/05 16:47:34] <BobHouze-Ops> brad, rob: what is the orientation of your next leg through the eye?
+[GMT 08/25/05 16:47:56] Action: DeannaHence-tampa is back (gone 00:15:18)
+[GMT 08/25/05 16:48:19] <BradSmull-n43> We will track SE-bound (150)
+[GMT 08/25/05 16:49:09] <BobHouze-Ops> OK
+[GMT 08/25/05 16:51:00] jimm (jimm@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 16:51:45] <BobHouze-Ops> Will that be the last fig 4?
+[GMT 08/25/05 16:52:14] <RRogers> that'll be the last radial leg 
+[GMT 08/25/05 16:52:26] <BradSmull-n43> No. We have fixes at both 18Z and 21Z, so more figure-4's will be required
+[GMT 08/25/05 16:53:23] <BobHouze-Ops> ??
+[GMT 08/25/05 16:53:31] <BradSmull-n43> Stand by-we're inquiring.
+[GMT 08/25/05 16:53:32] <RRogers> sorry bob stand by
+[GMT 08/25/05 16:56:18] <RRogers> depending on how much time is remaining before the final fix, we may do another pass that may become a figure 4
+[GMT 08/25/05 16:56:33] <RRogers> i'd like to use the time before the final fix to do the rainband work with the NRL
+[GMT 08/25/05 16:56:42] <RRogers> and the flight director has said we can do that
+[GMT 08/25/05 16:56:56] <RRogers> we'll be east of the center at about 1830 UTC
+[GMT 08/25/05 16:57:13] <RRogers> so it kind of depends on when NRL can get off and we can begin our coordination
+[GMT 08/25/05 16:57:15] <BobHouze-Ops> Rob: can you keep us abreast of upcoming legs in case we are able to get nrl in the air in time to do anything?
+[GMT 08/25/05 16:57:26] <RRogers> brad do you agree with that?
+[GMT 08/25/05 16:57:40] <RRogers> bob -- sure
+[GMT 08/25/05 16:57:47] <BobHouze-Ops> thx
+[GMT 08/25/05 16:58:00] <RRogers> we've just turned to the southeast
+[GMT 08/25/05 16:58:23] <RRogers> track 150
+[GMT 08/25/05 16:58:36] <RRogers> for about 130 nm
+[GMT 08/25/05 16:59:25] <BobHouze-Ops> brad & rob: the loop of ir for last 2 hours shows nw side of storm rapidlly filling in
+[GMT 08/25/05 16:59:51] <RRogers> at the end of this leg, when we're about 80 nm SE of center, we'll then proceed north to a point E of the center
+[GMT 08/25/05 16:59:55] <cai_nrlp3> Image 1652 arrived at 1655
+[GMT 08/25/05 17:00:14] <RRogers> at that point we should have time to begin rainband work if possible
+[GMT 08/25/05 17:00:35] <RRogers> i.e. if NRL is there
+[GMT 08/25/05 17:00:52] <jimm> amy word on 587?
+[GMT 08/25/05 17:01:34] <jimm> all quiet on that front?
+[GMT 08/25/05 17:01:49] <science2-nrlp3> It would be nice to know the window when NRL needs to be in position assuming we can fly. It looks like we MAY BE able to fly with working ELDORA in the next 2 hours. The rotodome repair is done and under testing now. 
+[GMT 08/25/05 17:03:09] <BobHouze-Ops> standby: we will give you some guidance.
+[GMT 08/25/05 17:04:06] Nick change: science2-nrlp3 -> Wen-NRL
+[GMT 08/25/05 17:05:22] <BobHouze-Ops> brad & rob: we need to give nrlp3 a rendezvous time an location
+[GMT 08/25/05 17:05:49] <BobHouze-Ops> this is for planning in case they can go
+[GMT 08/25/05 17:06:45] <BradSmull-n43> To my eye, structure on NE side looks less well organized than earlier, tho may be function of our greater range
+[GMT 08/25/05 17:07:36] <jimm> All -
+[GMT 08/25/05 17:07:56] <cai_nrlp3> image 1702 arrived at 1705
+[GMT 08/25/05 17:08:17] anstett-tampa (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:08:37] <jimm> Something to consider - if this storm reaches hurricane strength in the Gulf, we may have to accommodate the Jeb Bush on a flight.
+[GMT 08/25/05 17:08:52] <jimm> you can count on him requiring up to four seats. 
+[GMT 08/25/05 17:08:54] <BradSmull-n43> Estimate arriving E of center (*approximately* 26.2 N  78.3 W ) around 1800 UTC
+[GMT 08/25/05 17:09:27] <jimm> please keep this in your thoughts while flight planning RAINEX mission.  also, a penetration would be absolutely required.
+[GMT 08/25/05 17:09:38] <jimm> Thoughts?
+[GMT 08/25/05 17:09:38] <BobHouze-Ops> brad: my quick eyeball estimate is that what I'm seeing is a bit beyond your range and it a lot of it is over land
+[GMT 08/25/05 17:10:38] <BradSmull-n43> Bob- Up until now we've been talking coordination w/ NRL in **NE** quadrant over water, correct?
+[GMT 08/25/05 17:11:53] <BobHouze-Ops> yes. I'm watching the stuff to the nw because it could affect their transit across and because it is a signal that the storm continues to get more organized, to my untrained eye.
+[GMT 08/25/05 17:12:32] <BradSmull-n43> Understood. Hopefully they can/will deviate N around storm as necessary on their outbound ferry.
+[GMT 08/25/05 17:13:22] jimm (jimm@rdcc.guest.ucar.edu) left irc: Quit: This computer has gone to sleep
+[GMT 08/25/05 17:15:21] MelicieDesflots-RSMAS (Melicie@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:16:24] <BobHouze-Ops> Brad,  This other Jim M in ops talking--
+[GMT 08/25/05 17:16:55] <BobHouze-Ops> The estimate of the point on the east side at 1800UTC--
+[GMT 08/25/05 17:16:59] <RRogers> MIA 88D long-range radar shows a N-S line about 100 km E of center that may be promising
+[GMT 08/25/05 17:17:12] <BobHouze-Ops> what happens after that--ANother figure 4 ??
+[GMT 08/25/05 17:17:52] <BobHouze-Ops> Indeed ROb, as you see, it wraps all the way around to near
+[GMT 08/25/05 17:18:15] <BobHouze-Ops> Havana--  Even Bob agrees this is a major rainband-
+[GMT 08/25/05 17:18:43] <RRogers> yes it's pretty impressive
+[GMT 08/25/05 17:18:48] <BobHouze-Ops> Latest NRL update--ELDORA is ready to go,   engine testing
+[GMT 08/25/05 17:18:57] <RRogers> this thing is getting organized right off our doorstep
+[GMT 08/25/05 17:19:02] <BobHouze-Ops> anytime except outer rainband now near McDILL
+[GMT 08/25/05 17:19:34] <RRogers> in eye now
+[GMT 08/25/05 17:19:53] <RRogers> extrap SLP down about 3 mb to 986-987
+[GMT 08/25/05 17:20:24] <BradSmull-n43> So about 3-4 mb lower than last pass through, and Flt Dir seemed doubtful we got to true center this pass.
+[GMT 08/25/05 17:22:30] <RRogers> through SE eyewall now
+[GMT 08/25/05 17:22:41] <RRogers> that was bumpiest pass yet
+[GMT 08/25/05 17:22:42] <cai_nrlp3> image 1712 arrived at 1716
+[GMT 08/25/05 17:23:04] <RRogers> just got a 7 m/s updraft followed by 5 m/s down
+[GMT 08/25/05 17:23:11] Action: ChrisBurghart-Boulder is away: back in 20-30 minutes
+[GMT 08/25/05 17:23:43] <BobHouze-Ops> Quite the ride ROb-- How about the winds?
+[GMT 08/25/05 17:24:05] <BradSmull-n43> Only about 50 kt here.
+[GMT 08/25/05 17:24:25] <RRogers> peak flight-level about 60 kt on nw and se sides
+[GMT 08/25/05 17:24:39] <RRogers> surface winds from SFMR suggest about 60 kt too
+[GMT 08/25/05 17:24:54] <RRogers> some values are higher but that may be contaminated by high rain rates
+[GMT 08/25/05 17:25:35] <RRogers> we just went through that heavy precip you can see on MIA 88D on SE side
+[GMT 08/25/05 17:26:11] <pavel-jeffco> Ta, do you have any ALT, VEW and VNS readings in Winds?
+[GMT 08/25/05 17:27:09] <BobHouze-Ops> I got ya Rob
+[GMT 08/25/05 17:30:42] <BobHouze-Ops> This is Bob. I'm back. Where will 43 be at 19Z?
+[GMT 08/25/05 17:31:37] <RRogers> stand by bob
+[GMT 08/25/05 17:31:40] EldoraOp-P3 (eldora@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:31:54] Nick change: EldoraOp-P3 -> CharlieMartin-MacDill
+[GMT 08/25/05 17:32:02] <JasmineCetrone-ops> Terry-I'm not seeing an LF data coming in.  Is the problem on our end or yours?
+[GMT 08/25/05 17:32:17] <terry-n43> our end... i'm working the issue
+[GMT 08/25/05 17:32:22] <JasmineCetrone-ops> ok, thanks
+[GMT 08/25/05 17:32:54] <pavel-jeffco> Never mind. It is all turned of.
+[GMT 08/25/05 17:33:58] <cai_nrlp3> image 1722 arrived at 1725
+[GMT 08/25/05 17:34:00] <RRogers> our flight director is checking with NHC to see what we can do after we get east of the system (which should be at about 18 UTC)
+[GMT 08/25/05 17:34:24] jose_tampa (meitin@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:34:29] Nick change: jose_tampa -> jose-miami
+[GMT 08/25/05 17:34:42] <RRogers> my request of him was to fly the northeast area to map out the area with the LF in advance of NRL arriving
+[GMT 08/25/05 17:35:04] <terry-n43> ok, lf should be flowing now
+[GMT 08/25/05 17:35:22] <JasmineCetrone-ops> Terry-we've got it coming, thanks!
+[GMT 08/25/05 17:35:51] <RRogers> going through rainband now
+[GMT 08/25/05 17:35:57] <RRogers> SE of center
+[GMT 08/25/05 17:36:12] <RRogers> by about 60 nm
+[GMT 08/25/05 17:36:43] <cai_nrlp3> image 1732 arrived at 1735
+[GMT 08/25/05 17:37:41] <BobHouze-Ops> a big spiral arm is extending around the storm and filling in the nw side of the storm . It is ssimilar to the rainband you are  seeing on the se side. So an NRL transit from Tampa might be tricky
+[GMT 08/25/05 17:40:24] <StacyBrodzik-Ops> Terry, we're not getting any inbound data packets
+[GMT 08/25/05 17:41:05] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:41:08] terry-n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:41:27] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:44:44] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:44:44] <StacyBrodzik-Ops> Terry, both data streams are back up.  Thx
+[GMT 08/25/05 17:44:50] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:45:17] <cai_nrlp3> image 1742 arrived at 1745
+[GMT 08/25/05 17:45:22] <BradSmull-n43> Bob- We're at a point where we really need more info on NRL status.
+[GMT 08/25/05 17:45:33] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:45:44] <BobHouze-Ops> Where will you be at 1900?
+[GMT 08/25/05 17:46:05] <BobHouze-Ops> Wen Chau: Do we have any word from NRL?
+[GMT 08/25/05 17:46:34] <RRogers> still waiting to hear from nhc
+[GMT 08/25/05 17:46:39] <BobHouze-Ops> ok
+[GMT 08/25/05 17:46:41] <RRogers> our FD is talking to them right now
+[GMT 08/25/05 17:46:41] Nick change: n43_RAMS -> n43
+[GMT 08/25/05 17:46:42] <BradSmull-n43> Stand by Bob -Flt Dir is calling CARCAH to possibly secure permission for loitering/randband work
+[GMT 08/25/05 17:46:47] <BobHouze-Ops> ok
+[GMT 08/25/05 17:46:54] <StacyBrodzik-Ops> Terry, LF data stream is down again
+[GMT 08/25/05 17:47:01] <cai_nrlp3> Wen-Chau is not on the chat, I will call him
+[GMT 08/25/05 17:47:50] <n43> we lost G* for a bit, but it should be ok now
+[GMT 08/25/05 17:47:54] <BradSmull-n43> Cai - We just need some direct word from the NRL mechanics on their progress
+[GMT 08/25/05 17:47:56] <n43> are you getting it?
+[GMT 08/25/05 17:47:58] <BobHouze-Ops> thanks cai. I couldn't getthrough to him
+[GMT 08/25/05 17:48:48] n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 17:48:58] <StacyBrodzik-Ops> no LF packets yet
+[GMT 08/25/05 17:49:31] <BobHouze-Ops> brad: these requests need to go thru wen chau
+[GMT 08/25/05 17:50:07] <BradSmull-n43> However we can make it work - what I'm trying to communicate is that we need hard info now.
+[GMT 08/25/05 17:50:41] <BobHouze-Ops> i know that. we are doing what we can.
+[GMT 08/25/05 17:50:47] anstett-tampa (anstett@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:51:03] <BobHouze-Ops> we have wen on the phone now
+[GMT 08/25/05 17:51:10] cai_nrlp3 (eldora@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:51:21] CharlieMartin-nrlp3 (martinc@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:51:22] ads-nrlp3 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:51:23] Wen-NRL (science@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:52:39] <BradSmull-n43> Thanks Bob
+[GMT 08/25/05 17:53:01] ShuyiChen-opc (Shuyi@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:53:36] <BradSmull-n43> Be advised it's not certain NHC will approve our request to "loiter", but knowng NRL's plan would be most helpful.
+[GMT 08/25/05 17:53:53] <BobHouze-Ops> nrl gives us 10% chance of t/o. standby
+[GMT 08/25/05 17:54:13] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:54:33] Nick change: n43_RAMS -> n43
+[GMT 08/25/05 17:54:38] <BradSmull-n43> Wow... well given long ferry to transit around N side of storm, it seems doubtful they can join-up with us in time
+[GMT 08/25/05 17:55:19] <BobHouze-Ops> standby brad
+[GMT 08/25/05 17:55:30] anstett-tampa (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 17:55:44] <BobHouze-Ops> nrl will not fly today
+[GMT 08/25/05 17:55:49] Nick change: n43 -> tml-n43
+[GMT 08/25/05 17:56:00] jose-miami (meitin@rdcc.guest.ucar.edu) left irc: Quit: adios
+[GMT 08/25/05 17:57:29] <StacyBrodzik-Ops> Terry, both data streams are down
+[GMT 08/25/05 17:58:19] <BobHouze-Ops> brad: we will need to get the tail doppler data from this flight as per our regular routine.
+[GMT 08/25/05 17:58:58] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:58:59] tml-n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:59:15] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 17:59:54] <DeannaHence-tampa> so Bob, would you like me to transfer said data once the flight is concluded?
+[GMT 08/25/05 18:00:06] <BobHouze-Ops> Deanna: Yes, please.
+[GMT 08/25/05 18:00:23] pavel-jeffco (pavel@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 18:00:35] MelicieDesflots-NRLP3 (Melicie@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:00:49] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:01:22] <BobHouze-Ops> brad: Deanna is planning to help with the data transfer
+[GMT 08/25/05 18:01:49] <DeannaHence-tampa> sheduled landing is 5-6ish?
+[GMT 08/25/05 18:02:01] <BobHouze-Ops> brad: Just to double check--you know that nrl is NOT flying?
+[GMT 08/25/05 18:03:00] <BobHouze-Ops> Rob: What is your eta at Tampa
+[GMT 08/25/05 18:03:17] MelicieDesflots-NRLP3 (Melicie@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 18:03:59] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:05:12] <BobHouze-Ops> Deanna: wait for brad to give us an eta
+[GMT 08/25/05 18:08:10] <DeannaHence-tampa> no worries, i'll be here
+[GMT 08/25/05 18:08:22] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:10:51] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:14:05] <JimMoore-ops> Rob,  Any update on what NHC will have you do and an eta back to McDill?
+[GMT 08/25/05 18:14:58] <RRogers> NHC has denied our request to fly in the NE quadrant along a rainband
+[GMT 08/25/05 18:15:26] <RRogers> they want us to go north of center, then fly a pattern to 80 nm S of center to map out surface wind field
+[GMT 08/25/05 18:15:34] <RRogers> stand by for eta on return to macdill
+[GMT 08/25/05 18:16:28] <RRogers> eta to macdill b/w 2130 and 2200 utc
+[GMT 08/25/05 18:16:49] Action: ChrisBurghart-Boulder is back (gone 00:53:38)
+[GMT 08/25/05 18:18:18] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:20:51] <JimMoore-ops> Thanks Rob--
+[GMT 08/25/05 18:22:32] StacyBrodzik-Ops (brodzik@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:23:25] <RRogers> no problem jim....of course we're kind of doing the NW-oriented leg
+[GMT 08/25/05 18:23:39] <RRogers> but it's not oriented along any specific meteorological feature
+[GMT 08/25/05 18:23:46] <RRogers> we're just getting north of the storm
+[GMT 08/25/05 18:24:57] <BradSmull-n43> Yeah Rob--not perfectly obvious to me where we would direct NRL in this echo configuration (at least as depicted on LF right now)
+[GMT 08/25/05 18:26:10] <BradSmull-n43> N43 is turning to track S through center.
+[GMT 08/25/05 18:26:19] <RRogers> yeah there's not an obvious target i can see from the LF either right now
+[GMT 08/25/05 18:36:32] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:36:37] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:36:40] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:38:55] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:40:32] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:40:39] <BradSmull-n43> Bob -Last fix (nominal 21Z) is OK anytime during interval 20-21Z, so we will likely do it early and return McDill.If so, we may beat Rob's previous estimated ETA back @ MacDill a bit - will keep you posted.
+[GMT 08/25/05 18:41:39] <ChrisBurghart-Boulder> JimMoore-ops: Do you know if NRL is still planning to fly?  Last I heard, ELDORA is working, but they're waiting on some other NRL maintenance.
+[GMT 08/25/05 18:41:54] <JasmineCetrone-ops> Chris--NRL is not flying
+[GMT 08/25/05 18:42:33] <BradSmull-n43> In eye--streaky seas, FD estimates >=50kt sfc wind
+[GMT 08/25/05 18:43:23] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 18:43:45] <ChrisBurghart-Boulder> OK.  Thanks, Jasmine.
+[GMT 08/25/05 18:43:51] <BradSmull-n43> Now >70kt at FL (5kft)
+[GMT 08/25/05 18:45:14] <RRogers> and about 60 kt surface from SFMR
+[GMT 08/25/05 18:47:35] <JimMoore-ops> Thanks Brad--We will monitor- Winds and rains picking here at the RSMAS bunker--
+[GMT 08/25/05 18:48:29] <BradSmull-n43> Min extrap. sfc pressure this pass ~986.5  near  26deg 08min  79deg 42min
+[GMT 08/25/05 18:49:11] <RRogers> going thru S eyewall, should be bumpy
+[GMT 08/25/05 18:52:56] <BradSmull-n43> It was!  J-W touched 0.7 g/kg
+[GMT 08/25/05 18:53:34] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:53:36] <TomS> BradS, do you have a new ETA for MCF?  I will pass on to 43 Crew Chief.
+[GMT 08/25/05 18:54:10] CharlieMartin-MacDill (eldora@rdcc.guest.ucar.edu) left irc: EOF from client
+[GMT 08/25/05 18:55:56] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:55:59] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 18:59:08] TomS (shepherd@rdcc.guest.ucar.edu) left irc: Quit: TomS is outa' here.......
+[GMT 08/25/05 19:00:34] jcetrone_ (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:00:52] jcetrone_ (jasmine@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 19:01:05] jcetrone_ (jasmine@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:01:26] <jcetrone_> Terry-we haven't received any LF or 1Hz data since 1853
+[GMT 08/25/05 19:02:22] Nick change: jcetrone_ -> Jasmine-Ops
+[GMT 08/25/05 19:03:07] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:03:13] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:03:30] <Jasmine-Ops> we're getting both data streams again
+[GMT 08/25/05 19:03:49] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:03:59] <RRogers> there is some pretty good turbulence in this rainband on the S side we're going through now
+[GMT 08/25/05 19:04:03] <BradSmull-n43> ETA to final fix is 2015Z
+[GMT 08/25/05 19:04:50] <RRogers> (btw this rainband is south of Miami)
+[GMT 08/25/05 19:05:04] <n43_RAMS> yup..the G*'s don't like the Bermuda Triangle!
+[GMT 08/25/05 19:05:35] <Jasmine-Ops> 43-No LF data again
+[GMT 08/25/05 19:06:24] <BradSmull-n43> Jasmin - For what it's worth, Globalstar's coverage map showed a minimum in signal strength centered roughly over the Keys
+[GMT 08/25/05 19:07:19] <Jasmine-Ops> ok, thanks Brad.  We're getting 1 Hz data still, just not the LF data stream
+[GMT 08/25/05 19:07:55] <BradSmull-n43> Informed terry, thx
+[GMT 08/25/05 19:12:23] <BradSmull-n43> Jasmine -any change?
+[GMT 08/25/05 19:13:49] <Jasmine-Ops> still no LF
+[GMT 08/25/05 19:14:22] <Jasmine-Ops> both streams are back up
+[GMT 08/25/05 19:14:27] <Jasmine-Ops> thanks!
+[GMT 08/25/05 19:14:28] <n43_RAMS> how about now... any lf?
+[GMT 08/25/05 19:14:30] <BradSmull-n43> Terrry's working it--thx.
+[GMT 08/25/05 19:14:37] <n43_RAMS> cool!!
+[GMT 08/25/05 19:14:45] StacyBrodzik-ROC (brodzik@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:16:52] Nick change: n43_RAMS -> terry-n43
+[GMT 08/25/05 19:18:17] <BradSmull-n43> N43 turnted to track 060 at 1913. Sonde #14 away at 1916.
+[GMT 08/25/05 19:18:38] <ChrisBurghart-Boulder> terry-n43: If 42 and 43 fly at the same time, will it be difficult to have someone on 42 able to reset/reconnect the globalstar to keep LF data flowing?
+[GMT 08/25/05 19:19:46] <terry-n43> no problem at all. They will have to monitor the connection they same as I do on 43. 
+[GMT 08/25/05 19:21:01] <ChrisBurghart-Boulder> OK, cool.
+[GMT 08/25/05 19:21:50] <StacyBrodzik-ROC> we've lost both LF and flight track data streams
+[GMT 08/25/05 19:22:57] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 19:23:18] terry-n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 19:23:19] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 19:27:09] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:27:22] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:28:04] <BradSmull-n43> Globalstar is definitely problematic this vicinity today
+[GMT 08/25/05 19:28:16] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:28:16] <n43_RAMS> ar y'all getting data from 43... had to restart G*
+[GMT 08/25/05 19:29:57] Nick change: n43_RAMS -> terry-n43
+[GMT 08/25/05 19:31:36] MichaelBell-PalmBay (mbell@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 19:32:17] <ChrisBurghart-Boulder> terry-n43: both streams are coming in to ops center
+[GMT 08/25/05 19:33:20] StacyBrodzik-ROC (brodzik@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 19:33:32] <terry-n43> thnx
+[GMT 08/25/05 19:36:28] StacyBrodzik-ROC (brodzik@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 19:40:22] <BradSmull-n43> 1924 UTC MIA radar image shows *beautiful* circular eye
+[GMT 08/25/05 19:41:26] <JimMoore-ops> We are in it now--sheets of rain and winds are up--MIA velocity near 70kts on the north
+[GMT 08/25/05 19:41:39] <BradSmull-n43> ATC requiring us to climb to 7kft; hard to believe we have company out here, but we do
+[GMT 08/25/05 19:42:46] <BradSmull-n43> Executing slow (outside) turn to 270; drop in 4 min
+[GMT 08/25/05 19:43:41] <BradSmull-n43> Has NHC re-classifed TS Katrina as Hurr Katrina?
+[GMT 08/25/05 19:43:58] <RRogers> jim -- MIA airport is getting 70 kt surface winds?
+[GMT 08/25/05 19:46:13] <Jasmine-Ops> We have Hurricane Katrina
+[GMT 08/25/05 19:46:47] <JimMoore-ops> Not sure about that--no where that here even in gusts and aircraft are on final over my head
+[GMT 08/25/05 19:47:11] <JimMoore-ops> here at RSMAS.  Not sure they'd be landing with 70kts, even on the nose
+[GMT 08/25/05 19:48:33] <RRogers> nhc public advisory at 3 pm says "nearing hurricane strength" at 70 mph
+[GMT 08/25/05 19:48:44] <BradSmull-n43> Jasmine- it only counts toward me getting my certificate if *NHC* says it...
+[GMT 08/25/05 19:48:56] <RRogers> pretty academic at this point I suppose
+[GMT 08/25/05 19:49:19] <Jasmine-Ops> it's on NHC's webiste as "Hurricane Katrina"
+[GMT 08/25/05 19:49:24] <RRogers> other than brad's certificate of course...
+[GMT 08/25/05 19:49:29] <RRogers> ah ok thanks
+[GMT 08/25/05 19:49:45] <BradSmull-n43> Thanks Jasmine!!!
+[GMT 08/25/05 19:50:14] <JimMoore-ops> Upgrade at 335p from NHC attributed to NOAA recon aircraft and 88D measured velocities
+[GMT 08/25/05 19:51:48] <ChrisBurghart-Boulder> Weather Channel says Katrina just got upgraded to hurricane @ 75 mph
+[GMT 08/25/05 19:52:27] <JimMoore-ops> The 'Jim Cantori ' effect is alive and well!
+[GMT 08/25/05 19:53:05] <BradSmull-n43> So Katrina is kicking sand in Cantori's face out on Miami Beach, eh?
+[GMT 08/25/05 19:55:30] <BradSmull-n43> John Gamache is producing some beautiful dual-Doppler in realtime up here
+[GMT 08/25/05 19:55:50] <ChrisBurghart-Boulder> Jim Cantore's in Ft Lauderdale, actually.  He's out there with the surfers.
+[GMT 08/25/05 19:57:16] <RRogers> brad what is john's analysis saying as far as wind speed?
+[GMT 08/25/05 20:00:02] terry-n43 (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:00:22] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:00:23] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:04:46] Action: ChrisBurghart-Boulder is away: back in an hour or so
+[GMT 08/25/05 20:05:46] <StacyBrodzik-ROC> Terry, we've lost our incoming data streams again
+[GMT 08/25/05 20:07:22] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:07:54] <BradSmull-n43> Just pulled some serious neg g's penetrating eastern eyewall
+[GMT 08/25/05 20:07:58] <StacyBrodzik-ROC> Datalines are up again
+[GMT 08/25/05 20:08:50] <BradSmull-n43> Multiple lightning discharges; extrap min sfc pressure ~984 mb.
+[GMT 08/25/05 20:09:25] anstett-tampa (anstett@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:10:28] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:10:34] <BradSmull-n43> 8 nm off coastline; didn't get solid fix last pass, going back for another try
+[GMT 08/25/05 20:10:53] <BradSmull-n43> FL winds 75 kt
+[GMT 08/25/05 20:12:52] <BradSmull-n43> Tracking 060 for another try at marking center.
+[GMT 08/25/05 20:14:01] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:14:11] Jcowan-Jeffco (jcowan@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 20:15:37] <BradSmull-n43> Center markedt at 26deg02min  79deg50min, Sonde #17 away.
+[GMT 08/25/05 20:18:30] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:18:37] <RRogers> slp 983
+[GMT 08/25/05 20:18:56] <RRogers> extrap slp that is
+[GMT 08/25/05 20:19:37] <RRogers> peak flight-level winds 75-80 kt
+[GMT 08/25/05 20:19:54] <RRogers> GPS sonde pressure 984.5
+[GMT 08/25/05 20:21:24] <BradSmull-n43> Tracking 030 to clear ENE-WSW oriented rainband on N side of center. Echo tops exceeded 15 km, perhaps as high as 17-18 km this last pass.
+[GMT 08/25/05 20:32:59] MelicieDesflots-RSMAS (Melicie@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 20:36:10] <JimMoore-ops> Brad and Rob,  Were are going to shut the ROC down and
+[GMT 08/25/05 20:36:34] <houze_ops> we are going off chat to head back to apartments
+[GMT 08/25/05 20:36:38] houze_ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 20:36:41] <JimMoore-ops> get off the key before strongest winds arrive.  Please give Bob/me a call when you 
+[GMT 08/25/05 20:36:58] <JimMoore-ops> land and we will join the call from apartment--So long
+[GMT 08/25/05 20:37:05] JimMoore-ops (JimMoore@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 20:37:06] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:37:07] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:37:11] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:40:47] BradSmull-n43 (smull@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:41:11] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:41:21] BobHouze-Ops (houze@rdcc.guest.ucar.edu) left irc: Quit: Signing off
+[GMT 08/25/05 20:41:47] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:42:35] StacyBrodzik-ROC (brodzik@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 20:43:09] <DeannaHence-tampa> did y'all see that ops is evacuating now?
+[GMT 08/25/05 20:44:02] Jasmine-Ops (jasmine@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:44:09] JasmineCetrone-ops (jasmine@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:50:02] <BradSmull-n43> Wow!
+[GMT 08/25/05 20:50:37] <BradSmull-n43> thanks Deanna--we were offline when that msg was sent, apparently
+[GMT 08/25/05 20:51:02] <DeannaHence-tampa> yeah....jim said to give him or bob a call when you land and they'll join the call from the apartment
+[GMT 08/25/05 20:51:03] <BradSmull-n43> our ETA MacDill is 5:10pm or so
+[GMT 08/25/05 20:51:06] <DeannaHence-tampa> but they need to get off the keys
+[GMT 08/25/05 20:51:09] <DeannaHence-tampa> ok
+[GMT 08/25/05 20:51:13] <DeannaHence-tampa> see you when you land
+[GMT 08/25/05 20:51:50] <BradSmull-n43> Yeppers
+[GMT 08/25/05 20:55:04] <DeannaHence-tampa> i guess we'll have to pull the data off when y'all land, unless you have another file transfer method in mind?
+[GMT 08/25/05 20:56:55] Shuyi (Shuyi@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 20:58:28] <BradSmull-n43> Nope Deanna, that sounds like a good plan.
+[GMT 08/25/05 20:58:46] Shuyi (Shuyi@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 20:59:01] ShuyiChen-opc (Shuyi@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 20:59:07] <BradSmull-n43> If you lead me through it, it'll help ensure that I can do it in your absence at some later date (i.e. if you get evacuated!)
+[GMT 08/25/05 20:59:33] <DeannaHence-tampa> will do :)
+[GMT 08/25/05 21:02:39] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 21:02:41] BradSmull-n43 (smull@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 21:02:57] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 21:06:54] RRogers (Administra@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 21:07:32] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 21:12:06] RRogers (Administra@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 21:18:38] DeannaHence-tampa (deaah@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 21:28:08] n43_RAMS (N43_RAMS@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 22:12:55] ChrisBurghart-Boulder (burghart@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/25/05 22:47:18] tml_lappyII_ (Terry@rdcc.guest.ucar.edu) joined &RAINEX.
+[GMT 08/25/05 22:49:49] tml_lappyII (Terry@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 08/25/05 23:36:22] tml_lappyII_ (Terry@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 08/26/05 00:00:00] --- Fri Aug 26 2005

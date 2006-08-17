@@ -1,0 +1,87 @@
+Original, unsanitized logs can be found here:
+ setS = /jnet/local/proj/304/Web/Chat/Logs
+
+AB-sanitized logs (for comparison) can be found here:
+ pwd = /h/9/ruth/Temporary/Sanitized_Logs
+
+Differences
+ checked:
+  dropsonde
+  eldora
+  ops
+  nrlp3
+ to be done:
+  Rainex
+
+Analysis
+ completed:
+ to be done:
+  dropsonde
+  eldora
+  ops
+  nrlp3
+  Rainex
+
+In a new window
+cd <dir> (in /h/9/ruth/Temporary/Sanitized_Logs)
+ls *Aug* >! listA
+ls *Sep* >! listS
+
+Create list (for each month) for checking
+:%s:\(.*\):diff \$S/\1 \1
+
+Paste each line into long window to do comparison.
+Have two windows below (with each directory) if you really want to look at
+them in depth.  
+
+Ron
+Wed Mar 29 00:00:25 GMT 2006
+
+-------
+
+checked ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.06Sep2005:
+ Following entries need no <Sanitized>
+  [GMT 09/06/05 21:15:10]
+  [GMT 09/06/05 21:15:41]
+  [GMT 09/06/05 21:16:07]
+  [GMT 09/06/05 21:16:23]
+  [GMT 09/06/05 21:20:12]
+
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.17Aug2005 (TF05)
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.22Aug2005 (TF06)
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.23Aug2005 (TF07)
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.26Aug2005 (FF01)
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.27Aug2005 (RF01) K
+
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.28Aug2005 (RF02) K
+ Sanitize content:
+  [GMT 08/28/05 16:53:53] -- login/pw
+
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.06Sep2005 (RF03)
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.09Sep2005 (RF04) O
+
+analyzing ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.11Sep2005 (RF05)
+ Sanitized content (talking about food):
+  [GMT 09/11/05 15:08:52] ?
+  [GMT 09/11/05 15:09:53] ?
+  [GMT 09/11/05 15:10:51] ?
+  [GMT 09/11/05 23:50:45] ?
+
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.22Sep2005 (RF08) R
+ Questionable content:
+  [GMT 09/22/05 18:41:26] through [GMT 09/22/05 18:43:55]
+  [GMT 09/22/05 18:44:18] through [GMT 09/22/05 18:45:59]
+  [GMT 09/22/05 18:46:18]
+  [GMT 09/22/05 18:51:29] and [GMT 09/22/05 18:51:36]
+  [GMT 09/22/05 20:30:07]
+  [GMT 09/22/05 20:30:37]
+  [GMT 09/22/05 20:31:03] ?
+
+24 sep (NOAA only)
+
+analyzed ~ruth/Temporary/Sanitized_Logs/Rainex/rainex.log.23Sep2005 (RF09) R
+
+29 sep (NOAA only)
+
+Ron
+Sat Apr  1 00:37:51 GMT 2006
