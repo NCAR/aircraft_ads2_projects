@@ -1,6 +1,6 @@
 #! /bin/csh -f
 #
-#  Archive C-130Q differential GPS data files (ASCII format)
+#  Archive C-130Q differential GPS data files
 #    2005-135 RICO (Rain In Cumulus over the Ocean) (Bob Rauber, Harry Ochs, et al.)
 #   using the new ATD directory path
 #
@@ -9,7 +9,7 @@
 #  Check login (only "dmg" login allowed to run this script)
 set user = `whoami`
 if ($user != "dmg") then
-  echo /jnet/local/proj/archives/scripts/genar:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
   exit 1
 endif
 #
@@ -37,9 +37,9 @@ set WPWD = "RAFDMG"
 #   Read password for MSS file(s), if needed
 set RPWD = ""
 #
-set SDIR = /jnet/data/pr_work/rico_final_dgps
 #
-#  1st wave
+#  1st wave (production data, ASCII format)
+#set SDIR = /jnet/data/pr_work/rico_final_dgps
 #set SFILES = ( \
 #RICO_DGPS_RF01.dat \
 #RICO_DGPS_RF02.dat \
@@ -84,6 +84,7 @@ set SDIR = /jnet/data/pr_work/rico_final_dgps
 #)
 #
 #  2nd wave
+#set SDIR = /jnet/data/pr_work/rico_final_dgps
 #set SFILES = ( \
 #readme.txt \
 #readme.txt \
@@ -93,19 +94,35 @@ set SDIR = /jnet/data/pr_work/rico_final_dgps
 #/ATD/DATA/2005/RICO/C130_N130AR/DGPS/README.txt \
 #)
 #
+#  3rd wave (Raw Data)
+#set SDIR = "/scr/raf2/Raw_Data/RICO/DGPS_tar"
+#set SFILES = ( \
+#Final_data.tar \
+#Flights.tar \
+#RAF_test.tar \
+#RICO_flight.tar \
+#RICO_ground.tar \
+#Static_FBO_loc.tar \
+#Support_Files.tar \
+#UW_data.tar \
+#rtknav_attitude_replay.tar \
+#)
+#set DDIR = "/RAF/2005/135/RAW_DGPS"
 #
-#
+#  Get started
 echo "#  $#SFILES job(s) submitted on `date`"
-echo "#  File(s) archived to MSS directory:  /ATD/DATA/yyyy/RICO/C130_N130AR/"
+#echo "#  File(s) archived to MSS directory:  /ATD/DATA/yyyy/RICO/C130_N130AR/"
+echo "#  File(s) archived to MSS directory:  $DDIR/"
 #
 set todo = $#SFILES
 set num = 1
 while ($num <= $todo)
   set SFILE = $SFILES[$num]
-  set DFILE = $DFILES[$num]
+#  set DFILE = $DFILES[$num]
+  set DFILE = $DDIR/$SFILE
   if (-r $SDIR/$SFILE) then
     echo \
-    ssh $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE mss:$DFILE
+    ssh -x $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE mss:$DFILE
     if ($status == 0) then
       set d2 = $DFILE:h
       set d1 = $d2:t
@@ -124,7 +141,7 @@ end
 echo "#   Completed on `date`"
 exit
 #
-#  1st wave
+#  1st wave (production data, ASCII format)
 #  19 job(s) submitted on Mon Jan 23 16:03:33 MST 2006
 #  File(s) archived to MSS directory:  /ATD/DATA/200[56]/RICO/C130_N130AR/
 #   DGPS/RF01.20041207.160956_215115.asc -- OK -- Mon Jan 23 16:03:42 MST 2006
@@ -154,4 +171,18 @@ exit
 #   DGPS/README.txt -- OK -- Mon Jan 23 16:29:43 MST 2006
 #   DGPS/README.txt -- OK -- Mon Jan 23 16:29:52 MST 2006
 #   Completed on Mon Jan 23 16:29:52 MST 2006
+#
+#  3rd wave (Raw Data)
+#  9 job(s) submitted on Tue Jul 18 10:10:31 MDT 2006
+#  File(s) archived to MSS directory:  /RAF/2005/135/
+#   RAW_DGPS/Final_data.tar -- OK -- Tue Jul 18 10:10:57 MDT 2006
+#   RAW_DGPS/Flights.tar -- OK -- Tue Jul 18 10:15:31 MDT 2006
+#   RAW_DGPS/RAF_test.tar -- OK -- Tue Jul 18 10:15:57 MDT 2006
+#   RAW_DGPS/RICO_flight.tar -- OK -- Tue Jul 18 10:26:50 MDT 2006
+#   RAW_DGPS/RICO_ground.tar -- OK -- Tue Jul 18 10:45:39 MDT 2006
+#   RAW_DGPS/Static_FBO_loc.tar -- OK -- Tue Jul 18 10:45:50 MDT 2006
+#   RAW_DGPS/Support_Files.tar -- OK -- Tue Jul 18 10:45:57 MDT 2006
+#   RAW_DGPS/UW_data.tar -- OK -- Tue Jul 18 10:49:09 MDT 2006
+#   RAW_DGPS/rtknav_attitude_replay.tar -- OK -- Tue Jul 18 10:49:19 MDT 2006
+#   Completed on Tue Jul 18 10:49:19 MDT 2006
 #
