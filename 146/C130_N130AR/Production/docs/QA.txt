@@ -1,0 +1,86 @@
+Project 146 - INTEX-B2 (04/05, 2006)
+The Intercontinental Chemical Transport Experiment,
+Phase B2
+	William Brune, James Crawford et al.	
+NSF C130Q N130AR
+
+Data quality report
+By Pavel Romashkin
+
+This summary outlines basic instrumentation and any problems affecting the data set resulting from the RAF instrumentation. It is not intended to point out every bit of questionable data. This summary is intended to provide an overall understanding of limitations of the dataset and therefore aid in the use of the data in further research.
+
+The following report covers only the RAF-supplied 'in-situ' instrumentation and is organized into two sections. Section I lists recurring problems, general limitations, and systematic biases in the standard RAF measurements. Section II lists problems that have occurred on a flight-by-flight basis.
+
+Section I: General Discussion
+
+1.RAF staff have reviewed the data set for instrumentation problems. When an instrument has been found to be malfunctioning, specific time intervals are noted. The bad data intervals have been replaced in the netCDF data files with the missing data code of -32767.   In some cases a system may be out for an entire flight.
+
+2.Aircraft position, ground speed, and attitude are provided by a Honeywell Inertial Laser Reference System (IRS). The values of PITCH, ROLL, and THDG are recorded at 50 sps. The position and ground speed data from the IRS are susceptible to long term drift known as the Schuler oscillation, typically reducing their accuracy over the duration of a flight. A Garmin Global Positioning System (GPS) unit was used as a more accurate position reference during the program. When the GPS is working properly, it can provide data with an accuracy of better than 100 meters in position and 1 meter/sec in ground speed. The GPS provides a good absolute measurement over the entire duration of a flight, while the IRS provides a good relative measurement best used for short term attitude variations. 
+
+3.Both systems performed well, and the GPS position values (GGALTC is the altitude reference) are recommended for all research efforts. However, sharp turns do occasionally interrupt the reception from some satellites. These cases are characterized by a small, instantaneous shift in position and thus ground speed. Once the aircraft has come out of the turn, the track will typically shift back, but the wind speed and direction calculations can be adversely affected by the resulting discontinuities in the key input variables if the GPS data alone are used. To alleviate the problem, the RAF takes advantage of the relative strengths of the GPS and IRS measurements when both are present by applying a low-pass filter to the GPS measurements and the complementary high-pass filter to the IRS measurements and then adding the two. In the absence of the GPS signal the algorithm accomplishes this with the addition of some tests and corrections. For the most accurate data with smooth transitions under all conditions, RAF recommends that the LATC/LONC position data be used.
+
+4.The wind data for this project were derived from measurements taken with the five-hole radome wind-gust probe. The ambient wind calculations can be adversely affected by either sharp changes in the aircraft's flight attitude, excessive drift in the onboard inertial reference system (IRS) or ingestion of water into the radome orifices. Turns, or more importantly, climbing turns are particularly disruptive to this type of measurement technique. Wind data reported for these conditions should be used with caution. As an additional enhancement to this data set, a second-pass correction was applied to the wind data using position and ground speed updates provided by the GPS positioning system.
+
+5.Both the GPS corrected and basic uncorrected values for wind measurements are included in the final data set.  RAF strongly recommends that the GPS corrected inertial winds be used for all research efforts (WSC, WDC, UXC, VYC, WIC, UIC, VIC).  
+
+6.The aircraft true airspeed (TASX) is a critical measurement that factors into most of the in-situ data calculations. Redundant dynamic pressure sensors (QCR, QCF) are included in the instrumentation package to prevent any loss of data in this critical area. QCR was selected as the reference sensor for all flights. Note that the RAF uses a "wet" airspeed in the calculation of all derived measurements. In moist conditions this correction to the true air speed can be as great as 0.5 m/s.
+
+7.Temperature measurements were made using a set of two standard, unheated Rosemount temperature sensors (ATRR, ATRL). While fast and accurate, these sensors are susceptible to wetting during cloud and rainshaft penetrations. The two systems generally tracked with typical mean difference around 0.6 °C. ATRL is believed to be more accurate and was selected as the reference temperature sensor (ATX) with these values being used in all of the derived measurement calculations. ATRR experienced intermittent, short-term spiking during INTEX and is included in the data set for comparison only.
+
+8.Humidity measurements were made using two collocated thermoelectric dew point sensors, one experimental, fast-response hygrometer and an experimental TDL laser hygrometer.   As is typically the case, the two dew point sensors (DPBC, DPTC) were set up differently to provide the best coverage under the widest range of ambient conditions.   DPBC was set up for faster response, but its dynamic range was more limited.   DPTC had a slower response but had the capability of measuring greater dew point depressions.   A comparison of the data sets yielded good correlation in instrument signatures during the largest portions of the flights when both instruments were functioning normally.   DPTC tended to oscillate under drier conditions, so DPBC was used as the reference humidity sensor (DPXC) in calculating all of the derived measurements. Note:  the response of the thermoelectric dew point sensors is roughly 2 seconds. Response times are dependent upon ambient dew point depression and can exceed 10-15 seconds under very dry conditions.  These units also overshoot during rapid changes in dew point.
+
+9.The experimental fast-response humidity sensor (XUVHS) provides a logarithmic response, is thermally unstable at higher altitudes and tended to saturate at higher humidities.   No attempt has been made to convert the output to engineering units.   The raw output voltage has been included in the final data set at the request of the Users in order to provide a relative indicator of fine-scale structure in the humidity fields. 
+
+10.A TDL-based (Tunable Diode Laser) hygrometer was flown on an experimental basis for this project.   The system was originally designed for measuring extremely low absolute humidities at stratospheric altitudes.   The path length was shortened for the unit when it was placed on the C-130 to allow it to function at the higher humidities common to the boundary layer and mid- to lower-troposphere.   While the humidity values encountered during this deployment were within the expected operational range of the instrument, a complex pressure calibration and special data processing are required to correct the basic data.   At the time of this data release, the TDL data were not fully corrected and have, therefore, been removed from this data set.   We expect a subsequent release of a "corrected" set of TDL data (MRLH) at a later date. 
+
+11.The altitude of the aircraft was measured in several ways:
+The research pressure altitude measurements (PALT, PALTF) are derived from the static pressure using the hydrostatic equation and the U.S. Standard Atmosphere which assumes a constant surface pressure of 1013 mbar and a base surface temperature of 288 °K. This measurement depends on the pressure corrections derived from the radome gust probe and may be compromised in icing conditions.
+The GPS positioning system provides a MSL altitude (GGALT). The signal is unaffected by changes in the surface pressure or temperature. The RAF recommends using GGALT as the reference MSL altitude.
+A radar altimeter was onboard the aircraft for all of the research flights. This unit provides a direct measurement of the aircraft's AGL altitude from 0 to 15,000 m. For operational reasons, the unit was not initially turned on until after takeoff, so some data will be missing at the start of each flight. Reflections from the surface will result in a noisy signal while the aircraft is on or very near the ground. On several flights the radar altimeter was intermittently turned off and on in attempt to troubleshoot satellite communications interference.
+
+12.Data recording typically begins well in advance of the actual aircraft takeoff time. Virtually all measurements made on the aircraft require some sort of airspeed correction, or the systems are simply not active while the aircraft remains on the ground. None of the data collected while the aircraft is on the ground should be considered valid and are not provided in the final data set.
+
+13.Backup static pressure system was uncharacteristically sensitive to attitude and altitude changes.   The derived variables (PSFC, QCFRC) were removed from the final data set.   The digital static pressure (PSFDC) was selected as the reference pressure (PSXC) used in all of the derived measurements.
+
+14.A set of standard upward- and downward-facing radiometers was used to measure shortwave, ultraviolet, and infrared irradiance.   It should be noted that all units are hard mounted and that none of the data have been corrected for changes in the aircraft's flight attitude.
+
+15.The calculation of CN-sized aerosol particle concentrations (CONCN) is dependent upon total particle counts (CNTS) and the measurement of sample flow (FCN, FCNC).   The internal sample flow (FCN) has been corrected (FCNC) to ambient conditions only, and not to STP for the calculation of particle concentration. FCN was calibrated using a gilibrator after the end of the experiment. The flow was accurate within 2% of the value measured in the field, and the updated calibration was applied to the production data.
+
+16.Four PMS particle probes (SPP-100, SPP-200, SPP-300, 260X) were used on the project.   Problems with the left-wing pod data module (DSM) late in the project resulted in the complete loss of SPP-200 and SPP-300 data for several flights.   Some specific details on each of the probes are summarized below: 
+SPP-100 
+The SPP-100 cloud droplet probe functioned extremely well.   Weekly servicing and re-calibration of the sensor optics provided good documentation for data processing.   Being an optical scattering probe, the SPP-100 has no way of distinguishing between aerosols, ice particles and water droplets.   Therefore, the liquid water content calculated from this probe (PLWCF_IBR) should be used with caution in this application.
+SPP-200 
+The SPP-200 aerosol particle probe functioned extremely well during the project.   The probe being flown has been modified in order to directly measure the sample flow through the instrument.   These data, recorded as PFLWC_WDL, have been used in the calculation of particle concentrations to provide a more accurate measurement of aerosol concentrations.   Due to the sampling technique employed by this probe, it is not suitable for use in clouds.   Counts in the lowest bin size were contaminated by excessive electronic noise.   Data from that channel have been removed from the calculation of total particle concentration (CONCP). 
+SPP-300 
+The SPP-300 aerosol probe covers a range of particle sizes that bridges the gap between the true aerosols and the smaller droplets (0.3 to 20 µm).   Like all 1-D optical probes, however, the SSP300 has no way to distinguish between aerosols, ice or water. Note:   The bin sizes vary significantly in the particle-sizing routines for this probe. 
+PMS-260X 
+While the range of this probe is specified to be 10 to 640 µm in 10 µm increments, it has some problems sampling the smaller sizes when mounted on an aircraft.   NCAR data processing uses the Baumgardner correction alogrithms (Baumgardner, Korolev,1997: Airspeed Corrections for Optical Array Probe Sample Volumes, J. Atmos. Oceanic Tech., 14, 1224-1229) to correct the PMS-260X data for these problems.   Effectively this changes the range of the unit to 50 to 640 µm when it is mounted on the C-130.   The unit functioned well throughout the program.
+
+Section II: Flight-by-Flight Summary
+
+Normally test flight data are not included in the official project data archive. On this project, all flights are considered research because intercomparison with the NASA/UND DC8 airplane was conducted on both ferry flights. Comments on these data sets are in chronological order. Note: All times listed below are Coordinated Universal Time (UTC).
+
+RF01: Right pod DSM had connection problem. All *_RPO and *_RPI variables from 19:09:15 to 19:33:06 are not available.
+
+RF02: Right pod DSM had connection problem. All *_RPO and *_RPI variables are affected, use with caution. Multiple intervals of data are blanked out. RSTT did not report good data from 17:04:30 to 18:16:20. 
+
+RF03: FSSP100 and SPP300 were not operational due to a DSM connection problem.
+
+RF04: Data system malfunctioned with complete data loss at 20:27:25. Data collection resumed at 21:45:51. Aircraft position is provided in a separate MS Excel file, 146rf04_Position.xls and as text file 146rf04_Position.txt. DPB overshot significantly from 23:13:00 to 23:21:36. Use DPT during this time. DTB and STB experienced noise from 18:45:17 to 20:27:25, resulting in the increased noise in IRBC.
+
+RF05: The usual reference dew point sensor (DPBC) experienced overshooting from 20:46:06 to 20:55:40, 22:03:50 to 22:10:20 and 00:39:06 to 00:46:38. Use DPTC during these time intervals and DPBC during most of the flight. For calculating TSX and other variables dependant on the humidity, DPTC was used as DPXC. However, DPTC / DPXC shows lack of proper signal lock, so avoid using it over extended time periods. Use DPBC for short time base applications. DTB and STB experienced noise from 17:01:30 to 17:19:12, resulting in the increased noise in IRBC.
+
+RF06: Data system computer locked up at takeoff resulting in complete data loss until 18:37:34.
+
+RF07: DPB was inoperable from 17:05:00 to 20:08:30. For calculating TSX and other variables dependant on the humidity, DPTC was used as DPXC. However, DPT is invalid from 22:36:52 to 22:45:52 and shows lack of proper signal lock, so avoid using it over extended time periods. Use DPBC for short time base applications.
+
+RF08: DPB has very slow response from 17:30:30 to 18:00:32 and from 18:22:23 to 18:25:21. Use DPTC during these times. DPTC shows lack of proper signal lock, so avoid using it over extended time periods. DTB and STB experienced noise throughout most of the flight, resulting in the increased noise in IRBC.
+
+RF09: DPT showed a step increase from 20:47:31 to 20:56:00. Data collection was interrupted at 16:34:40 to 16:35:02, causing step change in the corrected aircraft position values (LATC, LONC). Use the raw position (GGLAT, GGLON) or interpolate across the gap when using position data. DTB and STB experienced noise from 21:51:19 to 23:01:13, resulting in the increased noise in IRBC.
+
+RF10: DTB and STB experienced noise from 22:58:38 to 23:47:11, resulting in the increased noise in IRBC.
+
+RF11: Radome gust probe experienced icing at the beginning of the flight. QCR is affected from 16:56:23 to 17:33:33, ADIFR from 16:50:07 to 16:57:41 and BDIFR from 16:48:42 to 17:24:40. Reference dynamic pressure measurement used for this flight is QCFC and reference airspeed is TASF. All variables dependent on pressure correction and true air speed are unavailable from 16:50:07 to 16:57:41.
+
+RF12: No significant issues identified.
+

@@ -1,0 +1,174 @@
+#! /bin/csh -f
+#
+#
+#  Archive Quick-Time movie files for the project:  2005-146 INTEX-B
+#   using the new ATD directory path
+#   (files digested from the forward-looking digital camera and production
+#    LRT netCDF files and assembled by Stuart Beaton)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2005, 2006                                                   *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $LOCAL/proj/135/archprodnc_L.135 with help from
+#   the file $LOCAL/proj/135/archskel.135
+#   by Ron Ruth   5 July 2005
+#  Revised by RLR  (Update to current directory structure)           9 Aug 2006
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+endif
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = "/scr/raf2/Prod_Data/INTEXB/CAMERA"
+#
+#   Destination MSS bitfile directory/subdirectory
+set DDIR = "/ATD/DATA/2006/INTEXB/C130_N130AR"
+set DSDIR = "CAMERA"
+#
+#  1st wave
+#set SFILES = ( \
+#Impex_digitalImagesReadme \
+#146rf01.mp4 \
+#146rf02.mp4 \
+#146rf03.mp4 \
+#146rf04.mp4 \
+#146rf05.mp4 \
+#146rf06.mp4 \
+#146rf07.mp4 \
+#146rf08.mp4 \
+#146rf09.mp4 \
+#146rf10.mp4 \
+#146rf11.mp4 \
+#146rf12.mp4 \
+#)
+#set DFILES = ( \
+#README_DigitalImages.txt \
+#RF01.FWD.20060417.140600_204229.mov \
+#RF02.FWD.20060421.170500_004858.mov \
+#RF03.FWD.20060424.175901_231459.mov \
+#RF04.FWD.20060426.171940_005758.mov \
+#RF05.FWD.20060428.170131_005859.mov \
+#RF06.FWD.20060501.183730_015429.mov \
+#RF07.FWD.20060503.170501_013458.mov \
+#RF08.FWD.20060505.173031_015658.mov \
+#RF09.FWD.20060508.160730_002129.mov \
+#RF10.FWD.20060509.172930_010329.mov \
+#RF11.FWD.20060511.163500_194318.mov \
+#RF12.FWD.20060515.164800_233759.mov \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  4th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+#echo "#  File(s) moved within MSS directory:  $DDIR/$DSDIR/"
+echo "#  File(s) archived to MSS directory:  $DDIR/$DSDIR/"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE mss:$DDIR/$DSDIR/$DFILE
+    if ($status == 0) then
+      echo "#   $DFILE -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+#    msmv -wpwd $WPWD $DDIR/$DSDIR/$SFILE $DDIR/$DSDIR/$DFILE
+#    if ($status == 0) then
+#      echo "#   $DFILE -- OK -- `date`"
+#    else
+#      echo "  msmv job FAILED."
+#    endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#
+#  1st wave
+#  13 job(s) submitted on Tue Aug 15 18:17:53 MDT 2006
+#  File(s) archived to MSS directory:  /ATD/DATA/2006/INTEXB/C130_N130AR/CAMERA/
+#   README_DigitalImages.txt -- OK -- Tue Aug 15 18:17:59 MDT 2006
+#   RF01.FWD.20060417.140600_204229.mov -- OK -- Tue Aug 15 18:18:23 MDT 2006
+#   RF02.FWD.20060421.170500_004858.mov -- OK -- Tue Aug 15 18:18:55 MDT 2006
+#   RF03.FWD.20060424.175901_231459.mov -- OK -- Tue Aug 15 18:19:16 MDT 2006
+#   RF04.FWD.20060426.171940_005758.mov -- OK -- Tue Aug 15 18:19:41 MDT 2006
+#   RF05.FWD.20060428.170131_005859.mov -- OK -- Tue Aug 15 18:20:09 MDT 2006
+#   RF06.FWD.20060501.183730_015429.mov -- OK -- Tue Aug 15 18:20:38 MDT 2006
+#   RF07.FWD.20060503.170501_013458.mov -- OK -- Tue Aug 15 18:21:15 MDT 2006
+#   RF08.FWD.20060505.173031_015658.mov -- OK -- Tue Aug 15 18:21:49 MDT 2006
+#   RF09.FWD.20060508.160730_002129.mov -- OK -- Tue Aug 15 18:22:23 MDT 2006
+#   RF10.FWD.20060509.172930_010329.mov -- OK -- Tue Aug 15 18:22:49 MDT 2006
+#   RF11.FWD.20060511.163500_194318.mov -- OK -- Tue Aug 15 18:23:03 MDT 2006
+#   RF12.FWD.20060515.164800_233759.mov -- OK -- Tue Aug 15 18:23:30 MDT 2006
+#   Completed on Tue Aug 15 18:23:30 MDT 2006
+#
+#  2nd wave
+#  Job(s) submitted on 
+#
+#  3rd wave
+#  Job(s) submitted on 
+#
+#  4th wave
+#  Job(s) submitted on 
+#
+#   th wave
+#  Job(s) submitted on 
+#
