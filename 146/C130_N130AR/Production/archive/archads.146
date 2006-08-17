@@ -2,6 +2,10 @@
 #
 #  Archive raw ADS data files for 2006-146 INTEX-B2
 #
+#goto zapem    #  execute 2nd wave (remove inadvertently-archived bitfiles)
+#                 move original RF06B to subdirectory
+#goto movem    #  move original RF04 to RF04A;
+#
 #  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 #  *  Copyright 2002                                                         *
 #  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
@@ -25,14 +29,16 @@ if ($user != "dmg") then
 endif
 #
 #  Get setup information for this project
-set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+# hard wire project for now
+set PROJ = 146
 set result = $status
 if ($result != 0) then
   echo " Cannot find project number in this directory path"
   echo "  Quitting."
   exit 1
 endif
-set YEAR = `grep FY $JLOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+set YEAR = `grep FY $JLOCAL/projects/$PROJ/C130_N130AR/Production/proj.info | sed -e "s/FY=//"`
 set TYPE = ADS
 #
 #  Set machine on which "msrcp" is to run
@@ -51,29 +57,75 @@ set RPWD = ""
 #set SDIR = $TEMP
 #set SDIR = $PROD_DATA
 #set SDIR = $DATA_DIR
+set SDIR = "/scr/raf2/Raw_Data/INTEXB"
 #
 #  1st wave
+set SFILES = ( \
+145tf98a.ads \
+145tf99a.ads \
+145tf99b.ads \
+145tf99c.ads \
+146rf01a.ads \
+146rf02a.ads \
+146rf03a.ads \
+146rf04a.ads \
+146rf05a.ads \
+146rf06a.ads \
+146rf06b.ads \
+146rf07a.ads \
+146rf08a.ads \
+146rf09a.ads \
+146rf09b.ads \
+146rf10a.ads \
+146rf11a.ads \
+146rf12a.ads \
+146rf90a.ads \
+)
+set DFILES = ( \
+TF98 \
+TF99A \
+TF99B \
+TF99C \
+RF01 \
+RF02 \
+RF03 \
+RF04 \
+RF05 \
+RF06A \
+RF06B \
+RF07 \
+RF08 \
+RF09A \
+RF09B \
+RF10 \
+RF11 \
+RF12 \
+RF90 \
+)
+#
+#  3rd wave (rename originsl RF06 to ORIGINAL/RF06 after bad records fixed)
+#date
+#  Wed May 24 17:03:54 MDT 2006
+#echo \
+#msmv -wpwd RAFDMG /RAF/2006/146/ADS/RF06B /RAF/2006/146/ADS/ORIGINAL/RF06B
+#date
+#  Wed May 24 17:03:56 MDT 2006
+#exit
+#
+#  4th wave (archive corrected version of RF06)
 #set SFILES = ( \
+#146rf06new.ads \
 #)
 #set DFILES = ( \
+#RF06B \
 #)
 #
-#  2nd wave
+#  5th wave ("fixed" segment for RF04)
 #set SFILES = ( \
+#146rf04b.ads \
 #)
 #set DFILES = ( \
-#)
-#
-#  3rd wave
-#set SFILES = ( \
-#)
-#set DFILES = ( \
-#)
-#
-#  4th wave
-#set SFILES = ( \
-#)
-#set DFILES = ( \
+#RF04B \
 #)
 #
 #   th wave
@@ -97,7 +149,7 @@ while ($num <= $todo)
   set DFILE = $DFILES[$num]
   if (-r $SDIR/$SFILE) then
     echo \
-    ssh $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+    ssh -x $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
      $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
     set result = $status
     if ($result == 0) then
@@ -117,20 +169,97 @@ end
 echo "#   Completed on `date`"
 exit
 #
+#zapem:
+##  2nd wave
+##  Remove inadvertently-archived ADS files
+#set bitfiles = ( \
+#TF98 \
+#TF99A \
+#TF99B \
+#TF99C \
+#RF90 \
+#)
+#echo "#  Inadvertently-archived bitfile removal began on `date`"
+#foreach bitfile ($bitfiles)
+#  echo \
+#  msrm -wpwd RAFDMG /RAF/2006/146/ADS/$bitfile
+#  set result = $status
+#  if ($result) then
+#    echo "#   msrm for /RAF/2006/146/ADS/$bitfile -- Failed -- `date`"
+#    echo "#                              $bitfile: error code $result"
+#  else
+#    echo "#   msrm for /RAF/2006/146/ADS/$bitfile -- OK -- `date`"
+#  endif
+#end
+#echo "#   Job completed on `date`"
+#exit
+#
+#movem:
+#echo "#  Move (add segment to file name) began on `date`"
+#echo \
+#msmv -wpwd RAFDMG /RAF/2006/146/ADS/RF04 /RAF/2006/146/ADS/RF04A
+#set result = $status
+#if ($result) then
+#  echo "#   msmv for /RAF/2006/146/ADS/RF04A -- Failed -- `date`"
+#  echo "#                              RF04A:  error code $result"
+#else
+#  echo "#   msmv for /RAF/2006/146/ADS/RF04A -- OK -- `date`"
+#endif
+#echo "#   Job completed on `date`"
+#exit
+#
 #
 #  MSS path for all bitfiles listed below:  /RAF/2006/146/
 #
 #  1st wave
-#  Job(s) submitted on 
+#  19 Job(s) submitted on Wed May 17 14:39:33 MDT 2006
+#  msrcp job for ADS/TF98 -- OK -- Wed May 17 14:39:41 MDT 2006
+#  msrcp job for ADS/TF99A -- OK -- Wed May 17 14:39:54 MDT 2006
+#  msrcp job for ADS/TF99B -- OK -- Wed May 17 14:40:02 MDT 2006
+#  msrcp job for ADS/TF99C -- OK -- Wed May 17 14:41:08 MDT 2006
+#  msrcp job for ADS/RF01 -- OK -- Wed May 17 14:43:50 MDT 2006
+#  msrcp job for ADS/RF02 -- OK -- Wed May 17 14:47:02 MDT 2006
+#  msrcp job for ADS/RF03 -- OK -- Wed May 17 14:49:12 MDT 2006
+#  msrcp job for ADS/RF04 -- OK -- Wed May 17 14:50:48 MDT 2006
+#  msrcp job for ADS/RF05 -- OK -- Wed May 17 14:53:45 MDT 2006
+#  msrcp job for ADS/RF06A -- OK -- Wed May 17 14:54:13 MDT 2006
+#  msrcp job for ADS/RF06B -- OK -- Wed May 17 14:56:39 MDT 2006
+#  msrcp job for ADS/RF07 -- OK -- Wed May 17 14:59:50 MDT 2006
+#  msrcp job for ADS/RF08 -- OK -- Wed May 17 15:03:29 MDT 2006
+#  msrcp job for ADS/RF09A -- OK -- Wed May 17 15:04:03 MDT 2006
+#  msrcp job for ADS/RF09B -- OK -- Wed May 17 15:06:51 MDT 2006
+#  msrcp job for ADS/RF10 -- OK -- Wed May 17 15:09:36 MDT 2006
+#  msrcp job for ADS/RF11 -- OK -- Wed May 17 15:12:37 MDT 2006
+#  msrcp job for ADS/RF12 -- OK -- Wed May 17 15:14:59 MDT 2006
+#  msrcp job for ADS/RF90 -- OK -- Wed May 17 15:15:04 MDT 2006
+#   Completed on Wed May 17 15:15:04 MDT 2006
 #
 #  2nd wave
-#  Job(s) submitted on 
+#  Inadvertently-archived bitfile removal began on Fri May 19 14:51:03 MDT 2006
+#   msrm for /RAF/2006/146/ADS/TF98 -- OK -- Fri May 19 14:51:05 MDT 2006
+#   msrm for /RAF/2006/146/ADS/TF99A -- OK -- Fri May 19 14:51:07 MDT 2006
+#   msrm for /RAF/2006/146/ADS/TF99B -- OK -- Fri May 19 14:51:08 MDT 2006
+#   msrm for /RAF/2006/146/ADS/TF99C -- OK -- Fri May 19 14:51:10 MDT 2006
+#   msrm for /RAF/2006/146/ADS/RF90 -- OK -- Fri May 19 14:51:12 MDT 2006
+#   Job completed on Fri May 19 14:51:12 MDT 2006
 #
-#  3rd wave
-#  Job(s) submitted on 
+#  3rd wave (rename original RF06B to ORIGINAL/RF06B after bad records fixed)
+#  Job(s) submitted on Wed May 24 17:03:54 MDT 2006
+#  msmv job for ORIGINAL/RF06B -- OK -- Wed May 24 17:03:56 MDT 2006
 #
-#  4th wave
-#  Job(s) submitted on 
+#  4th wave (archive corrected version of RF06)
+#  1 Job(s) submitted on Wed May 24 17:06:59 MDT 2006
+#  msrcp job for ADS/RF06B -- OK -- Wed May 24 17:10:38 MDT 2006
+#   Completed on Wed May 24 17:10:38 MDT 2006
+#
+#  Move (add segment to file name) began on Tue Jun 27 16:54:02 MDT 2006
+#   msmv for /RAF/2006/146/ADS/RF04A -- OK -- Tue Jun 27 16:54:09 MDT 2006
+#   Job completed on Tue Jun 27 16:54:09 MDT 2006
+#
+#  5th wave
+#  1 Job(s) submitted on Tue Jun 27 16:56:22 MDT 2006
+#  msrcp job for ADS/RF04B -- OK -- Tue Jun 27 17:00:10 MDT 2006
+#   Completed on Tue Jun 27 17:00:10 MDT 2006
 #
 #   th wave
 #  Job(s) submitted on 
