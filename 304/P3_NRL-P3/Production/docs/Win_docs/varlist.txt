@@ -1,0 +1,103 @@
+	Variable list for netCDF file /jnet/productiondata/304rf01.nc
+	Created using /jnet/local/projects/archives/scripts/getcdfvars
+	on Wed May 31 16:45:49 GMT 2006
+
+Name	Units	Description
+----	-----	------------------------------------------------
+base_time	seconds since 1970-01-01 00:00:00 +0000	Start time of data recording.
+Time	seconds since 2005-08-27 13:17:00 +0000	time of measurement
+time_offset	seconds since 2005-08-27 13:17:00 +0000	Seconds since base_time.
+ACINS	m/s2	Aircraft Vertical Acceleration
+ADIFR	mbar	Vertical Differential Pressure, Radome
+BDIFR	mbar	Horizontal Differential Pressure, Radome
+BLATA	g	IRS Lateral Body Acceleration
+BLONGA	g	IRS Longitudinal Body Acceleration
+BNORMA	g	IRS Normal Body Acceleration
+BPITCHR	deg/s	IRS Body Pitch Rate
+BROLLR	deg/s	IRS Body Roll Rate
+BYAWR	deg/s	IRS Body Yaw Rate
+DPT	deg_C	Dew/Frost Point Temperature, Fuselage Top
+GGALT	m	GPS Geopotential Altitude
+GGLAT	degree_N	GPS Latitude
+GGLON	degree_E	GPS Longitude
+GGMODE	none	GPS Mode
+GGNSAT	count	GPS Number of Satellites
+GGSPD	m/s	GPS Ground Speed
+GGTRK	degree_T	GPS Track Angle
+GGVEW	m/s	GPS Ground Speed Vector, East Component
+GGVNS	m/s	GPS Ground Speed Vector, North Component
+GSF	m/s	Inertial Ground Speed
+HGM232	m	Geometric (Radar) Altitude (APN-232)
+HGM232S		Geometric Altitude Status Monitor (APN-232)
+LAT	degree_N	Inertial Latitude
+LON	degree_E	Inertial Longitude
+PITCH	degree	Aircraft Pitch Angle
+PSF	mbar	Raw Static Pressure, Fuselage
+QCF	mbar	Raw Dynamic Pressure, Fuselage
+QCR	mbar	Raw Dynamic Pressure, Radome
+ROLL	degree	Aircraft Roll Angle
+THDG	degree_T	Aircraft True Heading Angle
+TKAT	degree_T	IRS Track Angle, True
+TTRL	deg_C	Total Temperature, Radome Left
+TTRR	deg_C	Total Temperature, Radome Right
+VEW	m/s	Inertial Ground Speed Vector, East Component
+VNS	m/s	Inertial Ground Speed Vector, North Component
+VSPD	m/s	IRS-Computed Aircraft Vertical Velocity
+AKRD	degree	Attack Angle, Radome Diff. Pressure
+ATRL	deg_C	Ambient Temperature, Radome Left
+ATRR	deg_C	Ambient Temperature, Radome Right
+ATTACK	degree	Attack Angle, Reference
+ATX	deg_C	Ambient Temperature, Reference
+DPTC	deg_C	Dew Point Temperature, T-Electric Top
+DPXC	deg_C	Dew Point Temperature, Reference
+EDPC	mbar	Ambient Water Vapor Pressure, Reference
+IAS	knot	Indicated Airspeed
+LATC	degree_N	GPS-Corrected Inertial Latitude
+LONC	degree_E	GPS-Corrected Inertial Longitude
+MR	gram/kg	Mixing Ratio, T-Electric
+ONE	none	Constant value of 1.
+PALT	m	NACA Pressure Altitude
+PALTF	feet	NACA Pressure Altitude
+PSFC	mbar	Corrected Static Pressure, Fuselage
+PSURF	mbar	Calculated Surface Pressure
+PSX	mbar	Raw Static Pressure, Reference
+PSXC	mbar	Corrected Static Pressure, Reference
+QCFC	mbar	Corrected Dynamic Pressure, Fuselage
+QCRC	mbar	Corrected Dynamic Pressure, Radome
+QCX	mbar	Raw Dynamic Pressure, Reference
+QCXC	mbar	Corrected Dynamic Pressure, Reference
+RHODT	gram/m3	Absolute Humidity, T-Electric Top
+RHUM	%	Relative Humidity
+SOLAZ	radian	Solar Azimuth Angle
+SOLDE	radian	Solar Declination Angle
+SOLEL	radian	Solar Elevation Angle
+SOLZE	radian	Solar Zenith Angle
+SSLIP	degree	Sideslip Angle, Reference
+SSRD	degree	Sideslip Angle, Radome Diff. Pressure
+TASF	m/s	Aircraft True Airspeed, Fuselage
+TASHC	m/s	Aircraft True Airspeed, Humidity Corrected
+TASR	m/s	Aircraft True Airspeed, Radome
+TASX	m/s	Aircraft True Airspeed, Reference
+THETA	K	Potential Temperature
+THETAE	K	Equivalent Potential Temperature
+THETAV	K	Virtual Potential Temperature
+TTX	deg_C	Total Temperature, Reference
+UI	m/s	Wind Vector, East Component
+UIC	m/s	GPS-Corrected Wind Vector, East Component
+UX	m/s	Wind Vector, Longitudinal Component
+UXC	m/s	GPS-Corrected Wind Vector, Longitudinal Component
+VEWC	m/s	GPS-Corrected Inertial Ground Speed Vector, East Component
+VI	m/s	Wind Vector, North Component
+VIC	m/s	GPS-Corrected Wind Vector, North Component
+VNSC	m/s	GPS-Corrected Inertial Ground Speed Vector, North Component
+VY	m/s	Wind Vector, Lateral Component
+VYC	m/s	GPS-Corrected Wind Vector, Lateral Component
+WD	degree_T	Horizontal Wind Direction
+WDC	degree_T	GPS-Corrected Horizontal Wind Direction
+WI	m/s	Wind Vector, Vertical Gust Component
+WIC	m/s	GPS-Corrected Wind Vector, Vertical Gust Component
+WP3	m/s	Damped Aircraft Vertical Velocity
+WS	m/s	Horizontal Wind Speed
+WSC	m/s	GPS-Corrected Horizontal Wind Speed
+XMACH2	none	Aircraft Mach Number Squared
+ZERO	none	Constant value of 0.

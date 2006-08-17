@@ -1,0 +1,113 @@
+Calibration coefficients
+
+Pre-RAINEX
+
+Variable description
+Name
+C1
+C2
+C3
+Total temperature, radome right
+TTRR
+-10.3920
+5.2187
+-0.0216
+Raw dynamic pressure, radome
+QCR
+69.3058
+6.8939
+-0.0010
+Radome differential pressure, vertical
+ADIFR*
+varies
+varies
+varies
+Radome differential pressure, lateral
+BDIFR
+0.1862
+5.2070
+-0.0014
+Total temperature, radome left
+TTRL
+-10.8510
+5.2337
+-0.0084
+Raw dynamic pressure, fuselage
+QCF
+86.1612
+8.6304
+0.0004
+Raw static pressure, fuselage
+PSF
+541.2814
+54.2173
+-0.0090
+Dew point temperature, fuselage
+DPT
+0.2056
+9.9696
+-0.0071
+
+
+
+
+
+* ADIFR was affected by unstable pressure transducer. Variable was adjusted flight-by-flight to bring AKRD in concordance with PITCH, which also resulted in zero mean vertical winds.
+
+Post-RAINEX
+
+Variable description
+Name
+C1
+C2
+C3
+Total temperature, radome right
+TTRR
+-10.4667
+5.2240
+-0.0214
+Raw dynamic pressure, radome
+QCR
+69.0474
+6.9035
+-0.0008
+Radome differential pressure, vertical
+ADIFR*
+varies
+varies
+varies
+Radome differential pressure, lateral
+BDIFR
+0.0848
+5.2960
+0.0001
+Total temperature, radome left
+TTRL
+-11.0113
+5.3979
+-0.0264
+Raw dynamic pressure, fuselage
+QCF
+89.9848
+8.8370
+0.0005
+Raw static pressure, fuselage
+PSF
+540.9637
+54.2554
+-0.0087
+Dew point temperature, fuselage
+DPT
+0.3372
+9.9089
+0.0015
+
+
+
+
+
+
+
+
+
+

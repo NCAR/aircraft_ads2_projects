@@ -1,0 +1,62 @@
+Project 304 - RAINEX
+Hurricane Rainband and Intensity Change Experiment
+R. House et al.
+U.S. Naval Research Laboratory P-3 Orion
+
+Data quality report
+By Pavel Romashkin
+
+This summary outlines basic instrumentation and any problems affecting the data set resulting from the RAF instrumentation. It is not intended to point out every bit of questionable data. This summary is intended to provide an overall understanding of limitations of the dataset and therefore aid in the use of the data in further research.
+
+The following report covers only the RAF-supplied 'in-situ' instrumentation and is organized into two sections. Section I lists recurring problems, general limitations, and systematic biases in the standard RAF measurements. Section II lists problems that have occurred on a flight-by-flight basis.
+
+Section I: General Discussion
+
+Aircraft position, ground speed, and attitude are provided by a Honeywell Inertial Laser Reference System (IRS). The values of PITCH, ROLL, and THDG are recorded at 50 sps. The position and ground speed data from the IRS are susceptible to long term drift known as the Schuler oscillation, typically reducing their accuracy over the duration of a flight. A Garmin Global Positioning System (GPS) unit was used as a more accurate position reference during the program. When the GPS is working properly, it can provide data with an accuracy of better than 100 meters in position and 1 meter/sec in ground speed. The GPS provides a good absolute measurement over the entire duration of a flight, while the IRS provides a good relative measurement best used for short term attitude variations. 
+
+Both systems performed well, and the GPS position values (GGALT is the altitude reference) are recommended for all research efforts. However, sharp turns do occasionally interrupt the reception from some satellites. These cases are characterized by a small, instantaneous shift in position and thus ground speed. Once the aircraft has come out of the turn, the track will typically shift back, but the wind speed and direction calculations can be adversely affected by the resulting discontinuities in the key input variables if the GPS data alone are used. To alleviate the problem, the RAF takes advantage of the relative strengths of the GPS and IRS measurements when both are present by applying a low-pass filter to the GPS measurements and the complementary high-pass filter to the IRS measurements and then adding the two. In the absence of the GPS signal the algorithm accomplishes this with the addition of some tests and corrections. For the most accurate data with smooth transitions under all conditions, RAF recommends that the LATC/LONC position data be used.
+
+The wind data for this project were derived from measurements taken with the five-hole radome wind-gust probe. The ambient wind calculations can be adversely affected by either sharp changes in the aircraft's flight attitude, excessive drift in the onboard inertial reference system (IRS) or ingestion of water into the radome orifices. Turns, or more importantly, climbing turns are particularly disruptive to this type of measurement technique. Wind data reported for these conditions should be used with caution. As an additional enhancement to this data set, a second-pass correction was applied to the wind data using position and ground speed updates provided by the GPS positioning system.
+
+Both the GPS corrected and basic uncorrected values for wind measurements are included in the final data set.  RAF strongly recommends that the GPS corrected inertial winds be used for all research efforts (WSC,WDC,UXC,VYC,WIC,UIC,VIC).  
+
+Vertical differential pressure sensor of the gust probe experienced non-systematic drift during the project, which affected wind speed calculations. To compensate for this, ADIFR measurement was adjusted post project on the flight-by-flight basis to bring ATTACK (which is derived from the gust probe measurements) into close correspondence with PITCH (measured by the IRS), which results in the correct vertical mean wind speed of zero.
+
+The aircraft true airspeed (TASX) is a critical measurement that factors into most of the in-situ data calculations. Redundant dynamic pressure sensors (QCR, QCF) are included in the instrumentation package to prevent any loss of data in this critical area. The two systems functioned well throughout the project and exhibited excellent correlation with the exclusion of several instances of water ingestion that rendered QCR inoperable. QCF was selected as the reference sensor for all of the RAINEX flights. Note that the RAF uses a "wet" airspeed in the calculation of all derived measurements. In moist conditions this correction to the true air speed can be as great as 0.5 m/s. For RF06 and RF08, humidity measurements experienced problems and TASX provided for these flights is not compensated for humidity.
+
+Temperature measurements were made using a set of two standard, unheated Rosemount temperature sensors (ATRR, ATRL). While fast and accurate, these sensors are susceptible to wetting during cloud and rainshaft penetrations. The two systems generally tracked with typical mean difference around 0.6 °C. ATRR is believed to be more accurate and was selected as the reference temperature sensor (ATX) with these values being used in all of the derived measurement calculations.
+
+Humidity measurements were made using a thermoelectric dew point sensor. The dew point sensor functioned fairly well but had difficulty achieving dew point depressions in excess of 20 °C. During RF06 and RF08, the dew point sensor ingested water and did not record useful data for portions of the flight.
+
+The altitude of the aircraft was measured in several ways:
+The pressure altitude measurements (PALT, PALTF) are derived from the static pressure using the hydrostatic equation and the U.S. Standard Atmosphere which assumes a constant surface pressure of 1013 mbar and a base surface temperature of 288 °K.
+The GPS positioning system provides an MSL altitude (GGALT). The signal is unaffected by changes in the surface pressure or temperature. The RAF recommends using GGALT as the reference MSL altitude.
+A radar altimeter was onboard the aircraft for all of the research flights. This unit provides a direct measurement of the aircraft's AGL altitude from 0 to 15,000 m. For operational reasons, the unit was not initially turned on until after takeoff, so some data will be missing at the start of each flight. Reflections from the surface will result in a noisy signal while the aircraft is on or very near the ground. On several flights the radar altimeter was intermittently turned off and on in attempt to troubleshoot satellite communications interference.
+
+Data recording typically begins well in advance of the actual aircraft takeoff time. Virtually all measurements made on the aircraft require some sort of airspeed correction, or the systems are simply not active while the aircraft remains on the ground. None of the data collected while the aircraft is on the ground should be considered valid and are not provided in the final data set.
+
+In order to avoid any confusion or misinterpretation of the data provided by RAF, the output from systems deemed to be bad has been replaced with the missing-data flag: -32767.
+
+Section II: Flight-by-Flight Summary
+
+Normally test flight data are not included in the official project data archive. On this project one of the test flights was conducted while the aircraft was in the field and includes an aircraft-to-aircraft intercomparison (TF05). Comments on these data sets are in chronological order. Note: All times listed below are Coordinated Universal Time (UTC).
+
+TF05: NOAA P3 Intercomparison flight. No instrumentation problems were identified during the flight.
+
+RF01: Radome dynamic pressure sensor ingested water and was inoperable from 18:40:24 to 21:39:00.
+
+RF02: Radome dynamic pressure sensor ingested water and was inoperable from 18:45:00 to 18:54:31 and from 20:07:21 to 23:47:00.
+
+RF03: No instrumentation problems were identified during the flight.
+
+RF04: Radome dynamic pressure sensor ingested water and was inoperable from 15:46:07 to 19:53:00.
+
+RF05: Radome dynamic pressure sensor ingested water and was inoperable from 17:05:00 to 17:13:57 and from 19:07:54 to 21:09:10.
+
+RF06: Radome dynamic pressure sensor ingested water and was inoperable from 21:25:56 to 21:28:44. Dew point temperature sensor ingested water and was inoperable from 16:15:00 17:36:44 and from 21:35:09 to 22:21:29.
+
+RF07: Radome dynamic pressure sensor ingested water and was inoperable from 16:38:21 to 21:31:57.
+
+RF08: Radome dynamic pressure sensor ingested water and was inoperable from 15:07:39 to 21:34:05. Dew point temperature sensor ingested water and was inoperable from 15:35:24 to 21:59:30.
+
+RF09: Radome dynamic pressure sensor ingested water and was inoperable from 19:20:44 to 21:12:43.
