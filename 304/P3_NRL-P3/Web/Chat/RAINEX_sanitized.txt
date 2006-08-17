@@ -1,0 +1,213 @@
+Note:  This analysis may have occurred after AB's first sanitization.
+
+------- RF09
+dropsonde.log.23Sep2005
+ - replaced a complete directory listing that Mike Daniels created with
+   the word "Sanitized"
+ - removed the last two lines also (which is beyond the directory list)
+
+------- RF02
+eldora.log.28Aug2005
+ - replaced IP address of ftp.atd.ucar.edu with the word "Sanitized"
+ - replaced IP address of xchat.org with the word "Sanitized"
+
+------- RF09
+nrlp3.log.23Sep2005
+  [GMT 09/23/05 16:24:28] <MikeDaniels-home> Chris: how is the flight!?!?  You'd better go in the cockpit and wake up the pilots about now :-)
+  [GMT 09/23/05 16:24:59] <MikeDaniels-home> They told me that I will be getting sick on my next flight for making comments like that.  Oops.
+ - Sanitized the entire second line
+
+  [GMT 09/23/05 20:14:24] <lmurphy> Oops, sorry. I've been out surfing. Surf's UP.
+ - Sanitized the entire line
+
+-------  RF03
+rainex.log.06Sep2005
+  [GMT 09/06/05 17:23:23] <MikeDaniels-Jeffco> sorry folks, chat server died thisam.  if you ever have problems like this, it is best to call (303) 497-8805 andsomeone can reboot it quickly.
+ - Sanitized the entire line instead of just removing the phone number
+
+  [GMT 09/06/05 17:58:41] <JimMoore-ops> BobHouze-Ops, This will be an excellent opportunity to see how Stacy's composite "fills in the blanks"
+ - Sanitized the entire line
+
+  [GMT 09/06/05 18:28:37] <StacyBrodzik-Ops> Brad, if you need to scp, use scp rainex@129.171.98.172:/net/stellar/IMAGES-RAINEX/other_images (or nexrad_images)
+ - Sanitized the entire line
+
+  [GMT 09/06/05 18:33:49] <StacyBrodzik-Ops> Brad, if you need to scp, use scp rainex@129.171.98.172:/net/stellar/IMAGES-RAINEX/other_images (or nexrad_images)
+ - Sanitized the entire line
+
+  [GMT 09/06/05 19:09:49] <BobHouze-Ops> wen chau: look at "other" NRLtrack_0509061908.gif
+ - Sanitized the entire line
+
+  [GMT 09/06/05 19:19:12] <BobHouze-Ops> Melicie: it's there. Look in "other_images" and refresh
+ - Sanitized the entire line
+
+  [GMT 09/06/05 20:15:27] <Jasmine-ops> Brad: their proposed fight plan is at  http://129.171.98.161/NRL/other_images/NRLtrack_0509061936.gif
+ - Sanitized the entire line
+
+  [GMT 09/06/05 20:18:48] <Jasmine-ops> Brad: their proposed fight plan is at  http://129.171.98.161/NRL/other_images/NRLtrack_0509061936.gif    ...it has a satellite overlay so it can give you an idea of what they want to do.
+ - Sanitized the entire line
+
+  [GMT 09/06/05 21:15:10] <JimMoore-ops> BobHouze-Ops, Might suggest Frank take his discussion to &HRD once contact is made here --
+  [GMT 09/06/05 21:15:41] <marks-hrd> what is &HRD and who is on it?
+  [GMT 09/06/05 21:16:07] <StacyBrodzik-Ops> &HRD is another room
+  [GMT 09/06/05 21:16:23] <BobHouze-Ops> &hrd is the chatroom for hrd, like &eldora, and &nrlp3. these are for specialized conversations.
+  [GMT 09/06/05 21:17:44] <marks-hrd> OK is it password protected like &Rainex?
+ - Sanitized all five entire lines
+
+  [GMT 09/06/05 21:22:50] <GregStossmeister-Ops> marks-hrd: Others need to join just as you did - it's just an open room where you can have a seperate discussionwithout using &rainex
+ - Sanitized the entire line
+
+  [GMT 09/06/05 21:46:41] Action: ChrisBurghart-Boulder is away: More staff meeting.  Back around 22:30.
+ - Sanitized the entire line
+
+------- between RF03 and RF04
+rainex.log.08Sep2005
+  [GMT 09/08/05 15:37:16] <ChrisBurghart-Boulder> I don't see any packets on ports 54324 or 54325
+ - Sanitized the entire line
+
+  [GMT 09/08/05 16:25:18] <ChrisBurghart-Boulder> Janet, are you still looking atLDM issues?  Is there anything I can help with?
+ - Sanitized the entire line
+
+  [GMT 09/08/05 16:33:32] <ChrisBurghart-Boulder> It almost looks like pqexpire (in the check-on-a-regular-basis mode) doesn't remove anything.  I'm going to send email to Unidata and ask if they know what pqexpire *really* does.
+  [GMT 09/08/05 16:35:50] <anstett-jeffco> When I checked malbec yesterday, therewere over 1000 products in the queue.  I restarted the ldm and pqexpire was running, but it only expired the images when I ran pqexpire from the command line.The queue went from over 1000 images to 2!  It appears that pqexpire does work in a check-on-a-regular-basis mode but just not from the config file for some reason.
+  [GMT 09/08/05 16:37:22] <ChrisBurghart-Boulder> So when you start pqexpire by hand, it cleans the queue of old images and continues to keep it clean, or just cleans things once when you first start it?
+  [GMT 09/08/05 16:38:18] <anstett-jeffco> I think it was keeping the queue clean, but I'll have to check that again to make sure.  I'll start it again on malbecand let you know.
+  [GMT 09/08/05 16:40:12] <anstett-jeffco> I just started it on malbec from the command line and know there are 5 products in the queue, 4 data files and 1 composite image.
+  [GMT 09/08/05 16:45:21] ads-nrlp3 (ads@rdcc.guest.ucar.edu) joined &RAINEX.
+  [GMT 09/08/05 17:49:16] anstett-jeffco (anstett@rdcc.guest.ucar.edu) left irc: Ping timeout
+  [GMT 09/08/05 18:02:04] anstett-jeffco (anstett@rdcc.guest.ucar.edu) joined &RAINEX.
+ - Sanitized entire lines 52-59 with only one entry. 
+
+  [GMT 09/08/05 18:48:53] <ads-nrlp3> Janet,  The phone dropped out but we are back now.  Are you still working on the st\ystem?
+  [GMT 09/08/05 18:49:24] <anstett-jeffco> Yes, I'm still working on stuff.
+  [GMT 09/08/05 18:49:52] <ads-nrlp3> Wow that was pretty quick.  No chat lag today.
+ - Sanitized three entire lines with only one entry. 
+
+  [GMT 09/08/05 20:05:38] <anstett-jeffco> Can you do the following in a terminalwindow: ps -ef | grep ldm   Tell me if you see any ldm processes running.
+  [GMT 09/08/05 20:06:46] <anstett-jeffco> Actually the LDM is running because I just saw that it connected to malbec here.
+  [GMT 09/08/05 20:09:40] <ads-nrlp3> tHERE ARE A BUNCH OF LDM PROCESSES RUNNING.
+ - Sanitized entire lines 85-87 with only one entry. 
+
+  GMT 09/08/05 20:14:54] <anstett-jeffco> Try this:  grep "Starting" ~ldm/logs/ldmd.log     I just need to know the times in the last couple of lines that show up.
+  [GMT 09/08/05 20:19:25] <ads-nrlp3> 15:57:55 cirque rtstats
+  [GMT 09/08/05 20:20:08] <ads-nrlp3> 15:59:27 crique pqmon
+  [GMT 09/08/05 20:20:08] <ads-nrlp3> Those are the last 2.
+  [GMT 09/08/05 20:23:47] <MikeDaniels-NCAR> ads-nrlp3, don't forget that you caneasily cut and paste from a terminal window into chat
+  [GMT 09/08/05 20:24:01] <MikeDaniels-NCAR> and visa versa
+  [GMT 09/08/05 20:24:02] <MikeDaniels-NCAR> !
+ - Sanitized entire lines 92-98 with only one entry. 
+
+------- RF04
+rainex.log.09Sep2005
+  [GMT 09/09/05 11:43:28] <n43-rogers> yeah, i'm not sure I believe it
+ - Sanitized the entire line
+
+  [GMT 09/09/05 11:46:12] <n43-rogers> this could be an interesting day if we cancoordinate in a band, if the storm is getting reorganized
+ - Sanitized the entire line
+
+  [GMT 09/09/05 11:51:14] <Melicie-NRLP3> OPS: any way we can get  the nexrad image with the same name (like current.gif)  so I can just reload that all the time and I don't have to go back everytime and load after that ?
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:04:16] <BobHouze-Ops> melicie: how many eol scientists will it take to screw in the new light bulb
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:05:46] <BradSmull-n43rf> Roger is still trying to figure out what D.E.M.O. means on his parachute
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:05:56] <BradSmull-n43rf> (Roger told that joke to me in BAMEX... it's a good one)
+  [GMT 09/09/05 12:06:09] <BradSmull-n43rf> That's our aim, Bob.
+ - Sanitized both entire lines with one entry
+
+   [GMT 09/09/05 12:28:10] <BradSmull-NOAA43> Understood Bob- meanwhile we are getting *great* data
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:33:22] <BobHouze-Ops> brad: being dislexic I knew what you meant
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:33:36] <BradSmull-NOAA43> LOL... so long as we're dysxlexic together
+  [GMT 09/09/05 12:33:47] <BobHouze-Ops> will be away a few mins--greg's here
+ - Sanitized both entire lines with only one entry. 
+
+  [GMT 09/09/05 12:46:30] <BobHouze-Ops> OOPS--now i'm dislexic again--make that SW of center!
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:53:06] <BradSmull-NOAA43> Yes. It's very reminiscent of "off-center" circulation center we saw in Katrina on the 27th
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:55:56] <BobHouze-Ops> brad: Pacific Northwesterners are confused because the ocean is on the wrong side of the landout here
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:56:44] <BradSmull-NOAA43> LOL...I can't think of a better explanation. All I can say is that I *feel* awake....
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:57:05] <rogers-n43> yeah and you were peppier than I was at 4 AM ;-)
+ - Sanitized the entire line
+
+  [GMT 09/09/05 12:59:37] <MikeDaniels-DIA> wen-chau: sitting here at DIA waitingfor my flight to Minnesota.  But you'll never believe who is sitting right nextto me -- Rick Parsons!  He is on his way home to Florida and happened to be at the same gate.
+ - Sanitized the entire line
+
+  [GMT 09/09/05 13:58:45] <BobHouze-Ops> Good morning Jim: Did you get your tea yet?
+ - Sanitized the entire line
+
+ [GMT 09/09/05 13:59:13] <JimMoore-ops> BobHouze-Ops, Water is heating-- 
+ - Sanitized the entire line
+
+  [GMT 09/09/05 13:59:29] <JimMoore-ops> BobHouze-Ops, How are things going??
+ - Sanitized the entire line
+
+  [GMT 09/09/05 14:25:58] <BobHouze-Ops> JimMoore-ops, you can find zeb images athttp://129.171.98.161/NRL/other_images/
+ - Sanitized the entire line
+
+  [GMT 09/09/05 14:34:55] <BradSmull-n43rf> We second THAT motion! We were going to ask Melicie which it was as a Ph.D. defense question  ;-)
+ - Sanitized the entire line
+
+  [GMT 09/09/05 15:42:32] <BradSmull-NOAA43> NRL: Timing coordination is not critical on our tracks (tho when Dave Jorgensen gets here it may be moreso, owing tohis quad-Doppler interetss)
+ - Sanitized all after the word "tracks"
+
+  [GMT 09/09/05 16:08:01] <BradSmull-NOAA43> Or to quote the NHC Discussion, "Ophelia is a very peculiar storm...."
+  [GMT 09/09/05 16:08:22] <BradSmull-NOAA43> Then again, with a name like "Ophelia", what would they expect?
+ - Sanitized both entire lines with only one entry. 
+
+   [GMT 09/09/05 17:32:06] <Jasmine-ops> mblack-hotel, 129.171.91.161 
+ - Sanitized the entire line
+
+------- RF02
+rainex.log.28Aug2005
+  [GMT 08/28/05 16:50:34] <BradSmull-n43rf> I don't believe instructions addressed my login... smull/smull ?
+ - Sanitized the entire line
+
+  [GMT 08/28/05 16:53:53] <StacyBrodzik-Ops> Brad: I've set up a login for you on rainex3 (username=smull, password=2%milk) please change the password asap
+ - Sanitized the entire line
+
+  [GMT 08/28/05 16:55:05] <StacyBrodzik-Ops> Brad: to get the nrlp3 images, use "ssh smull@rainex3.rsmas.miami.edu"; once in, "cd /space/data/nrl_images/YYYYMMDD"
+ - Sanitized the entire line
+
+  [GMT 08/28/05 16:56:00] <StacyBrodzik-Ops> Brad (contd): then use "scp [image] [username]@[hostname]:[pathname] to download images
+ - Sanitized the entire line
+
+  [GMT 08/28/05 17:02:27] <StacyBrodzik-Ops> Brad: are you using the full machine name (rainex3.rsmas.miami.edu)??
+ - Let this one pass through unaltered
+
+  [GMT 08/28/05 17:04:20] <StacyBrodzik-Ops> Brad: ip number for rainex3 is 129.171.98.160; if that doesn't work, try ssh'ing to rainex.rsmas.miami.edu as user=rainex (same password as Deanna uses for post-mission data transfer)
+ - Sanitized the entire line
+
+  [GMT 08/28/05 18:33:00] <BobHouze-Ops> What is KISS?????
+  [GMT 08/28/05 18:33:12] <BradSmull-n43> Keep It Simple, Stupid
+  [GMT 08/28/05 18:33:28] <BradSmull-n43> (I was using it in a first-person sense, of course)
+  [GMT 08/28/05 18:33:34] <BobHouze-Ops> sorry I asked!
+  [GMT 08/28/05 18:33:41] <BradSmull-n43> Me too!
+  [GMT 08/28/05 18:33:57] <BradSmull-n43> If I ever say "FUBAR", please don't ask.
+ - Let these pass through unaltered
+
+  [GMT 08/28/05 18:59:00] <BobHouze-Ops> frank: can you call me at 206 498 5930
+ - Let this one pass through unaltered
+
+  [GMT 08/28/05 20:57:17] &rainex: mode change '+b *!*@rdcc.guest.ucar.edu' by RDCC-EOL!rdcc@rdcc.guest.ucar.edu
+  [GMT 08/28/05 20:57:18] &rainex: mode change '-b *!*@rdcc.guest.ucar.edu' by RDCC-EOL!rdcc@rdcc.guest.ucar.edu
+ - Sanitized both entire lines with only one entry and no time stamp. 
+
+  [GMT 08/28/05 22:44:30] <StacyBrodzik-Ops> nrlp3:  the images are being generated and put in the ldm queue; however, I'm having a problemthe server that the images are being pushed to (pinging cirque.atd.ucar.edu); not sure what to do about that; have called Mike Daniels tosee if he can help
+ - Let this one pass through unaltered
+
+-------
+Analysis by Ron Ruth
+Wed Jan  4 17:42:51 MST 2006
