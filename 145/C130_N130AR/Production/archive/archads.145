@@ -138,6 +138,17 @@ set SDIR = "/scr/raf2/Raw_Data/MIRAGE"
 #RF02  \
 #)
 #
+#  7th wave (rename original and rearchive FF02 after date correction)
+# Began:  Mon Jul 31 16:31:51 MDT 2006
+#  msmv -wpwd RAFDMG /RAF/2006/145/ADS/FF02 /RAF/2006/145/ADS/ORIGINAL/FF02
+# Ended:  Mon Jul 31 16:31:53 MDT 2006
+#set SFILES = ( \
+#145ff02a.ads \
+#)
+#set DFILES = ( \
+#FF02  \
+#)
+#
 #   th wave
 #set SFILES = ( \
 #)
@@ -240,6 +251,11 @@ exit
 #  1 Job(s) submitted on Tue May  2 11:21:38 MDT 2006
 #  msrcp job for ADS/RF02 -- OK -- Tue May  2 11:24:36 MDT 2006
 #   Completed on Tue May  2 11:24:36 MDT 2006
+#
+#  6th wave (rename original and rearchive FF02 after date correction)
+#  1 Job(s) submitted on Mon Jul 31 16:34:59 MDT 2006
+#  msrcp job for ADS/FF02 -- OK -- Mon Jul 31 16:35:43 MDT 2006
+#   Completed on Mon Jul 31 16:35:43 MDT 2006
 #
 #   th wave
 #  Job(s) submitted on 

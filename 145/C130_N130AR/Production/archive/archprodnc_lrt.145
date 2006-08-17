@@ -1,0 +1,176 @@
+#! /bin/csh -f
+#
+#goto removit
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2006-145 MIRAGE (Megacities Impact on Regional and Global Environment) (Sasha Madronich, et al.)
+#   using the new ATD directory path
+#
+#  File created by '/jnet/local/projects/archives/scripts/ngenar' Revision 14 on Thu May 25 15:16:16 MDT 2006
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the "dmg" login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+# set msrcpMachine = "vivaldi"
+endif
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+set SDIR = /jnet/productiondata
+#
+#set SFILES = ( \
+#145ff01.nc \
+#145ff02.nc \
+#145rf01.nc \
+#145rf02.nc \
+#145rf03.nc \
+#145rf04.nc \
+#145rf05.nc \
+#145rf06.nc \
+#145rf07.nc \
+#145rf08.nc \
+#145rf09.nc \
+#145rf10.nc \
+#145rf11.nc \
+#145rf12.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/FF01.20060228.135453_195946.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/FF02.20060329.153738_210339.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF01.20060304.182000_014701.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF02.20060308.173000_001801.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF03.20060310.154400_235256.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF04.20060312.172600_013501.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF05.20060316.154400_003357.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF06.20060318.151100_234400.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF07.20060319.172700_021301.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF08.20060322.154100_224100.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF09.20060323.171700_232500.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF10.20060326.172000_193900.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF11.20060328.100800_173300.PNI.nc \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF12.20060329.170300_235200.PNI.nc \
+#)
+#
+#set SFILES = ( \
+#145rf02.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/RF02.20060308.173000_001801.PNI.nc \
+#)
+#
+#set SFILES = ( \
+#145ff02.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/FF02.20060329.153738_210339.PNI.nc \
+#)
+#
+#  Rearchive FF02 after date fix
+#set SFILES = ( \
+#145ff02.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/FF02.20060331.153738_210339.PNI.nc \
+#)
+#
+echo "#  $#SFILES job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /ATD/DATA/2006/MIRAGE/C130_N130AR/"
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+    if ($status == 0) then
+      set d2 = $DFILE:h
+      set d1 = $d2:t
+      set d2 = $DFILE:t
+      echo "#   $d1/$d2 -- OK -- `date`"
+    else
+      echo "  msrcp job FAILED.  See email message for details."
+    endif
+  else
+     echo " Cannot access file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done
+echo "#   Completed on `date`"
+exit
+#
+#  14 job(s) submitted on Thu May 25 15:41:36 MDT 2006
+#  File(s) archived to MSS directory:  /ATD/DATA/2006/MIRAGE/C130_N130AR/
+#   LRT/FF01.20060228.135453_195946.PNI.nc -- OK -- Thu May 25 15:41:56 MDT 2006
+#   LRT/FF02.20060329.153738_210339.PNI.nc -- OK -- Thu May 25 15:42:13 MDT 2006
+#   LRT/RF01.20060304.182000_014701.PNI.nc -- OK -- Thu May 25 15:42:36 MDT 2006
+#   LRT/RF02.20060308.173000_001801.PNI.nc -- OK -- Thu May 25 15:42:53 MDT 2006
+#   LRT/RF03.20060310.154400_235256.PNI.nc -- OK -- Thu May 25 15:43:14 MDT 2006
+#   LRT/RF04.20060312.172600_013501.PNI.nc -- OK -- Thu May 25 15:43:36 MDT 2006
+#   LRT/RF05.20060316.154400_003357.PNI.nc -- OK -- Thu May 25 15:43:55 MDT 2006
+#   LRT/RF06.20060318.151100_234400.PNI.nc -- OK -- Thu May 25 15:44:16 MDT 2006
+#   LRT/RF07.20060319.172700_021301.PNI.nc -- OK -- Thu May 25 15:44:39 MDT 2006
+#   LRT/RF08.20060322.154100_224100.PNI.nc -- OK -- Thu May 25 15:44:57 MDT 2006
+#   LRT/RF09.20060323.171700_232500.PNI.nc -- OK -- Thu May 25 15:45:14 MDT 2006
+#   LRT/RF10.20060326.172000_193900.PNI.nc -- OK -- Thu May 25 15:45:22 MDT 2006
+#   LRT/RF11.20060328.100800_173300.PNI.nc -- OK -- Thu May 25 15:45:44 MDT 2006
+#   LRT/RF12.20060329.170300_235200.PNI.nc -- OK -- Thu May 25 15:46:00 MDT 2006
+#   Completed on Thu May 25 15:46:00 MDT 2006
+#
+#  Rearchive RF02 after rerun
+#  1 job(s) submitted on Wed May 31 12:40:38 MDT 2006
+#  File(s) archived to MSS directory:  /ATD/DATA/2006/MIRAGE/C130_N130AR/
+#   LRT/RF02.20060308.173000_001801.PNI.nc -- OK -- Wed May 31 12:41:16 MDT 2006
+#   Completed on Wed May 31 12:41:17 MDT 2006
+#
+#  Rearchive FF02 after it was overwritten with HRT FF02
+#  1 job(s) submitted on Fri Jun  2 16:18:49 MDT 2006
+#  Files archived to MSS directory:  /ATD/DATA/2006/MIRAGE/C130_N130AR/
+#   LRT/FF02.20060329.153738_210339.PNI.nc -- OK -- Fri Jun  2 16:19:07 MDT 2006
+#   Completed on Fri Jun  2 16:19:07 MDT 2006
+#
+#  Rearchive FF02 after date fix
+#  1 job(s) submitted on Mon Jul 31 16:08:36 MDT 2006
+#  Files archived to MSS directory:  /ATD/DATA/2006/MIRAGE/C130_N130AR/
+#   LRT/FF02.20060331.153738_210339.PNI.nc -- OK -- Mon Jul 31 16:08:55 MDT 2006
+#   Completed on Mon Jul 31 16:08:55 MDT 2006
+#
+#  Remove old FF02 bitfile with incorrect date
+#removit:
+#echo "#  1 job(s) submitted on `date`"
+#echo \
+#msrm -wpwd RAFDMG /ATD/DATA/2006/MIRAGE/C130_N130AR/LRT/FF02.20060329.153738_210339.PNI.nc
+#set result = $status
+#if ($result == 0) then
+#  echo "#   ../HRT/FF02.20060329.153750_210321.PNI.nc removed on `date`"
+#else
+#  echo "#   Error $result when trying to remove ../HRT/FF02.20060329.153750_210321.PNI.nc "
+#endif
+#exit
+#
+#  1 job(s) submitted on Mon Jul 31 16:18:59 MDT 2006
+#   ../HRT/FF02.20060329.153750_210321.PNI.nc removed on Mon Jul 31 16:19:01 MDT 2006
+#

@@ -1,0 +1,44 @@
+Possible ways to do a list of flights automatically:
+----------------------------------------------------
+
+Disable time-set option and always process all available files.
+
+Move time-segment flags from command line to each flight (or abandon the
+option when doing the list) or just ignore them and do all available files.
+
+Abandon setting things within the script via command-line options.  Instead,
+create a list file with all needed flags and alter the script to read flight
+processing info from it (equivalent to the command-line options but separated
+for each flight). 
+
+Move source directory, source subdirectory and MSS subdirectory from hard-wired
+entries within the script to the command line.  Then, write a script with
+command lines which fully specify each flight correctly.  Execute that script.
+(This looks like the best option to me.)
+
+-------
+
+In any case, instead of echoing job status to the terminal, write them into
+a log file.  When that is the case, it eliminates the manual transfers I've
+had to do to document all the archiving.  (It would be a great idea to do
+that with all my archive scripts.)
+
+-------
+RLR
+Fri Aug  4 22:52:46 GMT 2006
+
+Composed one version that hardwires a list of source and destination paths
+for a number of flights then uses a "foreach" loop to process all of them.
+Problem with this one is that it still requires hand-editing the script
+file itself.  I also changed the script to echo its progress to a file
+instead of to the xterm screen when in Production mode.  This helps ease
+the documentation, since I don't have to manually transfer stuff from the
+screen to a file.
+
+Composed a new version to process one flight at a time.  This allows another
+script to call this one with customized command-line arguments for better
+automation.  Output also is written to a log file istead of to the screen
+when in "Production" (not test) mode.
+-------
+RLR
+Tue Aug  8 17:19:27 GMT 2006

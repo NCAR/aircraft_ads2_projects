@@ -35,9 +35,16 @@ GGLAT	-500
 GGLON	-500
 GGALT	-500
 #
-# Garmin velocity data is delayed 1.5 seconds.
+# Garmin velocity data is delayed 1.5 seconds plus offset.
 #
-GGSPD   -1000
-GGTRK   -1000
-GGVEW   -1000
-GGVNS   -1000
+# LRT additional lags.
+#GGSPD   -1000
+#GGTRK   -1000
+#GGVEW   -1000
+#GGVNS   -1000
+#
+# HRT additional lags.
+GGSPD	-500
+GGTRK	-500
+GGVEW	-500
+GGVNS	-500
