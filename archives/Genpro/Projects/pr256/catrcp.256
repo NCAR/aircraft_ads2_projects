@@ -1,0 +1,58 @@
+#! /bin/csh -f
+# Combines all GENPRO CALIB IFTRAN modification code into one file
+#  Must edit this file to suit a given project
+#  This version is generic for King Air N312D
+#
+# Since this file will reside in the project's directory, any files to be
+#  added to the CALIB list must be entered here somewhere after the 'cat
+#  statement.  Don't forget to include the correct path (unless it is in
+#  the current path) and to add the backslash at the end of the line.
+#
+#  Must change xxx on next line to the 3-digit project number
+set proj = xxx
+onintr abort
+if ($proj == "xxx") then
+  echo " Must edit this file to insert the appropriate 3-digit project number."
+  echo "  Quitting."
+  exit 1
+endif
+set file = calif.$proj
+set ofile = temp$$
+if (-e $file) echo overwriting $file
+cat \
+ $GPCALIBREF/repsav.x \
+ $GPRALIBEFC/actsv.kr \
+ $GPCALIBREF/caladd \
+ $GPCALIBREF/calsvblk \
+ $GPCALIBREF/cals.kr \
+ $GPCALIBREF/gusth.if \
+ $GPCALIBREF/calib1 \
+ $GPCALIBREF/input \
+ $GPCALIBREF/spalt \
+ $GPCALIBREF/stdlib \
+ $GPCALIBREF/atkslp \
+ $GPCALIBREF/new260x \
+ $GPCALIBREF/newfssp \
+ $GPCALIBREF/fxfsp.f \
+ $GPCALIBREF/ethetae.if \
+ $GPCALIBREF/newsefm \
+ $GPCALIBREF/splwccz.if \
+ $GPCALIBREF/slwccz.if \
+ $GPCALIBREF/pmsplt \
+ $GPCALIBREF/sdeni \
+ $GPLIBCAL/dla \
+> $ofile
+if ($status != 0) goto abort
+if (-e $file) /bin/rm $file >& /dev/null
+mv $ofile $file
+if ($status != 0) goto abort
+exit 0
+abort:
+onintr -
+/bin/rm $ofile >& /dev/null
+exit 1
+#
+#  Code not presently used
+# $GPCALIBREF/pms1d.if \
+# $GPCALIBREF/newfssp \
+# $GPCALIBREF/new260x \

@@ -1,0 +1,1585 @@
+NOLIST
+/  Look for the string ###  to find changed areas  RLR 911105
+/----------------------------------------------------------DRIVER PD01
+/ FETCH 1,57
+BEGINPD
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X  DRIVER   OPERATION           X
+/               X  PROGRAMMER DIRECTIVE FILE    X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+DEFGEN = NAMPD ,                     NAMLIB
+DIMGEN= 'NONE' ,                     'NONE'
+/
+DEFGEN =   BEGIV,        ENDIV,     DELIV
+DIMGEN = (0.,0.,0.), (00.,01.,00.),    1.
+/
+DEFGEN =         SCALIV,                 LABIV ,        IVDIM
+DIMGEN =     (3600.,60.,1.),         (HRS,MNS,SEC),       3
+/
+DEFGEN =                  PROJECT
+DIMGEN =    '                                        '
+/
+DEFGEN =          PRTIME,                  PRDATE
+DIMGEN =      ('   ','   ','   '),    ('  ','   ','  ')
+/DIMGEN =     ('IIH','IIM','IIS'),    ('DD','MON','YY')
+/
+DEFGEN = NUMOPT, OVRFLO, GAPVAL, BITCHR, BITNSU, IABORT
+DIMGEN =    1,  -99999., 99999.,    8,     64  ,   4
+/
+DEFGEN = KCHECK, KDUMP , KERR  , KFILM , KFICHE, KPRINT, KPROC
+DIMGEN =   6,      4,      6,      4,       4,      4,     6
+/
+DEFGEN = PRINT
+DIMGEN = <(CASE),(RATE),(SNAP),(TIME),(SIZE)>
+/
+DEFGEN =  DEBUG,                                DUMP
+DIMGEN = <(NOSNAP),(NOFLOW),(NOCONTROLS)>,    (0,1,1,1)
+/
+DEFGEN = NAMEOP, NUMCYC, ITYPOP
+DIMGEN =  INDR ,   0   ,    1
+/
+DEFGEN =     BEGSNP,       ENDSNP,   FLUSHP
+DIMGEN = (0.,0.,0.), (99.,99.,99.),    900
+/
+DEFGEN = KUNIT , LIMREC, RECSIZ, DATLOG, NUMBIT, MAXCHR
+DIMGEN = (9,10),    0  ,   0   ,   0   ,    0  ,   128
+/
+MODGEN = NAMPD , NAMLIB, NUMCYC,
+         BEGIV , ENDIV , DELIV , SCALIV, LABIV , IVDIM ,
+         PRTIME, PRDATE, PROJECT,PRINT , DEBUG , DUMP  ,
+         NUMOPT, OVRFLO, GAPVAL, BITCHR, BITNSU, IABORT,
+         KCHECK, KDUMP , KERR  , KFILM , KFICHE, KPRINT, KPROC,
+         BEGSNP, ENDSNP, FLUSHP,
+         KUNIT , LIMREC, RECSIZ, DATLOG, NUMBIT,MAXCHR
+/
+DEFVAR = NAMVAR,INDGET, INRATE, INDPUT, RATE
+DIMVAR = NAMVAR,   0  ,   0   ,   0   ,   1
+/
+MODVAR = RATE
+/
+ENDPD /*********************************************************************
+LIST
+BEGINUD
+/  drxx ---------------------------------------------------
+PROJECT='1-815-RF09 TROP. CYCLONE INIT. 08AUG91 '
+PRDATE = ('08','AUG','91')
+PRTIME = ('26H','25M','00S')
+BEGIV= ( 26., 25., 00. )
+ENDIV= ( 26., 27., 30. )
+BEGSNP=( 26., 25., 00. ),( 26., 26., 30. )
+ENDSNP=( 26., 26., 30. ),( 26., 27., 30. )
+/----------------------------------------------------------------------
+FLUSHP = 1800
+LABIV = (HOURS,MINUTES,SECONDS)
+IABORT = 5
+KPROC  = 6
+KPRINT = 4
+KERR   = 6
+KCHECK = 6
+KDUMP  = 6
+BITCHR = 8
+NUMBIT = 64
+BITNSU = 64
+ENDUD
+/
+NOLIST
+/----------------------------------------------------------INPUT PD01
+/ FETCH 58,116
+BEGINPD
+/
+/       -------- REVISED    DIRECTIVE FILE   JAN   1983 -------------
+/
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X    INPUT  OPERATION           X
+/               X  PROGRAMER DIRECTIVE FILE     X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+DEFGEN =  NAMEOP,  NAMPD,  NAMUD,    NAMLIB, ITYPOP, NUMCYC
+DIMGEN =  INPUT, 'INPUT','INPUT',    'NONE',     1 ,   -1
+/
+/
+DEFGEN =  CONV  ,     FRTIM, IVTYPE  ,  IVNAM
+DIMGEN =   1.   ,      1.0 ,   0     ,  NOLINK
+LNKVAR=IVNAM
+/
+/
+DEFGEN = JCL
+DIMGEN =  '0'
+/
+/
+DEFGEN = KIN  ,  KMODE  ,  KPOS  ,  KTYPE
+DIMGEN =  20  ,   1    ,  (0, 0) ,    1
+/
+/
+DEFGEN = LOGBIT  , DATLOG ,BITKEY, DATSIZ , MEDIA, DATOPT
+DIMGEN = 1000    ,   1    ,   0  , 10000  ,    1 , (AUTO,NOSPAN)
+/
+/
+DEFGEN = NPHY, NSEC  ,NAMKEY    ,  NWVOL
+DIMGEN =  1  ,  0    , NOLINK   ,'EOFTAP'
+LNKVAR=NAMKEY
+/
+DEFGEN = NUMV, NEWV, NOLDV, NTOT, I, KSTOP, NUMLOG, IVPR, DATBIT
+DIMGEN =   1,   0  ,   0  ,   0 , 0,   0  ,    0  ,  0  ,   1
+/
+DEFGEN = OFFSET, MAXIV, KEOF, KOUNT, IKOUNT
+DIMGEN =   0.0 , 86400.,  1 ,   0  ,    0
+/
+/
+MODGEN = NAMPD,NAMUD,NAMLIB,NUMCYC,CONV,FRTIM,IVTYPE,IVNAM,JCL,KIN,
+         KMODE,KPOS,KTYPE,LOGBIT,DATLOG,BITKEY,NSEC,NAMKEY,NWVOL,
+         DATSIZ,DATOPT,MEDIA,IVPR,DATBIT,OFFSET,MAXIV,KEOF,KOUNT
+/
+/
+DEFVAR = NAMVAR, INDGET, INRATE, INDPUT
+DIMVAR = NAMVAR,    0  ,   0   ,   0
+/
+DEFVAR = RATE ,BITS  ,FSTBIT, SKIP,SAMPLE,CONKEY,SCLKEY,TERM,FACTOR
+DIMVAR =    1 ,  16  ,  1   ,  0  ,  1   ,  1   ,   2  , 0. ,  1.
+/
+DEFVAR = TITLE, UNITS
+DIMVAR = '                                        ', '        '
+/
+MODVAR = RATE ,BITS,FSTBIT,SKIP,SAMPLE,CONKEY,SCLKEY,TERM,FACTOR,
+         TITLE,UNITS
+/
+ENDPD /*********************************************************************
+LIST
+BEGINUD
+/                       XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                       X     INPUT OPERATION       X
+/                       X  USER DIRECTIVE FILE      X
+/                       XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+/ GENERAL  CONTROLS
+/
+ORDGEN = FRTIM, IVTYPE ,IVPR
+LETGEN =  1.0 ,   1    , 0
+/##############  IVPR=1:  Turn on extensive diagnostics  ####################
+/ IVPR=1
+/
+NUMCYC = -1
+/
+IVNAM=[HR,MIN,SEC]
+CONV=[3600.,60.,1.]
+JCL = 'YES'
+/
+/ MULTIPLE INPUT TAPES JOB -- no longer used: merge multiples into
+/ one single dataset at tape staging time
+/ 815
+  KEOF = 1
+  KIN =   14
+  KPOS = [(0,0)]
+  NWVOL=  ['TAPEXX']
+/
+/  ATTENTION: insert ADSUD output from ADSRAW program here
+/
+/	This file was created by 'adsraw'.
+/	Last major revision date: 9/91
+/
+ ORDGEN = LOGBIT, DATLOG, DATSIZ, NAMKEY, BITKEY
+ LETGEN =  62720,      4, 250880,   IDWD,  34433
+
+ VECVAR = GAP     , IDWD    , HR      , MIN     , SEC     , STEF    ,
+          FTER    , INST    , RSWD    , BECT    , TECT    , SYST    ,
+          QCW     , QCR     , QCF     , VLA     , TTB     , /TTFH    ,
+          LWC     , TTRF    , ADIFR   , BDIFR   , PSW     ,
+          XTTWB   , DPB     , DPT     , PCAB    ,
+          UVT     , UVB     , HGM     , RSTB    , SWT     , SWB     ,
+          IRT     , IRB     , DTT     , STT     , DTB     , STB     ,
+          XWBT1   , XWBT2   , TCAVB   , XWBTP   , XWBT3   , XWBT4   ,
+          CHGME   , HGME    , PSFD2   , PSFD    , V10     , V10R    ,
+          TADS    , TV10    , FLOADS  , FZV     , FZVR    , VDREF   ,
+          XV10    , XFZV    , VP15D   , V28     , VP15A   , VM15A   ,
+          TCBADS  , CVTEMP  , TMP1    , TA2D    , TS2D    , TLSI    ,
+          Y200    , FSSP    , X200    ,
+          VZI     , PITCH   , ROLL    , THI     , IVSPD   , GSI     ,
+          PHDG    , VNS     , VEW     , ALAT    , ALON    , ACINS   ,
+          VZI2    , PITCH2  , ROLL2   , THI2    , IVSPD2  , GSI2    ,
+          PHDG2   , VNS2    , VEW2    , ALAT2   , ALON2   , ACINS2  ,
+          GMOD1   , GSTAT   , GLAT    , GLON    , GALT    , GTIMP   ,
+          GVEW    , GVNS    , GVZI    , GTIMV   , GMODE   ,
+          EVTCKP  , EVTFWD  , EVTCTL  , EVTOBL  , EVTOBR
+
+ ORDVAR = FSTBIT, BITS, SKIP, SAMPLE, CONKEY, TERM, FACTOR
+ LETVAR =      1,   1,    0,   1,  1,   0.0,    1.0000000, %FOR,  GAP
+ LETVAR =      1,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  IDWD
+ LETVAR =     17,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  HR
+ LETVAR =     33,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  MIN
+ LETVAR =     49,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  SEC
+ LETVAR =     65,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  STEF
+ LETVAR =     81,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  FTER
+ LETVAR =     97,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  INST
+ LETVAR =    113,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  RSWD
+ LETVAR =    129,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  BECT
+ LETVAR =    145,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  TECT
+ LETVAR =    161,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  SYST
+ LETVAR =    193,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  QCW
+ LETVAR =    209,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  QCR
+ LETVAR =    225,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  QCF
+ LETVAR =    241,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  VLA
+ LETVAR =    257,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  TTB
+/ LETVAR =    273,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  TTFH
+ LETVAR =    289,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  LWC
+ LETVAR =    305,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  TTRF
+ LETVAR =    321,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  ADIFR
+ LETVAR =    337,  16,  144,  50,  2,   0.0,  817.6614886, %FOR,  BDIFR
+ LETVAR =   8193,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  PSW
+ LETVAR =   8225,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XTTWB
+ LETVAR =   8257,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  DPB
+ LETVAR =   8273,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  DPT
+ LETVAR =   8289,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  PCAB
+ LETVAR =   8321,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  UVT
+ LETVAR =   8337,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  UVB
+ LETVAR =   8353,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  HGM
+ LETVAR =   8369,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  RSTB
+ LETVAR =   8385,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  SWT
+ LETVAR =   8401,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  SWB
+ LETVAR =   8417,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  IRT
+ LETVAR =   8433,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  IRB
+ LETVAR =   8449,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  DTT
+ LETVAR =   8465,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  STT
+ LETVAR =   8481,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  DTB
+ LETVAR =   8497,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  STB
+ LETVAR =   8513,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XWBT1
+ LETVAR =   8529,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XWBT2
+ LETVAR =   8545,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  TCAVB
+ LETVAR =   8561,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XWBTP
+ LETVAR =   8577,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XWBT3
+ LETVAR =   8593,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XWBT4
+ LETVAR =   8609,  16,    0,   1,  7,-180.0,   45.5112276, %FOR,  CHGME
+ LETVAR =   8625,  16,    0,   1,  7,-180.0, 1137.7807000, %FOR,  HGME
+ LETVAR =   8641,  16,    0,   1,  7,   0.0,   29.5298842, %FOR,  PSFD2
+ LETVAR =   8657,  16,    0,   1,  7,   0.0,   29.5298842, %FOR,  PSFD
+ LETVAR =   8673,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  V10
+ LETVAR =   8689,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  V10R
+ LETVAR =   8705,  16,    0,   1,  2,   0.0,  163.5322915, %FOR,  TADS
+ LETVAR =   8721,  16,    0,   1,  2,   0.0,  163.5322915, %FOR,  TV10
+ LETVAR =   8737,  16,    0,   1,  2,   0.0,  163.5322915, %FOR,  FLOADS
+ LETVAR =   8753,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  FZV
+ LETVAR =   8769,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  FZVR
+ LETVAR =   8785,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  VDREF
+ LETVAR =   8801,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XV10
+ LETVAR =   8817,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  XFZV
+ LETVAR =   8833,  16,    0,   1,  2,   0.0,  272.5538295, %FOR,  VP15D
+ LETVAR =   8849,  16,    0,   1,  2,   0.0,  131.8739245, %FOR,  V28
+ LETVAR =   8865,  16,    0,   1,  2,   0.0,  272.5538295, %FOR,  VP15A
+ LETVAR =   8881,  16,    0,   1,  2,   0.0,  272.5538295, %FOR,  VM15A
+ LETVAR =   8897,  16,    0,   1,  2,   0.0,  163.5322915, %FOR,  TCBADS
+ LETVAR =   8913,  16,    0,   1,  2,   0.0,  163.5322915, %FOR,  CVTEMP
+ LETVAR =   8929,  16,    0,   1,  2,   0.0,  817.6614886, %FOR,  TMP1
+ LETVAR =   8945,  16,    0,   1,  7,   0.0,    1.0000000, %FOR,  TA2D
+ LETVAR =   8961,  16,    0,   1,  7,   0.0,    1.0000000, %FOR,  TS2D
+ LETVAR =   8977,  16,    0,   1,  7,   0.0,    1.0000000, %FOR,  TLSI
+ LETVAR =   8993,  16,    0,  22,  2,   0.0,    1.0000000, %FOR,  Y200
+ LETVAR =   9345,  16,    0,  22,  2,   0.0,    1.0000000, %FOR,  FSSP
+ LETVAR =   9697,  16,    0,  22,  2,   0.0,    1.0000000, %FOR,  X200
+/
+/       Decode factors for Honeywell YG1854 Laseref SM IRS:
+/###############  Factors derived from exact powers of 2
+/
+/          #        LSB
+/ Name    Bits  Decode  Pol.  Resolution  Conversion factor
+/ ------  ----  ------  ----  ----------  --------------------------------------
+/ VZI      20    20      +-    2^-13      2^12 / 0.3048
+/ PITCH    20    20      +-    2^-20      2^19 / 180.
+/ ROLL     20    20      +-    2^-20      2^19 / 180.
+/ THI      20    20      +-    2^-20      2^19 / 180.
+/ ACINS    15    15      +-    2^-13      2^12 / 9.7959
+/ GSI      20    21      +     2^-8       2^8  / (6080.2*0.3048/3600.)  2^7 ??
+/ VNS      20    21      +-    2^-8       2^8  / (6080.2*0.3048/3600.)  2^7 ??
+/ VEW      20    21      +-    2^-8       2^8  / (6080.2*0.3048/3600.)  2^7 ??
+/ IVSPD    20    21      +-    2^-5       2^5  / (0.3048 / 60.)         2^4 ??
+/ ALON     20    20      +-    2^-20      2^19 / 180.
+/ ALON     20    20      +-    2^-20      2^19 / 180.
+ LETVAR =  10049,  20,   12,  50,  2,   0.0,13438.3202099, %FOR,  VZI
+ LETVAR =  11649,  20,   12,  50,  1,   0.0,2912.71111111, %FOR,  PITCH
+ LETVAR =  13249,  20,   12,  50,  1,   0.0,2912.71111111, %FOR,  ROLL
+/ LETVAR =  30849,  20,   12,  25,  1,  0.0,2912.71111111, %FOR,  THI
+/  For the Electra, THI needs an offset of -0.65 degrees
+ LETVAR =  30849,  20,   12,  25,  1,  0.65,2912.71111111, %FOR,  THI
+ LETVAR =  32449,  21,   11,  25,  2,   0.0,6299.21259842, %FOR,  IVSPD
+ LETVAR =  29249,  15,   17,  50,  2,   0.0,418.134117334, %FOR,  ACINS
+ LETVAR =  33249,  21,   11,  10,  1,   0.0,497.289899548, %FOR,  GSI
+ LETVAR =  34529,  21,   11,  10,  2,   0.0,497.289899548, %FOR,  VNS
+ LETVAR =  34849,  21,   11,  10,  2,   0.0,497.289899548, %FOR,  VEW
+ LETVAR =  35169,  20,   12,   5,  1,   0.0,2912.71111111, %FOR,  ALAT
+ LETVAR =  35329,  20,   12,   5,  1,   0.0,2912.71111111, %FOR,  ALON
+ LETVAR =  36033,  20,   12,  50,  2,   0.0,13438.3202099, %FOR,  VZI2
+ LETVAR =  37633,  20,   12,  50,  1,   0.0,2912.71111111, %FOR,  PITCH2
+ LETVAR =  39233,  20,   12,  50,  1,   0.0,2912.71111111, %FOR,  ROLL2
+ LETVAR =  56833,  20,   12,  25,  1,   0.0,2912.71111111, %FOR,  THI2
+ LETVAR =  58433,  21,   11,  25,  2,   0.0,6299.21259842, %FOR,  IVSPD2
+ LETVAR =  55233,  15,   17,  50,  2,   0.0,418.134117334, %FOR,  ACINS2
+ LETVAR =  59233,  21,   11,  10,  1,   0.0,497.289899548, %FOR,  GSI2
+ LETVAR =  60513,  21,   11,  10,  2,   0.0,497.289899548, %FOR,  VNS2
+ LETVAR =  60833,  21,   11,  10,  2,   0.0,497.289899548, %FOR,  VEW2
+ LETVAR =  61153,  20,   12,   5,  1,   0.0,2912.71111111, %FOR,  ALAT2
+ LETVAR =  61313,  20,   12,   5,  1,   0.0,2912.71111111, %FOR,  ALON2
+/
+/  GPS Block:  16-bit word IEEE integer or floating numbers
+/
+/  Format for new ADS header
+/  word loc  # of bit   bit loc    FSTBIT      variable name
+/         1         8     1 - 8     62017       mod1
+/         1         8     9 -16     62025       mod2
+/         1        16    17 -32     62033        dummy
+/     2 - 3        32     1 -32     62049       glat
+/     4 - 5        32     1 -32     62081       glon
+/     6 - 7        32     1 -32     62113       galt
+/     8 - 9        32     1 -32     62145        clock bias
+/    10 -11        32     1 -32     62177       gtimp
+/    12 -13        32     1 -32     62209       gvew
+/    14 -15        32     1 -32     62241       gvns
+/    16 -17        32     1 -32     62273       gvzi
+/    18 -19        32     1 -32     62305        bias rate
+/    20 -21        32     1 -32     62337       gtimv
+/        22        16     1 -16     62369       gsta
+ LETVAR =  62017,   8,    0,   1,  1,   0.0,    1.0000000, %FOR,  GMOD1
+ LETVAR =  62025,   8,    0,   1,  1,   0.0,    1.0000000, %FOR,  GSTAT
+ LETVAR =  62049,  32,    0,   1, 11,   0.0,    0.0174533, %FOR,  GLAT
+ LETVAR =  62081,  32,    0,   1, 11,   0.0,    0.0174533, %FOR,  GLON
+ LETVAR =  62113,  32,    0,   1, 11,   0.0,    1.0000000, %FOR,  GALT
+ LETVAR =  62177,  32,    0,   1, 11,   0.0,    1.0000000, %FOR,  GTIMP
+ LETVAR =  62209,  32,    0,   1, 11,   0.0,    1.0000000, %FOR,  GVEW
+ LETVAR =  62241,  32,    0,   1, 11,   0.0,    1.0000000, %FOR,  GVNS
+ LETVAR =  62273,  32,    0,   1, 11,   0.0,    1.0000000, %FOR,  GVZI
+ LETVAR =  62337,  32,    0,   1, 11,   0.0,    1.0000000, %FOR,  GTIMV
+ LETVAR =  62369,  16,    0,   1,  1,   0.0,    1.0000000, %FOR,  GMODE
+ LETVAR =  62561,  32,    0,   1,  1,   0.0,    1.0000000, %FOR,  EVTCKP
+ LETVAR =  62593,  32,    0,   1,  1,   0.0,    1.0000000, %FOR,  EVTFWD
+ LETVAR =  62625,  32,    0,   1,  1,   0.0,    1.0000000, %FOR,  EVTCTL
+ LETVAR =  62657,  32,    0,   1,  1,   0.0,    1.0000000, %FOR,  EVTOBL
+ LETVAR =  62689,  32,    0,   1,  1,   0.0,    1.0000000, %FOR,  EVTOBR
+
+ RATE = 5, %FOR,
+/        PSW     , XTTWB   , DPB     , DPT     ,
+/        PCAB    , UVT     , UVB     , HGM     , RSTB    ,
+/        SWT     , SWB     , IRT     , IRB     , DTT     , STT     ,
+/        DTB     , STB     , XWBT1   , XWBT2   , TCAVB   , XWBTP   ,
+/        XWBT3   , XWBT4   , CHGME   , HGME    , PSFD2   , PSFD    ,
+         ALAT    , ALON    , ALAT2   , ALON2 
+
+ RATE = 10, %FOR,
+         GSI     , VNS     , VEW     , GSI2    , VNS2    , VEW2 
+/        XVI1    , XVI2    , YVI1    , YVI2    , PHDG    , PHDG2  
+
+ RATE = 22, %FOR,
+         Y200    , FSSP    , X200
+
+ RATE = 25, %FOR,
+         THI     , IVSPD   , THI2   , IVSPD2
+
+ RATE = 50, %FOR,
+         QCW     , QCR     , QCF     , VLA     , TTB     , /TTFH    ,
+         LWC     , TTRF    , ADIFR   , BDIFR   ,
+         VZI     , VZI2    , PITCH   , PITCH2  , ROLL    , ROLL2   ,
+         ACINS   , ACINS2
+/
+ SCLKEY = 2
+ SCLKEY = 1,%FOR, LORN, CSTAT, CFSTAT, DME, FSSP, X260, X200, Y200
+/
+ENDUD
+/
+NOLIST
+BEGINPD
+/
+/              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/              X       GAPFIL OPERATION        X
+/              X  PROGRAMMER DIRECTIVE FILE    X
+/              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+/
+DEFGEN = NAMEOP, NUMCYC, ITYPOP, OVERLAP
+DIMGEN = GAPFIL,   -2,     -1,       1
+MODGEN = NUMCYC,OVERLAP
+/
+DEFVAR = NAMVAR, INDGET, INRATE, INDPUT, RATE
+DIMVAR = NAMVAR,      0,      0,      0,    1
+DEFVAR = VTITLE
+DIMVAR = '                                        '
+DEFVAR =   UNITS
+DIMVAR = '        '
+DEFVAR = GAPF, GAPV
+DIMVAR = 0   , 99999.
+MODVAR = NAMVAR, RATE, UNITS, VTITLE, GAPF, GAPV
+/
+ENDPD
+/
+LIST
+BEGINUD
+//              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X      GAPFIL OPERATION         X
+/               X  USER       DIRECTIVE FILE    X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+/
+OVERLAP = 5
+VECVAR = %T
+REMVAR = GAP
+GAPF   = 1          / LINEAR INTERPOLATION
+GAPV = 99999.
+RATE = %T
+ENDUD
+/
+/
+NOLIST
+/----------------------------------------------------------INTERP PD01
+/ FETCH 241,262
+BEGINPD
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X  TERP   OPERATION             X
+/               X  PROGRAMMER DIRECTIVE FILE    X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+DEFGEN =   NAMEOP, ITYPOP, NUMCYC, OVRLAP,    NAMPD,       NAMLIB
+DIMGEN =   TERP ,   2,     -1,      0,        'NONE',     'NONE'
+/
+MODGEN =  NAMPD, NAMLIB, NUMCYC, OVRLAP
+/
+DEFVAR = NAMVAR, INDGET, INRATE, INDPUT
+DIMVAR = NAMVAR,    0  ,   0   ,   0
+/
+DEFVAR =    RATE, TRPTYP, LOWPAS, SOURCE
+DIMVAR =       1,     1 ,   NO  , NOLINK
+/
+MODVAR =   RATE,  TRPTYP, LOWPAS, SOURCE
+/
+LNKVAR = SOURCE
+/
+ENDPD /*********************************************************************
+LIST
+BEGINUD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X    TERP   OPERATION          X
+/                    X    USER DIRECTIVE FILE       X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/ until needed at some future date, remove PSFD2 for now
+/
+VECVAR = %T
+REMVAR = PSFD2
+RATE = %T
+ENDUD
+/
+NOLIST
+/----------------------------------------------------------SETRNG PD01
+/ FETCH 117,138
+BEGINPD
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X  SETRNG   OPERATION           X
+/               X  PROGRAMMER DIRECTIVE FILE    X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+DEFGEN =   NAMEOP, ITYPOP, NUMCYC, OVRLAP,    NAMPD,       NAMLIB
+DIMGEN =  SETRNG ,  -1,     -2,      0,     'NONE',     'NONE'
+/
+MODGEN =  NAMPD, NAMLIB, NUMCYC, OVRLAP
+/
+DEFVAR = NAMVAR, INDGET, INRATE, INDPUT
+DIMVAR = NAMVAR,    0  ,   0   ,   0
+/
+DEFVAR =  RATE, DISJMP, NDELAY, SLAVTO, SLVDEL, FIXRNG, TOPVAL, GAPSCN
+DIMVAR =     1,     0.,      1, NOLINK,     0.,     0.,   360.,    NO
+/
+MODVAR =   RATE,DISJMP,NDELAY,SLAVTO,SLVDEL,FIXRNG,TOPVAL,GAPSCN,NUMCYC
+/
+LNKVAR = SLAVTO
+/
+ENDPD /*********************************************************************
+LIST
+BEGINUD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X    SETRNG    OPERATION       X
+/                    X    USER DIRECTIVE FILE       X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+/ ATTENTION: append HGME and/or CHGME if either appears in VECVAR
+VECVAR = PITCH,ROLL,VZI,THI,PITCH2,ROLL2,VZI2,THI2,HGME,CHGME
+/
+DISJMP = 360.  , %FOR , THI, PITCH, ROLL, THI2, PITCH2, ROLL2, HGME
+SLAVTO = CHGME , %FOR, HGME
+SLVDEL = 14.4  , %FOR, HGME
+/
+/NDELAY = 5,%FOR,CROLL
+NDELAY = 5,%FOR, THI, PITCH, ROLL, THI2, PITCH2, ROLL2
+/OVRLAP=1
+RATE = %T
+ENDUD
+/
+NOLIST
+/----------------------------------------------------------DESPIKE PD01
+/ FETCH 139,177
+BEGINPD
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X  DESPIKE  OPERATION           X
+/               X  PROGRAMMER DIRECTIVE FILE    X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+DEFGEN =   NAMEOP, ITYPOP, NUMCYC, OVRLAP,    NAMPD,       NAMLIB
+DIMGEN =  DESP    ,   2,     -1,      0,      'NONE',     'NONE'
+/
+DEFGEN =     KOUT ,          PROJECT
+DIMGEN =   (KPROC),'                                        '
+/
+DEFGEN =   BEGSNP,          ENDSNP,       FLUSHP
+DIMGEN = (00.,00.,00.),  (99.,99.,99.),     900
+/
+DEFGEN = LOUT, MAXCHR
+DIMGEN = [UNITS,RATE,TOTPTS,NUMSPK,NUMPTS,LSHFTS,NUMUNC,NUMGAP,
+DELTOL,NWIDTH,STOP],128
+/
+MODGEN =  NAMPD, NAMLIB, NUMCYC, OVRLAP, BEGSNP,ENDSNP,FLUSHP,KOUT,LOUT,
+MAXCHR
+/
+DEFVAR = NAMVAR, INDGET, INRATE, INDPUT
+DIMVAR = NAMVAR,    0  ,   0   ,   0
+/
+DEFVAR =  RATE, TOTPTS, NUMSPK, NUMPTS, LSHFTS, NUMUNC, NUMGAP
+DIMVAR =    1 ,    0,      0,      0,      0,     0  ,    0
+/
+DEFVAR =   TRPTYP, DELTOL, NWIDTH
+DIMVAR =     1  ,    0. ,      0
+/
+DEFVAR =   UNITS,      SOURCE
+DIMVAR =  '        ',  NOLINK
+/
+MODVAR = RATE,TRPTYP,DELTOL,NWIDTH,UNITS,SOURCE
+/
+LNKVAR = SOURCE
+/
+ENDPD /*********************************************************************
+LIST
+BEGINUD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X     DESPIKE  OPERATION       X
+/                    X    USER DIRECTIVE FILE       X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+/######################################
+/  Turn this operation off for now.
+NUMCYC = 0
+/######################################
+/
+BEGSNP  = %D
+ENDSNP  = %D
+FLUSHP  = 1800
+TRPTYP = 3
+/
+VECVAR = %T
+UNITS = %T
+/
+/ ATTENTION: following are always included; specify more vars as noted
+/   in memo
+DELTOL =    .0028  ,%FOR , ALAT, ALAT2
+DELTOL =    .0319  ,%FOR , ALON, ALON2
+DELTOL =   1.5000  ,%FOR , THI, THI2
+DELTOL =  50.0000  ,%FOR , PITCH, PITCH2
+DELTOL =  50.0000  ,%FOR , ROLL, ROLL2
+DELTOL =  10.0000  ,%FOR , VZI, VZI2
+RATE  = %T
+/ NWIDTH always 1 for ALAT, ALON, ALAT2, ALON2
+NWIDTH = 1 , %FOR , ALAT,ALON, ALAT2, ALON2
+/ ATTENTION: specify all others from above DELTOL's by setting NWIDTH to
+/ RATE as given in INPUT for each
+KOUT=(KPROC),(KPRINT)
+ENDUD
+/--------------------------------------------------------------- INI-PD
+LIST
+BEGINPD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X INI-CALIB PD (OCT. 04,1986)  X
+/                    X      INICAL  OPERATION       X
+/                    X  PROGRAMMER DIRECTIVE FILE   X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/  DEFGEN=1-NAMEOP;2-NAMPD;3-NAMLIB;4-NUMCYC;5-ITYPOP;6-PROJECT(5)
+/         7-QCREF;
+/
+/
+DEFGEN=NAMEOP,   NAMPD,   NAMLIB,NUMCYC,ITYPOP
+DIMGEN= INICAL,'INICAL','INICAL.IF',  -1,   2
+DEFGEN= PROJECT
+DIMGEN= '                                    '
+DEFGEN = QCREF
+DIMGEN = ('QCX1','QCX2')
+/
+MODGEN=NUMCYC,NAMPD,NAMLIB,PROJECT,QCREF
+/
+/
+/ DEFVAR =1-NAMVAR;2-INDGET;3-INRATE;4-INDPUT;5-RATE;6-UNITS,7-TITLE;
+/ 8-CONS1;9-CONSN;10-CONSU;11-NUMSOU;12-DERIVE();13-CONVERT;14-KONVUF;
+/           15-KUTOFF;16-ITAB;17-CALDAT;18-NCFABV;19-NCFBLO;20-COEFS
+DEFVAR= NAMVAR,INDGET,INRATE,INDPUT,RATE,  UNITS
+DIMVAR= NAMVAR,   0  ,  0   ,   0  ,  1,'        '
+/
+DEFVAR= TITLE
+DIMVAR= '                                        '
+/
+DEFVAR = CONS1, CONSN     , CONSU    , NUMSOU
+DIMVAR = 99999.,'CONSNAME','CONSUNIT', 0
+/
+DEFVAR= DERIVE
+DIMVAR= (NOLINK)
+LNKVAR= DERIVE
+/
+DEFVAR = CONVERT,KONVUF    ,KUTOFF
+DIMVAR =      1.,'        ',     0
+/
+DEFVAR= TABLE
+DIMVAR=(NOLINK)
+LNKFUN= TABLE
+/
+DEFVAR= CALDATE,     NCFABV
+DIMVAR='31DEC99',         0
+/
+DEFVAR= NCFBLO
+DIMVAR=     0
+DEFVAR= COEFS
+DIMVAR= [0.0]
+/
+/ MODVAR - THE VARIABLE CONTROLS WHICH CAN BE MODIFIED IN UD
+/
+MODVAR= RATE,UNITS,TITLE,DERIVE,NUMSOU,CONS1,CONSN,CONSU,CONVERT,
+        KUTOFF,TABLE,NCFABV,NCFBLO,CALDATE,COEFS,KONVUF
+/FUNCTION
+/ DEFFUN=1-NAMFUN;2-LOOKUP TABLES;3-LENGTH OF EACH LOOKUP TABLE
+DEFFUN = NAMFUN
+DIMFUN = NAMFUN
+/
+DEFFUN=LOOKUP,     LENT
+DIMFUN=(999.,999.), 0
+/
+MODFUN = LOOKUP,LENT
+ENDPD
+/
+LIST
+BEGINUD
+/*********************    INICAL  OPERATION    *************************
+/*********************    USER DIRECTIVE FILE  *************************
+/
+/**********   GENERAL AREA
+/
+PROJECT = %D
+QCREF = ('QCF','QCR')
+/
+/*********************    VARIABLE AREA        *************************
+/
+/ DEFVAR =1-NAMVAR;2-INDGET;3-INRATE;4-INDPUT;5-RATE;6-UNITS,7-TITLE;
+/ 8-CONS1;9-CONSN;10-CONSU;11-NUMSOU;12-DERIVE();13-CONVERT;14-KONVUF;
+/           15-KUTOFF;16-ITAB;17-CALDAT;18-NCFABV;19-NCFBLO;20-COEFS
+VECVAR = %T
+/ ATTENTION: if LORN is used, add CLAT, CLON, CCEP, CGS
+APPVAR=TPTIME,PTIME,DUM,DEI,DNI
+/,TMLAG,THF,XVI,YVI
+RATE = %T
+RATE = 5,%FOR,DEI,DNI
+/ATTENTION: add FREQ,FLAG,RANG if DME is used
+/ATTENTION: set RATE for THF according to RATE of PHDG in INPUT
+/RATE=  10,%FOR,THF
+/RATE =10,%FOR,XVI,YVI
+/
+/ ATTENTION: insert CALCOE output from ADSRAW here
+ORDVAR = NCFABV,        COEFS,         CALDATE
+LETVAR=3,[     69.46900,     -6.90800,     -0.00100],' 7JUL91',%FOR,QCW
+LETVAR=3,[     68.37000,     -6.89700,     -0.00100],' 7JUL91',%FOR,QCR
+LETVAR=3,[     86.49300,     -8.61200,     -0.00040],' 7JUL91',%FOR,QCF
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,VLA
+LETVAR=3,[     39.31600,     -9.97000,     -0.00030],' 7JUL91',%FOR,TTB
+/LETVAR=3,[     -9.55500,     -5.08900,      0.00100],' 7JUL91',%FOR,TTFH
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,LWC
+LETVAR=3,[     -9.79600,     -5.00000,      0.00250],' 7JUL91',%FOR,TTRF
+LETVAR=3,[      0.16300,     -5.22200,     -0.00200],' 7JUL91',%FOR,ADIFR
+LETVAR=3,[      0.02500,     -5.28300,      0.00100],' 7JUL91',%FOR,BDIFR
+LETVAR=3,[    517.35599,    -51.77100,      0.00900],' 7JUL91',%FOR,PSW
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,XTTWB
+LETVAR=3,[      0.46700,     -5.00000,     -0.00020],' 7JUL91',%FOR,DPB
+LETVAR=3,[      0.09300,     -5.00100,      0.00100],' 7JUL91',%FOR,DPT
+LETVAR=3,[    514.63800,    -51.64200,      0.00700],' 7JUL91',%FOR,PCAB
+LETVAR=3,[     58.01600,     -5.80200,     -0.00030],' 7JUL91',%FOR,UVT
+LETVAR=3,[     33.15400,     -3.30900,     -0.00010],' 7JUL91',%FOR,UVB
+LETVAR=3,[    394.89999,    -39.38000,      0.00000],' 7JUL91',%FOR,HGM
+LETVAR=3,[     28.70400,     -2.55200,      0.00600],' 7JUL91',%FOR,RSTB
+LETVAR=3,[    994.75000,    -99.43000,     -0.00600],' 7JUL91',%FOR,SWT
+LETVAR=3,[   1049.84998,   -104.47800,     -0.00500],' 7JUL91',%FOR,SWB
+LETVAR=3,[   1292.32996,   -214.70200,     -0.33700],' 7JUL91',%FOR,IRT
+LETVAR=3,[   1463.87000,   -238.10300,     -0.43400],' 7JUL91',%FOR,IRB
+LETVAR=3,[     -3.31300,      3.78000,      0.11800],' 7JUL91',%FOR,DTT
+LETVAR=3,[     -3.31300,      3.78000,      0.11800],' 7JUL91',%FOR,STT
+LETVAR=3,[     -3.13000,      3.78000,      0.11800],' 7JUL91',%FOR,DTB
+LETVAR=3,[     -3.13000,      3.78000,      0.11800],' 7JUL91',%FOR,STB
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,XWBT1
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,XWBT2
+LETVAR=3,[     42.24900,     -1.15380,     -0.02040],' 7JUL91',%FOR,TCAVB
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,XWBTP
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,XWBT3
+LETVAR=3,[      0.00000,     -1.00000,      0.00000],' 7JUL91',%FOR,XWBT4
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,CHGME
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,HGME
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,PSFD2
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,PSFD
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,THI
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,V10
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,V10R
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,TADS
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,TV10
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,FLOADS
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,FZV
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,FZVR
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,VDREF
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,XV10
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,XFZV
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,VP15D
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,V28
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,VP15A
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,VM15A
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,TCBADS
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,CVTEMP
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,TMP1
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,TA2D
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,TS2D
+LETVAR=3,[      0.00000,      1.00000,      0.00000],' 7JUL91',%FOR,TLSI
+/
+ORDVAR=NUMSOU,    DERIVE
+LETVAR=  3,[HR      ,MIN     ,SEC                        ], %FOR,TPTIME
+LETVAR=  2,[ALON    ,ALAT                                ], %FOR,DEI
+LETVAR=  1,[ALAT                                         ], %FOR,DNI
+/LETVAR=  1,[CHGME                                        ], %FOR,HGME
+/
+/
+ORDVAR =  CONSN, CONSU,      CONS1       /VARNAME
+LETVAR = 'INI-LON',' DEG',-99.75   ,  %FOR, DEI  /PROJ.815
+LETVAR = 'INI-LAT',' DEG',16.760   ,  %FOR, DNI  /PROJ.815
+UNITS = %T
+TITLE = %T
+/
+/ ATTENTION: insert LOOKUP TABLES A here if any of following
+/  variables appear in INPUT but are excluded from CALCOE output:
+/      STB STT DTB DTT
+/ ATTENTION: insert INICAL TITLES here
+ORDVAR=   TITLE                                  , UNITS      /NAME
+LETVAR='RAW DYNAMIC PRESSURE (WING)             ',' MB   ',%FOR,QCW
+LETVAR='RAW DYNAMIC PRESSURE (RADOME)           ',' MB   ',%FOR,QCR
+LETVAR='RAW DYNAMIC PRESSURE (FUSELAGE)         ',' MB   ',%FOR,QCF
+LETVAR='RAW LYMAN-ALPHA VOLTAGE                 ',' VDC  ',%FOR,VLA
+LETVAR='TOTAL TEMPERATURE (BOOM)                ',' C    ',%FOR,TTB
+/LETVAR='TOTAL TEMPERATURE (FUSELAGE HEATED)     ',' C    ',%FOR,TTFH
+LETVAR='RAW C-T LIQUID WATER CONTENT            ',' G/M3 ',%FOR,LWC
+LETVAR='TOTAL TEMPERATURE (REVERSE FLOW)        ',' C    ',%FOR,TTRF
+LETVAR='ATTACK DIFFERENTIAL PRESSURE (RADOME)   ',' MB   ',%FOR,ADIFR
+LETVAR='SIDESLIP DIFFERENTIAL PRESSURE (RADOME) ',' MB   ',%FOR,BDIFR
+LETVAR='RAW STATIC PRESSURE (WING)              ',' MB   ',%FOR,PSW
+LETVAR='RAW WETBULB TEMPERATURE OUTPUT          ',' VDC  ',%FOR,XTTWB
+LETVAR='DEW/FROST POINT TEMP (THERMOELEC) (BOT) ',' C    ',%FOR,DPB
+LETVAR='DEW/FROST POINT TEMP (THERMOELEC) (TOP) ',' C    ',%FOR,DPT
+LETVAR='CABIN PRESSURE                          ',' MB   ',%FOR,PCAB
+LETVAR='TOP ULTRAVIOLET IRRADIANCE              ',' W/M2 ',%FOR,UVT
+LETVAR='BOTTOM ULTRAVIOLET IRRADIANCE           ',' W/M2 ',%FOR,UVB
+LETVAR='GEOMETRIC (RADIO) ALTITUDE              ',' M    ',%FOR,HGM
+LETVAR='RADIOMETRIC SURFACE TEMPERATURE         ',' C    ',%FOR,RSTB
+LETVAR='TOP SHORTWAVE IRRADIANCE                ',' W/M2 ',%FOR,SWT
+LETVAR='BOTTOM SHORTWAVE IRRADIANCE             ',' W/M2 ',%FOR,SWB
+LETVAR='RAW TOP INFRARED IRRADIANCE             ',' W/M2 ',%FOR,IRT
+LETVAR='RAW BOTTOM INFRARED IRRADIANCE          ',' W/M2 ',%FOR,IRB
+LETVAR='TOP PYRGEOMETER DOME TEMPERATURE        ',' C    ',%FOR,DTT
+LETVAR='TOP PYRGEOMETER SINK TEMPERATURE        ',' C    ',%FOR,STT
+LETVAR='BOTTOM PYRGEOMETER DOME TEMPERATURE     ',' C    ',%FOR,DTB
+LETVAR='BOTTOM PYRGEOMETER SINK TEMPERATURE     ',' C    ',%FOR,STB
+LETVAR='WETBULB SOURCE PARAMETER 1              ',' VDC  ',%FOR,XWBT1
+LETVAR='WETBULB SOURCE PARAMETER 2              ',' VDC  ',%FOR,XWBT2
+LETVAR='CAVITY TEMPERATURE: BOTTOM PRT5         ',' C    ',%FOR,TCAVB
+LETVAR='EXPERIMENTAL HUMICAP OUTPUT             ',' VDC  ',%FOR,XWBTP
+LETVAR='WETBULB SOURCE PARAMETER 3              ',' VDC  ',%FOR,XWBT3
+LETVAR='EXPERIMENTAL TEMPERATURE OUTPUT         ',' VDC  ',%FOR,XWBT4
+LETVAR='COARSE GEOMETRIC ALTITUDE (APN-159)     ',' M    ',%FOR,CHGME
+LETVAR='GEOMETRIC (RADAR) ALTITUDE (APN-159)    ',' M    ',%FOR,HGME
+LETVAR='GOD KNOWS                               ',' MB   ',%FOR,PSFD2
+LETVAR='RAW STATIC PRESSURE (FUSELAGE DI)       ',' MB   ',%FOR,PSFD
+LETVAR='10-V REFERENCE                          ',' VDC  ',%FOR,V10
+LETVAR='10-V REFERENCE THROUGH RESISTOR         ',' VDC  ',%FOR,V10R
+LETVAR='AIR TEMP ADS INTERFACE                  ',' C    ',%FOR,TADS
+LETVAR='TEMP OF VOLTAGE REFERENCE               ',' C    ',%FOR,TV10
+LETVAR='AIR TEMP FLOW MONITOR - ADS             ',' C    ',%FOR,FLOADS
+LETVAR='FIXED ZERO VOLTAGE                      ',' VDC  ',%FOR,FZV
+LETVAR='FIXED ZERO VOLTAGE THRU RESISTOR        ',' VDC  ',%FOR,FZVR
+LETVAR='DIFFERENCE OF 10-V REFERENCES           ',' VDC  ',%FOR,VDREF
+LETVAR='10V REFERENCE (EXT. CHASSIS)            ',' VDC  ',%FOR,XV10
+LETVAR='FIXED ZERO VOLTAGE (EXT. CHASSIS)       ',' VDC  ',%FOR,XFZV
+LETVAR='+15V DIGITAL VOLTAGE                    ',' VDC  ',%FOR,VP15D
+LETVAR='AIRCRAFT DC VOLTAGE SUPPLY              ',' VDC  ',%FOR,V28
+LETVAR='+15V ANALOG VOLTAGE                     ',' VDC  ',%FOR,VP15A
+LETVAR='-15V ANALOG VOLTAGE                     ',' VDC  ',%FOR,VM15A
+LETVAR='AIR TEMP COMPUTER CABINET               ',' C    ',%FOR,TCBADS
+/ ATTENTION: if DME block is used, insert DME TITLES here
+/
+ENDUD
+/
+/ ATTENTION:  insert DESPIKE LORN here if LORAN is used
+/
+/----------------------------------------------------------INTERP PD01
+/ FETCH 241,262
+BEGINPD
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X  TERP   OPERATION             X
+/               X  PROGRAMMER DIRECTIVE FILE    X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+DEFGEN =   NAMEOP, ITYPOP, NUMCYC, OVRLAP,    NAMPD,       NAMLIB
+DIMGEN =   TERP ,   2,     -1,      0,        'NONE',     'NONE'
+/
+MODGEN =  NAMPD, NAMLIB, NUMCYC, OVRLAP
+/
+DEFVAR = NAMVAR, INDGET, INRATE, INDPUT
+DIMVAR = NAMVAR,    0  ,   0   ,   0
+/
+DEFVAR =    RATE, TRPTYP, LOWPAS, SOURCE
+DIMVAR =       1,     1 ,   NO  , NOLINK
+/
+MODVAR =   RATE,  TRPTYP, LOWPAS, SOURCE
+/
+LNKVAR = SOURCE
+/
+ENDPD /*********************************************************************
+LIST
+BEGINUD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X    TERP   OPERATION          X
+/                    X    USER DIRECTIVE FILE       X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+TRPTYP = 3
+VECVAR = %T
+RATE = %T
+RATE = 50, %FOR,
+/######################  Following variables have rate problem or are not on IRS
+/        ALPHA   ,HGM     ,HGME    ,RSTB    ,SWT     ,SWB     ,
+/        UVT     ,UVB     ,PHDG    ,THF     ,XVI     ,YVI     ,
+/        PSFD    ,PSW     ,DPT     ,DPB     ,IRT     ,IRB     ,
+/        DTT     ,STT     ,DTB     ,STB     ,TCAVB   ,XTTWB   ,
+/        XWBT1   ,XWBT2   ,XWBTP   ,XWBT3   ,XWBT4   ,PCAB    ,
+/        CHGME   ,
+/######################
+        ALAT    ,ALON    ,ALAT2   ,ALON2   ,THI     ,THI2    ,
+/        ROLL    ,ROLL2   ,PITCH   ,PITCH2  ,VZI     ,VZI2    ,
+        IVSPD   ,IVSPD2  ,VNS     ,VNS2    ,/GSI     ,GSI2    ,
+        VEW     ,VEW2    ,ACINS   ,ACINS2  ,/QCF     ,QCW     ,
+        PSFD    ,PSW     ,HGM     ,HGME    ,
+/        QCR     ,ADIFR   ,BDIFR   ,TTB     ,TTRF    ,/TTFH    ,
+        RHODT   ,RHODB   ,RHUM    ,MR      ,SPHUM    ,
+        DEI     ,DNI     ,LWCC    /,VLA     ,LWC
+ENDUD
+/
+LIST
+/--------------------------------------------------------------------CALIB PD
+BEGINPD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X CALIB PD - V2    (SEP  1987) X
+/                    X      CALIB   OPERATION       X
+/                    X  PROGRAMMER DIRECTIVE FILE   X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/###########  Changed definition area below to reflect new IRS  ###############
+/  DEFGEN=1-NAMEOP;2-NAMPD;3-NAMLIB;4-NUMCYC;5-ITYPOP;6-PROJECT(5);7-QCREF(3);
+/  NEW IRS:8-GUSTO(8):[(1)-LAT,(2)-VEW,(3)-VNS,(4)-PITCH,(5)-ROLL,(6)-IVSPD
+/                       (7)-PALT,(8)-ACINS];9-GUSTR(8);
+/  PMS FSSP PROBE:10-NCSUMF;11-THRESHF;12-TAU1;13-TAU2;14-TAU3;15-DOF;
+/                 16-BDIA;17-CWD(4);18-CBIAS(4);19-KRANGE;20-KSTROB;
+/                 21-KRESET;22-MRATEF;23-MWORDF;24-MCELLF;
+/  PMS ASAS PROBE:25-NCSUMA;26-THRESHA;27-MRATEA;28-MWORDA;29-MCELLA;
+/  PMS X200 PROBE:30-NCSUMX;31-THRESHX;32-MRATEX;33-MWORDX;34-MCELLX;
+/  PMS X260 PROBE:35-NCSUM6;36-THRESH6;37-MRATE6;38-MWORD6;39-MCELL6;
+/  PMS Y200 PROBE:40-NCSUMY;41-THRESHY;42-MRATEY;43-MWORDY;44-MCELLY;
+/  45-TWIRE;46-CN1;47-EN1;48-SIZEF(15);49-SIZEX;50-SIZE6;51-SIZEY;
+/  52-CX(4);53-XC;54-CX1(4);55-XC1
+/     NCSUM = THE NO OF CELLS TO BE SUM UP FOR THRESH CHECK
+/     THRESH= THRESH FOR PLOTING HISTOGRAM
+/     TAU'S ARE MEASURED FSSP PROBE DELAYS IN SECONDS
+/     DOF = FSSP MEASURED DEPTH OF FIELD (MM)
+/     BDIA = FSSP MEASURED BEAM DIAMETER(MM)
+/     FSSP CELL WIDTHS CORRESPONDING TO RANGES(IRANGE)1,2,3,4,(UM)
+/     CBIAS = CALIBRATED CELL WIDTH OFFSET     (UM)
+/
+DEFGEN=NAMEOP,   NAMPD,   NAMLIB,NUMCYC,ITYPOP
+DIMGEN= CALIB1,'CALPD','CALIB.IF',  -1,   2
+DEFGEN= PROJECT
+DIMGEN= '                                    '
+/
+DEFGEN = QCREF
+DIMGEN = ('QCX1','QCX2')
+/
+/  #################  changed inertial platform definitions  ###################
+DEFGEN = GUSTIN
+DIMGEN = ('ALAT','VEW','VNS','PITCH','ROLL','IVSPD','PALT','ACINS')    / <-- IRS
+/DIMGEN = ('ALAT','ALPHA','XVI','YVI','PITCH','ROLL','VZI','PALT') / <-- LTN-51
+DEFGEN = GUSTR
+DIMGEN = ('ALAT','ALPHA','XVI','YVI','PITCH','ROLL','VZI','PALT')
+/ ----- PMS FSSP PROBE CONTROLS
+DEFGEN =NCSUMF,THRESHF,     TAU1,     TAU2,TAU3
+DIMGEN =   15,     50.,0.0000063,0.0000038,0.02
+/
+DEFGEN = DOF,  BDIA,              CWD,             CBIAS
+DIMGEN =2.74, 0.180,(3.0,2.0,1.0,0.5),(0.5,1.0,0.5,0.25)
+/
+DEFGEN = KRANGE,KSTROB,KRESET,MRATEF,MWORDF,MCELLF
+DIMGEN =      1,     4,     5,     1,    22,    15
+/ ----- PMS ASAS PROBE CONTROLS
+/MRATE CHANGED TO 1 AT CELIA'S REQUEST 2-22-88 JB
+DEFGEN = NCSUMA,THRESHA,MRATEA,MWORDA,MCELLA
+DIMGEN =     15,     50.,    1,   22, 15
+/ ----- PMS 200X PROBE CONTROLS
+DEFGEN = NCSUMX,THRESHX,MRATEX,MWORDX,MCELLX
+DIMGEN =     15,     50.,    1,   22, 15
+/ ----- PMS X260 PROBE CONTROLS
+DEFGEN = NCSUM6,THRESH6,MRATE6,MWORD6,MCELL6
+DIMGEN =     15,     50.,    1,   70, 62
+/ ----- PMS 200Y PROBE CONTROLS
+DEFGEN = NCSUMY,THRESHY,MRATEY,MWORDY,MCELLY
+DIMGEN =     15,     50.,    1,   22, 15
+/ ----- PMS KING LIQUID WATER CONSTANTS    MODDED FOR 830 1985
+DEFGEN = TWIRE, CN1 ,EN1
+DIMGEN =  403.16,0.22 ,0.62
+/
+/ ----- PMS 1D CELL SIZE TABLE OR CALCULATION CONSTANT FEB1986
+DEFGEN = SIZEF
+DIMGEN = (1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.)
+DEFGEN = SIZEX, SIZE6, SIZEY
+DIMGEN =   20.,   10.,  375.
+/ ----- DLA/DLA1 CONSTANTS --SEP1987
+DEFGEN = CX                            ,XC
+DIMGEN = (4.145,0.82,-0.021645,0.007671),0.585
+DEFGEN = CX1                           ,XC1
+DIMGEN = (4.156,0.8870,-0.00425,-0.0056),0.5
+MODGEN=NUMCYC,NAMPD,NAMLIB,PROJECT,QCREF,GUSTIN,GUSTR,NCSUMF,THRESHF,
+       NCSUMY,THRESHY,TAU1,TAU2,TAU3,DOF,BDIA,CWD,CBIAS,NCSUMA,THRESHA,
+       KRANGE,KSTROB,KRESET,NCSUMX,THRESHX,NCSUM6,THRESH6,
+       MRATEF,MWORDF,MCELLF,MRATEA,MWORDA,MCELLA,MRATEX,MWORDX,MCELLX,
+       MRATE6,MWORD6,MCELL6,MRATEY,MWORDY,MCELLY,TWIRE,CN1,EN1,
+       SIZEF,SIZEX,SIZE6,SIZEY,CX,XC,CX1,XC1
+/
+/   DEFVAR =1-NAMVAR;2-INDGET;3-INRATE;4-INDPUT;5-RATE;6-UNITS,7-TITLE;
+/           8-CONS1;9-CONSN;10-CONSU;11-NUMSOU;12-DERIVE();13-CONVERT;
+/           14-KONVUF
+/
+DEFVAR= NAMVAR,INDGET,INRATE,INDPUT,RATE,  UNITS
+DIMVAR= NAMVAR,   0  ,  0   ,   0  ,  1,'        '
+/
+DEFVAR= TITLE
+DIMVAR= '                                        '
+/
+DEFVAR = CONS1  ,CONSN     ,CONSU     ,NUMSOU
+DIMVAR = 99999.0,'CONSNAME','CONSUNIT',0
+/
+DEFVAR= DERIVE
+DIMVAR= (NOLINK)
+LNKVAR= DERIVE
+/
+DEFVAR = CONVERT,KONVUF
+DIMVAR =      1.,'        '
+/ MODVAR - THE VARIABLE CONTROLS WHICH CAN BE MODIFIED IN UD
+/
+MODVAR=RATE,UNITS,TITLE,DERIVE,NUMSOU,CONS1,CONSN,CONSU,CONVERT,KONVUF
+/
+/FUNCTION
+/ DEFFUN=1-NAMFUN;2-PMS PLT NSIZE;
+/        3-PMS PLT LOGLIN,4-PMS PLT MGRY;5-PMS PLT MINRY;6-PMS PLT BOT;
+/        7-PMS PLT TOP; 8-PMS PLT LABX;9-PMS PLT LABY
+/       10-# OF STATIONS; 11-LONGITUDE; 12-LATITUDE; 13-ALTITUDE;
+/       14-FREQUENCY;
+/
+DEFFUN = NAMFUN
+DIMFUN = NAMFUN
+/
+/
+DEFFUN=  NSIZE, LOGLIN, MGRY, MINRY, BOT,  TOP
+DIMFUN=  1    ,2     ,  0   ,0    ,  1. ,1000.
+/
+DEFFUN= LABX
+DIMFUN= ' PMS PROBE      CELL SIZE IN MICROMETERS'
+/
+DEFFUN= LABY
+DIMFUN= ' PMS      RAW ACCUMULATION (COUNTS)     '
+/
+MODFUN = NSIZE,LOGLIN,MGRY,MINRY,BOT,TOP,LABX,LABY
+ENDPD
+/
+/
+LIST
+BEGINUD
+/*********************    CALIB   OPERATION    *************************
+/*********************    USER DIRECTIVE FILE  *************************
+/
+/**********   GENERAL AREA
+NUMCYC= -1
+PROJECT = %D
+QCREF = ('QCF','QCR')
+/
+/ ATTENTION: if MRATEx for given PMS probe does not concur with
+ORDGEN= MRATEF
+LETGEN=      1
+/ SAMPLE as given in INPUT, reset here
+ORDGEN = TWIRE, CN1 ,EN1
+LETGEN = 403.160,0.2200,0.6200
+ORDGEN = DOF,  BDIA,  CWD,  CBIAS
+LETGEN = 2.740,0.1800,(3.0,2.0,1.0,0.5),(0.5,1.0,0.5,0.25)
+ORDGEN = TAU1, TAU2, TAU3
+LETGEN = 0.00000630,0.00000380,0.000000
+ORDGEN = SIZEF
+LETGEN=(1.,2.,3.,4.,5.,6.,7.,8.,9.,10.,11.,12.,13.,14.,15.)
+ENDUD
+BEGINUD
+/
+/*********************    VARIABLE AREA        *************************
+/
+/DEFVAR=1-NAMVAR,2-INDGET,3-INRATE,4-INDPUT,5-RATE,6-UNITS,7-CONS1,
+/       8-CONSN,9-CONSU,10-DERIVE,11-NUMSOU,12-TITLE,13-IFLAG
+/
+/  ATTENTION: insert CALIB VECVAR here
+VECVAR= HR      ,MIN     ,SEC     ,PTIME   ,TPTIME  ,/ALPHA   ,
+       ALAT    ,ALON    ,ALAT2   ,ALON2   ,GLAT    ,GLON    ,
+       DEI     ,DNI     ,PSFDC   ,PSWC    ,ATB     ,ATRF    ,
+       WD      ,WS      ,UI      ,VI      ,WI      ,UX      ,
+       VY      ,DPTC    ,DPBC    ,HGM     ,HGME    ,PALT    ,/HI3     ,
+       GALT    ,DVALU   ,PSURF   ,THETA   ,THETAE  ,
+       RHODT   ,RHODB   ,RHOLA   ,RFLAG   ,RHUM    ,MR      ,
+       SPHUM   ,LWCCZ   ,PLWCF   ,PLWCX   ,PLWCY   ,FSSP    ,
+       SUM15F  ,CONCF   ,DBARF   ,DISPF   ,FACT    ,FBMFR   ,
+       FRANGE  ,FRESET  ,FSTROB  ,X200    ,SUM15X  ,CONCX   ,
+       DBARX   ,DISPX   ,DBZX    ,Y200    ,SUM15Y  ,CONCY   ,
+       DBARY   ,DISPY   ,DBZY    ,RSTB    ,SWT     ,SWB     ,
+       IRTC    ,IRBC    ,UVT     ,UVB     ,THI     ,/PHDG    ,
+       THI2    ,ROLL    ,ROLL2   ,PITCH   ,PITCH2  ,/THF     ,
+       VZI     ,VZI2    ,IVSPD   ,IVSPD2  ,GSI     ,GSI2    ,
+       ACINS   ,ACINS2  ,WP3     ,
+       VNS     ,VNS2    ,VEW     ,/XVI     ,YVI     ,GSF     ,
+       VEW2    ,GVEW    ,GVNS    ,TASF    ,TASW    ,TASR    ,
+       QCFC    ,QCWC    ,QCRC    ,QCF     ,QCW     ,QCR     ,
+       AKRD    ,SSRD    ,ADIFR   ,BDIFR   ,PSFD    ,PSW     ,
+       TTB     ,TTRF    ,DPT     ,DPB     ,VLA     ,/TTFH    ,
+       IRT     ,IRB     ,DTT     ,STT     ,DTB     ,STB     ,
+       LWC     ,TCAVB   ,XTTWB   ,XWBT1   ,XWBT2   ,XWBTP   ,
+       XWBT3   ,XWBT4   ,/TMLAG   ,
+       DFATBR  ,DFDPTB  ,DFPHAKD ,DFPSWD  ,DFQCFR  ,PCAB    ,
+       CHGME   ,GSTAT   ,GMODE   ,V10     ,V10R    ,
+       TADS    ,TV10    ,FLOADS  ,FZV     ,FZVR    ,VDREF   ,
+       CKEVP   ,EV1     ,EV2     ,EV3     ,EV4     ,TSEC    ,
+       GUSTO   ,DLA     ,AFSP01  ,AFSP02  ,AFSP03  ,AFSP04  ,
+       AFSP05  ,AFSP06  ,AFSP07  ,AFSP08  ,AFSP09  ,AFSP10  ,
+       AFSP11  ,AFSP12  ,AFSP13  ,AFSP14  ,AFSP15  ,A20X01  ,
+       A20X02  ,A20X03  ,A20X04  ,A20X05  ,A20X06  ,A20X07  ,
+       A20X08  ,A20X09  ,A20X10  ,A20X11  ,A20X12  ,A20X13  ,
+       A20X14  ,A20X15  ,A20Y01  ,A20Y02  ,A20Y03  ,A20Y04  ,
+       A20Y05  ,A20Y06  ,A20Y07  ,A20Y08  ,A20Y09  ,A20Y10  ,
+       A20Y11  ,A20Y12  ,A20Y13  ,A20Y14  ,A20Y15  ,CFSP01  ,
+       CFSP02  ,CFSP03  ,CFSP04  ,CFSP05  ,CFSP06  ,CFSP07  ,
+       CFSP08  ,CFSP09  ,CFSP10  ,CFSP11  ,CFSP12  ,CFSP13  ,
+       CFSP14  ,CFSP15  ,C20X01  ,C20X02  ,C20X03  ,C20X04  ,
+       C20X05  ,C20X06  ,C20X07  ,C20X08  ,C20X09  ,C20X10  ,
+       C20X11  ,C20X12  ,C20X13  ,C20X14  ,C20X15  ,C20Y01  ,
+       C20Y02  ,C20Y03  ,C20Y04  ,C20Y05  ,C20Y06  ,C20Y07  ,
+       C20Y08  ,C20Y09  ,C20Y10  ,C20Y11  ,C20Y12  ,C20Y13  ,
+       C20Y14  ,C20Y15  ,
+       XALATC  ,XALONC  ,XUXC    ,XVYC    ,XUC     ,XVC     ,
+       XWC     ,XVNSC   ,XVEWC   ,XWSC    ,XWDC    ,XDEIC   ,
+       XDNIC
+/
+ORDVAR =     CONSN,   CONSU,   CONS1      /VARNAME
+/
+LETVAR = 'RECF    ','  ND    ',    0.95, %FOR, ATB
+LETVAR = 'RECF    ','  ND    ',    0.70, %FOR, ATRF
+LETVAR = 'ASTG    ','  MB    ', 1013.24, %FOR, PALT
+LETVAR = 'AIRSPD  ','  MPH   ',  300.00, %FOR, LWCCZ
+LETVAR = 'HISTOG  ','  SEC   ',   60.00, %FOR, FSSP
+LETVAR = 'HISTOG  ','  SEC   ',   60.00, %FOR, X200
+LETVAR = 'HISTOG  ','  SEC   ',   60.00, %FOR, Y200
+LETVAR = 'XKT     ','        ',    5.50, %FOR, IRTC
+LETVAR = 'XKB     ','        ',    5.50, %FOR, IRBC
+LETVAR = 'RECF    ','  ND    ',    0.95, %FOR, TASF
+LETVAR = 'RECF    ','  ND    ',    0.95, %FOR, TASW
+LETVAR = 'RECF    ','  ND    ',    0.95, %FOR, TASR
+LETVAR = 'OFFSET 8','  MB    ',    0.00, %FOR, QCRC
+LETVAR = 'BIAS 308','  DEG   ',    0.00, %FOR, AKRD
+LETVAR = 'BIAS 308','  DEG   ',    0.00, %FOR, SSRD
+LETVAR = 'BOOMLN 8','  M     ',    5.80, %FOR, GUSTO
+LETVAR = 'THRSH   ','  PERCEN',  100.00, %FOR, DLA
+/
+ORDVAR=NUMSOU,    DERIVE
+LETVAR=  2,[PSFD    ,QCF                                 ], %FOR,PSFDC
+LETVAR=  2,[PSW     ,QCW                                 ], %FOR,PSWC
+LETVAR=  3,[TTB     ,QCFC    ,PSFDC                      ], %FOR,ATB
+LETVAR=  3,[TTRF    ,QCFC    ,PSFDC                      ], %FOR,ATRF
+LETVAR=  1,[DPT                                          ], %FOR,DPTC
+LETVAR=  1,[DPB                                          ], %FOR,DPBC
+LETVAR=  1,[PSFDC                                        ], %FOR,PALT
+LETVAR=  1,[CHGME                                        ], %FOR,HGME
+LETVAR=  2,[HGME    ,PALT                                ], %FOR,DVALU
+LETVAR=  4,[ATB     ,MR      ,PSFDC   ,HGME              ], %FOR,PSURF
+LETVAR=  2,[ATB     ,PSFDC                               ], %FOR,THETA
+LETVAR=  4,[DPTC    ,ATB     ,PSFDC   ,MR                ], %FOR,THETAE
+LETVAR=  3,[DPTC    ,ATB     ,PSFDC                      ], %FOR,RHODT
+LETVAR=  3,[DPBC    ,ATB     ,PSFDC                      ], %FOR,RHODB
+LETVAR=  3,[DPTC    ,ATB     ,PSFDC                      ], %FOR,RHUM
+LETVAR=  2,[DPTC    ,PSFDC                               ], %FOR,MR
+LETVAR=  2,[DPTC    ,PSFDC                               ], %FOR,SPHUM
+LETVAR=  3,[LWC     ,TASF    ,CONCF                      ], %FOR,LWCCZ
+LETVAR=  2,[TPTIME  ,TASF                                ], %FOR,FSSP
+LETVAR=  2,[TPTIME  ,TASF                                ], %FOR,X200
+LETVAR=  2,[TPTIME  ,TASF                                ], %FOR,Y200
+LETVAR=  3,[DTT     ,STT     ,IRT                        ], %FOR,IRTC
+LETVAR=  3,[DTB     ,STB     ,IRB                        ], %FOR,IRBC
+LETVAR=  3,[TTB     ,QCFC    ,PSFDC                      ], %FOR,TASF
+LETVAR=  3,[TTB     ,QCWC    ,PSFDC                      ], %FOR,TASW
+LETVAR=  3,[TTB     ,QCRC    ,PSFDC                      ], %FOR,TASR
+LETVAR=  1,[QCF                                          ], %FOR,QCFC
+LETVAR=  1,[QCW                                          ], %FOR,QCWC
+LETVAR=  3,[QCR     ,ADIFR   ,BDIFR                      ], %FOR,QCRC
+LETVAR=  2,[ADIFR   ,QCRC                                ], %FOR,AKRD
+LETVAR=  2,[BDIFR   ,QCRC                                ], %FOR,SSRD
+LETVAR=  2,[ATB     ,ATRF                                ], %FOR,DFATBR
+LETVAR=  2,[DPTC    ,DPBC                                ], %FOR,DFDPTB
+LETVAR=  2,[PITCH   ,AKRD                                ], %FOR,DFPHAKD
+LETVAR=  2,[PSWC    ,PSFDC                               ], %FOR,DFPSWD
+LETVAR=  2,[QCFC    ,QCRC                                ], %FOR,DFQCFR
+LETVAR=  5,[THI     ,TASF    ,TASF    ,AKRD    ,SSRD     ], %FOR,GUSTO
+LETVAR=  4,[VLA     ,ATB     ,PSFDC   ,RHODT             ], %FOR,DLA
+/
+ENDUD
+BEGINUD
+RATE= %T
+RATE=  50,%FOR,
+        DEI     ,DNI     ,PSFDC   ,PSWC    ,ATB     ,ATRF    ,
+        WDR     ,WS      ,UI      ,VI      ,WI      ,UX      ,
+        VY      ,WP3     ,
+        PALT    ,/HI3     ,
+        PSURF   ,THETA   ,
+        RHOLA   ,RFLAG   ,
+        TASF    ,TASW    ,TASR    ,
+        QCFC    ,QCWC    ,QCRC    ,
+        AKRD    ,SSRD    ,
+        DFATBR  ,DFDPTB  ,DFPHAKD ,
+        DFPSWD  ,DFQCFR  ,
+        DLA     ,GUSTR   ,GUSTO
+RATE = 1, %FOR,  DVALU   ,THETAE  ,RHODT   ,RHODB   ,RHUM    ,
+        MR      ,SPHUM   ,LWCCZ   ,
+        AFSP01  ,AFSP02  ,AFSP03  ,AFSP04  ,
+        AFSP05  ,AFSP06  ,AFSP07  ,AFSP08  ,AFSP09  ,AFSP10  ,
+        AFSP11  ,AFSP12  ,AFSP13  ,AFSP14  ,AFSP15  ,A20X01  ,
+        A20X02  ,A20X03  ,A20X04  ,A20X05  ,A20X06  ,A20X07  ,
+        A20X08  ,A20X09  ,A20X10  ,A20X11  ,A20X12  ,A20X13  ,
+        A20X14  ,A20X15  ,A20Y01  ,A20Y02  ,A20Y03  ,A20Y04  ,
+        A20Y05  ,A20Y06  ,A20Y07  ,A20Y08  ,A20Y09  ,A20Y10  ,
+        A20Y11  ,A20Y12  ,A20Y13  ,A20Y14  ,A20Y15  ,CFSP01  ,
+        CFSP02  ,CFSP03  ,CFSP04  ,CFSP05  ,CFSP06  ,CFSP07  ,
+        CFSP08  ,CFSP09  ,CFSP10  ,CFSP11  ,CFSP12  ,CFSP13  ,
+        CFSP14  ,CFSP15  ,C20X01  ,C20X02  ,C20X03  ,C20X04  ,
+        C20X05  ,C20X06  ,C20X07  ,C20X08  ,C20X09  ,C20X10  ,
+        C20X11  ,C20X12  ,C20X13  ,C20X14  ,C20X15  ,C20Y01  ,
+        C20Y02  ,C20Y03  ,C20Y04  ,C20Y05  ,C20Y06  ,C20Y07  ,
+        C20Y08  ,C20Y09  ,C20Y10  ,C20Y11  ,C20Y12  ,C20Y13  ,
+        C20Y14  ,C20Y15  ,
+        XALATC  ,XALONC  ,XUXC    ,XVYC    ,XUC     ,XVC     ,
+        XWC     ,XVNSC   ,XVEWC   ,XWSC    ,XWDC    ,XDEIC   ,
+        XDNIC   ,
+/
+/  ATTENTION: insert CALPMS FUNCTONS here if any PMS probes are used
+/             and change names of probes as needed
+/DEFFUN=1-NAMFUN,2-NSIZE ,3-LOGLIN,4-MGRY ,5-MINRY ,
+/       6-BOT,7-TOP ,8-LABX, 9-LABY
+/
+VECFUN=AFSSP,CFSSP,AX200,CX200,AY200,CY200
+/
+ORDFUN=  NSIZE, LOGLIN, MGRY, MINRY, BOT, TOP
+LETFUN= 1     , 2     , 0   ,  0   , 0. ,   0.0, %FOR,AFSSP
+LETFUN= 1     , 2     , 0   ,  0   , 0. ,   0.0, %FOR,CFSSP
+LETFUN= 1     , 2     , 0   ,  0   , 0. ,   0.0, %FOR,AX200
+LETFUN= 1     , 2     , 0   ,  0   , 0. ,   0.0, %FOR,CX200
+LETFUN= 1     , 2     , 0   ,  0   , 0. ,   0.0, %FOR,AY200
+LETFUN= 1     , 2     , 0   ,  0   , 0. ,   0.0, %FOR,CY200
+/
+LABX  = ' FSSP PROBE CELL SIZE IN MICROMETERS' ,%FOR,AFSSP
+LABX  = ' FSSP PROBE CELL SIZE IN MICROMETERS' ,%FOR,CFSSP
+LABX  = ' 200X PROBE CELL SIZE IN MICROMETERS' ,%FOR,AX200
+LABX  = ' 200X PROBE CELL SIZE IN MICROMETERS' ,%FOR,CX200
+LABX  = ' 200Y PROBE CELL SIZE IN MICROMETERS' ,%FOR,AY200
+LABX  = ' 200Y PROBE CELL SIZE IN MICROMETERS' ,%FOR,CY200
+/
+LABY  = ' FSSP CONCENTRATION (N/CC)            ',%FOR,CFSSP
+LABY  = ' FSSP ACCUMULATION (COUNT)           ' ,%FOR,AFSSP
+LABY  = ' 200X CONCENTRATION (N/LTR)           ',%FOR,CX200
+LABY  = ' 200X ACCUMULATION (COUNT)           ' ,%FOR,AX200
+LABY  = ' 200Y CONCENTRATION (N/LTR)           ',%FOR,CY200
+LABY  = ' 200Y ACCUMULATION (COUNT)           ' ,%FOR,AY200
+/
+UNITS = %T
+TITLE = %T
+/
+/  ATTENTION: insert CALIB TITLES here
+ORDVAR=   TITLE                                  , UNITS      /NAME
+LETVAR='UNALTERED TAPE TIME                     ',' HR   ',%FOR,HR
+LETVAR='UNALTERED TAPE TIME                     ',' MIN  ',%FOR,MIN
+LETVAR='UNALTERED TAPE TIME                     ',' S    ',%FOR,SEC
+LETVAR='PROCESSOR TIME                          ',' S    ',%FOR,PTIME
+LETVAR='RAW TAPE TIME                           ',' S    ',%FOR,TPTIME
+LETVAR='IRS LATITUDE                            ',' DEG  ',%FOR,ALAT
+LETVAR='IRS LONGITUDE                           ',' DEG  ',%FOR,ALON
+LETVAR='BACKUP IRS LATITUDE                     ',' DEG  ',%FOR,ALAT2
+LETVAR='BACKUP IRS LONGITUDE                    ',' DEG  ',%FOR,ALON2
+LETVAR='GPS LATITUDE                            ',' DEG  ',%FOR,GLAT
+LETVAR='GPS LONGITUDE                           ',' DEG  ',%FOR,GLON
+LETVAR='DISTANCE EAST OF START                  ',' KM   ',%FOR,DEI
+LETVAR='DISTANCE NORTH OF START                 ',' KM   ',%FOR,DNI
+LETVAR='CORRECTED STATIC PRESSURE (FUSELAGE DI) ',' MB   ',%FOR,PSFDC
+LETVAR='CORRECTED STATIC PRESSURE (WING)        ',' MB   ',%FOR,PSWC
+LETVAR='AMBIENT TEMPERATURE (BOOM)              ',' C    ',%FOR,ATB
+LETVAR='AMBIENT TEMPERATURE (REVERSE FLOW)      ',' C    ',%FOR,ATRF
+LETVAR='DEW POINT TEMPERATURE (THERMOELEC) (TOP)',' C    ',%FOR,DPTC
+LETVAR='DEW POINT TEMPERATURE (THERMOELEC) (BOT)',' C    ',%FOR,DPBC
+LETVAR='HORIZONTAL WIND DIRECTION               ',' DEG  ',%FOR,WD
+LETVAR='HORIZONTAL WIND SPEED                   ',' M/S  ',%FOR,WS
+LETVAR='WIND EAST COMPONENT                     ',' M/S  ',%FOR,UI
+LETVAR='WIND NORTH COMPONENT                    ',' M/S  ',%FOR,VI
+LETVAR='WIND VERTICAL COMPONENT                 ',' M/S  ',%FOR,WI
+LETVAR='WIND LONGITUDINAL COMPONENT             ',' M/S  ',%FOR,UX
+LETVAR='WIND LATERAL COMPONENT                  ',' M/S  ',%FOR,VY
+LETVAR='NACA PRESSURE ALTITUDE                  ',' M    ',%FOR,PALT
+LETVAR='PRESSURE-DAMPED INERTIAL ALTITUDE       ',' M    ',%FOR,HI3
+LETVAR='GPS ALTITUDE                            ',' M    ',%FOR,GALT
+LETVAR='D-VALUE (HGME - PALT)                   ',' M    ',%FOR,DVALU
+LETVAR='SURFACE PRESSURE                        ',' MB   ',%FOR,PSURF
+LETVAR='POTENTIAL TEMPERATURE                   ',' K    ',%FOR,THETA
+LETVAR='EQUIVALENT POTENTIAL TEMPERATURE        ',' K    ',%FOR,THETAE
+LETVAR='ABSOLUTE HUMIDITY (THERMOELEC) (TOP)    ',' G/M3 ',%FOR,RHODT
+LETVAR='ABSOLUTE HUMIDITY (THERMOELEC) (BOT)    ',' G/M3 ',%FOR,RHODB
+LETVAR='CORRECTED L-A ABSOLUTE HUMIDITY         ',' GM-3 ',%FOR,RHOLA
+LETVAR='FLAG=-1.0,((RHOLA-RHOTD)/RHOTD) > .20   ','      ',%FOR,RFLAG
+LETVAR='RELATIVE HUMIDITY                       ',' PCT  ',%FOR,RHUM
+LETVAR='MIXING RATIO                            ',' G/KG ',%FOR,MR
+LETVAR='SPECIFIC HUMIDITY                       ',' G/KG ',%FOR,SPHUM
+LETVAR='CORRECTED C-T LIQUID WATER CONTENT      ',' G/M3 ',%FOR,LWCCZ
+LETVAR='FSSP LIQUID WATER CONTENT               ',' G/M3 ',%FOR,PLWCF
+LETVAR='200X WATER/ICE CONTENT                  ',' G/M3 ',%FOR,PLWCX
+LETVAR='200Y WATER/ICE CONTENT                  ',' G/M3 ',%FOR,PLWCY
+LETVAR='PMS FSSP PROBE                          ',' CNTS ',%FOR,FSSP
+LETVAR='PMS FSSP PROBE (TOTAL COUNTS)           ',' CNTS ',%FOR,SUM15F
+LETVAR='FSSP PROBE CONCENTRATION                ',' N/CM3',%FOR,CONCF
+LETVAR='FSSP MEAN DIAMETER                      ',' uM   ',%FOR,DBARF
+LETVAR='FSSP DISPERSION (SIGMA/DBARF)           ','      ',%FOR,DISPF
+LETVAR='FSSP CALCULATED ACTIVITY FRACTION       ','      ',%FOR,FACT
+LETVAR='FSSP BEAM FRACTION (FSSP/FSTROB)        ','      ',%FOR,FBMFR
+LETVAR='FSSP RANGE                              ','      ',%FOR,FRANGE
+LETVAR='FSSP FAST RESETS                        ',' CNTS ',%FOR,FRESET
+LETVAR='FSSP TOTAL STROBES                      ',' CNTS ',%FOR,FSTROB
+LETVAR='PMS 200X PROBE                          ',' CNTS ',%FOR,X200
+LETVAR='PMS 200X PROBE (TOTAL COUNTS)           ',' CNTS ',%FOR,SUM15X
+LETVAR='200X PROBE CONCENTRATION                ',' N/L  ',%FOR,CONCX
+LETVAR='200X MEAN DIAMETER                      ',' uM   ',%FOR,DBARX
+LETVAR='200X DISPERSION (SIGMA/DBARX)           ','      ',%FOR,DISPX
+LETVAR='200X REFLECTIVITY FACTOR                ',' DB(Z)',%FOR,DBZX
+LETVAR='PMS 200Y PROBE                          ',' CNTS ',%FOR,Y200
+LETVAR='PMS 200Y PROBE (TOTAL COUNTS)           ',' CNTS ',%FOR,SUM15Y
+LETVAR='200Y PROBE CONCENTRATION                ',' N/L  ',%FOR,CONCY
+LETVAR='200Y MEAN DIAMETER                      ',' uM   ',%FOR,DBARY
+LETVAR='200Y DISPERSION (SIGMA/DBARY)           ','      ',%FOR,DISPY
+LETVAR='200Y REFLECTIVITY FACTOR                ',' DB(Z)',%FOR,DBZY
+LETVAR='TOP INFRARED CORRECTED IRRADIANCE       ',' W/M2 ',%FOR,IRTC
+LETVAR='BOTTOM INFRARED CORRECTED IRRADIANCE    ',' W/M2 ',%FOR,IRBC
+LETVAR='PLATFORM HEADING                        ',' DEG  ',%FOR,PHDG
+LETVAR='AIRCRAFT TRUE HEADING (ARINC)           ',' DEG  ',%FOR,THI
+LETVAR='BACKUP IRS TRUE HEADING                 ',' DEG  ',%FOR,THI2
+LETVAR='AIRCRAFT TRUE HEADING                   ',' DEG  ',%FOR,THF
+LETVAR='AIRCRAFT ROLL ATTITUDE ANGLE            ',' DEG  ',%FOR,ROLL
+LETVAR='BACKUP IRS ROLL ANGLE                   ',' DEG  ',%FOR,ROLL2
+LETVAR='AIRCRAFT PITCH ATTITUDE ANGLE           ',' DEG  ',%FOR,PITCH
+LETVAR='BACKUP IRS PITCH ANGLE                  ',' DEG  ',%FOR,PITCH2
+LETVAR='RAW IRS VERTICAL VELOCITY               ',' M/S  ',%FOR,VZI
+LETVAR='BACKUP IRS RAW VERTICAL VELOCITY        ',' M/S  ',%FOR,VZI2
+LETVAR='IRS AIRCRAFT VERTICAL VELOCITY          ',' M/S  ',%FOR,IVSPD
+LETVAR='DAMPED AIRCRAFT VERTICAL VELOCITY (GUST)',' M/S  ',%FOR,WP3
+LETVAR='BACKUP IRS AIRCRAFT VERTICAL VELOCITY   ',' M/S  ',%FOR,IVSPD2
+LETVAR='IRS AIRCRAFT VERTICAL ACCELERATION      ',' M/S2 ',%FOR,ACINS
+LETVAR='BACKUP IRS AIRCRAFT VERT. ACCELERATION  ',' M/S2 ',%FOR,ACINS2
+LETVAR='IRS GROUND SPEED                        ',' M/S  ',%FOR,GSI
+LETVAR='BACKUP IRS GROUND SPEED                 ',' M/S  ',%FOR,GSI2
+LETVAR='IRS GROUND SPEED NORTH COMPONENT        ',' M/S  ',%FOR,VNS
+LETVAR='BACKUP IRS GND SPD NORTHERN COMPONENT   ',' M/S  ',%FOR,VNS2
+LETVAR='IRS GROUND SPEED EAST COMPONENT         ',' M/S  ',%FOR,VEW
+LETVAR='BACKUP IRS GROUND SPEED EAST COMPONENT  ',' M/S  ',%FOR,VEW2
+LETVAR='GPS GROUND SPEED EAST COMPONENT         ',' M/S  ',%FOR,GVEW
+LETVAR='GPS GROUND SPEED NORTH COMPONENT        ',' M/S  ',%FOR,GVNS
+LETVAR='AIRCRAFT TRUE AIRSPEED (FUSELAGE)       ',' M/S  ',%FOR,TASF
+LETVAR='AIRCRAFT TRUE AIRSPEED (WING)           ',' M/S  ',%FOR,TASW
+LETVAR='AIRCRAFT TRUE AIRSPEED (RADOME)         ',' M/S  ',%FOR,TASR
+LETVAR='CORRECTED DYNAMIC PRESSURE (FUSELAGE)   ',' MB   ',%FOR,QCFC
+LETVAR='CORRECTED DYNAMIC PRESSURE (WING)       ',' MB   ',%FOR,QCWC
+LETVAR='CORRECTED DYNAMIC PRESSURE (RADOME)     ',' MB   ',%FOR,QCRC
+LETVAR='ATTACK ANGLE (RADOME)                   ',' DEG  ',%FOR,AKRD
+LETVAR='SIDESLIP ANGLE (RADOME)                 ',' DEG  ',%FOR,SSRD
+LETVAR='ARINC TIME LAG                          ',' S    ',%FOR,TMLAG
+LETVAR='ATB     -  ATRF                         ',' C    ',%FOR,DFATBR
+LETVAR='DPTC    -  DPBC                         ',' C    ',%FOR,DFDPTB
+LETVAR='PITCH   -  AKRD                         ',' DEG  ',%FOR,DFPHAKD
+LETVAR='PSWC    -  PSFDC                        ',' MB   ',%FOR,DFPSWD
+LETVAR='QCFC    -  QCRC                         ',' MB   ',%FOR,DFQCFR
+LETVAR='COCKPIT EVENT (BITS 0-5)                ','      ',%FOR,CKEVP
+LETVAR='EVENT PAD (1)                           ','      ',%FOR,EV1
+LETVAR='EVENT PAD (2)                           ','      ',%FOR,EV2
+LETVAR='EVENT PAD (3)                           ','      ',%FOR,EV3
+LETVAR='EVENT PAD (4)                           ','      ',%FOR,EV4
+LETVAR='TIME OF DAY IN SECONDS AFTER MIDNIGHT   ',' S    ',%FOR,TSEC
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 06        ',' CNTS ',%FOR,AFSP06
+LETVAR='KEYWORD                                 ','      ',%FOR,DLA
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 01        ',' CNTS ',%FOR,AFSP01
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 02        ',' CNTS ',%FOR,AFSP02
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 03        ',' CNTS ',%FOR,AFSP03
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 04        ',' CNTS ',%FOR,AFSP04
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 05        ',' CNTS ',%FOR,AFSP05
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 07        ',' CNTS ',%FOR,AFSP07
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 08        ',' CNTS ',%FOR,AFSP08
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 09        ',' CNTS ',%FOR,AFSP09
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 10        ',' CNTS ',%FOR,AFSP10
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 11        ',' CNTS ',%FOR,AFSP11
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 12        ',' CNTS ',%FOR,AFSP12
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 13        ',' CNTS ',%FOR,AFSP13
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 14        ',' CNTS ',%FOR,AFSP14
+LETVAR='PMS PROBE FSSP RAW COUNT CELL 15        ',' CNTS ',%FOR,AFSP15
+LETVAR='PMS PROBE 200X RAW COUNT CELL 01        ',' CNTS ',%FOR,A20X01
+LETVAR='PMS PROBE 200X RAW COUNT CELL 02        ',' CNTS ',%FOR,A20X02
+LETVAR='PMS PROBE 200X RAW COUNT CELL 03        ',' CNTS ',%FOR,A20X03
+LETVAR='PMS PROBE 200X RAW COUNT CELL 04        ',' CNTS ',%FOR,A20X04
+LETVAR='PMS PROBE 200X RAW COUNT CELL 05        ',' CNTS ',%FOR,A20X05
+LETVAR='PMS PROBE 200X RAW COUNT CELL 06        ',' CNTS ',%FOR,A20X06
+LETVAR='PMS PROBE 200X RAW COUNT CELL 07        ',' CNTS ',%FOR,A20X07
+LETVAR='PMS PROBE 200X RAW COUNT CELL 08        ',' CNTS ',%FOR,A20X08
+LETVAR='PMS PROBE 200X RAW COUNT CELL 09        ',' CNTS ',%FOR,A20X09
+LETVAR='PMS PROBE 200X RAW COUNT CELL 10        ',' CNTS ',%FOR,A20X10
+LETVAR='PMS PROBE 200X RAW COUNT CELL 11        ',' CNTS ',%FOR,A20X11
+LETVAR='PMS PROBE 200X RAW COUNT CELL 12        ',' CNTS ',%FOR,A20X12
+LETVAR='PMS PROBE 200X RAW COUNT CELL 13        ',' CNTS ',%FOR,A20X13
+LETVAR='PMS PROBE 200X RAW COUNT CELL 14        ',' CNTS ',%FOR,A20X14
+LETVAR='PMS PROBE 200X RAW COUNT CELL 15        ',' CNTS ',%FOR,A20X15
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 01        ',' CNTS ',%FOR,A20Y01
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 02        ',' CNTS ',%FOR,A20Y02
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 03        ',' CNTS ',%FOR,A20Y03
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 04        ',' CNTS ',%FOR,A20Y04
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 05        ',' CNTS ',%FOR,A20Y05
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 06        ',' CNTS ',%FOR,A20Y06
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 07        ',' CNTS ',%FOR,A20Y07
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 08        ',' CNTS ',%FOR,A20Y08
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 09        ',' CNTS ',%FOR,A20Y09
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 10        ',' CNTS ',%FOR,A20Y10
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 11        ',' CNTS ',%FOR,A20Y11
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 12        ',' CNTS ',%FOR,A20Y12
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 13        ',' CNTS ',%FOR,A20Y13
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 14        ',' CNTS ',%FOR,A20Y14
+LETVAR='PMS PROBE 200Y RAW COUNT CELL 15        ',' CNTS ',%FOR,A20Y15
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 01    ',' N/CM3',%FOR,CFSP01
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 02    ',' N/CM3',%FOR,CFSP02
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 03    ',' N/CM3',%FOR,CFSP03
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 04    ',' N/CM3',%FOR,CFSP04
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 05    ',' N/CM3',%FOR,CFSP05
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 06    ',' N/CM3',%FOR,CFSP06
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 07    ',' N/CM3',%FOR,CFSP07
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 08    ',' N/CM3',%FOR,CFSP08
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 09    ',' N/CM3',%FOR,CFSP09
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 10    ',' N/CM3',%FOR,CFSP10
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 11    ',' N/CM3',%FOR,CFSP11
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 12    ',' N/CM3',%FOR,CFSP12
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 13    ',' N/CM3',%FOR,CFSP13
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 14    ',' N/CM3',%FOR,CFSP14
+LETVAR='FSSP CORRECTED CONCENTRATION CELL 15    ',' N/CM3',%FOR,CFSP15
+LETVAR='200X CORRECTED CONCENTRATION CELL 01    ',' N/L  ',%FOR,C20X01
+LETVAR='200X CORRECTED CONCENTRATION CELL 02    ',' N/L  ',%FOR,C20X02
+LETVAR='200X CORRECTED CONCENTRATION CELL 03    ',' N/L  ',%FOR,C20X03
+LETVAR='200X CORRECTED CONCENTRATION CELL 04    ',' N/L  ',%FOR,C20X04
+LETVAR='200X CORRECTED CONCENTRATION CELL 05    ',' N/L  ',%FOR,C20X05
+LETVAR='200X CORRECTED CONCENTRATION CELL 06    ',' N/L  ',%FOR,C20X06
+LETVAR='200X CORRECTED CONCENTRATION CELL 07    ',' N/L  ',%FOR,C20X07
+LETVAR='200X CORRECTED CONCENTRATION CELL 08    ',' N/L  ',%FOR,C20X08
+LETVAR='200X CORRECTED CONCENTRATION CELL 09    ',' N/L  ',%FOR,C20X09
+LETVAR='200X CORRECTED CONCENTRATION CELL 10    ',' N/L  ',%FOR,C20X10
+LETVAR='200X CORRECTED CONCENTRATION CELL 11    ',' N/L  ',%FOR,C20X11
+LETVAR='200X CORRECTED CONCENTRATION CELL 12    ',' N/L  ',%FOR,C20X12
+LETVAR='200X CORRECTED CONCENTRATION CELL 13    ',' N/L  ',%FOR,C20X13
+LETVAR='200X CORRECTED CONCENTRATION CELL 14    ',' N/L  ',%FOR,C20X14
+LETVAR='200X CORRECTED CONCENTRATION CELL 15    ',' N/L  ',%FOR,C20X15
+LETVAR='200Y CORRECTED CONCENTRATION CELL 01    ',' N/L  ',%FOR,C20Y01
+LETVAR='200Y CORRECTED CONCENTRATION CELL 02    ',' N/L  ',%FOR,C20Y02
+LETVAR='200Y CORRECTED CONCENTRATION CELL 03    ',' N/L  ',%FOR,C20Y03
+LETVAR='200Y CORRECTED CONCENTRATION CELL 04    ',' N/L  ',%FOR,C20Y04
+LETVAR='200Y CORRECTED CONCENTRATION CELL 05    ',' N/L  ',%FOR,C20Y05
+LETVAR='200Y CORRECTED CONCENTRATION CELL 06    ',' N/L  ',%FOR,C20Y06
+LETVAR='200Y CORRECTED CONCENTRATION CELL 07    ',' N/L  ',%FOR,C20Y07
+LETVAR='200Y CORRECTED CONCENTRATION CELL 08    ',' N/L  ',%FOR,C20Y08
+LETVAR='200Y CORRECTED CONCENTRATION CELL 09    ',' N/L  ',%FOR,C20Y09
+LETVAR='200Y CORRECTED CONCENTRATION CELL 10    ',' N/L  ',%FOR,C20Y10
+LETVAR='200Y CORRECTED CONCENTRATION CELL 11    ',' N/L  ',%FOR,C20Y11
+LETVAR='200Y CORRECTED CONCENTRATION CELL 12    ',' N/L  ',%FOR,C20Y12
+LETVAR='200Y CORRECTED CONCENTRATION CELL 13    ',' N/L  ',%FOR,C20Y13
+LETVAR='200Y CORRECTED CONCENTRATION CELL 14    ',' N/L  ',%FOR,C20Y14
+LETVAR='200Y CORRECTED CONCENTRATION CELL 15    ',' N/L  ',%FOR,C20Y15
+LETVAR='CORRECTED IRS LATITUDE(USING GPS)       ',' DEG  ',%FOR,XALATC
+LETVAR='CORRECTED IRS LONGITUDE(USING GPS)      ',' DEG  ',%FOR,XALONC
+LETVAR='CORRECTED DISTANCE EAST OF START        ',' KM   ',%FOR,XDEIC
+LETVAR='CORRECTED DISTANCE NORTH OF START       ',' KM   ',%FOR,XDNIC
+LETVAR='CORRECTED HORIZONTAL WIND DIRECTION     ',' DEG  ',%FOR,XWDC
+LETVAR='CORRECTED HORIZONTAL WIND SPEED         ',' M/S  ',%FOR,XWSC
+LETVAR='CORRECTED WIND EAST COMPONENT           ',' M/S  ',%FOR,XUC
+LETVAR='CORRECTED WIND NORTH COMPONENT          ',' M/S  ',%FOR,XVC
+LETVAR='CORRECTED WIND VERTICAL COMPONENT       ',' M/S  ',%FOR,XWC
+LETVAR='CORRECTED WIND LONGITUDINAL COMPONENT   ',' M/S  ',%FOR,XUXC
+LETVAR='CORRECTED WIND LATERAL COMPONENT        ',' M/S  ',%FOR,XVYC
+LETVAR='CORRECTED IRS GROUND SPEED EAST COMP.   ',' M/S  ',%FOR,XVEWC
+LETVAR='CORRECTED IRS GROUND SPEED NORTH COMP.  ',' M/S  ',%FOR,XVNSC
+/
+/  ATTENTION: insert ADSUD TITLES if it was generated FOR THIS PROJECT
+/
+ENDUD
+/----------------------------------------------------------SHIFT PD01
+/ FETCH 219,240
+BEGINPD
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/               X  SHIFT    OPERATION           X
+/               X  PROGRAMMER DIRECTIVE FILE    X
+/               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+DEFGEN =   NAMEOP, ITYPOP, NUMCYC, OVRLAP,    NAMPD,       NAMLIB
+DIMGEN =    SHFT ,   2,     -1,      0,     'NONE'  ,      'NONE'
+/
+MODGEN =  NAMPD, NAMLIB, NUMCYC, OVRLAP
+/
+DEFVAR = NAMVAR, INDGET, INRATE, INDPUT
+DIMVAR = NAMVAR,    0  ,   0   ,   0
+/
+DEFVAR =    RATE, STSHFT, DYSHFT, DYMAX, TRPTYP, SOURCE
+DIMVAR =       1,    0. , NOLINK,    1.,     1 , NOLINK
+/
+MODVAR =  RATE,  STSHFT, DYSHFT, DYMAX, TRPTYP, SOURCE, NUMCYC
+/
+LNKVAR = DYSHFT,SOURCE
+/
+ENDPD /*********************************************************************
+LIST
+BEGINUD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X       SHIFT  OPERATION       X
+/                    X    USER DIRECTIVE FILE       X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+/##################  If set to zero, this operation will be skipped
+/NUMCYC=0
+/##################
+/
+TRPTYP = 3
+VECVAR = %T
+/ ATTENTION: set DYMAX to 1 if ARIS IV data system is used (QUEEN AIR)
+/ORDVAR = DYSHFT, DYMAX
+/LETVAR = TMLAG ,   2. , %FOR, ALAT,ALON,THI,ALAT2,ALON2,THI2
+/
+/
+/STSHFT = -.040, %FOR, PITCH,ROLL,VZI, PITCH2,ROLL2,THF2 /,VZI2
+/STSHFT = -.040, %FOR, THI,THI2
+/##################  See what a phase shift can do to help the winds
+/##################    0.02 seconds is one sample at 50sps
+/##################    positive value will advance the data
+/STSHFT = 0.020, %FOR, ACINS
+/STSHFT = 0.500, %FOR, ACINS
+/STSHFT = 0.250, %FOR, ACINS
+/STSHFT = -0.250, %FOR, ACINS
+/STSHFT = -0.500, %FOR, ACINS
+/STSHFT = -0.715, %FOR, ACINS
+/STSHFT = -0.600, %FOR, ACINS
+/STSHFT = -0.500, %FOR, PITCH
+/STSHFT = -0.240, %FOR, PITCH
+/STSHFT =  0.240, %FOR, PITCH
+STSHFT =  0.600, %FOR, PITCH
+STSHFT =  0.600, %FOR, THI
+/##################
+/
+RATE  = %T
+ENDUD
+/
+/--------------------------------------------------------------------SPFFT PD
+BEGINPD
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X  SPFFT (SPECTRA)  OPERATION  X
+/                    X  PROGRAMMER DIRECTIVE FILE   X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+/                 ****  GLOBAL CONTROLS  ****
+/
+DEFGEN =  NAMEOP  ,  NAMPD   ,  NAMLIB  , ITYPOP , NUMCYC
+DIMGEN =  SPFFT   , 'NONE'   , 'NONE'   ,   0    ,   -1
+/
+/                 ****  SNAPSHOT CONTROLS  ****
+/
+DEFGEN = FLUSHP ,  BEGSNP   ,    ENDSNP
+DIMGEN =  900   ,(0.,0.,0.) , (99.,99.,99.)
+/
+/                 ***** SPECFT CONTROLS ******
+/
+DEFGEN = ISG   , M   , ILIMS   , CONF   , LINTR
+DIMGEN =  3    , 25  ,   NO    ,  95.   ,  YES
+/
+DEFGEN = PERTP   , PERZR   , IEND   , IGRID,  LUNIT
+DIMGEN =  5.     ,  0.     ,  0     ,   5  ,    6
+/
+/    AVAILABLE TO IPRINT(8) IS   (1)STATS,(2)COSPEC,(3)X RAW,
+/                                (4)X COND,(5)FX RAW,(6)FX SMTH,
+/                                (7)TABLES,(8)CONTROLS WHERE
+/                                (1 = YES, 0 = NO)
+/
+DEFGEN = IPRINT
+DIMGEN = (1,0,0,0,0,0,1,0)
+/
+/    AVAILABLE TO IPLOT(11) IS   X RAW, X COND, Y RAW, Y COND, FX, FY,
+/                                COSPEC, QUAD, COHER, PHASE, GAIN
+/                                (1 = YES, 0 = NO)
+/
+DEFGEN = IPLOT
+DIMGEN = (1,0,1,0,1,1,0,0,1,1,0)
+/
+DEFGEN = FRUNIT   ,      LTM           ,        LFR
+DIMGEN =   1.     ,'  TIME IN SECONDS ',  ' FREQUENCY IN HERTZ'
+/
+DEFGEN = PROJECT
+DIMGEN = '                                       '
+/
+DEFGEN =   KACCUM
+DIMGEN =   (0,-1)
+/
+MODGEN =NAMPD,NAMLIB,NUMCYC,FLUSHP,BEGSNP,ENDSNP,ISG,M,
+        ILIMS,CONF,LINTR,PERTP,PERZR,IEND,IGRID,LUNIT,IPRINT,IPLOT,
+        FRUNIT,LTM,LFR,PROJECT,KACCUM
+/
+/                 ****  GLOBAL CONTROLS  ****
+/
+DEFVAR = NAMVAR,INDGET,INRATE,INDPUT
+DIMVAR = NAMVAR,   0  ,   0,     0
+/
+DEFVAR = RATE ,  SPVAR   ,   UNITS
+DIMVAR =   1  ,   (IV)   , '        '
+/
+/  IV FOR SPVAR RESULTS IN A LINE SPECTRUM
+/
+LNKVAR = SPVAR
+/                 ****  PROVIDE FINAL ORDER    ****
+/
+MODVAR = RATE , SPVAR , UNITS
+/
+ENDPD /*********************************************************************
+/
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/                    X  SPFFT (SPECTRA)  OPERATION  X
+/                    X  USER  DIRECTIVE FILE        X
+/                    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+/
+BEGINUD
+PROJECT = %D
+UNITS = %T
+VECVAR = PITCH, AKRD, ACINS, WP3, IVSPD, THI, SSRD
+SPVAR = NOLINK
+SPVAR = ACINS, AKRD, %FOR, PITCH
+SPVAR = IVSPD, PITCH, %FOR, WP3
+SPVAR = ACINS, %FOR, AKRD
+SPVAR = SSRD, %FOR, THI
+/SPVAR = IV
+RATE = %T
+ENDUD
+ENDCASE
+ENDJOB

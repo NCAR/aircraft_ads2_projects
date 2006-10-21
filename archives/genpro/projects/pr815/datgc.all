@@ -1,0 +1,10 @@
+;
+; !GPS Correction software control file for all flights! ;
+; !Rename file or copy to file with name such as datgcRF##s.815! ;
+; !Semicolons are important for terminating the input attributes! ;
+;
+grab:all;
+fix_winds;
+low_rate;
+quit;
+;

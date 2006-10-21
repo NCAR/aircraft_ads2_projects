@@ -1,0 +1,39 @@
+#! /bin/csh -f
+# To cat all GENPRO CALIB IFTRAN modification code together here
+onintr abort
+set file = calif.815
+set ofile = temp$$
+if (-e $file) echo overwriting $file
+cat \
+ $GPREFCAL/repsav.x \
+ $GPREFCAL/calsvblk \
+ $GPREFCAL/rpsv08r \
+ $GPREFCAL/rdm08 \
+ $GPREFCAL/caladd \
+ $GPREFCAL/input \
+ $GPREFCAL/calib1 \
+ $GPREFCAL/stdlib \
+ $GPREFCAL/radome.el \
+ $GPREFCAL/gusth.test \
+ $GPREFCAL/ethetae.if \
+ $GPREFCAL/splwcc.if \
+ $GPREFCAL/slwccz.if \
+ $GPREFCAL/shgme \
+ $GPREFCAL/spalt \
+ $GPREFCAL/sx200.if \
+ $GPREFCAL/newfssp \
+ $GPREFCAL/fxfsp.f \
+ $GPREFCAL/pmsplt \
+ $GPREFCAL/sy200.if \
+ $GPREFCAL/sdeni \
+> $ofile
+if (-e $file) /bin/rm $file >& /dev/null
+mv $ofile $file
+exit 0
+abort:
+/bin/rm $file >& /dev/null
+exit 1
+# $GPREFCAL/pms1d.if \
+# $GPREFCAL/newsefm \
+# $GPREFCAL/new260x \
+# $GPREFCAL/atkslp \
