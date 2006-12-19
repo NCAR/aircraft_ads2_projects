@@ -1,0 +1,180 @@
+Analog TEO3C being renamed to TEO3.
+XPH has no units or title/long_name.
+LHLO has no units or title/long_name.
+HGM232S has no units.
+H2DV15_LWO has no units or title/long_name.
+H2DMTMP_LWO has no units or title/long_name.
+H2DEE1_LWO has no units or title/long_name.
+H2DEE32_LWO has no units or title/long_name.
+H2DVN15_LWO has no units or title/long_name.
+H2DV5_LWO has no units or title/long_name.
+H2DV15_LWI has no units or title/long_name.
+H2DMTMP_LWI has no units or title/long_name.
+H2DEE1_LWI has no units or title/long_name.
+H2DEE32_LWI has no units or title/long_name.
+H2DVN15_LWI has no units or title/long_name.
+H2DV5_LWI has no units or title/long_name.
+REJAT_LPC has no units.
+TTWHC has no units or title/long_name.
+REFF2DC_LWO1 has no units or title/long_name.
+REFFF2DC_LWO1 has no units or title/long_name.
+REFF6_RWI has no units or title/long_name.
+REFFF6_RWI has no units or title/long_name.
+REFFF2DC has no dependencies, turning off.
+REFFF2DC has no dependencies, turning off.
+RICO - 135, Flight rf01
+Revision: 3447
+Analog TEO3C being renamed to TEO3.
+REFFF2DC has no dependencies, turning off.
+REFFF2DC has no dependencies, turning off.
+Loading setup file: /jnet/local/projects/135/C130_N130AR/Production/Flight_rf01
+Request to set non-existent default, CX_1.
+Blankout can not apply to variable DAY, clearing.
+Blankout can not apply to variable HOUR, clearing.
+Blankout can not apply to variable MINUTE, clearing.
+Blankout can not apply to variable MONTH, clearing.
+Blankout can not apply to variable SECOND, clearing.
+Blankout can not apply to variable YEAR, clearing.
+Blankout can not apply to variable ONE, clearing.
+Blankout can not apply to variable ZERO, clearing.
+NCAR C-130 pcor's installed.
+PCORS:  AIRS-II and later pcors().
+Request for non-existent default, RECFRH.
+Request for non-existent default, RECFRN.
+Request for non-existent default, RECFB.
+Request for non-existent default, GPS_UPFCTR.
+GPS_UPFCTR set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+GPS_FCTRF set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, CX_1.
+Values returned = 4.200000, 0.871200, -0.004500, -0.005600 in AMLIB function lymanInit.
+Request for non-existent default, CX_2.
+Values returned = 4.200000, 0.871200, -0.004500, -0.005600 in AMLIB function lymanInit.
+Request for non-existent default, TEO3CAL.
+Value set to 0,1,0 in AMLIB function TEO3CAL.
+Processed on: 2006-10-31 23:29:33 +0000
+Flight Date: 12/07/2004
+
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Production run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+REFF2DC_LWO1 has no entry in the VarDB.
+REFFF6 has no entry in the VarDB.
+REFFF6_RWI has no entry in the VarDB.
+TTWHC has no entry in the VarDB.
+Advancing past odd-ball time stamp:
+  previous time = 15:50:26
+       odd time = 15:50:26
+Advancing past odd-ball time stamp:
+  previous time = 15:50:27
+       odd time = 15:50:27
+Advancing past odd-ball time stamp:
+  previous time = 15:50:28
+       odd time = 15:50:28
+Advancing past odd-ball time stamp:
+  previous time = 15:50:29
+       odd time = 15:50:29
+    advanced to = 17:30:24
+Time break of 36 seconds ending @ 17:30:24, filling in with MISSING_VALUE.
+Blanking DPLA1 from 16:10:00 to 21:52:00.
+Blanking MRLA1 from 16:10:00 to 21:52:00.
+Blanking RHLA1 from 16:10:00 to 21:52:00.
+Blanking RHOLA1 from 16:10:00 to 21:52:00.
+ The following variables depend upon this variable:
+ 
+
+Blanking PLWCC from 16:10:00 to 16:12:00.
+Blanking PLWCC1 from 16:10:00 to 16:12:00.
+Blanking PLWCC from 21:50:00 to 21:51:15.
+Blanking PLWCC1 from 21:50:00 to 21:51:15.
+Blanking HGM232 from 21:50:38 to 21:51:15.
+  WARNING: HGM232 NOT found!  Continuing.
+Blanking DPB from 20:12:00 to 20:25:21.
+  WARNING: DPB NOT found!  Continuing.
+Blanking DPBC from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPXC from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking EDPC from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking THETAE from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking THETAV from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHODT from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking MR from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking RHUM from 20:12:00 to 20:25:21.
+ The following variables depend upon this variable:
+ 
+
+Blanking DPT from 17:16:15 to 17:18:47.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 17:16:15 to 17:18:47.
+Blanking DPT from 20:17:14 to 20:18:04.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 20:17:14 to 20:18:04.
+Blanking DPT from 20:44:50 to 20:50:50.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 20:44:50 to 20:50:50.
+Blanking OAT from 19:41:50 to 19:42:01.
+Blanking OAT from 20:18:38 to 20:18:53.
+Blanking OAT from 19:53:34 to 19:53:40.
+Blanking OAT from 18:47:43 to 18:47:50.
+Time interval(s) completed : 
+16:10:00-21:52:00
+
+ACINS: 4 spikes removed with slope exceeding 4.000000
+LAT: 1 spikes removed with slope exceeding 0.200000
+PITCH: 2 spikes removed with slope exceeding 1.300000
+ROLL: 5 spikes removed with slope exceeding 1.300000
+THDG: 3 spikes removed with slope exceeding 1.500000
+VEW: 2 spikes removed with slope exceeding 20.000000
+IRS Error report: Latitude had 7 values of 0 (zero).
+IRS Error report: Longitude had 4 values of 0 (zero).
+IRS Error report: Ground Speed had 20664 values of 0 (zero).
+IRS Error report: Track Angle had 18 values of 0 (zero).
+IRS Error report: True Heading had 27 values of 0 (zero).
+IRS Error report: Pitch had 67 values of 0 (zero).
+IRS Error report: Roll had 44 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 41 values of 0 (zero).
+IRS Error report: Vertical Speed had 30 values of 0 (zero).
+IRS Error report: NS Velocity had 20662 values of 0 (zero).
+IRS Error report: EW Velocity had 20665 values of 0 (zero).
+Processing took 1.1 minutes.

@@ -103,3 +103,41 @@ page.
 
 Ron
 Tue Jul  5 10:39:58 MDT 2005
+
+-------
+
+After Allen reprocessed the PMS-2D data and merged the results into the
+2nd production netCDF files, I moved the originals on the Mass Store to
+the directory /RAF/2005/135/2ND_PRODUCTION/LRT/ and archived the new versions
+in the reference directory  /ATD/DATA/200[45]/RICO/C130_N130AR/LRT/.
+
+The new nimbus processor (used for the PMS-2D processing) has been archived
+using its Subversion revision number (3436):
+ /RAF/2005/135/nimbus_3436.tar.dir
+ /RAF/2005/135/nimbus_3436.tar
+ /RAF/2005/135/nimbus_defaults_3436.tar.dir
+ /RAF/2005/135/nimbus_defaults_3436.tar
+
+Ron
+Tue Nov  7 15:06:16 MST 2006
+
+-------
+
+Some files in the parent directory (C130_N130AR) were used to convert Teresa's
+ASCII Ozone data files to netCDF.  (See script o32cdf.)  The gattribs* files
+were meant to add global attributes to each file, but the files converted with
+them would not work with ncplot.  For documentation purposes, these attributes
+can be added back after the files' data have been merged into the RICO
+production data files.
+
+I discovered, while trying to convert these, that "asc2cdf" doesn't like
+certain characters to appear in variable names:  "/" and possibly "^" and
+"_".  I'm not totally sure why.  The program never produced an error report
+or other sign of failure other than failing to output the "Time interval
+completed = ..." message just before it quit.
+
+Ron
+Fri Dec 15 20:33:39 GMT 2006
+
+-------
+

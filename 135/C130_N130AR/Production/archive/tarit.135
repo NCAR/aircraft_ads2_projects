@@ -33,14 +33,26 @@
 #   3.  A "proj.info" file exists in the project's "Production" subdirectory
 #
 #  Get setup information for this project
-set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
-set OSTYPE = `uname`
-set PROJDIR = $LOCAL/proj/$PROJ
-set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
-set PROJNAME = `cat $PROJDIR/ProjectName`
-set OFILE = "$PROJDIR/Production/$PROJ.tar"
+pushd ../.. >& /dev/null
+set PDIR = `pwd`
+cd ..
+set PROJ = `pwd | awk -F/ '{print $NF}'`
+popd >& /dev/null
+set PRDIR = $PDIR/Production
+set FY = `grep FY $PRDIR/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PDIR/ProjectName`
+set OFILE = "$PRDIR/$PROJ.tar"
+
+#set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set OSTYPE = `uname`
+#set PROJDIR = $LOCAL/proj/$PROJ
+#set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+#set PROJNAME = `cat $PROJDIR/ProjectName`
+#set OFILE = "$PROJDIR/Production/$PROJ.tar"
 #
-cd $PROJDIR
+#cd $PROJDIR
+#
+cd $PDIR
 tar chvf $OFILE \
 Categories \
 Defaults \
@@ -97,6 +109,7 @@ Production/Flight_ff02L \
 Production/Flight_ff05 \
 Production/Flight_ff05L \
 Production/Flight_rf01 \
+Production/Flight_rf01H \
 Production/Flight_rf01L \
 Production/Flight_rf02 \
 Production/Flight_rf02L \
@@ -124,6 +137,7 @@ Production/Flight_rf18 \
 Production/Flight_rf18L \
 Production/Flight_rf19 \
 Production/Flight_rf19L \
+Production/PVM100_Catalog.txt \
 Production/Ron_notes \
 Production/holdBlankOuts.rf01 \
 Production/logFile_HRT.ff02 \
@@ -168,8 +182,11 @@ Production/logFile_LRT.rf16 \
 Production/logFile_LRT.rf17 \
 Production/logFile_LRT.rf18 \
 Production/logFile_LRT.rf19 \
+Production/logfile_LRT.rf01 \
 Production/proj.info \
+Production/taplog.PVM.135 \
 Production/taplog.camera.135 \
+Production/taplog.dgps.135 \
 Production/taplog.hrt.135 \
 Production/taplog.lrt.135 \
 Production/taplog.movie.135 \
@@ -178,12 +195,15 @@ Production/archive/arch2d.135 \
 Production/archive/archads.135 \
 Production/archive/archcam.135 \
 Production/archive/archcam_cleanup \
+Production/archive/archdgps.135 \
 Production/archive/archive.support \
+Production/archive/archive.support_2 \
 Production/archive/archmovie.135 \
 Production/archive/archprodnc_H.135 \
 Production/archive/archprodnc_L.135 \
 Production/archive/archpvm100.135 \
 Production/archive/archskel.135 \
+Production/archive/dgps_notes \
 Production/archive/tapes.135 \
 Production/archive/tarit.135 \
 Production/archive/Camera_Archive/DR_times.txt \
@@ -374,6 +394,16 @@ Production/archive/Camera_Archive/File_Lists/TF03.FWD.20041123.200000_205959.jpg
 Production/archive/Camera_Archive/File_Lists/TF03.FWD.20041123.210000_214259.jpg.tar.dir \
 Production/archive/Camera_Archive/File_Lists/TF04.FWD.20041130.195700_195959.jpg.tar.dir \
 Production/archive/Camera_Archive/File_Lists/TF04.FWD.20041130.200000_202109.jpg.tar.dir \
+Production/archive/DGPS/Final_data.tar.dir \
+Production/archive/DGPS/Flights.tar.dir \
+Production/archive/DGPS/RAF_test.tar.dir \
+Production/archive/DGPS/RICO_flight.tar.dir \
+Production/archive/DGPS/RICO_ground.tar.dir \
+Production/archive/DGPS/Static_FBO_loc.tar.dir \
+Production/archive/DGPS/Support_Files.tar.dir \
+Production/archive/DGPS/UW_data.tar.dir \
+Production/archive/DGPS/dgps_notes \
+Production/archive/DGPS/rtknav_attitude_replay.tar.dir \
 Web/PN_Site_Changes \
 Web/Welcome_User_Message \
 Web/Accounts/All_accts_sort.txt \
@@ -757,9 +787,11 @@ Web/Instrument_Status/C130Q_status.pl_template \
 Web/Instrument_Status/README.Instrument_Status \
 Web/Instrument_Status/notes \
 Web/Instrument_Status/old_C130Q_status.pl \
-Web/PostNuke/PN_RICO.gz \
-Web/PostNuke/RICO_11Jul2005.tar.gz \
-Web/PostNuke/rico_11Jul2005.sql.gz
+Web/PostNuke/backup/PN_RICO.gz \
+Web/PostNuke/backup/RICO_11Jul2005.tar.gz \
+Web/PostNuke/backup/rico_11Jul2005.sql.gz \
+Web/PostNuke/backup/rico_postnuke_20051111.tar.dir \
+Web/PostNuke/backup/rico_postnuke_20051111.tar.gz
 #
 #  At this point one needs a list of files immediately under the above "tar
 #   command.  As a starting point, one can use the `vi' command:

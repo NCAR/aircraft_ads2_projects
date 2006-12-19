@@ -109,6 +109,18 @@ echo "#  Job(s) submitted on `date`"
 #  ----------------------------------------
 #
 #
+# Done.
+echo "#   msrcp job  -- OK -- "
+echo "#  Completed on `date`"
+exit
+#
+#
+# -----------------------------------------------------------------------------
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+#
 #  Files to go to main MSS directory (not renamed)
 #
 set DIR = $PRDIR
@@ -181,16 +193,49 @@ while ($num <= $todo)
 end
 #
 #
-# Done.
-echo "#   msrcp job  -- OK -- "
-echo "#  Completed on `date`"
-exit
+#  Files to go to main MSS directory (not renamed)
 #
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
 #
-# -----------------------------------------------------------------------------
+set FILES = ( \
+135.tar \
+135.tar.dir \
+Mail.135 \
+taplog.lrt.135 \
+taplog.PVM.135 \
+taplog.movie.135 \
+nimbus_3436.tar \
+nimbus_3436.tar.dir \
+nimbus_defaults_3436.tar \
+nimbus_defaults_3436.tar.dir \
+)
 #
-#  Archiving segments that have been completed
-#  -------------------------------------------
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $FILE -- Failed -- `date`"
+      echo "#                $FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
 #
 #  -------------------------------------------------------------------------
 #   T E M P L A T E S   (c o p y   &   e d i t ,   a s   n e c e s s a r y )
@@ -416,4 +461,22 @@ echo \
 #  msrcp job for tapes.135 -- OK -- Fri Jun 30 16:20:52 MDT 2006
 #   msrcp job  -- OK --
 #  Completed on Fri Jun 30 16:20:52 MDT 2006
+#
+# -----------------------------------------------------------------------------
+#
+#  MSS path for all bitfiles listed below:  /RAF/2005/135/
+#
+#  Job(s) submitted on Tue Nov  7 16:32:09 MST 2006
+#  msrcp job for 135.tar -- OK -- Tue Nov  7 16:32:22 MST 2006
+#  msrcp job for 135.tar.dir -- OK -- Tue Nov  7 16:32:27 MST 2006
+#  msrcp job for Mail.135 -- OK -- Tue Nov  7 16:32:33 MST 2006
+#  msrcp job for taplog.lrt.135 -- OK -- Tue Nov  7 16:32:38 MST 2006
+#  msrcp job for taplog.PVM.135 -- OK -- Tue Nov  7 16:32:42 MST 2006
+#  msrcp job for taplog.movie.135 -- OK -- Tue Nov  7 16:32:46 MST 2006
+#  msrcp job for nimbus_3436.tar -- OK -- Tue Nov  7 16:32:51 MST 2006
+#  msrcp job for nimbus_3436.tar.dir -- OK -- Tue Nov  7 16:32:55 MST 2006
+#  msrcp job for nimbus_defaults_3436.tar -- OK -- Tue Nov  7 16:33:00 MST 2006
+#  msrcp job for nimbus_defaults_3436.tar.dir -- OK -- Tue Nov  7 16:33:05 MST 2006
+#   msrcp job  -- OK --
+#  Completed on Tue Nov  7 16:33:05 MST 2006
 #
