@@ -1,0 +1,91 @@
+[GMT 05/15/06 00:00:00] --- Mon May 15 2006
+[GMT 05/15/06 13:08:51] GTRDC-DFRC (Suborbital@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 15:29:05] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 15:42:18] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 15:42:37] <ICATS_DC8> Hello World
+[GMT 05/15/06 15:44:07] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 15:45:32] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 15:52:33] <GTRDC-DFRC> Good morinng
+[GMT 05/15/06 15:52:59] <GTRDC-DFRC> How's it going?
+[GMT 05/15/06 15:54:00] <ICATS_DC8> All's well
+[GMT 05/15/06 15:54:09] <ICATS_DC8> Had to pull out the USB mouse
+[GMT 05/15/06 15:54:23] <GTRDC-DFRC> Hopefully I'll get that fixed after INTEX
+[GMT 05/15/06 15:54:41] <GTRDC-DFRC> I see the C-130 is up, and your note, are you meeting the 130
+[GMT 05/15/06 15:54:50] <ICATS_DC8> Can U deal with an ICATS Question?
+[GMT 05/15/06 15:54:59] <GTRDC-DFRC> Sure
+[GMT 05/15/06 15:55:08] <ICATS_DC8> Yes we have 2 intercomp. legs
+[GMT 05/15/06 15:55:12] <ICATS_DC8> one owth the C1309
+[GMT 05/15/06 15:55:32] <ICATS_DC8> one with the U Washington Dutches
+[GMT 05/15/06 15:55:51] <ICATS_DC8> We did a flight that crossed +/- 180
+[GMT 05/15/06 15:55:58] <ICATS_DC8> the map did NOT like it
+[GMT 05/15/06 15:56:42] <ICATS_DC8> What's the trick in the pacific when you cross +/- 180 so that you have a GOOD map displayed at all times?
+[GMT 05/15/06 15:57:03] <GTRDC-DFRC> Seems to me I remember a bug in the code with the map and the 180 line.
+[GMT 05/15/06 15:57:17] <ICATS_DC8> The Hang Man said just live with the bug
+[GMT 05/15/06 15:57:19] <GTRDC-DFRC> Did you have a waypoint across the line?
+[GMT 05/15/06 15:57:32] <ICATS_DC8> Yes, but only one
+[GMT 05/15/06 15:57:44] <ICATS_DC8> We had two on +/- 180
+[GMT 05/15/06 15:57:48] <GTRDC-DFRC> Did you input it correctly?  Did that waypoint display correctly?
+[GMT 05/15/06 15:58:12] <ICATS_DC8> It want to show the whole world
+[GMT 05/15/06 15:58:40] <ICATS_DC8> I triec to use both -180 and +180
+[GMT 05/15/06 15:59:09] <ICATS_DC8> It was best delt with a radius around the one wypt on the + side of 180
+[GMT 05/15/06 15:59:11] <GTRDC-DFRC> Are you sure you used the correct + or - sign for the point?  If you use the wrong sign the system says it is invalid and will show the whole world.
+[GMT 05/15/06 15:59:27] <ICATS_DC8> I did not have a map when we were near 180
+[GMT 05/15/06 16:00:13] <GTRDC-DFRC> I don't believe you can input exactly 180 in the map program, I think you need to use a point either side of it.
+[GMT 05/15/06 16:01:00] <GTRDC-DFRC> If you did say +179.00.00 and -179.00.00 it might work correctly.
+[GMT 05/15/06 16:01:05] <ICATS_DC8> That about what I found out
+[GMT 05/15/06 16:01:19] <ICATS_DC8> having wypts at 180, 00.0 REALLY suck
+[GMT 05/15/06 16:01:51] <GTRDC-DFRC> The problem is -180 and +180 are the same point
+[GMT 05/15/06 16:02:10] <ICATS_DC8> Yep
+[GMT 05/15/06 16:02:29] <ICATS_DC8> I could nt get eitehr one to display on any map\
+[GMT 05/15/06 16:02:57] <GTRDC-DFRC> Just like you can't use the equator either, you have to go just above or just below for it to display correctly.
+[GMT 05/15/06 16:03:25] <ICATS_DC8> I did NOT think about that one :O
+[GMT 05/15/06 16:05:09] <GTRDC-DFRC> There is one other thing to ask Richard about or look at yourself, ensure the map program is using the HiRes World Map and not just the Western Hemisphere.
+[GMT 05/15/06 16:05:57] <ICATS_DC8> When we got to AK I started using High Res AK, Canada, and US
+[GMT 05/15/06 16:06:10] <ICATS_DC8> The Hang man had me using low res world in Texas
+[GMT 05/15/06 16:06:22] <GTRDC-DFRC> You can't cross 180 with the one you were using.
+[GMT 05/15/06 16:06:31] <ICATS_DC8> I think I should have changed to High Res USA and Mex.
+[GMT 05/15/06 16:06:58] <GTRDC-DFRC> Hang man uses the lowRes to save on memory, hires definitely shows more stuff.
+[GMT 05/15/06 16:07:37] <ICATS_DC8> He said the High Res world did NOT work wit runtp @icatsmap
+[GMT 05/15/06 16:08:03] <ICATS_DC8> Got to go and get Hank a sat image
+[GMT 05/15/06 16:08:09] <ICATS_DC8> I'll B Back
+[GMT 05/15/06 16:16:04] <GTRDC-DFRC> Always did in the DADS days, don't know what the problem is now.
+[GMT 05/15/06 16:16:26] <GTRDC-DFRC> I'll be away from the term for a while.  I'll check back later on.
+[GMT 05/15/06 16:17:17] <ICATS_DC8> Rodger that
+[GMT 05/15/06 16:26:12] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 05/15/06 16:26:49] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 16:49:59] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 16:50:08] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 16:59:30] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 17:15:22] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 17:27:48] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: EOF from client
+[GMT 05/15/06 17:28:31] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 17:54:54] <GTRDC-DFRC> I see you boys are getting close to each other.
+[GMT 05/15/06 17:57:39] <ICATS_DC8> right
+[GMT 05/15/06 17:58:03] <ICATS_DC8> We had to Xchat and send emails to the other 2 birds
+[GMT 05/15/06 17:58:27] <ICATS_DC8> Phone was not working correctly
+[GMT 05/15/06 17:58:27] <ICATS_DC8> Biy was I bizzzzzzzzz
+[GMT 05/15/06 18:15:38] <GTRDC-DFRC> It's why you get paid the 'big' bucks for.  Now you know about our headaches.
+[GMT 05/15/06 18:17:12] <ICATS_DC8> With RS in the mission Sci chair wanting to email 
+[GMT 05/15/06 18:45:00] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 18:45:03] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 19:10:37] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 19:13:50] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 19:56:27] GTRDC-DFRC (Suborbital@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 05/15/06 19:56:37] GTRDC-DFRC (Suborbital@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 19:56:50] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 19:57:03] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 19:59:31] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 20:20:53] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 20:54:05] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 20:54:16] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 21:01:38] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 21:19:00] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 22:46:58] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 22:47:01] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 22:52:08] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 23:00:17] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/15/06 23:07:40] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 23:12:42] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 05/15/06 23:28:30] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 05/15/06 23:32:09] GTCIMS_DC8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 05/16/06 00:00:00] --- Tue May 16 2006

@@ -1,0 +1,420 @@
+[GMT 03/28/06 01:00:05] sabl-ops-veracruz (sabl@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 01:15:08] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) left irc: Quit
+[GMT 03/28/06 01:27:04] knapp_veracruz (david@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 01:27:10] knapp_veracruz (david@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 03:05:01] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 07:16:17] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) left irc: Quit
+[GMT 03/28/06 07:44:53] TeresaCampos-bldr (TeresaCamp@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 09:27:32] DannyOpsRm1 (danny@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 09:35:54] DataSystem-c130 (ads@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 09:48:53] <DannyOpsRm1> Clouds appear to be clear from measurement area
+[GMT 03/28/06 09:49:54] <DannyOpsRm1> Sasha Reports Clouds appear to be clear from measurement area
+[GMT 03/28/06 09:55:06] sasha (sasha@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 09:55:20] Nick change: sasha -> sasha_VerOpCtr
+[GMT 03/28/06 10:08:09] <DataSystem-c130> Takeoff climbing out of 6600 now.
+[GMT 03/28/06 10:08:10] adsCockpit-c130 (ads@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:08:13] <DataSystem-c130> takeoff was 1004
+[GMT 03/28/06 10:10:21] sabl-C130 (sabl@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:11:32] CH2O_C130 (datsys@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:11:51] <adsCockpit-c130> we're busted I think
+[GMT 03/28/06 10:11:57] <adsCockpit-c130> engine 3 light came on
+[GMT 03/28/06 10:12:47] <adsCockpit-c130> we'll have to fly fuel off in any case
+[GMT 03/28/06 10:17:26] <adsCockpit-c130> we will continue as planned for now
+[GMT 03/28/06 10:17:32] <adsCockpit-c130> John C. will try and talk to the ground maybe there is something we can try
+[GMT 03/28/06 10:17:36] <DataSystem-c130> We are continueing with research for now.
+[GMT 03/28/06 10:20:11] <adsCockpit-c130> Crew suspects the indicator problem not a real problem
+[GMT 03/28/06 10:20:18] <adsCockpit-c130> They agreed to complete this flight unless other indications of trouble occur
+[GMT 03/28/06 10:24:43] AlSchanot-ops (schanot@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:24:46] knapp_veracruz (david@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:25:09] <AlSchanot-ops> Hi John.  I saw the message about the engine light from Sasha
+[GMT 03/28/06 10:25:43] Sam_Hall_CaminoReal (halls@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:25:45] John_Crounse_OPS (John@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:26:38] AWeinheimer-Veracruz (wein@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:26:42] <DataSystem-c130> Yes, The desciosn has been made to fly the the fight unless the engine statusd changes.  The engine has been visually inspected and looks clean.\
+[GMT 03/28/06 10:27:05] <John_Crounse_OPS> Could someone ask David McCabe what the status of the single-quad is?
+[GMT 03/28/06 10:27:20] <AlSchanot-ops> OK.  Got the good news about the rgt pod dsm
+[GMT 03/28/06 10:27:22] <DataSystem-c130> Also RW pod was off from TO to 1030, but it did boot okay in flight I think.
+[GMT 03/28/06 10:27:49] Bruning (bruning@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:28:02] <AlSchanot-ops> Interesting - Greg told be it came up on post APU restart
+[GMT 03/28/06 10:28:12] <DataSystem-c130> Nope, RT Pod just locked up again.\
+[GMT 03/28/06 10:28:52] <AlSchanot-ops> This has got to be a connection problem of some sort
+[GMT 03/28/06 10:29:40] JoseJimenez-Veracruz-OpsCtr (Jose@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:29:53] wengangZh-Veracruz (wengang@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:30:56] AWeinheimer-Veracruz (wein@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 10:31:29] JasonTomlinson-OpCntr (Jason@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:33:01] <DataSystem-c130> Al, It did come up but then it dropped out again.  I turned it off just after takeoff for 15 minutes.  It did boot again but then it runs about 2 minutes then there is an error message and it quites sending data.
+[GMT 03/28/06 10:34:11] <AlSchanot-ops> OK.  Try it occasionally - maybe we'll get lucky
+[GMT 03/28/06 10:34:24] <DataSystem-c130> Each time we do this I think we are loosing some data due to queing maybe as much as 1 minute or so.  Do you want me to try it again (data loss is in FWD and AFT DSM's).
+[GMT 03/28/06 10:34:47] <AlSchanot-ops> Wait for 30 minutes and try one more time
+[GMT 03/28/06 10:35:16] JimWalega (walega@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:35:25] <DataSystem-c130> Okay I will wait until 1115 and try it one more time.
+[GMT 03/28/06 10:35:31] <AlSchanot-ops> I don't think the data are lost during queing
+[GMT 03/28/06 10:35:54] <AlSchanot-ops> Just delayed in transit
+[GMT 03/28/06 10:36:14] <Sam_Hall_CaminoReal> Is the IRIG signal related to the dsm?
+[GMT 03/28/06 10:36:42] <AlSchanot-ops> If it does come up and stablizes, rememebr to restart the TDL via the soft switch
+[GMT 03/28/06 10:37:03] <AlSchanot-ops> Not the wing pod DSM same
+[GMT 03/28/06 10:37:09] <AlSchanot-ops> Sam
+[GMT 03/28/06 10:37:42] <Sam_Hall_CaminoReal> Frank, please ask Dave McCabe to check the status of the clock on the SAFS.  Thanks.
+[GMT 03/28/06 10:38:09] <TeresaCampos-bldr> Al, DSystem-c130, thanks for remembering the TDL.
+[GMT 03/28/06 10:38:10] AWeinheimer-Veracruz (wein@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:38:30] <DataSystem-c130> Okay Al, I haVE NOT HAD THE tdl ON AT ALL YET.
+[GMT 03/28/06 10:38:54] <AlSchanot-ops> Given the problem with the connection that is a good thing
+[GMT 03/28/06 10:39:13] <AlSchanot-ops> going for a cup of tea.  back in 10
+[GMT 03/28/06 10:39:36] <DataSystem-c130> Bye.
+[GMT 03/28/06 10:40:34] JimWalega_ (walega@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:40:34] <John_Crounse_OPS> Frank, while you're talking to David McCabe, also ask him the status of the single quad.  thnx.
+[GMT 03/28/06 10:42:09] JimWalega (walega@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 10:42:10] knapp_veracruz (david@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 03/28/06 10:44:23] heizer-ops (heizer@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:44:41] <adsCockpit-c130> From David McC.  clock on SAFS looks fine
+[GMT 03/28/06 10:44:55] <adsCockpit-c130> Single Quad looks fine
+[GMT 03/28/06 10:45:21] <Sam_Hall_CaminoReal> Thanks
+[GMT 03/28/06 10:45:48] knapp_veracruz (david@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:46:14] <John_Crounse_OPS> Thanks.
+[GMT 03/28/06 10:46:25] John_Crounse_OPS (John@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 10:48:36] Rick_Peltier_ops (rickpeltie@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:50:46] laptop-c130 (ads@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:54:20] <knapp_veracruz> frank, things ok other than oil light?
+[GMT 03/28/06 10:54:30] <adsCockpit-c130> O3 is having weird spikes on the signal
+[GMT 03/28/06 10:54:30] <adsCockpit-c130> NO pressure seems to be OK
+[GMT 03/28/06 10:55:04] <adsCockpit-c130> now I would call the O3 signal really noisy
+[GMT 03/28/06 10:55:07] <knapp_veracruz> O3 looks ok on the ads data, you mean on the console?
+[GMT 03/28/06 10:55:09] <heizer-ops> Since we had to reboot CO minutes before take-off can someone please ask Elliot if CO is doing okay?
+[GMT 03/28/06 10:56:01] <knapp_veracruz> frank, for O3, can remove 4 thumbscrews from DAQ faceplate, and make sure coax SMA is secure
+[GMT 03/28/06 10:57:04] <adsCockpit-c130> it is quiet now
+[GMT 03/28/06 10:57:04] <adsCockpit-c130> we'll keep an eye on it
+[GMT 03/28/06 10:57:13] <knapp_veracruz> ok
+[GMT 03/28/06 10:57:29] <laptop-c130> co is fine
+[GMT 03/28/06 10:58:04] <AlSchanot-ops> John: I'm back
+[GMT 03/28/06 10:58:48] <DataSystem-c130> Okay Al. I'll try it in about 7 minutes.
+[GMT 03/28/06 10:58:59] <knapp_veracruz> frank, O3 SMA connector is aft-most FYI
+[GMT 03/28/06 10:59:00] <heizer-ops> Thanks for checking on CO!!
+[GMT 03/28/06 10:59:12] John_Crounse_OPS (John@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 10:59:48] Nick change: John_Crounse_OPS -> john_crounse_asleep
+[GMT 03/28/06 10:59:54] <knapp_veracruz> hah
+[GMT 03/28/06 11:01:23] <adsCockpit-c130> O3 now quiet
+[GMT 03/28/06 11:01:41] <knapp_veracruz> we've seen that before but couldn't reproduce it
+[GMT 03/28/06 11:05:05] <adsCockpit-c130> O3 now shows the occasional "square" on the signal
+[GMT 03/28/06 11:05:25] <knapp_veracruz> elaborate
+[GMT 03/28/06 11:05:30] <adsCockpit-c130> signal jumps up 3-5 ppb then back down after 30 or so seconds
+[GMT 03/28/06 11:06:09] <knapp_veracruz> pls check that SMA
+[GMT 03/28/06 11:07:27] <adsCockpit-c130> will do. happened two times now quiet again
+[GMT 03/28/06 11:09:59] <DataSystem-c130> Al, the RW pod came up.  It seems to be stable right now.  TDL is on.
+[GMT 03/28/06 11:10:22] <AlSchanot-ops> Good news John.  Thanks
+[GMT 03/28/06 11:12:27] <DataSystem-c130> Dropping to 13.5K
+[GMT 03/28/06 11:14:36] <DataSystem-c130> Al, what are the sizes measured with the s100 and 260X?
+[GMT 03/28/06 11:28:27] <adsCockpit-c130> David - SMA was indeed loose we tightened it
+[GMT 03/28/06 11:28:41] <knapp_veracruz> tyvm
+[GMT 03/28/06 11:29:03] <adsCockpit-c130> good call
+[GMT 03/28/06 11:29:56] <knapp_veracruz> NOy, O3 features now looking more realistic from here
+[GMT 03/28/06 11:30:44] <DataSystem-c130> Al RW Pod locked up again.  Looked like it stopped the winds display. I heve turned it off for the duration of the flight.
+[GMT 03/28/06 11:33:37] sasha_VerOpCtr (sasha@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 11:33:40] AWeinheimer-Veracruz (wein@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 03/28/06 11:33:59] <knapp_veracruz> frank, can probably leave NOxyO3 in normal cal cycle until something crops up
+[GMT 03/28/06 11:34:32] <knapp_veracruz> your call
+[GMT 03/28/06 11:36:05] <adsCockpit-c130> getting to sunrise cal is off for now
+[GMT 03/28/06 11:36:53] <AlSchanot-ops> John: 100 and 260 are cld sizes greter than 3 um
+[GMT 03/28/06 11:37:20] <AlSchanot-ops> I don't know why a dsm problem would take down WINDS
+[GMT 03/28/06 11:37:41] <DataSystem-c130> Al, does the 100 got to about 40um?
+[GMT 03/28/06 11:38:14] <AlSchanot-ops> yes. 3 to 40 um approximately
+[GMT 03/28/06 11:38:34] <DataSystem-c130> Al, it almost looked like it locked up discWin.  I just shut it down because it was messed up and I did not want to risk any data.
+[GMT 03/28/06 11:39:06] <DataSystem-c130> What about the 260, 10 to 100 or so?
+[GMT 03/28/06 11:39:10] <Sam_Hall_CaminoReal> Frank, please ask David M for a pre-sunrise SAFS check.  THanks.
+[GMT 03/28/06 11:39:15] <AlSchanot-ops> so now the 100 probe on the wing is causing problems?
+[GMT 03/28/06 11:39:38] gordonf-ops-veracruz (gordonf-op@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 11:40:26] <DataSystem-c130> No, Tony Clarke wanted some info on the sizes and I did not remember them.
+[GMT 03/28/06 11:41:05] <AlSchanot-ops> Oh.  you mean the pod dsm connection was causing other problems
+[GMT 03/28/06 11:41:15] <DataSystem-c130> We flew though some clouds earlier.
+[GMT 03/28/06 11:42:42] <DataSystem-c130> Yes, it looked like it was locking up discWin which could cause no data to be collected.
+[GMT 03/28/06 11:42:57] AWeinheimer-Veracruz (wein@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 11:47:27] <AlSchanot-ops> Very strange
+[GMT 03/28/06 11:49:24] <adsCockpit-c130> SAFS is good
+[GMT 03/28/06 11:50:36] <adsCockpit-c130> little bit of stiff here some particles, 1 ppb NOy, 55 O3 about 0.4 ppb PAN
+[GMT 03/28/06 11:50:53] ChrisWebster (cjw@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 11:51:40] <DataSystem-c130> Al and Chris please join n=me in &techs
+[GMT 03/28/06 11:54:37] <adsCockpit-c130> starting to see light on the SAFS
+[GMT 03/28/06 11:56:11] <adsCockpit-c130> Info for the B-200  we are 22 min behind schedule right now
+[GMT 03/28/06 11:56:30] <adsCockpit-c130> that should be dead on for the satellite overpass
+[GMT 03/28/06 12:00:08] Sam_Hall (halls@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 12:01:09] <DannyOpsRm1> Thanks Frank. have relayed to B200 folks
+[GMT 03/28/06 12:01:38] Sam_Hall_CaminoReal (halls@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 12:11:42] <adsCockpit-c130> Now 26 min behind
+[GMT 03/28/06 12:12:18] <adsCockpit-c130> but we can easily adjust once we get to the area 
+[GMT 03/28/06 12:13:35] <DataSystem-c130> Video recording no on.
+[GMT 03/28/06 12:16:32] <AlSchanot-ops> now on?
+[GMT 03/28/06 12:16:50] <AlSchanot-ops> or no on?
+[GMT 03/28/06 12:18:51] <DannyOpsRm1> Frank, Chris tells me that making up 16 min would put you in optimal position for the Sat over pass. 
+[GMT 03/28/06 12:19:07] <DannyOpsRm1> Making up less than that would still be good
+[GMT 03/28/06 12:20:20] <DataSystem-c130> Now on.
+[GMT 03/28/06 12:20:47] <adsCockpit-c130> we can work on that once we get out there
+[GMT 03/28/06 12:20:57] <adsCockpit-c130> shouldn't be too hard
+[GMT 03/28/06 12:24:49] Sam_Hall (halls@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 12:24:50] FrankLing-Ops (ling@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 12:25:15] Sam_Hall_CaminoReal (halls@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 12:37:13] heizer-ops (heizer@rdcc.guest.ucar.edu) left &C130Q (Leaving).
+[GMT 03/28/06 12:37:56] heizer-ops (heizer@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 12:51:55] DannyOpsRm2 (danny@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 12:53:42] DannyOpsRm1 (danny@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 13:11:00] <adsCockpit-c130> For the B-200 I'm thinking of cutting this area short one run that should save us 27 min and almost get us back on schedule
+[GMT 03/28/06 13:11:32] <adsCockpit-c130> will not make final decision until mid of next leg
+[GMT 03/28/06 13:13:10] <AlSchanot-ops> roger. all b220 folks on the way to the ap
+[GMT 03/28/06 13:13:57] DannyOpsRm3 (danny@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 13:14:56] <DannyOpsRm3> Frank, stand by for an update on the position of the pollution located at the Profile location.
+[GMT 03/28/06 13:16:15] DannyOpsRm2 (danny@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 13:18:39] <DannyOpsRm3> Feature has moved  futher to the east.  
+[GMT 03/28/06 13:19:57] <DannyOpsRm3> Yesterday shown at  96-99.5W Now 95.5-95W
+[GMT 03/28/06 13:20:59] <DannyOpsRm3> Yesterday 19.5-20N Now 20-20.75
+[GMT 03/28/06 13:21:28] <DannyOpsRm3> Recommend shifting profile position to 
+[GMT 03/28/06 13:21:54] <DannyOpsRm3> 20.5N 95.33W
+[GMT 03/28/06 13:22:19] <DannyOpsRm3> Frank Please confirm recipt of this message
+[GMT 03/28/06 13:22:58] <adsCockpit-c130> Danny - got it.
+[GMT 03/28/06 13:23:22] <adsCockpit-c130> I will work on this.
+[GMT 03/28/06 13:23:22] <adsCockpit-c130> Please let B-200 know.
+[GMT 03/28/06 13:24:04] <DannyOpsRm3> Positions valid for 9am local time
+[GMT 03/28/06 13:24:04] <adsCockpit-c130> also, we want to complete the runs here since there is now indication of particle conversion etc.
+[GMT 03/28/06 13:24:22] <adsCockpit-c130> this means we'll have to cut short on the far legs somehwere to save 15 min
+[GMT 03/28/06 13:24:58] <adsCockpit-c130> what is the N-S extent of the new plume position?
+[GMT 03/28/06 13:27:23] <DannyOpsRm3> The Now coordinates (given above) are the end points it is lying roughly NW-SE
+[GMT 03/28/06 13:27:35] <adsCockpit-c130> Danny did you read?
+[GMT 03/28/06 13:27:42] <DannyOpsRm3> Yellow in Bills color schema
+[GMT 03/28/06 13:29:08] <adsCockpit-c130> OK. is this the total column or 4-6 km?
+[GMT 03/28/06 13:29:30] <adsCockpit-c130> I have total column yesyerday at 19.5-21 centered over 95.5
+[GMT 03/28/06 13:30:29] <adsCockpit-c130> Also, have altitudes chenged or still expected between 15 and 18 kft?
+[GMT 03/28/06 13:31:40] <DannyOpsRm3> The revised profile recommendation is the position of a small blob of organge 
+[GMT 03/28/06 13:31:59] <DannyOpsRm3> Yes I can confirm your previous coordinates 
+[GMT 03/28/06 13:32:11] <DannyOpsRm3> things have changed a little
+[GMT 03/28/06 13:32:32] <DannyOpsRm3> I have Chris here and we are working on a new track for the B200
+[GMT 03/28/06 13:33:52] <adsCockpit-c130> altitudes?
+[GMT 03/28/06 13:34:54] <DannyOpsRm3> Don't have updated altitude information
+[GMT 03/28/06 13:35:42] <adsCockpit-c130> please let me know when available
+[GMT 03/28/06 13:36:07] <adsCockpit-c130> Bill typically send s them to me around 7:30 am
+[GMT 03/28/06 13:36:33] <adsCockpit-c130> You might want to shoot him an email and he could mail them to you
+[GMT 03/28/06 13:39:28] FrankLing-Ops (ling@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 13:39:47] MikeDaniels-home (Mike@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 13:41:03] DannyOpsRm2 (danny@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 13:42:59] <AlSchanot-ops> John: go to &techs
+[GMT 03/28/06 13:43:13] DannyOpsRm3 (danny@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 13:46:06] ChrisWebster (cjw@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 13:46:27] MikeDaniels-home (Mike@rdcc.guest.ucar.edu) left &C130Q (Leaving).
+[GMT 03/28/06 13:52:02] <knapp_veracruz> frank, can someone confirm that NO looks 'normal' on the console? the realtime feed looks bad
+[GMT 03/28/06 13:53:17] <adsCockpit-c130> NO looks good here
+[GMT 03/28/06 13:53:23] <knapp_veracruz> thx
+[GMT 03/28/06 13:53:54] <adsCockpit-c130> Danny - changed coordinates as follows:
+[GMT 03/28/06 13:54:14] <adsCockpit-c130> New WE20   21 00 N  95 20W
+[GMT 03/28/06 13:54:49] <adsCockpit-c130> New WE21  19 30N  95 20W
+[GMT 03/28/06 13:55:01] <adsCockpit-c130> New WE22   20 30N  95 20W
+[GMT 03/28/06 13:55:29] <adsCockpit-c130> WE 22 is profile location
+[GMT 03/28/06 13:55:52] <DannyOpsRm2> Total column in answer to your question of 7:38
+[GMT 03/28/06 13:56:04] <adsCockpit-c130> keeping flt levels unchanged for now, please give me update on altitudes as soon as available
+[GMT 03/28/06 13:58:24] <DannyOpsRm2> WillCo
+[GMT 03/28/06 13:58:34] <DannyOpsRm2> Standing by for reply form Bill
+[GMT 03/28/06 13:58:47] <DannyOpsRm2> You may also get information from the B200
+[GMT 03/28/06 14:01:04] <DannyOpsRm2> B200 will survay the potential location for the profile. 
+[GMT 03/28/06 14:05:54] sasha (sasha@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:06:16] Nick change: sasha -> sasha_VerOpCtr
+[GMT 03/28/06 14:09:32] DannyOpsRm3 (danny@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:10:35] adsCockpit-c130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 14:12:13] DannyOpsRm2 (danny@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 14:12:22] sasha_VerOpCtr (sasha@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 14:12:37] sasha (sasha@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:13:58] adsCockpit-c130 (ads@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:14:37] <adsCockpit-c130> back...
+[GMT 03/28/06 14:15:00] FrankLing-Ops (ling@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:15:05] <adsCockpit-c130> missed everything since my new ETA message about 5-10 min ago
+[GMT 03/28/06 14:15:25] <knapp_veracruz> frank, if someone can undo and remake the analog out BNC connections on the NO2 analog out, may be useful, we're gettting no useful NO2 data down here
+[GMT 03/28/06 14:16:18] <DannyOpsRm3> Frank the feature seems to be be between 15 & 18kft. 
+[GMT 03/28/06 14:17:20] <adsCockpit-c130> OK thanks this is same as yesterday.
+[GMT 03/28/06 14:17:32] <adsCockpit-c130> I calculated an updated ETA for profile location
+[GMT 03/28/06 14:17:59] <adsCockpit-c130> It is 1615 (+- 10 min) given no more changes to location
+[GMT 03/28/06 14:18:52] <adsCockpit-c130> can get you more precise number once we get to new WE20
+[GMT 03/28/06 14:19:11] <DannyOpsRm3> Recommend getting specific guidance from the b200 for actual flight levels 
+[GMT 03/28/06 14:20:05] <adsCockpit-c130> sounds good. keep us posted please
+[GMT 03/28/06 14:20:09] <DannyOpsRm3> Frank do you have time to loitter at the profile location to make the Sat overpass?
+[GMT 03/28/06 14:20:19] <DannyOpsRm3> WillCo
+[GMT 03/28/06 14:21:02] MarceloMenaUiowa (cgrer@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:21:52] ling (ling@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:23:02] <adsCockpit-c130> we can loiter if necessary
+[GMT 03/28/06 14:23:02] <adsCockpit-c130> or spiral down and then back up - might be more useful
+[GMT 03/28/06 14:23:30] FrankLing-Ops (ling@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 14:24:30] sabl-C130 (sabl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 14:24:30] CH2O_C130 (datsys@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 14:26:52] CH2O_C130 (datsys@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:27:38] sabl-C130 (sabl@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:28:32] <AlSchanot-ops> Frank:  Have you changed the planned duration of the flt?  Let us know so we can alert gnd crews.  still 1030 local?
+[GMT 03/28/06 14:30:04] <DannyOpsRm3> We agree that a second spiral profile would be valuable
+[GMT 03/28/06 14:30:07] <adsCockpit-c130> Al probably about 1100 local. Flt plan says 1049 local
+[GMT 03/28/06 14:30:11] <DannyOpsRm3> particulary for TC
+[GMT 03/28/06 14:30:43] <adsCockpit-c130> not planning on getting in earlier than planned
+[GMT 03/28/06 14:31:15] <adsCockpit-c130> Danny - thanks, please keep us posted on conditions and flt level recommendations
+[GMT 03/28/06 14:31:30] <AlSchanot-ops> OK.  We'll be there
+[GMT 03/28/06 14:35:09] <adsCockpit-c130> winds up here WSW 10 m/s
+[GMT 03/28/06 14:36:11] ChrisCantrell-Boulder (Chris@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:41:10] <adsCockpit-c130> Danny - for Chris H. when is B-200 T/O???
+[GMT 03/28/06 14:41:25] <adsCockpit-c130> We will be at new WE20 in 10 min
+[GMT 03/28/06 14:41:59] <DannyOpsRm3> B-200 should be in the air now T/O 8.15
+[GMT 03/28/06 14:43:46] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 14:44:31] <adsCockpit-c130> OK. I'll start listening to 123.45
+[GMT 03/28/06 14:45:00] <DannyOpsRm3> OK The I estimate you are only about 5 minutes behinf the flight planned time
+[GMT 03/28/06 14:46:53] <adsCockpit-c130> That depends how you look at it. We were supposed to hit WE20 at 14:36
+[GMT 03/28/06 14:47:25] <adsCockpit-c130> We are therefore 20 min behind. However, since legs are now 90 miles each instead of 120 we will save 5 min each time and will b e 5 min late at profile point
+[GMT 03/28/06 14:47:35] wengangZh-Veracruz (wengang@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 14:47:45] <adsCockpit-c130> Thus the estimate of 1615 at new point WE22
+[GMT 03/28/06 14:47:57] <DannyOpsRm3> OK your estimate is better.
+[GMT 03/28/06 14:48:27] <DannyOpsRm3> Have checked the recent sat pic and your operating area appear clear of large scale clouds.
+[GMT 03/28/06 14:49:12] <sabl-C130> For J Crounse from McCabe: advise holdoff on LN2 purchase - are we flying again???
+[GMT 03/28/06 14:49:44] <adsCockpit-c130> sounds good. we don't have any below us on SABL right now
+[GMT 03/28/06 14:49:53] <adsCockpit-c130> none above us either
+[GMT 03/28/06 14:50:01] <knapp_veracruz> everyone needs to know if we're flying again
+[GMT 03/28/06 14:50:37] <DannyOpsRm3> AL S is not in the Ops Center
+[GMT 03/28/06 14:50:52] <adsCockpit-c130> Henry, Bob, John and I have talked about that
+[GMT 03/28/06 14:51:15] <adsCockpit-c130> They are not 100% comfortable with it but will think about it.
+[GMT 03/28/06 14:51:35] <knapp_veracruz> shall we buy more dry ice? 
+[GMT 03/28/06 14:51:57] MarceloMenaUiowa (cgrer@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 14:52:18] <adsCockpit-c130> The issue is if there was a problem with the engine 3 prop coming up now we would not know since the indicator is already on
+[GMT 03/28/06 14:52:31] <DannyOpsRm3> You will have to wait on the decision or risk the expence. Please keep chat traffic to flight operational considerations
+[GMT 03/28/06 14:52:58] <adsCockpit-c130> In about 1 hour John will call a propellerlologist in California
+[GMT 03/28/06 14:53:26] <adsCockpit-c130> Will know more then
+[GMT 03/28/06 14:53:46] <knapp_veracruz> ok, as long as we know this am
+[GMT 03/28/06 14:55:32] <DannyOpsRm3> Frank do you know the B200 is heading north on the same line of longitude
+[GMT 03/28/06 14:55:44] <DannyOpsRm3> at FL280
+[GMT 03/28/06 14:56:04] <adsCockpit-c130> Now at new WE20 - flew a 90/270 here which wasn't in the plan
+[GMT 03/28/06 14:57:33] <adsCockpit-c130> Danny Thanks. I'll try and contact them on 123.45
+[GMT 03/28/06 14:58:50] <adsCockpit-c130> Made contact with the B-200
+[GMT 03/28/06 15:03:17] <adsCockpit-c130> we have visible brown haze out here not much on SABL though
+[GMT 03/28/06 15:04:20] TeresaCampos-bldr (TeresaCamp@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 15:04:31] <adsCockpit-c130> might be still a bit W of us but could be the sun angle
+[GMT 03/28/06 15:04:41] <adsCockpit-c130> looks like a few clouds at 1.5 km at WE22 (prof. location)
+[GMT 03/28/06 15:05:21] DannyOpsRm2 (danny@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:07:07] DannyOpsRm3 (danny@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 15:08:04] <DannyOpsRm2> It may be a sun angle effect
+[GMT 03/28/06 15:08:13] Paul (Paulwennbe@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:08:39] <DannyOpsRm2> WRF shows the possibility of pollution both to the east and west of your position
+[GMT 03/28/06 15:09:07] Nick change: john_crounse_asleep -> john_crounse_Rm1710
+[GMT 03/28/06 15:09:15] <DannyOpsRm2> the stfuu to the west you have been flying thro' and it may have bee cloud washed.
+[GMT 03/28/06 15:10:09] Bruning (bruning@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 15:10:57] knapp_veracruz (david@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 15:13:39] <AlSchanot-ops> John:  Check &techs
+[GMT 03/28/06 15:14:09] <john_crounse_Rm1710> PaulW go to &MIRAGE
+[GMT 03/28/06 15:17:04] knapp_veracruz (david@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:17:54] <knapp_veracruz> for mccabe/crounse, apel/reimer may have ennough LN2 to cover you
+[GMT 03/28/06 15:19:22] <john_crounse_Rm1710> For apel/reimer we estimate needing ~25 more liters of LN2
+[GMT 03/28/06 15:19:37] <adsCockpit-c130> preliminary thoughs here are that we should be able to do flight tomorrow
+[GMT 03/28/06 15:19:49] <knapp_veracruz> ok, we'll go for the purchase
+[GMT 03/28/06 15:19:55] <knapp_veracruz> thanks frank et al
+[GMT 03/28/06 15:20:39] <adsCockpit-c130> please order what you need for one more flt and the ferry home
+[GMT 03/28/06 15:21:06] ChrisCantrell-Boulder_ (Chris@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:21:29] <knapp_veracruz> ok, thanks
+[GMT 03/28/06 15:23:03] ChrisCantrell-Boulder (Chris@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 15:23:22] <AlSchanot-ops> if you guys get excited about the layers and plan to delay return, please let us know before people head out to teh ap
+[GMT 03/28/06 15:23:28] <Paul> &MIRAGE
+[GMT 03/28/06 15:23:47] ling (ling@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 03/28/06 15:23:56] ling_ (ling@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:25:32] hvta (hvta@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:26:13] <DataSystem-c130> Al GPS seems to have quit being so bad right now but it still has a few dropouts.  We have some very light turbulance that might be causing the issue if it is a loose connector.  Sort of like the NO.
+[GMT 03/28/06 15:26:23] <adsCockpit-c130> will do
+[GMT 03/28/06 15:26:43] <adsCockpit-c130> no too excited yet
+[GMT 03/28/06 15:30:27] <DannyOpsRm2> Frank the B200 is going to survay to the east at the altitude of the maximum high altitude plume signature
+[GMT 03/28/06 15:30:39] <DannyOpsRm2> the plume is very thin 1/2 km
+[GMT 03/28/06 15:31:03] <DannyOpsRm2> but with intense signatures 
+[GMT 03/28/06 15:32:53] <adsCockpit-c130> position, altitude?
+[GMT 03/28/06 15:33:21] john_crounse_Rm1710 (John@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 15:34:19] <adsCockpit-c130> we went S at 18 kft, now on way N at 16 kft will go back at 17 kft
+[GMT 03/28/06 15:35:24] <DannyOpsRm2> Stand by for pos and alt
+[GMT 03/28/06 15:35:29] ChrisCantrell-Boulder__ (Chris@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:35:32] kurt-RAF (kurt@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:37:05] <kurt-RAF> john are you flying?
+[GMT 03/28/06 15:37:23] heizer-ops (heizer@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 15:37:51] <DataSystem-c130> Yes kurt, please join us in &techs
+[GMT 03/28/06 15:37:54] <hvta> Yes!He is Kurt.
+[GMT 03/28/06 15:38:08] ChrisCantrell-Boulder_ (Chris@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 15:38:14] <DannyOpsRm2> B200 is observing aerosol layer upto 5.5km
+[GMT 03/28/06 15:38:29] <DannyOpsRm2> at 20.173, 75.43
+[GMT 03/28/06 15:39:26] AWeinheimer-Veracruz (wein@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 15:39:47] hvta (hvta@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 15:40:59] Topic changed on &C130Q by kurt-RAF!kurt@rdcc.guest.ucar.edu: /join&techs
+[GMT 03/28/06 15:41:27] kurt-RAF (kurt@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 15:41:44] kurt-RAF (kurt@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:44:26] <adsCockpit-c130> Danny we have clouds here we will do the profile at 19 45N 95 20W
+[GMT 03/28/06 15:45:08] <adsCockpit-c130> it was cloud free down there and chemically looked more interesting than up here
+[GMT 03/28/06 15:48:32] sabl-C130 (sabl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 15:49:31] <adsCockpit-c130> ETA for profile location (new 19 45N 95 20W) is 1614
+[GMT 03/28/06 15:49:45] <adsCockpit-c130> we will profile down all the way and then up again
+[GMT 03/28/06 15:49:53] <adsCockpit-c130> will take 36 min
+[GMT 03/28/06 15:50:05] <adsCockpit-c130> should be in VER around 1710
+[GMT 03/28/06 15:51:53] sabl-C130 (sabl@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 15:53:56] JasonTomlinson-OpCntr (Jason@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 16:05:41] <DannyOpsRm2> Frank we no longer have any real time data( not since 1530. AFter the profile up Can you head home first on a east west heading
+[GMT 03/28/06 16:06:05] <DannyOpsRm2> at an altitude suggested by the pollution layers
+[GMT 03/28/06 16:06:19] <DannyOpsRm2> before turning south for Veracruz
+[GMT 03/28/06 16:06:38] Paul (Paulwennbe@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 16:08:13] LynnRussell-Scripps (lynn@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 16:09:46] JoseJimenez-Veracruz-OpsCtr (Jose@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 16:13:37] <adsCockpit-c130> can do.
+[GMT 03/28/06 16:14:01] <adsCockpit-c130> it's not very far though
+[GMT 03/28/06 16:14:12] <adsCockpit-c130> might have to descend already for approach need to talk to pilots...
+[GMT 03/28/06 16:15:55] <DataSystem-c130> I restarted a program let me know if you get the data feed now.
+[GMT 03/28/06 16:16:45] Rick_Peltier_ops (rickpeltie@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 16:17:35] ChrisCantrell-Boulder__ (Chris@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 16:20:26] <DannyOpsRm2> Not so far I will check again soon
+[GMT 03/28/06 16:21:25] <DataSystem-c130> The system says that it is sending data to the ground now.
+[GMT 03/28/06 16:21:28] <DannyOpsRm2> Frank if you do do the east west leg please request the B200 to follow you
+[GMT 03/28/06 16:22:10] <DannyOpsRm2> Still no recent update will keep checking
+[GMT 03/28/06 16:23:56] <DannyOpsRm2> Frank please relay to the B200 that they should stay above the C-130 for both the spiral up and the Spiral down.
+[GMT 03/28/06 16:24:47] ling (ling@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 16:26:01] ling_ (ling@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 16:27:23] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) left irc: Quit
+[GMT 03/28/06 16:29:36] <DannyOpsRm2> We got a little burp of data down here
+[GMT 03/28/06 16:34:07] <DataSystem-c130> There must be a back log some place.  The system up here says that it is sending data.
+[GMT 03/28/06 16:35:39] <adsCockpit-c130> can go W until coast
+[GMT 03/28/06 16:36:03] <adsCockpit-c130> will do and ask B-200 to follow
+[GMT 03/28/06 16:36:10] <DannyOpsRm2> Copied
+[GMT 03/28/06 16:38:03] <adsCockpit-c130> OK we'll go W from top of spiral to intersect V23, that's about 75 miles
+[GMT 03/28/06 16:38:09] <adsCockpit-c130> B-200 is OK following us on that track
+[GMT 03/28/06 16:45:07] CH2O_C130 (datsys@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 16:45:39] DataSystem-c130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 16:45:53] adsCockpit-c130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 16:45:59] sabl-C130 (sabl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 16:48:26] CH2O_C130 (datsys@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 16:49:19] sabl-C130 (sabl@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 16:49:41] DataSystem-c130 (ads@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 16:50:52] adsCockpit-c130 (ads@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 16:51:02] Topic changed on &C130Q by DataSystem-c130!ads@rdcc.guest.ucar.edu: C130 Flight related chat
+[GMT 03/28/06 16:51:47] <adsCockpit-c130> back...
+[GMT 03/28/06 16:51:47] <adsCockpit-c130> heading W at 19 50N
+[GMT 03/28/06 16:54:13] <adsCockpit-c130> slowed to 230 knots gnd spd to accomodate B-200 floowoing us
+[GMT 03/28/06 16:54:13] <adsCockpit-c130> following that is....
+[GMT 03/28/06 17:03:54] adsCockpit-c130 (ads@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:04:32] ChrisCantrell-Boulder (Chris@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 17:15:14] sabl-C130 (sabl@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:23:51] DataSystem-c130 (ads@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:25:43] ChrisCantrell-Boulder (Chris@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:26:49] laptop-c130 (ads@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 17:26:52] CH2O_C130 (datsys@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 17:30:58] kurt-RAF (kurt@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:31:45] gordonf-ops-veracruz (gordonf-op@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:32:07] DannyOpsRm2 (danny@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:37:25] JimWalega (walega@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 17:37:42] FrankLing-Ops (ling@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 17:38:19] JimWalega_ (walega@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 17:38:42] ling (ling@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 17:41:30] Sam_Hall_CaminoReal (halls@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:42:04] sasha (sasha@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 17:47:30] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 18:16:37] sabl-ops-veracruz (sabl@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 18:29:42] FrankLing-Ops (ling@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 18:40:26] RonRuth-BJC (ruth@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 18:47:44] RonRuth-BJC (ruth@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 18:50:48] RonRuth-BJC (ruth@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 18:51:05] RonRuth-BJC (ruth@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 18:58:12] JimWalega_ (walega@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 19:00:12] JimWalega (walega@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 19:06:26] JimWalega__ (walega@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 19:06:58] JimWalega_ (walega@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 19:19:57] LynnRussell-Scripps (lynn@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 20:12:55] knapp_veracruz (david@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 20:27:01] AlSchanot-ops (schanot@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/28/06 20:58:03] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/28/06 21:01:39] MarkBradford-Bishop (mark@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 21:10:12] LowellGenzlinger-ops (LowellGenz@rdcc.guest.ucar.edu) joined &C130Q.
+[GMT 03/28/06 21:10:24] LowellGenzlinger-ops (LowellGenz@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 03/29/06 00:00:00] --- Wed Mar 29 2006

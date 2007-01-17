@@ -1,0 +1,286 @@
+[GMT 03/22/06 00:03:09] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 03:30:37] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 03:30:59] <SlamDog_N817> Hello World
+[GMT 03/22/06 03:35:21] <GroundStation_DC8> Hello Dr. Scott
+[GMT 03/22/06 03:36:03] <GroundStation_DC8> How goes it up in the wild blue yawnder?
+[GMT 03/22/06 03:38:07] <SlamDog_N817> I'm back :-)
+[GMT 03/22/06 03:38:19] rstickel (bob@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 03:38:27] <GroundStation_DC8> Hey Bob!
+[GMT 03/22/06 03:38:44] Nick change: rstickel -> rstickel_GT
+[GMT 03/22/06 03:39:13] <SlamDog_N817> No issues yet
+[GMT 03/22/06 03:39:13] <SlamDog_N817> Say what?
+[GMT 03/22/06 03:39:13] <SlamDog_N817> Is he in the air to HotATL?
+[GMT 03/22/06 03:39:17] <SlamDog_N817> Is this SWong?
+[GMT 03/22/06 03:39:58] <rstickel_GT> SlamDog_N817,  this is Bob - got an earlier flt
+[GMT 03/22/06 03:40:33] <GroundStation_DC8> This is Carl, still back at the lab, watching you folks on Google Earth
+[GMT 03/22/06 03:40:42] <SlamDog_N817> OK we are level at the top
+[GMT 03/22/06 03:40:54] <SlamDog_N817> kewl and comfortable
+[GMT 03/22/06 03:41:02] <SlamDog_N817> jsut finished my sandwitch
+[GMT 03/22/06 03:41:33] <SlamDog_N817> So Dr Bob, R U surfing in the sky?
+[GMT 03/22/06 03:41:38] <SlamDog_N817> What's it cost?
+[GMT 03/22/06 03:42:12] <rstickel_GT> I'm at home.  How are the GT instruments doing?
+[GMT 03/22/06 03:43:01] <SlamDog_N817> I'll have SKim join in
+[GMT 03/22/06 03:43:35] <SlamDog_N817> now we R Kookin
+[GMT 03/22/06 03:43:48] <SlamDog_N817> Kim will be longing on shortly
+[GMT 03/22/06 03:43:57] Saewung_dc8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 03:44:10] <rstickel_GT> Saewung_dc8,  what's the SO2?
+[GMT 03/22/06 03:44:36] <Saewung_dc8> HI Bob!
+[GMT 03/22/06 03:44:40] <Saewung_dc8> quite a little
+[GMT 03/22/06 03:44:48] <Saewung_dc8> everything going pretty well
+[GMT 03/22/06 03:44:49] <SlamDog_N817> OK ok
+[GMT 03/22/06 03:44:50] <rstickel_GT> Any problems?
+[GMT 03/22/06 03:44:56] <Saewung_dc8> NO looks OK
+[GMT 03/22/06 03:45:04] <rstickel_GT> Got water?
+[GMT 03/22/06 03:45:14] <SlamDog_N817> Kim missed the SO2?
+[GMT 03/22/06 03:45:15] <Saewung_dc8> It looks like we see artifacts counts
+[GMT 03/22/06 03:45:20] <Saewung_dc8> now
+[GMT 03/22/06 03:45:29] <Saewung_dc8> Yap from Brian
+[GMT 03/22/06 03:45:36] <Saewung_dc8> last minute water
+[GMT 03/22/06 03:45:40] <Saewung_dc8> Not really
+[GMT 03/22/06 03:45:48] <Saewung_dc8> actually I miss pernitric more
+[GMT 03/22/06 03:46:08] <Saewung_dc8> Are you in home?
+[GMT 03/22/06 03:46:29] <rstickel_GT> Yes, I caught an earlier flt
+[GMT 03/22/06 03:46:44] <Saewung_dc8> Good
+[GMT 03/22/06 03:46:44] <SlamDog_N817> Is he going to stay up and fly silently while we fly in real air?
+[GMT 03/22/06 03:46:48] <Saewung_dc8> NCIS day right>>
+[GMT 03/22/06 03:47:22] <rstickel_GT> misssed it!
+[GMT 03/22/06 03:47:30] <Saewung_dc8> dame it!
+[GMT 03/22/06 03:47:43] <Saewung_dc8> :)
+[GMT 03/22/06 03:47:51] <Saewung_dc8> actually I am pretty sleepy now
+[GMT 03/22/06 03:47:58] <Saewung_dc8> Also another question Bob
+[GMT 03/22/06 03:48:06] <Saewung_dc8> your nightflight mode
+[GMT 03/22/06 03:48:43] <Saewung_dc8> I clicked it and just after one cycle it just turned off and changed as clean up mode
+[GMT 03/22/06 03:48:43] <Saewung_dc8> is it what you programed?
+[GMT 03/22/06 03:49:16] <rstickel_GT> it should run both cleanup and cal
+[GMT 03/22/06 03:49:35] <Saewung_dc8> OK I will keep looking
+[GMT 03/22/06 03:50:06] <rstickel_GT> NigthFlight is just a launcher for the other two - you should see a cal every 56 minutes
+[GMT 03/22/06 03:50:37] <Saewung_dc8> But it supposed to be green during the flight right?
+[GMT 03/22/06 03:51:22] <Saewung_dc8> Just after one background it changed as red..
+[GMT 03/22/06 03:51:41] <GroundStation_DC8> Mike sez it's time to go, I'll find some dinnerand get back on later
+[GMT 03/22/06 03:51:44] <Saewung_dc8> and I looked up your code.. it doesnt have go to 0 in the end of the code
+[GMT 03/22/06 03:52:02] <rstickel_GT> the cal seq indicator should be green - the cal indicator is only green for 2 minutes every 56
+[GMT 03/22/06 03:52:14] <rstickel_GT> l8r Carl
+[GMT 03/22/06 03:52:42] <Saewung_dc8> Ok.. I'll keep looking!
+[GMT 03/22/06 03:53:05] <Saewung_dc8> Hows atlanta? cold?
+[GMT 03/22/06 03:53:12] <rstickel_GT> Saewung_dc8,  watch for the big spike
+[GMT 03/22/06 03:53:25] <Saewung_dc8> NO?
+[GMT 03/22/06 03:53:29] <rstickel_GT> it's nice here - low 60's
+[GMT 03/22/06 03:53:43] <rstickel_GT> yes, NO
+[GMT 03/22/06 03:53:47] <Saewung_dc8> Great!
+[GMT 03/22/06 03:54:41] <rstickel_GT> Saewung_dc8, can you make a backup of the CIMS program?
+[GMT 03/22/06 03:54:57] <Saewung_dc8> back up
+[GMT 03/22/06 03:55:04] <Saewung_dc8> what do you mean data copy
+[GMT 03/22/06 03:55:06] <Saewung_dc8> ?
+[GMT 03/22/06 03:55:16] <rstickel_GT> 1) su -
+[GMT 03/22/06 03:55:24] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 03:55:32] <rstickel_GT> 2) (enter password)
+[GMT 03/22/06 03:55:44] <SlamDog_N817> I'm back
+[GMT 03/22/06 03:55:50] <rstickel_GT> 3) cd /
+[GMT 03/22/06 03:55:57] <Saewung_dc8> usual password?
+[GMT 03/22/06 03:56:17] <rstickel_GT> 4) tar czf cims.tgz root data
+[GMT 03/22/06 03:56:36] <rstickel_GT> 2) same passwd as data
+[GMT 03/22/06 03:56:59] <rstickel_GT> 5)  copy cims.tgz to NO computer and then to a stick
+[GMT 03/22/06 03:57:21] <Saewung_dc8> that file is supposed to be in data folder?
+[GMT 03/22/06 03:57:44] <rstickel_GT> you create it in step 4
+[GMT 03/22/06 03:58:17] <Saewung_dc8> that needs to do end of the flight.. to include this transit data also
+[GMT 03/22/06 03:58:22] <Saewung_dc8> right?
+[GMT 03/22/06 03:58:48] <rstickel_GT> do the data as usual - the tar thing is for the program
+[GMT 03/22/06 03:59:08] <rstickel_GT> you can do it anay time
+[GMT 03/22/06 03:59:23] <rstickel_GT> s/anay/any/
+[GMT 03/22/06 04:00:55] <rstickel_GT> Saewung_dc8, oh, and remind Dave to bring home the CF card from the LIF computer
+[GMT 03/22/06 04:01:32] Saewung_dc8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 04:01:49] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 04:07:38] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 04:08:00] <rstickel_GT> SlamDog_N817,  gotta love Iridium
+[GMT 03/22/06 04:08:05] <SlamDog_N817> We had a network issue
+[GMT 03/22/06 04:08:15] <SlamDog_N817> I have the 10 channel back on line
+[GMT 03/22/06 04:08:22] Action: rstickel_GT coughs
+[GMT 03/22/06 04:08:23] <SlamDog_N817> Kim moved forward to the snooper
+[GMT 03/22/06 04:09:07] <SlamDog_N817> ok Kim moved aft to GTCIMS
+[GMT 03/22/06 04:09:30] <rstickel_GT> SlamDog_N817, did u set up chat on the snooper?
+[GMT 03/22/06 04:11:15] <SlamDog_N817> I have NOT set upi chat on any PI box
+[GMT 03/22/06 04:11:54] <SlamDog_N817> I do talk and coach folks through setting chat up on both WinDoze and Linux boxes
+[GMT 03/22/06 04:12:15] <SlamDog_N817> What OS R U running on the snooper?
+[GMT 03/22/06 04:12:32] <SlamDog_N817> I'll go kick Kim
+[GMT 03/22/06 04:12:50] <rstickel_GT> SlamDog_N817, some POS - maybe Xp
+[GMT 03/22/06 04:13:35] Saewung_dc8 (Saewung@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 04:13:43] <SlamDog_N817> I'll help Skim get xchat working on the sooper
+[GMT 03/22/06 04:13:51] <Saewung_dc8> Bob!
+[GMT 03/22/06 04:14:03] <rstickel_GT> Saewung_dc8, still here.
+[GMT 03/22/06 04:14:06] <Saewung_dc8> Thanks Scott!
+[GMT 03/22/06 04:14:21] <Saewung_dc8> I tried again nightflight mode
+[GMT 03/22/06 04:14:31] <SlamDog_N817> well Skim U missed a lot
+[GMT 03/22/06 04:14:32] <Saewung_dc8> but it just keep going bkg mode 
+[GMT 03/22/06 04:15:14] <Saewung_dc8> How about go ahead with clean up mode
+[GMT 03/22/06 04:15:19] <Saewung_dc8> and get cal every hour manually
+[GMT 03/22/06 04:15:38] <rstickel_GT> Saewung_dc8, ok, try StopAll and then start CleanUP and Cal by hand
+[GMT 03/22/06 04:15:50] <Saewung_dc8> All ready
+[GMT 03/22/06 04:16:05] <Saewung_dc8> also your command is not working for the data
+[GMT 03/22/06 04:16:19] <Saewung_dc8> it keeps saying it can not find that directory
+[GMT 03/22/06 04:16:19] <rstickel_GT> Saewung_dc8, to start Cal you need to pull down the Sequence menu
+[GMT 03/22/06 04:16:21] <Saewung_dc8> root data
+[GMT 03/22/06 04:16:44] <Saewung_dc8> I tried...
+[GMT 03/22/06 04:16:48] <rstickel_GT> Saewung_dc8, did you "su -"
+[GMT 03/22/06 04:16:53] <Saewung_dc8> Yap
+[GMT 03/22/06 04:17:00] <rstickel_GT> did you "cd /"
+[GMT 03/22/06 04:17:31] <Saewung_dc8> root@cyber2u root#
+[GMT 03/22/06 04:17:33] <Saewung_dc8> right?
+[GMT 03/22/06 04:17:50] <rstickel_GT> right, now "cd /"
+[GMT 03/22/06 04:18:25] <Saewung_dc8> I missed that part
+[GMT 03/22/06 04:18:31] <Saewung_dc8> it is working
+[GMT 03/22/06 04:18:39] <Saewung_dc8> sorry for confusion
+[GMT 03/22/06 04:18:46] <rstickel_GT> then "tar czf cims.tg root"
+[GMT 03/22/06 04:19:03] <Saewung_dc8> tar czf cims.tg root data?
+[GMT 03/22/06 04:19:30] <rstickel_GT> leave data for postflight
+[GMT 03/22/06 04:19:44] <Saewung_dc8> all ready
+[GMT 03/22/06 04:19:47] <rstickel_GT> root is just the source code
+[GMT 03/22/06 04:19:56] <rstickel_GT> cool
+[GMT 03/22/06 04:20:43] <Saewung_dc8> I'll let dave know what you want
+[GMT 03/22/06 04:20:53] <Saewung_dc8> flash card
+[GMT 03/22/06 04:20:56] <Saewung_dc8> right?
+[GMT 03/22/06 04:21:04] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 04:23:00] <SlamDog_N817> Welcome back
+[GMT 03/22/06 04:23:21] <SlamDog_N817> Did you go get food or move back to the Hotel
+[GMT 03/22/06 04:23:46] <SlamDog_N817> GTCISM is getting some REAL use out of this Xchat junk
+[GMT 03/22/06 04:24:07] <GroundStation_DC8> That's great - glad it's useful.
+[GMT 03/22/06 04:24:11] <Saewung_dc8> will you gonna award me?
+[GMT 03/22/06 04:24:57] <Saewung_dc8> Yap its pretty useful!
+[GMT 03/22/06 04:25:09] <rstickel_GT> Saewung_dc8, we'll give you a certificate of appreciation!
+[GMT 03/22/06 04:25:15] <SlamDog_N817> SKim's award will be that he can fly the transit to HI
+[GMT 03/22/06 04:25:28] <rstickel_GT> Bzzzzzt!
+[GMT 03/22/06 04:25:37] <Saewung_dc8> No Thanks! Scott
+[GMT 03/22/06 04:25:46] <Saewung_dc8> Bottle of beer would be enough
+[GMT 03/22/06 04:26:22] <rstickel_GT> Saewung_dc8, how is GTLIF doing?
+[GMT 03/22/06 04:26:53] <Saewung_dc8> Well their curtain is not hangging.. is it good sign?
+[GMT 03/22/06 04:27:11] <Saewung_dc8> Ill ask dave If he has something ask to you
+[GMT 03/22/06 04:27:12] <GroundStation_DC8> I'll but you one in AK, or have Sky get you one in Oahu
+[GMT 03/22/06 04:28:36] <rstickel_GT> Saewung_dc8, how about a Milagro T-shirt?
+[GMT 03/22/06 04:29:11] <Saewung_dc8> Ive got a email but ive not seen yet
+[GMT 03/22/06 04:29:13] <Saewung_dc8> bob!
+[GMT 03/22/06 04:29:28] <Saewung_dc8> now we see 500 counts artifacts
+[GMT 03/22/06 04:29:43] <Saewung_dc8> you wanna go ahead with zero to check the artifacts lever?
+[GMT 03/22/06 04:29:48] <Saewung_dc8> level
+[GMT 03/22/06 04:30:16] <Saewung_dc8> prefligth I saw around 100 cnts artifacts
+[GMT 03/22/06 04:32:48] <rstickel_GT> Saewung_dc8, is the water ok?
+[GMT 03/22/06 04:32:55] <GroundStation_DC8> SlamDog, has the 12^H^H10 chan been behaving itself so far?
+[GMT 03/22/06 04:33:13] <Saewung_dc8> Let me check again I filled it up 6 cm pre flight
+[GMT 03/22/06 04:33:51] <SlamDog_N817> The 10 channel hung once, we dropped the xchat
+[GMT 03/22/06 04:34:19] <SlamDog_N817> I rebooted when the winky winky lights would NOT let me out
+[GMT 03/22/06 04:34:33] <SlamDog_N817> I'll use the ppp dialer next time it hangs
+[GMT 03/22/06 04:34:36] <Saewung_dc8> water is fine
+[GMT 03/22/06 04:34:52] <GroundStation_DC8> ya read my mind, thanks
+[GMT 03/22/06 04:35:24] <SlamDog_N817> you ANTI winky winky hoser
+[GMT 03/22/06 04:35:33] <rstickel_GT> Saewung_dc8, try the ZA flush for a few cycles
+[GMT 03/22/06 04:35:52] <Saewung_dc8> Okeee
+[GMT 03/22/06 04:36:33] <GroundStation_DC8> I may be blinking hoser, but dinners real good
+[GMT 03/22/06 04:36:56] <SlamDog_N817> Carl we could go over to &ICATS and leave the &DC8 for GTCIMS?
+[GMT 03/22/06 04:37:44] <GroundStation_DC8> sure then you can insult me all you want without bugging them :)
+[GMT 03/22/06 04:47:19] <Saewung_dc8> I tried... still we see <100 cnts artifacts
+[GMT 03/22/06 04:51:20] <rstickel_GT> Saewung_dc8, weird - well, go back to outside air and see what happens
+[GMT 03/22/06 04:51:46] <Saewung_dc8> OK
+[GMT 03/22/06 04:51:58] <Saewung_dc8> I'll Keep looking 
+[GMT 03/22/06 04:53:03] <Saewung_dc8> around midnight Eastern?
+[GMT 03/22/06 04:53:17] <rstickel_GT> Saewung_dc8, 23:00
+[GMT 03/22/06 04:53:50] <rstickel_GT> Saewung_dc8, oops, you're right - my laptop is still on central
+[GMT 03/22/06 04:53:53] <Saewung_dc8> it looks like your watch is still set as central..
+[GMT 03/22/06 04:54:06] <Saewung_dc8> :)
+[GMT 03/22/06 04:54:19] <rstickel_GT> Saewung_dc8, then again, so am I
+[GMT 03/22/06 04:55:38] <Saewung_dc8> I'll keep going with clean up and I'll take rather long time with zero air before getting ames then...
+[GMT 03/22/06 04:56:43] <Saewung_dc8> CIMS looks very happy perfect PNA bkg.. and also SO2
+[GMT 03/22/06 04:56:54] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 04:58:15] <rstickel_GT> Saewung_dc8, we need to find out why outside air is different
+[GMT 03/22/06 04:58:24] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 04:58:48] <Saewung_dc8> what would be the best way to figure it out?
+[GMT 03/22/06 04:59:14] <rstickel_GT> Saewung_dc8, run more outside air
+[GMT 03/22/06 04:59:28] <Saewung_dc8> OK
+[GMT 03/22/06 04:59:49] <Saewung_dc8> Afther around 2 cycles I changed it as outside air 
+[GMT 03/22/06 04:59:57] <Saewung_dc8> looks much higer than zero
+[GMT 03/22/06 05:05:59] <SlamDog_N817> I'm back
+[GMT 03/22/06 05:06:22] <Saewung_dc8> are you there bob?
+[GMT 03/22/06 05:06:30] <rstickel_GT> yep
+[GMT 03/22/06 05:06:49] <Saewung_dc8> I checked after several cycles with outside air
+[GMT 03/22/06 05:07:08] <Saewung_dc8> the difference from bkg has been getting bigger
+[GMT 03/22/06 05:07:13] <Saewung_dc8> any clue?
+[GMT 03/22/06 05:08:03] rstickel_GT (bob@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 03/22/06 05:08:27] <SlamDog_N817> Kim are you still working?
+[GMT 03/22/06 05:08:47] <SlamDog_N817> Did Bob get hosed or did we?
+[GMT 03/22/06 05:08:57] <Saewung_dc8> I am just waiting for Bob's reply
+[GMT 03/22/06 05:09:18] <Saewung_dc8> Well no idea
+[GMT 03/22/06 05:09:59] <SlamDog_N817> I got GRND CNTRL on the &ICATS so we R ok
+[GMT 03/22/06 05:10:13] <Saewung_dc8> Agree
+[GMT 03/22/06 05:10:26] <Saewung_dc8> Probably he is too sleepy right now
+[GMT 03/22/06 05:10:38] <SlamDog_N817> Looking for some ZZZZZZZZs
+[GMT 03/22/06 05:11:32] <Saewung_dc8> Yap
+[GMT 03/22/06 05:11:56] <Saewung_dc8> Ill check the NO status
+[GMT 03/22/06 05:12:57] <SlamDog_N817> I'm chatting with Carl on the &ICATS channel
+[GMT 03/22/06 05:13:57] rstickel (bob@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 05:14:28] <SlamDog_N817> What, you needed another beverage?
+[GMT 03/22/06 05:14:28] Nick change: rstickel -> rstickel_GT
+[GMT 03/22/06 05:17:02] <Saewung_dc8> Bob you chatched all I've said to you?
+[GMT 03/22/06 05:17:57] <rstickel_GT> Saewung_dc8, sorry, no - nothing after air is higher than ZA
+[GMT 03/22/06 05:18:22] <Saewung_dc8> Ok just after I changed to outside air
+[GMT 03/22/06 05:19:41] <Saewung_dc8> it looks the differnce from bkg had been getting bigger
+[GMT 03/22/06 05:19:41] <Saewung_dc8> now around 1000cnts
+[GMT 03/22/06 05:20:16] <rstickel_GT> Saewung_dc8, ouch
+[GMT 03/22/06 05:31:49] GroundStation-DC-8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 05:33:30] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 05:34:18] Saewung_dc8 (Saewung@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 05:43:06] rstickel_GT (bob@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/22/06 05:53:44] GroundStation-DC-8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 06:02:06] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 06:14:13] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 06:21:12] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 06:32:30] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 06:32:47] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 06:36:54] <SlamDog_N817> Hello World
+[GMT 03/22/06 06:37:54] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 06:41:28] <SlamDog_N817> R U back?
+[GMT 03/22/06 07:00:23] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/22/06 07:20:18] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 07:21:24] <GroundStation_DC8> I'm back again - lousy signal in the room
+[GMT 03/22/06 07:48:41] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 07:51:22] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 07:52:20] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 07:52:36] <SlamDog_N817> Hello World
+[GMT 03/22/06 07:52:51] <SlamDog_N817> We are crossing into AZ
+[GMT 03/22/06 07:55:08] <GroundStation-DC8> Hey Dr. SlamDog
+[GMT 03/22/06 07:56:12] <SlamDog_N817> Had to work the flight track map
+[GMT 03/22/06 08:01:03] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 08:06:35] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 08:08:34] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 08:10:46] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 08:16:41] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/22/06 08:19:54] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 08:22:33] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 08:24:40] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 08:41:12] GroundStation-DC8 (Carl@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/22/06 08:44:25] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 08:51:59] <SlamDog_N817> WHy R U NOT in &ICTAS
+[GMT 03/22/06 08:52:58] <SlamDog_N817> Hello World
+[GMT 03/22/06 08:53:09] <SlamDog_N817> Yes we are over Utah
+[GMT 03/22/06 08:54:04] <SlamDog_N817> I was typeing in the &ICATS channel
+[GMT 03/22/06 08:54:45] <SlamDog_N817> Yes a lot of folks R sleeping
+[GMT 03/22/06 08:54:57] <GroundStation_DC8> I was off line for awhile , my wireless connection was real poor
+[GMT 03/22/06 08:55:21] <SlamDog_N817> I think the 10 channel drops out after traveling some X miles
+[GMT 03/22/06 08:55:36] <SlamDog_N817> I had 2 redial
+[GMT 03/22/06 08:55:44] <SlamDog_N817> I did NOT reboot
+[GMT 03/22/06 08:56:37] <SlamDog_N817> I think the PPP dialer is better because I do not think the OS hangs as badly when I have to redial
+[GMT 03/22/06 08:56:37] <GroundStation_DC8> Cool. It could be miles instead of time, since the satellites are moving and have a footprint
+[GMT 03/22/06 08:57:22] <SlamDog_N817> Can I go back to sleep now?
+[GMT 03/22/06 08:57:36] <GroundStation_DC8> I get the feeling the winky blinky GUI just add a layer of cr*p that the OS has to deal with 
+[GMT 03/22/06 08:57:49] <SlamDog_N817> You better type a lot so I do NOT fall asleep while I/m typeing
+[GMT 03/22/06 08:58:13] <GroundStation_DC8> qwertyasdfgzxcvb
+[GMT 03/22/06 08:58:20] <SlamDog_N817> A REAL OS can handle "crap"y code
+[GMT 03/22/06 08:58:56] <SlamDog_N817> looks like REVEAL is happy
+[GMT 03/22/06 08:59:08] <GroundStation_DC8> real Os's don't need reboots
+[GMT 03/22/06 09:00:33] <GroundStation_DC8> Speaking of reboots, I'm glad it did not hang (although that's not unusual, and it only used to happen at boot time before we upgraded to 1GHz CPU and later rev Linux
+[GMT 03/22/06 09:01:46] <GroundStation_DC8> I think there are signal integrity margins that are less with the higher speed and even less with increased temp, or maybe a bug in the OS that gets expressed by losing a race with the above timing issue.
+[GMT 03/22/06 09:02:15] <GroundStation_DC8> But the hang this morning is maybe a counter-example, it was not that warm I think.
+[GMT 03/22/06 09:03:49] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 03/22/06 09:17:17] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 09:17:29] <GroundStation_DC8> you are back
+[GMT 03/22/06 09:29:47] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 03/22/06 09:34:10] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 03/22/06 10:03:50] SlamDog_N817 (Sky@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/22/06 10:05:34] GroundStation_DC8 (Carl@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 03/23/06 00:00:00] --- Thu Mar 23 2006

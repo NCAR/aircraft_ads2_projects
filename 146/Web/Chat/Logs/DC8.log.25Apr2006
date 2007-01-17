@@ -1,0 +1,146 @@
+[GMT 04/25/06 17:19:18] RichardHang-dfrc (hang@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 04/25/06 17:19:30] RichardHang-dfrc (hang@rdcc.guest.ucar.edu) left irc: Quit: Leaving
+[GMT 04/25/06 20:29:18] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 04/25/06 20:31:24] Sky_Yarbrough_grnd (Sky@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 04/25/06 20:31:36] <Sky_Yarbrough_grnd> Hello
+[GMT 04/25/06 20:31:58] <ICATS_DC8> Hello World
+[GMT 04/25/06 20:32:00] <Sky_Yarbrough_grnd> If there is a password on the system, which there wasn't , it would be what you told me to set it to
+[GMT 04/25/06 20:32:10] <ICATS_DC8> Red your email
+[GMT 04/25/06 20:32:22] <ICATS_DC8> OH
+[GMT 04/25/06 20:32:31] <ICATS_DC8> I C U have read your email
+[GMT 04/25/06 20:32:52] <Sky_Yarbrough_grnd> try ftp'ing to the printer and just press enter at the login and see what it says
+[GMT 04/25/06 20:35:20] <ICATS_DC8> use the network password for the ID if updateing
+[GMT 04/25/06 20:35:50] <Sky_Yarbrough_grnd> clarify, I don't understand your statement
+[GMT 04/25/06 20:38:00] <Sky_Yarbrough_grnd> There isn't a password on the printer, I just ftp'd to the printer and pressed enter at the login and it works just fine.
+[GMT 04/25/06 20:39:22] <Sky_Yarbrough_grnd> All Carolyn should have to do is change the IP address in her script to 192.108.217.228 and it should work just fine for her.
+[GMT 04/25/06 20:40:35] <ICATS_DC8> I printed Hanks sat images :-)
+[GMT 04/25/06 20:40:57] <ICATS_DC8> I'll have her try  now
+[GMT 04/25/06 20:41:36] <Sky_Yarbrough_grnd> So how do you like the fact I'm here on the ground in HI, logged into Dryden, to REVEAL next to you then ftp'd to the printer to test it out!  Not bad huh?
+[GMT 04/25/06 20:44:31] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 04/25/06 20:51:03] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 04/25/06 20:51:35] <ICATS_DC8> I'm back
+[GMT 04/25/06 20:51:49] <ICATS_DC8> Had to redial
+[GMT 04/25/06 20:51:52] <ICATS_DC8> had to reboot
+[GMT 04/25/06 20:52:13] <ICATS_DC8> the back scratcher still can NOT print
+[GMT 04/25/06 20:52:13] <Sky_Yarbrough_grnd> I have to go get Larry, I'll be back in a coupe of minutes give or take 20
+[GMT 04/25/06 20:52:27] <ICATS_DC8> L8r
+[GMT 04/25/06 20:52:31] <Sky_Yarbrough_grnd> Have her try it manually and not through the script.
+[GMT 04/25/06 20:53:38] <ICATS_DC8> I'll try it from 205
+[GMT 04/25/06 20:53:49] <ICATS_DC8> what do I type?
+[GMT 04/25/06 20:54:05] <ICATS_DC8> ftp 192.108.217.205
+[GMT 04/25/06 20:54:11] <ICATS_DC8> put *.ps
+[GMT 04/25/06 20:57:42] <ICATS_DC8> It works in Linux :-)
+[GMT 04/25/06 20:57:49] <ICATS_DC8> AND
+[GMT 04/25/06 20:57:57] <ICATS_DC8> Hank's happy
+[GMT 04/25/06 21:14:45] <Sky_Yarbrough_grnd> I'm back.
+[GMT 04/25/06 21:14:59] <Sky_Yarbrough_grnd> To ftp to the printer, ftp 192.108.217.228
+[GMT 04/25/06 21:15:10] <Sky_Yarbrough_grnd> press enter to get through the login
+[GMT 04/25/06 21:15:23] <Sky_Yarbrough_grnd> put your PostScript file
+[GMT 04/25/06 21:15:37] <Sky_Yarbrough_grnd> It sounds like you gave the wrong IP to Carolyn
+[GMT 04/25/06 21:16:23] <Sky_Yarbrough_grnd> The printer accepts PostScript files
+[GMT 04/25/06 21:16:41] <Sky_Yarbrough_grnd> You can ftp straight to the printer, not to the ftp box, then to the printer
+[GMT 04/25/06 21:25:15] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Read error: Connection reset by peer
+[GMT 04/25/06 21:29:00] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 04/25/06 21:33:07] <Sky_Yarbrough_grnd> Scott, I believe one of Carolyns problems is in her script she prints to Toucan, not an IP so in her host file she needs to change Toucan's IP
+[GMT 04/25/06 21:34:19] <Sky_Yarbrough_grnd> Did you get my last messages about ftp
+[GMT 04/25/06 21:34:35] <Sky_Yarbrough_grnd> About going straight to the printer, not through the ftp server?
+[GMT 04/25/06 21:45:19] <Sky_Yarbrough_grnd> Any body home up there?  How's it going?
+[GMT 04/25/06 21:51:42] <ICATS_DC8> I'm back
+[GMT 04/25/06 21:51:49] <ICATS_DC8> going to have lunch
+[GMT 04/25/06 21:51:56] <ICATS_DC8> Than I'll C CB
+[GMT 04/25/06 22:15:55] <ICATS_DC8> She can print from the PC
+[GMT 04/25/06 22:15:56] <ICATS_DC8> BUT
+[GMT 04/25/06 22:15:59] <ICATS_DC8> not 
+[GMT 04/25/06 22:16:10] <ICATS_DC8> the space HEATER
+[GMT 04/25/06 22:24:44] <Sky_Yarbrough_grnd> The space heater is the VMS operating system, I think she has a host table problem in there
+[GMT 04/25/06 22:25:04] <Sky_Yarbrough_grnd> although she should be able to manually ftp to the printer to verify she can log in
+[GMT 04/25/06 22:25:38] <Sky_Yarbrough_grnd> If she can live with printing from the PC for this flight, we'll get it fixed when you land or in the morning.
+[GMT 04/25/06 22:25:59] <Sky_Yarbrough_grnd> Are the other Windows boxes able to print ok now?
+[GMT 04/25/06 22:48:09] <ICATS_DC8> I did Hank's pics again
+[GMT 04/25/06 22:48:32] <ICATS_DC8> I can NOT get the Riddler's Uncle Bill Box on our net :-(
+[GMT 04/25/06 22:48:41] <ICATS_DC8> It has a wireless
+[GMT 04/25/06 22:48:43] <ICATS_DC8> AND
+[GMT 04/25/06 22:48:48] <ICATS_DC8> a RJ45
+[GMT 04/25/06 22:49:07] <ICATS_DC8> I don't know if it's a Firewall issue
+[GMT 04/25/06 22:49:13] <ICATS_DC8> OR
+[GMT 04/25/06 22:49:17] <ICATS_DC8> a VPN issue
+[GMT 04/25/06 22:49:39] <ICATS_DC8> Boy did/does it make me look sad :-(
+[GMT 04/25/06 22:50:06] <ICATS_DC8> OH
+[GMT 04/25/06 22:50:06] <ICATS_DC8> what did we do to the MD box?
+[GMT 04/25/06 22:50:12] <ICATS_DC8> They like the NEW look
+[GMT 04/25/06 22:50:14] <Sky_Yarbrough_grnd> I'm here, let me read
+[GMT 04/25/06 22:51:17] <Sky_Yarbrough_grnd> We didn't do anything to the MD box, you updated antivirus and we added the new printer, and removed the lexmark junk
+[GMT 04/25/06 22:51:42] <Sky_Yarbrough_grnd> Maybe they washed their glasses finally
+[GMT 04/25/06 22:52:04] <Sky_Yarbrough_grnd> Is this Riddlers new or old box?
+[GMT 04/25/06 22:52:46] <ICATS_DC8> I do NOT recall changing anything that would have had that effect
+[GMT 04/25/06 22:53:34] <Sky_Yarbrough_grnd> It's an old Compaq and old windows, who knows removing the lex stuff might have allowed windows to clean itself up for some reason
+[GMT 04/25/06 22:54:18] <ICATS_DC8> Maybe he got new glasses 
+[GMT 04/25/06 22:54:20] <ICATS_DC8> OR
+[GMT 04/25/06 22:54:26] <ICATS_DC8> Steve or The RudMan changed something while they where using it
+[GMT 04/25/06 22:54:32] <ICATS_DC8> The Back Scratcher said she things it MIGHT go away when she has a chance to reboot the Antique Machine
+[GMT 04/25/06 22:54:38] <ICATS_DC8> The Riddler's is REALLY new
+[GMT 04/25/06 22:54:42] <ICATS_DC8> Like, ordered during the upload
+[GMT 04/25/06 22:54:52] <ICATS_DC8> I'll look over his shoulder the next time I'm up front and C if I notice anything
+[GMT 04/25/06 22:55:04] <ICATS_DC8> NEW issue
+[GMT 04/25/06 22:55:17] <ICATS_DC8> Well it was at least new today but not at this time
+[GMT 04/25/06 22:55:46] <ICATS_DC8> We think we have a less than perfect connectio with the Cryo Dew PT
+[GMT 04/25/06 22:56:23] <Sky_Yarbrough_grnd> Why, what is going on?
+[GMT 04/25/06 22:56:27] <ICATS_DC8> Steph says that we are sometimes TV displaying what looks like a good number and than at other times NOT :-(
+[GMT 04/25/06 22:56:59] <ICATS_DC8> When I look in memmory I get a voltage that would agree on what we display
+[GMT 04/25/06 22:57:20] <ICATS_DC8> When She looks at what she thinks they are sending we do NOT get that number
+[GMT 04/25/06 22:57:39] <Sky_Yarbrough_grnd> It is most likely a timing issue of when data is sent to icats and the speed (hz wise) that icats reads the data
+[GMT 04/25/06 22:58:19] <Sky_Yarbrough_grnd> Ask her is this problem NEW TODAY or an on going issue?
+[GMT 04/25/06 22:58:34] <ICATS_DC8> The way I look at it..  It's a ground pounder issue in the morn
+[GMT 04/25/06 22:58:43] <ICATS_DC8> It's NEW
+[GMT 04/25/06 22:58:56] <ICATS_DC8> First time we have seen it
+[GMT 04/25/06 22:59:32] <Sky_Yarbrough_grnd> Ok, go to the icats interface panel at the NAV station and remove the input cable for the Cryo Dew Pt, count to 10 and put it  back on.
+[GMT 04/25/06 22:59:59] <Sky_Yarbrough_grnd> This removes the static ground charge in the shielding and should give you good numbers.
+[GMT 04/25/06 23:00:34] <Sky_Yarbrough_grnd> Issues like this have been around for years and years.
+[GMT 04/25/06 23:01:21] <ICATS_DC8> CB is pushing out Flight 11 onto the printer
+[GMT 04/25/06 23:01:22] <ICATS_DC8> color looks good
+[GMT 04/25/06 23:01:25] <ICATS_DC8> BUT
+[GMT 04/25/06 23:01:27] <ICATS_DC8> we think it's slow
+[GMT 04/25/06 23:01:31] <ICATS_DC8> OK
+[GMT 04/25/06 23:01:33] <ICATS_DC8> Now what cable is the Cryo?
+[GMT 04/25/06 23:01:39] <ICATS_DC8> I'll see if the RudMan or the HangMan labled anything
+[GMT 04/25/06 23:02:54] <Sky_Yarbrough_grnd> Should  be labled, is Rudy on board?  He knows.  Look around at J74 or J57
+[GMT 04/25/06 23:05:20] <ICATS_DC8> Yep
+[GMT 04/25/06 23:05:31] <ICATS_DC8> The RudMan pulled it for 5 sec
+[GMT 04/25/06 23:09:52] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 04/25/06 23:14:05] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 04/25/06 23:14:21] <ICATS_DC8> Hello World
+[GMT 04/25/06 23:14:23] <ICATS_DC8> I'm back
+[GMT 04/25/06 23:14:27] <ICATS_DC8> Had to reboot
+[GMT 04/25/06 23:14:40] <ICATS_DC8> Hard getting good phone service out here
+[GMT 04/25/06 23:15:37] <Sky_Yarbrough_grnd> You should try nextel here, it's worse
+[GMT 04/25/06 23:19:37] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) left irc: Ping timeout
+[GMT 04/25/06 23:21:21] ICATS_DC8 (syarbrough@rdcc.guest.ucar.edu) joined &DC8.
+[GMT 04/25/06 23:21:32] <ICATS_DC8> Hello World
+[GMT 04/25/06 23:21:38] <Sky_Yarbrough_grnd> Howdy
+[GMT 04/25/06 23:21:40] <ICATS_DC8> The IRC pulled my connection
+[GMT 04/25/06 23:21:52] <ICATS_DC8> So what was your last line?
+[GMT 04/25/06 23:22:13] <Sky_Yarbrough_grnd> You should try nextel here, it's worse than you phone stuff, :-)
+[GMT 04/25/06 23:22:28] <ICATS_DC8> OK I recall that one 
+[GMT 04/25/06 23:22:38] <ICATS_DC8> so I must be caught up
+[GMT 04/25/06 23:22:52] <Sky_Yarbrough_grnd> watch out for the hooks
+[GMT 04/25/06 23:23:22] <ICATS_DC8> I'm going over onto one of the PC for a couple min 2 do Hank's
+[GMT 04/25/06 23:23:56] <Sky_Yarbrough_grnd> enjoy
+[GMT 04/25/06 23:24:27] <ICATS_DC8> It's a SLOW web deal
+[GMT 04/25/06 23:24:37] <ICATS_DC8> I'm still waiting to connect
+[GMT 04/25/06 23:26:25] <ICATS_DC8> They tell me ATC has us locked into this Alt.
+[GMT 04/25/06 23:26:40] <ICATS_DC8> We will do the spiral at PT13
+[GMT 04/25/06 23:28:31] <ICATS_DC8> Me bad
+[GMT 04/25/06 23:28:45] <ICATS_DC8> We RT going down at PT12 NOT 13
+[GMT 04/25/06 23:33:33] <ICATS_DC8> NOT doing well on surfing the web
+[GMT 04/25/06 23:33:33] <ICATS_DC8> IT"S SLOW
+[GMT 04/25/06 23:34:20] <ICATS_DC8> NO clearance to go DOWN :-(
+[GMT 04/25/06 23:39:41] <Sky_Yarbrough_grnd> I'm here, was talking to the wife unit
+[GMT 04/25/06 23:40:48] <Sky_Yarbrough_grnd> Your conversation about the FP is cool except we don't have one here so the PT numbers don't mean anything to me.
+[GMT 04/25/06 23:41:03] <Sky_Yarbrough_grnd> I'll tell the met guys about the bad news about the spiral.
+[GMT 04/25/06 23:41:46] <ICATS_DC8> Okland gave us an OK
+[GMT 04/25/06 23:42:39] <ICATS_DC8> We are going down
+[GMT 04/25/06 23:44:38] <Sky_Yarbrough_grnd> Cool, all are happy here now.
+[GMT 04/25/06 23:47:42] <Sky_Yarbrough_grnd> Everyone is watching the spiral
+[GMT 04/25/06 23:51:08] <ICATS_DC8> I;m back
+[GMT 04/25/06 23:51:21] <ICATS_DC8> and Hank's off to the Fancy NEW printer
+[GMT 04/26/06 00:00:00] --- Wed Apr 26 2006
