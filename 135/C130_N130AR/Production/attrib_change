@@ -1,0 +1,33 @@
+#! /bin/csh -f
+#
+#  Change two attributes (units, long_name) for the variable XFO3S7 in
+#   Teresa's high-rate XFO3S7 data files.
+#  Script written by Ron Ruth on Tue Feb 27 23:05:56 GMT 2007
+#
+#  Test
+#ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h rlr135Hrf19.nc
+#
+#  Production
+echo "  Attribute change began on `date`"
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf01.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf02.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf03.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf04.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf05.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf06.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf07.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf08.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf09.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf10.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf11.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf12.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf13.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf14.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf15.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf16.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf17.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf18.nc
+ncatted -a units,XFO3S7,o,c,"ppbv" -a long_name,XFO3S7,o,c,"Final Fast Ozone Mixing Ratio" -h 135Hrf19.nc
+#
+echo "  Attribute change completed on `date`"
+exit

@@ -1,4 +1,4 @@
-netcdf 135rf01h {
+netcdf 135Hrf01 {
 dimensions:
 	Time = 20475 ;
 	sps1 = 1 ;
@@ -237,8 +237,8 @@ variables:
 		XFO3P:CalibrationCoefficients = 0.f, 1.f ;
 	float XFO3S7(Time, sps25) ;
 		XFO3S7:_FillValue = -32767.f ;
-		XFO3S7:units = "V" ;
-		XFO3S7:long_name = "Fast Ozone 10^7 Channel Signal" ;
+		XFO3S7:units = "ppbv" ;
+		XFO3S7:long_name = "Final Fast Ozone Mixing Ratio" ;
 		XFO3S7:Category = "Atmos. State" ;
 		XFO3S7:missing_value = -32767.f ;
 		XFO3S7:SampledRate = 25 ;
@@ -709,7 +709,7 @@ variables:
 		CONC1DC_LWO1:long_name = "2D-C Concentration, 260X Emulation (all cells)" ;
 		CONC1DC_LWO1:Category = "PMS Probe" ;
 		CONC1DC_LWO1:missing_value = -32767.f ;
-		CONC1DC_LWO1:DataQuality = "Good" ;
+		CONC1DC_LWO1:DataQuality = "Preliminary" ;
 		CONC1DC_LWO1:Dependencies = "1 C1DC_LWO1" ;
 	float CONC1DP_LWI1(Time) ;
 		CONC1DP_LWI1:_FillValue = -32767.f ;
@@ -717,23 +717,24 @@ variables:
 		CONC1DP_LWI1:long_name = "2D-P Concentration, 260X Emulation (all cells)" ;
 		CONC1DP_LWI1:Category = "PMS Probe" ;
 		CONC1DP_LWI1:missing_value = -32767.f ;
-		CONC1DP_LWI1:DataQuality = "Good" ;
+		CONC1DP_LWI1:DataQuality = "Preliminary" ;
 		CONC1DP_LWI1:Dependencies = "1 C1DP_LWI1" ;
-	float CONC2C_LWO(Time, sps25) ;
-		CONC2C_LWO:_FillValue = -32767.f ;
-		CONC2C_LWO:units = "#/L" ;
-		CONC2C_LWO:long_name = "2D-C Concentration" ;
-		CONC2C_LWO:Category = "PMS Probe" ;
-		CONC2C_LWO:missing_value = -32767.f ;
-		CONC2C_LWO:DataQuality = "Good" ;
-		CONC2C_LWO:Dependencies = "2 SHDORC_LWO TASX" ;
+		CONC1DP_LWI1:SerialNumber = "2DP10" ;
+	float XC2C_LWO(Time, sps25) ;
+		XC2C_LWO:_FillValue = -32767.f ;
+		XC2C_LWO:units = "#/L" ;
+		XC2C_LWO:long_name = "2D-C Concentration" ;
+		XC2C_LWO:Category = "PMS Probe" ;
+		XC2C_LWO:missing_value = -32767.f ;
+		XC2C_LWO:DataQuality = "Good" ;
+		XC2C_LWO:Dependencies = "2 SHDORC_LWO TASX" ;
 	float CONC2DC_LWO2(Time) ;
 		CONC2DC_LWO2:_FillValue = -32767.f ;
 		CONC2DC_LWO2:units = "#/L" ;
 		CONC2DC_LWO2:long_name = "2D-C Concentraton, Reconstruction (all cells)" ;
 		CONC2DC_LWO2:Category = "PMS Probe" ;
 		CONC2DC_LWO2:missing_value = -32767.f ;
-		CONC2DC_LWO2:DataQuality = "Good" ;
+		CONC2DC_LWO2:DataQuality = "Preliminary" ;
 		CONC2DC_LWO2:Dependencies = "1 C2DC_LWO2" ;
 	float CONC2DP_LWI2(Time) ;
 		CONC2DP_LWI2:_FillValue = -32767.f ;
@@ -741,16 +742,17 @@ variables:
 		CONC2DP_LWI2:long_name = "2D-P Concentraton, Reconstruction (all cells)" ;
 		CONC2DP_LWI2:Category = "PMS Probe" ;
 		CONC2DP_LWI2:missing_value = -32767.f ;
-		CONC2DP_LWI2:DataQuality = "Good" ;
+		CONC2DP_LWI2:DataQuality = "Preliminary" ;
 		CONC2DP_LWI2:Dependencies = "1 C2DP_LWI2" ;
-	float CONC2P_LWI(Time, sps25) ;
-		CONC2P_LWI:_FillValue = -32767.f ;
-		CONC2P_LWI:units = "#/L" ;
-		CONC2P_LWI:long_name = "2D-P Concentration" ;
-		CONC2P_LWI:Category = "PMS Probe" ;
-		CONC2P_LWI:missing_value = -32767.f ;
-		CONC2P_LWI:DataQuality = "Good" ;
-		CONC2P_LWI:Dependencies = "2 SHDORP_LWI TASX" ;
+		CONC2DP_LWI2:SerialNumber = "2DP10" ;
+	float XC2P_LWI(Time, sps25) ;
+		XC2P_LWI:_FillValue = -32767.f ;
+		XC2P_LWI:units = "#/L" ;
+		XC2P_LWI:long_name = "2D-P Concentration" ;
+		XC2P_LWI:Category = "PMS Probe" ;
+		XC2P_LWI:missing_value = -32767.f ;
+		XC2P_LWI:DataQuality = "Good" ;
+		XC2P_LWI:Dependencies = "2 SHDORP_LWI TASX" ;
 	float CONC6_RWI(Time, sps10) ;
 		CONC6_RWI:_FillValue = -32767.f ;
 		CONC6_RWI:units = "#/L" ;
@@ -1272,6 +1274,20 @@ variables:
 		ZERO:missing_value = -32767.f ;
 		ZERO:DataQuality = "Good" ;
 		ZERO:Dependencies = "0" ;
+	float CONC2P_LWI(Time) ;
+		CONC2P_LWI:_FillValue = -32767.f ;
+		CONC2P_LWI:units = "#/L" ;
+		CONC2P_LWI:long_name = "2D-P Concentration" ;
+		CONC2P_LWI:Category = "PMS Probe" ;
+		CONC2P_LWI:DataQuality = "Preliminary" ;
+		CONC2P_LWI:Dependencies = "2 SHDORP_LWI TASX" ;
+	float CONC2C_LWO(Time) ;
+		CONC2C_LWO:_FillValue = -32767.f ;
+		CONC2C_LWO:units = "#/L" ;
+		CONC2C_LWO:long_name = "2D-C Concentration" ;
+		CONC2C_LWO:Category = "PMS Probe" ;
+		CONC2C_LWO:DataQuality = "Preliminary" ;
+		CONC2C_LWO:Dependencies = "2 SHDORC_LWO TASX" ;
 
 // global attributes:
 		:Source = "NCAR Research Aviation Facility" ;
@@ -1289,4 +1305,7 @@ variables:
 		:coordinates = "LONC LATC GGALT Time" ;
 		:TimeInterval = "16:10:00-21:51:14" ;
 		:Categories = "Position,Thermodynamic,Aircraft State,Atmos. State,Liquid Water,Uncorr\'d Raw,Wind,PMS Probe,Housekeeping,Chemistry,Radiation,Non-Standard" ;
+		:history = "Tue Mar  6 13:27:34 2007: ncrename -v CONC2C_LWO,XC2C_LWO 135Hrf01.nc\n",
+			"Tue Mar  6 09:12:12 2007: ncrename -v CONC2P_LWI,XC2P_LWI 135Hrf01.nc" ;
+		:nco_openmp_thread_number = 1 ;
 }
