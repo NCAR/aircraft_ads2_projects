@@ -1,0 +1,24 @@
+#! /bin/csh -f
+echo  "#  Attribute change for HRT began on `date`"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf01h.nc
+echo "#   ncatted completion status for HRT file 181rf01h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf02h.nc
+echo "#   ncatted completion status for HRT file 181rf02h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf03h.nc
+echo "#   ncatted completion status for HRT file 181rf03h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf04h.nc
+echo "#   ncatted completion status for HRT file 181rf04h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf05h.nc
+echo "#   ncatted completion status for HRT file 181rf05h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf06h.nc
+echo "#   ncatted completion status for HRT file 181rf06h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf07h.nc
+echo "#   ncatted completion status for HRT file 181rf07h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf08h.nc
+echo "#   ncatted completion status for HRT file 181rf08h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf09h.nc
+echo "#   ncatted completion status for HRT file 181rf09h.nc = 0"
+ncatted -a long_name,DPLA1,o,c,"Dew Point Temperature, Lyman Alpha" -a units,DPLA1,o,c,deg_C -a long_name,RHLA1,o,c,"Relative Humidity - Lyman Alpha #2" -a units,RHLA1,o,c,% -a DataQuality,RHLA1,o,c,Bad -a long_name,AQRATIO,o,c,"PCORS dependent variable" -a units,AQRATIO,o,c,none -a DataQuality,GALTC,o,c,Bad -h 181rf10h.nc
+echo "#   ncatted completion status for HRT file 181rf10h.nc = 0"
+echo "#  Attribute changes for HRT completed on `date`"
+exit

@@ -1,0 +1,20 @@
+Once permissions on the Production subdirectory get set correctly:
+* 1) get new header files
+* 2) compare new varlists with old (LRT and HRT)
+* 3) get nimbus versions to archive:  3528 & 3529 (HRT), 3535 (LRT)
+      tarit.nimbus 3528
+      tarit.nimbus 3529
+      tarit.nimbus 3535
+* 4) update flight matrix netCDF file request links (different start/end times)
+* 5) prepare new varlists (LRT and HRT)
+* 6) correct some long_name and units attributes in production netCDF files (LRT/HRT)
+* 7) rearchive to MSS corrected netCDF files (LRT/HRT/gz)
+* 8) create new varlists for web site (LRT and HRT) with Bulletin No. 9 links
+* 9) revise tarit.docs script
+*10) prepare new tarit.181 script (tarit.181_3rd)
+*11) prepare new archive.support script (archive.support_3rd)
+*12) run tarit.181_3rd script
+*13) run tarit.docs script
+*14) cnx tarit.181_3rd tarit.docs
+*15) update Mail.181 file
+*16) run archive.support_3rd script

@@ -1,0 +1,431 @@
+#! /bin/csh -f
+#
+#  Save pertinent NIMBUS support files for project yyyy-ppp ProjName (PI)
+#   to a tar file (in prepararation for archival to the SCD Mass Store System)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002, 2006                                                   *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Notes:  Create a copy of, modify and run this script from a project's 
+#            "Production/archive" subdirectory.
+#          IMPORTANT:  Use the "tarit.docs" script to create an archive
+#            file for the project's documentation in the "Production/docs"
+#            subdirectory.
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#  Revised by RLR (remind about "tarit.docs" script)                 4 Mar 2002
+#  Revised by RLR (change directory refs--now runs in archive dir)  28 Aug 2002
+#  Revised by RLR (update to current directory structure)           30 Jun 2006
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $JLOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $JLOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#
+#      * * * * * * * * * * * * * * *
+#     *                             *
+#    *  Executable code starts here  *
+#     *                             *
+#      * * * * * * * * * * * * * * *
+#
+#   Check current directory
+set cdir = `pwd | awk -F/ '{print $NF}'`
+if ($cdir != "archive") then
+  echo '  This script is not being run from the "archive" subdirectory.'
+  echo '   Quitting.'
+  exit 1
+endif
+#
+#  Get setup information for this project
+pushd ../.. >& /dev/null
+set PROJDIR =  `pwd`
+cd ..
+set PROJ = `pwd | awk -F/ '{print $NF}'`
+popd >& /dev/null
+set OSTYPE = `uname`
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+cd $PROJDIR
+tar chvf $OFILE \
+181vars \
+Categories \
+Defaults \
+Defaults.caddis \
+Defaults.herc \
+Defaults.production \
+DependTable \
+DependTable.caddis \
+DependTable.herc \
+DependTable.production \
+Despike \
+HeaderChangeLog \
+Lags \
+LowRateVars \
+PMSspecs \
+PMSspecs.Dec11 \
+PMSspecs.caddis \
+PMSspecs.cjw \
+PMSspecs.herc \
+ProjectName \
+StandardNames \
+UserNames \
+VarDB \
+VarDB.preUDunits \
+ascii_parms \
+drexelhrt.nimbus \
+dtable_diffs \
+dycoms2.bat \
+header \
+header.0614 \
+header.0628 \
+header.bak \
+header.herc \
+old.Lags \
+ophir3.names \
+s100.default \
+s100.default.109 \
+s100.default.122 \
+s100.default.caddis \
+s100.default.herc \
+s200.default \
+s200.default.caddis \
+s200.default.herc \
+s300.default \
+s300.default.caddis \
+s300.default.herc \
+Production/181.documents.tar.dir \
+Production/181.tar.dir \
+Production/181UHrf03b.hdr \
+Production/181UHrf05.hdr \
+Production/181rf01.hdr \
+Production/181rf01_2002.hdr \
+Production/181rf01auhrt.hdr \
+Production/181rf01h.hdr \
+Production/181rf01h_2002.hdr \
+Production/181rf02auhrt.hdr \
+Production/BlankOuts.rf03 \
+Production/BlankOuts.rf04 \
+Production/BlankOuts.rf06 \
+Production/BlankOuts.rf08 \
+Production/FlightGroups \
+Production/Flight_ff01 \
+Production/Flight_ff02 \
+Production/Flight_rf01 \
+Production/Flight_rf02 \
+Production/Flight_rf03 \
+Production/Flight_rf04 \
+Production/Flight_rf05 \
+Production/Flight_rf06 \
+Production/Flight_rf07 \
+Production/Flight_rf08 \
+Production/Flight_rf09 \
+Production/Flight_tf01 \
+Production/Flight_tf02 \
+Production/Flight_tf03 \
+Production/LogFile_HRT.tf03 \
+Production/MSCP_out.181 \
+Production/Mail.181 \
+Production/RESTRICTED_ACCESS \
+Production/SLMOBA_C130.xls \
+Production/d2hrt.nimbus \
+Production/d2hrt.nimbus.orig \
+Production/d2uhrt.nimbus \
+Production/d2uhrtt.nimbus \
+Production/d2ultrafast.nimbus \
+Production/data_access_notes \
+Production/data_requests \
+Production/dycoms-request \
+Production/dycoms2setA.nimbus \
+Production/dycoms2setB.nimbus \
+Production/erratum_undeliverable \
+Production/gerber_uhrt_notes \
+Production/gwuser \
+Production/logFile_HRT.ff01 \
+Production/logFile_HRT.ff02 \
+Production/logFile_HRT.rf01 \
+Production/logFile_HRT.rf02 \
+Production/logFile_HRT.rf03 \
+Production/logFile_HRT.rf04 \
+Production/logFile_HRT.rf05 \
+Production/logFile_HRT.rf06 \
+Production/logFile_HRT.rf07 \
+Production/logFile_HRT.rf08 \
+Production/logFile_HRT.rf09 \
+Production/logFile_HRT.rf09.old \
+Production/logFile_HRT.rf10 \
+Production/logFile_LRT.ff01 \
+Production/logFile_LRT.ff02 \
+Production/logFile_LRT.rf01 \
+Production/logFile_LRT.rf02 \
+Production/logFile_LRT.rf03 \
+Production/logFile_LRT.rf04 \
+Production/logFile_LRT.rf05 \
+Production/logFile_LRT.rf06 \
+Production/logFile_LRT.rf07 \
+Production/logFile_LRT.rf08 \
+Production/logFile_LRT.rf09 \
+Production/logFile_LRT.rf10 \
+Production/logFile_LRT.tf01 \
+Production/logFile_LRT.tf02 \
+Production/logFile_LRT.tf03 \
+Production/logFile_UHRT.rf01 \
+Production/logFile_UHRT.rf01a \
+Production/logFile_UHRT.rf02 \
+Production/logFile_UHRT.rf02a \
+Production/logFile_UHRT.rf03 \
+Production/logFile_UHRT.rf03a \
+Production/logFile_UHRT.rf04 \
+Production/logFile_UHRT.rf04a \
+Production/logFile_UHRT.rf05 \
+Production/logFile_UHRT.rf05a \
+Production/logFile_UHRT.rf06 \
+Production/logFile_UHRT.rf06a \
+Production/logFile_UHRT.rf07 \
+Production/logFile_UHRT.rf07a \
+Production/logFile_UHRT.rf08 \
+Production/logFile_UHRT.rf08a \
+Production/logFile_UHRT.rf09 \
+Production/logFile_UHRT.rf09a \
+Production/logFile_UHRT.rf10 \
+Production/logfile_HRT.rf01 \
+Production/logfile_HRT.rf02 \
+Production/logfile_HRT.rf03 \
+Production/logfile_HRT.rf04 \
+Production/logfile_HRT.rf05 \
+Production/logfile_HRT.rf06 \
+Production/logfile_HRT.rf07 \
+Production/logfile_HRT.rf08 \
+Production/logfile_HRT.rf09 \
+Production/logfile_HRT.rf10 \
+Production/logfile_LRT.rf01 \
+Production/logfile_LRT.rf02 \
+Production/logfile_LRT.rf03 \
+Production/logfile_LRT.rf04 \
+Production/logfile_LRT.rf05 \
+Production/logfile_LRT.rf06 \
+Production/logfile_LRT.rf07 \
+Production/logfile_LRT.rf08 \
+Production/logfile_LRT.rf09 \
+Production/logfile_LRT.rf10 \
+Production/newHFlight_rf01 \
+Production/newHFlight_rf02 \
+Production/newHFlight_rf03 \
+Production/newHFlight_rf04 \
+Production/newHFlight_rf05 \
+Production/newHFlight_rf06 \
+Production/newHFlight_rf07 \
+Production/newHFlight_rf08 \
+Production/newHFlight_rf09 \
+Production/newHFlight_rf10 \
+Production/nimbus.hrt.tar.dir \
+Production/nimbus.lrt.tar.dir \
+Production/nimbus_3528.tar \
+Production/nimbus_3528.tar.dir \
+Production/nimbus_3529.tar \
+Production/nimbus_3529.tar.dir \
+Production/nimbus_3535.tar \
+Production/nimbus_3535.tar.dir \
+Production/nimbus_defaults.hrt.tar.dir \
+Production/nimbus_defaults.lrt.tar.dir \
+Production/nimbus_defaults_3528.tar \
+Production/nimbus_defaults_3528.tar.dir \
+Production/nimbus_defaults_3529.tar \
+Production/nimbus_defaults_3529.tar.dir \
+Production/nimbus_defaults_3535.tar \
+Production/nimbus_defaults_3535.tar.dir \
+Production/ogwuser \
+Production/oldFlight_rf01 \
+Production/oldFlight_rf02 \
+Production/oldFlight_rf03 \
+Production/oldFlight_rf04 \
+Production/oldFlight_rf05 \
+Production/oldFlight_rf06 \
+Production/oldFlight_rf07 \
+Production/oldFlight_rf08 \
+Production/oldFlight_rf09 \
+Production/oldFlight_rf10 \
+Production/proj.info \
+Production/reject_memo \
+Production/rf09h_notes \
+Production/taplog.181 \
+Production/taplog.hrt.181 \
+Production/taplog.hrt.181_2002 \
+Production/taplog.lrt.181 \
+Production/taplog.lrt.181_2002 \
+Production/taplog.mcr.181 \
+Production/taplog.pms2d.181 \
+Production/taplog.uhrt.181 \
+Production/tp2ms.summary \
+Production/trialFlight_rf02 \
+Production/user_list \
+Production/varlist.181rf01 \
+Production/varlist.181rf01h \
+Production/varlist_20011217.181UHrf03b \
+Production/varlist_20011217.181rf01 \
+Production/varlist_20011217.181rf01h \
+Production/archive/arads.181 \
+Production/archive/arch.181 \
+Production/archive/arch2d.181 \
+Production/archive/arch_mcr.181 \
+Production/archive/arch_prelim.181 \
+Production/archive/arch_prod_mcr_log.181 \
+Production/archive/arch_rdma.181 \
+Production/archive/arch_uhrt.181 \
+Production/archive/archive.support_2002 \
+Production/archive/archive.support_3rd \
+Production/archive/archprodmcr.181 \
+Production/archive/archprodnc_3rd.181 \
+Production/archive/atdarch.181 \
+Production/archive/atdarch2d.181 \
+Production/archive/atdarchp.181 \
+Production/archive/atdarchprodmcr.181 \
+Production/archive/atdarchz.181 \
+Production/archive/ogwuser \
+Production/archive/oscdemail \
+Production/archive/return_tapes_from_opns.mo \
+Production/archive/send_tapes_to_opns.mo \
+Production/archive/tapes.181 \
+Production/archive/tarit.181_2002 \
+Production/archive/tarit.181_3rd \
+Production/archive/tarit.docs \
+Production/archive/tasks \
+Production/archive/tp2ms.job \
+Production/archive/unrestrict \
+Production/archive/MSCP_out/Fail.FF01B.gz \
+Production/archive/MSCP_out/Fail.RF01-1.gz \
+Production/archive/MSCP_out/Fail.RF01-2.gz \
+Production/archive/MSCP_out/Fail.RF01D.gz \
+Production/archive/MSCP_out/Fail.RF01E.gz \
+Production/archive/MSCP_out/Fail.RF02B-1.gz \
+Production/archive/MSCP_out/Fail.RF02B-2.gz \
+Production/archive/MSCP_out/Fail.RF03A.gz \
+Production/archive/MSCP_out/Fail.RF07B.gz \
+Production/archive/MSCP_out/Fail.RF07C.gz \
+Production/archive/MSCP_out/Fail.TF01.gz \
+Production/archive/MSCP_out/print.FF01A.gz \
+Production/archive/MSCP_out/print.FF01B.gz \
+Production/archive/MSCP_out/print.FF01C.gz \
+Production/archive/MSCP_out/print.FF02A.gz \
+Production/archive/MSCP_out/print.FF02B.gz \
+Production/archive/MSCP_out/print.RF01A.gz \
+Production/archive/MSCP_out/print.RF01B.gz \
+Production/archive/MSCP_out/print.RF01C.gz \
+Production/archive/MSCP_out/print.RF01D.gz \
+Production/archive/MSCP_out/print.RF02A.gz \
+Production/archive/MSCP_out/print.RF02B.gz \
+Production/archive/MSCP_out/print.RF02C.gz \
+Production/archive/MSCP_out/print.RF02D.gz \
+Production/archive/MSCP_out/print.RF02E.gz \
+Production/archive/MSCP_out/print.RF03A.gz \
+Production/archive/MSCP_out/print.RF03B.gz \
+Production/archive/MSCP_out/print.RF03C.gz \
+Production/archive/MSCP_out/print.RF03D.gz \
+Production/archive/MSCP_out/print.RF04A.gz \
+Production/archive/MSCP_out/print.RF04B.gz \
+Production/archive/MSCP_out/print.RF04C.gz \
+Production/archive/MSCP_out/print.RF04D.gz \
+Production/archive/MSCP_out/print.RF05A.gz \
+Production/archive/MSCP_out/print.RF05B.gz \
+Production/archive/MSCP_out/print.RF05C.gz \
+Production/archive/MSCP_out/print.RF06A.gz \
+Production/archive/MSCP_out/print.RF06B.gz \
+Production/archive/MSCP_out/print.RF06C.gz \
+Production/archive/MSCP_out/print.RF06D.gz \
+Production/archive/MSCP_out/print.RF07A.gz \
+Production/archive/MSCP_out/print.RF07B.gz \
+Production/archive/MSCP_out/print.RF07C.gz \
+Production/archive/MSCP_out/print.RF07D.gz \
+Production/archive/MSCP_out/print.RF08A.gz \
+Production/archive/MSCP_out/print.RF08B.gz \
+Production/archive/MSCP_out/print.RF08C.gz \
+Production/archive/MSCP_out/print.RF08D.gz \
+Production/archive/MSCP_out/print.RF09A.gz \
+Production/archive/MSCP_out/print.RF09B.gz \
+Production/archive/MSCP_out/print.RF09C.gz \
+Production/archive/MSCP_out/print.RF10A.gz \
+Production/archive/MSCP_out/print.RF10B.gz \
+Production/archive/MSCP_out/print.RF10C.gz \
+Production/archive/MSCP_out/print.RF10D.gz \
+Production/archive/MSCP_out/print.RF10E.gz \
+Production/archive/MSCP_out/print.RF10F.gz \
+Production/archive/MSCP_out/print.TF01A.gz \
+Production/archive/MSCP_out/print.TF01B.gz \
+Production/archive/MSCP_out/print.TF02A.gz \
+Production/archive/MSCP_out/print.TF02B.gz \
+Production/archive/MSCP_out/print.TF03.gz \
+Production/gndproc/Instructions_1 \
+Production/gndproc/Instructions_2 \
+Production/gndproc/copy_cdf_joss \
+Production/gndproc/copy_cdf_raf \
+Production/gndproc/gndproc.conf \
+Production/gndproc/gndproc.doc \
+Production/gndproc/nimbus_ads_raf \
+Production/gndproc/script.log \
+Production/gndproc/script.log.chinaco \
+Production/gndproc/setup.181 \
+Production/gndproc/tmp/copy_ads_raf
+#
+#  At this point one needs a list of files immediately under the above "tar
+#   command.  As a starting point, one can use the `vi' command:
+#                       !!ls -F ../..
+#   to get a list of files in the project's home directory then edit out the
+#   unneeded ones.  
+#  For the Production subdirectory, one can use this command:
+#                       !!ls -F ..
+#  For a subdirectory under Production (e.g., archive), one can repeat this:
+#                       !!ls -F ../archive
+#                       !!ls                  (for this specific example)
+#  For a subdirectory off the project's home directory, use a command like:
+#                       !!ls -F ../../<directory>
+#   (Execute these commands starting with the cursor at the first "#" line
+#    below the `tar' command.  The `vi' command `!!ls' replaces the current
+#    line with its output.)
+#  Other subdirectories also may have files that need to be archived.
+#  Remember that the `tar' command actually runs in the Project's home
+#  directory, so references need to be made from that path.  After you get
+#  the list of files, don't forget to add the subdirectory name (if any) to
+#  the beginning of each file name and add a trailing <space> and backslash
+#  (\) to each file name (except the last one), so the `tar' command gets
+#  the entire list of files.
+#
+#  Brief summary for standard project files:
+#      (project's home directory)
+# !!ls ../..
+#      (Production subdirectory)
+# !!ls ..
+#      (Production/archive subdirectory)
+# !!ls
+#
+#   filter out undesired files
+#   prepend appropriate subdirectory to affected file names
+#    (remember that root path is project's home directory)
+#   Add backslash at end of each line (except last)
+#   Save and exit
+#
+#
+# Production/docs/ <-- archived separately via "tarit.docs" script
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

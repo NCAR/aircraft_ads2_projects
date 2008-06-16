@@ -1,0 +1,200 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#
+#  Note:  Create a copy of, modify and run this script from a project's 
+#           "Production/archive" subdirectory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+set OSTYPE = `uname`
+set PROJDIR = $LOCAL/proj/$PROJ
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+cd $PROJDIR
+tar chvf $OFILE \
+181vars \
+Categories \
+Defaults \
+Defaults.caddis \
+Defaults.herc \
+DependTable \
+DependTable.caddis \
+DependTable.herc \
+Despike \
+HeaderChangeLog \
+Lags \
+LowRateVars \
+PMSspecs \
+PMSspecs.Dec11 \
+PMSspecs.caddis \
+PMSspecs.cjw \
+PMSspecs.herc \
+ProjectName \
+UserNames \
+VarDB \
+ascii_parms \
+drexelhrt.nimbus \
+dtable_diffs \
+dycoms2.bat \
+header \
+header.0614 \
+header.0628 \
+header.bak \
+header.herc \
+ophir3.names \
+s100.default \
+s100.default.109 \
+s100.default.122 \
+s100.default.caddis \
+s100.default.herc \
+s200.default \
+s200.default.caddis \
+s200.default.herc \
+s300.default \
+s300.default.caddis \
+s300.default.herc \
+Production/181UHrf03b.hdr \
+Production/181UHrf05.hdr \
+Production/181rf01.hdr \
+Production/181rf01auhrt.hdr \
+Production/181rf01h.hdr \
+Production/181rf02auhrt.hdr \
+Production/BlankOuts.rf03 \
+Production/BlankOuts.rf04 \
+Production/BlankOuts.rf06 \
+Production/BlankOuts.rf08 \
+Production/FlightGroups \
+Production/Flight_ff01 \
+Production/Flight_ff02 \
+Production/Flight_rf01 \
+Production/Flight_rf02 \
+Production/Flight_rf03 \
+Production/Flight_rf04 \
+Production/Flight_rf05 \
+Production/Flight_rf06 \
+Production/Flight_rf07 \
+Production/Flight_rf08 \
+Production/Flight_rf09 \
+Production/Flight_rf10 \
+Production/Flight_tf01 \
+Production/Flight_tf02 \
+Production/Flight_tf03 \
+Production/RESTRICTED_ACCESS \
+Production/d2hrt.nimbus \
+Production/d2hrt.nimbus.orig \
+Production/d2uhrt.nimbus \
+Production/d2uhrtt.nimbus \
+Production/d2ultrafast.nimbus \
+Production/data_access_notes \
+Production/data_requests \
+Production/dycoms2setA.nimbus \
+Production/dycoms2setB.nimbus \
+Production/erratum_undeliverable \
+Production/gerber_uhrt_notes \
+Production/logFile_HRT.ff01 \
+Production/logFile_HRT.ff02 \
+Production/logFile_HRT.rf01 \
+Production/logFile_HRT.rf02 \
+Production/logFile_HRT.rf03 \
+Production/logFile_HRT.rf04 \
+Production/logFile_HRT.rf05 \
+Production/logFile_HRT.rf06 \
+Production/logFile_HRT.rf07 \
+Production/logFile_HRT.rf08 \
+Production/logFile_HRT.rf09 \
+Production/logFile_HRT.rf09.old \
+Production/logFile_HRT.rf10 \
+Production/logFile_LRT.ff01 \
+Production/logFile_LRT.ff02 \
+Production/logFile_LRT.rf01 \
+Production/logFile_LRT.rf02 \
+Production/logFile_LRT.rf03 \
+Production/logFile_LRT.rf04 \
+Production/logFile_LRT.rf05 \
+Production/logFile_LRT.rf06 \
+Production/logFile_LRT.rf07 \
+Production/logFile_LRT.rf08 \
+Production/logFile_LRT.rf09 \
+Production/logFile_LRT.rf10 \
+Production/logFile_LRT.tf01 \
+Production/logFile_LRT.tf02 \
+Production/logFile_LRT.tf03 \
+Production/logFile_UHRT.rf01 \
+Production/logFile_UHRT.rf01a \
+Production/logFile_UHRT.rf02 \
+Production/logFile_UHRT.rf02a \
+Production/logFile_UHRT.rf03 \
+Production/logFile_UHRT.rf03a \
+Production/logFile_UHRT.rf04 \
+Production/logFile_UHRT.rf04a \
+Production/logFile_UHRT.rf05 \
+Production/logFile_UHRT.rf05a \
+Production/logFile_UHRT.rf06 \
+Production/logFile_UHRT.rf06a \
+Production/logFile_UHRT.rf07 \
+Production/logFile_UHRT.rf07a \
+Production/logFile_UHRT.rf08 \
+Production/logFile_UHRT.rf08a \
+Production/logFile_UHRT.rf09 \
+Production/logFile_UHRT.rf09a \
+Production/logFile_UHRT.rf10 \
+Production/proj.info \
+Production/reject_memo \
+Production/rf09h_notes \
+Production/taplog.hrt.181 \
+Production/taplog.lrt.181 \
+Production/taplog.pms2d.181 \
+Production/taplog.uhrt.181 \
+Production/tp2ms.summary \
+Production/user_list \
+Production/vars.181Lrf01 \
+Production/vars.181UHrf03b \
+Production/vars.181rf01h \
+Production/archive/arads.181 \
+Production/archive/arch.181 \
+Production/archive/arch2d.181 \
+Production/archive/arch_mcr.181 \
+Production/archive/arch_prelim.181 \
+Production/archive/arch_rdma.181 \
+Production/archive/arch_uhrt.181 \
+Production/archive/archive.support \
+Production/archive/atdarch.181 \
+Production/archive/atdarch2d.181 \
+Production/archive/atdarchp.181 \
+Production/archive/atdarchz.181 \
+Production/archive/return_tapes_from_opns.mo \
+Production/archive/send_tapes_to_opns.mo \
+Production/archive/tapes.181 \
+Production/archive/tarit.181 \
+Production/archive/tarit.docs \
+Production/archive/tp2ms.job \
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

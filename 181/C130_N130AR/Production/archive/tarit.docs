@@ -4,24 +4,116 @@
 #   (in prepararation for archival to the SCD Mass Store System)
 #
 #  Adapted from file tarit.803 by Ronald L. Ruth                    20 Mar 2000
+#  Updated to current standards by Ronald L. Ruth                   20 Mar 2000
 #
-#  Assumptions:
+#  Assumptions (original):
 #   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
 #        having a "Production" subdirectory
 #   2.  Project's name (only its name!) is in the file $LOCAL/proj/ProjectName
 #   3.  A "proj.info" file exists in the project's "Production" subdirectory
 #   4.  The documentation is in a directory called "docs" in the project's
 #        "Production" subdirectory
+#  Assumptions (new):
+#   1.  Directory structure for projects is
+#        $LOCAL/projects/<projectname>/<platform>/
+#        having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#        $LOCAL/projects/<projectname>/<platform>/ProjectName
+#   5.  Can be run only by the "dmg" login in the project's "archive"
+#        subdirectory
 #
-#  Get setup information for this project
-set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
-set PROJDIR = $LOCAL/proj/$PROJ
-set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
-set PROJNAME = `cat $PROJDIR/ProjectName`
-set OFILE = "$PROJDIR/Production/$PROJ.documents.tar"
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
 #
-cd $PROJDIR/Production
-tar chvf $OFILE  docs
+#
+#      * * * * * * * * * * * * * * *
+#     *                             *
+#    *  Executable code starts here  *
+#     *                             *
+#      * * * * * * * * * * * * * * *
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+#
+#   Check current directory
+set cdir = `pwd | awk -F/ '{print $NF}'`
+if ($cdir != "archive") then
+  echo '  This script is not being run from the "archive" subdirectory.'
+  echo '   Quitting.'
+  exit 1
+endif
+#
+#  Get setup information for this project (original version)
+#set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set PROJDIR = $LOCAL/proj/$PROJ
+#set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+#set PROJNAME = `cat $PROJDIR/ProjectName`
+#set OFILE = "$PROJDIR/Production/$PROJ.documents.tar"
+#  Get setup information for this project (new version)
+pushd ../.. >& /dev/null
+set PDIR = `pwd`
+cd ..
+set PROJ = `pwd | awk -F/ '{print $NF}'`
+popd >& /dev/null
+set PRDIR = $PDIR/Production
+set FY = `grep FY $PRDIR/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PDIR/ProjectName`
+set OFILE = "$PRDIR/$PROJ.documents.tar"
+#
+cd $PRDIR
+#tar chvf $OFILE docs
+tar chvf $OFILE \
+docs/DYCOMS.turbulence.pdf \
+docs/DYCOMSmeeting.ppt \
+docs/RF09_memo \
+docs/d2cov_lett.txt \
+docs/d2qc_fig1.png \
+docs/d2qc_fig2.png \
+docs/d2quality_rep.txt \
+docs/d2uhrt_header \
+docs/dycoms2_instlist.txt \
+docs/dycoms_sched.txt \
+docs/dycoms_sched_2.txt \
+docs/ndycoms2_instlist.txt \
+docs/odycoms2_instlist.txt \
+docs/protocol.html \
+docs/protocol.txt \
+docs/pvmcut.jpg \
+docs/pvmcut.pdf \
+docs/pvmcut2.pdf \
+docs/HTML/DYCOMS-II_home \
+docs/HTML/DYCOMS-II_plots \
+docs/Win_docs/d2cov_lett.doc \
+docs/Win_docs/d2quality_rep.doc \
+docs/Win_docs/dycoms2_instlist.doc \
+docs/Win_docs/dycoms_sched.doc \
+docs/Win_docs/dycoms_sched_2.doc \
+docs/Win_docs/site_survey_rep.doc \
+docs/pics/PIC00007.jpg \
+docs/pics/PIC00008.jpg \
+docs/pics/PIC00009.jpg \
+docs/pics/PIC00010.jpg \
+docs/pics/PIC00011.jpg \
+docs/pics/PIC00013.jpg \
+docs/pics/PIC00014.jpg \
+docs/pics/PIC00015.jpg \
+docs/pics/PIC00016.jpg \
+docs/pics/PIC00018.jpg \
+docs/pics/PIC00019.jpg \
+docs/pics/PIC00020.jpg \
+docs/pics/PIC00021.jpg \
+docs/pics/PIC00023.jpg \
+docs/pics/PIC00024.jpg \
+docs/pics/PIC00025.jpg \
+docs/pics/snider_rack.jpg \
+docs/pics/twohy_rack.jpg \
+docs/pics/wcracq_rack.jpg \
+docs/pics/wcrant_mount.jpg
+#
 #
 #  Get tar directory list for archiving
 set dfile = $OFILE.dir

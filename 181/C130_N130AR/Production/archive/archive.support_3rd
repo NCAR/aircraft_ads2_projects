@@ -1,0 +1,727 @@
+#! /bin/csh -f
+#
+#  Archive support files for project 2001-181 DYCOMS-II (Huebert, et al.)
+#   (Customizing this script for each project is rather labor intensive.
+#   It may make more sense to just save everything in the project's
+#   directory rather than filter out stuff that apparently isn't needed.
+#   If one saves everything, this script could be generic and would be
+#   much simpler.)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002, 2004, 2006                                             *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  Create a copy of, modify and run this script from a project's
+#          "Production" or Production/archive subdirectory.  This script
+#          runs only under the "dmg" login.
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (debug)                                           16 Apr 1996
+#  Revised by RLR (add some comment lines)                           1 Jul 1997
+#  Revised by RLR (streamline the way things are set up)            11 Aug 1997
+#  Revised by RLR (minor changes and more template examples)        20 Aug 1998
+#  Revised by RLR (change the way $PROJ is determined)              20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#  Revised by RLR (use DCS command "msrcp" instead of MIGS)         19 Apr 2002
+#  Revised by RLR (default retention period changed to 32767 days)  28 Jan 2004
+#  Revised by RLR (changed "OK" and "Failed" messages and logic)    28 Jan 2004
+#  No revision    (added $ to all SCD_PROJ --> $SCD_PROJ)           15 Apr 2004
+#  No revision    (changed all "rsh" to "ssh")                      28 Oct 2005
+#  Revised by RLR (updated to current directory structure)          30 Jun 2006
+#  Revised by RLR (added comment to document destination directory) 11 Jan 2007
+#
+#  Note:  This script must be run from a project's "Production/archive"
+#          subdirectory.
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $JLOCAL/proj/<3-digit project #>
+#         having a "Production" subdirectory
+#   2.  Project's name (and only its name) is in the file
+#         $JLOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#   To find executable lines (from within `vi'), type:
+#       /^[^#]
+#
+#
+#      * * * * * * * * * * * * * * *
+#     *                             *
+#    *  Executable code starts here  *
+#     *                             *
+#      * * * * * * * * * * * * * * *
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the 'dmg' login is allowed to run this script.  Quitting.
+  exit
+endif
+#
+#   Check current directory
+set cdir = `pwd | awk -F/ '{print $NF}'`
+if ($cdir != "archive") then
+  echo '  This script is not being run from the "archive" subdirectory.'
+  echo '   Quitting.'
+  exit 1
+endif
+#
+#  Get setup information for this project
+pushd ../.. >& /dev/null
+set PDIR = `pwd`
+cd ..
+set PROJ = `pwd | awk -F/ '{print $NF}'`
+popd >& /dev/null
+set PRDIR = $PDIR/Production
+set YEAR = `grep FY $PRDIR/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PDIR/ProjectName`
+set SDIR = $PROD_DATA
+#
+#--------------------------------------------
+#   Default settings (not normally changed)
+#--------------------------------------------
+#  SCD Project number
+set SCD_PROJ = "41113009"
+#  MSS default ReTention PerioD
+set RTPD = "32767"
+#  MSS Write PassWorD
+set WPWD = "RAFDMG"
+#--------------------------------------------
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+endif
+#
+#
+echo "#  Job(s) submitted on `date`"
+echo "#  Files archived to MSS directory:  /RAF/$YEAR/$PROJ/"
+#
+#  Current archive (msrcp) commands go here
+#  ----------------------------------------
+#
+#
+# Done.
+echo "#   msrcp job  -- OK -- "
+echo "#  Completed on `date`"
+exit
+#
+#
+# -----------------------------------------------------------------------------
+#
+#  Archiving segments that have been completed
+#  -------------------------------------------
+#
+#echo "#  Files moved to MSS directory:  /RAF/$YEAR/$PROJ/2ND_PRODUCTION/"
+#
+#  Files to be moved to the 2ND_PRODUCTION subdirectory
+#msmv -wpwd $WPWD /RAF/2001/181/181.documents.tar /RAF/2001/181/2ND_PRODUCTION/181.documents.tar
+#echo "#   moved /RAF/2001/181/181.documents.tar to ../181.documents.tar"
+#msmv -wpwd $WPWD /RAF/2001/181/181.documents.tar.dir /RAF/2001/181/2ND_PRODUCTION/181.documents.tar.dir
+#echo "#   moved /RAF/2001/181/181.documents.tar.dir to ../181.documents.tar.dir"
+#msmv -wpwd $WPWD /RAF/2001/181/181.tar /RAF/2001/181/2ND_PRODUCTION/181.tar
+#echo "#   moved /RAF/2001/181/181.tar to ../181.tar"
+#msmv -wpwd $WPWD /RAF/2001/181/181.tar.dir /RAF/2001/181/2ND_PRODUCTION/181.tar.dir
+#echo "#   moved /RAF/2001/181/181.tar.dir to ../181.tar.dir"
+#msmv -wpwd $WPWD /RAF/2001/181/HRT/RF01.hdr /RAF/2001/181/2ND_PRODUCTION/HRT/RF01.hdr
+#echo "#   moved /RAF/2001/181/HRT/RF01.hdr to ../HRT/RF01.hdr"
+#msmv -wpwd $WPWD /RAF/2001/181/HRT/nimbus.hrt.tar /RAF/2001/181/2ND_PRODUCTION/HRT/nimbus.hrt.tar
+#echo "#   moved /RAF/2001/181/HRT/nimbus.hrt.tar to ../HRT/nimbus.hrt.tar"
+#msmv -wpwd $WPWD /RAF/2001/181/HRT/nimbus.hrt.tar.dir /RAF/2001/181/2ND_PRODUCTION/HRT/nimbus.hrt.tar.dir
+#echo "#   moved /RAF/2001/181/HRT/nimbus.hrt.tar.dir to ../HRT/nimbus.hrt.tar.dir"
+#msmv -wpwd $WPWD /RAF/2001/181/HRT/nimbus_defaults.hrt.tar /RAF/2001/181/2ND_PRODUCTION/HRT/nimbus_defaults.hrt.tar
+#echo "#   moved /RAF/2001/181/HRT/nimbus_defaults.hrt.tar to ../HRT/nimbus_defaults.hrt.tar"
+#msmv -wpwd $WPWD /RAF/2001/181/HRT/nimbus_defaults.hrt.tar.dir /RAF/2001/181/2ND_PRODUCTION/HRT/nimbus_defaults.hrt.tar.dir
+#echo "#   moved /RAF/2001/181/HRT/nimbus_defaults.hrt.tar.dir to ../HRT/nimbus_defaults.hrt.tar.dir"
+#msmv -wpwd $WPWD /RAF/2001/181/HRT/taplog.hrt.181 /RAF/2001/181/2ND_PRODUCTION/HRT/taplog.hrt.181
+#echo "#   moved /RAF/2001/181/HRT/taplog.hrt.181 to ../HRT/taplog.hrt.181"
+#msmv -wpwd $WPWD /RAF/2001/181/LRT/RF01.hdr /RAF/2001/181/2ND_PRODUCTION/LRT/RF01.hdr
+#echo "#   moved /RAF/2001/181/LRT/RF01.hdr to ../LRT/RF01.hdr"
+#msmv -wpwd $WPWD /RAF/2001/181/LRT/nimbus.lrt.tar /RAF/2001/181/2ND_PRODUCTION/LRT/nimbus.lrt.tar
+#echo "#   moved /RAF/2001/181/LRT/nimbus.lrt.tar to ../LRT/nimbus.lrt.tar"
+#msmv -wpwd $WPWD /RAF/2001/181/LRT/nimbus.lrt.tar.dir /RAF/2001/181/2ND_PRODUCTION/LRT/nimbus.lrt.tar.dir
+#echo "#   moved /RAF/2001/181/LRT/nimbus.lrt.tar.dir to ../LRT/nimbus.lrt.tar.dir"
+#msmv -wpwd $WPWD /RAF/2001/181/LRT/nimbus_defaults.lrt.tar /RAF/2001/181/2ND_PRODUCTION/LRT/nimbus_defaults.lrt.tar
+#echo "#   moved /RAF/2001/181/LRT/nimbus_defaults.lrt.tar to ../LRT/nimbus_defaults.lrt.tar"
+#msmv -wpwd $WPWD /RAF/2001/181/LRT/nimbus_defaults.lrt.tar.dir /RAF/2001/181/2ND_PRODUCTION/LRT/nimbus_defaults.lrt.tar.dir
+#echo "#   moved /RAF/2001/181/LRT/nimbus_defaults.lrt.tar.dir to ../LRT/nimbus_defaults.lrt.tar.dir"
+#msmv -wpwd $WPWD /RAF/2001/181/LRT/taplog.lrt.181 /RAF/2001/181/2ND_PRODUCTION/LRT/taplog.lrt.181
+#echo "#   moved /RAF/2001/181/LRT/taplog.lrt.181 to ../LRT/taplog.lrt.181"
+##
+## Done.
+#echo "#   move jobs  -- OK -- "
+#echo "#  Completed on `date`"
+#exit
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+181.documents.tar.dir \
+181.documents.tar \
+181.tar.dir \
+181.tar \
+Mail.181 \
+taplog.181 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $FILE -- Failed -- `date`"
+      echo "#                $FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+#
+set FILES = ( \
+nimbus_3528.tar.dir \
+nimbus_3528.tar \
+nimbus_defaults_3528.tar.dir \
+nimbus_defaults_3528.tar \
+nimbus_3529.tar.dir \
+nimbus_3529.tar \
+nimbus_defaults_3529.tar.dir \
+nimbus_defaults_3529.tar \
+taplog.hrt.181 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TURBRT/$FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TURBRT/$FILE -- Failed -- `date`"
+      echo "#                $TURBRT/$FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TURBRT/$FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+#
+set FILES = ( \
+nimbus_3535.tar.dir \
+nimbus_3535.tar \
+nimbus_defaults_3535.tar.dir \
+nimbus_defaults_3535.tar \
+taplog.lrt.181 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TURBRT/$FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TURBRT/$FILE -- Failed -- `date`"
+      echo "#                $TURBRT/$FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TURBRT/$FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = $PRDIR
+set TURBRT = HRT
+set FILES = ( \
+181rf01h.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+if ($todo != $#OFILES) then
+  echo "Source and destination files don't match."
+  echo "  Quitting."
+  exit 1
+endif
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TURBRT/$OFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TURBRT/$OFILE -- Failed -- `date`"
+      echo "#                $TURBRT/$OFILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TURBRT/$OFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = $PRDIR
+set TURBRT = LRT
+set FILES = ( \
+181rf01.hdr \
+)
+set OFILES = ( \
+RF01.hdr \
+)
+#
+#  Get started:
+set todo = $#FILES
+if ($todo != $#OFILES) then
+  echo "Source and destination files don't match."
+  echo "  Quitting."
+  exit 1
+endif
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TURBRT/$OFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TURBRT/$OFILE -- Failed -- `date`"
+      echo "#                $TURBRT/$OFILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TURBRT/$OFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+181.tar.dir \
+181.tar \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $FILE -- Failed -- `date`"
+      echo "#                $FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+181.documents.tar \
+181.documents.tar.dir \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+#    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $FILE -- Failed -- `date`"
+      echo "#                $FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  --------------------------------------------------------------------------
+#   T E M P L A T E S   ( c o p y   &   e d i t ,   a s   n e c e s s a r y )
+#  --------------------------------------------------------------------------
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = 
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $FILE -- Failed -- `date`"
+      echo "#                $FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (not renamed)
+#
+set DIR = 
+set TURBRT = 
+#
+set FILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TURBRT/$FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TURBRT/$FILE -- Failed -- `date`"
+      echo "#                $TURBRT/$FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TURBRT/$FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to main MSS directory (renamed)
+#
+set DIR = 
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+if ($todo != $#OFILES) then
+  echo "Source and destination files don't match."
+  echo "  Quitting."
+  exit 1
+endif
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$OFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $OFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $OFILE -- Failed -- `date`"
+      echo "#                $OFILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $OFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  Files to go to MSS subdirectory (renamed)
+#
+set DIR = 
+set TURBRT = 
+set FILES = ( \
+)
+set OFILES = ( \
+)
+#
+#  Get started:
+set todo = $#FILES
+if ($todo != $#OFILES) then
+  echo "Source and destination files don't match."
+  echo "  Quitting."
+  exit 1
+endif
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+#  set OFILE = $FILES[$num]
+  set OFILE = $OFILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TURBRT/$OFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TURBRT/$OFILE -- Failed -- `date`"
+      echo "#                $TURBRT/$OFILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TURBRT/$OFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
+#
+#  -------------------------------------------------------------
+#   T E M P L A T E S   ( b r u t e - f o r c e   m e t h o d )
+#  -------------------------------------------------------------
+#   Note:  You may want to add "OK" and "Failed"
+#           message-handling code to each of these commands.
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+#
+#  MSS file name same as source and to be put in project's directory
+#   Source file in project's `Production' directory
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$OFILE
+#
+#  MSS file name different from source and to be put in project's directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$OFILE
+#
+#
+#  Set turbulence rate (LRT or HRT) here
+set TURBRT = 
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's directory
+set FILE = 
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+#
+#
+#  MSS file name same as source and to be put in project's turbulence directory
+#   Source file in project's `Production' directory
+set FILE = 
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$FILE
+#
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's directory
+set FILE = 
+set OFILE = 
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+#
+#  MSS file name different from source and to be put in project's turbulence
+#    directory
+#   Source file in project's `Production' directory
+set FILE = 
+set OFILE = 
+echo \
+ ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+  $PRDIR/$FILE mss:/RAF/$YEAR/$PROJ/$TURBRT/$OFILE
+#
+# -----------------------------------------------------------------------------
+#
+#  MSS path for all bitfiles listed below:  /RAF/2001/181/
+#
+#  Job(s) submitted on Fri Mar 23 14:09:53 MDT 2007
+#  Files moved to MSS directory:  /RAF/2001/181/2ND_PRODUCTION/
+#   moved /RAF/2001/181/181.documents.tar to ../181.documents.tar
+#   moved /RAF/2001/181/181.documents.tar.dir to ../181.documents.tar.dir
+#   moved /RAF/2001/181/181.tar to ../181.tar
+#   moved /RAF/2001/181/181.tar.dir to ../181.tar.dir
+#   moved /RAF/2001/181/HRT/RF01.hdr to ../HRT/RF01.hdr
+#   moved /RAF/2001/181/HRT/nimbus.hrt.tar to ../HRT/nimbus.hrt.tar
+#   moved /RAF/2001/181/HRT/nimbus.hrt.tar.dir to ../HRT/nimbus.hrt.tar.dir
+#   moved /RAF/2001/181/HRT/nimbus_defaults.hrt.tar to ../HRT/nimbus_defaults.hrt.tar
+#   moved /RAF/2001/181/HRT/nimbus_defaults.hrt.tar.dir to ../HRT/nimbus_defaults.hrt.tar.dir
+#   moved /RAF/2001/181/HRT/taplog.hrt.181 to ../HRT/taplog.hrt.181
+#   moved /RAF/2001/181/LRT/RF01.hdr to ../LRT/RF01.hdr
+#   moved /RAF/2001/181/LRT/nimbus.lrt.tar to ../LRT/nimbus.lrt.tar
+#   moved /RAF/2001/181/LRT/nimbus.lrt.tar.dir to ../LRT/nimbus.lrt.tar.dir
+#   moved /RAF/2001/181/LRT/nimbus_defaults.lrt.tar to ../LRT/nimbus_defaults.lrt.tar
+#   moved /RAF/2001/181/LRT/nimbus_defaults.lrt.tar.dir to ../LRT/nimbus_defaults.lrt.tar.dir
+#   moved /RAF/2001/181/LRT/taplog.lrt.181 to ../LRT/taplog.lrt.181
+#   move jobs  -- OK --
+#  Completed on Fri Mar 23 14:10:21 MDT 2007
+#
+#  Job(s) submitted on Mon Apr  9 16:25:20 MDT 2007
+#  Files archived to MSS directory:  /RAF/2001/181/
+#  msrcp job for 181.documents.tar.dir -- OK -- Mon Apr  9 16:25:31 MDT 2007
+#  msrcp job for 181.documents.tar -- OK -- Mon Apr  9 16:25:37 MDT 2007
+#  msrcp job for 181.tar.dir -- OK -- Mon Apr  9 16:25:40 MDT 2007
+#  msrcp job for 181.tar -- OK -- Mon Apr  9 16:25:46 MDT 2007
+#  msrcp job for Mail.181 -- OK -- Mon Apr  9 16:25:52 MDT 2007
+#  msrcp job for taplog.181 -- OK -- Mon Apr  9 16:26:01 MDT 2007
+#  msrcp job for HRT/nimbus_3528.tar.dir -- OK -- Mon Apr  9 16:26:05 MDT 2007
+#  msrcp job for HRT/nimbus_3528.tar -- OK -- Mon Apr  9 16:26:10 MDT 2007
+#  msrcp job for HRT/nimbus_defaults_3528.tar.dir -- OK -- Mon Apr  9 16:26:14 MDT 2007
+#  msrcp job for HRT/nimbus_defaults_3528.tar -- OK -- Mon Apr  9 16:26:19 MDT 2007
+#  msrcp job for HRT/nimbus_3529.tar.dir -- OK -- Mon Apr  9 16:26:24 MDT 2007
+#  msrcp job for HRT/nimbus_3529.tar -- OK -- Mon Apr  9 16:26:29 MDT 2007
+#  msrcp job for HRT/nimbus_defaults_3529.tar.dir -- OK -- Mon Apr  9 16:26:34 MDT 2007
+#  msrcp job for HRT/nimbus_defaults_3529.tar -- OK -- Mon Apr  9 16:26:39 MDT 2007
+#  msrcp job for HRT/taplog.hrt.181 -- OK -- Mon Apr  9 16:26:43 MDT 2007
+#  msrcp job for LRT/nimbus_3535.tar.dir -- OK -- Mon Apr  9 16:26:47 MDT 2007
+#  msrcp job for LRT/nimbus_3535.tar -- OK -- Mon Apr  9 16:26:53 MDT 2007
+#  msrcp job for LRT/nimbus_defaults_3535.tar.dir -- OK -- Mon Apr  9 16:26:56 MDT 2007
+#  msrcp job for LRT/nimbus_defaults_3535.tar -- OK -- Mon Apr  9 16:27:03 MDT 2007
+#  msrcp job for LRT/taplog.lrt.181 -- OK -- Mon Apr  9 16:27:07 MDT 2007
+#  msrcp job for HRT/RF01.hdr -- OK -- Mon Apr  9 16:27:11 MDT 2007
+#  msrcp job for LRT/RF01.hdr -- OK -- Mon Apr  9 16:27:14 MDT 2007
+#   msrcp job  -- OK --
+#  Completed on Mon Apr  9 16:27:14 MDT 2007
+#
+#   After file update
+#  Job(s) submitted on Mon Apr  9 16:36:44 MDT 2007
+#  Files archived to MSS directory:  /RAF/2001/181/
+#  msrcp job for 181.tar.dir -- OK -- Mon Apr  9 16:36:51 MDT 2007
+#  msrcp job for 181.tar -- OK -- Mon Apr  9 16:37:00 MDT 2007
+#   msrcp job  -- OK --
+#  Completed on Mon Apr  9 16:37:00 MDT 2007
+#
+#   After web site update
+#  Job(s) submitted on Tue Apr 17 12:26:54 MDT 2007
+#  Files archived to MSS directory:  /RAF/2001/181/
+#  msrcp job for 181.documents.tar -- OK -- Tue Apr 17 12:27:00 MDT 2007
+#  msrcp job for 181.documents.tar.dir -- OK -- Tue Apr 17 12:27:04 MDT 2007
+#   msrcp job  -- OK --
+#  Completed on Tue Apr 17 12:27:04 MDT 2007
+#

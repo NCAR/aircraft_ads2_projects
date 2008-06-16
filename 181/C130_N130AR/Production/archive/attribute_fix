@@ -1,0 +1,172 @@
+#! /bin/csh -f
+#
+#  Add missing attributes to new DYCOMS-II production data files
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2007                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Written by Ronald L. Ruth for 3rd production on DYCOMS-II  26-27 March 2007
+#  Revision  0 by RLR on 27 March 2007
+#
+#  Dependencies:
+#     Hard wires:  file names to modify
+#     UNIX Files/commands:  pushd, ncatted
+#
+#  Notes:
+#     The command "ncatted" has problems with variable names being used on
+#     the command line.  I tried isolating them with single and double quotes
+#     and have even used the notation ${var} -- all to no avail.  Finally I
+#     tried storing a complete command-line into one "command" variable with
+#     all the variable names resolved within it, but even that failed.
+#     I solved the problem by having this script write a second script which
+#     wrote each of the "ncatted" commands resolved in one long character
+#     string.  That way all the variable names disappear leaving only the
+#     complete commands.  It worked.   RLR
+#
+#
+#      * * * * * * * * * * * * * * *
+#     *                             *
+#    *  Executable code starts here  *
+#     *                             *
+#      * * * * * * * * * * * * * * *
+#
+#  Specify path and files here
+pushd /scr/productiondata >&! /dev/null
+# Debug start
+  echo " ${0}:  now working in directory `pwd`"
+# Debug end
+#set files = (`ls rlr181rf??.nc`)
+#set files = (`ls 181rf??.nc`)
+#set files = (`ls rlr181rf??h.nc`)
+set files = (`ls 181rf??h.nc`)
+if (! $?files) then
+  echo " ${0}:  Must edit this script to add file list"
+  echo " ${0}:  quit on `date`"
+  exit 1
+endif
+#
+#  Specify variable attribute names to change
+set att_ln = "long_name"
+set att_u = "units"
+set att_dq = "DataQuality"
+#
+echo " ${0}:  number of files to do = $#files"
+#
+#  Set output script file
+echo "#! /bin/csh -f" >&! attchg.$$
+set result = $status
+if ($result) then
+  echo "  ${0}:  problem creating file attchg.$$; status = $result"
+  echo"  ${0}:  Quitting."
+  exit 1
+endif
+chmod a+x attchg.$$
+#
+#  LRT variable changes
+#set Rate = "LRT"
+#set var1 = "DPLA1"
+#set var1att_ln_val = '"Dew Point Temperature, Lyman Alpha"'
+#set var1att_u_val = "deg_C"
+#set var2 = "RHLA1"
+#set var2att_ln_val = '"Relative Humidity - Lyman Alpha #2"'
+#set var2att_u_val = "%"
+#set var3 = "AQRATIO"
+#set var3att_ln_val = '"PCORS Dependent Variable"'
+#set var3att_u_val = "none"
+#set var4 = "TTLH"
+#set var4att_ln_val = '"Electronics Chassis Temperature, TDL Hygrometer"'
+#set var4att_u_val = "deg_C"
+##   Flag these only as "Bad"
+#set var5 = "GALTC"
+#set var5att_dq_val = "Bad"
+#set var6 = "RATIO"
+#set var6att_dq_val = "Bad"
+##   Leave these alone
+##set var7 = "TTWHC"
+##set var7att_ln_val = '"Corrected Total Temperature, Deiced Wing"'
+##set var7att_u_val = "deg_C"
+##set var7att_dq_val = "Bad"
+##set var8 = "CONCR_FCR"
+##set var8att_ln_val = '"RDMA Concentration (all particles)"'
+##set var8att_u_val = "#/cm3"
+##set var8att_dq_val = "Bad"
+##set var9 = "CRDMA_FCR"
+##set var9att_ln_val = '"RDMA Concentration (per cell)"'
+##set var9att_u_val = "N/cM3"
+##set var9att_dq_val = "Bad"
+#
+# HRT variable changes
+set Rate = "HRT"
+set var1 = "DPLA1"
+set var1att_ln_val = '"Dew Point Temperature, Lyman Alpha"'
+set var1att_u_val = "deg_C"
+set var2 = "RHLA1"
+set var2att_ln_val = '"Relative Humidity - Lyman Alpha #2"'
+set var2att_u_val = "%"
+set var2att_dq_val = "Bad"
+set var3 = "AQRATIO"
+set var3att_ln_val = '"PCORS dependent variable"'
+set var3att_u_val = "none"
+#   Flag this one only as "Bad"
+set var4 = "GALTC"
+set var4att_dq_val = "Bad"
+#set var5 = "XGREFF"
+#set var5att_ln_val = '"Gerber PV-100 Effective Droplet Radius"'
+#set var5att_u_val = "um"
+#set var5att_dq_val = "Bad"
+#
+echo 'echo  "#  Attribute change for '$Rate' began on `date`"' >> attchg.$$
+foreach file ($files)
+  echo " ${0}:   currently working on file $file"
+# Debug start
+#  echo " ${0}:   number of files = $#file"
+# Debug end
+#
+##  Write command to change the attributes (LRT)
+#  echo "echo \" >> attchg.$$
+#  echo "ncatted -a $att_ln,$var1,o,c,$var1att_ln_val -a $att_u,$var1,o,c,$var1att_u_val -a $att_ln,$var2,o,c,$var2att_ln_val -a $att_u,$var2,o,c,$var2att_u_val -a $att_ln,$var3,o,c,$var3att_ln_val -a $att_u,$var3,o,c,$var3att_u_val -a $att_ln,$var4,o,c,$var4att_ln_val -a $att_u,$var4,o,c,$var4att_u_val -a $att_dq,$var5,o,c,$var5att_dq_val -a $att_dq,$var6,o,c,$var6att_dq_val -h $file" >> attchg.$$
+#  echo 'echo "#   ncatted completion status for '$Rate' file '$file' = '$status'"' >> attchg.$$
+#
+#  Write command to change the attributes (HRT)
+  echo "echo \" >> attchg.$$
+  echo "ncatted -a $att_ln,$var1,o,c,$var1att_ln_val -a $att_u,$var1,o,c,$var1att_u_val -a $att_ln,$var2,o,c,$var2att_ln_val -a $att_u,$var2,o,c,$var2att_u_val -a $att_dq,$var2,o,c,$var2att_dq_val -a $att_ln,$var3,o,c,$var3att_ln_val -a $att_u,$var3,o,c,$var3att_u_val -a $att_dq,$var4,o,c,$var4att_dq_val -h $file" >> attchg.$$
+  echo 'echo "#   ncatted completion status for '$Rate' file '$file' = '$status'"' >> attchg.$$
+#
+end
+echo 'echo "#  Attribute changes for '$Rate' completed on `date`"' >> attchg.$$
+echo "exit" >> attchg.$$
+#
+#  Done.
+echo " ${0}:  Wrote script file `pwd`/attchg.$$"
+exit
+#
+#  1st wave (LRT variables)
+#  Attribute change for LRT began on Tue Mar 27 14:19:23 MDT 2007
+#   ncatted completion status for LRT file 181rf01.nc = 0
+#   ncatted completion status for LRT file 181rf02.nc = 0
+#   ncatted completion status for LRT file 181rf03.nc = 0
+#   ncatted completion status for LRT file 181rf04.nc = 0
+#   ncatted completion status for LRT file 181rf05.nc = 0
+#   ncatted completion status for LRT file 181rf06.nc = 0
+#   ncatted completion status for LRT file 181rf07.nc = 0
+#   ncatted completion status for LRT file 181rf08.nc = 0
+#   ncatted completion status for LRT file 181rf09.nc = 0
+#   ncatted completion status for LRT file 181rf10.nc = 0
+#  Attribute changes for LRT completed on Tue Mar 27 14:19:24 MDT 2007
+#
+#  2nd wave (HRT variables)
+#  Attribute change for HRT began on Tue Mar 27 14:54:45 MDT 2007
+#   ncatted completion status for HRT file 181rf01h.nc = 0
+#   ncatted completion status for HRT file 181rf02h.nc = 0
+#   ncatted completion status for HRT file 181rf03h.nc = 0
+#   ncatted completion status for HRT file 181rf04h.nc = 0
+#   ncatted completion status for HRT file 181rf05h.nc = 0
+#   ncatted completion status for HRT file 181rf06h.nc = 0
+#   ncatted completion status for HRT file 181rf07h.nc = 0
+#   ncatted completion status for HRT file 181rf08h.nc = 0
+#   ncatted completion status for HRT file 181rf09h.nc = 0
+#   ncatted completion status for HRT file 181rf10h.nc = 0
+#  Attribute changes for HRT completed on Tue Mar 27 15:00:23 MDT 2007
+#
