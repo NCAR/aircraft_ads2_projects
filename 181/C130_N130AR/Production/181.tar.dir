@@ -1,160 +1,321 @@
  Directory list for file 181.tar
   Support files for Project 2001-181 DYCOMS-II
-  Archive created on Fri Mar 29 13:26:14 MST 2002
+  Archive created on Mon Apr 9 16:33:15 MDT 2007
  
--rw-rw-r-- 1310/1341  43665 Sep 18 07:35 2001 181vars
--rw-r--r-- 1310/1341    338 May 10 10:34 2001 Categories
--rw-rw-r-- 130/1341   2850 Sep 19 08:07 2001 Defaults
--rw-r--r-- 1310/1341   2841 Aug 15 09:44 2001 Defaults.caddis
--rw-rw-r-- 1310/1341   2804 Aug 16 09:29 2001 Defaults.herc
--rw-rw-r-- 130/1341   6316 Sep  7 08:30 2001 DependTable
--rw-r--r-- 1310/1341   6094 Aug 15 09:44 2001 DependTable.caddis
--rw-rw-r-- 1310/1341   6010 Aug 16 09:29 2001 DependTable.herc
--rw-r--r-- 1310/1341    168 Sep 19 13:35 2001 Despike
--rw-rw-r-- 1310/1341  59531 Aug  8 13:36 2001 HeaderChangeLog
--rw-r--r-- 1310/1341     74 May 10 10:34 2001 Lags
--rw-rw-r-- 130/1341    809 Aug  8 17:12 2001 LowRateVars
--rw-rw-r-- 130/1341  18658 Jan  8 09:29 2002 PMSspecs
--rw-rw-r-- 2244/1341  18635 Dec 11 14:40 2001 PMSspecs.Dec11
--rw-r--r-- 1310/1341  18105 Aug 15 09:42 2001 PMSspecs.caddis
--rw-rw-r-- 8308/1341  18598 Jun 27 09:26 2001 PMSspecs.cjw
--rw-rw-r-- 1310/1341  18030 Aug 16 09:30 2001 PMSspecs.herc
--rw-rw-r-- 130/1341     10 Aug  8 13:36 2001 ProjectName
--rw-rw-r-- 130/1341     18 Sep  6 09:52 2001 UserNames
--rw-rw-r-- 130/1341  99240 Nov 28 14:25 2001 VarDB
--rw-rw-r-- 1310/1341    133 Jun 20 12:49 2001 ascii_parms
--rw-r--r-- 1310/1341  19858 Aug 24 08:43 2001 drexelhrt.nimbus
--rw-rw-r-- 1310/1341    930 Aug 16 15:17 2001 dtable_diffs
--rw-r--r-- 1310/1341    335 Aug 15 09:44 2001 dycoms2.bat
--rw-rw-r-- 1129/1341   9788 Aug  8 13:36 2001 header
--rw-rw-r-- 1310/1341  15388 Jun 14 15:31 2001 header.0614
--rw-rw-r-- 1310/1341  15276 Jun 28 15:10 2001 header.0628
--rw-rw-r-- 8308/1341  15724 Jun 30 10:42 2001 header.bak
--rw-rw-r-- 1310/1341  15612 Aug 16 09:30 2001 header.herc
--rw-r--r-- 8308/1341    565 Jun 21 08:23 2001 ophir3.names
--rw-rw-r-- 1310/1341    962 Jun 28 13:36 2001 s100.default
--rw-rw-r-- 1310/1341    970 Sep  6 14:32 2001 s100.default.109
--rw-rw-r-- 1310/1341    962 Aug 20 09:37 2001 s100.default.122
--rw-r--r-- 1310/1341    962 Aug 15 09:42 2001 s100.default.caddis
--rw-rw-r-- 1310/1341    962 Aug 16 09:29 2001 s100.default.herc
--rw-rw-r-- 1310/1341    390 Jun 28 13:36 2001 s200.default
--rw-r--r-- 1310/1341    390 Aug 15 09:42 2001 s200.default.caddis
--rw-rw-r-- 1310/1341    390 Aug 16 09:29 2001 s200.default.herc
--rw-rw-r-- 1310/1341    653 Jun 28 13:36 2001 s300.default
--rw-r--r-- 1310/1341    653 Aug 15 09:42 2001 s300.default.caddis
--rw-rw-r-- 1310/1341    653 Aug 16 09:29 2001 s300.default.herc
--r--r--r-- 130/1341   3052 Dec 12 17:43 2001 Production/181UHrf03b.hdr
--r--r--r-- 130/1341   4749 Dec 12 17:46 2001 Production/181UHrf05.hdr
--r--r--r-- 130/1341  73031 Jan 24 18:02 2002 Production/181rf01.hdr
--r--r--r-- 130/1341   4744 Jan 18 17:27 2002 Production/181rf01auhrt.hdr
--r--r--r-- 130/1341  29215 Jan 10 10:02 2002 Production/181rf01h.hdr
--r--r--r-- 130/1341   3821 Jan 18 17:27 2002 Production/181rf02auhrt.hdr
--r--r--r-- 130/1341    699 Sep 21 09:48 2001 Production/BlankOuts.rf03
--r--r--r-- 130/1341    645 Sep 21 12:52 2001 Production/BlankOuts.rf04
--r--r--r-- 130/1341    867 Sep 27 14:05 2001 Production/BlankOuts.rf06
--r--r--r-- 130/1341    667 Oct  4 14:08 2001 Production/BlankOuts.rf08
--r--r--r-- 130/1341    173 Sep 17 08:42 2001 Production/FlightGroups
--r--r--r-- 130/1341   4297 Nov 15 14:05 2001 Production/Flight_ff01
--r--r--r-- 130/1341   3817 Nov 15 14:06 2001 Production/Flight_ff02
--r--r--r-- 130/1341   4494 Jan 24 14:37 2002 Production/Flight_rf01
--r--r--r-- 130/1341   3748 Nov 15 14:06 2001 Production/Flight_rf02
--r--r--r-- 130/1341   1568 Oct  8 09:33 2001 Production/Flight_rf03
--r--r--r-- 130/1341   3816 Nov 15 14:06 2001 Production/Flight_rf04
--r--r--r-- 130/1341   4434 Nov 15 14:06 2001 Production/Flight_rf05
--r--r--r-- 130/1341   3817 Nov 15 14:07 2001 Production/Flight_rf06
--r--r--r-- 130/1341   3817 Nov 15 14:07 2001 Production/Flight_rf07
--r--r--r-- 130/1341   3817 Nov 15 14:07 2001 Production/Flight_rf08
--r--r--r-- 130/1341   4431 Nov 15 14:07 2001 Production/Flight_rf09
--r--r--r-- 130/1341   3817 Nov 15 14:07 2001 Production/Flight_rf10
--r--r--r-- 130/1341   3885 Nov 15 14:08 2001 Production/Flight_tf01
--r--r--r-- 130/1341   3759 Nov 15 14:08 2001 Production/Flight_tf02
--r--r--r-- 130/1341   4297 Nov 15 14:05 2001 Production/Flight_tf03
--rw-rw---- 130/1341   4589 Feb 26 16:32 2002 Production/RESTRICTED_ACCESS
--r--r--r-- 130/1341   6036 Jan  3 14:11 2002 Production/d2hrt.nimbus
--r--r--r-- 130/1341  19037 Oct 10 15:06 2001 Production/d2hrt.nimbus.orig
--r--r--r-- 130/1341   5427 Jan 18 11:40 2002 Production/d2uhrt.nimbus
--r--r--r-- 130/1341   5577 Jan 18 11:40 2002 Production/d2uhrtt.nimbus
--rw-rw-r-- 1310/120  20004 Oct  3 09:50 2001 Production/d2ultrafast.nimbus
--rw-rw-r-- 130/1341    100 Aug 10 15:19 2001 Production/data_access_notes
--rw-rw---- 9008/1341 178901 Mar 28 09:45 2002 Production/data_requests
--r--r--r-- 130/1341   3109 Sep 13 11:18 2001 Production/dycoms2setA.nimbus
--r--r--r-- 130/1341   3190 Sep 13 11:22 2001 Production/dycoms2setB.nimbus
--rw-rw-r-- 130/1341 164722 Jan 22 10:04 2002 Production/erratum_undeliverable
--rw-rw-r-- 6017/1341    540 Jan 18 14:15 2002 Production/gerber_uhrt_notes
--r--r--r-- 130/1341   2198 Dec 26 11:34 2001 Production/logFile_HRT.ff01
--r--r--r-- 130/1341   1639 Jan  8 10:52 2002 Production/logFile_HRT.ff02
--r--r--r-- 130/1341   2335 Jan  4 16:27 2002 Production/logFile_HRT.rf01
--r--r--r-- 130/1341   1639 Jan  4 16:44 2002 Production/logFile_HRT.rf02
--r--r--r-- 130/1341   1944 Jan  4 19:10 2002 Production/logFile_HRT.rf03
--r--r--r-- 130/1341   1891 Jan  3 15:46 2002 Production/logFile_HRT.rf04
--r--r--r-- 130/1341   1639 Jan  5 11:54 2002 Production/logFile_HRT.rf05
--r--r--r-- 130/1341   2943 Jan  4 19:11 2002 Production/logFile_HRT.rf06
--r--r--r-- 130/1341   1714 Jan  7 17:07 2002 Production/logFile_HRT.rf07
--r--r--r-- 130/1341   2555 Jan  8 11:15 2002 Production/logFile_HRT.rf08
--r--r--r-- 130/1341   2128 Mar 28 11:03 2002 Production/logFile_HRT.rf09
--r--r--r-- 130/1341   1790 Jan  7 13:27 2002 Production/logFile_HRT.rf09.old
--r--r--r-- 130/1341   2423 Jan  7 16:07 2002 Production/logFile_HRT.rf10
--r--r--r-- 130/1341   1094 Oct  8 07:59 2001 Production/logFile_LRT.ff01
--r--r--r-- 130/1341   1390 Dec  6 13:56 2001 Production/logFile_LRT.ff02
--r--r--r-- 130/1341   1528 Jan 24 15:02 2002 Production/logFile_LRT.rf01
--r--r--r-- 130/1341   1389 Nov 29 14:11 2001 Production/logFile_LRT.rf02
--r--r--r-- 130/1341   1720 Nov 29 16:51 2001 Production/logFile_LRT.rf03
--r--r--r-- 130/1341   1490 Jan  2 14:22 2002 Production/logFile_LRT.rf04
--r--r--r-- 130/1341   1389 Dec  4 16:41 2001 Production/logFile_LRT.rf05
--r--r--r-- 130/1341   2640 Dec  6 09:59 2001 Production/logFile_LRT.rf06
--r--r--r-- 130/1341   1464 Dec  5 11:04 2001 Production/logFile_LRT.rf07
--r--r--r-- 130/1341   1748 Dec  5 14:23 2001 Production/logFile_LRT.rf08
--r--r--r-- 130/1341   1541 Dec  5 14:44 2001 Production/logFile_LRT.rf09
--r--r--r-- 130/1341   1389 Dec 11 10:08 2001 Production/logFile_LRT.rf10
--r--r--r-- 130/1341   1314 Dec  6 11:06 2001 Production/logFile_LRT.tf01
--r--r--r-- 130/1341   1389 Dec  6 11:13 2001 Production/logFile_LRT.tf02
--r--r--r-- 130/1341   1093 Oct  8 08:06 2001 Production/logFile_LRT.tf03
--r--r--r-- 130/1341    760 Oct  8 14:40 2001 Production/logFile_UHRT.rf01
--r--r--r-- 130/1341   1361 Jan 18 13:44 2002 Production/logFile_UHRT.rf01a
--r--r--r-- 130/1341    622 Oct  8 14:58 2001 Production/logFile_UHRT.rf02
--r--r--r-- 130/1341    736 Jan 18 14:21 2002 Production/logFile_UHRT.rf02a
--r--r--r-- 130/1341    962 Oct  9 07:15 2001 Production/logFile_UHRT.rf03
--r--r--r-- 130/1341   1078 Jan 18 13:16 2002 Production/logFile_UHRT.rf03a
--r--r--r-- 130/1341    772 Oct  9 07:35 2001 Production/logFile_UHRT.rf04
--r--r--r-- 130/1341    961 Jan 18 14:39 2002 Production/logFile_UHRT.rf04a
--r--r--r-- 130/1341    622 Oct  9 07:55 2001 Production/logFile_UHRT.rf05
--r--r--r-- 130/1341    737 Jan 18 14:10 2002 Production/logFile_UHRT.rf05a
--r--r--r-- 130/1341   1658 Oct  9 08:17 2001 Production/logFile_UHRT.rf06
--r--r--r-- 130/1341   1696 Jan 18 14:54 2002 Production/logFile_UHRT.rf06a
--r--r--r-- 130/1341    697 Oct  9 08:48 2001 Production/logFile_UHRT.rf07
--r--r--r-- 130/1341    736 Jan 18 15:07 2002 Production/logFile_UHRT.rf07a
--r--r--r-- 130/1341   1022 Oct  9 09:03 2001 Production/logFile_UHRT.rf08
--r--r--r-- 130/1341   1572 Jan 18 16:31 2002 Production/logFile_UHRT.rf08a
--r--r--r-- 130/1341    773 Oct  9 09:33 2001 Production/logFile_UHRT.rf09
--r--r--r-- 130/1341    736 Jan 18 15:57 2002 Production/logFile_UHRT.rf09a
--r--r--r-- 130/1341    848 Oct  9 14:24 2001 Production/logFile_UHRT.rf10
--r--r--r-- 130/1341    408 Nov 26 17:36 2001 Production/proj.info
--rw-rw-r-- 130/1341    848 Sep  4 11:55 2001 Production/reject_memo
--rw-rw-r-- 6017/1341   1952 Mar 29 13:21 2002 Production/rf09h_notes
--r--r--r-- 130/1341   1807 Mar 28 16:07 2002 Production/taplog.hrt.181
--r--r--r-- 130/1341   1762 Mar 28 12:38 2002 Production/taplog.lrt.181
--r--r--r-- 130/1341   1942 Mar 28 12:38 2002 Production/taplog.pms2d.181
--r--r--r-- 130/1341   2204 Mar 28 12:38 2002 Production/taplog.uhrt.181
--r--r--r-- 130/1341   7107 Jan 17 12:27 2002 Production/tp2ms.summary
--rw-rw---- 130/1341   2557 Feb 28 09:40 2002 Production/user_list
--r--r--r-- 130/1341  11749 Dec 17 15:15 2001 Production/vars.181Lrf01
--r--r--r-- 130/1341    708 Dec 17 14:12 2001 Production/vars.181UHrf03b
--r--r--r-- 130/1341   4925 Dec 17 15:14 2001 Production/vars.181rf01h
--rw-rw---- 130/1341   4228 Aug  7 12:35 2001 Production/archive/arads.181
--rw-rw---- 130/1341  14204 Mar 28 16:02 2002 Production/archive/arch.181
--rw-rw---- 130/1341   4645 Oct  5 13:33 2001 Production/archive/arch2d.181
--rw-rw---- 130/1341   5618 Aug 30 10:48 2001 Production/archive/arch_mcr.181
--rw-rw---- 130/1341   2811 Jan 28 16:16 2002 Production/archive/arch_prelim.181
--rw-rw---- 130/1341   4868 Oct  9 12:46 2001 Production/archive/arch_rdma.181
--rw-rw-r-- 130/1341   4886 Jan 22 10:09 2002 Production/archive/arch_uhrt.181
--rwxrwx--x 130/1341  16906 Mar 29 10:41 2002 Production/archive/archive.support
--rw-rw---- 130/1341  21929 Mar 28 16:26 2002 Production/archive/atdarch.181
--rw-rw---- 130/1341   4612 Nov 28 15:16 2001 Production/archive/atdarch2d.181
--rw-rw---- 130/1341  16077 Aug 14 17:17 2001 Production/archive/atdarchp.181
--rw-rw-r-- 130/1341   7598 Mar 28 16:27 2002 Production/archive/atdarchz.181
--rw-rw-r-- 130/1341    177 Aug 28 17:49 2001 Production/archive/return_tapes_from_opns.mo
--rw-rw-r-- 130/1341    644 Aug  2 11:28 2001 Production/archive/send_tapes_to_opns.mo
--rw-rw-r-- 130/1341   3878 Jan 17 14:38 2002 Production/archive/tapes.181
--rwxrwx--x 130/1341   5861 Mar 29 12:00 2002 Production/archive/tarit.181
--rw-rw---- 130/1341   1294 Feb 11 14:38 2002 Production/archive/tarit.docs
--rw-rw---- 130/1341  17871 Aug 23 17:03 2001 Production/archive/tp2ms.job
+-rw-rw-r-- cjw/proj      43665 2001-09-18 07:35:02 181vars
+-rw-r--r-- cjw/proj        338 2001-05-10 10:34:30 Categories
+-rw-rw-r-- cjw/proj       2882 2006-11-01 10:44:17 Defaults
+-rw-r--r-- cjw/proj       2841 2001-08-15 09:44:05 Defaults.caddis
+-rw-rw-r-- cjw/proj       2804 2001-08-16 09:29:50 Defaults.herc
+-rw-rw-r-- cjw/proj       2869 2004-04-12 14:12:38 Defaults.production
+-rw-rw-r-- cjw/proj       6619 2007-03-27 14:40:49 DependTable
+-rw-r--r-- cjw/proj       6094 2001-08-15 09:44:13 DependTable.caddis
+-rw-rw-r-- cjw/proj       6010 2001-08-16 09:29:56 DependTable.herc
+-rw-rw-r-- cjw/proj       6524 2004-04-12 11:46:22 DependTable.production
+-rw-r--r-- cjw/proj        168 2001-09-19 13:35:49 Despike
+-rw-rw-r-- cjw/proj      59531 2001-08-08 13:36:52 HeaderChangeLog
+-rw-rw-r-- cjw/proj        977 2006-02-06 16:04:20 Lags
+-rw-rw-r-- cjw/proj        809 2007-02-23 11:10:17 LowRateVars
+-rw-rw-r-- cjw/proj      19205 2006-11-03 13:05:48 PMSspecs
+-rw-rw-r-- cjw/proj      18635 2001-12-11 14:40:03 PMSspecs.Dec11
+-rw-r--r-- cjw/proj      18105 2001-08-15 09:42:56 PMSspecs.caddis
+-rw-rw-r-- cjw/proj      18598 2001-06-27 09:26:31 PMSspecs.cjw
+-rw-rw-r-- cjw/proj      18030 2001-08-16 09:30:00 PMSspecs.herc
+-rw-rw-r-- cjw/proj         10 2001-08-08 13:36:52 ProjectName
+-rw-rw-r-- cjw/proj        749 2006-03-30 21:27:52 StandardNames
+-rw-rw-r-- cjw/proj         58 2004-04-12 11:45:56 UserNames
+-rw-rw-r-- cjw/proj      99240 2005-03-30 11:57:02 VarDB
+-rw-rw-r-- cjw/proj      99240 2005-02-08 11:18:44 VarDB.preUDunits
+-rw-rw-r-- cjw/proj        133 2001-06-20 12:49:12 ascii_parms
+-rw-r--r-- cjw/proj      19858 2001-08-24 08:43:35 drexelhrt.nimbus
+-rw-rw-r-- cjw/proj        930 2001-08-16 15:17:35 dtable_diffs
+-rw-r--r-- cjw/proj        335 2001-08-15 09:44:56 dycoms2.bat
+-rw-rw-r-- cjw/proj       9788 2001-08-08 13:36:51 header
+-rw-rw-r-- cjw/proj      15388 2001-06-14 15:31:13 header.0614
+-rw-rw-r-- cjw/proj      15276 2001-06-28 15:10:07 header.0628
+-rw-rw-r-- cjw/proj      15724 2001-06-30 10:42:44 header.bak
+-rw-rw-r-- cjw/proj      15612 2001-08-16 09:30:47 header.herc
+-rw-r--r-- cjw/proj         74 2005-07-22 16:06:21 old.Lags
+-rw-r--r-- cjw/proj        565 2001-06-21 08:23:45 ophir3.names
+-rw-rw-r-- cjw/proj        962 2001-06-28 13:36:54 s100.default
+-rw-rw-r-- cjw/proj        970 2001-09-06 14:32:31 s100.default.109
+-rw-rw-r-- cjw/proj        962 2001-08-20 09:37:34 s100.default.122
+-rw-r--r-- cjw/proj        962 2001-08-15 09:42:35 s100.default.caddis
+-rw-rw-r-- cjw/proj        962 2001-08-16 09:29:34 s100.default.herc
+-rw-rw-r-- cjw/proj        390 2001-06-28 13:36:54 s200.default
+-rw-r--r-- cjw/proj        390 2001-08-15 09:42:43 s200.default.caddis
+-rw-rw-r-- cjw/proj        390 2001-08-16 09:29:40 s200.default.herc
+-rw-rw-r-- cjw/proj        653 2001-06-28 13:36:54 s300.default
+-rw-r--r-- cjw/proj        653 2001-08-15 09:42:50 s300.default.caddis
+-rw-rw-r-- cjw/proj        653 2001-08-16 09:29:46 s300.default.herc
+-rw-rw-r-- cjw/proj      22059 2007-04-09 16:19:14 Production/181.documents.tar.dir
+-rw-rw-r-- cjw/proj      25845 2007-04-09 16:32:50 Production/181.tar.dir
+-rw-rw-r-- nimbus/proj    3052 2001-12-12 17:43:32 Production/181UHrf03b.hdr
+-rw-rw-r-- nimbus/proj    4749 2001-12-12 17:46:01 Production/181UHrf05.hdr
+-rw-r--r-- nimbus/proj   79040 2007-03-23 11:24:15 Production/181rf01.hdr
+-rw-rw-r-- nimbus/proj   73031 2002-01-24 18:02:01 Production/181rf01_2002.hdr
+-rw-rw-r-- nimbus/proj    4744 2002-01-18 17:27:16 Production/181rf01auhrt.hdr
+-rw-r--r-- nimbus/proj   30016 2007-03-23 11:24:23 Production/181rf01h.hdr
+-rw-rw-r-- nimbus/proj   29215 2002-01-10 10:02:09 Production/181rf01h_2002.hdr
+-rw-rw-r-- nimbus/proj    3821 2002-01-18 17:27:33 Production/181rf02auhrt.hdr
+-rw-rw-r-- cjw/proj        699 2001-09-21 09:48:45 Production/BlankOuts.rf03
+-rw-rw-r-- cjw/proj        645 2001-09-21 12:52:01 Production/BlankOuts.rf04
+-rw-rw-r-- cjw/proj        867 2001-09-27 14:05:01 Production/BlankOuts.rf06
+-rw-rw-r-- cjw/proj        667 2001-10-04 14:08:47 Production/BlankOuts.rf08
+-rw-rw-r-- cjw/proj        173 2001-09-17 08:42:23 Production/FlightGroups
+-rw-rw-r-- cjw/proj       4297 2001-11-15 14:05:16 Production/Flight_ff01
+-rw-rw-r-- cjw/proj       3817 2001-11-15 14:06:08 Production/Flight_ff02
+-rw-r--r-- nimbus/proj   21338 2007-03-07 12:02:54 Production/Flight_rf01
+-rw-r--r-- nimbus/proj   21347 2007-03-07 13:46:17 Production/Flight_rf02
+-rw-r--r-- nimbus/proj   21347 2007-03-07 14:02:54 Production/Flight_rf03
+-rw-r--r-- nimbus/proj   21415 2007-03-07 14:05:42 Production/Flight_rf04
+-rw-r--r-- nimbus/proj   21416 2007-03-07 14:37:38 Production/Flight_rf05
+-rw-r--r-- nimbus/proj   21416 2007-03-07 15:31:06 Production/Flight_rf06
+-rw-r--r-- nimbus/proj   21416 2007-03-07 15:33:01 Production/Flight_rf07
+-rw-r--r-- nimbus/proj   21416 2007-03-07 15:36:00 Production/Flight_rf08
+-rw-r--r-- nimbus/proj   21416 2007-03-07 15:42:03 Production/Flight_rf09
+-rw-rw-r-- cjw/proj       3885 2001-11-15 14:08:04 Production/Flight_tf01
+-rw-rw-r-- cjw/proj       3759 2001-11-15 14:08:13 Production/Flight_tf02
+-rw-rw-r-- cjw/proj       4297 2001-11-15 14:05:31 Production/Flight_tf03
+-rw-rw-r-- cjw/proj      26105 2004-01-20 11:29:18 Production/LogFile_HRT.tf03
+-rw-rw-r-- cjw/proj     357875 2002-01-17 13:45:12 Production/MSCP_out.181
+-rw-rw-r-- nimbus/proj 10395563 2007-04-09 16:04:01 Production/Mail.181
+-rw-rw-r-- cjw/proj        6034 2004-01-20 12:03:34 Production/RESTRICTED_ACCESS
+-rw-rw-r-- cjw/proj      543744 2002-03-08 13:50:39 Production/SLMOBA_C130.xls
+-rw-rw-r-- cjw/proj        6036 2002-01-03 14:11:31 Production/d2hrt.nimbus
+-rw-rw-r-- cjw/proj       19037 2001-10-10 15:06:03 Production/d2hrt.nimbus.orig
+-rw-rw-r-- cjw/proj        5427 2002-01-18 11:40:33 Production/d2uhrt.nimbus
+-rw-rw-r-- cjw/proj        5577 2002-01-18 11:40:10 Production/d2uhrtt.nimbus
+-rw-rw-r-- cjw/proj       20004 2001-10-03 09:50:17 Production/d2ultrafast.nimbus
+-rw-rw-r-- cjw/proj         100 2001-08-10 15:19:08 Production/data_access_notes
+-rw-rw-r-- cjw/proj      337631 2003-01-08 16:34:55 Production/data_requests
+-rw-rw-r-- cjw/proj        2983 2002-04-01 10:17:37 Production/dycoms-request
+-rw-rw-r-- cjw/proj        3109 2001-09-13 11:18:59 Production/dycoms2setA.nimbus
+-rw-rw-r-- cjw/proj        3190 2001-09-13 11:22:37 Production/dycoms2setB.nimbus
+-rw-rw-r-- cjw/proj      164722 2002-01-22 10:04:36 Production/erratum_undeliverable
+-rw-rw-r-- cjw/proj         540 2002-01-18 14:15:19 Production/gerber_uhrt_notes
+-rw-rw-r-- cjw/proj         927 2002-02-11 17:28:16 Production/gwuser
+-rw-rw-r-- cjw/proj        2198 2001-12-26 11:34:47 Production/logFile_HRT.ff01
+-rw-rw-r-- cjw/proj        1639 2002-01-08 10:52:46 Production/logFile_HRT.ff02
+-rw-rw-r-- cjw/proj        2335 2002-01-04 16:27:35 Production/logFile_HRT.rf01
+-rw-rw-r-- cjw/proj        1639 2002-01-04 16:44:11 Production/logFile_HRT.rf02
+-rw-rw-r-- cjw/proj        1944 2002-01-04 19:10:42 Production/logFile_HRT.rf03
+-rw-rw-r-- cjw/proj        1891 2002-01-03 15:46:39 Production/logFile_HRT.rf04
+-rw-rw-r-- cjw/proj        1639 2002-01-05 11:54:36 Production/logFile_HRT.rf05
+-rw-rw-r-- cjw/proj        2943 2002-01-04 19:11:45 Production/logFile_HRT.rf06
+-rw-rw-r-- cjw/proj        1714 2002-01-07 17:07:39 Production/logFile_HRT.rf07
+-rw-rw-r-- cjw/proj        2555 2002-01-08 11:15:33 Production/logFile_HRT.rf08
+-rw-rw-r-- cjw/proj        2128 2002-03-28 11:03:57 Production/logFile_HRT.rf09
+-rw-rw-r-- cjw/proj        1790 2002-01-07 13:27:36 Production/logFile_HRT.rf09.old
+-rw-rw-r-- cjw/proj        2423 2002-01-07 16:07:20 Production/logFile_HRT.rf10
+-rw-rw-r-- cjw/proj        1094 2001-10-08 07:59:01 Production/logFile_LRT.ff01
+-rw-rw-r-- cjw/proj        1390 2001-12-06 13:56:22 Production/logFile_LRT.ff02
+-rw-rw-r-- cjw/proj        1528 2002-01-24 15:02:42 Production/logFile_LRT.rf01
+-rw-rw-r-- cjw/proj        1389 2001-11-29 14:11:47 Production/logFile_LRT.rf02
+-rw-rw-r-- cjw/proj        1720 2001-11-29 16:51:33 Production/logFile_LRT.rf03
+-rw-rw-r-- cjw/proj        1490 2002-01-02 14:22:23 Production/logFile_LRT.rf04
+-rw-rw-r-- cjw/proj        1389 2001-12-04 16:41:31 Production/logFile_LRT.rf05
+-rw-rw-r-- cjw/proj        2640 2001-12-06 09:59:03 Production/logFile_LRT.rf06
+-rw-rw-r-- cjw/proj        1464 2001-12-05 11:04:17 Production/logFile_LRT.rf07
+-rw-rw-r-- cjw/proj        1748 2001-12-05 14:23:20 Production/logFile_LRT.rf08
+-rw-rw-r-- cjw/proj        1541 2001-12-05 14:44:00 Production/logFile_LRT.rf09
+-rw-rw-r-- cjw/proj        1389 2001-12-11 10:08:24 Production/logFile_LRT.rf10
+-rw-rw-r-- cjw/proj        1314 2001-12-06 11:06:10 Production/logFile_LRT.tf01
+-rw-rw-r-- cjw/proj        1389 2001-12-06 11:13:17 Production/logFile_LRT.tf02
+-rw-rw-r-- cjw/proj        1093 2001-10-08 08:06:35 Production/logFile_LRT.tf03
+-rw-rw-r-- cjw/proj         760 2001-10-08 14:40:50 Production/logFile_UHRT.rf01
+-rw-rw-r-- cjw/proj        1361 2002-01-18 13:44:26 Production/logFile_UHRT.rf01a
+-rw-rw-r-- cjw/proj         622 2001-10-08 14:58:38 Production/logFile_UHRT.rf02
+-rw-rw-r-- cjw/proj         736 2002-01-18 14:21:11 Production/logFile_UHRT.rf02a
+-rw-rw-r-- cjw/proj         962 2001-10-09 07:15:45 Production/logFile_UHRT.rf03
+-rw-rw-r-- cjw/proj        1078 2002-01-18 13:16:01 Production/logFile_UHRT.rf03a
+-rw-rw-r-- cjw/proj         772 2001-10-09 07:35:01 Production/logFile_UHRT.rf04
+-rw-rw-r-- cjw/proj         961 2002-01-18 14:39:42 Production/logFile_UHRT.rf04a
+-rw-rw-r-- cjw/proj         622 2001-10-09 07:55:20 Production/logFile_UHRT.rf05
+-rw-rw-r-- cjw/proj         737 2002-01-18 14:10:04 Production/logFile_UHRT.rf05a
+-rw-rw-r-- cjw/proj        1658 2001-10-09 08:17:55 Production/logFile_UHRT.rf06
+-rw-rw-r-- cjw/proj        1696 2002-01-18 14:54:49 Production/logFile_UHRT.rf06a
+-rw-rw-r-- cjw/proj         697 2001-10-09 08:48:39 Production/logFile_UHRT.rf07
+-rw-rw-r-- cjw/proj         736 2002-01-18 15:07:27 Production/logFile_UHRT.rf07a
+-rw-rw-r-- cjw/proj        1022 2001-10-09 09:03:25 Production/logFile_UHRT.rf08
+-rw-rw-r-- cjw/proj        1572 2002-01-18 16:31:00 Production/logFile_UHRT.rf08a
+-rw-rw-r-- cjw/proj         773 2001-10-09 09:33:44 Production/logFile_UHRT.rf09
+-rw-rw-r-- cjw/proj         736 2002-01-18 15:57:18 Production/logFile_UHRT.rf09a
+-rw-rw-r-- cjw/proj         848 2001-10-09 14:24:27 Production/logFile_UHRT.rf10
+-rw-r--r-- nimbus/proj     5445 2007-02-26 14:51:42 Production/logfile_HRT.rf01
+-rw-r--r-- nimbus/proj     5447 2007-02-26 15:31:13 Production/logfile_HRT.rf02
+-rw-r--r-- nimbus/proj     6166 2007-02-26 15:11:44 Production/logfile_HRT.rf03
+-rw-r--r-- nimbus/proj     5918 2007-02-26 15:41:45 Production/logfile_HRT.rf04
+-rw-r--r-- nimbus/proj     5136 2007-02-28 15:32:16 Production/logfile_HRT.rf05
+-rw-r--r-- nimbus/proj     6712 2007-02-27 15:58:35 Production/logfile_HRT.rf06
+-rw-r--r-- nimbus/proj     5445 2007-02-27 16:10:14 Production/logfile_HRT.rf07
+-rw-r--r-- nimbus/proj     6076 2007-02-27 16:24:29 Production/logfile_HRT.rf08
+-rw-r--r-- nimbus/proj     5198 2007-02-28 15:08:55 Production/logfile_HRT.rf09
+-rw-r--r-- nimbus/proj     5479 2007-02-28 15:21:40 Production/logfile_HRT.rf10
+-rw-r--r-- nimbus/proj     5477 2007-03-07 12:05:09 Production/logfile_LRT.rf01
+-rw-r--r-- nimbus/proj     5506 2007-03-07 13:47:19 Production/logfile_LRT.rf02
+-rw-r--r-- nimbus/proj     6237 2007-03-07 14:04:15 Production/logfile_LRT.rf03
+-rw-r--r-- nimbus/proj     6069 2007-03-07 14:07:08 Production/logfile_LRT.rf04
+-rw-r--r-- nimbus/proj     5451 2007-03-07 14:38:45 Production/logfile_LRT.rf05
+-rw-r--r-- nimbus/proj     6582 2007-03-07 15:32:15 Production/logfile_LRT.rf06
+-rw-r--r-- nimbus/proj     5504 2007-03-07 15:34:08 Production/logfile_LRT.rf07
+-rw-r--r-- nimbus/proj     6186 2007-03-07 15:37:07 Production/logfile_LRT.rf08
+-rw-r--r-- nimbus/proj     5514 2007-03-07 15:43:08 Production/logfile_LRT.rf09
+-rw-r--r-- nimbus/proj     5750 2007-03-07 15:47:24 Production/logfile_LRT.rf10
+-rw-r--r-- nimbus/proj    19418 2007-02-26 14:47:04 Production/newHFlight_rf01
+-rw-r--r-- nimbus/proj    19426 2007-02-26 15:26:56 Production/newHFlight_rf02
+-rw-r--r-- nimbus/proj    19433 2007-02-26 15:07:00 Production/newHFlight_rf03
+-rw-r--r-- nimbus/proj    19426 2007-02-26 15:36:53 Production/newHFlight_rf04
+-rw-r--r-- nimbus/proj    19427 2007-02-27 15:24:31 Production/newHFlight_rf05
+-rw-r--r-- nimbus/proj    19498 2007-02-27 15:54:08 Production/newHFlight_rf06
+-rw-r--r-- nimbus/proj    19498 2007-02-27 16:05:39 Production/newHFlight_rf07
+-rw-r--r-- nimbus/proj    19498 2007-02-27 16:19:45 Production/newHFlight_rf08
+-rw-r--r-- nimbus/proj    19495 2007-02-28 14:44:48 Production/newHFlight_rf09
+-rw-r--r-- nimbus/proj    19526 2007-02-28 15:19:29 Production/newHFlight_rf10
+-rw-rw-r-- cjw/proj       37357 2002-02-26 16:09:08 Production/nimbus.hrt.tar.dir
+-rw-rw-r-- cjw/proj       37271 2001-12-06 13:42:33 Production/nimbus.lrt.tar.dir
+-rw-r--r-- nimbus/proj  2088960 2007-03-21 16:39:26 Production/nimbus_3528.tar
+-rw-r--r-- nimbus/proj    37347 2007-03-21 16:39:26 Production/nimbus_3528.tar.dir
+-rw-r--r-- nimbus/proj  2088960 2007-03-21 16:39:37 Production/nimbus_3529.tar
+-rw-r--r-- nimbus/proj    37347 2007-03-21 16:39:37 Production/nimbus_3529.tar.dir
+-rw-r--r-- nimbus/proj  2099200 2007-03-21 16:39:49 Production/nimbus_3535.tar
+-rw-r--r-- nimbus/proj    37521 2007-03-21 16:39:49 Production/nimbus_3535.tar.dir
+-rw-rw-r-- cjw/proj        4675 2002-01-17 11:48:28 Production/nimbus_defaults.hrt.tar.dir
+-rw-rw-r-- cjw/proj        4674 2001-12-06 13:42:34 Production/nimbus_defaults.lrt.tar.dir
+-rw-r--r-- nimbus/proj  1495040 2007-03-21 16:39:28 Production/nimbus_defaults_3528.tar
+-rw-r--r-- nimbus/proj     6128 2007-03-21 16:39:28 Production/nimbus_defaults_3528.tar.dir
+-rw-r--r-- nimbus/proj  1495040 2007-03-21 16:39:39 Production/nimbus_defaults_3529.tar
+-rw-r--r-- nimbus/proj     6128 2007-03-21 16:39:39 Production/nimbus_defaults_3529.tar.dir
+-rw-r--r-- nimbus/proj  1495040 2007-03-21 16:39:51 Production/nimbus_defaults_3535.tar
+-rw-r--r-- nimbus/proj     6128 2007-03-21 16:39:51 Production/nimbus_defaults_3535.tar.dir
+-rw-rw-r-- cjw/proj        8442 2002-01-24 15:22:27 Production/ogwuser
+-rw-rw-r-- cjw/proj        4494 2002-01-24 14:37:32 Production/oldFlight_rf01
+-rw-rw-r-- cjw/proj        3748 2001-11-15 14:06:20 Production/oldFlight_rf02
+-r--r--r-- schanot/proj    1568 2007-02-26 14:31:55 Production/oldFlight_rf03
+-r--r--r-- schanot/proj    3816 2007-02-26 14:32:09 Production/oldFlight_rf04
+-r--r--r-- schanot/proj    4434 2007-02-26 14:32:26 Production/oldFlight_rf05
+-r--r--r-- schanot/proj    3817 2007-02-26 14:32:42 Production/oldFlight_rf06
+-r--r--r-- schanot/proj    3817 2007-02-26 14:32:56 Production/oldFlight_rf07
+-r--r--r-- schanot/proj    3817 2007-02-26 14:33:09 Production/oldFlight_rf08
+-r--r--r-- schanot/proj    4431 2007-02-26 14:33:25 Production/oldFlight_rf09
+-r--r--r-- schanot/proj    3817 2007-02-26 14:33:46 Production/oldFlight_rf10
+-rw-rw-r-- nimbus/proj      467 2007-03-21 11:21:54 Production/proj.info
+-rw-rw-r-- cjw/proj         848 2001-09-04 11:55:58 Production/reject_memo
+-rw-rw-r-- cjw/proj        2050 2002-03-29 13:43:16 Production/rf09h_notes
+-rw-rw-r-- nimbus/proj     3299 2007-03-21 14:37:22 Production/taplog.181
+-rw-rw-r-- nimbus/proj     1903 2007-03-21 14:41:36 Production/taplog.hrt.181
+-rw-rw-r-- cjw/proj        1807 2002-03-29 13:52:20 Production/taplog.hrt.181_2002
+-rw-rw-r-- nimbus/proj     1859 2007-03-21 14:40:37 Production/taplog.lrt.181
+-rw-rw-r-- cjw/proj        1762 2002-03-29 13:52:32 Production/taplog.lrt.181_2002
+-rw-rw-r-- cjw/proj       11008 2002-06-13 17:35:12 Production/taplog.mcr.181
+-rw-rw-r-- cjw/proj        1942 2002-03-29 13:52:41 Production/taplog.pms2d.181
+-rw-rw-r-- cjw/proj        2204 2002-03-28 12:38:57 Production/taplog.uhrt.181
+-rw-rw-r-- cjw/proj        7107 2002-01-17 12:27:02 Production/tp2ms.summary
+-rw-r--r-- schanot/proj   21340 2007-03-07 13:19:05 Production/trialFlight_rf02
+-rw-rw-r-- cjw/proj        2717 2002-08-15 19:29:59 Production/user_list
+-rw-rw-r-- nimbus/proj    11615 2007-03-21 16:40:58 Production/varlist.181rf01
+-rw-rw-r-- nimbus/proj     4905 2007-03-21 16:41:13 Production/varlist.181rf01h
+-rw-rw-r-- cjw/proj         708 2001-12-17 14:12:35 Production/varlist_20011217.181UHrf03b
+-rw-rw-r-- cjw/proj       11749 2001-12-17 15:15:00 Production/varlist_20011217.181rf01
+-rw-rw-r-- cjw/proj        4925 2001-12-17 15:14:03 Production/varlist_20011217.181rf01h
+-rw-rw-r-- nimbus/proj     4228 2006-04-07 22:04:22 Production/archive/arads.181
+-rw-rw-r-- nimbus/proj    14204 2006-04-07 22:04:22 Production/archive/arch.181
+-rw-rw-r-- nimbus/proj     5003 2006-04-07 22:04:22 Production/archive/arch2d.181
+-rw-rw-r-- nimbus/proj     5618 2006-04-07 22:04:22 Production/archive/arch_mcr.181
+-rw-rw-r-- nimbus/proj     2811 2006-04-07 22:04:22 Production/archive/arch_prelim.181
+-rw-rw-r-- nimbus/proj    21068 2006-04-07 22:04:22 Production/archive/arch_prod_mcr_log.181
+-rw-rw-r-- nimbus/proj     6950 2006-04-07 22:04:22 Production/archive/arch_rdma.181
+-rw-rw-r-- nimbus/proj     6116 2006-04-07 22:04:22 Production/archive/arch_uhrt.181
+-rw-rw-r-- nimbus/proj    20017 2006-04-07 22:04:22 Production/archive/archive.support_2002
+-rwxrwxr-x nimbus/proj    23094 2007-04-09 16:29:26 Production/archive/archive.support_3rd
+-rw-rw-r-- nimbus/proj    15805 2006-04-07 22:04:22 Production/archive/archprodmcr.181
+-rw-rw-r-- nimbus/proj    19697 2007-03-27 16:01:41 Production/archive/archprodnc_3rd.181
+-rw-rw-r-- nimbus/proj    21929 2006-04-07 22:04:22 Production/archive/atdarch.181
+-rw-rw-r-- nimbus/proj     4612 2006-04-07 22:04:22 Production/archive/atdarch2d.181
+-rw-rw-r-- nimbus/proj    16077 2006-04-07 22:04:22 Production/archive/atdarchp.181
+-rw-rw-r-- nimbus/proj    27447 2006-04-07 22:04:22 Production/archive/atdarchprodmcr.181
+-rw-rw-r-- nimbus/proj     7598 2006-04-07 22:04:22 Production/archive/atdarchz.181
+-rw-rw-r-- nimbus/proj   470144 2006-04-07 22:04:22 Production/archive/ogwuser
+-rw-rw-r-- nimbus/proj   479086 2006-04-07 22:04:22 Production/archive/oscdemail
+-rw-rw-r-- nimbus/proj      177 2006-04-07 22:04:22 Production/archive/return_tapes_from_opns.mo
+-rw-rw-r-- nimbus/proj      644 2006-04-07 22:04:22 Production/archive/send_tapes_to_opns.mo
+-rw-rw-r-- nimbus/proj     3878 2006-04-07 22:04:22 Production/archive/tapes.181
+-rwxrwxr-x nimbus/proj     5861 2006-04-07 22:04:22 Production/archive/tarit.181_2002
+-rwxrwxr-x nimbus/proj    14819 2007-04-09 16:13:08 Production/archive/tarit.181_3rd
+-rw-rw-r-- nimbus/proj     3970 2007-04-09 16:19:08 Production/archive/tarit.docs
+-rw-rw-r-- dmg/proj         919 2007-04-09 16:25:43 Production/archive/tasks
+-rw-rw-r-- nimbus/proj    17871 2006-04-07 22:04:22 Production/archive/tp2ms.job
+-rw-rw-r-- nimbus/proj      577 2006-04-07 22:04:22 Production/archive/unrestrict
+-rw-rw-r-- cjw/proj        2140 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.FF01B.gz
+-rw-rw-r-- cjw/proj        1119 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF01-1.gz
+-rw-rw-r-- cjw/proj        2204 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF01-2.gz
+-rw-rw-r-- cjw/proj        1998 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF01D.gz
+-rw-rw-r-- cjw/proj        2331 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF01E.gz
+-rw-rw-r-- cjw/proj        2285 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF02B-1.gz
+-rw-rw-r-- cjw/proj        3004 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF02B-2.gz
+-rw-rw-r-- cjw/proj        2070 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF03A.gz
+-rw-rw-r-- cjw/proj        1942 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF07B.gz
+-rw-rw-r-- cjw/proj        2115 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.RF07C.gz
+-rw-rw-r-- cjw/proj        2074 2006-04-07 22:04:22 Production/archive/MSCP_out/Fail.TF01.gz
+-rw-rw-r-- cjw/proj        2263 2006-04-07 22:04:22 Production/archive/MSCP_out/print.FF01A.gz
+-rw-rw-r-- cjw/proj        2084 2006-04-07 22:04:22 Production/archive/MSCP_out/print.FF01B.gz
+-rw-rw-r-- cjw/proj        2110 2006-04-07 22:04:22 Production/archive/MSCP_out/print.FF01C.gz
+-rw-rw-r-- cjw/proj        2077 2006-04-07 22:04:22 Production/archive/MSCP_out/print.FF02A.gz
+-rw-rw-r-- cjw/proj        2167 2006-04-07 22:04:22 Production/archive/MSCP_out/print.FF02B.gz
+-rw-rw-r-- cjw/proj        2076 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF01A.gz
+-rw-rw-r-- cjw/proj        2087 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF01B.gz
+-rw-rw-r-- cjw/proj        2111 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF01C.gz
+-rw-rw-r-- cjw/proj        2201 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF01D.gz
+-rw-rw-r-- cjw/proj        2083 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF02A.gz
+-rw-rw-r-- cjw/proj        2089 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF02B.gz
+-rw-rw-r-- cjw/proj        2100 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF02C.gz
+-rw-rw-r-- cjw/proj        2128 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF02D.gz
+-rw-rw-r-- cjw/proj        2208 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF02E.gz
+-rw-rw-r-- cjw/proj        2147 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF03A.gz
+-rw-rw-r-- cjw/proj        2091 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF03B.gz
+-rw-rw-r-- cjw/proj        2124 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF03C.gz
+-rw-rw-r-- cjw/proj        2996 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF03D.gz
+-rw-rw-r-- cjw/proj        2063 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF04A.gz
+-rw-rw-r-- cjw/proj        2082 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF04B.gz
+-rw-rw-r-- cjw/proj        2128 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF04C.gz
+-rw-rw-r-- cjw/proj        2259 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF04D.gz
+-rw-rw-r-- cjw/proj        2069 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF05A.gz
+-rw-rw-r-- cjw/proj        2072 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF05B.gz
+-rw-rw-r-- cjw/proj        2191 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF05C.gz
+-rw-rw-r-- cjw/proj        2070 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF06A.gz
+-rw-rw-r-- cjw/proj        2076 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF06B.gz
+-rw-rw-r-- cjw/proj        2114 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF06C.gz
+-rw-rw-r-- cjw/proj        2235 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF06D.gz
+-rw-rw-r-- cjw/proj        2084 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF07A.gz
+-rw-rw-r-- cjw/proj        2082 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF07B.gz
+-rw-rw-r-- cjw/proj        2122 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF07C.gz
+-rw-rw-r-- cjw/proj        2286 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF07D.gz
+-rw-rw-r-- cjw/proj        2066 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF08A.gz
+-rw-rw-r-- cjw/proj        2079 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF08B.gz
+-rw-rw-r-- cjw/proj        2170 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF08C.gz
+-rw-rw-r-- cjw/proj        2271 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF08D.gz
+-rw-rw-r-- cjw/proj        2076 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF09A.gz
+-rw-rw-r-- cjw/proj        2109 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF09B.gz
+-rw-rw-r-- cjw/proj        2197 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF09C.gz
+-rw-rw-r-- cjw/proj        2120 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF10A.gz
+-rw-rw-r-- cjw/proj        2110 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF10B.gz
+-rw-rw-r-- cjw/proj        2848 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF10C.gz
+-rw-rw-r-- cjw/proj        2207 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF10D.gz
+-rw-rw-r-- cjw/proj        2080 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF10E.gz
+-rw-rw-r-- cjw/proj        2074 2006-04-07 22:04:22 Production/archive/MSCP_out/print.RF10F.gz
+-rw-rw-r-- cjw/proj        2131 2006-04-07 22:04:22 Production/archive/MSCP_out/print.TF01A.gz
+-rw-rw-r-- cjw/proj        2863 2006-04-07 22:04:22 Production/archive/MSCP_out/print.TF01B.gz
+-rw-rw-r-- cjw/proj        2108 2006-04-07 22:04:22 Production/archive/MSCP_out/print.TF02A.gz
+-rw-rw-r-- cjw/proj        2158 2006-04-07 22:04:22 Production/archive/MSCP_out/print.TF02B.gz
+-rw-rw-r-- cjw/proj        2963 2006-04-07 22:04:22 Production/archive/MSCP_out/print.TF03.gz
+-rw-rw-r-- cjw/proj         893 2006-04-07 22:04:22 Production/gndproc/Instructions_1
+-rw-rw-r-- cjw/proj         213 2006-04-07 22:04:22 Production/gndproc/Instructions_2
+-rw-rw-r-- cjw/proj        1479 2006-04-07 22:04:22 Production/gndproc/copy_cdf_joss
+-rw-rw-r-- cjw/proj        1409 2006-04-07 22:04:22 Production/gndproc/copy_cdf_raf
+-rw-rw-r-- cjw/proj       22788 2006-04-07 22:04:22 Production/gndproc/gndproc.conf
+-rw-rw-r-- cjw/proj       11652 2006-04-07 22:04:22 Production/gndproc/gndproc.doc
+-rw-rw-r-- cjw/proj        1496 2006-04-07 22:04:22 Production/gndproc/nimbus_ads_raf
+-rw-rw-r-- cjw/proj      117266 2006-04-07 22:04:22 Production/gndproc/script.log
+-rw-rw-r-- cjw/proj      101121 2006-04-07 22:04:22 Production/gndproc/script.log.chinaco
+-rw-rw-r-- cjw/proj          20 2006-04-07 22:04:22 Production/gndproc/setup.181
+-rw-rw-r-- cjw/proj        1536 2006-04-07 22:04:22 Production/gndproc/tmp/copy_ads_raf

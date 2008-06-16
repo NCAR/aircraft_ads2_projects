@@ -1,0 +1,129 @@
+Analog TEO3C being renamed to TEO3.
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+XGREFF has no units or title/long_name.
+HGM232S has no units.
+H2DV15_RWI has no units or title/long_name.
+H2DMTMP_RWI has no units or title/long_name.
+H2DEE1_RWI has no units or title/long_name.
+H2DEE32_RWI has no units or title/long_name.
+H2DVN15_RWI has no units or title/long_name.
+H2DV5_RWI has no units or title/long_name.
+TTLH has no units or title/long_name.
+ARDMA_FCR has no units or title/long_name.
+AQRATIO has no units or title/long_name.
+DPLA has no units or title/long_name.
+RHLA has no units or title/long_name.
+DPLA1 has no units or title/long_name.
+RHLA1 has no units or title/long_name.
+TTWHC has no units or title/long_name.
+GALTC has no units or title/long_name.
+TCNT6_RWO has no units or title/long_name.
+REFF6_RWO has no units or title/long_name.
+REFFF6_RWO has no units or title/long_name.
+TCNTF_LPI has no units or title/long_name.
+REFFF_LPI has no units or title/long_name.
+TCNT3_RPC has no units or title/long_name.
+TCNTP_RPO has no units or title/long_name.
+CRDMA_FCR has no units or title/long_name.
+CONCR_FCR has no units or title/long_name.
+ReadStaticLags: non-existent variable CPITCH specified, continuing.
+ReadStaticLags: non-existent variable CROLL specified, continuing.
+ReadStaticLags: non-existent variable CVSPD specified, continuing.
+ReadStaticLags: non-existent variable GSPD specified, continuing.
+ReadStaticLags: non-existent variable GTRK specified, continuing.
+DPLA has no dependencies, turning off.
+GALTC has no dependencies, turning off.
+REFFF2DC is depending on non-existent variable C1DC_RWI1, turning off.
+RHLA has no dependencies, turning off.
+RHLA1 has no dependencies, turning off.
+TEO3C is depending on non-existent variable TEP, turning off.
+TTWHC has no dependencies, turning off.
+DYCOMS-II - 181, Flight rf04
+Revision: 3528
+Analog TEO3C being renamed to TEO3.
+PSFC already added to derived list, ignoring duplicate, check dependencies.
+ReadStaticLags: non-existent variable CPITCH specified, continuing.
+ReadStaticLags: non-existent variable CROLL specified, continuing.
+ReadStaticLags: non-existent variable CVSPD specified, continuing.
+ReadStaticLags: non-existent variable GSPD specified, continuing.
+ReadStaticLags: non-existent variable GTRK specified, continuing.
+DPLA has no dependencies, turning off.
+GALTC has no dependencies, turning off.
+REFFF2DC is depending on non-existent variable C1DC_RWI1, turning off.
+RHLA has no dependencies, turning off.
+RHLA1 has no dependencies, turning off.
+TEO3C is depending on non-existent variable TEP, turning off.
+TTWHC has no dependencies, turning off.
+Loading setup file: /jnet/local/projects/181/C130_N130AR/Production/Flight_rf02
+Blankout can not apply to variable DAY, clearing.
+Blankout can not apply to variable HOUR, clearing.
+Blankout can not apply to variable MINUTE, clearing.
+Blankout can not apply to variable MONTH, clearing.
+Blankout can not apply to variable SECOND, clearing.
+Blankout can not apply to variable YEAR, clearing.
+Blankout can not apply to variable ONE, clearing.
+NCAR C-130 pcor's installed.
+PCORS:  Pre-AIRS-II pcors().
+Request for non-existent default, RECFRH.
+Request for non-existent default, RECFRN.
+Request for non-existent default, RECFB.
+Request for non-existent default, GPS_UPFCTR.
+GPS_UPFCTR set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+GPS_FCTRF set to 0.997000 in AMLIB function slatc.
+Request for non-existent default, CX_1.
+Values returned = 4.200000, 0.871200, -0.004500, -0.005600 in AMLIB function lymanInit.
+Request for non-existent default, CX_2.
+Values returned = 4.200000, 0.871200, -0.004500, -0.005600 in AMLIB function lymanInit.
+Processed on: 2007-02-26 22:37:07 +0000
+Flight Date: 07/17/2001
+
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Production run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+Time lag for ACINS enabled, with lag of -40 milliseconds.
+Time lag for GALT enabled, with lag of -500 milliseconds.
+Time lag for GLAT enabled, with lag of -500 milliseconds.
+Time lag for GLON enabled, with lag of -500 milliseconds.
+Time lag for GVEW enabled, with lag of 840 milliseconds.
+Time lag for GVNS enabled, with lag of 840 milliseconds.
+Time lag for PITCH enabled, with lag of -180 milliseconds.
+Time lag for ROLL enabled, with lag of -180 milliseconds.
+Time lag for THDG enabled, with lag of -40 milliseconds.
+Time lag for VEW enabled, with lag of -50 milliseconds.
+Time lag for VNS enabled, with lag of -50 milliseconds.
+XGREFF has no entry in the VarDB.
+AQRATIO has no entry in the VarDB.
+DPLA1 has no entry in the VarDB.
+GALTC has no entry in the VarDB.
+RHLA1 has no entry in the VarDB.
+VEW [sr=10] has no FIR filter, resampled data will be used.
+VNS [sr=10] has no FIR filter, resampled data will be used.
+Blanking XGLWC from 11:48:00 to 15:31:11.
+  WARNING: XGLWC NOT found!  Continuing.
+Blanking XGRFF from 11:48:00 to 15:31:11.
+Blanking CING from 11:48:00 to 15:31:11.
+Time interval(s) completed : 
+06:32:00-15:31:11
+
+HGM232: 817 spikes removed with slope exceeding 25.000000
+PSFD: 352 spikes removed with slope exceeding 20.000000
+IRS Error report: Latitude had 3 values of 0 (zero).
+IRS Error report: Longitude had 3 values of 0 (zero).
+IRS Error report: Track Angle had 17 values of 0 (zero).
+IRS Error report: True Heading had 17 values of 0 (zero).
+IRS Error report: Pitch had 37 values of 0 (zero).
+IRS Error report: Roll had 37 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 37 values of 0 (zero).
+IRS Error report: Vertical Speed had 17 values of 0 (zero).
+IRS Error report: NS Velocity had 32549 values of 0 (zero).
+IRS Error report: EW Velocity had 32549 values of 0 (zero).
+Processing took 4.6 minutes.
