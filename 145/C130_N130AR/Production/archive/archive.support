@@ -431,6 +431,51 @@ while ($num <= $todo)
   @ num ++
 end
 #
+# -----------------------------------------------------------------------------
+#
+#
+#  Wave 2:  fix error in ./docs.HTML/ symbolic link and update/add new files
+#
+#  Files to go to main MSS directory (not renamed)
+#
+set DIR = $PRDIR
+#   DIR can be any of the following:  $SDIR,      $PDIR,       $PRDIR
+#                                     $PROD_DATA  Project Home Production
+#        (or set to a specific directory)
+#
+set FILES = ( \
+145.documents.tar \
+145.documents.tar.dir \
+145.tar \
+145.tar.dir \
+Mail.145 \
+taplog.camera.145 \
+taplog.movie.145 \
+)
+#
+#  Get started:
+set todo = $#FILES
+set num = 1
+while ($num <= $todo)
+  set FILE = $FILES[$num]
+  if (-r $DIR/$FILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe $RTPD -pr $SCD_PROJ -wpwd RAFDMG $RPWD \
+     $DIR/$FILE mss:/RAF/$YEAR/$PROJ/$FILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $FILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $FILE -- Failed -- `date`"
+      echo "#                $FILE:  error code $result"
+    endif
+  else
+    echo "#  msrcp job for $FILE -- Failed -- `date`"
+    echo "#   Cannot access source file $DIR/$FILE"
+  endif
+  @ num ++
+end
+#
 #
 #  -------------------------------------------------------------------------
 #   T E M P L A T E S   (c o p y   &   e d i t ,   a s   n e c e s s a r y )
@@ -700,4 +745,20 @@ echo \
 #  msrcp job for taplog.camera.145 -- OK -- Mon Aug 14 15:16:42 MDT 2006
 #   msrcp job  -- OK --
 #  Completed on Mon Aug 14 15:16:42 MDT 2006
+#
+# -----------------------------------------------------------------------------
+#
+#  Wave 2:  fix error in ./docs.HTML/ symbolic link and update/add new files
+#  MSS path for all bitfiles listed below:  /RAF/2006/145/
+#  Job(s) submitted on Fri Oct 20 12:59:53 MDT 2006
+#  msrcp job for 145.documents.tar -- OK -- Fri Oct 20 12:59:57 MDT 2006
+#  msrcp job for 145.documents.tar.dir -- OK -- Fri Oct 20 13:00:02 MDT 2006
+#  msrcp job for 145.tar -- OK -- Fri Oct 20 13:00:14 MDT 2006
+#  msrcp job for 145.tar.dir -- OK -- Fri Oct 20 13:00:19 MDT 2006
+#  msrcp job for Mail.145 -- OK -- Fri Oct 20 13:00:24 MDT 2006
+#  msrcp job for taplog.camera.145 -- OK -- Fri Oct 20 13:00:29 MDT 2006
+#  msrcp job for taplog.movie.145 -- OK -- Fri Oct 20 13:00:34 MDT 2006
+#   msrcp job  -- OK --
+#  Completed on Fri Oct 20 13:00:34 MDT 2006
+#
 #

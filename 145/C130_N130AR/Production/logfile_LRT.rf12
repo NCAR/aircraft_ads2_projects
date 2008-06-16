@@ -1,0 +1,79 @@
+Unknown variable/probe H2OTDL encountered, ignoring & continuing.
+HGM232S has no units.
+REJAT_RWO has no units.
+QCFRC has no units or title/long_name.
+REFFF6_RWI has no units or title/long_name.
+REFFF6 is depending on non-existent variable CS100_LPC_RWI, turning off.
+MIRAGE - 145, Flight rf12
+Revision: 3412
+Unknown variable/probe H2OTDL encountered, ignoring & continuing.
+REFFF6 is depending on non-existent variable CS100_LPC_RWI, turning off.
+Loading setup file: /jnet/local/projects/145/C130_N130AR/Production/Flight_rf12
+Blankout can not apply to variable DAY, clearing.
+Blankout can not apply to variable HOUR, clearing.
+Blankout can not apply to variable MINUTE, clearing.
+Blankout can not apply to variable MONTH, clearing.
+Blankout can not apply to variable SECOND, clearing.
+Blankout can not apply to variable YEAR, clearing.
+NCAR C-130 pcor's installed.
+PCORS:  AIRS-II and later pcors().
+Request for non-existent default, RECFRH.
+Request for non-existent default, RECFRN.
+Request for non-existent default, RECFB.
+Processed on: 2006-10-10 15:55:48 +0000
+Flight Date: 03/29/2006
+
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Production run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -500 milliseconds.
+Time lag for GGTRK enabled, with lag of -500 milliseconds.
+Non-sequential time, moving up start time.
+Advancing past odd-ball time stamp:
+  previous time = 16:37:33
+       odd time = 16:20:49
+Advancing past odd-ball time stamp:
+  previous time = 16:37:33
+       odd time = 16:20:50
+    advanced to = 16:38:37
+Time break of 63 seconds ending @ 16:38:37, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:48:46
+       odd time = 16:47:55
+Advancing past odd-ball time stamp:
+  previous time = 16:48:46
+       odd time = 16:47:56
+    advanced to = 16:49:12
+Time break of 25 seconds ending @ 16:49:12, filling in with MISSING_VALUE.
+Advancing past odd-ball time stamp:
+  previous time = 16:57:23
+       odd time = 16:49:27
+Advancing past odd-ball time stamp:
+  previous time = 16:57:23
+       odd time = 16:49:28
+    advanced to = 16:57:47
+Time break of 23 seconds ending @ 16:57:47, filling in with MISSING_VALUE.
+Blanking DPT from 23:35:14 to 23:52:00.
+  WARNING: DPT NOT found!  Continuing.
+Blanking DPTC from 23:35:14 to 23:52:00.
+  WARNING: DPTC NOT found!  Continuing.
+Blanking XUCN from 17:03:00 to 17:06:15.
+  WARNING: XUCN NOT found!  Continuing.
+Blanking XUCN from 20:24:45 to 20:37:11.
+  WARNING: XUCN NOT found!  Continuing.
+Time interval(s) completed : 
+16:20:43-23:55:47
+
+GGALT: 48 spikes removed with slope exceeding 100.000000
+HGM232: 241 spikes removed with slope exceeding 200.000000
+PSFRD: 2 spikes removed with slope exceeding 20.000000
+Processing took 0.1 minutes.

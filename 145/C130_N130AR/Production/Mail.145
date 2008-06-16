@@ -32802,3 +32802,598 @@ Thanks,
 Stuart
 
 
+From schanot@ucar.edu Fri Sep 22 10:52:09 2006
+Received: from nscan4.ucar.edu (nscan4.ucar.edu [128.117.64.194])
+	by ale.atd.ucar.edu (8.11.7p2+Sun/8.8.8) with ESMTP id k8MGq3P23995
+	for <ruth@atd.ucar.edu>; Fri, 22 Sep 2006 10:52:08 -0600 (MDT)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by nscan4.ucar.edu (Postfix) with ESMTP id C53853F1C03A
+	for <ruth@ucar.edu>; Fri, 22 Sep 2006 10:52:03 -0600 (MDT)
+Received: from nscan4.ucar.edu ([127.0.0.1])
+ by localhost (nscan1.ucar.edu [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 32462-01; Fri, 22 Sep 2006 10:52:03 -0600 (MDT)
+Received: from ale.atd.ucar.edu (mail.eol.ucar.edu [128.117.80.15])
+	by nscan4.ucar.edu (Postfix) with ESMTP id 30E8D3F1C035;
+	Fri, 22 Sep 2006 10:52:03 -0600 (MDT)
+Received: from [127.0.0.1] (eol-schanot.atd.ucar.edu [128.117.84.155])
+	by ale.atd.ucar.edu (8.11.7p2+Sun/8.8.8) with ESMTP id k8MGpgP23972;
+	Fri, 22 Sep 2006 10:51:47 -0600 (MDT)
+Message-ID: <45141493.9060000@ucar.edu>
+Date: Fri, 22 Sep 2006 10:51:31 -0600
+From: Al Schanot <schanot@ucar.edu>
+User-Agent: Thunderbird 1.5.0.5 (Windows/20060719)
+MIME-Version: 1.0
+To: Sasha Madronich <sasha@ucar.edu>
+Cc: Louisa Emmons <emmons@ucar.edu>, Ron Ruth <ruth@ucar.edu>,
+        bruce morley <bruce@ucar.edu>, Pavel Romashkin <pavel@ucar.edu>,
+        "Allen Schanot Jr." <schanot@ucar.edu>
+Subject: Re: EOL aerosol data during MIRAGE
+References: <45131E56.6090707@ucar.edu>
+In-Reply-To: <45131E56.6090707@ucar.edu>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: amavisd-new at ucar.edu
+X-Spam-Status: No, hits=-3.009 tagged_above=-5 required=5 tests=ALL_TRUSTED,
+ AWL
+X-Spam-Level: 
+Content-Length: 766
+X-Status: 
+X-Keywords:                 
+X-UID: 2453
+Status: RO
+
+Sasha:
+
+I don't know why the PMS particle data don't show up in the MET.NAV 
+files.  We provided all the C-130 data that NASA asked us for - a subset 
+of our total, but I don't remember the exact list.  In any case, all 
+C-130 data can be accessed directly through the RAF web site.  The 
+format will be netCDF, however.  If you have any problems getting the 
+data, work with Ron Ruth, the RAF data manager.  For access to SABL 
+data, contact Bruce Morley of RSF.
+
+Allen
+
+Sasha Madronich wrote:
+> Hi Al,
+>
+> what is the status of the EOL aerosol measurements from the C130 
+> during MIRAGE?  The MET.NAV files only have the CN, not the various 
+> individual instruments (SPP, FSSP-100, PCASP...).  Also, how does one 
+> access the SABL data?
+>
+> Thanks,
+> Sasha
+>
+
+
+
+From ruth@ale.atd.ucar.edu Wed Oct 11 16:16:40 2006 -0600
+Message-ID: <452D6D47.5030506@ucar.edu>
+Date: Wed, 11 Oct 2006 22:16:39 +0000
+From: Ron Ruth <ruth@ucar.edu>
+User-Agent: Thunderbird 1.5.0.7 (X11/20060909)
+MIME-Version: 1.0
+To:  ffl@ucar.edu
+CC: Allen Schanot <schanot@ucar.edu>, Pavel Romashkin <pavel@ucar.edu>
+Subject: ASCII/NASA format conversion of MIRAGE and INTEX-B production LRT
+ data
+Content-Type: multipart/mixed;
+ boundary="------------090301090002030503040909"
+X-Status: 
+X-Keywords:                  
+Status: RO
+
+This is a multi-part message in MIME format.
+--------------090301090002030503040909
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+
+Frank,
+
+I completed translating to ASCII all the low-rate, production, flight-level,
+research, netCDF files for both the INTEX-B and MIRAGE projects.  They have
+every measurement available in the netCDF files.  They were gzipped and put
+on EOL's ftp server.  See the attached README.txt files for details.  (The
+MIRAGE README.txt appears first.)
+
+As we discussed on the phone, if you want these data sets sent to the
+NASA archive, you will have to make those arrangements.
+
+Ron
+-- 
+Ron Ruth     RAF Data Manager     NCAR/EOL/CDS&RAF     Voice: (303)497-1084
+<ruth@ucar.edu>                                          Fax: (303)497-1092
+
+--------------090301090002030503040909
+Content-Type: text/plain;
+ name="README.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename="README.txt"
+
+        URL:  ftp://ftp.atd.ucar.edu/pub/archive/RAF-projects/MIRAGE/ASCII/
+
+       site:  ftp.atd.ucar.edu
+ login name:  anonymous
+   password:  <your full email address>
+         df:  BI (binary)
+       mode:  passive
+       path:  pub/archive/RAF-projects/MIRAGE/ASCII
+
+                            Unzipped     Gzipped     Time Interval
+      files:  Name          Size (MB)    Size (MB)   (UTC)               Format
+              145rf01.asc   191.911382   22.395734   18:20:00-01:47:01   ASCII (NASA Ames Data Exchange Format)
+              145rf02.asc   175.168682   22.831742   17:30:00-00:18:01   ASCII (NASA Ames Data Exchange Format)
+              145rf03.asc   209.906207   25.184957   15:44:00-23:52:56   ASCII (NASA Ames Data Exchange Format)
+              145rf04.asc   209.941982   24.479381   17:26:00-01:35:01   ASCII (NASA Ames Data Exchange Format)
+              145rf05.asc   227.514662   27.068087   15:44:00-00:33:57   ASCII (NASA Ames Data Exchange Format)
+              145rf06.asc   220.238027   26.418429   15:11:00-23:44:00   ASCII (NASA Ames Data Exchange Format)
+              145rf07.asc   225.826082   25.647973   17:27:00-02:13:01   ASCII (NASA Ames Data Exchange Format)
+              145rf08.asc   180.313127   22.921608   15:41:00-22:41:00   ASCII (NASA Ames Data Exchange Format)
+              145rf09.asc   157.989527   17.678116   17:17:00-23:25:00   ASCII (NASA Ames Data Exchange Format)
+              145rf10.asc    59.422813    5.933655   17:20:00-19:39:00   ASCII (NASA Ames Data Exchange Format)
+              145rf11.asc   190.217794   18.399866   10:08:00-17:33:00   ASCII (NASA Ames Data Exchange Format)
+              145rf12.asc   174.829954   17.687630   17:03:00-23:52:00   ASCII (NASA Ames Data Exchange Format)
+
+The data files available at this site have been compressed using the GZIP format.  After
+being transferred to your site, they can be uncompressed using the utility "gunzip,"
+"Stuffit Expander" or the Windows utility "WinZip."
+
+gzip/gunzip (freeware) is available at the URL:
+     http://www.gzip.org/
+
+Expander (free, but see site notes) is available at the URL:
+     http://www.stuffit.com/win/expander/
+
+WinZip (buy, 30-day evaluation) can be downloaded from the URL:
+     http://www.winzip.com/
+
+--------------090301090002030503040909
+Content-Type: text/plain;
+ name="README.txt"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline;
+ filename="README.txt"
+
+        URL:  ftp://ftp.atd.ucar.edu/pub/archive/RAF-projects/INTEXB/ASCII/
+
+       site:  ftp.atd.ucar.edu
+ login name:  anonymous
+   password:  <your full email address>
+         df:  BI (binary)
+       mode:  passive
+       path:  pub/archive/RAF-projects/INTEXB/ASCII
+
+                             Unzipped     Gzipped     Time Interval
+      files:  Name           Size (MB)    Size (MB)   (UTC)               Format
+              146Lrf01.asc   198.442142   20.787528   14:06:00-20:42:30   ASCII (NASA Ames Data Exchange Format)
+              146Lrf02.asc   232.481763   25.069658   17:04:30-00:49:01   ASCII (NASA Ames Data Exchange Format)
+              146Lrf03.asc   158.155112   16.647074   17:59:00-23:15:00   ASCII (NASA Ames Data Exchange Format)
+              146Lrf04.asc   229.479003   19.504357   17:19:30-00:58:01   ASCII (NASA Ames Data Exchange Format)
+              146Lrf05.asc   238.987743   25.897426   17:01:30-00:59:01   ASCII (NASA Ames Data Exchange Format)
+              146Lrf06.asc   218.719113   23.460458   18:37:30-01:54:31   ASCII (NASA Ames Data Exchange Format)
+              146Lrf07.asc   255.252693   27.239333   17:05:00-01:35:01   ASCII (NASA Ames Data Exchange Format)
+              146Lrf08.asc   253.501083   27.674717   17:30:30-01:57:01   ASCII (NASA Ames Data Exchange Format)
+              146Lrf09.asc   247.245333   26.935036   16:07:30-00:21:31   ASCII (NASA Ames Data Exchange Format)
+              146Lrf10.asc   227.226933   24.873183   17:29:30-01:03:31   ASCII (NASA Ames Data Exchange Format)
+              146Lrf11.asc   232.782039   26.027409   16:35:00-00:20:07   ASCII (NASA Ames Data Exchange Format)
+              146Lrf12.asc   205.365172   21.284090   16:47:40-23:38:00   ASCII (NASA Ames Data Exchange Format)
+
+The data files available at this site have been compressed using the GZIP format.  After
+being transferred to your site, they can be uncompressed using the utility "gunzip,"
+"Stuffit Expander" or the Windows utility "WinZip."
+
+gzip/gunzip (freeware) is available at the URL: 
+     http://www.gzip.org/ 
+
+Expander (free, but see site notes) is available at the URL: 
+     http://www.stuffit.com/win/expander/ 
+
+WinZip (buy, 30-day evaluation) can be downloaded from the URL: 
+     http://www.winzip.com/ 
+
+--------------090301090002030503040909--
+
+
+From cully@cabernet.atd.ucar.edu Mon Dec  4 09:16:55 2006
+Received: from nscan1.ucar.edu (nscan1.ucar.edu [128.117.64.191])
+	by ale.atd.ucar.edu (8.11.7p2+Sun/8.8.8) with ESMTP id kB4GGtS08805
+	for <ruth@atd.ucar.edu>; Mon, 4 Dec 2006 09:16:55 -0700 (MST)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by nscan1.ucar.edu (Postfix) with ESMTP id 1F6BF7FC127
+	for <ruth@ucar.edu>; Mon,  4 Dec 2006 09:16:55 -0700 (MST)
+Received: from nscan1.ucar.edu ([127.0.0.1])
+ by localhost (nscan1.ucar.edu [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 06651-08 for <ruth@ucar.edu>;
+ Mon,  4 Dec 2006 09:16:54 -0700 (MST)
+Received: from ale.atd.ucar.edu (mail.eol.ucar.edu [128.117.80.15])
+	by nscan1.ucar.edu (Postfix) with ESMTP id 7EF007FC11A
+	for <ruth@ucar.edu>; Mon,  4 Dec 2006 09:16:54 -0700 (MST)
+Received: from cabernet.atd.ucar.edu (cabernet.atd.ucar.edu [128.117.78.7])
+	by ale.atd.ucar.edu (8.11.7p2+Sun/8.8.8) with ESMTP id kB4GGrS08776;
+	Mon, 4 Dec 2006 09:16:53 -0700 (MST)
+Received: from cabernet.atd.ucar.edu (localhost [127.0.0.1])
+	by cabernet.atd.ucar.edu (8.12.10+Sun/8.8.8) with ESMTP id kB4GGr66005539;
+	Mon, 4 Dec 2006 09:16:53 -0700 (MST)
+Received: (from cully@localhost)
+	by cabernet.atd.ucar.edu (8.12.10+Sun/8.12.2/Submit) id kB4GGrdr005538;
+	Mon, 4 Dec 2006 09:16:53 -0700 (MST)
+From: Linda Cully <cully@atd.ucar.edu>
+Date: Mon, 4 Dec 2006 09:16:53 -0700
+To: Ron Ruth <ruth@ucar.edu>
+Subject: Re: old MIRAGE web page
+Message-ID: <20061204161653.GA5493@cabernet.atd.ucar.edu>
+References: <45526A40.3050508@ucar.edu> <4558DB63.6030504@ucar.edu> <4558DDB2.7090800@ucar.edu> <20061127232530.GA25038@cabernet.atd.ucar.edu> <456B7CF3.9060201@ucar.edu> <20061128141236.GA3254@cabernet.atd.ucar.edu> <456C728A.5090607@ucar.edu> <20061128204653.GB11711@cabernet.atd.ucar.edu> <456CA3CA.3020404@ucar.edu>
+Mime-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <456CA3CA.3020404@ucar.edu>
+User-Agent: Mutt/1.4i
+X-Virus-Scanned: amavisd-new at ucar.edu
+X-Spam-Status: No, hits=-3.93 tagged_above=-5 required=0 tests=ALL_TRUSTED,
+ AWL, BAYES_00
+X-Spam-Level: 
+Content-Length: 389
+X-Status: 
+X-Keywords: NonJunk         
+X-UID: 2511
+Status: RO
+
+Ron,
+
+Last friday, Steve, Jose and I had a meeting with Sasha and Louisa
+and one of the topics brought up was the preservation of the existing
+ACD MIRAGE page. Here's the lastest....they expect to hiring a person
+that will help them maintain this page. So, you should be able to retain
+your current web page links as is. They expect to hire someone soon to
+begin the maintenance.
+FYI,
+LEC
+
+From schanot@ucar.edu Thu Jan 18 11:48:32 2007
+Received: from nscan3.ucar.edu (nscan3.ucar.edu [128.117.64.193])
+	by ale.atd.ucar.edu (8.11.7p2+Sun/8.8.8) with ESMTP id l0IImWq05721
+	for <ruth@atd.ucar.edu>; Thu, 18 Jan 2007 11:48:32 -0700 (MST)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by nscan3.ucar.edu (Postfix) with ESMTP id 26757230C02B
+	for <ruth@ucar.edu>; Thu, 18 Jan 2007 11:48:32 -0700 (MST)
+Received: from nscan3.ucar.edu ([127.0.0.1])
+ by localhost (nscan3.ucar.edu [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 12041-10; Thu, 18 Jan 2007 11:48:30 -0700 (MST)
+Received: from ale.atd.ucar.edu (ale.atd.ucar.edu [128.117.80.15])
+	by nscan3.ucar.edu (Postfix) with ESMTP id DB176230C028;
+	Thu, 18 Jan 2007 11:48:30 -0700 (MST)
+Received: from [127.0.0.1] (eol-schanot.atd.ucar.edu [128.117.84.155])
+	by ale.atd.ucar.edu (8.11.7p2+Sun/8.8.8) with ESMTP id l0IImUq05712;
+	Thu, 18 Jan 2007 11:48:30 -0700 (MST)
+Message-ID: <45AFC0FD.2050901@ucar.edu>
+Date: Thu, 18 Jan 2007 11:48:29 -0700
+From: Al Schanot <schanot@ucar.edu>
+User-Agent: Thunderbird 1.5.0.7 (Windows/20060909)
+MIME-Version: 1.0
+To: Peter DeCarlo <Peter.Decarlo@colorado.edu>
+CC: Ron Ruth <ruth@ucar.edu>, "Allen Schanot Jr." <schanot@ucar.edu>
+Subject: Re: Google Earth Flight Tracks for MIRAGE
+References: <D7FEA47C-7CEA-4D75-88BC-0B50242A21B4@colorado.edu>
+In-Reply-To: <D7FEA47C-7CEA-4D75-88BC-0B50242A21B4@colorado.edu>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: amavisd-new at ucar.edu
+X-Spam-Status: No, hits=-4.274 tagged_above=-5 required=0 tests=ALL_TRUSTED,
+ AWL, BAYES_00
+X-Spam-Level: 
+Content-Length: 605
+X-Status: 
+X-Keywords:                 
+X-UID: 2539
+Status: RO
+
+Peter:
+
+This is a real time data product and is not part of our formal project 
+documentation.  We had trouble with the real time data deeds from the 
+aircraft on several flights and that is probably the source of your 
+problem.  We plan to take no action on this data set.
+
+Allen
+
+Peter DeCarlo wrote:
+> Hi Al,
+>
+> I'm using the Google Earth flight tracks for MIRAGE from the following 
+> link:
+>
+> http://www.eol.ucar.edu/flight_data/mirage1/
+>
+> The links for MIRAGE Flights 2 and 5 don't have any data in them.  Are 
+> these flights going to be updated?  Just curious.
+>
+> Thanks,
+>
+> -Pete DeCarlo
+
+
+
+From ruth@ale.atd.ucar.edu Mon Nov 27 17:04:05 2006 -0700
+Message-ID: <456B7CF3.9060201@ucar.edu>
+Date: Tue, 28 Nov 2006 00:04:03 +0000
+From: Ron Ruth <ruth@ucar.edu>
+User-Agent: Thunderbird 1.5.0.8 (X11/20061025)
+MIME-Version: 1.0
+To: Linda Cully <cully@atd.ucar.edu>
+CC: Allen Schanot <schanot@ucar.edu>
+Subject: Re: MILGRO datasets on MSS Retrieval system - passwords
+References: <45526A40.3050508@ucar.edu> <4558DB63.6030504@ucar.edu> <4558DDB2.7090800@ucar.edu> <20061127232530.GA25038@cabernet.atd.ucar.edu>
+In-Reply-To: <20061127232530.GA25038@cabernet.atd.ucar.edu>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Status: 
+X-Keywords:                 
+X-UID: 2546
+Status: RO
+
+Linda,
+
+Boy that's news to me!  I had no idea that our MIRAGE data also needed
+this type of protection.  I can certainly add READ passwords to the files,
+but RAF's documentation web site, which has a number of pages to make it
+easy for users to download files, will need to be redone.  In addition to
+the netCDF files, we also have digital camera and movie files.  Will these
+need protection, too?
+
+Our web site will need some notice about this change, since I know the
+data have already been downloaded by quite a few people.
+
+When was this decision made?  What time frame do I have to make these
+changes?  I wasn't prepared for this surprise.
+
+Ron
+
+Linda Cully wrote:
+> Hi Ron,
+> 
+> Are you the correct person to contact to ensure that the MILAGRO
+> datasets on the Mass Store retrieval system are password protected?
+> Susan said that these datasets need to have a "read" password set.
+> Then they will not be visible via the retrieval system. At that point,
+> we'll add them into the CODIAC system which can now handle passwords.
+> Let me know if you are not the correct person to help get those set.
+> Thanks,
+> LEC
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/EOL/CDS&RAF     Voice: (303)497-1084
+<ruth@ucar.edu>                                          Fax: (303)497-1092
+
+
+From ruth@ale.atd.ucar.edu Tue Nov 28 10:31:55 2006 -0700
+Message-ID: <456C728A.5090607@ucar.edu>
+Date: Tue, 28 Nov 2006 17:31:54 +0000
+From: Ron Ruth <ruth@ucar.edu>
+User-Agent: Thunderbird 1.5.0.8 (X11/20061025)
+MIME-Version: 1.0
+To: Linda Cully <cully@atd.ucar.edu>
+Subject: Re: MILGRO datasets on MSS Retrieval system - passwords
+References: <45526A40.3050508@ucar.edu> <4558DB63.6030504@ucar.edu> <4558DDB2.7090800@ucar.edu> <20061127232530.GA25038@cabernet.atd.ucar.edu> <456B7CF3.9060201@ucar.edu> <20061128141236.GA3254@cabernet.atd.ucar.edu>
+In-Reply-To: <20061128141236.GA3254@cabernet.atd.ucar.edu>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Status: 
+X-Keywords:                 
+X-UID: 2547
+Status: RO
+
+Linda,
+
+RAF's MIRAGE documentation web site has all the links.  In addition, I have
+added this projects's data catalog pages to the "RAF Archived-Data Catalog"
+and the "RAF Project Documentation Summaries (since 1996)" page.
+
+The URLs are:
+      http://www.eol.ucar.edu/raf/Projects/MIRAGE/
+      http://www.eol.ucar.edu/raf/data_catalog.html
+      http://www.eol.ucar.edu/raf/Projects/
+
+The documentation web site was released on 28 June 2006!  From my records
+at least 8 individuals have downloaded flight-level data or camera/movie
+files.
+
+Ron
+
+Linda Cully wrote:
+> On 28/11/06 00:04 +0000, Ron Ruth wrote:
+>> Linda,
+>>
+>> Boy that's news to me!  I had no idea that our MIRAGE data also needed
+>> this type of protection.  I can certainly add READ passwords to the files,
+>> but RAF's documentation web site, which has a number of pages to make it
+>> easy for users to download files, will need to be redone.  In addition to
+>> the netCDF files, we also have digital camera and movie files.  Will these
+>> need protection, too?
+> 
+> Remember in that TREX meeting regarding password protection that Steve called?
+> I kept bringing up MILAGRO and that the lead scientist (Sasha M.) requested
+> password protection?  Well, there's some question as to whether every dataset
+> needs to be protected. I think we should sit down with Steve W. so that you can
+> show both of us all the changes that this will require on your part....plus you
+> can mention that people have already been downloading the data. Maybe some of
+> these datasets don't need password protection.   Also, I am in the middle of 
+> inventorying all MILAGRO datasets that I can find. So, I will need to see your
+> web pages (can you send me a list of all your web sites that have MILAGRO datasets?)
+> so that I can ensure I have listed all the datasets in the MILAGRO Master List.
+> 
+>> Our web site will need some notice about this change, since I know the
+>> data have already been downloaded by quite a few people.
+>>
+>> When was this decision made?  What time frame do I have to make these
+>> changes?  I wasn't prepared for this surprise.
+> 
+> This was a surprise to all of us not long before that TREX meeting I mentioned above.
+> Let's let Steve tell us if all or some of your datasets need to be protected. We 
+> definitely need to point out that people have already obtained the data. This is
+> true in other situations, too. Maybe since the data have been available for some
+> time, we won't need to protect them? 
+> 
+> Please send me a list of your web sites so I can take a look at all the datasets.
+> When are you next in the office? Let's try and speak with Steve together on this,
+> if possible. I'd like to get it resolved.
+> 
+> Thanks for you quick reply...
+> LEC
+> 
+>> Ron
+>>
+>> Linda Cully wrote:
+>>> Hi Ron,
+>>>
+>>> Are you the correct person to contact to ensure that the MILAGRO
+>>> datasets on the Mass Store retrieval system are password protected?
+>>> Susan said that these datasets need to have a "read" password set.
+>>> Then they will not be visible via the retrieval system. At that point,
+>>> we'll add them into the CODIAC system which can now handle passwords.
+>>> Let me know if you are not the correct person to help get those set.
+>>> Thanks,
+>>> LEC
+>> -- 
+>> Ron Ruth     RAF Data Manager     NCAR/EOL/CDS&RAF     Voice: (303)497-1084
+>> <ruth@ucar.edu>                                          Fax: (303)497-1092
+> 
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/EOL/CDS&RAF     Voice: (303)497-1084
+<ruth@ucar.edu>                                          Fax: (303)497-1092
+
+
+From ruth@ale.atd.ucar.edu Tue Nov 28 11:04:04 2006 -0700
+Message-ID: <456C7A14.3090702@ucar.edu>
+Date: Tue, 28 Nov 2006 18:04:04 +0000
+From: Ron Ruth <ruth@ucar.edu>
+User-Agent: Thunderbird 1.5.0.8 (X11/20061025)
+MIME-Version: 1.0
+To: Linda Cully <cully@atd.ucar.edu>
+Subject: Re: MILGRO datasets on MSS Retrieval system - passwords
+References: <45526A40.3050508@ucar.edu> <4558DB63.6030504@ucar.edu> <4558DDB2.7090800@ucar.edu> <20061127232530.GA25038@cabernet.atd.ucar.edu> <456B7CF3.9060201@ucar.edu> <20061128141236.GA3254@cabernet.atd.ucar.edu> <456C728A.5090607@ucar.edu> <20061128175154.GB6850@cabernet.atd.ucar.edu>
+In-Reply-To: <20061128175154.GB6850@cabernet.atd.ucar.edu>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Status: 
+X-Keywords:                 
+X-UID: 2548
+Status: RO
+
+Linda,
+
+I will be at FL-1 tomorrow.  There is a Science Group meeting in the
+morning, and I am scheduled to meet with Julie Gerleman sometime after
+that (no time specified yet).  We should have time to meet with Steve.
+
+Ron
+
+Linda Cully wrote:
+> Ron,
+> Thanks for this info. I will look at these pages. If you are in the
+> office at FL1 tomorrow, maybe we can connect up with Steve and get
+> a decision on this. Like I said, I think there are others that have
+> had their data "online" for sometime. 
+> Thanks,
+> LEC
+> 
+--
+Ron Ruth     RAF Data Manager     NCAR/EOL/CDS&RAF     Voice: (303)497-1084
+<ruth@ucar.edu>                                          Fax: (303)497-1092
+
+
+From ruth@ale.atd.ucar.edu Tue Nov 28 14:16:11 2006 -0700
+Message-ID: <456CA719.10906@ucar.edu>
+Date: Tue, 28 Nov 2006 21:16:09 +0000
+From: Ron Ruth <ruth@ucar.edu>
+User-Agent: Thunderbird 1.5.0.8 (X11/20061025)
+MIME-Version: 1.0
+To:  sfw@ucar.edu
+CC: =?ISO-8859-1?Q?Jos=E9_Meit=EDn?= <meitin@ucar.edu>, 
+ Linda Cully <cully@atd.ucar.edu>,
+ Al Schanot <schanot@ucar.edu>
+Subject: Re: MILAGRO datasets on MSS Retrieval system - passwords
+References: <20061128181516.GC7559@cabernet.atd.ucar.edu> <456C9B40.2040206@ucar.edu> <30C1D785-BA2A-47F0-965E-A729D5CECE25@ucar.edu> <456CA159.5060708@ucar.edu>
+In-Reply-To: <456CA159.5060708@ucar.edu>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Status: 
+X-Keywords:                 
+X-UID: 2550
+Status: RO
+
+Steve,
+
+The current EOL Data Policy spells clearly states that restrictions
+to production observational data must be requested in writing "at least
+two months prior to the start of the observational (data acquisition)
+phase of the Research Project."  See the URLs:
+      http://www.eol.ucar.edu/dir_off/datapolicy.html
+      http://www.eol.ucar.edu/dir_off/datapol_guidelines.html
+
+Apparently, a multi-organization project which has a global
+data restriction (and whose administration overlooked informing EOL in
+advance) may supersede our own policy.  I suppose a decision to restrict
+access retroactively would have to come from the EOL director's office.
+
+Perhaps Brigitte can update us on the specifics regarding data
+restrictions for T-REX and MILAGRO.
+
+Ron
+
+Steve Williams wrote:
+> Jose,
+> Maybe Al and/or Ron can respond back with the EOL procedures
+> here. I was under the impression that the PIs had to request
+> data restriction up front during the facility request process.
+> Otherwise, the default is free and open access.... I've not
+> heard of requesting protection retroactively.
+> 
+> Steve
+> 
+> José Meitín wrote:
+>> Steve, et al
+>>
+>> I guess it's up to Frank Flocke whether to request protection 
+>> retroactively
+>>
+>> JOSE
+>> --------
+>> /To facilitate scientific analysis of all the data, it is requested 
+>> that Preliminary Data (QA/QC level 1) be submitted to the Research 
+>> Repository by September 1, 2006. Final Data must be submitted by March 
+>> 1, 2007. //*During the Research Phase, data are only available to 
+>> MILAGRO participants and the Research Repository will be protected by 
+>> password*//. Each data file should include in its header (metadata) a 
+>> clear indication of whether the data is Preliminary or Final. ....../
+>> /
+>> /
+>> /All data will be made publicly available on March 1, 2008 by removing 
+>> the password control on the Research Repository.// /
+>>
+>>
+>> On Nov 28, 2006, at 1:25 PM, Steve Williams wrote:
+>>
+>>> Linda,
+>>> Al Schanot stopped by to discuss this at lunch. Basically, MIRAGE
+>>> did not request data restriction so technically it is open and freely
+>>> available. We will need to discuss this (and other dataset 
+>>> restriction) with
+>>> Sasha, which is another reason why we won't restrict the entire 
+>>> Master List.
+>>> If  he wants other PI datasets restricted, then we should discuss. But
+>>> the EOL datasets should be free and open. Jose, what is your take on the
+>>> final MILAGRO data policy?
+>>>
+>>> Steve
+>>>
+>>>>       
+> 
+
+-- 
+Ron Ruth     RAF Data Manager     NCAR/EOL/CDS&RAF     Voice: (303)497-1084
+<ruth@ucar.edu>                                          Fax: (303)497-1092
+
+
