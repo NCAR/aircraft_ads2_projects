@@ -1,0 +1,42 @@
+#! /bin/csh -f
+goto second
+first:
+ asc2cdf -g gattribs01 -s 2 $S/135rf01.o3.dat $S/135fo301.nc
+ asc2cdf -g gattribs03 -s 2 $S/135rf03.o3.dat $S/135fo303.nc
+ asc2cdf -g gattribs04 -s 2 $S/135rf04.o3.dat $S/135fo304.nc
+ asc2cdf -g gattribs05 -s 2 $S/135rf05.o3.dat $S/135fo305.nc
+ asc2cdf -g gattribs06 -s 2 $S/135rf06.o3.dat $S/135fo306.nc
+ asc2cdf -g gattribs07 -s 2 $S/135rf07.o3.dat $S/135fo307.nc
+ asc2cdf -g gattribs08 -s 2 $S/135rf08.o3.dat $S/135fo308.nc
+ asc2cdf -g gattribs09 -s 2 $S/135rf09.o3.dat $S/135fo309.nc
+ asc2cdf -g gattribs10 -s 2 $S/135rf10.o3.dat $S/135fo310.nc
+ asc2cdf -g gattribs11 -s 2 $S/135rf11.o3.dat $S/135fo311.nc
+ asc2cdf -g gattribs12 -s 2 $S/135rf12.o3.dat $S/135fo312.nc
+ asc2cdf -g gattribs13 -s 2 $S/135rf13.o3.dat $S/135fo313.nc
+ asc2cdf -g gattribs14 -s 2 $S/135rf14.o3.dat $S/135fo314.nc
+ asc2cdf -g gattribs15 -s 2 $S/135rf15.o3.dat $S/135fo315.nc
+ asc2cdf -g gattribs16 -s 2 $S/135rf16.o3.dat $S/135fo316.nc
+ asc2cdf -g gattribs17 -s 2 $S/135rf17.o3.dat $S/135fo317.nc
+ asc2cdf -g gattribs18 -s 2 $S/135rf18.o3.dat $S/135fo318.nc
+ asc2cdf -g gattribs19 -s 2 $S/135rf19.o3.dat $S/135fo319.nc
+exit
+second:
+ asc2cdf -s 2 $S/135rf01.o3.dat $S/135fo301.nc
+ asc2cdf -s 2 $S/135rf03.o3.dat $S/135fo303.nc
+ asc2cdf -s 2 $S/135rf04.o3.dat $S/135fo304.nc
+ asc2cdf -s 2 $S/135rf05.o3.dat $S/135fo305.nc
+ asc2cdf -s 2 $S/135rf06.o3.dat $S/135fo306.nc
+ asc2cdf -s 2 $S/135rf07.o3.dat $S/135fo307.nc
+ asc2cdf -s 2 $S/135rf08.o3.dat $S/135fo308.nc
+ asc2cdf -s 2 $S/135rf09.o3.dat $S/135fo309.nc
+ asc2cdf -s 2 $S/135rf10.o3.dat $S/135fo310.nc
+ asc2cdf -s 2 $S/135rf11.o3.dat $S/135fo311.nc
+ asc2cdf -s 2 $S/135rf12.o3.dat $S/135fo312.nc
+ asc2cdf -s 2 $S/135rf13.o3.dat $S/135fo313.nc
+ asc2cdf -s 2 $S/135rf14.o3.dat $S/135fo314.nc
+ asc2cdf -s 2 $S/135rf15.o3.dat $S/135fo315.nc
+ asc2cdf -s 2 $S/135rf16.o3.dat $S/135fo316.nc
+ asc2cdf -s 2 $S/135rf17.o3.dat $S/135fo317.nc
+ asc2cdf -s 2 $S/135rf18.o3.dat $S/135fo318.nc
+ asc2cdf -s 2 $S/135rf19.o3.dat $S/135fo319.nc
+exit
