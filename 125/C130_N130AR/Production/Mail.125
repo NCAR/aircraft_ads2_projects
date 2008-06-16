@@ -23929,3 +23929,51 @@ Here's the details I received from Teresa:
 > bad data flags, but have done so now and you will find all the data 
 > are complete
 
+From ruth@ale.atd.ucar.edu Tue Oct 24 15:11:53 2006 -0600
+Message-ID: <453E8198.8050304@ucar.edu>
+Date: Tue, 24 Oct 2006 21:11:52 +0000
+From: Ron Ruth <ruth@ucar.edu>
+User-Agent: Thunderbird 1.5.0.7 (X11/20060909)
+MIME-Version: 1.0
+To: Jorgen Jensen <jbj@ucar.edu>
+Subject: ACME updated netCDF files
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Status: 
+X-Keywords:                 
+X-UID: 2474
+Status: RO
+
+Jorgen,
+
+Teresa inserted CO and CO2 data into the production netCDF files for the
+ACME project to update her measurements.  She also updated the data-quality
+flags in the files.  She put these new versions on the EOL ftp site in the
+directory:
+    /net/ftp/pub/temp/users/campos/acme/2k6oct/
+My intention (with your permission) is to place these updated files on the
+Mass Store in the main production directory, replacing the ones there now
+(after I rename them, of course, so we keep the originals).
+
+Directly related to that, I just had a conversation with Steve Aulenbach,
+the ACME data manager in CGD, and he suggested we add some new attributes
+to all the modified netCDF files to let everyone know that the actual
+data values are different (and newer).  This is in keeping with the talk
+that you, Teresa and I had last Friday about adding attributes to TREX
+netCDF files.  (Chris Webster pointed me to software that can work with
+attributes in extant netCDF files and looks to be exactly the tool we
+need.)
+
+So before I archive these updated files, I think it would be a good idea
+to compose new attributes (global and/or variable) to insert in the files
+before archiving them.  Personally, I'd like to update the Mass Store
+archive before the end of the week, but I don't know whether the three of
+us (you, Teresa and I) can get it all done.  Obviously, Steve is anxious
+for us to have everything updated as soon as practical.
+
+Ron
+--
+Ron Ruth     RAF Data Manager     NCAR/EOL/CDS&RAF     Voice: (303)497-1084
+<ruth@ucar.edu>                                          Fax: (303)497-1092
+
+

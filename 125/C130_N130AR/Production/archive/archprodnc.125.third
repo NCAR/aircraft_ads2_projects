@@ -1,0 +1,208 @@
+#! /bin/csh -f
+#
+#  Archive production NIMBUS netCDF output files for project:
+#    2004-125 ACME (Airborne Carbon in the Mountains Experiment) (David Schimel)
+#   using the new ATD directory path
+#
+#  These new files reflect the update of 3 CO2 variables by Teresa Campos.
+#  Two waves are involved:  1) move current archived files to a new directory,
+#   and 2) archive the new ones in their place.
+#
+#  File created by '/jnet/local/projects/archives/scripts/genar' Revision 14 on Tue Oct 3 10:07:49 MDT 2006
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo ${0}:  Only the "dmg" login is allowed to run this script.  Quitting.
+  exit 1
+endif
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+# set msrcpMachine = "vivaldi"
+endif
+#
+#   MSS retention period (days)
+set PE = "32767"
+#   SCD Project number for this archive
+set PR = "41113009"
+#   Write password for MSS file(s)
+set WPWD = "RAFDMG"
+#   Read password for MSS file(s), if needed
+set RPWD = ""
+#
+#  First wave (move currently archived MSS bitfiles)
+#set SFILES = (\
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF01.20040514.124756_163412.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF02.20040514.193856_203055.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF03.20040520.122316_161423.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF04.20040520.192146_204130.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF05.20040527.122256_161212.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF06.20040528.195406_221335.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF07.20040712.122511_160225.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF08.20040712.192826_220500.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF09.20040720.122316_155607.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF10.20040720.192816_220000.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF11.20040722.123126_161636.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF12.20040726.123306_155545.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF13.20040726.192301_214105.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF14.20040729.124226_180755.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF15.20040729.195556_212110.PNI.nc \
+#/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF16.20040802.145756_193730.PNI.nc \
+#)
+##   New destination directory
+#set DPATH = "/RAF/2004/125/2ND_PRODUCTION"
+#set DFILES = (\
+#LRT/RF01.20040514.124756_163412.PNI.nc \
+#LRT/RF02.20040514.193856_203055.PNI.nc \
+#LRT/RF03.20040520.122316_161423.PNI.nc \
+#LRT/RF04.20040520.192146_204130.PNI.nc \
+#LRT/RF05.20040527.122256_161212.PNI.nc \
+#LRT/RF06.20040528.195406_221335.PNI.nc \
+#LRT/RF07.20040712.122511_160225.PNI.nc \
+#LRT/RF08.20040712.192826_220500.PNI.nc \
+#LRT/RF09.20040720.122316_155607.PNI.nc \
+#LRT/RF10.20040720.192816_220000.PNI.nc \
+#LRT/RF11.20040722.123126_161636.PNI.nc \
+#LRT/RF12.20040726.123306_155545.PNI.nc \
+#LRT/RF13.20040726.192301_214105.PNI.nc \
+#LRT/RF14.20040729.124226_180755.PNI.nc \
+#LRT/RF15.20040729.195556_212110.PNI.nc \
+#LRT/RF16.20040802.145756_193730.PNI.nc \
+#)
+##
+#echo "#  $#SFILES job(s) submitted on `date`"
+#echo "#  Original files moved to MSS directory:  /RAF/2004/125/2ND_PRODUCTION/"
+##
+#set todo = $#SFILES
+#set num = 1
+#while ($num <= $todo)
+#  set SFILE = $SFILES[$num]
+#  set DFILE = $DFILES[$num]
+##  echo \
+#  msmv -wpwd $WPWD $SFILE $DPATH/$DFILE
+#  if ($status == 0) then
+#    set d2 = $DFILE:h
+#    set d1 = $d2:t
+#    set d2 = $DFILE:t
+#    echo "#   $d1/$d2 -- OK -- `date`"
+#  else
+#    echo "  msrcp job FAILED.  See email message for details."
+#  endif
+#  @ num ++
+#end
+#
+#  Second wave (archive new files)
+#set SDIR = /scr/raf2/Prod_Data/ACME/campos
+#set SFILES = ( \
+#125rf01.nc \
+#125rf02.nc \
+#125rf03.nc \
+#125rf04.nc \
+#125rf05.nc \
+#125rf06.nc \
+#125rf07.nc \
+#125rf08.nc \
+#125rf09.nc \
+#125rf10.nc \
+#125rf11.nc \
+#125rf12.nc \
+#125rf13.nc \
+#125rf14.nc \
+#125rf15.nc \
+#125rf16.nc \
+#)
+##
+#set DFILES = ( \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF01.20040514.124756_163412.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF02.20040514.193856_203055.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF03.20040520.122316_161423.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF04.20040520.192146_204130.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF05.20040527.122256_161212.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF06.20040528.195406_221335.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF07.20040712.122511_160225.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF08.20040712.192826_220500.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF09.20040720.122316_155607.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF10.20040720.192816_220000.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF11.20040722.123126_161636.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF12.20040726.123306_155545.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF13.20040726.192301_214105.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF14.20040729.124226_180755.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF15.20040729.195556_212110.PNI.nc \
+#mss:/ATD/DATA/2004/ACME/C130_N130AR/LRT/RF16.20040802.145756_193730.PNI.nc \
+#)
+#
+#echo "#  $#SFILES job(s) submitted on `date`"
+#echo "#  File(s) archived to MSS directory(ies):  /ATD/DATA/2004/ACME/C130_N130AR/"
+##
+#set todo = $#SFILES
+#set num = 1
+#while ($num <= $todo)
+#  set SFILE = $SFILES[$num]
+#  set DFILE = $DFILES[$num]
+#  if (-r $SDIR/$SFILE) then
+##    echo \
+#    ssh -x $msrcpMachine msput_job -pe $PE -pr $PR -wpwd $WPWD $RPWD $SDIR/$SFILE $DFILE
+#    if ($status == 0) then
+#      set d2 = $DFILE:h
+#      set d1 = $d2:t
+#      set d2 = $DFILE:t
+#      echo "#   $d1/$d2 -- OK -- `date`"
+#    else
+#      echo "  msrcp job FAILED.  See email message for details."
+#    endif
+#  else
+#     echo " Cannot access file $SDIR/$SFILE"
+#  endif
+#  @ num ++
+#end
+#
+# Done
+#echo "#   Completed on `date`"
+#exit
+#
+#  First wave (move currently archived MSS bitfiles)
+#  16 job(s) submitted on Tue Oct  3 10:29:54 MDT 2006
+#  Original files moved to MSS directory:  /RAF/2004/125/2ND_PRODUCTION/
+#   LRT/RF01.20040514.124756_163412.PNI.nc -- OK -- Tue Oct  3 10:29:58 MDT 2006
+#   LRT/RF02.20040514.193856_203055.PNI.nc -- OK -- Tue Oct  3 10:29:59 MDT 2006
+#   LRT/RF03.20040520.122316_161423.PNI.nc -- OK -- Tue Oct  3 10:30:01 MDT 2006
+#   LRT/RF04.20040520.192146_204130.PNI.nc -- OK -- Tue Oct  3 10:30:03 MDT 2006
+#   LRT/RF05.20040527.122256_161212.PNI.nc -- OK -- Tue Oct  3 10:30:04 MDT 2006
+#   LRT/RF06.20040528.195406_221335.PNI.nc -- OK -- Tue Oct  3 10:30:06 MDT 2006
+#   LRT/RF07.20040712.122511_160225.PNI.nc -- OK -- Tue Oct  3 10:30:08 MDT 2006
+#   LRT/RF08.20040712.192826_220500.PNI.nc -- OK -- Tue Oct  3 10:30:10 MDT 2006
+#   LRT/RF09.20040720.122316_155607.PNI.nc -- OK -- Tue Oct  3 10:30:12 MDT 2006
+#   LRT/RF10.20040720.192816_220000.PNI.nc -- OK -- Tue Oct  3 10:30:13 MDT 2006
+#   LRT/RF11.20040722.123126_161636.PNI.nc -- OK -- Tue Oct  3 10:30:15 MDT 2006
+#   LRT/RF12.20040726.123306_155545.PNI.nc -- OK -- Tue Oct  3 10:30:16 MDT 2006
+#   LRT/RF13.20040726.192301_214105.PNI.nc -- OK -- Tue Oct  3 10:30:18 MDT 2006
+#   LRT/RF14.20040729.124226_180755.PNI.nc -- OK -- Tue Oct  3 10:30:20 MDT 2006
+#   LRT/RF15.20040729.195556_212110.PNI.nc -- OK -- Tue Oct  3 10:30:22 MDT 2006
+#   LRT/RF16.20040802.145756_193730.PNI.nc -- OK -- Tue Oct  3 10:30:24 MDT 2006
+#   Completed on Tue Oct  3 10:30:24 MDT 2006
+#
+#  Second wave (archive new files)
+#  16 job(s) submitted on Tue Oct  3 10:32:02 MDT 2006
+#  File(s) archived to MSS directory(ies):  /ATD/DATA/2004/ACME/C130_N130AR/
+#   LRT/RF01.20040514.124756_163412.PNI.nc -- OK -- Tue Oct  3 10:32:08 MDT 2006
+#   LRT/RF02.20040514.193856_203055.PNI.nc -- OK -- Tue Oct  3 10:32:13 MDT 2006
+#   LRT/RF03.20040520.122316_161423.PNI.nc -- OK -- Tue Oct  3 10:32:18 MDT 2006
+#   LRT/RF04.20040520.192146_204130.PNI.nc -- OK -- Tue Oct  3 10:32:23 MDT 2006
+#   LRT/RF05.20040527.122256_161212.PNI.nc -- OK -- Tue Oct  3 10:32:29 MDT 2006
+#   LRT/RF06.20040528.195406_221335.PNI.nc -- OK -- Tue Oct  3 10:32:33 MDT 2006
+#   LRT/RF07.20040712.122511_160225.PNI.nc -- OK -- Tue Oct  3 10:32:38 MDT 2006
+#   LRT/RF08.20040712.192826_220500.PNI.nc -- OK -- Tue Oct  3 10:32:44 MDT 2006
+#   LRT/RF09.20040720.122316_155607.PNI.nc -- OK -- Tue Oct  3 10:32:50 MDT 2006
+#   LRT/RF10.20040720.192816_220000.PNI.nc -- OK -- Tue Oct  3 10:32:54 MDT 2006
+#   LRT/RF11.20040722.123126_161636.PNI.nc -- OK -- Tue Oct  3 10:32:59 MDT 2006
+#   LRT/RF12.20040726.123306_155545.PNI.nc -- OK -- Tue Oct  3 10:33:04 MDT 2006
+#   LRT/RF13.20040726.192301_214105.PNI.nc -- OK -- Tue Oct  3 10:33:10 MDT 2006
+#   LRT/RF14.20040729.124226_180755.PNI.nc -- OK -- Tue Oct  3 10:33:16 MDT 2006
+#   LRT/RF15.20040729.195556_212110.PNI.nc -- OK -- Tue Oct  3 10:33:22 MDT 2006
+#   LRT/RF16.20040802.145756_193730.PNI.nc -- OK -- Tue Oct  3 10:33:28 MDT 2006
+#   Completed on Tue Oct  3 10:33:28 MDT 2006
+#
