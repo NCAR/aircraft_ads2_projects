@@ -1,0 +1,237 @@
+#! /bin/csh -f
+#
+#  Archive intermediate GNI slide data files for 2005-135 RICO
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2007                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file archads.135
+#   by Ron Ruth  23 April 2007
+#  Revised by RLR 23 April 2007
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#
+#    * * * * * * * * * * * * * * *
+#   *                             *
+#  *  Executable code starts here  *
+#   *                             *
+#    * * * * * * * * * * * * * * *
+#
+#  Prevent me from running unintentionally
+exit
+#
+#
+onintr abort
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit 1
+endif
+#
+#   Check current directory
+set cdir = `pwd | awk -F/ '{print $NF}'`
+if ($cdir != "archive") then
+  echo '  This script is not being run from the "archive" subdirectory.'
+  echo '   Quitting.'
+  exit 1
+endif
+#
+#  Get setup information for this project (using new directory structure)
+pushd ../.. >& /dev/null
+set PDIR = `pwd`
+cd ..
+set PROJ = `pwd | awk -F/ '{print $NF}'`
+popd >& /dev/null
+set PRDIR = $PDIR/Production
+set YEAR = `grep FY $PRDIR/proj.info | sed -e "s/FY=//"`
+#
+set TYPE = SLIDE
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set source directory
+set SDIR = "/scr/raf2/Raw_Data/RICO/slide"
+#
+#  1st wave (first try -- successful)
+#set SDIR1S = ( \
+#041130a \
+#)
+#
+#  2nd wave (aborted due to system crash during 041204a)
+#set SDIR1S = ( \
+#041203a \
+#041204a \
+#)
+#
+#  3rd wave (unfortunately a large redo)
+#set SDIR1S = ( \
+#041204a \
+#)
+#
+#  4th wave
+#set SDIR1S = ( \
+#041207a \
+#041208a \
+#041209a \
+#041213a \
+#041216a \
+#041217a \
+#041219a \
+#041220a \
+#050103a \
+#050105a \
+#050107a \
+#050111a \
+#050112a \
+#050114a \
+#050116a \
+#050118a \
+#050119a \
+#050123a \
+#)
+#
+#  5th wave
+#set SDIR1S = ( \
+#050124a \
+#050126a \
+#050127a \
+#)
+#
+#  6th wave
+#  Following directories NOT included in archive
+#set SDIR1S = ( \
+#control \
+#jbj_trash \
+#temp_tar_dir \
+#temp_tar_dir_done_transfer \
+#)
+#
+#   th wave
+#
+#
+#  Get started:
+echo "#  Job began on `date`"
+#
+#  set temporary directory for intermediate files
+#  (Note:  Subdirectory must exist; I will not create it.)
+set tdir = "/scr/raf2/Raw_Data/RICO/GNI_slide"
+#
+#  set up log file, if necessary
+set lfile = "`pwd`/GNI_Slide_archive_log.txt"
+if (! -e $lfile) then
+  echo "Log file for GNI slide directory archive" >! $lfile
+  set result = $status
+  if ($result != 0) then
+    echo "  ${0}:  Error $result when trying to create log file $lfile"
+    echo "  ${0}:  Quitting"
+    exit 1
+  endif
+  echo "   File created on `date` by script ${0}" >> $lfile
+endif
+echo  "${0}:  See log file: $lfile for progress."
+echo "-------" >> $lfile
+echo "  New job started on `date`" >> $lfile
+#
+#   Change to directory with the files
+pushd $SDIR >& /dev/null
+#
+foreach SDIR1 ($SDIR1S)
+  echo "  ${0}:  Working with directory $SDIR1"
+  set tname = "$SDIR1.tar"
+#    tar files in specified directory (no recursion)
+  tar chlvf $tdir/$tname --no-recursion $SDIR1/*
+#   get tar file directory list for log file
+  echo "" >> $lfile
+  echo "  Catalog of tar file $SDIR1.tar (created `date`)" >> $lfile
+  tar -tvf $tdir/$tname >> $lfile
+#   archive the tar file
+#  echo \
+  ssh -x $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+   $tdir/$tname mss:/RAF/$YEAR/$PROJ/$TYPE/$tname
+  set result = $status
+  if ($result == 0) then
+    echo "#  msrcp job for $TYPE/$tname -- OK -- `date`"
+    echo "#  msrcp job for $TYPE/$tname -- OK -- `date`" >> $lfile
+  else
+    echo "#  msrcp job for $TYPE/$tname -- Failed -- `date`"
+    echo "#                $TYPE/$tname: error code $result"
+    echo "#  msrcp job for $TYPE/$tname -- Failed -- `date`" >> $lfile
+    echo "#                $TYPE/$tname: error code $result" >> $lfile
+  endif
+  \rm $tdir/$tname >&! /dev/null
+#   get subdirectories to archive
+  set SDIR2S = (`ls "$SDIR1" | grep sli_`)
+  echo " ${0}:  preparing to archive the $#SDIR2S subdirectories of SDIR1"
+  pushd $SDIR1 >& /dev/null
+#    tar each subdirectory (with recursion)
+  foreach SDIR2 ($SDIR2S)
+#    check for tarred directory
+    @ tardir = `echo $SDIR2 | grep -c tar`
+    if ($tardir == 0) then
+      set tname = "$SDIR2.tar"
+      tar chlvf $tdir/$tname $SDIR2
+      set result = $status
+      if ($result != 0) then
+        echo " ${0}:  tar error $result"
+      endif
+#   get tar file directory list for log file
+      echo "" >> $lfile
+      echo "  Catalog of tar file $SDIR2.tar (created `date`)" >> $lfile
+      tar -tvf $tdir/$tname >> $lfile
+#   archive the tar file
+#    echo \
+      ssh -x $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+       $tdir/$tname mss:/RAF/$YEAR/$PROJ/$TYPE/$tname
+      set result = $status
+      if ($result == 0) then
+        echo "#  msrcp job for $TYPE/$tname -- OK -- `date`"
+        echo "#  msrcp job for $TYPE/$tname -- OK -- `date`" >> $lfile
+      else
+        echo "#  msrcp job for $TYPE/$tname -- Failed -- `date`"
+        echo "#                $TYPE/$tname: error code $result"
+        echo "#  msrcp job for $TYPE/$tname -- Failed -- `date`" >> $lfile
+        echo "#                $TYPE/$tname: error code $result" >> $lfile
+      endif
+      \rm $tdir/$tname >&! /dev/null
+    else
+      echo " ${0}:  $SDIR2 is a tarred directory file; skipping."
+    endif
+  end
+  popd >& /dev/null
+end
+echo "  Job ended on `date`" >> $lfile
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+abort:
+#  Clean up temporary file
+\rm $tdir/$tname >&! /dev/null
+echo "  *******************************" >> $lfile
+echo "  Job aborted on `date` while working on $tname" >> $lfile
+echo "  *******************************" >> $lfile
+exit
+#
+#  MSS path for all bitfiles:  /RAF/2005/135/SLIDE/
+#
+#  See file GNI_Slide_archive_log.txt for log information from this script.
+#

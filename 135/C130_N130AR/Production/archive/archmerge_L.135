@@ -1,0 +1,650 @@
+#! /bin/csh -f
+#
+#  Archive low-rate merged data files for 2005-135 RICO
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002, 2004, 2007                                             *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file $LOCAL/proj/135/Production/arch2d.135
+#   by Ron Ruth  21 February 2007
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+#set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set result = $status
+#if ($result != 0) then
+#  echo " Cannot find project number in this directory path"
+#  echo "  Quitting."
+#  exit 1
+#endif
+#set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+#
+#######  New procedure
+#  Get setup information for this project
+#  Make sure I'm in the "archive" subdirectory
+set cdir = `pwd | awk -F/ '{print $NF}'`
+if ($cdir != "archive") then
+  echo '  This script is not being run from the "archive" subdirectory.'
+  exit 1
+endif
+pushd ../.. >& /dev/null
+set PROJDIR =  `pwd`
+set YEAR = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+cd ..
+set proj = `pwd | awk -F/ '{print $NF}'`
+set proj = (`grep $proj $PROJ_DIR/archives/msfiles/directory_map`)
+set PROJ = $proj[1]
+popd >& /dev/null
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set source directory
+set SDIR = "/scr/raf2/Prod_Data/RICO"
+#
+#  1st wave (merged chemistry data)
+#   (changes XCO2MR, XCO2ST, XCOMR in all files to "missing data")
+#set TYPE = "LRT/MERGE/Chemistry"
+#set SFILES = ( \
+#135chem01.nc \
+#135chem02.nc \
+#135chem03.nc \
+#135chem04.nc \
+#135chem05.nc \
+#135chem06.nc \
+#135chem07.nc \
+#135chem08.nc \
+#135chem09.nc \
+#135chem10.nc \
+#135chem11.nc \
+#135chem12.nc \
+#135chem13.nc \
+#135chem14.nc \
+#135chem15.nc \
+#135chem16.nc \
+#135chem17.nc \
+#135chem18.nc \
+#135chem19.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#  2nd wave (merged new PMS-2DC data)
+#   (Corrects PMS-2DC derived products by removing excess zero-area images)
+#set TYPE = "LRT/MERGE/PMS2DC"
+#set SFILES = ( \
+#135newpms01.nc \
+#135newpms02.nc \
+#135newpms03.nc \
+#135newpms04.nc \
+#135newpms05.nc \
+#135newpms06.nc \
+#135newpms07.nc \
+#135newpms08.nc \
+#135newpms09.nc \
+#135newpms10.nc \
+#135newpms11.nc \
+#135newpms12.nc \
+#135newpms13.nc \
+#135newpms14.nc \
+#135newpms15.nc \
+#135newpms16.nc \
+#135newpms17.nc \
+#135newpms18.nc \
+#135newpms19.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#  3rd wave (merged ozone data)
+#   (Converts value of XFO3S7 from volts to ppbv and applies other corrections)
+#set TYPE = "LRT/MERGE/XFO3S7"
+#set SFILES = ( \
+#135nfo301.nc \
+#135nfo302.nc \
+#135nfo303.nc \
+#135nfo304.nc \
+#135nfo305.nc \
+#135nfo306.nc \
+#135nfo307.nc \
+#135nfo308.nc \
+#135nfo309.nc \
+#135nfo310.nc \
+#135nfo311.nc \
+#135nfo312.nc \
+#135nfo313.nc \
+#135nfo314.nc \
+#135nfo315.nc \
+#135nfo316.nc \
+#135nfo317.nc \
+#135nfo318.nc \
+#135nfo319.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#  4th wave (see below)
+#  5th wave (see below)
+#
+#  6th wave (move merged "new" PMS-2DC data)
+#msmv -wpwd RAFDMG /RAF/2005/135/LRT/MERGE/PMS2DC /RAF/2005/135/LRT/MERGE/ORIGINAL/PMS2DC
+#echo  "#   Completed on `date`"
+#exit
+#
+#  7th wave (merged newer PMS-2DC data)
+#   (assume it also corrects PMS-2DC derived products by removing excess zero-area images)
+#set SDIR = "/scr/raf2/Prod_Data/RICO"
+#set TYPE = "LRT/MERGE/PMS2DC"
+#set SFILES = ( \
+#135p01.nc \
+#135p02.nc \
+#135p03.nc \
+#135p04.nc \
+#135p05.nc \
+#135p06.nc \
+#135p07.nc \
+#135p08.nc \
+#135p09.nc \
+#135p10.nc \
+#135p11.nc \
+#135p12.nc \
+#135p13.nc \
+#135p14.nc \
+#135p15.nc \
+#135p16.nc \
+#135p17.nc \
+#135p18.nc \
+#135p19.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#  8th wave (archive HRT merge files for PV-100 fix)
+#set SDIR = "/scr/raf2/Prod_Data/RICO"
+#set TYPE = "HRT/MERGE/PV100"
+#set SFILES = ( \
+#pvm01h.nc \
+#pvm02h.nc \
+#pvm03h.nc \
+#pvm04h.nc \
+#pvm05h.nc \
+#pvm06h.nc \
+#pvm07h.nc \
+#pvm08h.nc \
+#pvm09h.nc \
+#pvm10h.nc \
+#pvm11h.nc \
+#pvm12h.nc \
+#pvm13h.nc \
+#pvm14h.nc \
+#pvm15h.nc \
+#pvm16h.nc \
+#pvm17h.nc \
+#pvm18h.nc \
+#pvm19h.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#  9th wave (archive LRT merge files for PV-100 fix)
+#set SDIR = "/scr/raf2/Prod_Data/RICO"
+#set TYPE = "LRT/MERGE/PV100"
+#set SFILES = ( \
+#pvm01.nc \
+#pvm02.nc \
+#pvm03.nc \
+#pvm04.nc \
+#pvm05.nc \
+#pvm06.nc \
+#pvm07.nc \
+#pvm08.nc \
+#pvm09.nc \
+#pvm10.nc \
+#pvm11.nc \
+#pvm12.nc \
+#pvm13.nc \
+#pvm14.nc \
+#pvm15.nc \
+#pvm16.nc \
+#pvm17.nc \
+#pvm18.nc \
+#pvm19.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+      echo "#                $TYPE/$DFILE: error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+movem:
+#  Move raw PMS-2D data from the /RAF path to the /ATD/DATA path
+#
+#  4th wave
+#set SFILES = ( \
+#TF01 \
+#TF02 \
+#TF03 \
+#FF01  \
+#FF02A \
+#FF02B \
+#RF01 \
+#RF02 \
+#RF03 \
+#RF04 \
+#RF05 \
+#RF06 \
+#RF07 \
+#RF08 \
+#RF09 \
+#FF03  \
+#)
+## 
+##  vi command to convert a taplog.pms2d.ppp file entry to an output file name
+##  :s: \(.....\)   \(..\).\(..\).\(....\)...\(..\).\(..\).\(..\)\(.*\):\1.\4\2\3.\5\6\7
+#set DFILES = ( \
+#TF01.20041117.173132 \
+#TF02.20041119.192011 \
+#TF03.20041123.192635 \
+#FF01.20041203.140057 \
+#FF02A.20041204.133713 \
+#FF02B.20041204.162600 \
+#RF01.20041207.161004 \
+#RF02.20041208.140904 \
+#RF03.20041209.140104 \
+#RF04.20041210.140104 \
+#RF05.20041213.144804 \
+#RF06.20041216.135504 \
+#RF07.20041217.132834 \
+#RF08.20041219.104053 \
+#RF09.20041220.105704 \
+#FF03.20041221.133301 \
+#)
+#set DPATH = "/ATD/DATA/2004/RICO/C130_N130AR/$TYPE"
+#
+#  5th wave
+#set SFILES = ( \
+#FF04 \
+#RF10 \
+#RF11 \
+#RF12 \
+#RF13 \
+#RF14 \
+#RF15 \
+#RF16A \
+#RF16B \
+#RF17 \
+#RF18 \
+#RF19 \
+#FF05 \
+#FF06 \
+#)
+#set DFILES = ( \
+#FF04.20050103.145207 \
+#RF10.20050105.141858 \
+#RF11.20050107.132934 \
+#RF12.20050111.132722 \
+#RF13.20050112.132110 \
+#RF14.20050114.140157 \
+#RF15.20050116.140617 \
+#RF16A.20050118.101744 \
+#RF16B.20050118.112714 \
+#RF17.20050119.113106 \
+#RF18.20050123.092024 \
+#RF19.20050124.085307 \
+#FF05.20050126.140345 \
+#FF06.20050127.143618 \
+#)
+#set DPATH = "/ATD/DATA/2005/RICO/C130_N130AR/$TYPE"
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+#
+set WPWD = "-wpwd RAFDMG"
+set todo = $#SFILES
+if ($todo != $#DFILES) then
+  echo "  Number of source ($#SFILES) and destination ($#DFILES) files don't match."
+  exit 1
+endif
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  echo \
+  msmv $RPWD $WPWD /RAF/$YEAR/$PROJ/$TYPE/$SFILE $DPATH/$DFILE.RP2.bi
+  set result = $status
+  if ($result == 0) then
+    echo "#  msmv job for $TYPE/$DFILE -- OK -- `date`"
+  else
+    echo "  msmv job FAILED with error $result."
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#  MSS path for all bitfiles listed below:  /RAF/2005/135/
+#
+#  1st wave (merged chemistry data)
+#  19 Job(s) submitted on Wed Feb 21 16:54:51 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF01.nc -- OK -- Wed Feb 21 16:54:59 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF02.nc -- OK -- Wed Feb 21 16:55:03 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF03.nc -- OK -- Wed Feb 21 16:55:10 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF04.nc -- OK -- Wed Feb 21 16:55:17 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF05.nc -- OK -- Wed Feb 21 16:55:23 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF06.nc -- OK -- Wed Feb 21 16:55:30 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF07.nc -- OK -- Wed Feb 21 16:55:36 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF08.nc -- OK -- Wed Feb 21 16:55:43 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF09.nc -- OK -- Wed Feb 21 16:55:54 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF10.nc -- OK -- Wed Feb 21 16:56:00 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF11.nc -- OK -- Wed Feb 21 16:56:07 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF12.nc -- OK -- Wed Feb 21 16:56:14 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF13.nc -- OK -- Wed Feb 21 16:56:21 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF14.nc -- OK -- Wed Feb 21 16:56:27 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF15.nc -- OK -- Wed Feb 21 16:56:33 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF16.nc -- OK -- Wed Feb 21 16:56:39 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF17.nc -- OK -- Wed Feb 21 16:56:46 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF18.nc -- OK -- Wed Feb 21 16:56:54 MST 2007
+#  msrcp job for LRT/MERGE/Chemistry/RF19.nc -- OK -- Wed Feb 21 16:57:01 MST 2007
+#   Completed on Wed Feb 21 16:57:01 MST 2007
+#
+#  2nd wave (merged new PMS-2DC data)
+#  19 Job(s) submitted on Wed Feb 21 17:00:35 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF01.nc -- OK -- Wed Feb 21 17:00:42 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF02.nc -- OK -- Wed Feb 21 17:00:48 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF03.nc -- OK -- Wed Feb 21 17:00:54 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF04.nc -- OK -- Wed Feb 21 17:01:06 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF05.nc -- OK -- Wed Feb 21 17:01:12 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF06.nc -- OK -- Wed Feb 21 17:01:18 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF07.nc -- OK -- Wed Feb 21 17:01:24 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF08.nc -- OK -- Wed Feb 21 17:01:36 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF09.nc -- OK -- Wed Feb 21 17:01:43 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF10.nc -- OK -- Wed Feb 21 17:01:49 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF11.nc -- OK -- Wed Feb 21 17:01:55 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF12.nc -- OK -- Wed Feb 21 17:02:05 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF13.nc -- OK -- Wed Feb 21 17:02:11 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF14.nc -- OK -- Wed Feb 21 17:02:16 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF15.nc -- OK -- Wed Feb 21 17:02:22 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF16.nc -- OK -- Wed Feb 21 17:02:31 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF17.nc -- OK -- Wed Feb 21 17:02:37 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF18.nc -- OK -- Wed Feb 21 17:02:43 MST 2007
+#  msrcp job for LRT/MERGE/PMS2DC/RF19.nc -- OK -- Wed Feb 21 17:02:48 MST 2007
+#   Completed on Wed Feb 21 17:02:48 MST 2007
+#
+#  3rd wave (merged ozone data)
+#  19 Job(s) submitted on Wed Feb 21 17:04:14 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF01.nc -- OK -- Wed Feb 21 17:04:24 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF02.nc -- OK -- Wed Feb 21 17:04:30 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF03.nc -- OK -- Wed Feb 21 17:04:47 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF04.nc -- OK -- Wed Feb 21 17:05:03 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF05.nc -- OK -- Wed Feb 21 17:05:17 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF06.nc -- OK -- Wed Feb 21 17:05:29 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF07.nc -- OK -- Wed Feb 21 17:05:49 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF08.nc -- OK -- Wed Feb 21 17:06:01 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF09.nc -- OK -- Wed Feb 21 17:06:13 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF10.nc -- OK -- Wed Feb 21 17:06:25 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF11.nc -- OK -- Wed Feb 21 17:06:39 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF12.nc -- OK -- Wed Feb 21 17:06:53 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF13.nc -- OK -- Wed Feb 21 17:07:07 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF14.nc -- OK -- Wed Feb 21 17:07:18 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF15.nc -- OK -- Wed Feb 21 17:07:31 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF16.nc -- OK -- Wed Feb 21 17:07:42 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF17.nc -- OK -- Wed Feb 21 17:08:02 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF18.nc -- OK -- Wed Feb 21 17:08:57 MST 2007
+#  msrcp job for LRT/MERGE/XFO3S7/RF19.nc -- OK -- Wed Feb 21 17:10:16 MST 2007
+#   Completed on Wed Feb 21 17:10:16 MST 2007
+# 
+#  4th wave (move raw PMS-2D data from the /RAF path to the /ATD/DATA path)
+#  5th wave (move raw PMS-2D data from the /RAF path to the /ATD/DATA path)
+#   Completed on Apr 28 2005
+#
+#  6th wave (move merged "new" PMS-2DC data)
+#   Completed on Tue Jan  8 11:27:42 MST 2008
+#
+#  7th wave (archive merged "newer" PMS-2DC data)
+#  19 Job(s) submitted on Tue Jan  8 11:31:34 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF01.nc -- OK -- Tue Jan  8 11:31:41 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF02.nc -- OK -- Tue Jan  8 11:31:46 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF03.nc -- OK -- Tue Jan  8 11:31:54 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF04.nc -- OK -- Tue Jan  8 11:32:02 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF05.nc -- OK -- Tue Jan  8 11:32:09 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF06.nc -- OK -- Tue Jan  8 11:32:17 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF07.nc -- OK -- Tue Jan  8 11:32:23 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF08.nc -- OK -- Tue Jan  8 11:32:31 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF09.nc -- OK -- Tue Jan  8 11:32:42 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF10.nc -- OK -- Tue Jan  8 11:32:52 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF11.nc -- OK -- Tue Jan  8 11:33:00 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF12.nc -- OK -- Tue Jan  8 11:33:14 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF13.nc -- OK -- Tue Jan  8 11:33:21 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF14.nc -- OK -- Tue Jan  8 11:33:31 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF15.nc -- OK -- Tue Jan  8 11:33:41 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF16.nc -- OK -- Tue Jan  8 11:33:48 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF17.nc -- OK -- Tue Jan  8 11:34:04 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF18.nc -- OK -- Tue Jan  8 11:34:16 MST 2008
+#  msrcp job for LRT/MERGE/PMS2DC/RF19.nc -- OK -- Tue Jan  8 11:34:25 MST 2008
+#   Completed on Tue Jan  8 11:34:25 MST 2008
+#
+#  8th wave
+#  19 Job(s) submitted on Tue Jan  8 11:59:32 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF01.nc -- OK -- Tue Jan  8 11:59:38 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF02.nc -- OK -- Tue Jan  8 11:59:45 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF03.nc -- OK -- Tue Jan  8 11:59:53 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF04.nc -- OK -- Tue Jan  8 11:59:59 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF05.nc -- OK -- Tue Jan  8 12:00:04 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF06.nc -- OK -- Tue Jan  8 12:00:10 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF07.nc -- OK -- Tue Jan  8 12:00:15 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF08.nc -- OK -- Tue Jan  8 12:00:21 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF09.nc -- OK -- Tue Jan  8 12:00:27 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF10.nc -- OK -- Tue Jan  8 12:00:34 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF11.nc -- OK -- Tue Jan  8 12:00:40 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF12.nc -- OK -- Tue Jan  8 12:00:46 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF13.nc -- OK -- Tue Jan  8 12:00:52 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF14.nc -- OK -- Tue Jan  8 12:00:58 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF15.nc -- OK -- Tue Jan  8 12:01:05 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF16.nc -- OK -- Tue Jan  8 12:01:11 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF17.nc -- OK -- Tue Jan  8 12:01:17 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF18.nc -- OK -- Tue Jan  8 12:01:24 MST 2008
+#  msrcp job for HRT/MERGE/PV100/RF19.nc -- OK -- Tue Jan  8 12:01:29 MST 2008
+#   Completed on Tue Jan  8 12:01:29 MST 2008
+#
+#  9th wave
+#  19 Job(s) submitted on Tue Jan  8 12:07:56 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF01.nc -- OK -- Tue Jan  8 12:08:02 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF02.nc -- OK -- Tue Jan  8 12:08:07 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF03.nc -- OK -- Tue Jan  8 12:08:13 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF04.nc -- OK -- Tue Jan  8 12:08:25 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF05.nc -- OK -- Tue Jan  8 12:08:33 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF06.nc -- OK -- Tue Jan  8 12:08:38 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF07.nc -- OK -- Tue Jan  8 12:08:43 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF08.nc -- OK -- Tue Jan  8 12:08:49 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF09.nc -- OK -- Tue Jan  8 12:08:57 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF10.nc -- OK -- Tue Jan  8 12:09:02 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF11.nc -- OK -- Tue Jan  8 12:09:07 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF12.nc -- OK -- Tue Jan  8 12:09:13 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF13.nc -- OK -- Tue Jan  8 12:09:19 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF14.nc -- OK -- Tue Jan  8 12:09:24 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF15.nc -- OK -- Tue Jan  8 12:09:46 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF16.nc -- OK -- Tue Jan  8 12:09:52 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF17.nc -- OK -- Tue Jan  8 12:09:58 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF18.nc -- OK -- Tue Jan  8 12:10:21 MST 2008
+#  msrcp job for LRT/MERGE/PV100/RF19.nc -- OK -- Tue Jan  8 12:10:27 MST 2008
+#   Completed on Tue Jan  8 12:10:27 MST 2008
+#
+#   th wave
+#

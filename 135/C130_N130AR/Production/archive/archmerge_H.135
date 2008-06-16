@@ -1,0 +1,194 @@
+#! /bin/csh -f
+#
+#  Archive high-rate merged data files for 2005-135 RICO
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002, 2004, 2007                                             *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Note:  This script runs only in a project's "Production/archive"
+#          subdirectory under the "dmg" login.
+#
+#  File adapted from file:
+#    /jnet/local/projects/135/C130_N130AR/Production/archive/archmerge_L.135
+#   by Ron Ruth  28 February 2007
+#
+#  To find executable (non-comment) lines (from within `vi'), type:
+#   /^[^#]
+#
+#  Check login (only "dmg" login allowed to run this script)
+set user = `whoami`
+if ($user != "dmg") then
+  echo "${0}:  Only the 'dmg' login is allowed to run this script.  Quitting."
+  exit
+endif
+#
+#  Get setup information for this project
+#set PROJ = `pwd | sed -e "s/\(.*\)\([0-9][0-9][0-9]\)\(.*\)/\2/g"`
+#set result = $status
+#if ($result != 0) then
+#  echo " Cannot find project number in this directory path"
+#  echo "  Quitting."
+#  exit 1
+#endif
+#set YEAR = `grep FY $LOCAL/proj/$PROJ/Production/proj.info | sed -e "s/FY=//"`
+#
+#######  New procedure
+#  Get setup information for this project
+#  Make sure I'm in the "archive" subdirectory
+set cdir = `pwd | awk -F/ '{print $NF}'`
+if ($cdir != "archive") then
+  echo '  This script is not being run from the "archive" subdirectory.'
+  exit 1
+endif
+pushd ../.. >& /dev/null
+set PROJDIR =  `pwd`
+set YEAR = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+cd ..
+set proj = `pwd | awk -F/ '{print $NF}'`
+set proj = (`grep $proj $PROJ_DIR/archives/msfiles/directory_map`)
+set PROJ = $proj[1]
+popd >& /dev/null
+#
+#  Set machine on which "msrcp" is to run
+if ($?MSRCP_MACH) then
+  set msrcpMachine = $MSRCP_MACH
+else
+  set msrcpMachine = "bora"
+#  set msrcpMachine = "vivaldi"
+endif
+#
+#  Set MSS Read PassWorD if restricted access
+set RPWD = ""
+#set RPWD = "-rpwd ReadPassword"
+#
+#  Set source directory
+set SDIR = "/scr/raf2/Prod_Data/RICO"
+#
+#  1st wave (corrected fast ozone - XFO3S7 from Teresa Campos)
+#   (Converts value of XFO3S7 from volts to ppbv and applies other corrections)
+#   Note:  The ozone data itself is buried within these files which contain
+#           the full 2nd production data.  Only the ozone data are useful.
+#set TYPE = "HRT/MERGE/XFO3S7"
+#set SFILES = ( \
+#135Ho3rf01.nc \
+#135Ho3rf02.nc \
+#135Ho3rf03.nc \
+#135Ho3rf04.nc \
+#135Ho3rf05.nc \
+#135Ho3rf06.nc \
+#135Ho3rf07.nc \
+#135Ho3rf08.nc \
+#135Ho3rf09.nc \
+#135Ho3rf10.nc \
+#135Ho3rf11.nc \
+#135Ho3rf12.nc \
+#135Ho3rf13.nc \
+#135Ho3rf14.nc \
+#135Ho3rf15.nc \
+#135Ho3rf16.nc \
+#135Ho3rf17.nc \
+#135Ho3rf18.nc \
+#135Ho3rf19.nc \
+#)
+#set DFILES = ( \
+#RF01.nc \
+#RF02.nc \
+#RF03.nc \
+#RF04.nc \
+#RF05.nc \
+#RF06.nc \
+#RF07.nc \
+#RF08.nc \
+#RF09.nc \
+#RF10.nc \
+#RF11.nc \
+#RF12.nc \
+#RF13.nc \
+#RF14.nc \
+#RF15.nc \
+#RF16.nc \
+#RF17.nc \
+#RF18.nc \
+#RF19.nc \
+#)
+#
+#  2nd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#  3rd wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#   th wave
+#set SFILES = ( \
+#)
+#set DFILES = ( \
+#)
+#
+#
+#  Get started:
+echo "#  $#SFILES Job(s) submitted on `date`"
+if ($#SFILES != $#DFILES) then
+  echo " Number of source and destination file names don't match.  Quitting"
+  exit 1
+endif
+#
+set todo = $#SFILES
+set num = 1
+while ($num <= $todo)
+  set SFILE = $SFILES[$num]
+  set DFILE = $DFILES[$num]
+  if (-r $SDIR/$SFILE) then
+    echo \
+    ssh -x $msrcpMachine msput_job -pe 32767 -pr 41113009 -wpwd RAFDMG $RPWD \
+     $SDIR/$SFILE mss:/RAF/$YEAR/$PROJ/$TYPE/$DFILE
+    set result = $status
+    if ($result == 0) then
+      echo "#  msrcp job for $TYPE/$DFILE -- OK -- `date`"
+    else
+      echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+      echo "#                $TYPE/$DFILE: error code $result"
+    endif
+  else
+    echo "#  msrcp job for $TYPE/$DFILE -- Failed -- `date`"
+    echo "#   Cannot access source file $SDIR/$SFILE"
+  endif
+  @ num ++
+end
+#
+# Done.
+echo "#   Completed on `date`"
+exit
+#
+#  MSS path for all bitfiles listed below:  /RAF/2005/135/
+#
+#  1st wave
+#  19 Job(s) submitted on Wed Feb 28 16:42:34 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF01.nc -- OK -- Wed Feb 28 16:43:08 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF02.nc -- OK -- Wed Feb 28 16:43:13 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF03.nc -- OK -- Wed Feb 28 16:43:53 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF04.nc -- OK -- Wed Feb 28 16:44:50 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF05.nc -- OK -- Wed Feb 28 16:45:38 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF06.nc -- OK -- Wed Feb 28 16:46:18 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF07.nc -- OK -- Wed Feb 28 16:47:02 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF08.nc -- OK -- Wed Feb 28 16:47:58 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF09.nc -- OK -- Wed Feb 28 16:48:45 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF10.nc -- OK -- Wed Feb 28 16:49:29 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF11.nc -- OK -- Wed Feb 28 16:50:15 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF12.nc -- OK -- Wed Feb 28 16:50:57 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF13.nc -- OK -- Wed Feb 28 16:51:41 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF14.nc -- OK -- Wed Feb 28 16:52:30 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF15.nc -- OK -- Wed Feb 28 16:53:12 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF16.nc -- OK -- Wed Feb 28 16:53:53 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF17.nc -- OK -- Wed Feb 28 16:54:39 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF18.nc -- OK -- Wed Feb 28 16:55:22 MST 2007
+#  msrcp job for HRT/MERGE/XFO3S7/RF19.nc -- OK -- Wed Feb 28 16:56:04 MST 2007
+#   Completed on Wed Feb 28 16:56:04 MST 2007
+#
