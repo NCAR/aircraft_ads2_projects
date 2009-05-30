@@ -32,6 +32,55 @@ H2O_CAL	7.1352e-3, 3.6484e-6, -3.8355e-11
 TEO3CAL[4]      0.3460490, 1.8829829, -0.0080433, 8.07e-5
 
 #
+# Sensitivity coefficients for AKRD and SSRD:
+
+#AKRD_COEF[2]	0.3472	0.057154
+# yields: -0.7964 + 0.0012673
+#AKRD_COEF[2]	0.3072	0.057154
+# yields: -0.0966 + 0.0012673
+#AKRD_COEF[2]	0.3072	0.047154
+# yields: -1.8847 + 0.0125544
+#AKRD_COEF[2]	0.3072	0.058154
+# yields: 0.0484  + 0.0003521
+#AKRD_COEF[2]	0.3072	0.058654
+# yields: 0.1191  - 0.0000938
+#AKRD_COEF[2]	0.3072	0.058554
+# yields: 0.1050  - 0.0000052
+#AKRD_COEF[2]	0.3172	0.058554
+# yields: -0.0658  - 0.0000052
+#AKRD_COEF[2]	0.3142	0.058554
+# yields: -0.0145  - 0.0000052
+#AKRD_COEF[2]	0.3132	0.058554
+# yields:  0.0026  - 0.0000052    <= Excellent
+# Changed pitch offset to 0.08 deg from 0.18 deg:
+#AKRD_COEF[2]	0.3135	0.058554
+# yields: 0.1472 - 0.0002450
+# ---------------------------------------------
+#After ratio regres (and for pitch_bias=0.07):
+#AKRD_COEF[2]	0.30955	0.058631
+# yields: (PITCH-ATTACK)= -0.0253 - 0.0001929
+# yields: WIC           = 0.1249  - 0.0009975
+# ---------------------------------------------
+#After ratio regres (and for pitch_bias=0.06):
+#AKRD_COEF[2]	0.30896	0.058631
+# yields: (PITCH-ATTACK)= -0.0153 - 0.0001929
+# yields: WIC           = 0.1249  - 0.0008229
+# ---------------------------------------------
+#After ratio regres (and for pitch_bias=0.02):
+AKRD_COEF[2]	0.30662	0.058631
+# yields: (PITCH-ATTACK)= -0.0247 - 0.0001929
+# yields: WIC           = 0.1249  - 0.0001245
+# ---------------------------------------------
+#AKRD_COEF[2]	0.2975	0.058
+# yields: -0.0083 - 0.0001248
+#AKRD_COEF[3]	0.3132	0.058554	0.01
+# yields:  0.0026  - 0.0000052    <= Excellent
+#
+#Original SSRD_COEF:
+SSRD_COEF[2]	0.07781	0.06577
+#SSRD_COEF[2]	0.07781	2.00
+
+#
 # Ophir radiometer 
 #
 MAXCNT		62500
@@ -67,8 +116,20 @@ TWIRE_RAF	155.0
 #
 # IRS - Primary unit pitch and heading biases
 #
-PITCH_BIAS_1	-0.45
-HEADING_BIAS_1	-0.1
+# Original: PITCH_BIAS_1	0.15
+# Jorgen's changed value:
+# Normal values (as per Jorgen):
+#PITCH_BIAS_1	0.18
+# Try to change value:
+#PITCH_BIAS_1	0.07
+#
+#PITCH_BIAS_1	0.02
+#PITCH_BIAS_1	-0.27
+PITCH_BIAS_1	0.00
+# Yields 0.014 -0.0002450 m/s updraft fro RF20 legs.
+#PITCH_BIAS_1	-0.07
+# Yields 0.01472 -0.0002450 m/s updraft fro RF20 legs.
+HEADING_BIAS_1	-0.3
 
 #
 # IRS - Secondary unit pitch and heading biases (IRS right on 308)
@@ -169,3 +230,20 @@ CIRCLES		40, 50, 60
 GPS_ROLL_MAX   24.0
 GPS_TAUP       600.
 GPS_TAU	120.
+
+#
+# WP3 Time constants.
+#
+# Use 0.0375 etc. based on TPARC RF01 maneuvers:
+WP3_TIME_CONSTS		0.0375, 0.001875, 0.00003125
+#WP3_TIME_CONSTS	0.075, 0.00375, 0.0000625
+#WP3_TIME_CONSTS	0.15, 0.0075, 0.000125
+
+#
+# P_CORS for static and differential sensors:
+P3_RADOME_PCORS[2]	0.0, -0.02 
+# from initAC.c: P3_FUSELAGE_PCORS[3]  -0.046, -0.0265, 0.000087
+# Level, delta=1.45 m/s: P3_FUSELAGE_PCORS[3]  0., -0.037, 0.000087
+# TPARC, RF20, best results: P3_FUSELAGE_PCORS[3]  1.05, -0.029, 0.000087
+#P3_FUSELAGE_PCORS[3]  1.05, -0.029, 0.000087
+P3_FUSELAGE_PCORS[3]	1.05, -0.029, 0.000087

@@ -6,14 +6,25 @@
 #
 # Positive values shift data forward, or later in time.
 #
-ACINS	-80
-ALT	0
-PITCH	-180
-ROLL	-180
+# Jorgen shift of analog data and standard values for inertial
+# data.
+#
+ACINS	-70
+ALT	-60
+PITCH	-50
+ROLL	-50
 THDG	0
-VEW	0
-VNS	0
-VSPD	0
+VEW	-140
+VNS	-140
+VSPD	-120
+# Next is reasonably good:
+#ADIFR	-200
+#QCF	-200
+ADIFR	-250
+QCF	-250
+PSF     -250
+#ADIFR	200
+#QCF	200
 #
 # Published Honeywell Laser Ref3/4 "maximum transport delays".
 #
@@ -37,7 +48,15 @@ GGALT	-500
 #
 # Garmin velocity data is delayed 1.5 seconds.
 #
+#GGSPD   -1500
+#GGTRK   -1500
+#GGVEW   -1500
+#GGVNS   -1500
 GGSPD   -1000
 GGTRK   -1000
 GGVEW   -1000
 GGVNS   -1000
+#GGSPD   -500
+#GGTRK   -500
+#GGVEW   -500
+#GGVNS   -500
