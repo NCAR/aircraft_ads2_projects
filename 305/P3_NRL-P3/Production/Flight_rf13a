@@ -1,0 +1,19 @@
+ProjNum=305
+PRate=1
+SDI=QCF    O=1 DQ=Preliminary OR=1 nCOEF=3 86.212  8.6238  0.0004121
+SDI=QCR    O=1 DQ=Preliminary OR=1 nCOEF=3 72.01   7.0963 -0.0006321
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 6.896   0.0004459
+# yields WIC = -0.18 + 0.0016 * TAS; average =  0.07 m/s.
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 6.946   0.0004459
+# yields WIC = -0.03 + 0.0005 * TAS; average =  0.05 m/s.
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 6.966   0.0004459
+# yields WIC =  0.03 - 0.0001 * TAS; average =  0.02 m/s.
+SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.0977 6.966   0.0004459
+# yields WIC =  0.01 + 0.0000 * TAS; average =  0.01 m/s.
+SDI=BDIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.3639 5.2457  0.0016965
+SDI=DPT    O=1 DQ=Preliminary OR=1 nCOEF=3 -0.1125 9.928   0.0006500
+SDI=PSF    O=1 DQ=Preliminary OR=1 nCOEF=3 540.14 54.257  -0.0079200
+SDI=TTRL   O=1 DQ=Preliminary OR=1 nCOEF=3 -10.698 5.0918 -0.0043
+SDI=TTRR   O=1 DQ=Preliminary OR=1 nCOEF=3 -11.186 5.1994 -0.0251
+SDI=HGM232S O=0
+DERIVED=AQRATIO O=0

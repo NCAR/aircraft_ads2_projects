@@ -1,0 +1,14 @@
+305rf05a is ground data only. The file stops before takeoff.
+Thus use 305rf05b as the only airborne file.
+
+FF02:   AKRD values (offset and gain) are iterated to get
+pitch=attack. We have no reliable calibration for this flight,
+but the iterated values are very good.
+
+RF01:   AKRD values (offset and gain) are iterated to get
+pitch=attack. We have no reliable calibration for this flight,
+but the iterated values are very good. Note - values are
+different from FF02
+
+RF01-RF13a: TTRL has had the offset increased by 0.6 degrees
+(warmer). Check with dropsondes if ATRL or ATRR is better.
