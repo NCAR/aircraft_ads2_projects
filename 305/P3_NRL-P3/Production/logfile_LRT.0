@@ -1,0 +1,84 @@
+Will not add RALT to derived table, it already exists in raw table.
+RALT has no units or title/long_name.
+HGM232S has no units.
+AQRATIO has no units or title/long_name.
+RALTM has no units or title/long_name.
+ReadDespikeFile: non-existent variable PSFRD specified, continuing.
+AQRATIO has no dependencies, turning off.
+TPARC - 305, Flight 0
+Loading setup file: Flight_tf01
+NRL P3 pcor's installed.
+initAC: P3_RADOME_PCORS set to 0.000000, -0.020000 from Defaults file.
+initAC: P3_FUSELAGE_PCORS set to 0.000000, -0.020000, 0.000087 from Defaults file.
+Request for non-existent default, RECFRH.
+Request for non-existent default, RECFRN.
+Request for non-existent default, RECFB.
+initAKRD: AKRD_COEF set to 0.306620, 0.058631 from Defaults file.
+Request for non-existent default, GPS_UPFCTR.
+GPS_UPFCTR set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+GPS_FCTRF set to 0.997000 in AMLIB function slatc.
+initSSRD: SSRD_COEF set to 0.077810, 0.065770 from Defaults file.
+Processed on: 2009-03-25 21:26:22 +0000
+Flight Date: 07/15/2008
+
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Production run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+Time lag for ACINS enabled, with lag of -70 milliseconds.
+Time lag for ADIFR enabled, with lag of -250 milliseconds.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -50 milliseconds.
+Time lag for PSF enabled, with lag of -250 milliseconds.
+Time lag for QCF enabled, with lag of -250 milliseconds.
+RALT has no entry in the VarDB.
+Time lag for ROLL enabled, with lag of -50 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+RALTM has no entry in the VarDB.
+Time interval(s) completed : 
+20:30:00-22:59:07
+
+ALT: 1 spikes removed with slope exceeding 1.200000
+PITCH: 1 spikes removed with slope exceeding 0.500000
+THDG: 12 spikes removed with slope exceeding 0.500000
+IRS Error report: Latitude had 2 wrong ARINC labels.
+IRS Error report: Latitude had 19 values of 0 (zero).
+IRS Error report: Longitude had 2 wrong ARINC labels.
+IRS Error report: Longitude had 19 values of 0 (zero).
+IRS Error report: Ground Speed had 6 wrong ARINC labels.
+IRS Error report: Track Angle had 13 wrong ARINC labels.
+IRS Error report: Track Angle had 2 values of 0 (zero).
+IRS Error report: True Heading had 13 wrong ARINC labels.
+IRS Error report: True Heading had 2 values of 0 (zero).
+IRS Error report: Drift Angle had 6 wrong ARINC labels.
+IRS Error report: Drift Angle had 1 values of 0 (zero).
+IRS Error report: Pitch had 13 wrong ARINC labels.
+IRS Error report: Pitch had 4 values of 0 (zero).
+IRS Error report: Roll had 13 wrong ARINC labels.
+IRS Error report: Roll had 4 values of 0 (zero).
+IRS Error report: Altitude had 6 wrong ARINC labels.
+IRS Error report: Altitude had 2 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 13 wrong ARINC labels.
+IRS Error report: Vertical Acceleration had 4 values of 0 (zero).
+IRS Error report: Vertical Speed had 6 wrong ARINC labels.
+IRS Error report: Vertical Speed had 2 values of 0 (zero).
+IRS Error report: NS Velocity had 2 wrong ARINC labels.
+IRS Error report: EW Velocity had 2 wrong ARINC labels.
+Processing took 0.2 minutes.

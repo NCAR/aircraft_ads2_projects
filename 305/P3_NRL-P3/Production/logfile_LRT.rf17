@@ -1,0 +1,126 @@
+Will not add RALT to derived table, it already exists in raw table.
+RALT has no units or title/long_name.
+HGM232S has no units.
+AQRATIO has no units or title/long_name.
+RALTM has no units or title/long_name.
+ReadDespikeFile: non-existent variable PSFRD specified, continuing.
+AQRATIO has no dependencies, turning off.
+TPARC - 305, Flight rf17
+Loading setup file: /jnet/local/projects/305/P3_NRL-P3/Production/Flight_rf17
+Loading setup file: Flight_rf17
+Blankout can not apply to variable DAY, clearing.
+Blankout can not apply to variable HOUR, clearing.
+Blankout can not apply to variable MINUTE, clearing.
+Blankout can not apply to variable MONTH, clearing.
+Blankout can not apply to variable SECOND, clearing.
+Blankout can not apply to variable YEAR, clearing.
+Blankout can not apply to variable ONE, clearing.
+Blankout can not apply to variable ZERO, clearing.
+NRL P3 pcor's installed.
+initAC: P3_RADOME_PCORS set to 0.000000, -0.020000 from Defaults file.
+initAC: P3_FUSELAGE_PCORS set to 0.000000, -0.020000, 0.000087 from Defaults file.
+Request for non-existent default, RECFRH.
+Request for non-existent default, RECFRN.
+Request for non-existent default, RECFB.
+initAKRD: AKRD_COEF set to 0.306620, 0.058631 from Defaults file.
+Request for non-existent default, GPS_UPFCTR.
+GPS_UPFCTR set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+GPS_FCTRF set to 0.997000 in AMLIB function slatc.
+initSSRD: SSRD_COEF set to 0.077810, 0.065770 from Defaults file.
+Processed on: 2009-03-25 21:35:46 +0000
+Flight Date: 09/21/2008
+
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Production run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+Time lag for ACINS enabled, with lag of -70 milliseconds.
+Time lag for ADIFR enabled, with lag of -250 milliseconds.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -50 milliseconds.
+Time lag for PSF enabled, with lag of -250 milliseconds.
+Time lag for QCF enabled, with lag of -250 milliseconds.
+RALT has no entry in the VarDB.
+Time lag for ROLL enabled, with lag of -50 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+RALTM has no entry in the VarDB.
+Blanking TTRL from 26:16:40 to 26:18:20.
+Blanking TTRL from 26:27:40 to 26:32:10.
+Blanking TTRL from 26:50:20 to 26:50:40.
+Blanking TTRL from 27:02:70 to 27:03:10.
+Blanking TTRL from 27:04:40 to 27:05:10.
+Blanking TTRL from 27:06:50 to 27:07:20.
+Blanking TTRL from 27:09:10 to 27:19:00.
+Blanking TTRL from 27:22:00 to 27:28:40.
+Blanking TTRL from 27:29:10 to 27:29:40.
+Blanking TTRL from 27:30:50 to 27:31:50.
+Blanking TTRL from 27:33:30 to 27:35:40.
+Blanking TTRL from 27:38:10 to 27:42:00.
+Blanking TTRL from 27:44:00 to 27:46:40.
+Blanking TTRL from 27:48:30 to 27:49:40.
+Blanking TTRL from 27:51:00 to 28:35:30.
+Blanking TTRL from 28:35:40 to 28:42:30.
+Blanking TTRL from 28:42:50 to 29:12:20.
+Blanking TTRL from 29:12:30 to 29:19:40.
+Blanking TTRL from 29:20:10 to 30:21:40.
+Blanking TTRL from 30:22:30 to 30:24:30.
+Blanking TTRL from 30:25:00 to 30:26:40.
+Blanking TTRL from 30:31:00 to 30:38:30.
+Blanking TTRL from 30:39:00 to 30:40:00.
+Blanking TTRL from 30:40:20 to 30:45:30.
+Time interval(s) completed : 
+22:30:00-06:51:00
+
+ALT: 1 spikes removed with slope exceeding 1.200000
+GGALT: 7 spikes removed with slope exceeding 100.000000
+GGSPD: 172 spikes removed with slope exceeding 5.000000
+GGTRK: 172 spikes removed with slope exceeding 3.000000
+GGVEW: 170 spikes removed with slope exceeding 3.000000
+GGVNS: 169 spikes removed with slope exceeding 3.000000
+HGM232: 18 spikes removed with slope exceeding 100.000000
+PITCH: 1 spikes removed with slope exceeding 0.500000
+THDG: 19 spikes removed with slope exceeding 0.500000
+IRS Error report: Latitude had 15 wrong ARINC labels.
+IRS Error report: Latitude had 72 values of 0 (zero).
+IRS Error report: Longitude had 5 wrong ARINC labels.
+IRS Error report: Longitude had 72 values of 0 (zero).
+IRS Error report: Ground Speed had 18 wrong ARINC labels.
+IRS Error report: Ground Speed had 9 values of 0 (zero).
+IRS Error report: Track Angle had 46 wrong ARINC labels.
+IRS Error report: Track Angle had 3 values of 0 (zero).
+IRS Error report: True Heading had 46 wrong ARINC labels.
+IRS Error report: True Heading had 3 values of 0 (zero).
+IRS Error report: Drift Angle had 18 wrong ARINC labels.
+IRS Error report: Drift Angle had 2 values of 0 (zero).
+IRS Error report: Pitch had 46 wrong ARINC labels.
+IRS Error report: Pitch had 17 values of 0 (zero).
+IRS Error report: Roll had 46 wrong ARINC labels.
+IRS Error report: Roll had 17 values of 0 (zero).
+IRS Error report: Altitude had 18 wrong ARINC labels.
+IRS Error report: Altitude had 3 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 46 wrong ARINC labels.
+IRS Error report: Vertical Acceleration had 17 values of 0 (zero).
+IRS Error report: Vertical Speed had 18 wrong ARINC labels.
+IRS Error report: Vertical Speed had 3 values of 0 (zero).
+IRS Error report: NS Velocity had 15 wrong ARINC labels.
+IRS Error report: NS Velocity had 9 values of 0 (zero).
+IRS Error report: EW Velocity had 15 wrong ARINC labels.
+IRS Error report: EW Velocity had 9 values of 0 (zero).
+Processing took 0.6 minutes.

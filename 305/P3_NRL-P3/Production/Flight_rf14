@@ -1,0 +1,23 @@
+ProjNum=305
+PRate=1
+SDI=QCF    O=1 DQ=Preliminary OR=1 nCOEF=3 86.212  8.6238  0.0004121
+SDI=QCR    O=1 DQ=Preliminary OR=1 nCOEF=3 72.01   7.0963 -0.0006321
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 6.896   0.0004459
+# yields WIC = -5.67 + 0.0437 * TAS; average =  0.43 m/s.
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 7.000   0.0004459
+# yields WIC = -5.59 + 0.0422 * TAS; average =  0.30 m/s.
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3 -0.10   7.000   0.0004459
+# yields WIC = -5.77 + 0.0427 * TAS; average =  0.18 m/s.
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3 -0.30   7.000   0.0004459
+# yields WIC = -5.94 + 0.0430 * TAS; average =  0.07 m/s.
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3 -0.40   7.000   0.0004459
+# yields WIC = -6.02 + 0.0433 * TAS; average =  0.01 m/s.
+SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3 -0.42   7.000   0.0004459
+# yields WIC = -6.04 + 0.0433 * TAS; average =  0.00 m/s.
+SDI=BDIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.3639 5.2457  0.0016965
+SDI=DPT    O=1 DQ=Preliminary OR=1 nCOEF=3 -0.1125 9.928   0.0006500
+SDI=PSF    O=1 DQ=Preliminary OR=1 nCOEF=3 540.14 54.257  -0.0079200
+SDI=TTRL   O=1 DQ=Preliminary OR=1 nCOEF=3 -15.098 5.0918 -0.0043
+SDI=TTRR   O=0 DQ=Preliminary OR=1 nCOEF=3 -10.586 5.1994 -0.0251
+SDI=HGM232S O=0
+DERIVED=AQRATIO O=0

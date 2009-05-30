@@ -1,3 +1,13 @@
+#!/bin/csh
+cp ../DependTable_a ../DependTable
+nimbus -b setup_tf01
+nimbus -b setup_tf02
+nimbus -b setup_tf03
+#
+nimbus -b setup_ff01a
+nimbus -b setup_ff01b
+nimbus -b setup_ff02
+#
 nimbus -b setup_rf01
 nimbus -b setup_rf02
 nimbus -b setup_rf03
@@ -7,4 +17,37 @@ nimbus -b setup_rf06
 nimbus -b setup_rf07
 nimbus -b setup_rf08
 nimbus -b setup_rf09
-nimbus -b setup_tf05
+nimbus -b setup_rf10
+nimbus -b setup_rf11
+nimbus -b setup_rf12
+#nimbus -b setup_rf13
+nimbus -b setup_rf13a
+cp ../DependTable_b ../DependTable
+nimbus -b setup_rf13b
+nimbus -b setup_rf14
+nimbus -b setup_rf15
+nimbus -b setup_rf16
+nimbus -b setup_rf17
+nimbus -b setup_rf18
+cp ../DependTable_a ../DependTable
+nimbus -b setup_rf19
+nimbus -b setup_rf20
+nimbus -b setup_rf21
+nimbus -b setup_rf22
+nimbus -b setup_rf23
+#
+ncfixdate ${DATA_DIR}/TPARCrf05.nc << EOT
+08/28/2008
+EOT
+
+ncfixdate ${DATA_DIR}/TPARCrf13b.nc << EOT
+09/17/2008
+EOT
+
+ncfixdate ${DATA_DIR}/TPARCrf15.nc << EOT
+09/19/2008
+EOT
+
+ncfixdate ${DATA_DIR}/TPARCrf18.nc << EOT
+09/23/2008
+EOT

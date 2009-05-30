@@ -1,0 +1,28 @@
+ProjNum=305
+PRate=1
+# Next is normal value:
+SDI=QCF    O=1 DQ=Preliminary OR=1 nCOEF=3 86.212  8.6238  0.0004121
+# Try changing offset of QCF by 1 mb: NO SIGNIFICANT SLOPE CHANGE
+#SDI=QCF    O=1 DQ=Preliminary OR=1 nCOEF=3 87.212  8.6238  0.0004121
+# Next is normal value:
+SDI=QCR    O=1 DQ=Preliminary OR=1 nCOEF=3 75.01   7.3376 -0.0006321
+# Try changing offset of QCF by 1 mb: NO SIGNIFICANT SLOPE CHANGE
+#SDI=QCR    O=1 DQ=Preliminary OR=1 nCOEF=3 73.01   7.0963 -0.0006321
+# Next is normal value:
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 6.896   0.0004459
+# Try changing gain of ADIFR by 10%: NO SIGNIFICANT SLOPE CHANGE
+#SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 6.2064  0.0004459
+SDI=BDIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.3639 5.2457  0.0016965
+SDI=DPT    O=1 DQ=Preliminary OR=1 nCOEF=3 -0.1125 9.928   0.0006500
+# Next is normal value:
+SDI=PSF    O=1 DQ=Preliminary OR=1 nCOEF=3 540.14 54.257  -0.0079200
+# Try increasing pressure by 1 mb: NO SIGNIFICANT IMPACT.
+#SDI=PSF    O=1 DQ=Preliminary OR=1 nCOEF=3 541.14 54.257  -0.0079200
+SDI=TTRL   O=1 DQ=Preliminary OR=1 nCOEF=3 -11.258 5.09   -0.0041357
+# Next is normal value:
+SDI=TTRR   O=1 DQ=Preliminary OR=1 nCOEF=3 -11.164 5.1815 -0.024476 
+# Try increasing temperature by 1 deg: NO SIGNIFICANT IMPACT.
+#SDI=TTRR   O=1 DQ=Preliminary OR=1 nCOEF=3 -10.164 5.1815 -0.024476 
+SDI=ADIFR  O=1 DQ=Preliminary OR=1 nCOEF=3  0.1177 6.896   0.0004459
+SDI=HGM232S O=0
+DERIVED=AQRATIO O=0

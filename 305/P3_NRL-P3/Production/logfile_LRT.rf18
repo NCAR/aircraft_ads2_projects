@@ -1,0 +1,130 @@
+Will not add RALT to derived table, it already exists in raw table.
+RALT has no units or title/long_name.
+HGM232S has no units.
+AQRATIO has no units or title/long_name.
+RALTM has no units or title/long_name.
+ReadDespikeFile: non-existent variable PSFRD specified, continuing.
+AQRATIO has no dependencies, turning off.
+TPARC - 305, Flight rf18
+Loading setup file: /jnet/local/projects/305/P3_NRL-P3/Production/Flight_rf18
+Loading setup file: Flight_rf18
+Blankout can not apply to variable DAY, clearing.
+Blankout can not apply to variable HOUR, clearing.
+Blankout can not apply to variable MINUTE, clearing.
+Blankout can not apply to variable MONTH, clearing.
+Blankout can not apply to variable SECOND, clearing.
+Blankout can not apply to variable YEAR, clearing.
+Blankout can not apply to variable ONE, clearing.
+Blankout can not apply to variable ZERO, clearing.
+NRL P3 pcor's installed.
+initAC: P3_RADOME_PCORS set to 0.000000, -0.020000 from Defaults file.
+initAC: P3_FUSELAGE_PCORS set to 0.000000, -0.020000, 0.000087 from Defaults file.
+Request for non-existent default, RECFRH.
+Request for non-existent default, RECFRN.
+Request for non-existent default, RECFB.
+initAKRD: AKRD_COEF set to 0.306620, 0.058631 from Defaults file.
+Request for non-existent default, GPS_UPFCTR.
+GPS_UPFCTR set to 0.999444 in AMLIB function slatc.
+Request for non-existent default, GPS_FCTRF.
+GPS_FCTRF set to 0.997000 in AMLIB function slatc.
+initSSRD: SSRD_COEF set to 0.077810, 0.065770 from Defaults file.
+Processed on: 2009-03-25 21:36:21 +0000
+Flight Date: 09/22/2008
+
+Configuration dump:
+  Input file is ADS-2.
+  Post-processing mode.
+  Production run.
+  De-spiking enabled.
+  Time-shifting enabled.
+  Honeywell IRS cleanup enabled.
+  Intertial time-shift enabled.
+  Output NetCDF: yes.
+  Output SQL: no.
+  Ground transmission: no.
+Time lag for ACINS enabled, with lag of -70 milliseconds.
+Time lag for ADIFR enabled, with lag of -250 milliseconds.
+Time lag for ALT enabled, with lag of -60 milliseconds.
+Time lag for GGALT enabled, with lag of -500 milliseconds.
+Time lag for GGLAT enabled, with lag of -500 milliseconds.
+Time lag for GGLON enabled, with lag of -500 milliseconds.
+Time lag for GGSPD enabled, with lag of -1000 milliseconds.
+Time lag for GGTRK enabled, with lag of -1000 milliseconds.
+Time lag for GGVEW enabled, with lag of -1000 milliseconds.
+Time lag for GGVNS enabled, with lag of -1000 milliseconds.
+Time lag for PITCH enabled, with lag of -50 milliseconds.
+Time lag for PSF enabled, with lag of -250 milliseconds.
+Time lag for QCF enabled, with lag of -250 milliseconds.
+RALT has no entry in the VarDB.
+Time lag for ROLL enabled, with lag of -50 milliseconds.
+Time lag for VEW enabled, with lag of -140 milliseconds.
+Time lag for VNS enabled, with lag of -140 milliseconds.
+Time lag for VSPD enabled, with lag of -120 milliseconds.
+RALTM has no entry in the VarDB.
+Blanking TTRL from 04:06:50 to 04:07:40.
+Blanking TTRL from 05:06:40 to 05:08:50.
+Blanking TTRL from 05:10:10 to 05:11:00.
+Blanking TTRL from 05:26:50 to 05:30:20.
+Blanking TTRL from 05:36:00 to 05:37:00.
+Blanking TTRL from 05:38:20 to 05:40:00.
+Blanking TTRL from 05:41:40 to 05:48:30.
+Blanking TTRL from 06:39:00 to 06:46:40.
+Blanking TTRL from 06:51:00 to 06:56:30.
+Blanking TTRL from 07:01:20 to 07:01:40.
+Blanking TTRL from 07:08:40 to 07:19:00.
+Blanking DPT from 01:43:53 to 01:43:58.
+Blanking DPT from 01:44:20 to 01:44:26.
+Blanking DPT from 01:47:54 to 01:48:06.
+Blanking DPT from 01:52:49 to 01:52:55.
+Blanking DPT from 01:53:14 to 01:53:20.
+Blanking DPT from 01:56:00 to 01:56:05.
+Blanking DPT from 01:56:38 to 01:56:44.
+Blanking DPT from 01:57:00 to 01:57:11.
+Blanking DPT from 01:57:32 to 01:57:37.
+Blanking DPT from 02:11:00 to 02:11:27.
+Blanking DPT from 05:58:30 to 06:04:40.
+Blanking QCR from 00:46:45 to 00:47:40.
+Blanking QCR from 01:32:00 to 01:35:00.
+Blanking QCR from 01:43:00 to 01:45:00.
+Blanking QCR from 01:46:00 to 01:50:00.
+Blanking QCR from 06:29:00 to 06:41:30.
+Blanking ADIFR from 06:29:00 to 06:41:00.
+Blanking BDIFR from 06:29:00 to 06:41:00.
+Time interval(s) completed : 
+00:10:00-07:19:00
+
+ALT: 1 spikes removed with slope exceeding 1.200000
+GGALT: 117 spikes removed with slope exceeding 100.000000
+GGSPD: 104 spikes removed with slope exceeding 5.000000
+GGTRK: 122 spikes removed with slope exceeding 3.000000
+GGVEW: 106 spikes removed with slope exceeding 3.000000
+GGVNS: 104 spikes removed with slope exceeding 3.000000
+HGM232: 100 spikes removed with slope exceeding 100.000000
+THDG: 5 spikes removed with slope exceeding 0.500000
+IRS Error report: Latitude had 7 wrong ARINC labels.
+IRS Error report: Latitude had 46 values of 0 (zero).
+IRS Error report: Longitude had 3 wrong ARINC labels.
+IRS Error report: Longitude had 46 values of 0 (zero).
+IRS Error report: Ground Speed had 18 wrong ARINC labels.
+IRS Error report: Ground Speed had 2 values of 0 (zero).
+IRS Error report: Track Angle had 42 wrong ARINC labels.
+IRS Error report: Track Angle had 5 values of 0 (zero).
+IRS Error report: True Heading had 42 wrong ARINC labels.
+IRS Error report: True Heading had 5 values of 0 (zero).
+IRS Error report: Drift Angle had 18 wrong ARINC labels.
+IRS Error report: Drift Angle had 5 values of 0 (zero).
+IRS Error report: Pitch had 42 wrong ARINC labels.
+IRS Error report: Pitch had 16 values of 0 (zero).
+IRS Error report: Roll had 42 wrong ARINC labels.
+IRS Error report: Roll had 16 values of 0 (zero).
+IRS Error report: Altitude had 18 wrong ARINC labels.
+IRS Error report: Altitude had 5 values of 0 (zero).
+IRS Error report: Vertical Acceleration had 42 wrong ARINC labels.
+IRS Error report: Vertical Acceleration had 16 values of 0 (zero).
+IRS Error report: Vertical Speed had 18 wrong ARINC labels.
+IRS Error report: Vertical Speed had 5 values of 0 (zero).
+IRS Error report: NS Velocity had 7 wrong ARINC labels.
+IRS Error report: NS Velocity had 2 values of 0 (zero).
+IRS Error report: EW Velocity had 7 wrong ARINC labels.
+IRS Error report: EW Velocity had 2 values of 0 (zero).
+Processing took 0.4 minutes.
