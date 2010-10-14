@@ -1,0 +1,248 @@
+#! /bin/csh -f
+#
+#  Save a project's pertinent NIMBUS support files to a tar file
+#   (in prepararation for archival to the SCD Mass Store System)
+#
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#  *  Copyright 2002                                                         *
+#  *  University Corporation for Atmospheric Research, All Rights Reserved.  *
+#  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+#
+#  Notes:  Create a copy of, modify and run this script from a project's 
+#            "Production/archive" subdirectory.
+#          IMPORTANT:  Use the "tarit.docs" script to create an archive
+#            file for the project's documentation in the "Production/docs"
+#            subdirectory.
+#
+#  Written by Ronald L. Ruth                                           Nov 1995
+#  Revised by RLR (automatically retrieve FY, PROJ and PROJNAME)    11 Jan 1996
+#  Revised by RLR (fix order of commands to do the above)           30 May 1996
+#  Revised by RLR (fix "ProjectName" file name)                     03 Sep 1996
+#  Revised by RLR (clarify file selection instructions)             25 Jun 1997
+#  Revised by RLR (make it LINUX compatible)                        28 Jan 1999
+#  Revised by RLR (change way $PROJ is determined)                  20 Mar 2000
+#  Revised by RLR (allow running from the "archive" subdirectory)   11 Feb 2002
+#  Revised by RLR (remind about "tarit.docs" script)                 4 Mar 2002
+#  Revised by RLR (change directory refs--now runs in archive dir)  28 Aug 2002
+#
+#  Assumptions:
+#   1.  Directory structure for projects is $LOCAL/proj/<3-digit project #>
+#           having a "Production" subdirectory
+#   2.  Project's name (only its name!) is in the file
+#           $LOCAL/proj/<3-digit project #>/ProjectName
+#   3.  A "proj.info" file exists in the project's "Production" subdirectory
+#
+#  Get setup information for this project
+pushd ../.. >& /dev/null
+set PROJDIR =  `pwd`
+cd ..
+set PROJ = `pwd | awk -F/ '{print $NF}'`
+popd >& /dev/null
+set OSTYPE = `uname`
+set FY = `grep FY $PROJDIR/Production/proj.info | sed -e "s/FY=//"`
+set PROJNAME = `cat $PROJDIR/ProjectName`
+set OFILE = "$PROJDIR/Production/$PROJ.tar"
+#
+cd $PROJDIR
+tar chvf $OFILE \
+Categories \
+Defaults \
+Defaults.orig \
+Defaults.rf01 \
+Defaults.sav \
+Defaults_do_not_use \
+DependTable \
+DependTable.orig \
+DependTable_a \
+DependTable_b \
+Despike \
+Lags \
+Lags.orig \
+LowRateVars \
+PMSspecs \
+ProjectName \
+StandardNames \
+VarDB \
+ascii_parms \
+header \
+Production/BlankOuts.rf02 \
+Production/BlankOuts.rf09 \
+Production/BlankOuts.rf10 \
+Production/BlankOuts.rf13 \
+Production/BlankOuts.rf13a \
+Production/BlankOuts.rf13b \
+Production/BlankOuts.rf14 \
+Production/BlankOuts.rf16 \
+Production/BlankOuts.rf17 \
+Production/BlankOuts.rf18 \
+Production/BlankOuts.rf19 \
+Production/BlankOuts.rf20 \
+Production/BlankOuts.rf21 \
+Production/BlankOuts.rf22 \
+Production/BlankOuts.rf23 \
+Production/FlightGroups \
+Production/Flight_08090438 \
+Production/Flight_08092248 \
+Production/Flight_ff01 \
+Production/Flight_ff02 \
+Production/Flight_ff02a \
+Production/Flight_ff02b \
+Production/Flight_rf01 \
+Production/Flight_rf01.v1 \
+Production/Flight_rf01.v2 \
+Production/Flight_rf01.v3 \
+Production/Flight_rf01.v4 \
+Production/Flight_rf01.v5 \
+Production/Flight_rf01.v6 \
+Production/Flight_rf01.v7 \
+Production/Flight_rf01.v8 \
+Production/Flight_rf01.v9 \
+Production/Flight_rf02 \
+Production/Flight_rf03 \
+Production/Flight_rf03.orig \
+Production/Flight_rf04 \
+Production/Flight_rf05 \
+Production/Flight_rf06 \
+Production/Flight_rf07 \
+Production/Flight_rf08 \
+Production/Flight_rf09 \
+Production/Flight_rf10 \
+Production/Flight_rf11 \
+Production/Flight_rf12 \
+Production/Flight_rf13 \
+Production/Flight_rf13a \
+Production/Flight_rf13b \
+Production/Flight_rf14 \
+Production/Flight_rf15 \
+Production/Flight_rf16 \
+Production/Flight_rf17 \
+Production/Flight_rf18 \
+Production/Flight_rf19 \
+Production/Flight_rf20 \
+Production/Flight_rf21 \
+Production/Flight_rf22 \
+Production/Flight_rf23 \
+Production/Flight_tf01 \
+Production/Flight_tf01.backup \
+Production/Flight_tf01_test \
+Production/Flight_tf02 \
+Production/Flight_tf03 \
+Production/Flight_tf05 \
+Production/Flight_tf06 \
+Production/README \
+Production/cp_Flight \
+Production/cp_setup \
+Production/logfile_LRT.0 \
+Production/logfile_LRT.ff01 \
+Production/logfile_LRT.ff02 \
+Production/logfile_LRT.rf01 \
+Production/logfile_LRT.rf02 \
+Production/logfile_LRT.rf03 \
+Production/logfile_LRT.rf04 \
+Production/logfile_LRT.rf05 \
+Production/logfile_LRT.rf06 \
+Production/logfile_LRT.rf07 \
+Production/logfile_LRT.rf08 \
+Production/logfile_LRT.rf09 \
+Production/logfile_LRT.rf10 \
+Production/logfile_LRT.rf11 \
+Production/logfile_LRT.rf12 \
+Production/logfile_LRT.rf13 \
+Production/logfile_LRT.rf14 \
+Production/logfile_LRT.rf15 \
+Production/logfile_LRT.rf16 \
+Production/logfile_LRT.rf17 \
+Production/logfile_LRT.rf18 \
+Production/logfile_LRT.rf19 \
+Production/logfile_LRT.rf20 \
+Production/logfile_LRT.rf21 \
+Production/logfile_LRT.rf22 \
+Production/logfile_LRT.rf23 \
+Production/logfile_LRT.tf02 \
+Production/logfile_LRT.tf03 \
+Production/output_list \
+Production/proj.info \
+Production/run_all* \
+Production/run_all_nimbus* \
+Production/run_ff01a* \
+Production/run_ff01b* \
+Production/run_ff02* \
+Production/run_fix* \
+Production/run_rf01* \
+Production/run_rf02* \
+Production/run_rf03* \
+Production/run_rf04* \
+Production/run_rf05* \
+Production/run_rf06* \
+Production/run_rf07* \
+Production/run_rf08* \
+Production/run_rf09* \
+Production/run_rf10* \
+Production/run_rf11* \
+Production/run_rf12* \
+Production/run_rf13a* \
+Production/run_rf13b* \
+Production/run_rf14* \
+Production/run_rf15* \
+Production/run_rf16* \
+Production/run_rf17* \
+Production/run_rf18* \
+Production/run_rf19* \
+Production/run_rf20* \
+Production/run_rf20_jbj* \
+Production/run_rf21* \
+Production/run_rf22* \
+Production/run_rf22_jbj* \
+Production/run_rf23* \
+Production/run_rf23_jbj* \
+Production/run_tf03* \
+Production/setup_ff01 \
+Production/setup_ff01a \
+Production/setup_ff01b \
+Production/setup_ff02 \
+Production/setup_ff02a \
+Production/setup_rf01 \
+Production/setup_rf02 \
+Production/setup_rf03 \
+Production/setup_rf04 \
+Production/setup_rf05 \
+Production/setup_rf06 \
+Production/setup_rf07 \
+Production/setup_rf08 \
+Production/setup_rf09 \
+Production/setup_rf10 \
+Production/setup_rf11 \
+Production/setup_rf12 \
+Production/setup_rf13 \
+Production/setup_rf13a \
+Production/setup_rf13b \
+Production/setup_rf14 \
+Production/setup_rf15 \
+Production/setup_rf16 \
+Production/setup_rf17 \
+Production/setup_rf18 \
+Production/setup_rf19 \
+Production/setup_rf20 \
+Production/setup_rf21 \
+Production/setup_rf22 \
+Production/setup_rf23 \
+Production/setup_tf01 \
+Production/setup_tf02 \
+Production/setup_tf03 \
+Production/setup_tf06 \
+Production/archive/archAC.sh* \
+Production/archive/archive.support* \
+Production/archive/fix_ads_midnight* \
+Production/archive/tarit.305* 
+# Production/docs/ <-- archived separately via "tarit.docs" script
+#
+#  Get tar directory list for archiving
+set dfile = $OFILE.dir
+echo " Directory list for file $PROJ.tar" >! $dfile
+echo "  Support files for Project $FY-$PROJ $PROJNAME" >> $dfile
+set dt = `date`
+echo "  Archive created on $dt" >> $dfile
+echo " "  >> $dfile
+tar tvf $OFILE >> $dfile
+#
+exit

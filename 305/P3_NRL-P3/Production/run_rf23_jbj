@@ -1,0 +1,4 @@
+#!/bin/csh
+cp ../DependTable_a ../DependTable
+#nimbus -b setup_rf23
+/scr/raf/jbj/nimbus/src/filter/nimbus -b setup_rf23

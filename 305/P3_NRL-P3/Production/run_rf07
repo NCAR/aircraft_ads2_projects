@@ -1,0 +1,4 @@
+#!/bin/csh
+cp ../Defaults.rf01 ../Defaults
+cp ../DependTable_a ../DependTable
+nimbus -b setup_rf07

@@ -1,0 +1,4 @@
+#!/bin/csh
+cp ../DependTable_b DependTable
+cp ../Defaults.rf01 ../Defaults
+nimbus -b setup_rf18

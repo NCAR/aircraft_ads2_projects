@@ -1,0 +1,18 @@
+#!/bin/csh
+$DATA_DIR=/scr/raf/local_productiondata
+#
+ncfixdate $DATA_DIR/TPARCrf05.nc << EOT
+08/28/2008
+EOT
+
+ncfixdate $DATA_DIR/TPARCrf13b.nc << EOT
+09/17/2008
+EOT
+
+ncfixdate $DATA_DIR/TPARCrf15.nc << EOT
+09/19/2008
+EOT
+
+ncfixdate $DATA_DIR/TPARCrf18.nc << EOT
+09/23/2008
+EOT
