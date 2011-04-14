@@ -43,16 +43,16 @@ GGALT	-500
 #
 # Garmin velocity data is delayed 1.5 seconds. LRT processing values.
 #
-#GGSPD   -1000
-#GGTRK   -1000
-#GGVEW   -1000
-#GGVNS   -1000
+GGSPD   -1000
+GGTRK   -1000
+GGVEW   -1000
+GGVNS   -1000
 GVEW	200
 GVNS	200
 #
 # Garmin velocity data adjustment for HRT processing.
 #
-GGSPD	-550
-GGTRK	-550
-GGVEW	-550
-GGVNS	-550
+#GGSPD	-550
+#GGTRK	-550
+#GGVEW	-550
+#GGVNS	-550
