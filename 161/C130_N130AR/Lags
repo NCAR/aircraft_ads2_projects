@@ -37,9 +37,9 @@ CVSPD	-100
 # Garmin data is sampled at beginning of second, center it so it matches
 # averaged data.  Position data is "on-time" but needs centering.
 #
-GGLAT	-500
-GGLON	-500
-GGALT	-500
+GLAT	-500
+GLON	-500
+GALT	-500
 #
 # Garmin velocity data is delayed 1.5 seconds. LRT processing values.
 #
@@ -47,8 +47,8 @@ GGSPD   -1000
 GGTRK   -1000
 GGVEW   -1000
 GGVNS   -1000
-GVEW	200
-GVNS	200
+GVEW	340
+GVNS	340
 #
 # Garmin velocity data adjustment for HRT processing.
 #
