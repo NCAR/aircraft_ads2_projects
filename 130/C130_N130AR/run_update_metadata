@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in LRT/*.cdf ;
+do
+    echo $i
+    update_ACE1_probe_metadata $i
+    mv tmp.nc V1.1/`basename $i .cdf`.nc
+done
+
